@@ -1,0 +1,176 @@
+['Leeme', 'PQRS 50', 'PQRS complejas', 'Correos 50', 'Transcripcion', 'Datos SOFIA', 'Bienestar', 'Gastos Q1', 'Contratos', 'Lineamiento ficticio', 'Directriz', 'Fichas de reto']
+
+--- Leeme ---
+   Materiales de práctica para el curso de inteligencia artificial  ...                                         Unnamed: 2
+0  Todos los registros, nombres de centros, horar...               ...                                                NaN
+1                                                NaN               ...                                                NaN
+2                                          Actividad               ...                                                Uso
+3                           Apertura y clasificación               ...  Cincuenta solicitudes sintéticas para una demo...
+4                                      Reto 2 y tono               ...  Ocho casos ficticios para redactar y verificar...
+5                                             Reto 4               ...  Cincuenta correos simulados para priorizar y p...
+6                                             Reto 5               ...  Diálogo ficticio de diez minutos para construi...
+7                                     Día 3 y Reto 6               ...  Tabla administrativa ficticia con categorías y...
+8                                      Visualización               ...  Gastos mensuales ficticios por centro durante ...
+9                                             Reto 7               ...  Presupuesto, matrícula, participación y deserc...
+
+[10 rows x 3 columns]
+
+--- PQRS 50 ---
+             Solicitudes ficticias para clasificación  ...                                     Unnamed: 5
+0  Datos de práctica. Las señales describen el te...  ...                                            NaN
+1                                                NaN  ...                                            NaN
+2                                             Código  ...                                  Señal textual
+3                                              P-001  ...                Sin fecha expresa; una persona.
+4                                              P-002  ...       Afectación individual; momento señalado.
+5                                              P-003  ...                   Dato necesario para asistir.
+6                                              P-004  ...  Conflicto de agenda; falta identificar grupo.
+7                                              P-005  ...         Varias personas afectadas; evento hoy.
+8                                              P-006  ...      Consulta de recepción; sin plazo expreso.
+9                                              P-007  ...               Requiere guía de fuente vigente.
+
+[10 rows x 6 columns]
+
+--- PQRS complejas ---
+             Casos ficticios para redactar borradores  ...                                         Unnamed: 3
+0  No representan ciudadanos ni derechos de petic...  ...                                                NaN
+1                                                NaN  ...                                                NaN
+2                                             Código  ...                            Dato faltante o cuidado
+3                                              PC-01  ...  No se incluye nombre, código personal ni fecha...
+4                                              PC-02  ...  No se indica cuál gestión ni qué soporte exige...
+5                                              PC-03  ...  Distinguir comunicación oficial del comentario...
+6                                              PC-04  ...  No se proporciona identificador de caso; pedir...
+7                                              PC-05  ...  Rumor no confirmado; no se conoce ciclo, monto...
+8                                              PC-06  ...  Falta sede y hora exacta; seguir el lineamient...
+9                                              PC-07  ...  No decidir elegibilidad; se debe indicar el ca...
+
+[10 rows x 4 columns]
+
+--- Correos 50 ---
+                  Correos simulados para priorización  ...         Unnamed: 6
+0  Fechas, horarios, emisor y afectaciones perten...  ...                NaN
+1                                                NaN  ...                NaN
+2                                             Código  ...     Plazo simulado
+3                                              C-001  ...          Hoy 16:00
+4                                              C-002  ...      En 20 minutos
+5                                              C-003  ...             Mañana
+6                                              C-004  ...  Sin plazo expreso
+7                                              C-005  ...          Hoy 12:00
+8                                              C-006  ...        Próximo mes
+9                                              C-007  ...          Hoy 17:00
+
+[10 rows x 7 columns]
+
+--- Transcripcion ---
+                Transcripción de una reunión ficticia  ...                                         Unnamed: 2
+0  Diálogo de práctica de diez minutos. Verifica ...  ...                                                NaN
+1                                                NaN  ...                                                NaN
+2                                             Tiempo  ...                                       Intervención
+3                                              00:00  ...  Abrimos el comité simulado. Necesitamos acorda...
+4                                              00:32  ...  Tengo inventario de tres sedes. De las otras d...
+5                                              01:04  ...  El cuadro compartido tiene dos totales distint...
+6                                              01:36  ...  Primero necesitamos un único inventario. ¿Quié...
+7                                              02:08  ...  Puedo enviar el formato, pero no sé a quién de...
+8                                              02:40  ...  En el correo anterior aparecía el contacto de ...
+9                                              03:12  ...  No lo demos por hecho. Confirmemos contactos a...
+
+[10 rows x 3 columns]
+
+--- Datos SOFIA ---
+    Exportación administrativa ficticia para limpieza  ...                Unnamed: 5
+0  Registros creados para el curso. No provienen ...  ...                       NaN
+1                                                NaN  ...                       NaN
+2                                    Código simulado  ...  Municipio sin normalizar
+3                                           SIM-0001  ...                     Vélez
+4                                           SIM-0002  ...                     VÉLEZ
+5                                           SIM-0003  ...           Puente Nacional
+6                                           SIM-0004  ...                  Barbosa 
+7                                           SIM-0005  ...                   Barbosa
+8                                           SIM-0006  ...                    velez 
+9                                           SIM-0007  ...                     Vélez
+
+[10 rows x 6 columns]
+
+--- Bienestar ---
+            Datos ficticios para análisis descriptivo  ...                 Unnamed: 5
+0  Cifras simuladas en COP. Una asociación no dem...  ...                        NaN
+1                                                NaN  ...                        NaN
+2                                    Centro ficticio  ...  Participantes actividades
+3                                           Centro A  ...                        230
+4                                           Centro B  ...                        188
+5                                           Centro C  ...                        310
+6                                           Centro D  ...                        160
+7                                           Centro E  ...                        344
+8                                           Centro F  ...                        225
+9                                           Centro G  ...                        279
+
+[10 rows x 6 columns]
+
+--- Gastos Q1 ---
+     Gastos ficticios de papelería para visualización  ...          Unnamed: 3
+0  Valores simulados en pesos. El primer trimestr...  ...                 NaN
+1                                                NaN  ...                 NaN
+2                                    Centro ficticio  ...  Gasto COP simulado
+3                                           Centro A  ...             1280000
+4                                           Centro A  ...             1038300
+5                                           Centro A  ...             1449400
+6                                           Centro B  ...              957321
+7                                           Centro B  ...              776821
+8                                           Centro B  ...             1075721
+9                                           Centro C  ...             1654642
+
+[10 rows x 4 columns]
+
+--- Contratos ---
+                Registros simulados para el hackathon  ...                      Unnamed: 7
+0  Los registros no corresponden a contratación r...  ...                             NaN
+1                                                NaN  ...                             NaN
+2                                    Código simulado  ...             Observación inicial
+3                                         SIM-CT-001  ...  Registro ficticio de práctica.
+4                                         SIM-CT-002  ...  Registro ficticio de práctica.
+5                                         SIM-CT-003  ...  Registro ficticio de práctica.
+6                                         SIM-CT-004  ...  Registro ficticio de práctica.
+7                                         SIM-CT-005  ...  Registro ficticio de práctica.
+8                                         SIM-CT-006  ...  Registro ficticio de práctica.
+9                                         SIM-CT-007  ...  Registro ficticio de práctica.
+
+[10 rows x 8 columns]
+
+--- Lineamiento ficticio ---
+                    Guía ficticia de reserva de salas                                         Unnamed: 1
+0  Material didáctico de ocho apartados. No es no...                                                NaN
+1                                                NaN                                                NaN
+2                                           Apartado                                   Texto de la guía
+3                                          Propósito  Procedimiento de práctica para reservar salas ...
+4                                          Solicitud  La persona solicitante informa actividad, sede...
+5                                       Anticipación  El ejercicio supone que las solicitudes se pre...
+6                                     Disponibilidad  La reserva depende de la disponibilidad confir...
+7                                         Aprobación  La persona responsable de logística confirma o...
+8                                            Cambios  Si cambia fecha, aforo o equipo requerido, se ...
+9                                           Urgencia  La ficha no define excepciones para solicitude...
+
+--- Directriz ---
+                           Mensaje directivo ficticio                                         Unnamed: 1
+0  Insumo de práctica para producir un plan y un ...                                                NaN
+1                                                NaN                                                NaN
+2                                              Campo                                          Contenido
+3                                                 De                        Dirección Regional simulada
+4                                             Asunto  Preparación de una revisión administrativa fic...
+5                                            Mensaje  Para el ejercicio de mañana, preparen un resum...
+6                                        Restricción  No se envían correos ni se presenta el borrado...
+7                                        Entregables  Plan de acción en Word, tabla de hallazgos con...
+8                                     Dato pendiente  La fecha y el responsable de publicación no se...
+
+--- Fichas de reto ---
+                      Fichas editables para los retos  ...             Unnamed: 3
+0  Completa sobre copias y con datos ficticios. D...  ...                    NaN
+1                                                NaN  ...                    NaN
+2                               Reto 1 · Prompt CRTT  ...                    NaN
+3                                   Parte o criterio  ...  Verificación / ajuste
+4                                                NaN  ...                    NaN
+5                                                NaN  ...                    NaN
+6                                                NaN  ...                    NaN
+7                                                NaN  ...                    NaN
+8                                                NaN  ...                    NaN
+9              Reto 2 · Borrador de respuesta a PQRS  ...                    NaN
+
+[10 rows x 4 columns]

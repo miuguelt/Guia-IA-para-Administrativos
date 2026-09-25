@@ -1,0 +1,246 @@
+SENA BOGOTÁ · MATERIAL DE FORMACIÓN
+Retos de IA para el trabajo administrativo
+Cartilla de trabajo para aprendices · Cuatro jornadas intensivas
+Prueba, revisa, corrige y documenta. La IA propone; el criterio y la decisión siguen en manos de las personas.
+
+Tu evidencia será parte del Portafolio de Evidencias del curso: prompts, resultados, correcciones, verificaciones y reflexión.
+
+Antes de empezar
+Acuerdos de uso responsable
+Trabaja con el libro de práctica ficticio y sobre copias. No compartas datos reales de ciudadanos, aprendices, funcionarios o expedientes.
+Registra los productos en la pestaña Fichas de reto del libro de práctica. Guarda una copia por equipo y conserva el archivo original sin editar.
+Usa solo herramientas aprobadas por la institución. Si no tienes acceso, realiza el mismo análisis en la cartilla y en Excel o Word.
+No presentes como hecho una respuesta generada. Comprueba afirmaciones en la fuente y deja por escrito lo que falta.
+No envíes correos ni respuestas creadas en el taller. Son borradores de formación.
+Si detectas un error de IA, corrígelo y conserva la evidencia: el error revisado también es un aprendizaje.
+Plantilla CRTT para dar instrucciones
+
+Añade límites: usa solo la fuente indicada, no inventes fechas ni normas y pregunta cuando falte información.
+Roles sugeridos para el equipo
+Distribuyan, de acuerdo con el tamaño del equipo, estos encargos: quien facilita el turno de palabra, quien opera la herramienta, quien verifica hechos y fuentes, y quien registra el proceso. Cambien los roles entre retos para que todas las personas practiquen.
+
+Reto 1 Prompt Engineering
+Tiempo: 90 minutos
+Misión: Mejora un prompt para consultar una guía ficticia y demostrar dónde se respalda cada respuesta.
+Material: Lineamiento ficticio
+Herramientas: Chat de IA autorizado si está disponible; Excel o Word; cartilla; temporizador. Alternativa: material impreso y revisión entre pares.
+Pasos de trabajo
+1. 10 min · Explica Contexto, Rol, Tarea y Tono con un ejemplo corto.
+2. 15 min · Desarma un prompt débil y marca qué información le falta.
+3. 20 min · Cada pareja completa una ficha CRTT para consultar el lineamiento ficticio.
+4. 20 min · Ejecuta el prompt y revisa si la respuesta cita reglas reales del material.
+5. 15 min · Ajusta una instrucción a partir de un error o una omisión.
+6. 10 min · Comparte el antes y el después; registra el prompt reutilizable.
+Prompt de partida
+Contexto: [situación]. Rol: [asistente]. Tarea: [resultado y formato]. Tono: [tono]. Usa solo [fuente]. Si no aparece la respuesta, escribe 'no está en la fuente'. Pregunta antes de suponer.
+Productos que debes entregar
+Prompt CRTT completo
+Primera respuesta y versión mejorada
+Referencia de la guía y dato que quedó pendiente
+Verificación: La salida cita el material entregado, responde la pregunta y marca la incertidumbre. Si no encuentra respaldo, debe decirlo.
+Si no hay acceso a IA: Usa el material impreso y subraya Contexto, Rol, Tarea y Tono antes de escribir una respuesta manual.
+Cierre individual
+¿Qué resultado corregiste o verificaste? ¿Qué dato quedó pendiente? ¿Qué tendría que aprobar una persona antes de usar este producto en el trabajo?
+
+Reto 2 PQRS
+Tiempo: 120 minutos
+Misión: Redacta un borrador respetuoso para una solicitud ficticia. Separa hechos, petición y datos faltantes.
+Material: PQRS complejas
+Herramientas: Chat de IA autorizado si está disponible; Excel o Word; cartilla; temporizador. Alternativa: material impreso y revisión entre pares.
+Pasos de trabajo
+1. 10 min · Lee el caso y aclara que se producirá un borrador de entrenamiento.
+2. 15 min · Subraya qué pide la persona, los hechos, las fechas expresas y lo que falta.
+3. 20 min · Redacta un prompt CRTT y genera una primera versión.
+4. 25 min · Contrasta la respuesta con el caso. Pide a la IA que identifique afirmaciones sin sustento.
+5. 20 min · Reescribe el borrador con una pregunta de aclaración cuando falte un dato.
+6. 20 min · Intercambia el resultado con otro equipo para revisar exactitud y tono.
+7. 10 min · Entrega el prompt, el borrador y las observaciones.
+Prompt de partida
+Resume lo solicitado. Redacta un borrador usando únicamente la fuente entregada. No inventes normas, fechas ni decisiones. Señala información faltante y deja la revisión final a una persona.
+Productos que debes entregar
+Borrador
+Lista de verificaciones
+Prompt y número de iteraciones
+Verificación: Cero datos personales; ninguna fecha, norma, responsable o decisión inventada; tono claro; revisión humana visible.
+Si no hay acceso a IA: Realiza el mismo ejercicio en papel: borrador propio, lista de hechos y lista de dudas antes de comparar con la IA.
+Cierre individual
+¿Qué resultado corregiste o verificaste? ¿Qué dato quedó pendiente? ¿Qué tendría que aprobar una persona antes de usar este producto en el trabajo?
+
+Reto 3 Asistente de rol
+Tiempo: 120 minutos
+Misión: Construye una instrucción reutilizable y pruébala con tres situaciones simuladas.
+Material: Cartilla del aprendiz
+Herramientas: Chat de IA autorizado si está disponible; Excel o Word; cartilla; temporizador. Alternativa: material impreso y revisión entre pares.
+Pasos de trabajo
+1. 15 min · Mapea una tarea repetitiva y su resultado esperado.
+2. 20 min · Construye el prompt maestro con rol, contexto, tareas, formato y límites.
+3. 30 min · Prueba tres tareas simuladas con la misma instrucción.
+4. 25 min · Una pareja revisa utilidad, errores y datos que la IA solicitó innecesariamente.
+5. 20 min · Ajusta los límites y añade una instrucción de verificación.
+6. 10 min · Guarda la versión final y un ejemplo de uso seguro.
+Prompt de partida
+Actúa como asistente de [rol general]. Ayuda con [tareas]. Entrega [formato]. Usa solo el contenido de este chat. Pregunta si faltan datos. No pidas datos personales ni inventes fechas, reglas o compromisos.
+Productos que debes entregar
+Prompt maestro
+Tres resultados de prueba
+Límites y revisión humana
+Verificación: El prompt define límites y exige revisión humana; no incorpora nombres, cédulas, expedientes ni credenciales.
+Si no hay acceso a IA: Diseña la instrucción en Word y revisa sus tres casos con una lista de cotejo, sin ejecutarla en una herramienta pública.
+Cierre individual
+¿Qué resultado corregiste o verificaste? ¿Qué dato quedó pendiente? ¿Qué tendría que aprobar una persona antes de usar este producto en el trabajo?
+
+Reto 4 Bandeja cero
+Tiempo: 60 minutos
+Misión: Clasifica 50 mensajes ficticios y prepara diez borradores priorizados.
+Material: Correos 50
+Herramientas: Chat de IA autorizado si está disponible; Excel o Word; cartilla; temporizador. Alternativa: material impreso y revisión entre pares.
+Pasos de trabajo
+1. 5 min · Entrega el reto y acuerda señales: impacto, plazo explícito y personas afectadas.
+2. 5 min · Abre la copia del archivo y confirma que la columna de prioridad está vacía.
+3. 20 min · Clasifica los 50 mensajes por categoría y prioridad sugerida.
+4. 10 min · Elige los diez más urgentes y explica la señal de cada elección.
+5. 15 min · Genera borradores para esos diez sin enviarlos.
+6. 5 min · Registra errores y lecciones.
+Prompt de partida
+Ordena los mensajes con señales de impacto, plazo y personas afectadas. Devuelve ID, prioridad sugerida, señal textual y dato por confirmar. No envíes mensajes ni inventes tiempos de respuesta.
+Productos que debes entregar
+Tabla de prioridad y razón
+Diez borradores
+Lista de asuntos que requieren confirmación
+Verificación: Las prioridades se justifican con evidencia del mensaje; los mensajes críticos se confirman con el criterio del área.
+Si no hay acceso a IA: Permite ordenar y filtrar manualmente en Excel; compara velocidad y consistencia con la clasificación asistida.
+Cierre individual
+¿Qué resultado corregiste o verificaste? ¿Qué dato quedó pendiente? ¿Qué tendría que aprobar una persona antes de usar este producto en el trabajo?
+
+Reto 5 Acta imposible
+Tiempo: 120 minutos
+Misión: Convierte una transcripción ficticia en acta y compromisos trazables.
+Material: Transcripcion
+Herramientas: Chat de IA autorizado si está disponible; Excel o Word; cartilla; temporizador. Alternativa: material impreso y revisión entre pares.
+Pasos de trabajo
+1. 10 min · Explica qué diferencia una decisión de una intervención.
+2. 10 min · Escucha o lee la transcripción completa sin generar acta.
+3. 20 min · Marca decisiones, acciones, responsables, fechas y puntos sin acuerdo.
+4. 25 min · Genera un borrador de acta a partir de las marcas.
+5. 20 min · Comprueba cada decisión y compromiso contra la transcripción.
+6. 25 min · Intercambia actas entre equipos y devuelve correcciones.
+7. 10 min · Entrega acta y lista de datos faltantes.
+Prompt de partida
+Separa decisiones, propuestas y asuntos pendientes. Incluye responsable y fecha solo cuando se digan. Anexa una frase de origen. Marca 'por confirmar' si falta un dato.
+Productos que debes entregar
+Acta borrador
+Decisiones y compromisos
+Vacíos de responsable o fecha
+Verificación: No se atribuye un compromiso a quien no lo aceptó; no se transforma una propuesta en decisión; fechas y responsables se rastrean a la transcripción.
+Si no hay acceso a IA: Extrae los compromisos en papel y construye el acta con plantilla de Word sin IA.
+Cierre individual
+¿Qué resultado corregiste o verificaste? ¿Qué dato quedó pendiente? ¿Qué tendría que aprobar una persona antes de usar este producto en el trabajo?
+
+Reto 6 Informe sucio
+Tiempo: 60 minutos
+Misión: Limpia una copia de una tabla simulada sin borrar ni completar registros por intuición.
+Material: Datos SOFIA
+Herramientas: Chat de IA autorizado si está disponible; Excel o Word; cartilla; temporizador. Alternativa: material impreso y revisión entre pares.
+Pasos de trabajo
+1. 5 min · Explica el objetivo y protege la copia original.
+2. 10 min · Cuenta vacíos, duplicados y variantes antes de limpiar.
+3. 20 min · Normaliza nombres de estado y fechas válidas; documenta cada regla.
+4. 10 min · Marca registros que requieren decisión, no los completes por intuición.
+5. 10 min · Otra pareja revisa una muestra y un caso límite.
+6. 5 min · Entrega copia limpia y bitácora.
+Prompt de partida
+Propón reglas para normalizar espacios, categorías y fechas. No completes vacíos ni elimines duplicados: identifícalos y sugiere revisión. Conserva el original.
+Productos que debes entregar
+Copia limpia
+Reglas aplicadas
+Casos pendientes y conteo antes/después
+Verificación: No se pierde el original; duplicados y vacíos quedan registrados; ninguna fecha ambigua se infiere.
+Si no hay acceso a IA: Limpia con filtros, ESPACIOS, MAYUSC/MINUSC y formato de fecha, con la misma bitácora.
+Cierre individual
+¿Qué resultado corregiste o verificaste? ¿Qué dato quedó pendiente? ¿Qué tendría que aprobar una persona antes de usar este producto en el trabajo?
+
+Reto 7 Presupuesto oculto
+Tiempo: 120 minutos
+Misión: Describe una relación entre presupuesto, participación y deserción, sin afirmar causalidad.
+Material: Bienestar
+Herramientas: Chat de IA autorizado si está disponible; Excel o Word; cartilla; temporizador. Alternativa: material impreso y revisión entre pares.
+Pasos de trabajo
+1. 10 min · Lee definiciones, periodo y tamaños de población.
+2. 15 min · Calcula tasas y presupuesto por aprendiz.
+3. 35 min · Grafica presupuesto por aprendiz y deserción; explora valores atípicos.
+4. 20 min · Solicita a la IA tres conclusiones con evidencia y límite.
+5. 20 min · Recalcula cada cifra y elimina afirmaciones causales sin diseño.
+6. 15 min · Presenta una conclusión y una pregunta de gestión.
+7. 5 min · Registra el hallazgo con cautela.
+Prompt de partida
+Describe asociaciones en esta tabla y cita los valores. Calcula tasa de deserción como deserciones/aprendices matriculados. No infieras causalidad. Señala una variable adicional que podría explicar la relación.
+Productos que debes entregar
+Cálculos y gráfico
+Tres hallazgos descriptivos
+Limitación y pregunta adicional
+Verificación: La tasa usa deserciones/aprendices matriculados; el presupuesto está en COP ficticios; asociación no prueba causalidad.
+Si no hay acceso a IA: Calcula las tasas con fórmulas y discute la asociación sin IA.
+Cierre individual
+¿Qué resultado corregiste o verificaste? ¿Qué dato quedó pendiente? ¿Qué tendría que aprobar una persona antes de usar este producto en el trabajo?
+
+Hackathon administrativo
+Tiempo: Día 4, 07:00–19:00 (incluye cierre y transferencia)
+Misión: Responde a una auditoría simulada usando datos ficticios, entregables trazables y revisión humana.
+Material: Contratos
+Herramientas: Chat de IA autorizado si está disponible; Excel o Word; cartilla; temporizador. Alternativa: material impreso y revisión entre pares.
+Ruta del reto integrador
+
+Reglas y alineación de equipos
+1. 10 min · Forma equipos diversos y confirma roles.
+2. 10 min · Explica las reglas, el tiempo y la rúbrica.
+3. 15 min · Entrega el brief del caso sin compartir datos reales.
+4. 15 min · Verifica acceso a archivos, herramientas y alternativa.
+5. 10 min · Cada equipo devuelve un plan inicial y riesgos.
+Fase 1 Planeación del caso
+1. 10 min · Lee el caso y marca la decisión solicitada.
+2. 20 min · Define entregables y criterios de aceptación.
+3. 30 min · Construye una secuencia de trabajo con fuentes y responsables por confirmar.
+4. 25 min · Inventaría riesgos, datos incompletos y preguntas.
+5. 20 min · Usa IA para revisar el plan, sin crear hechos.
+6. 15 min · Facilitador valida alcance y secuencia.
+Fase 2 Ejecución y generación
+1. 10 min · Reparte roles y confirma el alcance.
+2. 20 min · Limpia una copia y documenta excepciones.
+3. 25 min · Calcula diferencias y revisa totales.
+4. 25 min · Redacta estructura de informe con fuente por afirmación.
+5. 20 min · Prepara borradores de comunicación interna.
+6. 10 min · Revisa prompts y datos usados.
+7. 10 min · El mentor verifica evidencia y pendientes.
+Fase 3 Presentación de soluciones
+1. 120 min · Reserva 15 minutos por equipo: ocho para exposición, cuatro para preguntas y tres para evidencia y cambio humano. Si hay menos equipos, usa el tiempo restante para retroalimentación.
+Evaluación retroalimentación y premiación
+1. 10 min · Explica escala y pesos.
+2. 30 min · Cada jurado puntúa evidencias por criterio.
+3. 20 min · Equipos entregan una fortaleza y una mejora concreta.
+4. 15 min · Consolida puntajes y resuelve diferencias con evidencia.
+5. 10 min · Reconoce calidad, utilidad y aprendizaje.
+6. 5 min · Registra puntaje final.
+Cierre y transferencia al puesto
+1. 10 min · Reflexiona sobre supervisión humana y uso permitido.
+2. 15 min · Selecciona un proceso pequeño, repetible y no sensible.
+3. 15 min · Registra tiempo base, unidad y volumen semanal.
+4. 10 min · Define responsable, primer paso y revisión a 30 días.
+5. 10 min · Lee el compromiso en pareja y cierra.
+Prompt de partida
+Analiza únicamente los datos simulados. Enumera diferencias con código de fila y fuente. No concluyas incumplimiento o fraude. Formula preguntas para corroboración y redacta productos pendientes de aprobación.
+Productos que debes entregar
+Plan de trabajo
+Análisis y excepciones
+Informe y borradores
+Exposición con prompts y medición
+Regla de interpretación: Las diferencias de los registros ficticios son señales para preguntar y corroborar; no prueban incumplimiento, irregularidad ni fraude.
+Cierre individual
+¿Qué resultado corregiste o verificaste? ¿Qué dato quedó pendiente? ¿Qué tendría que aprobar una persona antes de usar este producto en el trabajo?
+
+Lista final para el Portafolio de Evidencias
+Prompt y versión final, con el propósito y los límites del uso registrados.
+Producto de cada reto y fuente usada para verificarlo.
+Errores o supuestos encontrados, cambios realizados y preguntas pendientes.
+Tiempo base y tiempo de práctica solo si se midieron en tareas equivalentes; anota también el esfuerzo de corrección.
+Piloto de transferencia con tarea pequeña, autorización pendiente o confirmada, responsable y fecha de seguimiento.
+Todas las tablas, personas, cifras, correos, solicitudes y contratos de los recursos adjuntos son ficticios y se usan exclusivamente para practicar.

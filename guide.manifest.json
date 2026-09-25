@@ -1,0 +1,187 @@
+{
+  "standard": {
+    "id": "devbrain.educational-guide",
+    "version": "2.4.0"
+  },
+  "guide": {
+    "id": "cimi-ia-administrativos-21720210",
+    "title": "Implementación de herramientas de inteligencia artificial en la optimización de la productividad",
+    "format": "web",
+    "entrypoint": "./index.html",
+    "language": "es-CO",
+    "version": "1.0.0",
+    "servicePort": 8161,
+    "summary": "Guía técnica y pedagógica intensiva de 48 horas en Redes CIMI (03 al 06 de noviembre de 2026, 7:30 a. m. a 5:30 p. m.) para optimizar procesos administrativos con IA generativa y predictiva, criterio técnico, control de deriva y protocolos anti-alucinación.",
+    "schedule": {
+      "dates": "Del 3 al 6 de noviembre del 2026",
+      "dailyHours": "Martes a viernes: de 7:30 a. m. a 5:30 p. m.",
+      "venue": "Ambiente de formación: Redes CIMI",
+      "modality": "Presencial intensiva (40 horas directas en ambiente + 8 horas de trabajo autónomo guiado y portafolio)"
+    }
+  },
+  "curricularAlignment": {
+    "program": {
+      "code": "21720210",
+      "name": "Implementación de herramientas de inteligencia artificial en la optimización de la productividad",
+      "version": "1",
+      "line": "Tecnologías de la Información y las Comunicaciones Gestión de la Información",
+      "network": "Tecnologías de la Información, Diseño y Desarrollo de Software",
+      "sector": "Industria"
+    },
+    "competency": {
+      "code": "220501094",
+      "name": "Estructurar propuesta técnica de servicio de tecnología de información de acuerdo con tipo de requerimiento y marcos de referencia"
+    },
+    "learningResults": [
+      {
+        "code": "RA1",
+        "name": "Establecer uso de la inteligencia artificial según requerimientos de optimización del proceso productivo."
+      },
+      {
+        "code": "RA2",
+        "name": "Programar proceso automatizado de acuerdo con diseño y tipo de inteligencia artificial."
+      }
+    ]
+  },
+  "duration": {
+    "recommendedTotalHours": "48 horas",
+    "hours": 48,
+    "directHours": 40,
+    "autonomousHours": 8
+  },
+  "platform": {
+    "sdk": "devbrain-learner-sdk",
+    "bootstrap": "window.DevBrainEvidence.montar()",
+    "storagePrefix": "guia_ia_para_administrativos",
+    "modules": 5,
+    "xpTotal": 500
+  },
+  "project": {
+    "caseStudy": "Optimización Integral de Procesos de la Coordinación Redes CIMI",
+    "challenge": "Transformar la productividad de los procesos de gestión documental, PQRS y reportes del CIMI mediante herramientas de IA, aplicando estrictos criterios de verificación humana, control de alucinaciones y protección de datos institucionales.",
+    "finalProduct": "Dossier técnico y portafolio de evidencias con matriz de procesos, catálogo de prompts blindados, pipeline de clasificación documental, auditoría cruzada de datos y reporte final de optimización.",
+    "deliverablesRegistry": "deliverables.registry.json",
+    "checkpoints": [
+      {
+        "id": "CP-01",
+        "name": "Diagnóstico de Procesos y Matriz de Viabilidad",
+        "evidence": "MG-A01",
+        "criterion": "Evalúa y clasifica procesos administrativos determinando viabilidad técnica de IA y salvaguardas de confidencialidad."
+      },
+      {
+        "id": "CP-02",
+        "name": "Arquitectura de Prompts Blindados",
+        "evidence": "MG-A02",
+        "criterion": "Diseña prompts con estructura R-C-I-R-S delimitados y directivas negativas para prevenir la deriva de contexto y alucinación."
+      },
+      {
+        "id": "CP-03",
+        "name": "Tratamiento Documental No Estructurado",
+        "evidence": "MG-A03",
+        "criterion": "Ejecuta un flujo asistido de extracción de compromisos en actas y clasificación de PQRS conforme a términos de ley."
+      },
+      {
+        "id": "CP-04",
+        "name": "Auditoría de Datos y Protocolo HITL",
+        "evidence": "MG-A04",
+        "criterion": "Detecta inconsistencias numéricas y trampas deliberadas en datasets, formalizando el protocolo Human-in-the-Loop."
+      },
+      {
+        "id": "CP-05",
+        "name": "Informe de Optimización y Transferencia",
+        "evidence": "MG-A05",
+        "criterion": "Consolida el informe técnico cuantificando horas netas ahorradas, mitigación de riesgos y sustentación del proyecto."
+      }
+    ]
+  },
+  "learningSequence": [
+    {
+      "phase": "reflection",
+      "name": "Reflexión inicial: El impacto de la IA en la gestión administrativa y el riesgo del desvío",
+      "purpose": "Despertar el sentido crítico del administrativo frente a la automatización, reconociendo el valor de la intervención humana y los peligros de delegar ciegamente tareas críticas a la IA.",
+      "hours": 6
+    },
+    {
+      "phase": "contextualization",
+      "name": "Contextualización: Arquitectura de prompts blindados y tratamiento de información no estructurada",
+      "purpose": "Comprender la diferencia entre IA generativa y predictiva, analizando cómo estructurar instrucciones precisas con restricciones para evitar la deriva de contexto y alucinaciones.",
+      "hours": 10
+    },
+    {
+      "phase": "appropriation",
+      "name": "Apropiación: Automatización de flujos documentales y auditoría de datos administrativos",
+      "purpose": "Diseñar e implementar procesos automatizados sin código para clasificación de PQRS, extracción de actas y análisis predictivo de datos con validación cruzada y Human-in-the-Loop.",
+      "hours": 20
+    },
+    {
+      "phase": "transfer",
+      "name": "Transferencia: Informe técnico de optimización, gobernanza de datos y plan de productividad",
+      "purpose": "Consolidar un informe técnico reproducible con métricas de productividad alcanzadas, protocolos de seguridad para proteger información sensible y sustentación de resultados.",
+      "hours": 12
+    }
+  ],
+  "evidence": {
+    "knowledge": [
+      "MG-A01"
+    ],
+    "performance": [
+      "MG-A03",
+      "MG-A04"
+    ],
+    "product": [
+      "MG-A02",
+      "MG-A05"
+    ]
+  },
+  "assessment": {
+    "instruments": [
+      "Lista de chequeo técnica de criterios anti-alucinación y prompting",
+      "Rúbrica de desempeño en automatización de flujos y análisis de datos",
+      "Lista de verificación de seguridad de la información y gobernanza (Ley 1581)",
+      "Rúbrica de evaluación del informe técnico de optimización"
+    ]
+  },
+  "glossary": [
+    {
+      "term": "IA Generativa",
+      "meaning": "Modelos de inteligencia artificial capaces de generar nuevo contenido (texto, resúmenes, tablas, código) a partir de patrones lingüísticos aprendidos."
+    },
+    {
+      "term": "IA Predictiva",
+      "meaning": "Modelos analíticos orientados a prever probabilidades, clasificar eventos futuros o detectar tendencias a partir de datos históricos estructurados."
+    },
+    {
+      "term": "Deriva Contextual (Context Drift)",
+      "meaning": "Pérdida progresiva del foco y de las restricciones iniciales en una conversación larga con un modelo de lenguaje debido a saturación de la ventana de contexto."
+    },
+    {
+      "term": "Alucinación",
+      "meaning": "Generación de respuestas aparentemente convincentes y formales por parte de la IA pero basadas en hechos, cifras, leyes o citas completamente falsas o inexistentes."
+    },
+    {
+      "term": "Prompting R-C-I-R-S",
+      "meaning": "Estructura profesional de ingeniería de instrucciones en 5 capas: Rol, Contexto, Instrucción central, Restricciones negativas y Formato de Salida."
+    },
+    {
+      "term": "Human-in-the-Loop (HITL)",
+      "meaning": "Principio operativo que exige la revisión, validación crítica y aprobación final de un funcionario humano antes de ejecutar o emitir cualquier resultado asistido por IA."
+    }
+  ],
+  "sources": [
+    {
+      "title": "Diseño Curricular Oficial SENA 21720210 V1",
+      "locator": "Dirección General SENA - Formación Complementaria (2025/2026)",
+      "use": "Competencia 220501094, Resultados de Aprendizaje RA1 y RA2, criterios de evaluación oficiales."
+    },
+    {
+      "title": "Ley Estatutaria 1581 de 2012 (Habeas Data)",
+      "locator": "Congreso de la República de Colombia",
+      "use": "Marco normativo para la protección de datos personales, confidencialidad y restricciones de privacidad."
+    },
+    {
+      "title": "Código de Procedimiento Administrativo y de lo Contencioso Administrativo (Ley 1755 de 2015)",
+      "locator": "Congreso de la República de Colombia",
+      "use": "Términos legales para atención de peticiones, quejas, reclamos y solicitudes de documentos."
+    }
+  ]
+}

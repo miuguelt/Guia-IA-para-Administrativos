@@ -1,0 +1,1258 @@
+<!doctype html>
+<html lang="es-CO">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cronograma Oficial Formativo · IA en la Productividad Administrativa (21720210 V1)</title>
+  <style>
+    :root {
+      --sena-green: #39a900;
+      --sena-green-dark: #2c7a00;
+      --sena-green-light: #e8f5e9;
+      --primary: #075985;
+      --primary-dark: #0c4a6e;
+      --primary-light: #e0f2fe;
+      --slate-dark: #0f172a;
+      --text-main: #1e293b;
+      --text-muted: #475569;
+      --border-color: #cbd5e1;
+      --border-light: #e2e8f0;
+      --bg-page: #f8fafc;
+      --bg-card: #ffffff;
+      --amber: #d97706;
+      --amber-light: #fef3c7;
+      --purple: #6d28d9;
+      --purple-light: #ede9fe;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-print-color-adjust: exact !important;
+      print-color-adjust: exact !important;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      background-color: var(--bg-page);
+      color: var(--text-main);
+      line-height: 1.4;
+      font-size: 8.5pt;
+    }
+
+    /* Screen UI toolbar */
+    .screen-actions-bar {
+      background: #0f172a;
+      color: #ffffff;
+      padding: 0.85rem 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    }
+    .screen-actions-bar .info {
+      font-size: 0.95rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .screen-actions-bar .actions {
+      display: flex;
+      gap: 0.75rem;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.85rem;
+      font-weight: 700;
+      padding: 0.5rem 1rem;
+      border-radius: 0.4rem;
+      text-decoration: none;
+      cursor: pointer;
+      border: none;
+      transition: all 0.2s ease;
+    }
+    .btn-primary {
+      background: var(--sena-green);
+      color: #ffffff;
+    }
+    .btn-primary:hover {
+      background: var(--sena-green-dark);
+    }
+    .btn-secondary {
+      background: #334155;
+      color: #ffffff;
+    }
+    .btn-secondary:hover {
+      background: #475569;
+    }
+    .btn-outline {
+      background: transparent;
+      color: #e2e8f0;
+      border: 1px solid #64748b;
+    }
+    .btn-outline:hover {
+      background: #1e293b;
+      color: #ffffff;
+    }
+
+    /* Print Document Container */
+    .document-wrapper {
+      max-width: 8.5in;
+      margin: 1.5rem auto;
+      background: #ffffff;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+      border-radius: 4px;
+    }
+
+    .pdf-page {
+      padding: 10mm 12mm;
+      min-height: 11in;
+      position: relative;
+      background: #ffffff;
+    }
+
+    .page-break {
+      page-break-before: always;
+      break-before: page;
+    }
+
+    /* Header styling */
+    .inst-header {
+      display: grid;
+      grid-template-columns: 75px 1fr 150px;
+      gap: 12px;
+      align-items: center;
+      padding-bottom: 8px;
+      border-bottom: 2.5px solid var(--sena-green);
+      margin-bottom: 8px;
+    }
+    .inst-logo svg {
+      width: 68px;
+      height: 68px;
+    }
+    .inst-title h1 {
+      font-size: 11pt;
+      font-weight: 800;
+      color: var(--slate-dark);
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
+      line-height: 1.2;
+    }
+    .inst-title .inst-sub {
+      font-size: 8.5pt;
+      font-weight: 700;
+      color: var(--primary);
+    }
+    .inst-title .inst-center {
+      font-size: 7.5pt;
+      color: var(--text-muted);
+      font-weight: 600;
+    }
+    .doc-badge-box {
+      text-align: right;
+      font-size: 7pt;
+      color: var(--text-muted);
+      border-left: 1px solid var(--border-light);
+      padding-left: 8px;
+    }
+    .doc-badge-box .badge-code {
+      display: inline-block;
+      background: var(--slate-dark);
+      color: #ffffff;
+      padding: 2px 6px;
+      border-radius: 3px;
+      font-weight: 700;
+      font-size: 7.5pt;
+      margin-bottom: 2px;
+    }
+
+    /* Program Title Banner */
+    .program-banner {
+      background: linear-gradient(135deg, #075985 0%, #0c4a6e 100%);
+      color: #ffffff;
+      padding: 8px 12px;
+      border-radius: 4px;
+      margin-bottom: 8px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .program-banner-info h2 {
+      font-size: 10pt;
+      font-weight: 800;
+      line-height: 1.2;
+      color: #ffffff;
+    }
+    .program-banner-info p {
+      font-size: 7.5pt;
+      color: #bae6fd;
+      margin-top: 1px;
+    }
+    .banner-hours-badge {
+      background: var(--sena-green);
+      color: #ffffff;
+      padding: 4px 10px;
+      border-radius: 4px;
+      text-align: center;
+      font-weight: 800;
+      font-size: 10pt;
+      line-height: 1.1;
+      white-space: nowrap;
+      margin-left: 10px;
+    }
+    .banner-hours-badge small {
+      display: block;
+      font-size: 6pt;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    /* Meta Grid */
+    .meta-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 6px;
+      margin-bottom: 8px;
+    }
+    .meta-card {
+      background: #f1f5f9;
+      border: 1px solid var(--border-light);
+      border-radius: 3px;
+      padding: 4px 7px;
+    }
+    .meta-card .label {
+      font-size: 6.5pt;
+      font-weight: 700;
+      color: var(--primary);
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+    }
+    .meta-card .value {
+      font-size: 7.5pt;
+      font-weight: 700;
+      color: var(--slate-dark);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    /* Pedagogy alert / principle */
+    .callout-principle {
+      background: #f0fdf4;
+      border-left: 3px solid var(--sena-green);
+      padding: 5px 8px;
+      border-radius: 0 3px 3px 0;
+      font-size: 7.2pt;
+      color: #14532d;
+      margin-bottom: 8px;
+      display: flex;
+      gap: 6px;
+      align-items: center;
+    }
+    .callout-principle strong {
+      color: #166534;
+    }
+
+    /* Daily Rhythm Timeline */
+    .rhythm-section {
+      background: #ffffff;
+      border: 1px solid var(--border-color);
+      border-radius: 4px;
+      padding: 6px 10px;
+      margin-bottom: 8px;
+    }
+    .rhythm-title {
+      font-size: 7.5pt;
+      font-weight: 800;
+      color: var(--primary-dark);
+      text-transform: uppercase;
+      margin-bottom: 4px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .rhythm-timeline {
+      display: grid;
+      grid-template-columns: 2.5fr 0.6fr 2.1fr 1fr 2fr 0.6fr 1.6fr;
+      gap: 3px;
+    }
+    .rhythm-step {
+      padding: 4px 3px;
+      border-radius: 3px;
+      text-align: center;
+      font-size: 6.5pt;
+      line-height: 1.15;
+    }
+    .step-work {
+      background: #e0f2fe;
+      color: #0369a1;
+      border: 1px solid #bae6fd;
+      font-weight: 600;
+    }
+    .step-work strong {
+      display: block;
+      color: #0c4a6e;
+      font-weight: 800;
+      font-size: 6.8pt;
+    }
+    .step-pause {
+      background: #fef3c7;
+      color: #92400e;
+      border: 1px solid #fde68a;
+      font-weight: 600;
+    }
+    .step-pause strong {
+      display: block;
+      color: #78350f;
+      font-size: 6.5pt;
+    }
+    .step-lunch {
+      background: #f1f5f9;
+      color: #475569;
+      border: 1px solid #cbd5e1;
+      font-weight: 700;
+    }
+    .step-lunch strong {
+      display: block;
+      color: #334155;
+      font-size: 6.8pt;
+    }
+
+    /* Day Module Box */
+    .day-block {
+      background: #ffffff;
+      border: 1px solid var(--border-color);
+      border-radius: 4px;
+      margin-bottom: 8px;
+      overflow: hidden;
+      break-inside: avoid;
+      page-break-inside: avoid;
+    }
+    .day-header {
+      background: #f8fafc;
+      border-bottom: 1.5px solid var(--border-color);
+      padding: 5px 8px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .day-header-left {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .day-pill {
+      background: var(--primary);
+      color: #ffffff;
+      font-size: 7.5pt;
+      font-weight: 800;
+      padding: 2px 7px;
+      border-radius: 3px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    .day-pill-green {
+      background: var(--sena-green);
+    }
+    .day-header h3 {
+      font-size: 8.5pt;
+      font-weight: 800;
+      color: var(--slate-dark);
+    }
+    .day-header-right {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 7pt;
+    }
+    .tag-rap {
+      background: #ede9fe;
+      color: #5b21b6;
+      font-weight: 700;
+      padding: 1px 6px;
+      border-radius: 2px;
+      border: 1px solid #ddd6fe;
+    }
+    .tag-hours {
+      background: #f1f5f9;
+      color: var(--text-muted);
+      font-weight: 600;
+      padding: 1px 6px;
+      border-radius: 2px;
+      border: 1px solid #e2e8f0;
+    }
+
+    /* Schedule Tables */
+    .schedule-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 7.2pt;
+    }
+    .schedule-table th {
+      background: #f1f5f9;
+      color: var(--slate-dark);
+      font-weight: 700;
+      text-transform: uppercase;
+      font-size: 6.5pt;
+      letter-spacing: 0.03em;
+      padding: 4px 6px;
+      border-bottom: 1px solid var(--border-color);
+      text-align: left;
+    }
+    .schedule-table td {
+      padding: 4px 6px;
+      border-bottom: 1px solid var(--border-light);
+      vertical-align: top;
+      line-height: 1.25;
+    }
+    .schedule-table tr:nth-child(even) {
+      background-color: #fafbfc;
+    }
+    .schedule-table tr.row-pause {
+      background-color: #fffbeb !important;
+      color: #92400e;
+      font-style: italic;
+    }
+    .schedule-table tr.row-lunch {
+      background-color: #f8fafc !important;
+      color: #475569;
+      font-style: italic;
+    }
+    .schedule-table tr.row-autonomous {
+      background-color: #f5f3ff !important;
+      color: #4c1d95;
+    }
+
+    .col-time {
+      width: 82px;
+      white-space: nowrap;
+      font-weight: 700;
+      color: var(--slate-dark);
+    }
+    .col-topic {
+      /* fluid width */
+    }
+    .col-topic strong {
+      color: var(--primary-dark);
+    }
+    .col-topic .sub-text {
+      color: var(--text-muted);
+      font-size: 6.8pt;
+      margin-top: 1px;
+    }
+    .col-resource {
+      width: 135px;
+      color: var(--text-muted);
+      font-size: 6.8pt;
+    }
+    .col-resource code {
+      background: #f1f5f9;
+      padding: 1px 3px;
+      border-radius: 2px;
+      font-family: Consolas, monospace;
+      font-size: 6.5pt;
+      color: #0f172a;
+      border: 1px solid #e2e8f0;
+    }
+    .col-deliverable {
+      width: 145px;
+    }
+    .badge-artifact {
+      display: inline-block;
+      background: #dcfce7;
+      color: #14532d;
+      border: 1px solid #86efac;
+      padding: 1px 5px;
+      border-radius: 3px;
+      font-weight: 800;
+      font-size: 6.8pt;
+      margin-bottom: 1px;
+    }
+    .badge-artifact-blue {
+      background: #e0f2fe;
+      color: #0369a1;
+      border: 1px solid #7dd3fc;
+    }
+    .badge-artifact-purple {
+      background: #ede9fe;
+      color: #5b21b6;
+      border: 1px solid #c4b5fd;
+    }
+    .badge-milestone {
+      display: inline-block;
+      color: var(--text-muted);
+      font-size: 6.8pt;
+      font-weight: 600;
+    }
+
+    /* Summary Tables (Page 3) */
+    .two-col-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.35fr;
+      gap: 8px;
+      margin-bottom: 8px;
+    }
+    .summary-card {
+      background: #ffffff;
+      border: 1px solid var(--border-color);
+      border-radius: 4px;
+      overflow: hidden;
+      break-inside: avoid;
+    }
+    .summary-card h3 {
+      background: #f8fafc;
+      border-bottom: 1px solid var(--border-color);
+      padding: 4px 8px;
+      font-size: 7.5pt;
+      font-weight: 800;
+      color: var(--primary-dark);
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
+    }
+
+    /* Signatures Section */
+    .signatures-box {
+      border: 1px solid var(--border-color);
+      border-radius: 4px;
+      padding: 8px 12px;
+      margin-top: 6px;
+      background: #ffffff;
+      break-inside: avoid;
+    }
+    .signatures-title {
+      font-size: 7.2pt;
+      font-weight: 800;
+      color: var(--slate-dark);
+      text-transform: uppercase;
+      margin-bottom: 16px;
+      text-align: center;
+      letter-spacing: 0.04em;
+    }
+    .signatures-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+    .sig-slot {
+      text-align: center;
+    }
+    .sig-line {
+      border-top: 1px solid #475569;
+      margin-bottom: 3px;
+    }
+    .sig-role {
+      font-size: 7pt;
+      font-weight: 800;
+      color: var(--slate-dark);
+    }
+    .sig-entity {
+      font-size: 6.2pt;
+      color: var(--text-muted);
+    }
+
+    /* Page Footer */
+    .page-footer {
+      border-top: 1px solid var(--border-light);
+      padding-top: 4px;
+      margin-top: 6px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 6.5pt;
+      color: #64748b;
+    }
+
+    /* Media Print Overrides */
+    @media print {
+      @page {
+        size: letter portrait;
+        margin: 10mm 12mm 10mm 12mm;
+      }
+      body {
+        background-color: #ffffff;
+        font-size: 8.2pt;
+      }
+      .screen-actions-bar {
+        display: none !important;
+      }
+      .document-wrapper {
+        margin: 0;
+        box-shadow: none;
+        max-width: 100%;
+        border-radius: 0;
+      }
+      .pdf-page {
+        padding: 0;
+        min-height: auto;
+      }
+      .page-break {
+        page-break-before: always !important;
+        break-before: page !important;
+        padding-top: 2mm;
+      }
+      tr {
+        page-break-inside: avoid !important;
+        break-inside: avoid !important;
+      }
+      .day-block, .summary-card, .signatures-box, .rhythm-section {
+        page-break-inside: avoid !important;
+        break-inside: avoid !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Screen Actions Bar (Toolbar) -->
+  <div class="screen-actions-bar">
+    <div class="info">
+      <span>📄 Cronograma Oficial de Formación (48 Horas) · SENA CIMI Girón</span>
+    </div>
+    <div class="actions">
+      <a href="index.html" class="btn btn-outline">⬅️ Volver al Portal</a>
+      <button onclick="window.print()" class="btn btn-secondary">🖨️ Imprimir / Guardar PDF</button>
+      <a href="docs/cronograma-oficial-48h.pdf" download="Cronograma_Oficial_IA_Productividad_SENA_CIMI.pdf" class="btn btn-primary">📥 Descargar PDF Generado</a>
+    </div>
+  </div>
+
+  <div class="document-wrapper">
+
+    <!-- ==================== PÁGINA 1 ==================== -->
+    <section class="pdf-page">
+      
+      <!-- Institutional Header -->
+      <header class="inst-header">
+        <div class="inst-logo">
+          <!-- SENA Vector Emblem -->
+          <svg viewBox="0 0 75 74" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fill="#39a900" d="M37.73 0.77a7.97 7.97 0 1 0 0 15.94 7.97 7.97 0 0 0 0-15.94ZM11.45 19.17c-1.4 0-2.82.09-4.16.42-.88.23-1.73.6-2.28 1.16-.7.72-.79 1.69-.45 2.52.3.72 1.12 1.27 2.02 1.58 1.95.67 4.12.81 6.17 1.23.38.1.8.2 1.03.46.24.3.1.73-.3.92-.66.34-1.51.34-2.29.33-.7-.03-1.48-.09-2.05-.44-.41-.26-.49-.7-.39-1.07l-4.57 0c-.01.7.12 1.42.63 2.02.43.51 1.11.87 1.85 1.09 1.19.35 2.47.45 3.73.48 1.71.03 3.46-.02 5.1-.41.98-.24 1.94-.62 2.57-1.25 1.11-1.12.85-2.89-.63-3.76-.74-.43-1.62-.7-2.52-.87-1.32-.27-2.66-.47-4-.7-.46-.09-.96-.17-1.35-.39-.41-.22-.45-.74-.03-.97.55-.3 1.27-.3 1.92-.3.69.01 1.43.05 2 .37.31.18.44.48.44.76l4.35-.01c-.02-.55-.12-1.12-.52-1.6-.47-.58-1.29-.95-2.13-1.17-1.33-.33-2.74-.4-4.13-.41Zm9.42.33v10.38h12.67v-2.26H25.52v-1.92h7.15v-2.21h-7.15v-1.65h7.73v-2.24l-7.73-.1Zm20.88 0h-5.88v10.38h4.45v-6.98l6.1 6.98h6.1V19.5h-4.45v6.94l-6.32-6.94Zm18.7.02l-7.2 10.38h4.67l1.12-1.87h7.21l1.05 1.87h5.18l-6.87-10.38Zm2.34 2.48l2.21 3.76h-4.57l2.36-3.76ZM0.52 32.81v5.65h21.12c1.08.23 1.7.93 1.48 2.53l-12.99 22.74 4.23 3.95 20.12-34.87H0.52Zm40.3.05l19.78 34.65 4.37-3.93-13.14-22.68c-.22-1.6.4-2.3 1.48-2.54h21.13V32.8H40.82Zm-3.34 5.73l-18.55 31.85 4.93 2.4 12.38-20.92c.43-.35.86-.54 1.29-.56.46-.01.92.16 1.38.52l12.35 20.98 5.08-2.65-18.86-31.62Z"/>
+          </svg>
+        </div>
+        <div class="inst-title">
+          <h1>Servicio Nacional de Aprendizaje · SENA</h1>
+          <div class="inst-sub">Regional Santander · Centro Industrial del Mantenimiento Integral (CIMI)</div>
+          <div class="inst-center">Ambiente de Formación Redes CIMI · Girón, Santander · Formación Profesional Integral</div>
+        </div>
+        <div class="doc-badge-box">
+          <div class="badge-code">CIMI-CRON-21720210</div>
+          <div><strong>Versión Curricular:</strong> 1.0</div>
+          <div><strong>Vigencia:</strong> Noviembre 2026</div>
+          <div><strong>Régimen:</strong> Intensivo 48h</div>
+        </div>
+      </header>
+
+      <!-- Program Title Banner -->
+      <div class="program-banner">
+        <div class="program-banner-info">
+          <h2>Implementación de Herramientas de Inteligencia Artificial en la Optimización de la Productividad</h2>
+          <p><strong>Programa Oficial SENA:</strong> Código 21720210 V1 · <strong>Competencia Laboral:</strong> 220501094 (Estructurar propuesta técnica TI)</p>
+          <p><strong>Resultados de Aprendizaje:</strong> RA1 (Viabilidad y Flujos Asistidos) y RA2 (Prompting Blindado, Auditoría y Modelos Predictivos)</p>
+        </div>
+        <div class="banner-hours-badge">
+          48 HORAS
+          <small>Totales</small>
+        </div>
+      </div>
+
+      <!-- Execution Meta Grid -->
+      <div class="meta-grid">
+        <div class="meta-card">
+          <div class="label">Fechas de Formación</div>
+          <div class="value">03 al 06 de noviembre, 2026</div>
+        </div>
+        <div class="meta-card">
+          <div class="label">Jornada y Horario</div>
+          <div class="value">Mar a Vie: 07:30 a 17:30</div>
+        </div>
+        <div class="meta-card">
+          <div class="label">Ambiente de Ejecución</div>
+          <div class="value">Redes CIMI (Girón, Santander)</div>
+        </div>
+        <div class="meta-card">
+          <div class="label">Carga Distribuida</div>
+          <div class="value">40h Presencial + 8h Autónomo</div>
+        </div>
+      </div>
+
+      <!-- Rectory Principle Callout -->
+      <div class="callout-principle">
+        <span>🛡️</span>
+        <div>
+          <strong>Principio Rector de Seguridad y Gobernanza (Ley 1581 de 2012):</strong> Toda automatización institucional en el SENA opera bajo el protocolo <strong>Human-in-the-Loop (HITL)</strong>, aislamiento en sandbox y sanitización previa de datos personales sensibles (PII). La IA propone; el funcionario valida y asume la responsabilidad administrativa.
+        </div>
+      </div>
+
+      <!-- Daily Rhythm Graphic Bar -->
+      <div class="rhythm-section">
+        <div class="rhythm-title">
+          <span>Ritmo Pedagógico Diario Tipo (4 Días Intensivos · 10h Calendario: 9h Efectivas + 1h Almuerzo)</span>
+          <span style="font-weight: 600; color: var(--text-muted); font-size: 6.5pt;">Alternancia: Teoría Breve ➔ Contraejemplo ➔ Laboratorio Guiado ➔ Evidencia</span>
+        </div>
+        <div class="rhythm-timeline">
+          <div class="rhythm-step step-work">
+            <strong>Bloque 1 · 2.5 h</strong>
+            07:30 - 10:00<br>Concepto & Demo
+          </div>
+          <div class="rhythm-step step-pause">
+            <strong>Pausa</strong>
+            10:00 - 10:20<br>Activa / 20m
+          </div>
+          <div class="rhythm-step step-work">
+            <strong>Bloque 2 · 2h 10m</strong>
+            10:20 - 12:30<br>Laboratorio Guiado
+          </div>
+          <div class="rhythm-step step-lunch">
+            <strong>Almuerzo</strong>
+            12:30 - 13:30<br>1h Integración
+          </div>
+          <div class="rhythm-step step-work">
+            <strong>Bloque 3 · 2.0 h</strong>
+            13:30 - 15:30<br>Taller en Datasets
+          </div>
+          <div class="rhythm-step step-pause">
+            <strong>Pausa</strong>
+            15:30 - 15:50<br>Activa / 20m
+          </div>
+          <div class="rhythm-step step-work">
+            <strong>Bloque 4 · 1h 40m</strong>
+            15:50 - 17:30<br>Evidencia & Cierre
+          </div>
+        </div>
+      </div>
+
+      <!-- DÍA 1 SECTION -->
+      <div class="day-block">
+        <div class="day-header">
+          <div class="day-header-left">
+            <span class="day-pill">DÍA 1</span>
+            <h3>Martes, 03 de noviembre de 2026 · Módulo 01: Diagnóstico de Procesos, Mapeo y Viabilidad de IA</h3>
+          </div>
+          <div class="day-header-right">
+            <span class="tag-rap">RAP: RA1</span>
+            <span class="tag-hours">9h Presencial + 2h Autónomo</span>
+          </div>
+        </div>
+        <table class="schedule-table">
+          <thead>
+            <tr>
+              <th class="col-time">Horario</th>
+              <th class="col-topic">Actividad Pedagógica y Contenido Temático</th>
+              <th class="col-resource">Recursos & Datasets</th>
+              <th class="col-deliverable">Entregable / Hito</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="col-time">07:30 – 08:30</td>
+              <td class="col-topic">
+                <strong>Instalación Oficial, Concertación y Diagnóstico:</strong> Presentación del programa curricular 21720210 V1, concertación del pacto pedagógico, reglas de convivencia digital y prueba diagnóstica inicial de habilidades TIC.
+              </td>
+              <td class="col-resource">Plataforma Web Redes CIMI, Proyector</td>
+              <td class="col-deliverable"><span class="badge-milestone">Registro de matrícula y diagnóstico</span></td>
+            </tr>
+            <tr>
+              <td class="col-time">08:30 – 10:00</td>
+              <td class="col-topic">
+                <strong>Fundamentos de IA para Administrativos:</strong> Historia, evolución y principios. Diferencia operativa entre IA Generativa, IA Predictiva y automatización tradicional (macros/scripts). <em>Criterio: ¿Cuándo usar IA y cuándo es un grave error?</em>
+              </td>
+              <td class="col-resource">Presentación técnica, infografía comparativa</td>
+              <td class="col-deliverable"><span class="badge-milestone">Mapeo conceptual de herramientas</span></td>
+            </tr>
+            <tr class="row-pause">
+              <td class="col-time">10:00 – 10:20</td>
+              <td colspan="3">☕ Pausa activa saludable y ergonómica (desconexión visual y estiramiento guiado)</td>
+            </tr>
+            <tr>
+              <td class="col-time">10:20 – 12:30</td>
+              <td class="col-topic">
+                <strong>Taller de Representación de Procesos Administrativos:</strong> Flujogramas de tareas de oficina, detección de cuellos de botella en gestión documental, tiempos muertos y clasificación de tareas de alto valor vs. rutinarias.
+              </td>
+              <td class="col-resource"><code>caso-01-procesos-redes-cimi.md</code></td>
+              <td class="col-deliverable"><span class="badge-milestone">Diagrama de flujo de proceso administrativo</span></td>
+            </tr>
+            <tr class="row-lunch">
+              <td class="col-time">12:30 – 13:30</td>
+              <td colspan="3">🍽️ Receso de almuerzo e integración formativa</td>
+            </tr>
+            <tr>
+              <td class="col-time">13:30 – 15:30</td>
+              <td class="col-topic">
+                <strong>Laboratorio de Matriz de Viabilidad:</strong> Evaluación técnica de 8 procesos del CIMI (PQRS, cuentas de cobro, inventarios, novedades de personal). Parámetros: frecuencia, estructuración de datos, costo de error humano vs. IA.
+              </td>
+              <td class="col-resource">Matriz de Viabilidad en formato digital</td>
+              <td class="col-deliverable"><span class="badge-milestone">Clasificación según índice de viabilidad</span></td>
+            </tr>
+            <tr class="row-pause">
+              <td class="col-time">15:30 – 15:50</td>
+              <td colspan="3">☕ Pausa activa y socialización de hallazgos intermedios</td>
+            </tr>
+            <tr>
+              <td class="col-time">15:50 – 17:30</td>
+              <td class="col-topic">
+                <strong>Construcción y Registro de Evidencia MG-A01:</strong> Diligenciamiento de la Matriz de Diagnóstico y justificación técnica del proceso seleccionado para optimizar durante la semana. Verificación con lista de chequeo.
+              </td>
+              <td class="col-resource">Estación <code>m01-fundamentos</code> en plataforma web</td>
+              <td class="col-deliverable"><span class="badge-artifact">ARTEFACTO MG-A01</span><br><small>Evidencia de Conocimiento</small></td>
+            </tr>
+            <tr class="row-autonomous">
+              <td class="col-time">Noche (2h aut.)</td>
+              <td class="col-topic">
+                <strong>Trabajo Autónomo Guiado:</strong> Levantamiento de las 3 tareas más consumidoras de tiempo en su dependencia real en el SENA o entidad de origen.
+              </td>
+              <td class="col-resource">Ficha de relevamiento de puesto</td>
+              <td class="col-deliverable"><span class="badge-milestone">Insumo verificado para el Día 2</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Page 1 Footer -->
+      <footer class="page-footer">
+        <span>SENA CIMI Girón · Curso 21720210 V1 · Cronograma Formativo Oficial</span>
+        <span>Ambiente Redes CIMI · Regional Santander</span>
+        <span>Página 1 de 3</span>
+      </footer>
+
+    </section>
+
+    <!-- ==================== PÁGINA 2 ==================== -->
+    <section class="pdf-page page-break">
+      
+      <!-- Page 2 Sub-Header -->
+      <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid var(--primary); padding-bottom: 4px; margin-bottom: 8px;">
+        <span style="font-weight: 800; font-size: 8.5pt; color: var(--primary-dark); text-transform: uppercase;">Cronograma Oficial · Días 2 y 3: Prompting Blindado y Automatización Documental</span>
+        <span style="font-size: 7.2pt; color: var(--text-muted);">Programa: 21720210 V1 · Código CIMI-CRON-2026</span>
+      </div>
+
+      <!-- DÍA 2 SECTION -->
+      <div class="day-block">
+        <div class="day-header">
+          <div class="day-header-left">
+            <span class="day-pill">DÍA 2</span>
+            <h3>Miércoles, 04 de noviembre de 2026 · Módulo 02: Arquitectura de Prompting Seguro y Anti-Alucinación</h3>
+          </div>
+          <div class="day-header-right">
+            <span class="tag-rap">RAP: RA2</span>
+            <span class="tag-hours">9h Presencial + 2h Autónomo</span>
+          </div>
+        </div>
+        <table class="schedule-table">
+          <thead>
+            <tr>
+              <th class="col-time">Horario</th>
+              <th class="col-topic">Actividad Pedagógica y Contenido Temático</th>
+              <th class="col-resource">Recursos & Datasets</th>
+              <th class="col-deliverable">Entregable / Hito</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="col-time">07:30 – 09:00</td>
+              <td class="col-topic">
+                <strong>Ingeniería de Prompts para Gestión Pública y Administrativa:</strong> Anatomía de una instrucción robusta. Metodología <strong>R-C-I-R-S</strong> (Rol, Contexto, Instrucción, Restricciones negativas y Formato de Salida). Comparativa sistemática de prompts efectivos vs. ambiguos.
+              </td>
+              <td class="col-resource">Guía de Prompting Administrativo CIMI</td>
+              <td class="col-deliverable"><span class="badge-milestone">Matriz comparativa de prompts</span></td>
+            </tr>
+            <tr>
+              <td class="col-time">09:00 – 10:00</td>
+              <td class="col-topic">
+                <strong>Prevención de Deriva Contextual (Context Drift) y Alucinaciones:</strong> Causas del olvido de instrucciones en conversaciones extensas, sesgo de complacencia (sycophancy) y generación de datos espurios. Demostración en vivo de fallas críticas inducidas.
+              </td>
+              <td class="col-resource"><code>docs/guia-seguridad-y-riesgos-ia.md</code></td>
+              <td class="col-deliverable"><span class="badge-milestone">Reporte de análisis de alucinación</span></td>
+            </tr>
+            <tr class="row-pause">
+              <td class="col-time">10:00 – 10:20</td>
+              <td colspan="3">☕ Pausa activa saludable y ergonómica (desconexión de pantalla y movilidad articular)</td>
+            </tr>
+            <tr>
+              <td class="col-time">10:20 – 12:30</td>
+              <td class="col-topic">
+                <strong>Laboratorio Práctico de Prompting Blindado:</strong> Empleo de delimitadores sintácticos (etiquetas XML, triple comilla), directivas de contención estricta (<em>"Si el dato no figura, responder 'NO DISPONIBLE'"</em>) y calibración del tono formal del SENA.
+              </td>
+              <td class="col-resource">Entorno web en navegadores Redes CIMI</td>
+              <td class="col-deliverable"><span class="badge-milestone">Banco de 5 prompts blindados</span></td>
+            </tr>
+            <tr class="row-lunch">
+              <td class="col-time">12:30 – 13:30</td>
+              <td colspan="3">🍽️ Receso de almuerzo e integración formativa</td>
+            </tr>
+            <tr>
+              <td class="col-time">13:30 – 15:30</td>
+              <td class="col-topic">
+                <strong>Taller de Seguridad de Datos y Cumplimiento Normativo (Ley 1581 de 2012):</strong> Protocolo de anonimización y sanitización de datos personales sensibles (cédulas, correos, salarios). Pruebas de estrés intentando hacer alucinar normativas inexistentes a la IA.
+              </td>
+              <td class="col-resource"><code>caso-02-dataset-pqrs-desordenadas.md</code></td>
+              <td class="col-deliverable"><span class="badge-milestone">Protocolo de sanitización validado</span></td>
+            </tr>
+            <tr class="row-pause">
+              <td class="col-time">15:30 – 15:50</td>
+              <td colspan="3">☕ Pausa activa y revisión de calidad de instrucciones</td>
+            </tr>
+            <tr>
+              <td class="col-time">15:50 – 17:30</td>
+              <td class="col-topic">
+                <strong>Construcción y Registro de Evidencia MG-A02:</strong> Consolidación del Catálogo de Prompts Administrativos Blindados y el Decálogo de Seguridad Operativa. Carga y verificación en plataforma.
+              </td>
+              <td class="col-resource">Estación <code>m02-diseno</code> en plataforma web</td>
+              <td class="col-deliverable"><span class="badge-artifact badge-artifact-purple">ARTEFACTO MG-A02</span><br><small>Evidencia de Producto</small></td>
+            </tr>
+            <tr class="row-autonomous">
+              <td class="col-time">Noche (2h aut.)</td>
+              <td class="col-topic">
+                <strong>Trabajo Autónomo Guiado:</strong> Ejecución de los prompts blindados sobre 2 comunicaciones reales de su área para verificar ausencia de alucinación y deriva de estilo.
+              </td>
+              <td class="col-resource">Bitácora de pruebas independiente</td>
+              <td class="col-deliverable"><span class="badge-milestone">Bitácora de calibración de prompts</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- DÍA 3 SECTION -->
+      <div class="day-block">
+        <div class="day-header">
+          <div class="day-header-left">
+            <span class="day-pill day-pill-green">DÍA 3</span>
+            <h3>Jueves, 05 de noviembre de 2026 · Módulo 03: Automatización de Flujos y Datos No Estructurados</h3>
+          </div>
+          <div class="day-header-right">
+            <span class="tag-rap">RAP: RA1</span>
+            <span class="tag-hours">9h Presencial + 2h Autónomo</span>
+          </div>
+        </div>
+        <table class="schedule-table">
+          <thead>
+            <tr>
+              <th class="col-time">Horario</th>
+              <th class="col-topic">Actividad Pedagógica y Contenido Temático</th>
+              <th class="col-resource">Recursos & Datasets</th>
+              <th class="col-deliverable">Entregable / Hito</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="col-time">07:30 – 09:30</td>
+              <td class="col-topic">
+                <strong>Tratamiento de Información No Estructurada en la Gestión Pública:</strong> Desafío de textos caóticos (correos, actas, transcripciones, quejas ciudadanas). Las 4 capas de procesamiento: Extracción, Normalización, Clasificación y Enrutamiento sin programación compleja.
+              </td>
+              <td class="col-resource">Diapositivas técnicas y muestras reales</td>
+              <td class="col-deliverable"><span class="badge-milestone">Esquema conceptual del pipeline</span></td>
+            </tr>
+            <tr>
+              <td class="col-time">09:30 – 10:00</td>
+              <td class="col-topic">
+                <strong>Laboratorio Guiado 1 - Caso de Actas Complejas:</strong> Ingesta de transcripciones caóticas de reuniones directivas. Extracción precisa de compromisos, personas responsables y fechas límite con trazabilidad sin omitir detalles.
+              </td>
+              <td class="col-resource"><code>caso-03-acta-reunion-caotica.md</code></td>
+              <td class="col-deliverable"><span class="badge-milestone">Acta ejecutiva normalizada</span></td>
+            </tr>
+            <tr class="row-pause">
+              <td class="col-time">10:00 – 10:20</td>
+              <td colspan="3">☕ Pausa activa saludable y ergonómica (desconexión visual y pausas de respiración)</td>
+            </tr>
+            <tr>
+              <td class="col-time">10:20 – 12:30</td>
+              <td class="col-topic">
+                <strong>Laboratorio Guiado 2 - Pipeline de PQRS Masivas:</strong> Procesamiento del dataset de 5 PQRS complejas. Clasificación por tipo de trámite, detección de situaciones de riesgo/convivencia y cálculo de plazos de respuesta conforme a Ley 1755 de 2015.
+              </td>
+              <td class="col-resource"><code>caso-02-dataset-pqrs-desordenadas.md</code></td>
+              <td class="col-deliverable"><span class="badge-milestone">Matriz de PQRS categorizada</span></td>
+            </tr>
+            <tr class="row-lunch">
+              <td class="col-time">12:30 – 13:30</td>
+              <td colspan="3">🍽️ Receso de almuerzo e integración formativa</td>
+            </tr>
+            <tr>
+              <td class="col-time">13:30 – 15:30</td>
+              <td class="col-topic">
+                <strong>Construcción de Flujos Asistidos Low-Code / No-Code:</strong> Interconexión de asistentes con plantillas de correo y hojas de cálculo. Prevención de pérdidas catastróficas: <em>Regla de oro de preservación de archivos fuente (Sandbox de trabajo seguro)</em>.
+              </td>
+              <td class="col-resource">Herramientas ofimáticas y scripts guiados</td>
+              <td class="col-deliverable"><span class="badge-milestone">Flujo asistido en entorno de prueba</span></td>
+            </tr>
+            <tr class="row-pause">
+              <td class="col-time">15:30 – 15:50</td>
+              <td colspan="3">☕ Pausa activa y verificación de consistencia de datos</td>
+            </tr>
+            <tr>
+              <td class="col-time">15:50 – 17:30</td>
+              <td class="col-topic">
+                <strong>Construcción y Registro de Evidencia MG-A03:</strong> Puesta en marcha y documentación del Flujo Asistido de Gestión Documental sobre datos de prueba del CIMI con verificación de trazabilidad.
+              </td>
+              <td class="col-resource">Estación <code>m03-implementacion</code> en plataforma</td>
+              <td class="col-deliverable"><span class="badge-artifact badge-artifact-blue">ARTEFACTO MG-A03</span><br><small>Evidencia de Desempeño</small></td>
+            </tr>
+            <tr class="row-autonomous">
+              <td class="col-time">Noche (2h aut.)</td>
+              <td class="col-topic">
+                <strong>Trabajo Autónomo Guiado:</strong> Elaboración de la guía de reproducibilidad del flujo y fijación de los puntos de control humano obligatorio (HITL).
+              </td>
+              <td class="col-resource">Plantilla de flujo de operaciones</td>
+              <td class="col-deliverable"><span class="badge-milestone">Puntos de control humano definidos</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Page 2 Footer -->
+      <footer class="page-footer">
+        <span>SENA CIMI Girón · Curso 21720210 V1 · Cronograma Formativo Oficial</span>
+        <span>Ambiente Redes CIMI · Regional Santander</span>
+        <span>Página 2 de 3</span>
+      </footer>
+
+    </section>
+
+    <!-- ==================== PÁGINA 3 ==================== -->
+    <section class="pdf-page page-break">
+      
+      <!-- Page 3 Sub-Header -->
+      <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid var(--primary); padding-bottom: 4px; margin-bottom: 8px;">
+        <span style="font-weight: 800; font-size: 8.5pt; color: var(--primary-dark); text-transform: uppercase;">Cronograma Oficial · Día 4: Auditoría de Datos, Sustentación, Cierre y Aval</span>
+        <span style="font-size: 7.2pt; color: var(--text-muted);">Programa: 21720210 V1 · Código CIMI-CRON-2026</span>
+      </div>
+
+      <!-- DÍA 4 SECTION -->
+      <div class="day-block">
+        <div class="day-header">
+          <div class="day-header-left">
+            <span class="day-pill">DÍA 4</span>
+            <h3>Viernes, 06 de noviembre de 2026 · Módulos 04 y 05: Auditoría de Datos, Informe Final y Cierre</h3>
+          </div>
+          <div class="day-header-right">
+            <span class="tag-rap">RAP: RA1 y RA2</span>
+            <span class="tag-hours">9h Presencial + 2h Post-taller</span>
+          </div>
+        </div>
+        <table class="schedule-table">
+          <thead>
+            <tr>
+              <th class="col-time">Horario</th>
+              <th class="col-topic">Actividad Pedagógica y Contenido Temático</th>
+              <th class="col-resource">Recursos & Datasets</th>
+              <th class="col-deliverable">Entregable / Hito</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="col-time">07:30 – 09:30</td>
+              <td class="col-topic">
+                <strong>IA Predictiva vs. IA Generativa en Datos Numéricos y Financieros:</strong> Criterios de modelado, detección de anomalías y tendencias en tablas de suministros. <em>¿Por qué los LLM fallan sumando y cómo integrarlos con fórmulas determinísticas de Excel?</em>
+              </td>
+              <td class="col-resource"><code>caso-04-tabla-suministros-con-trampas.md</code></td>
+              <td class="col-deliverable"><span class="badge-milestone">Comparativa predictiva vs. generativa</span></td>
+            </tr>
+            <tr>
+              <td class="col-time">09:30 – 10:00</td>
+              <td class="col-topic">
+                <strong>El Reto de la Trampa de Datos (Auditoría Ciega):</strong> Identificación de 4 fallas críticas deliberadas en la tabla de compras CIMI: fecha inexistente (31/sep), multiplicación desfasada en $1M, código SKU duplicado y suma total distorsionada.
+              </td>
+              <td class="col-resource">Dataset de compras con trampas técnicas</td>
+              <td class="col-deliverable"><span class="badge-milestone">Hallazgos de auditoría de datos</span></td>
+            </tr>
+            <tr class="row-pause">
+              <td class="col-time">10:00 – 10:20</td>
+              <td colspan="3">☕ Pausa activa saludable y ergonómica (desconexión visual preventiva)</td>
+            </tr>
+            <tr>
+              <td class="col-time">10:20 – 12:30</td>
+              <td class="col-topic">
+                <strong>Protocolo Human-in-the-Loop (HITL) y Evidencia MG-A04:</strong> Formalización de la lista de chequeo de validación humana obligatoria previa a la firma o radicación de informes oficiales, presupuestales o contractuales.
+              </td>
+              <td class="col-resource">Estación <code>m04-validacion</code> en plataforma web</td>
+              <td class="col-deliverable"><span class="badge-artifact badge-artifact-blue">ARTEFACTO MG-A04</span><br><small>Evidencia de Desempeño</small></td>
+            </tr>
+            <tr class="row-lunch">
+              <td class="col-time">12:30 – 13:30</td>
+              <td colspan="3">🍽️ Receso de almuerzo oficial de clausura de jornadas intensivas</td>
+            </tr>
+            <tr>
+              <td class="col-time">13:30 – 15:30</td>
+              <td class="col-topic">
+                <strong>Taller de Consolidación del Informe Técnico Final:</strong> Medición cuantitativa de horas netas ahorradas por semana, % de reducción en tiempos de respuesta, controles de riesgo y plan de transferencia al puesto de trabajo.
+              </td>
+              <td class="col-resource"><code>plantilla-informe-productividad.md</code></td>
+              <td class="col-deliverable"><span class="badge-milestone">Borrador final de informe de impacto</span></td>
+            </tr>
+            <tr class="row-pause">
+              <td class="col-time">15:30 – 15:50</td>
+              <td colspan="3">☕ Pausa activa y verificación del dossier digital</td>
+            </tr>
+            <tr>
+              <td class="col-time">15:50 – 17:00</td>
+              <td class="col-topic">
+                <strong>Sustentación de Resultados y Evidencia MG-A05:</strong> Presentación relámpago individual (3 minutos) del caso de optimización administrativa intervenido, horas ahorradas y salvaguardas adoptadas.
+              </td>
+              <td class="col-resource">Estación <code>m05-cierre</code> y Dossier de Evidencias</td>
+              <td class="col-deliverable"><span class="badge-artifact badge-artifact-purple">ARTEFACTO MG-A05</span><br><small>Evidencia de Producto (Final)</small></td>
+            </tr>
+            <tr>
+              <td class="col-time">17:00 – 17:30</td>
+              <td class="col-topic">
+                <strong>Evaluación Final, Balance Pedagógico y Clausura:</strong> Diligenciamiento de la encuesta de satisfacción, balance de cumplimiento de RAPs y cierre institucional del curso en el Ambiente Redes CIMI.
+              </td>
+              <td class="col-resource">Encuesta oficial y acta de finalización</td>
+              <td class="col-deliverable"><span class="badge-milestone">Clausura y certificación SENA</span></td>
+            </tr>
+            <tr class="row-autonomous">
+              <td class="col-time">Post-taller (2h)</td>
+              <td class="col-topic">
+                <strong>Verificación y Empaquetado de Portafolio:</strong> Exportación del expediente consolidado de evidencias según nomenclatura canónica para la emisión de certificación.
+              </td>
+              <td class="col-resource">Plataforma SENA SofiaPlus / Territorium</td>
+              <td class="col-deliverable"><span class="badge-milestone">Portafolio digital 100% verificado</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Two Columns Summary Grid (Hours Balance & Deliverables) -->
+      <div class="two-col-grid">
+        
+        <!-- Hours Balance Card -->
+        <div class="summary-card">
+          <h3>1. Balance de Carga Horaria Curricular (48h)</h3>
+          <table class="schedule-table">
+            <thead>
+              <tr>
+                <th>Componente Formativo</th>
+                <th style="text-align: center;">Presencial</th>
+                <th style="text-align: center;">Autónomo</th>
+                <th style="text-align: center;">Total</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Día 1:</strong> M01 - Diagnóstico y Viabilidad</td>
+                <td style="text-align: center;">9 h</td>
+                <td style="text-align: center;">2 h</td>
+                <td style="text-align: center; font-weight: 700;">11 h</td>
+              </tr>
+              <tr>
+                <td><strong>Día 2:</strong> M02 - Prompting Blindado</td>
+                <td style="text-align: center;">9 h</td>
+                <td style="text-align: center;">2 h</td>
+                <td style="text-align: center; font-weight: 700;">11 h</td>
+              </tr>
+              <tr>
+                <td><strong>Día 3:</strong> M03 - Flujos Documentales</td>
+                <td style="text-align: center;">9 h</td>
+                <td style="text-align: center;">2 h</td>
+                <td style="text-align: center; font-weight: 700;">11 h</td>
+              </tr>
+              <tr>
+                <td><strong>Día 4:</strong> M04 y M05 - Auditoría y Cierre</td>
+                <td style="text-align: center;">9 h</td>
+                <td style="text-align: center;">2 h</td>
+                <td style="text-align: center; font-weight: 700;">11 h</td>
+              </tr>
+              <tr>
+                <td><strong>Evaluación y Sustentación:</strong> En jornada</td>
+                <td style="text-align: center;">4 h (incl.)</td>
+                <td style="text-align: center;">-</td>
+                <td style="text-align: center; font-weight: 700;">4 h</td>
+              </tr>
+              <tr style="background: #e0f2fe; font-weight: 800; color: #0c4a6e;">
+                <td>TOTAL CURRICULAR (21720210 V1)</td>
+                <td style="text-align: center;">40 h</td>
+                <td style="text-align: center;">8 h</td>
+                <td style="text-align: center;">48 HORAS</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Deliverables Matrix Card -->
+        <div class="summary-card">
+          <h3>2. Matriz Oficial de Entregables SSoT</h3>
+          <table class="schedule-table">
+            <thead>
+              <tr>
+                <th>Código</th>
+                <th>Nombre del Artefacto</th>
+                <th>Tipo Evidencia</th>
+                <th>Criterio Evaluado</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><span class="badge-artifact">MG-A01</span></td>
+                <td>Matriz de Diagnóstico y Viabilidad</td>
+                <td>Conocimiento</td>
+                <td>Clasifica procesos y salvaguardas</td>
+              </tr>
+              <tr>
+                <td><span class="badge-artifact badge-artifact-purple">MG-A02</span></td>
+                <td>Catálogo de Prompts y Decálogo</td>
+                <td>Producto</td>
+                <td>Estructura R-C-I-R-S y directivas</td>
+              </tr>
+              <tr>
+                <td><span class="badge-artifact badge-artifact-blue">MG-A03</span></td>
+                <td>Pipeline de Gestión Documental</td>
+                <td>Desempeño</td>
+                <td>Extracción de actas y PQRS</td>
+              </tr>
+              <tr>
+                <td><span class="badge-artifact badge-artifact-blue">MG-A04</span></td>
+                <td>Auditoría de Datos y Protocolo HITL</td>
+                <td>Desempeño</td>
+                <td>Detección de errores y validación</td>
+              </tr>
+              <tr>
+                <td><span class="badge-artifact badge-artifact-purple">MG-A05</span></td>
+                <td>Informe de Optimización y Sustentación</td>
+                <td>Producto</td>
+                <td>Métricas de ahorro y transferencia</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+      </div>
+
+      <!-- Institutional Signatures & Endorsement Box -->
+      <div class="signatures-box">
+        <div class="signatures-title">Aval Institucional y Responsabilidad Académica del Programa</div>
+        <div class="signatures-grid">
+          <div class="sig-slot">
+            <div class="sig-line"></div>
+            <div class="sig-role">Instructor Técnico Líder</div>
+            <div class="sig-entity">Área TIC / Redes CIMI Girón</div>
+          </div>
+          <div class="sig-slot">
+            <div class="sig-line"></div>
+            <div class="sig-role">Coordinación Académica</div>
+            <div class="sig-entity">CIMI · Regional Santander</div>
+          </div>
+          <div class="sig-slot">
+            <div class="sig-line"></div>
+            <div class="sig-role">Subdirección de Centro</div>
+            <div class="sig-entity">Centro Ind. del Mant. Integral</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Page 3 Footer -->
+      <footer class="page-footer">
+        <span>SENA CIMI Girón · Código 21720210 V1 · Certificación Oficial Complementaria</span>
+        <span>Aprobado para Ejecución en Redes CIMI · Noviembre 2026</span>
+        <span>Página 3 de 3</span>
+      </footer>
+
+    </section>
+
+  </div>
+
+</body>
+</html>

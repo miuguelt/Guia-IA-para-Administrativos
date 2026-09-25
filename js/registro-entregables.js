@@ -1,0 +1,373 @@
+/* Archivo generado por Publish-GuideEvidenceRegistry.ps1. No editar a mano.
+ *
+ * Fuente única: deliverables.registry.json, en la raíz de esta guía. Esta copia
+ * existe solo para que las estaciones de evidencia funcionen cuando la guía se
+ * abre con file:// desde un USB, donde fetch está bloqueado. Si editas el JSON,
+ * vuelve a ejecutar el script; el validador reporta la deriva.
+ */
+window.DevBrainRegistroEntregables = {
+  "version": "2.4.0",
+  "standard": "devbrain.educational-guide",
+  "guideId": "cimi-ia-administrativos-21720210",
+  "status": "ready",
+  "sourceStatus": "Documentación y ejercicios completos para el curso intensivo 21720210 V1 en Redes CIMI.",
+  "portfolioTemplate": "docs/evidencias-template.md",
+  "submission": {
+    "packageName": "EV-CIMI-IA-ADMINISTRATIVOS-21720210",
+    "namingRule": "EV-IA-ADMIN-<ficha>-<primerApellido><primerNombre>.zip",
+    "format": "Repositorio Git o carpeta comprimida con informe técnico, portafolio de evidencias y anexos de pruebas.",
+    "where": "Plataforma institucional LMS SENA y portafolio verificado por el instructor en Ambiente Redes CIMI.",
+    "whatIsGraded": "Rigor en la aplicación del criterio administrativo, ausencia de alucinaciones no detectadas, estructuración técnica de prompts R-C-I-R-S, mitigación de riesgos y cuantificación veraz de productividad.",
+    "approval": [
+      "Las 5 evidencias están completas y debidamente diligenciadas en el portafolio.",
+      "Se aplicó el protocolo Human-in-the-Loop y se detectaron las trampas deliberadas del dataset.",
+      "Los prompts siguen la arquitectura R-C-I-R-S y previenen la deriva contextual.",
+      "Se demuestra cumplimiento estricto de la Ley 1581 de 2012 (Habeas Data).",
+      "El informe final cuantifica con rigor el ahorro de tiempo y el impacto en productividad."
+    ],
+    "competencyMap": [
+      {
+        "evidenceType": "conocimiento",
+        "artifacts": [
+          "MG-A01"
+        ],
+        "criterion": "Evalúa y clasifica procesos administrativos determinando viabilidad técnica de IA y salvaguardas de confidencialidad.",
+        "instrument": "Lista de chequeo técnica de viabilidad",
+        "learningResult": "RA1"
+      },
+      {
+        "evidenceType": "producto",
+        "artifacts": [
+          "MG-A02",
+          "MG-A05"
+        ],
+        "criterion": "Diseña prompts blindados sin deriva y consolida el informe técnico final de optimización con métricas de productividad.",
+        "instrument": "Rúbrica de producto e informe técnico",
+        "learningResult": "RA2"
+      },
+      {
+        "evidenceType": "desempeño",
+        "artifacts": [
+          "MG-A03",
+          "MG-A04"
+        ],
+        "criterion": "Ejecuta flujos documentales asistidos y audita datasets complejos aplicando el protocolo Human-in-the-Loop.",
+        "instrument": "Rúbrica de desempeño y auditoría forense",
+        "learningResult": "RA1"
+      }
+    ]
+  },
+  "artifacts": [
+    {
+      "id": "MG-A01",
+      "code": "MG-DIAGNOSTICO",
+      "name": "Diagnóstico de Procesos y Matriz de Viabilidad de IA",
+      "purpose": "Identificar cuellos de botella en la gestión administrativa y evaluar la viabilidad técnica y ética de aplicar IA frente a reglas tradicionales.",
+      "inputs": [
+        "docs/ejercicios/caso-01-procesos-redes-cimi.md",
+        "docs/01-fundamentos.md"
+      ],
+      "instructions": "Analice los 8 procesos del CIMI o seleccione uno de su puesto de trabajo. Diligencie la matriz de viabilidad clasificando tipo de tecnología, riesgos de confidencialidad (Ley 1581) y línea base de tiempo.",
+      "example": "Proceso: Radicación de PQRS. Viabilidad: Alta para IA Generativa. Riesgo: Datos sensibles de aprendices. Salvaguarda: Anonimización previa y aprobación humana antes de enviar respuesta.",
+      "station": {
+        "sectionId": "m01-fundamentos",
+        "order": 1,
+        "phase": "reflection",
+        "minutes": 360
+      },
+      "evidenceType": "conocimiento",
+      "fields": [
+        {
+          "key": "proceso_seleccionado",
+          "label": "Proceso Administrativo Seleccionado",
+          "type": "text",
+          "hint": "Nombre del trámite, dependencia y objetivo operativo."
+        },
+        {
+          "key": "matriz_viabilidad",
+          "label": "Matriz de Viabilidad y Clasificación Tecnológica",
+          "type": "area",
+          "hint": "Justificación de por qué requiere IA Generativa, Predictiva o Automatización tradicional."
+        },
+        {
+          "key": "analisis_riesgo_ley1581",
+          "label": "Análisis de Confidencialidad y Habeas Data",
+          "type": "area",
+          "hint": "Declaración de datos sensibles y protocolo de sanitización previa."
+        },
+        {
+          "key": "metrica_linea_base",
+          "label": "Línea Base de Productividad (Tiempo actual manual)",
+          "type": "text",
+          "hint": "Horas semanales dedicadas actualmente y principales dolores operativos."
+        }
+      ],
+      "checklist": [
+        "Identifica entradas, operaciones manuales y salidas del proceso.",
+        "Clasifica correctamente la tecnología adecuada (Regla, IA Generativa, IA Predictiva o Manual).",
+        "Declara la política de sanitización y confidencialidad según Ley 1581 de 2012.",
+        "Establece la línea base de tiempo actual invertido en la tarea."
+      ],
+      "criterion": "La matriz de viabilidad diagnostica con rigor técnico y ético la aplicabilidad de herramientas de IA en el proceso administrativo.",
+      "instrument": "Lista de chequeo técnica de viabilidad",
+      "evidence": "docs/01-fundamentos.md",
+      "nextStep": "Continúa con la estación 02 para diseñar prompts blindados.",
+      "aiAssist": {
+        "prompt": "Ayuda a mapear el flujo de entrada, proceso y salida del trámite administrativo sin inventar datos confidenciales.",
+        "verify": "Contrasta que la solución no delegue cálculos contables puros a un LLM sin salvaguardas.",
+        "log": "Interacción registrada en la bitácora del aprendiz en Redes CIMI."
+      },
+      "upload": {
+        "fileName": "01-fundamentos.md",
+        "format": "markdown"
+      }
+    },
+    {
+      "id": "MG-A02",
+      "code": "MG-PROMPTS",
+      "name": "Catálogo de Prompts Blindados y Decálogo Anti-Deriva",
+      "purpose": "Construir instrucciones profesionales en 5 capas (R-C-I-R-S) con delimitadores y directivas negativas para evitar la pérdida de rumbo y las alucinaciones.",
+      "inputs": [
+        "docs/02-diseno.md",
+        "docs/guia-seguridad-y-riesgos-ia.md",
+        "docs/ejercicios/caso-02-dataset-pqrs-desordenadas.md"
+      ],
+      "instructions": "Diseñe 3 prompts maestros estructurados para tareas de su dependencia. Ejecute pruebas de estrés con textos confusos y compruebe que la IA no invente datos ni pierda el rumbo.",
+      "example": "[ROL] Gestor Documental SENA. [CONTEXTO] Respuestas a peticiones de aprendices. [INSTRUCCIÓN] Extraer datos en tabla. [RESTRICCIONES] Si no consta, escribe NO CONSTA. [SALIDA] Tabla Markdown.",
+      "station": {
+        "sectionId": "m02-diseno",
+        "order": 2,
+        "phase": "contextualization",
+        "minutes": 600
+      },
+      "evidenceType": "producto",
+      "fields": [
+        {
+          "key": "prompt_maestro_rcirs",
+          "label": "Catálogo de 3 Prompts Blindados (R-C-I-R-S)",
+          "type": "area",
+          "hint": "Incluya los componentes exactos de Rol, Contexto, Instrucción, Restricciones y Salida."
+        },
+        {
+          "key": "pruebas_de_estres",
+          "label": "Registro de Pruebas de Estrés y Anti-Alucinación",
+          "type": "area",
+          "hint": "Demostración de cómo las directivas negativas evitaron la invención de normativas o datos."
+        },
+        {
+          "key": "protocolo_anti_deriva",
+          "label": "Protocolo Operativo contra la Deriva Contextual",
+          "type": "area",
+          "hint": "Acciones operativas (regla de nueva sesión, ventana de contexto limpia) para mantener el rumbo."
+        }
+      ],
+      "checklist": [
+        "Estructura prompts en 5 capas: Rol, Contexto, Instrucción, Restricciones y Salida.",
+        "Emplea delimitadores claros (triple comilla o etiquetas XML) para aislar datos de instrucciones.",
+        "Incluye directivas de respuesta cerrada para evitar alucinaciones ('Si no consta, responde NO CONSTA').",
+        "Documenta la regla de nueva sesión para evitar la degradación de contexto en chats extensos."
+      ],
+      "criterion": "Los prompts blindados garantizan respuestas exactas, acotadas y libres de alucinaciones en el entorno administrativo.",
+      "instrument": "Rúbrica de producto e ingeniería de prompts",
+      "evidence": "docs/02-diseno.md",
+      "nextStep": "Continúa con la estación 03 para automatizar el tratamiento documental.",
+      "aiAssist": {
+        "prompt": "Audita la estructura del prompt para detectar instrucciones ambiguas o vulnerabilidades a alucinación.",
+        "verify": "Comprueba que existan restricciones explícitas de veracidad fáctica.",
+        "log": "Interacción registrada en la bitácora del aprendiz en Redes CIMI."
+      },
+      "upload": {
+        "fileName": "02-diseno.md",
+        "format": "markdown"
+      }
+    },
+    {
+      "id": "MG-A03",
+      "code": "MG-PIPELINE-DOC",
+      "name": "Pipeline Asistido de Gestión Documental y Extracción",
+      "purpose": "Implementar un flujo de extracción estructurada sobre actas extensas y clasificación masiva de PQRS respetando los términos de ley y el debido proceso.",
+      "inputs": [
+        "docs/03-implementacion.md",
+        "docs/ejercicios/caso-02-dataset-pqrs-desordenadas.md",
+        "docs/ejercicios/caso-03-acta-reunion-caotica.md"
+      ],
+      "instructions": "Ejecute el procesamiento del acta caótica y del lote de 5 PQRS. Obtenga la tabla de compromisos, la clasificación de PQRS y redacte un borrador formal en tono SENA.",
+      "example": "Acta procesada: 7 compromisos extraídos con responsables directos sin confundir tareas. PQRS-002 clasificada como queja grave con traslado a Comité.",
+      "station": {
+        "sectionId": "m03-implementacion",
+        "order": 3,
+        "phase": "appropriation",
+        "minutes": 600
+      },
+      "evidenceType": "desempeño",
+      "fields": [
+        {
+          "key": "acta_compromisos_extraida",
+          "label": "Tabla de Compromisos Extraída del Caso 03",
+          "type": "area",
+          "hint": "Tabla Markdown con columnas: No., Tarea, Responsable Exacto, Fecha Límite, Precondición."
+        },
+        {
+          "key": "matriz_clasificacion_pqrs",
+          "label": "Matriz de Clasificación del Lote de PQRS (Caso 02)",
+          "type": "area",
+          "hint": "ID, Remitente Anonimizado, Tipología, Dependencia Destino, Plazo Ley 1755, Estado."
+        },
+        {
+          "key": "borrador_respuesta_sena",
+          "label": "Borrador de Comunicación Formal SENA",
+          "type": "area",
+          "hint": "Texto formal e institucional para el caso crítico seleccionado."
+        },
+        {
+          "key": "tiempo_medido_vs_manual",
+          "label": "Medición de Productividad en el Flujo",
+          "type": "text",
+          "hint": "Tiempo manual estimado vs. Tiempo real con pipeline asistido."
+        }
+      ],
+      "checklist": [
+        "Extrae la totalidad de compromisos y responsables directos del acta sin omisiones.",
+        "No confunde los responsables asignados durante la reunión.",
+        "Clasifica las 5 PQRS respetando los términos perentorios de la Ley 1755 de 2015.",
+        "Genera el borrador formal respetando el tono institucional SENA."
+      ],
+      "criterion": "Demuestra desempeño eficiente y preciso en la normalización de información administrativa no estructurada.",
+      "instrument": "Rúbrica de desempeño en flujos documentales",
+      "evidence": "docs/03-implementacion.md",
+      "nextStep": "Continúa con la estación 04 para auditar datos numéricos y aplicar el protocolo HITL.",
+      "aiAssist": {
+        "prompt": "Verifica que en la tabla de compromisos no se haya omitido la llamada a los instructores ni la entrega de cable UTP.",
+        "verify": "Contrasta contra la transcripción original del Caso 03.",
+        "log": "Interacción registrada en la bitácora del aprendiz en Redes CIMI."
+      },
+      "upload": {
+        "fileName": "03-implementacion.md",
+        "format": "markdown"
+      }
+    },
+    {
+      "id": "MG-A04",
+      "code": "MG-AUDITORIA-HITL",
+      "name": "Auditoría de Datos, Detección de Errores y Protocolo HITL",
+      "purpose": "Auditar tablas administrativas complejas identificando inconsistencias aritméticas y trampas de catálogo, aplicando el protocolo Human-in-the-Loop obligatorio.",
+      "inputs": [
+        "docs/04-validacion.md",
+        "docs/ejercicios/caso-04-tabla-suministros-con-trampas.md"
+      ],
+      "instructions": "Analice la tabla de compras del Caso 04. Identifique los 4 errores deliberados, compare los resultados de la IA con fórmulas de hoja de cálculo y formalice su checklist HITL.",
+      "example": "Trampa identificada en ítem 4: 2 switches a $2.850.000 dan $5.700.000, pero se facturó $4.700.000. Desfase de $1.000.000 COP detectado por auditoría humana.",
+      "station": {
+        "sectionId": "m04-validacion",
+        "order": 4,
+        "phase": "appropriation",
+        "minutes": 600
+      },
+      "evidenceType": "desempeño",
+      "fields": [
+        {
+          "key": "tabla_errores_detectados",
+          "label": "Matriz de Novedades y Errores Detectados (Caso 04)",
+          "type": "area",
+          "hint": "Detalle de los 4 errores: multiplicación, total, fecha 31/sep y SKU duplicado."
+        },
+        {
+          "key": "contraste_excel_vs_ia",
+          "label": "Análisis Crítico: LLMs vs. Hojas de Cálculo",
+          "type": "area",
+          "hint": "Explicación de por qué la IA falló o aceptó la tabla y cómo las fórmulas de Excel aseguraron la verdad fáctica."
+        },
+        {
+          "key": "checklist_hitl_puesto",
+          "label": "Lista de Chequeo Human-in-the-Loop Formalizada",
+          "type": "area",
+          "hint": "Los 5 pasos de comprobación previa antes de firmar cualquier reporte financiero o de gestión."
+        }
+      ],
+      "checklist": [
+        "Identifica las 4 trampas deliberadas del dataset de compras (multiplicación, total, fecha 31/sep y SKU).",
+        "Demuestra por qué la IA generativa puede errar en cálculos y cómo contrastar con hojas de cálculo.",
+        "Formaliza la lista de chequeo Human-in-the-Loop antes de emitir o firmar documentos oficiales.",
+        "Formula un ejercicio de análisis predictivo sobre demanda de consumibles."
+      ],
+      "criterion": "Aplica criterio riguroso y control de calidad sobre datos numéricos sin delegar decisiones financieras ciegamente a la IA.",
+      "instrument": "Rúbrica de auditoría forense de datos",
+      "evidence": "docs/04-validacion.md",
+      "nextStep": "Continúa con la estación 05 para consolidar el informe final y sustentar.",
+      "aiAssist": {
+        "prompt": "Simula el rol de auditor exigente que cuestiona cada número para forzar la verificación cruzada en Excel.",
+        "verify": "Confirma que el total corregido sume exactamente $14.113.000 COP.",
+        "log": "Interacción registrada en la bitácora del aprendiz en Redes CIMI."
+      },
+      "upload": {
+        "fileName": "04-validacion.md",
+        "format": "markdown"
+      }
+    },
+    {
+      "id": "MG-A05",
+      "code": "MG-INFORME-CIERRE",
+      "name": "Informe Técnico de Optimización y Transferencia Productiva",
+      "purpose": "Consolidar el informe técnico final que cuantifica el impacto real en productividad, documenta las salvaguardas de gobernanza de riesgos y sella la transferencia al puesto.",
+      "inputs": [
+        "docs/05-cierre.md",
+        "docs/ejercicios/plantilla-informe-productividad.md",
+        "docs/evidencias-template.md"
+      ],
+      "instructions": "Complete el informe técnico final con base en la plantilla oficial. Cuantifique horas ahorradas, documente la política anti-daño y realice la sustentación relámpago de 3 minutos.",
+      "example": "Ahorro demostrado: 15.3 horas semanales por funcionario. Proyección anual: 734 horas recuperadas para atención misional. Cero incidentes de fuga de datos.",
+      "station": {
+        "sectionId": "m05-cierre",
+        "order": 5,
+        "phase": "transfer",
+        "minutes": 720
+      },
+      "evidenceType": "producto",
+      "fields": [
+        {
+          "key": "informe_tecnico_completo",
+          "label": "Informe Técnico de Optimización con IA",
+          "type": "area",
+          "hint": "Texto consolidado siguiendo la plantilla oficial de productividad."
+        },
+        {
+          "key": "cuantificacion_ahorro_horas",
+          "label": "Matriz Cuantitativa de Ahorro y ROI de Tiempo",
+          "type": "area",
+          "hint": "Indicadores de antes vs. después, horas netas ahorradas semanal y anualmente."
+        },
+        {
+          "key": "protocolo_gobernanza_riesgos",
+          "label": "Protocolo de Salvaguarda de Archivos y Datos (Ley 1581)",
+          "type": "area",
+          "hint": "Medidas contra la sobreescritura, trabajo en copias locales y no exposición de PII."
+        },
+        {
+          "key": "compromiso_transferencia",
+          "label": "Compromiso de Aplicación en el Puesto de Trabajo",
+          "type": "area",
+          "hint": "Plan de acción a implementar desde el lunes siguiente en el Centro CIMI."
+        }
+      ],
+      "checklist": [
+        "Presenta el informe técnico final estructurado con métricas de productividad cuantificadas.",
+        "Documenta el cálculo del ahorro de tiempo semanal y proyectado anual.",
+        "Declara los protocolos implementados para evitar daño a archivos importantes y fuga de información.",
+        "Realiza la sustentación relámpago de 3 minutos en el Ambiente Redes CIMI."
+      ],
+      "criterion": "El informe final evidencia de forma verificable la mejora en productividad y el dominio de criterios de seguridad y gobernanza con IA.",
+      "instrument": "Rúbrica de evaluación del informe técnico de optimización",
+      "evidence": "docs/05-cierre.md",
+      "nextStep": "Consolidación final del portafolio digital y emisión de concepto pedagógico.",
+      "aiAssist": {
+        "prompt": "Ayuda a pulir la redacción ejecutiva del informe técnico sin exagerar los beneficios ni ocultar las limitaciones.",
+        "verify": "Revisa que los cálculos de horas ahorradas sean coherentes con la jornada laboral semanal.",
+        "log": "Interacción registrada en la bitácora del aprendiz en Redes CIMI."
+      },
+      "upload": {
+        "fileName": "05-cierre.md",
+        "format": "markdown"
+      }
+    }
+  ]
+};

@@ -1,0 +1,563 @@
+<!doctype html>
+<html lang="es-CO">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Optimización de la Productividad con IA · Redes CIMI (21720210 V1)</title>
+  <link rel="stylesheet" href="css/vendor/devbrain-learner-sdk.css">
+  <link rel="stylesheet" href="css/vendor/devbrain-evidence.css">
+  <style>
+    :root {
+      --primary: #075985;
+      --primary-dark: #0c4a6e;
+      --secondary: #0284c7;
+      --accent: #059669;
+      --warning: #d97706;
+      --danger: #dc2626;
+      --bg-page: #f8fafc;
+      --bg-card: #ffffff;
+      --text-main: #0f172a;
+      --text-muted: #475569;
+      --border-color: #cbd5e1;
+    }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+      background-color: var(--bg-page);
+      color: var(--text-main);
+      line-height: 1.6;
+      padding: clamp(1rem, 3vw, 2.5rem);
+    }
+    .container {
+      max-width: 76rem;
+      margin: 0 auto;
+    }
+    header.site-header {
+      background: linear-gradient(135deg, #0f172a 0%, #075985 100%);
+      color: #ffffff;
+      padding: 2.25rem 2rem;
+      border-radius: 1rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    }
+    .header-badge {
+      display: inline-block;
+      background: rgba(255, 255, 255, 0.18);
+      color: #ffffff;
+      padding: 0.35rem 0.85rem;
+      border-radius: 9999px;
+      font-size: 0.825rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin-bottom: 0.75rem;
+    }
+    .site-header h1 {
+      font-size: clamp(1.6rem, 3.2vw, 2.3rem);
+      font-weight: 800;
+      line-height: 1.25;
+      margin-bottom: 0.75rem;
+    }
+    .site-header p.lead {
+      font-size: 1.05rem;
+      color: #e0f2fe;
+      max-width: 62rem;
+      margin-bottom: 1.25rem;
+    }
+    .meta-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 0.85rem;
+      margin-top: 1.25rem;
+      padding-top: 1.25rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    .meta-item {
+      background: rgba(255, 255, 255, 0.08);
+      padding: 0.65rem 0.9rem;
+      border-radius: 0.5rem;
+    }
+    .meta-label {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      color: #bae6fd;
+      font-weight: 600;
+    }
+    .meta-value {
+      font-size: 0.925rem;
+      font-weight: 700;
+      color: #ffffff;
+    }
+    .banner-alert {
+      background-color: #fffbeb;
+      border-left: 5px solid var(--warning);
+      color: #92400e;
+      padding: 1.25rem 1.5rem;
+      border-radius: 0.75rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    }
+    .banner-alert h3 {
+      font-size: 1.1rem;
+      margin-bottom: 0.4rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .banner-alert p {
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+    .quick-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-bottom: 2rem;
+    }
+    .btn-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: var(--bg-card);
+      color: var(--primary);
+      text-decoration: none;
+      padding: 0.6rem 1.1rem;
+      border: 1px solid var(--border-color);
+      border-radius: 0.5rem;
+      font-weight: 600;
+      font-size: 0.9rem;
+      transition: all 0.2s ease;
+    }
+    .btn-link:hover {
+      background: #f0f9ff;
+      border-color: var(--primary);
+      color: var(--primary-dark);
+    }
+    .schedule-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 0.85rem;
+      padding: 1.5rem;
+      margin-bottom: 2.25rem;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.03);
+    }
+    .schedule-card h2 {
+      font-size: 1.35rem;
+      color: var(--primary-dark);
+      margin-bottom: 1rem;
+    }
+    .schedule-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.9rem;
+    }
+    .schedule-table th, .schedule-table td {
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border-color);
+      text-align: left;
+    }
+    .schedule-table th {
+      background: #f1f5f9;
+      color: var(--text-main);
+      font-weight: 700;
+    }
+    .schedule-table tr:hover {
+      background: #f8fafc;
+    }
+    .station {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 0.85rem;
+      padding: 1.75rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+    }
+    .station-header {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 0.5rem;
+      margin-bottom: 0.85rem;
+      border-bottom: 2px solid #e2e8f0;
+      padding-bottom: 0.75rem;
+    }
+    .station-header h2 {
+      font-size: 1.35rem;
+      color: var(--primary);
+      font-weight: 700;
+    }
+    .station-badge {
+      display: inline-block;
+      font-size: 0.8rem;
+      padding: 0.25rem 0.65rem;
+      border-radius: 9999px;
+      font-weight: 600;
+      background: #e0f2fe;
+      color: #0369a1;
+    }
+    .station-desc {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      margin-bottom: 1.25rem;
+    }
+    .station-resources {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 0.5rem;
+      padding: 0.85rem 1.15rem;
+      margin-bottom: 1.25rem;
+      font-size: 0.875rem;
+    }
+    .station-resources a {
+      color: var(--primary);
+      font-weight: 600;
+      text-decoration: underline;
+    }
+    #evidence-dossier {
+      background: #ffffff;
+      border: 2px solid var(--primary);
+      border-radius: 0.85rem;
+      padding: 2rem;
+      margin-top: 3rem;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    }
+    #evidence-dossier h2 {
+      font-size: 1.5rem;
+      color: var(--primary-dark);
+      margin-bottom: 0.5rem;
+    }
+    .challenge-steps {
+      margin-bottom: 1.5rem;
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 0.5rem;
+      overflow: hidden;
+    }
+    .challenge-steps summary {
+      background: #f1f5f9;
+      padding: 0.85rem 1.15rem;
+      font-weight: 600;
+      color: var(--primary-dark);
+      cursor: pointer;
+      user-select: none;
+      list-style: none;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .challenge-steps summary::-webkit-details-marker {
+      display: none;
+    }
+    .challenge-steps summary::after {
+      content: '+';
+      font-size: 1.25rem;
+      color: var(--primary);
+    }
+    .challenge-steps[open] summary::after {
+      content: '−';
+    }
+    .steps-content {
+      padding: 1.25rem 1.5rem;
+      font-size: 0.95rem;
+      color: var(--text-main);
+    }
+    .steps-content ol {
+      padding-left: 1.5rem;
+    }
+    .steps-content li {
+      margin-bottom: 0.75rem;
+    }
+    .steps-content li::marker {
+      font-weight: 700;
+      color: var(--primary);
+    }
+    footer.site-footer {
+      text-align: center;
+      margin-top: 3rem;
+      padding: 2rem;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      border-top: 1px solid var(--border-color);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header class="site-header">
+      <span class="header-badge">SENA · Regional Santander · Centro CIMI Girón</span>
+      <h1>Curso 1: Implementación de herramientas de IA en la optimización de la productividad</h1>
+      <p class="lead">Programa de formación intensiva de 48 horas orientado a directivos, coordinadores y personal administrativo para multiplicar su productividad con criterio técnico, control de riesgos y protocolos anti-alucinación.</p>
+      
+      <div class="meta-grid">
+        <div class="meta-item">
+          <div class="meta-label">Código y Versión</div>
+          <div class="meta-value">21720210 V1</div>
+        </div>
+        <div class="meta-item">
+          <div class="meta-label">Duración Curricular</div>
+          <div class="meta-value">48 horas (40h ambiente + 8h autónomas)</div>
+        </div>
+        <div class="meta-item">
+          <div class="meta-label">Fechas Oficiales</div>
+          <div class="meta-value">03 al 06 de noviembre de 2026</div>
+        </div>
+        <div class="meta-item">
+          <div class="meta-label">Horario de Jornada</div>
+          <div class="meta-value">Martes a viernes: 7:30 a. m. a 5:30 p. m.</div>
+        </div>
+        <div class="meta-item">
+          <div class="meta-label">Ambiente de Formación</div>
+          <div class="meta-value">Redes CIMI (Girón, Santander)</div>
+        </div>
+        <div class="meta-item">
+          <div class="meta-label">Competencia SENA</div>
+          <div class="meta-value">220501094 (Propuesta Técnica TI)</div>
+        </div>
+      </div>
+    </header>
+
+    <div class="banner-alert">
+      <h3>Principio Rector: El Criterio Administrativo Frente a la IA</h3>
+      <p>La Inteligencia Artificial es un multiplicador de velocidad, pero no piensa ni asume responsabilidad legal. El administrativo debe comprender que <strong>la información puede perder el rumbo (deriva contextual), alucinar datos falsos o violar la confidencialidad (Ley 1581 de 2012)</strong>. Ningún documento o tabla sale sin la verificación del protocolo <strong>Human-in-the-Loop</strong> y la protección de los archivos originales mediante la regla del sandbox.</p>
+    </div>
+
+    <nav class="quick-links" aria-label="Enlaces rápidos de formación">
+      <a class="btn-link" href="cronograma-oficial-48h.pdf" download="Cronograma_Oficial_IA_Productividad_SENA_CIMI.pdf" style="background: #075985; color: #ffffff; border-color: #075985;">📥 Descargar Cronograma en PDF</a>
+      <a class="btn-link" href="cronograma-oficial-48h.html" target="_blank">🖨️ Cronograma Completo Imprimible</a>
+      <a class="btn-link" href="docs/guia-creacion-gemas-administrativas-sena.md" target="_blank">⭐ Manual Maestro de Creación de GEMAS</a>
+      <a class="btn-link" href="docs/cronograma-detallado.md" target="_blank">Consultar Cronograma en Markdown</a>
+      <a class="btn-link" href="docs/guia-seguridad-y-riesgos-ia.md" target="_blank">Guía de Seguridad y Riesgos</a>
+      <a class="btn-link" href="docs/ejercicios/caso-01-procesos-redes-cimi.md" target="_blank">Caso 01: Procesos CIMI</a>
+      <a class="btn-link" href="docs/ejercicios/caso-02-dataset-pqrs-desordenadas.md" target="_blank">Caso 02: PQRS Complejas</a>
+      <a class="btn-link" href="docs/ejercicios/caso-03-acta-reunion-caotica.md" target="_blank">Caso 03: Acta Caótica</a>
+      <a class="btn-link" href="docs/ejercicios/caso-04-tabla-suministros-con-trampas.md" target="_blank">Caso 04: Auditoría de Compras</a>
+      <a class="btn-link" href="docs/ejercicios/plantilla-informe-productividad.md" target="_blank">Plantilla de Informe Final</a>
+    </nav>
+
+    <section class="schedule-card">
+      <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.75rem; margin-bottom: 1rem;">
+        <h2 style="margin-bottom: 0;">Cronograma Definitivo de Formación (Redes CIMI)</h2>
+        <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+          <a class="btn-link" href="cronograma-oficial-48h.pdf" download="Cronograma_Oficial_IA_Productividad_SENA_CIMI.pdf" style="background: #39a900; color: #ffffff; border-color: #39a900; font-size: 0.85rem; padding: 0.45rem 0.9rem;">📥 Descargar PDF Oficial (48h)</a>
+          <a class="btn-link" href="cronograma-oficial-48h.html" target="_blank" style="font-size: 0.85rem; padding: 0.45rem 0.9rem;">🖨️ Ver Formato Imprimible</a>
+        </div>
+      </div>
+      <table class="schedule-table">
+        <thead>
+          <tr>
+            <th>Día / Fecha</th>
+            <th>Módulo y Temática Central</th>
+            <th>Estación</th>
+            <th>Artefacto Entregable</th>
+            <th>Horas</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Martes 03 Nov 2026</strong><br>07:30 a. m. - 05:30 p. m.</td>
+            <td>Diagnóstico de Procesos, Mapeo de Flujos y Matriz de Viabilidad para IA</td>
+            <td>01 · Fundamentos</td>
+            <td>MG-A01: Matriz de Viabilidad</td>
+            <td>11 h (9h pres + 2h aut)</td>
+          </tr>
+          <tr>
+            <td><strong>Miércoles 04 Nov 2026</strong><br>07:30 a. m. - 05:30 p. m.</td>
+            <td>Arquitectura de Prompting Seguro (R-C-I-R-S), Prevención de Deriva y Anti-Alucinación</td>
+            <td>02 · Diseño</td>
+            <td>MG-A02: Prompts Blindados</td>
+            <td>11 h (9h pres + 2h aut)</td>
+          </tr>
+          <tr>
+            <td><strong>Jueves 05 Nov 2026</strong><br>07:30 a. m. - 05:30 p. m.</td>
+            <td>Automatización de Flujos Documentales y Tratamiento de Información No Estructurada (PQRS y Actas)</td>
+            <td>03 · Implementación</td>
+            <td>MG-A03: Pipeline Asistido</td>
+            <td>11 h (9h pres + 2h aut)</td>
+          </tr>
+          <tr>
+            <td><strong>Viernes 06 Nov 2026 (Mañana)</strong><br>07:30 a. m. - 12:30 p. m.</td>
+            <td>Auditoría Forense de Datos, Detección de Errores e IA Predictiva con Protocolo HITL</td>
+            <td>04 · Validación</td>
+            <td>MG-A04: Auditoría y Checklist</td>
+            <td>5 h presenciales</td>
+          </tr>
+          <tr>
+            <td><strong>Viernes 06 Nov 2026 (Tarde)</strong><br>01:30 p. m. - 05:30 p. m.</td>
+            <td>Consolidación del Informe Técnico Final, Cuantificación de Ahorro y Sustentación Relámpago</td>
+            <td>05 · Cierre</td>
+            <td>MG-A05: Informe de Optimización</td>
+            <td>10 h (4h pres + 6h cierre)</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <main>
+      <!-- Estación 01 -->
+      <section id="m01-fundamentos" class="station">
+        <div class="station-header">
+          <h2>01 · Fundamentos y Diagnóstico de Procesos</h2>
+          <span class="station-badge">Día 1 · Martes 03 Nov · RAP 1 (Conocimiento)</span>
+        </div>
+        <p class="station-desc">Mapeo de tareas administrativas repetitivas, cuellos de botella y evaluación del criterio de viabilidad: ¿cuándo usar IA y cuándo emplear macros, reglas o procesos manuales?</p>
+        <div class="station-resources">
+          Recursos de la estación: <a href="docs/01-fundamentos.md">Guía temática completa</a> | <a href="docs/ejercicios/caso-01-procesos-redes-cimi.md">Caso 01: Procesos de Redes CIMI</a>
+        </div>
+        
+        <details class="challenge-steps">
+          <summary>Ver paso a paso del reto (Evidencia MG-A01)</summary>
+          <div class="steps-content">
+            <ol>
+              <li><strong>Descargar y leer</strong> el "Caso 01: Procesos de Redes CIMI" desde los enlaces de arriba.</li>
+              <li><strong>Analizar</strong> los 8 procesos administrativos reales descritos, prestando atención a su volumen y dolor principal.</li>
+              <li><strong>Clasificar</strong> cada proceso usando la Matriz de Viabilidad para determinar si se beneficia de IA, o de soluciones de software tradicional.</li>
+              <li><strong>Documentar</strong> la justificación técnica en una hoja de cálculo o documento equivalente.</li>
+              <li><strong>Subir</strong> el documento final usando el panel de evidencias a continuación.</li>
+            </ol>
+          </div>
+        </details>
+
+        <div data-db-evidence="MG-A01"></div>
+      </section>
+
+      <!-- Estación 02 -->
+      <section id="m02-diseno" class="station">
+        <div class="station-header">
+          <h2>02 · Arquitectura de Prompting Seguro y Control de Deriva</h2>
+          <span class="station-badge">Día 2 · Miércoles 04 Nov · RAP 2 (Producto)</span>
+        </div>
+        <p class="station-desc">Construcción de instrucciones profesionales bajo la estructura R-C-I-R-S (Rol, Contexto, Instrucción, Restricciones y Salida). Blindaje con delimitadores y mitigación de pérdidas de rumbo en chats extensos.</p>
+        <div class="station-resources">
+          Recursos de la estación: <a href="docs/02-diseno.md">Guía de diseño de prompts</a> | <a href="docs/guia-creacion-gemas-administrativas-sena.md">Guía Maestra de GEMAS</a> | <a href="docs/guia-seguridad-y-riesgos-ia.md">Manual de Seguridad y Riesgos</a>
+        </div>
+        
+        <details class="challenge-steps">
+          <summary>Ver paso a paso del reto (Evidencia MG-A02)</summary>
+          <div class="steps-content">
+            <ol>
+              <li><strong>Consultar</strong> la guía de arquitectura de prompting y el manual de seguridad.</li>
+              <li><strong>Ciclo V.E.R.A. - Iteración 1 (Fallo Provocado):</strong> Probar un prompt genérico y registrar los errores de alucinación, suposiciones indebidas y desvío de tono.</li>
+              <li><strong>Ciclo V.E.R.A. - Iteración 2 (Blindaje):</strong> Redactar tres prompts robustos aplicando la fórmula <code>R-C-I-R-S</code> (Rol, Contexto, Instrucción, Restricciones y Salida) e implementando delimitadores XML o triples comillas.</li>
+              <li><strong>Ciclo V.E.R.A. - Iteración 3 (Verificación y Control de Deriva):</strong> Someter el prompt a pruebas de estrés con textos confusos y aplicar la regla de sesión limpia para prevenir la degradación de contexto.</li>
+              <li><strong>Cargar</strong> el catálogo de prompts validados y la bitácora de iteraciones en la zona de entrega inferior.</li>
+            </ol>
+          </div>
+        </details>
+
+        <div data-db-evidence="MG-A02"></div>
+      </section>
+
+      <!-- Estación 03 -->
+      <section id="m03-implementacion" class="station">
+        <div class="station-header">
+          <h2>03 · Tratamiento Documental No Estructurado y Flujos Asistidos</h2>
+          <span class="station-badge">Día 3 · Jueves 05 Nov · RAP 1 (Desempeño)</span>
+        </div>
+        <p class="station-desc">Implementación de un pipeline asistido para transformar textos caóticos (transcripciones de reuniones de coordinación y lotes masivos de PQRS) en tablas normalizadas y borradores en tono institucional SENA.</p>
+        <div class="station-resources">
+          Recursos de la estación: <a href="docs/03-implementacion.md">Guía de flujos documentales</a> | <a href="docs/ejercicios/caso-03-acta-reunion-caotica.md">Caso 03: Acta Caótica</a> | <a href="docs/ejercicios/caso-02-dataset-pqrs-desordenadas.md">Caso 02: PQRS Desordenadas</a>
+        </div>
+        
+        <details class="challenge-steps">
+          <summary>Ver paso a paso del reto (Evidencia MG-A03)</summary>
+          <div class="steps-content">
+            <ol>
+              <li><strong>Descargar</strong> el acta de reunión caótica (Caso 03) o el lote de 5 PQRS complejas (Caso 02).</li>
+              <li><strong>Ciclo V.E.R.A. - Iteración 1 (Extracción Inicial):</strong> Enviar una orden genérica ("haz un resumen") y documentar los compromisos omitidos o responsables mal asignados.</li>
+              <li><strong>Ciclo V.E.R.A. - Iteración 2 (Pipeline Blindado):</strong> Construir el prompt estructurado con reglas de atribución estricta y términos legales de la Ley 1755 de 2015.</li>
+              <li><strong>Ciclo V.E.R.A. - Iteración 3 (Revisión y Aprobación Humana):</strong> Contrastar la tabla generada contra el texto original, pulir el borrador formal en tono SENA y registrar tiempos manuales vs. asistidos.</li>
+              <li><strong>Subir</strong> los artefactos finales (tabla de compromisos, matriz de PQRS y borrador verificado) en el panel inferior.</li>
+            </ol>
+          </div>
+        </details>
+
+        <div data-db-evidence="MG-A03"></div>
+      </section>
+
+      <!-- Estación 04 -->
+      <section id="m04-validacion" class="station">
+        <div class="station-header">
+          <h2>04 · Auditoría de Datos, Detección de Errores e IA Predictiva</h2>
+          <span class="station-badge">Día 4 Mañana · Viernes 06 Nov · RAP 2 (Desempeño)</span>
+        </div>
+        <p class="station-desc">Auditoría forense sobre tablas administrativas con trampas deliberadas. Contraste entre la predicción de tokens de un LLM y el cálculo exacto de hojas de cálculo. Formalización del protocolo Human-in-the-Loop.</p>
+        <div class="station-resources">
+          Recursos de la estación: <a href="docs/04-validacion.md">Guía de auditoría forense</a> | <a href="docs/ejercicios/caso-04-tabla-suministros-con-trampas.md">Caso 04: Tabla de Compras con Trampas</a>
+        </div>
+        
+        <details class="challenge-steps">
+          <summary>Ver paso a paso del reto (Evidencia MG-A04)</summary>
+          <div class="steps-content">
+            <ol>
+              <li><strong>Abrir</strong> el "Caso 04: Tabla de Compras con Trampas" (contiene 4 anomalías: multiplicación, total general, fecha 31/sep y SKU duplicado).</li>
+              <li><strong>Ciclo V.E.R.A. - Iteración 1 (El Falso Positivo):</strong> Pedir a la IA una revisión simple y documentar cómo la complacencia (<em>sycophancy</em>) aprueba la tabla sin notar los errores.</li>
+              <li><strong>Ciclo V.E.R.A. - Iteración 2 (Auditoría Forense con IA):</strong> Aplicar el prompt de auditoría con comprobaciones cruzadas e identificar las discrepancias señaladas.</li>
+              <li><strong>Ciclo V.E.R.A. - Iteración 3 (Comprobación Determinista en Excel):</strong> Abrir Excel/Sheets, ejecutar fórmulas matemáticas de multiplicación y suma, y contrastar la verdad fáctica frente al LLM.</li>
+              <li><strong>Formalizar</strong> el protocolo <em>Human-in-the-Loop (HITL)</em> con 5 puntos de control y entregar la matriz de novedades auditada.</li>
+            </ol>
+          </div>
+        </details>
+
+        <div data-db-evidence="MG-A04"></div>
+      </section>
+
+      <!-- Estación 05 -->
+      <section id="m05-cierre" class="station">
+        <div class="station-header">
+          <h2>05 · Informe Técnico de Optimización y Transferencia</h2>
+          <span class="station-badge">Día 4 Tarde · Viernes 06 Nov · RAPs 1 y 2 (Producto)</span>
+        </div>
+        <p class="station-desc">Consolidación del informe final con cuantificación de horas netas ahorradas, cálculo del ROI de productividad para la oficina, medidas contra el daño de archivos institucionales y sustentación relámpago de 3 minutos.</p>
+        <div class="station-resources">
+          Recursos de la estación: <a href="docs/05-cierre.md">Guía de cierre y sustentación</a> | <a href="docs/ejercicios/plantilla-informe-productividad.md">Plantilla Oficial de Productividad</a> | <a href="docs/evidencias-template.md">Plantilla de Portafolio Consolidado</a>
+        </div>
+        
+        <details class="challenge-steps">
+          <summary>Ver paso a paso del reto (Evidencia MG-A05)</summary>
+          <div class="steps-content">
+            <ol>
+              <li><strong>Diligenciar</strong> la "Plantilla Oficial de Productividad" integrando el registro de iteraciones del ciclo V.E.R.A.</li>
+              <li><strong>Cuantificar</strong> las horas netas ahorradas a la semana y la proyección anual de tiempo liberado para la dependencia.</li>
+              <li><strong>Declarar</strong> la gobernanza de riesgos: protocolos contra la sobreescritura accidental, sandbox de trabajo y cumplimiento de la Ley 1581 de 2012.</li>
+              <li><strong>Preparar</strong> la sustentación relámpago (pitch de 3 minutos) ante el grupo y el instructor tutor en Redes CIMI.</li>
+              <li><strong>Cargar</strong> el Informe Técnico final completo y verificar la consolidación del portafolio digital de evidencias.</li>
+            </ol>
+          </div>
+        </details>
+
+        <div data-db-evidence="MG-A05"></div>
+      </section>
+
+      <!-- Dossier Consolidado -->
+      <section id="evidence-dossier" data-db-evidence-dossier>
+        <h2>Portafolio Digital de Evidencias</h2>
+        <p>Consolidación automática y exportación de las 5 evidencias completadas en el Ambiente Redes CIMI para la certificación oficial del curso 21720210 V1.</p>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p><strong>Servicio Nacional de Aprendizaje (SENA) · Centro Industrial del Mantenimiento Integral (CIMI - Girón)</strong></p>
+      <p>Línea Tecnológica: Tecnologías de la Información y las Comunicaciones · Gestión de la Información | Red Tecnológica: Diseño y Desarrollo de Software</p>
+      <p>Estándar Educativo DevBrain v2.4.0 · Noviembre de 2026</p>
+    </footer>
+  </div>
+
+  <script src="js/vendor/devbrain-learner-sdk.js"></script>
+  <script src="js/vendor/devbrain-evidence.js"></script>
+  <script>
+    window.addEventListener('DOMContentLoaded', function () {
+      if (window.DevBrainEvidence) {
+        window.DevBrainEvidence.montar({
+          registro: 'deliverables.registry.json',
+          prefijo: 'cimi_ia_administrativos'
+        });
+      }
+    });
+  </script>
+</body>
+</html>
