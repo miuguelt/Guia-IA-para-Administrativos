@@ -1,0 +1,7 @@
+﻿Solicitudes para probar el flujo · Reto 7
+Datos de práctica. Las fechas, sedes y solicitudes no son reales. Este archivo no concede prioridad ni aprueba reservas.
+
+Código;Actividad;Sede;Fecha simulada;Franja horaria;Aforo;Marcada como urgente
+FL-01;Taller de archivo;Vélez;2031-06-18;09:00–11:00;18;No
+FL-02;Jornada de lectura;Barbosa;2031-06-18;;24;No
+FL-03;Reunión de apoyo;Vélez;2031-06-18;14:00–15:00;8;Sí

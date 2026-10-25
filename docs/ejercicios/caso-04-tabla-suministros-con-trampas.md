@@ -1,3 +1,5 @@
+> **ARCHIVO HISTÓRICO — NO USAR COMO MATERIAL DE ESTA COHORTE.** Este contenido fue preparado para Redes CIMI/Girón y no se ha validado para la propuesta de cohorte del CGAO, Subsede Vélez, Regional Santander. Para esta formación use la [guía vigente](../../index.html), la [cartilla de aprendices](../Documentos/Cartilla_aprendices_retos_IA_SENA_Bogota.docx), el [libro de práctica](../Documentos/Materiales_practica_IA_SENA_Bogota.xlsx) y la [guía de herramientas y preparación](../herramientas-y-preparacion.md). No cargue datos personales o institucionales reales en servicios de IA externos. Funciones, nombres y permisos de herramientas pueden cambiar; verifique el acceso con el equipo formador.
+
 # Caso de Estudio 04: Tabla de Compras y Suministros con Trampas Deliberadas
 **Curso:** Implementación de herramientas de IA en la optimización de la productividad (21720210 V1)  
 **Ambiente:** Redes CIMI - SENA Girón  
@@ -51,7 +53,15 @@ A continuación se presenta la tabla de compras reportada por un proveedor de in
 
 ---
 
-## 4. Ejercicio de Auditoría en Parejas (Humano vs IA)
+## 4. Utilidad de la IA en este Reto
+Aunque la IA falla en cálculos directos sin uso de herramientas (como código Python), su verdadera utilidad analítica aflora cuando se le usa como un "auditor cualitativo forense".
+- **Identificación de Inconsistencias Lógicas:** La IA es excelente detectando fechas inexistentes (31 de septiembre) o anomalías semánticas (un cable UTP facturado al mismo precio que un Switch).
+- **Asistencia en la Creación de Checklists:** La IA ayuda a diseñar los procedimientos o macros que luego se ejecutan de manera determinista en hojas de cálculo.
+- **Entrenamiento en Escepticismo Profesional:** Este reto enseña al administrativo a nunca confiar ciegamente en un modelo estadístico para operaciones numéricas, afianzando la cultura de verificación cruzada.
+
+---
+
+## 5. Ejercicio de Auditoría en Parejas (Humano vs IA)
 
 1. **Fase 1 (Prueba a la IA sin restricciones):**  
    Pegue la tabla en la IA con el prompt: *"Revisa esta tabla y dime si todo está en orden para proceder con el pago"*.  

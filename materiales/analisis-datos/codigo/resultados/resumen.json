@@ -1,0 +1,56 @@
+{
+  "exoplanetas": {
+    "filas": 4332,
+    "anfitrionas_unicas": 3282,
+    "mediana_radio_terrestre": 2.39,
+    "mediana_periodo_dias": 8.3257133,
+    "planetas_sin_temperatura_estelar": 110
+  },
+  "poblacion": {
+    "filas": 75,
+    "paises": {
+      "COL": {
+        "pais": "Colombia",
+        "anio_inicial": 2000,
+        "anio_final": 2024,
+        "poblacion_inicial": 39089934,
+        "poblacion_final": 52886363,
+        "cambio_porcentual": 35.29407084698582
+      },
+      "ECU": {
+        "pais": "Ecuador",
+        "anio_inicial": 2000,
+        "anio_final": 2024,
+        "poblacion_inicial": 12689206,
+        "poblacion_final": 18135478,
+        "cambio_porcentual": 42.920510550463135
+      },
+      "PER": {
+        "pais": "Perú",
+        "anio_inicial": 2000,
+        "anio_final": 2024,
+        "poblacion_inicial": 26598331,
+        "poblacion_final": 34217848,
+        "cambio_porcentual": 28.646598164373536
+      }
+    }
+  },
+  "clima": {
+    "filas": 366,
+    "temperatura_media_c": 19.669617486338797,
+    "precipitacion_total_disponible_mm": 1816.08,
+    "dias_sin_temperatura": 0,
+    "dias_sin_precipitacion": 0
+  },
+  "sismos": {
+    "filas": 133,
+    "magnitud_maxima": 7.5,
+    "mediana_profundidad_km": 10,
+    "tipos_magnitud": [
+      "mb",
+      "mwb",
+      "mwr",
+      "mww"
+    ]
+  }
+}

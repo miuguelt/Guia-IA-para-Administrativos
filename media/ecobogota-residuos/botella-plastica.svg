@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 180" role="img" aria-labelledby="title desc">
+  <title id="title">Botella plástica limpia y vacía</title>
+  <desc id="desc">Botella transparente, sin etiqueta ni líquido, con tapa puesta.</desc>
+  <rect width="240" height="180" rx="20" fill="#f3f6f2"/>
+  <path d="M72 148h96" stroke="#cbd8cf" stroke-width="4" stroke-linecap="round"/>
+  <path d="M106 36h28v20l12 13v63a13 13 0 0 1-13 13h-26a13 13 0 0 1-13-13V69l12-13z" fill="#d8f1ef" stroke="#356d72" stroke-width="4" stroke-linejoin="round"/>
+  <path d="M106 36h28v12h-28z" fill="#84b7b3" stroke="#356d72" stroke-width="4"/>
+  <path d="M101 83h38M101 121h38" stroke="#a6d4d0" stroke-width="3"/>
+  <path d="M106 75v13M108 99v12" stroke="#fff" stroke-width="5" stroke-linecap="round"/>
+</svg>

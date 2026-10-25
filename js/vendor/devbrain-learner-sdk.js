@@ -1,3 +1,4 @@
+/* DevBrain · SDK para guías. Generado por bundle.cjs. */
 (function(global) {
   /* --- core/storage-adapter.js --- */
   /**
@@ -1121,6 +1122,250 @@
       onModuleComplete: (callback) => events.on('module:completed', callback)
     };
   }
+  
+
+  /* --- reader/pages.js --- */
+  /** Resuelve la estructura existente sin reconstruir formularios ni evidencias. */
+  function obtenerPaginasLector(raiz) {
+    return Array.from(raiz.querySelectorAll('section[data-reader-page]')).map(nodo => ({
+      id: nodo.id,
+      nodo,
+      titulo: nodo.dataset.readerTitle || nodo.querySelector('h2, h1').textContent.trim(),
+      tipo: nodo.dataset.readerKind || (nodo.id === 'inicio' ? 'orientation' : 'lesson')
+    }));
+  }
+  
+  /** Los destinos se buscan por id para admitir tildes y caracteres especiales. */
+  function resolverDestinoLector(hash, paginas, documento) {
+    let id;
+    try { id = decodeURIComponent(hash.replace(/^#/, '')); } catch { return null; }
+    const destino = documento.getElementById(id);
+    const pagina = paginas.find(item => item.nodo === destino || item.nodo.contains(destino));
+    return pagina ? {pagina, destino, hash: `#${id}`} : null;
+  }
+  
+  function obtenerPosicionLector(storage, paginas) {
+    const valor = storage.get('reader_position');
+    if (!valor || !paginas.some(pagina => pagina.id === valor.pageId)) return null;
+    return {pageId: valor.pageId, scrollY: Number.isFinite(valor.scrollY) && valor.scrollY > 0 ? valor.scrollY : 0};
+  }
+  
+  function normalizarBusquedaLector(valor) {
+    return valor.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLocaleLowerCase('es-CO').trim();
+  }
+  
+
+  /* --- reader/controls.js --- */
+  
+  /** Actualiza el índice y los controles sin asociar lectura con aprobación. */
+  function montarControlesLector({raiz, paginas, ir, posicion}) {
+    const documento = raiz.ownerDocument;
+    const cuerpo = documento.body;
+    const menu = raiz.querySelector('[data-reader-menu]');
+    const buscador = raiz.querySelector('[data-reader-search]');
+    const vacio = raiz.querySelector('[data-reader-empty]');
+    const anterior = raiz.querySelector('[data-reader-prev]');
+    const siguiente = raiz.querySelector('[data-reader-next]');
+    const continuar = raiz.querySelector('[data-reader-resume]');
+    const enlaces = Array.from(raiz.querySelectorAll('#guide-nav a[href^="#"]'));
+    const bajas = [];
+    let indice = 0;
+    let ultima = posicion && paginas.find(pagina => pagina.id === posicion.pageId);
+  
+    function escuchar(nodo, tipo, callback) {
+      if (!nodo) return;
+      nodo.addEventListener(tipo, callback);
+      bajas.push(() => nodo.removeEventListener(tipo, callback));
+    }
+    function cerrarMenu(enfocar = false) {
+      cuerpo.dataset.readerMenuState = 'closed';
+      if (menu) menu.setAttribute('aria-expanded', 'false');
+      if (enfocar && menu) menu.focus();
+    }
+    function alternarMenu() {
+      const abierto = cuerpo.dataset.readerMenuState !== 'open';
+      cuerpo.dataset.readerMenuState = abierto ? 'open' : 'closed';
+      menu.setAttribute('aria-expanded', String(abierto));
+    }
+    function filtrar() {
+      const consulta = normalizarBusquedaLector(buscador.value);
+      let visibles = 0;
+      enlaces.forEach(enlace => {
+        const pagina = resolverDestinoLector(enlace.hash, paginas, documento)?.pagina;
+        const texto = `${enlace.textContent} ${pagina?.nodo.textContent || ''}`;
+        const coincide = normalizarBusquedaLector(texto).includes(consulta);
+        (enlace.closest('li') || enlace).hidden = !coincide;
+        if (coincide) visibles += 1;
+      });
+      if (vacio) vacio.hidden = visibles !== 0;
+    }
+    function escapar(evento) {
+      if (evento.key !== 'Escape') return;
+      if (evento.target === buscador && buscador.value) {
+        buscador.value = '';
+        filtrar();
+        evento.preventDefault();
+      } else if (cuerpo.dataset.readerMenuState === 'open') {
+        cerrarMenu(true);
+        evento.preventDefault();
+      }
+    }
+    function retroceder() { if (indice > 0) ir(`#${paginas[indice - 1].id}`); }
+    function avanzar() { if (indice < paginas.length - 1) ir(`#${paginas[indice + 1].id}`); }
+    function actualizar(pagina) {
+      indice = paginas.indexOf(pagina);
+      const lecciones = paginas.filter(item => item.tipo === 'lesson');
+      const progreso = pagina.tipo === 'lesson' ? `Lección ${lecciones.indexOf(pagina) + 1} de ${lecciones.length}` : pagina.tipo === 'orientation' ? 'Orientación' : 'Recursos';
+      raiz.querySelectorAll('[data-reader-current]').forEach(nodo => { nodo.textContent = pagina.titulo; });
+      raiz.querySelectorAll('[data-reader-progress]').forEach(nodo => { nodo.textContent = progreso; });
+      raiz.querySelectorAll('[data-reader-skip]').forEach(enlace => { enlace.href = `#${pagina.id}`; });
+      enlaces.forEach(enlace => {
+        const activo = resolverDestinoLector(enlace.hash, paginas, documento)?.pagina === pagina;
+        enlace.classList.toggle('is-current', activo);
+        if (activo) enlace.setAttribute('aria-current', 'step'); else enlace.removeAttribute('aria-current');
+      });
+      if (anterior) { anterior.disabled = indice === 0; anterior.textContent = indice > 0 ? `Anterior: ${paginas[indice - 1].titulo}` : 'Inicio del recorrido'; }
+      if (siguiente) { siguiente.disabled = indice === paginas.length - 1; siguiente.textContent = indice < paginas.length - 1 ? `Siguiente: ${paginas[indice + 1].titulo}` : 'Fin del recorrido'; }
+      if (indice > 0) ultima = pagina;
+      if (continuar) {
+        const destino = ultima || paginas.find(item => item.tipo === 'lesson') || paginas[0];
+        continuar.href = `#${destino.id}`;
+        continuar.textContent = ultima ? `Continuar: ${ultima.titulo}` : 'Comenzar recorrido';
+      }
+      cerrarMenu();
+    }
+    escuchar(menu, 'click', alternarMenu);
+    escuchar(buscador, 'input', filtrar);
+    escuchar(documento, 'keydown', escapar);
+    escuchar(anterior, 'click', retroceder);
+    escuchar(siguiente, 'click', avanzar);
+    cerrarMenu();
+    return {actualizar, destroy() { bajas.forEach(baja => baja()); cerrarMenu(); }};
+  }
+  
+
+  /* --- reader/navigation.js --- */
+  
+  /** Adapta enlaces anidados al router público; la visibilidad depende de SpaRouter. */
+  function conectarNavegacionLector({raiz, app, paginas, posicion, actualizar}) {
+    const documento = raiz.ownerDocument;
+    const ventana = documento.defaultView;
+    const desplazamientos = new Map();
+    if (posicion) desplazamientos.set(posicion.pageId, posicion.scrollY);
+    let actual = null;
+    let hashAtendido = null;
+    let cuadro = null;
+    let vigente = true;
+    let navegando = false;
+  
+    function guardar() {
+      if (!actual) return;
+      const scrollY = Math.max(0, ventana.scrollY);
+      desplazamientos.set(actual.id, scrollY);
+      app.storage.set('reader_position', {pageId: actual.id, scrollY});
+    }
+    function guardarDesplazamiento() {
+      if (cuadro !== null) return;
+      cuadro = ventana.requestAnimationFrame(() => { cuadro = null; guardar(); });
+    }
+    function ir(hash, {enfocar = true, desdeRouter = false, reemplazar = false} = {}) {
+      const destino = resolverDestinoLector(hash, paginas, documento) || {pagina: paginas[0], destino: paginas[0].nodo, hash: `#${paginas[0].id}`};
+      if (actual?.id !== destino.pagina.id) guardar();
+      actual = destino.pagina;
+      navegando = true;
+      if (!desdeRouter) {
+        const metodo = reemplazar || ventana.location.hash === destino.hash ? 'replaceState' : 'pushState';
+        // El router recibe un hash de página válido sin agregar otro paso al historial.
+        ventana.history[metodo](null, '', new URL(`#${actual.id}`, ventana.location.href).href);
+      }
+      if (!desdeRouter && app.navigation.getCurrentPage() !== actual.id) app.navigation.showPage(actual.id);
+      navegando = false;
+      ventana.history.replaceState(null, '', new URL(destino.hash, ventana.location.href).href);
+      hashAtendido = destino.hash;
+      actualizar(actual);
+      const paginaEsperada = actual;
+      ventana.queueMicrotask(() => {
+        if (!vigente || actual !== paginaEsperada) return;
+        let plegado = destino.destino.closest('details');
+        while (plegado && actual.nodo.contains(plegado)) {
+          plegado.open = true;
+          plegado = plegado.parentElement.closest('details');
+        }
+        if (enfocar) {
+          const titulo = actual.nodo.querySelector('h2, h1');
+          titulo.setAttribute('tabindex', '-1');
+          titulo.focus({preventScroll: true});
+        }
+        ventana.scrollTo({top: desplazamientos.get(actual.id) || 0, behavior: 'instant'});
+        if (destino.destino !== actual.nodo) destino.destino.scrollIntoView({block: 'start', behavior: 'instant'});
+        guardar();
+      });
+    }
+    function cambiarHash(evento) {
+      // SpaRouter reconoce ids de página; los hashes interiores se resuelven aquí primero.
+      evento.stopImmediatePropagation();
+      if (ventana.location.hash !== hashAtendido) ir(ventana.location.hash, {reemplazar: true});
+    }
+    function pulsarEnlace(evento) {
+      const enlace = evento.target.closest('a[href]');
+      if (!enlace || evento.defaultPrevented || evento.button !== 0 || evento.ctrlKey || evento.metaKey || evento.shiftKey || evento.altKey || enlace.hasAttribute('download') || enlace.target === '_blank') return;
+      const referencia = enlace.getAttribute('href');
+      const url = new URL(referencia.startsWith('#') ? referencia : enlace.href, ventana.location.href);
+      if (url.origin !== ventana.location.origin || url.pathname !== ventana.location.pathname || url.search !== ventana.location.search || !url.hash) return;
+      if (!resolverDestinoLector(url.hash, paginas, documento)) return;
+      evento.preventDefault();
+      ir(url.hash);
+    }
+    function navegarDesdeRouter({pageId}) { if (!navegando) ir(`#${pageId}`, {desdeRouter: true}); }
+    ventana.addEventListener('hashchange', cambiarHash, true);
+    ventana.addEventListener('scroll', guardarDesplazamiento, {passive: true});
+    ventana.addEventListener('pagehide', guardar);
+    raiz.addEventListener('click', pulsarEnlace);
+    app.navigation.onNavigate(navegarDesdeRouter);
+  
+    function destroy() {
+      guardar();
+      vigente = false;
+      if (cuadro !== null) ventana.cancelAnimationFrame(cuadro);
+      ventana.removeEventListener('hashchange', cambiarHash, true);
+      ventana.removeEventListener('scroll', guardarDesplazamiento);
+      ventana.removeEventListener('pagehide', guardar);
+      raiz.removeEventListener('click', pulsarEnlace);
+      app.events.off('navigation:changed', navegarDesdeRouter);
+    }
+    return {ir, destroy};
+  }
+  
+
+  /* --- reader/index.js --- */
+  
+  
+  
+  /** Monta lectura por secciones con el almacenamiento y el router de la guía. */
+  function montarLector({raiz, app, initialHash} = {}) {
+    if (!raiz || !app?.navigation) throw new TypeError('El lector necesita una raíz y la navegación de la guía.');
+    const paginas = obtenerPaginasLector(raiz);
+    if (!paginas.length) throw new TypeError('El lector necesita páginas identificadas.');
+    const posicion = obtenerPosicionLector(app.storage, paginas);
+    let navegacion;
+    const controles = montarControlesLector({raiz, paginas, posicion, ir: hash => navegacion.ir(hash)});
+    navegacion = conectarNavegacionLector({raiz, app, paginas, posicion, actualizar: controles.actualizar});
+    raiz.ownerDocument.body.classList.add('reader-ready');
+    const hash = initialHash ?? raiz.ownerDocument.defaultView.location.hash;
+    const explicito = hash && hash !== '#';
+    navegacion.ir(explicito ? hash : `#${posicion?.pageId || paginas[0].id}`, {enfocar: Boolean(explicito), reemplazar: true});
+    return {
+      ir: navegacion.ir,
+      destroy() {
+        navegacion.destroy();
+        controles.destroy();
+        raiz.ownerDocument.body.classList.remove('reader-ready');
+        paginas.forEach(pagina => { pagina.nodo.style.display = ''; });
+      }
+    };
+  }
+  
+  const reader = {montarLector};
   
 
   /* --- builders/table-renderer.js --- */
@@ -3817,7 +4062,7 @@
   }
   
   /**
-   * Normaliza un artefacto a la forma que consumen la estación y el dossier.
+   * Normaliza un artefacto a la forma que consumen la estación y el Portafolio de Evidencias.
    * @param {Object} bruto
    * @param {number} indice
    * @returns {Object}
@@ -3872,6 +4117,9 @@
     const entrega = bruto || {};
     return {
       packageName: String(entrega.packageName || ''),
+      program: String(entrega.program || ''),
+      context: String(entrega.context || ''),
+      requiredArtifacts: Array.isArray(entrega.requiredArtifacts) ? entrega.requiredArtifacts.map(String) : [],
       format: String(entrega.format || ''),
       where: String(entrega.where || ''),
       namingRule: String(entrega.namingRule || ''),
@@ -4000,12 +4248,16 @@
         const crudo = localStorage.getItem(this.clave(id));
         if (!crudo) return vacio;
         const dato = JSON.parse(crudo);
-        return {
+        const resultado = {
           values: dato && typeof dato.values === 'object' && dato.values ? dato.values : {},
           checks: dato && typeof dato.checks === 'object' && dato.checks ? dato.checks : {},
           status: DBE_ESTADOS.includes(dato && dato.status) ? dato.status : 'pendiente',
           updatedAt: dato && dato.updatedAt ? String(dato.updatedAt) : null,
         };
+        if (dato && dato.elaboratedProduct && typeof dato.elaboratedProduct === 'object') {
+          resultado.elaboratedProduct = dato.elaboratedProduct;
+        }
+        return resultado;
       } catch (error) {
         console.warn('No se pudo leer la evidencia', id, error);
         return vacio;
@@ -4026,6 +4278,10 @@
         status: DBE_ESTADOS.includes(parcial.status) ? parcial.status : actual.status,
         updatedAt: new Date().toISOString(),
       };
+      const prod = parcial && parcial.elaboratedProduct !== undefined ? parcial.elaboratedProduct : actual.elaboratedProduct;
+      if (prod && typeof prod === 'object') {
+        siguiente.elaboratedProduct = prod;
+      }
       try {
         localStorage.setItem(this.clave(id), JSON.stringify(siguiente));
       } catch (error) {
@@ -4195,7 +4451,7 @@
    *
    * Todo se construye con `createElement` y `textContent`. Nada de `innerHTML`
    * con texto del aprendiz: lo que se escribe en una estación se vuelve a pintar
-   * en el dossier, y ese camino es exactamente donde una guía educativa se
+   * en el Portafolio de Evidencias, y ese camino es exactamente donde una guía educativa se
    * convertiría en un ejercicio de XSS contra quien estudia.
    */
   
@@ -4332,7 +4588,7 @@
    * Serialización de evidencias a Markdown.
    *
    * El aprendiz entrega archivos, no capturas de una web. Cada estación produce
-   * un `.md` que puede pegarse en el dossier, versionarse en Git o convertirse en
+   * un `.md` que puede pegarse en el Portafolio de Evidencias, versionarse en Git o convertirse en
    * PDF, y la consolidación produce el paquete completo con el mismo formato.
    */
   
@@ -5044,7 +5300,7 @@
     const mapa = (registro.submission && registro.submission.competencyMap) || [];
     if (mapa.length) {
       return mapa.map((c) => ({
-        criterio: c.criterion || 'Aplica los estándares y buenas prácticas técnicas del programa ADSO.',
+        criterio: c.criterion || 'Cumple los criterios declarados por el programa.',
         observacion: `Alineado con ${c.evidenceType ? 'evidencia de ' + c.evidenceType : 'requisitos formativos'}.`
       }));
     }
@@ -5054,7 +5310,7 @@
       if (f.artefacto.criterion && !criterios.some((c) => c.criterio === f.artefacto.criterion)) {
         criterios.push({
           criterio: f.artefacto.criterion,
-          observacion: `Verificado mediante ${f.artefacto.instrument || 'instrumento de evaluación'}.`
+          observacion: `Por revisar mediante ${f.artefacto.instrument || 'instrumento de evaluación'}.`
         });
       }
     });
@@ -5079,10 +5335,10 @@
    * @param {HTMLElement} [params.nodoBitacora]
    * @returns {HTMLElement}
    */
-  function dbeConstruirHojaSena({ registro, filas, listas, apprenticeData, nodoBitacora }) {
+  function dbeConstruirHojaSena({ registro, filas, listas, apprenticeData, nodoBitacora, requiredTotal = filas.length }) {
     let tituloDossier = (registro.submission && (registro.submission.packageName || registro.submission.title)) || registro.title || registro.guideId || 'FORMACIÓN PROFESIONAL';
     tituloDossier = String(tituloDossier).replace(/dossier(\s+oficial)?(\s+de)?/gi, '').replace(/\s+/g, ' ').trim();
-    const estadoTexto = listas === filas.length ? 'EVIDENCIA CONSOLIDADA' : (listas > 0 ? 'EN PROCESO' : 'EN DESARROLLO');
+    const estadoTexto = listas === requiredTotal ? 'EVIDENCIA CONSOLIDADA' : (listas > 0 ? 'EN PROCESO' : 'EN DESARROLLO');
   
     // Cabecera institucional
     const cabecera = dbeEl('header', {
@@ -5094,8 +5350,9 @@
             dbeEl('div', { clase: 'sena-shield', texto: 'SENA' }),
             dbeEl('div', {
               hijos: [
-                dbeEl('h2', { texto: 'ADAPTACIÓN DIDÁCTICA · FORMACIÓN ADSO' }),
-                dbeEl('p', { texto: 'Contexto de referencia SENA · Tecnólogo en Análisis y Desarrollo de Software (ADSO)' }),
+                dbeEl('h2', { texto: 'PORTAFOLIO DE EVIDENCIAS · APRENDIZAJE CON IA' }),
+                dbeEl('p', { texto: registro.submission.program || 'Programa de formación por confirmar' }),
+                dbeEl('p', { texto: registro.submission.context }),
                 dbeEl('p', { hijos: [dbeEl('strong', { texto: `REGISTRO INTEGRAL DE EVIDENCIAS: ${tituloDossier.toUpperCase()}` })] })
               ]
             })
@@ -5174,7 +5431,8 @@
             dbeEl('tbody', {
               hijos: filas.map((fila, index) => {
                 const esCumplido = fila.estado === 'lista';
-                const resultadoTexto = esCumplido ? 'CUMPLIDO' : (fila.estado === 'borrador' ? 'EN BORRADOR' : 'PENDIENTE');
+                const opcional = registro.submission.requiredArtifacts.length > 0 && !registro.submission.requiredArtifacts.includes(fila.artefacto.id);
+                const resultadoTexto = esCumplido ? 'REVISIÓN REGISTRADA' : (fila.estado === 'borrador' ? 'EN BORRADOR' : (opcional ? 'OPCIONAL · SIN REALIZAR' : 'PENDIENTE'));
                 const resultadoBadge = esCumplido ? 'badge badge--success' : (fila.estado === 'borrador' ? 'badge badge--warning' : 'badge badge--pending');
                 const codigo = fila.artefacto.code || `EV-${String(index + 1).padStart(2, '0')}`;
                 return dbeEl('tr', {
@@ -5216,7 +5474,7 @@
               hijos: criterios.map((item) => dbeEl('tr', {
                 hijos: [
                   dbeEl('td', { texto: item.criterio }),
-                  dbeEl('td', { texto: '[ X ] SÍ   [   ] NO' }),
+                  dbeEl('td', { texto: 'Pendiente de auto-revisión' }),
                   dbeEl('td', { texto: item.observacion })
                 ]
               }))
@@ -5230,7 +5488,7 @@
             dbeEl('div', {
               clase: 'verdict-options',
               hijos: [
-                dbeEl('label', { hijos: [dbeEl('input', { attrs: { type: 'radio', name: 'resultado_aprendizaje', checked: true } }), dbeEl('strong', { texto: ' LISTO PARA REVISIÓN' })] }),
+                dbeEl('label', { hijos: [dbeEl('input', { attrs: { type: 'radio', name: 'resultado_aprendizaje' } }), dbeEl('strong', { texto: ' LISTO PARA REVISIÓN' })] }),
                 dbeEl('label', { hijos: [dbeEl('input', { attrs: { type: 'radio', name: 'resultado_aprendizaje' } }), dbeEl('strong', { texto: ' REQUIERE AJUSTES' })] })
               ]
             })
@@ -5301,7 +5559,7 @@
   function dbeLeerPerfilAprendiz(prefijo) {
     const clave = `${prefijo || 'dbe'}_apprentice_profile`;
     const perfilInicial = {
-      name: 'APRENDIZ ADSO',
+      name: 'Por diligenciar',
       docNumber: '',
       ficha: '<NÚMERO_DE_FICHA>',
       centro: 'Por diligenciar',
@@ -5322,7 +5580,7 @@
           instructor: 'INSTRUCTOR TÉCNICO SENA',
         };
         const camposCoincidentes = Object.keys(camposDeEjemplo)
-          .filter((campo) => perfil && String(perfil[campo] || '').trim() === camposDeEjemplo[campo]);
+          .filter((campo) => perfil && (String(perfil[campo] || '').trim() === camposDeEjemplo[campo] || (campo === 'name' && perfil[campo] === 'APRENDIZ ADSO')));
         if (!camposCoincidentes.length) return perfil;
         const perfilLimpio = { ...perfil };
         camposCoincidentes.forEach((campo) => {
@@ -5467,7 +5725,8 @@
   
     const pintar = () => {
       const filas = construirFilas();
-      const listas = filas.filter((fila) => fila.estado === 'lista').length;
+      const principales = filas.filter((fila) => !registro.submission.requiredArtifacts.length || registro.submission.requiredArtifacts.includes(fila.artefacto.id));
+      const listas = principales.filter((fila) => fila.estado === 'lista').length;
       const bitacora = store ? store.leerBitacora() : [];
   
       // 1. Tarjeta de Formulario de Identificación (no-print)
@@ -5481,7 +5740,7 @@
             hijos: [
               dbeCrearGrupoInput('Nombre Completo del Aprendiz:', 'ev-name', apprenticeData.name),
               dbeCrearGrupoInput('Documento de Identidad:', 'ev-doc', apprenticeData.docNumber),
-              dbeCrearGrupoInput('Número de Ficha ADSO:', 'ev-ficha', apprenticeData.ficha),
+              dbeCrearGrupoInput('Número de ficha, si aplica:', 'ev-ficha', apprenticeData.ficha),
               dbeCrearGrupoInput('Centro de Formación:', 'ev-centro', apprenticeData.centro),
               dbeCrearGrupoInput('Regional SENA:', 'ev-regional', apprenticeData.regional),
               dbeCrearGrupoInput('Nombre del Instructor Líder:', 'ev-instructor', apprenticeData.instructor),
@@ -5507,11 +5766,12 @@
         const payload = {
           apprentice: apprenticeData,
           guideId: registro.guideId,
-          program: 'Tecnólogo en Análisis y Desarrollo de Software (ADSO) - Ficha ' + apprenticeData.ficha,
-          competency: (registro.submission && registro.submission.packageName) || 'Desarrollo de Software ADSO',
-          dossierStatus: listas === filas.length ? 'COMPLETED' : 'IN_PROGRESS',
+          program: registro.submission.program || 'Programa por confirmar',
+          backup: store.exportar(registro.artifacts.map((artefacto) => artefacto.id)),
+          competency: (registro.submission && registro.submission.packageName) || 'Criterios por confirmar',
+          dossierStatus: listas === principales.length ? 'COMPLETED' : 'IN_PROGRESS',
           evaluationTimestamp: new Date().toISOString(),
-          summary: { total: filas.length, completed: listas, pending: filas.length - listas },
+          summary: { total: principales.length, completed: listas, pending: principales.length - listas },
           artifacts: filas.map((f) => ({
             id: f.artefacto.id,
             code: f.artefacto.code,
@@ -5545,10 +5805,10 @@
         dbeCopiar(md, botonCopiarMd);
       });
   
-      formCard.appendChild(dbeEl('div', {
+      const accionesExportacion = dbeEl('div', {
         clase: 'evidence-actions-bar no-print',
         hijos: [botonImprimir, botonDescargarJson, botonDescargarMd, botonCopiarMd]
-      }));
+      });
   
       // 3. Hoja imprimible de trabajo
       const dossierSheet = dbeConstruirHojaSena({
@@ -5556,17 +5816,18 @@
         filas,
         listas,
         apprenticeData,
-        nodoBitacora: dbeVistaBitacora(bitacora)
+        nodoBitacora: dbeVistaBitacora(bitacora),
+        requiredTotal: principales.length
       });
   
       // 4. Bloque de pendientes / avisos
-      const pendientes = filas.filter((fila) => fila.estado !== 'lista');
+      const pendientes = principales.filter((fila) => fila.estado !== 'lista');
       const bloquePendientes = pendientes.length
         ? dbeEl('div', {
           clase: 'dbe-dossier__pendientes no-print',
           hijos: [
             dbeEl('h3', { clase: 'dbe-dossier__subtitulo', texto: `Te faltan ${pendientes.length} evidencias por completar` }),
-            dbeEl('p', { clase: 'dbe-bloque__texto', texto: 'Cada enlace te devuelve a la estación donde se encuentra la teoría, el ejemplo y el formulario correspondiente:' }),
+            dbeEl('p', { clase: 'dbe-bloque__texto', texto: 'Cada enlace abre el módulo donde puedes revisar y guardar el resultado:' }),
             dbeEl('ul', {
               clase: 'dbe-lista',
               hijos: pendientes.map((fila) => dbeEl('li', {
@@ -5589,7 +5850,8 @@
       const tarjeta = dbeEl('div', {
         clase: 'dbe-dossier evidence-wrapper',
         hijos: [
-          dbeEl('div', { clase: 'no-print', hijos: [dbeBarraProgreso(listas, filas.length), bloquePendientes] }),
+          dbeEl('div', { clase: 'no-print', hijos: [dbeBarraProgreso(listas, principales.length), bloquePendientes] }),
+          accionesExportacion,
           formCard,
           dossierSheet,
           dbeEl('p', {
@@ -5722,7 +5984,7 @@
     dbeAvisarHuerfanos(huerfanos);
   
     const nodoDossier = raiz.querySelector('[data-db-evidence-dossier]');
-    const dossier = nodoDossier ? dbeMontarDossier(nodoDossier, registro, store) : null;
+    const portafolio = nodoDossier ? dbeMontarDossier(nodoDossier, registro, store) : null;
     if (!nodoDossier) {
       console.warn('DevBrainEvidence: la guía no declara [data-db-evidence-dossier]; no hay consolidación final.');
     }
@@ -5735,7 +5997,7 @@
       registro,
       store,
       estaciones: montadas,
-      dossier,
+      dossier: portafolio,
       huerfanos: huerfanos.map((artefacto) => artefacto.id),
       /**
        * Devuelve el resumen de estados, útil para gamificación o pruebas.
@@ -5774,6 +6036,7 @@
     DebugPlugin,
     code,
     evidence,
+    reader,
     createApp: function(options = {}) {
       const storagePrefix = options.storagePrefix || 'devbrain_sdk';
       const storage = new StorageAdapter(storagePrefix);

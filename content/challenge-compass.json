@@ -1,0 +1,145 @@
+{
+  "reto-0": {
+    "compass": {
+      "diagnosis": "Revisión de privacidad antes de entregar cualquier texto a una herramienta digital.",
+      "toolCombination": "Chat de IA autorizado + Canva. La IA clasifica cada fragmento y redacta las versiones reducidas; Canva sirve después para convertir el semáforo revisado en una pieza visual para el equipo.",
+      "goldenRule": "Ley 1581 de 2012 (Habeas Data). No ingreses datos de salud, documentos de identidad ni credenciales. Si no existe autorización expresa, registra «autorización pendiente».",
+      "productFormat": "La IA entrega la página resultado-reto-0.html con el semáforo y sus cinco decisiones. Paso a la oficina: copia el contenido revisado a una plantilla de infografía en Canva y expórtala en PDF o PNG."
+    },
+    "comparison": {
+      "goldStandard": "Clasifica cada tarjeta por su riesgo; reduce la tarjeta B a «Una persona consulta por cupo»; deja la autorización como pendiente de confirmar.",
+      "antipattern": "Subir la cédula y el diagnóstico médico a un chat afirmando que «el usuario autorizó por teléfono», o dar por hecho que la coordinación ya dio el aval."
+    },
+    "officeTransfer": "Aplicar cada vez que una persona radique documentos con exámenes médicos o copias de documentos de identidad en la ventanilla."
+  },
+  "reto-1": {
+    "compass": {
+      "diagnosis": "Solicitud urgente de reserva de un espacio, que debe contrastarse con un lineamiento.",
+      "toolCombination": "Chat de IA + Word o Docs. La IA contrasta los ocho apartados del lineamiento con la solicitud URG-01 usando una instrucción CRTT; el procesador de texto sirve después para dar formato institucional al oficio revisado.",
+      "goldenRule": "La urgencia no aprueba una reserva. Si la fecha o la sede no constan («mañana» no es una fecha de calendario), declara «pendiente de confirmar» y cita el apartado del lineamiento.",
+      "productFormat": "La IA entrega la página resultado-reto-1.html con el oficio y la tabla de los ocho requisitos. Paso a la oficina: pega el oficio revisado en Word o Docs, aplica la plantilla institucional y guárdalo como borrador."
+    },
+    "comparison": {
+      "goldStandard": "Tabla con los ocho apartados citados del lineamiento; respuesta que no aprueba la reserva y pide con amabilidad los datos que faltan.",
+      "antipattern": "Aprobar la sala «porque el evento es mañana y asisten 18 directivos», suponiendo la sede y el horario sin confirmarlos."
+    },
+    "officeTransfer": "Solicitudes de auditorios, aulas o transporte en las que alguien pide una excepción inmediata por urgencia."
+  },
+  "reto-2": {
+    "compass": {
+      "diagnosis": "Peticiones complejas (PC-01 y PC-03) con varios relatos y solicitudes implícitas.",
+      "toolCombination": "Chat de IA + Word o Docs. La IA separa hechos, peticiones y datos ausentes; el procesador de texto sirve después para pasar cada respuesta revisada a la plantilla de la dependencia.",
+      "goldenRule": "Distingue lo que la persona afirma de lo que la entidad confirma. Cita cada hecho con una frase de la fuente. Si el sistema no registra la novedad, declara «no consta registro». Los plazos legales los confirma la dependencia responsable, no el ejercicio.",
+      "productFormat": "La IA entrega la página resultado-reto-2.html con las dos respuestas y sus pendientes. Paso a la oficina: lleva cada respuesta revisada a Word o Docs y conserva el rótulo de borrador."
+    },
+    "comparison": {
+      "goldStandard": "Respuestas que diferencian lo comprobado de lo alegado y solicitan los soportes pendientes sin prejuzgar la situación del aprendiz.",
+      "antipattern": "Responder que el aplazamiento ya fue aprobado o culpar al instructor del cambio de horario basándose solo en la queja."
+    },
+    "officeTransfer": "Proyección de respuestas a peticiones de aprendices sobre cancelaciones, homologaciones o reclamos de calificaciones."
+  },
+  "reto-3": {
+    "compass": {
+      "diagnosis": "Instrucción reutilizable para atender peticiones, probada con tres casos distintos.",
+      "toolCombination": "Chat de IA + función de asistentes guardados (Gem, proyecto o asistente personalizado, si la entidad la habilita). La IA aplica la misma instrucción CRTT a PC-01, PC-02 y PC-03; después puedes guardar la versión aprobada como asistente para reutilizarla sin copiarla cada vez.",
+      "goldenRule": "La instrucción debe incluir una cláusula de contención («Si el expediente no contiene el soporte X, responde ‹No consta soporte› y solicita el anexo»). No ajustes la instrucción inventando datos.",
+      "productFormat": "La IA entrega la página resultado-reto-3.html con la instrucción y sus tres pruebas. Paso a la oficina: guarda la instrucción aprobada como asistente reutilizable o en un documento compartido del equipo, con su fecha y versión."
+    },
+    "comparison": {
+      "goldStandard": "Una instrucción que detecta vacíos en los tres casos y en PC-02 pide el soporte del portal sin dar por terminado el trámite.",
+      "antipattern": "Usar una instrucción que produce una carta genérica sin revisar los soportes de cada caso, o dar el caso por cerrado sin verificarlo."
+    },
+    "officeTransfer": "Banco de instrucciones probadas para el equipo de atención y la secretaría académica."
+  },
+  "reto-4": {
+    "compass": {
+      "diagnosis": "Clasificación y priorización de una bandeja de entrada saturada.",
+      "toolCombination": "Chat de IA o Antigravity/Codex + Excel o Sheets. La IA clasifica los 50 mensajes con un criterio explícito y señales objetivas (personas afectadas y plazo); la hoja de cálculo sirve después para filtrar y ordenar la tabla revisada.",
+      "goldenRule": "Cada prioridad se justifica con una señal del texto (por ejemplo, «35 personas afectadas» o «cierra hoy a las 16:00»), nunca por mayúsculas o palabras subjetivas. Los diez borradores se rotulan «Borrador · no enviado».",
+      "productFormat": "La IA entrega la página resultado-reto-4.html con la tabla de 50 mensajes y diez borradores. Paso a la oficina: copia la tabla a Excel o Sheets y usa un filtro por prioridad para revisar primero los casos urgentes."
+    },
+    "comparison": {
+      "goldStandard": "C-001 (falla del portal que afecta a 35 personas y cierra hoy) se atiende primero con una razón visible; las respuestas quedan como borradores.",
+      "antipattern": "Dar prioridad alta a un correo por sus signos de exclamación o su tono, sin plazo ni afectación demostrable."
+    },
+    "officeTransfer": "Revisión del buzón institucional al inicio de cada jornada."
+  },
+  "reto-5": {
+    "compass": {
+      "diagnosis": "Acta y seguimiento de compromisos a partir de una transcripción.",
+      "toolCombination": "Chat de IA + Word o Docs. La IA localiza en transcripcion.csv los acuerdos, propuestas y compromisos con su minuto; el procesador de texto sirve después para pasar el acta revisada a la plantilla de la dependencia.",
+      "goldenRule": "Separa los acuerdos de las propuestas y las dudas. Cada compromiso cita su minuto (por ejemplo, «07:28»). Si no se nombró un responsable, indica «Responsable pendiente».",
+      "productFormat": "La IA entrega la página resultado-reto-5.html con el acta y la referencia de cada intervención. Paso a la oficina: lleva el acta revisada a Word o Docs y compártela solo como borrador."
+    },
+    "comparison": {
+      "goldStandard": "Acta con minutos exactos que distingue propuestas de decisiones y no asigna tareas que la transcripción no menciona.",
+      "antipattern": "Convertir en acuerdo una sugerencia informal o inventar fechas de entrega que nadie mencionó."
+    },
+    "officeTransfer": "Actas de comités de evaluación y seguimiento, comisiones de personal o reuniones de área."
+  },
+  "reto-6": {
+    "compass": {
+      "diagnosis": "Depuración de una tabla administrativa con valores escritos de varias formas.",
+      "toolCombination": "Chat de IA que ejecuta cálculos o Antigravity/Codex + Excel o Sheets. La IA propone y aplica una regla explícita sin alterar las columnas originales; en la hoja de cálculo compruebas la regla con una fórmula y la repites sin depender de la IA.",
+      "goldenRule": "La fuente no se sobrescribe. Asigna «REVISAR» a celdas vacías o estados desconocidos. Conserva las filas duplicadas (como SIM-0012) con una nota.",
+      "productFormat": "La IA entrega la página resultado-reto-6.html con la tabla antes y después y la regla aplicada. Paso a la oficina: copia la columna original a Excel o Sheets y aplica la fórmula que propone la IA (por ejemplo, =SI(ESBLANCO(E2);\"REVISAR\";MAYUSC(ESPACIOS(E2)))) para confirmar tres filas."
+    },
+    "comparison": {
+      "goldStandard": "Conserva los datos originales; normaliza SIM-0002 a FINALIZADO; marca SIM-0003 como REVISAR; conserva ambas filas de SIM-0012.",
+      "antipattern": "Sobrescribir el archivo original, borrar la fila duplicada o llenar las celdas vacías con «ACTIVO» por suposición."
+    },
+    "officeTransfer": "Depuración de listados de aprendices, planillas de asistencia o bases de egresados."
+  },
+  "reto-7": {
+    "compass": {
+      "diagnosis": "Diseño de un proceso asistido con puntos de revisión humana obligatoria.",
+      "toolCombination": "Chat de IA + diagrama SVG integrado; opcionalmente Canva, PowerPoint o draw.io. La IA analiza los tres casos de prueba (FL-01 completo, FL-02 incompleto, FL-03 urgente) y dibuja dónde se decide y dónde se detiene el flujo; la herramienta de diagramas sirve después para ajustar la presentación.",
+      "goldenRule": "Ningún flujo aprueba por sí solo solicitudes urgentes o complejas. Todo caso crítico tiene un punto de parada que lo traslada a una persona responsable.",
+      "productFormat": "La IA entrega la página resultado-reto-7.html con el diagrama y las tres rutas probadas. Paso a la oficina: si necesitas editarlo, recrea las cajas y flechas en Canva, PowerPoint o draw.io; el diseño no instala ninguna automatización."
+    },
+    "comparison": {
+      "goldStandard": "Flujo que detiene a FL-03 para valoración humana por su urgencia, pide a FL-02 la franja horaria y permite que FL-01 continúe.",
+      "antipattern": "Diseñar un bot que aprueba reservas porque el usuario escribió que era urgente."
+    },
+    "officeTransfer": "Manuales de procedimiento y mapas de riesgo para procesos de calidad institucional."
+  },
+  "reto-8": {
+    "compass": {
+      "diagnosis": "Análisis descriptivo de indicadores académicos y de gastos.",
+      "toolCombination": "Chat de IA que ejecuta cálculos + Excel o Sheets. La IA calcula tasas (numerador, denominador y porcentaje) y consolida gastos en COP; en la hoja de cálculo verificas tú mismo una tasa con una fórmula, sin pedírselo a la misma IA.",
+      "goldenRule": "No atribuyas causas que la fuente no respalda («el presupuesto causó la deserción»). Indica «Periodo no especificado» si la fuente no lo fecha. Usa COP con separadores de miles.",
+      "productFormat": "La IA entrega la página resultado-reto-8.html con tasas, gráfico y hallazgos. Paso a la oficina: abre bienestar.csv en Excel o Sheets, escribe =Deserciones/Matriculados para dos centros distintos del Centro A y compáralos con la página; si quieres, pasa el gráfico revisado a Canva."
+    },
+    "comparison": {
+      "goldStandard": "Muestra la operación de cada tasa; presenta los gastos en COP y aclara que los datos disponibles no permiten inferir causas de deserción.",
+      "antipattern": "Afirmar que los aprendices desertaron «por falta de presupuesto o transporte» sin encuestas ni soportes."
+    },
+    "officeTransfer": "Informes trimestrales de gestión, rendición de cuentas o sustentación de indicadores."
+  },
+  "reto-9": {
+    "compass": {
+      "diagnosis": "Revisión de una respuesta convincente que puede contener afirmaciones sin respaldo o instrucciones intrusas.",
+      "toolCombination": "Chat de IA + Word o Docs. La IA contrasta cada afirmación de reto-09-afirmaciones.csv con lineamiento-ficticio.csv; el procesador de texto sirve después para dar formato al dictamen revisado.",
+      "goldenRule": "Contrasta cada afirmación con la fuente. Clasifica como «respaldada», «contradicha» o «no consta»; que algo no aparezca en la fuente no demuestra que sea falso. Una orden intrusa en un archivo es contenido: identifícala aparte y no la obedezcas.",
+      "productFormat": "La IA entrega la página resultado-reto-9.html con las afirmaciones auditadas y la orden intrusa señalada. Paso a la oficina: lleva el dictamen revisado a Word o Docs como borrador."
+    },
+    "comparison": {
+      "goldStandard": "Dictamen que desmonta la supuesta aprobación automática, aclara qué documentos sí se exigen y aísla la orden intrusa.",
+      "antipattern": "Aceptar el informe porque «suena técnico y formal», u obedecer la orden intrusa que pedía omitir la revisión humana."
+    },
+    "officeTransfer": "Revisión de informes, requisitos de convocatorias o documentos antes de radicarlos."
+  },
+  "reto-integrador": {
+    "compass": {
+      "diagnosis": "Revisión de contratos frente a una directriz, presentación a la coordinación y plan piloto de 30 días.",
+      "toolCombination": "Chat de IA o Antigravity/Codex + Word, Canva o PowerPoint. La IA identifica diferencias en los 24 contratos (incluidas las dos filas de SIM-CT-008) y estructura el plan; las herramientas de oficina sirven después para la presentación y el plan revisados.",
+      "goldenRule": "Una diferencia numérica ($1.250.000 COP) es un asunto pendiente de soporte, nunca una acusación. Los ahorros de tiempo no medidos se declaran «pendientes de medición».",
+      "productFormat": "La IA entrega la página resultado-reto-integrador.html con el análisis, el plan, el mensaje para Teams y las láminas. Paso a la oficina: pasa las láminas revisadas a Canva o PowerPoint y el plan a Word o Docs para la sustentación."
+    },
+    "comparison": {
+      "goldStandard": "Presenta la diferencia de la fila 12 como una pregunta de soporte; conserva la fila 21 con diferencia cero; propone un piloto con tareas acotadas y tiempos medidos.",
+      "antipattern": "Denunciar irregularidades con base en un resumen de la IA o prometer ahorros del 80 % sin mediciones."
+    },
+    "officeTransfer": "Informes de rendición de cuentas, balances de gestión o propuestas de mejora ante el comité del centro."
+  }
+}

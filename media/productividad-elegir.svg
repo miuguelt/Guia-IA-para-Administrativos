@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="420" height="320" viewBox="0 0 420 320" role="img" aria-labelledby="title desc">
+<title id="title">Tres preguntas antes de probar IA</title>
+<desc id="desc">Considera si la tarea se repite, si puedes comprobar su resultado y si puedes controlar el riesgo. Una respuesta negativa requiere revisar la elección antes de una prueba pequeña.</desc>
+<rect width="420" height="320" rx="24" fill="#eef4e9"/>
+<g font-family="Segoe UI, sans-serif" fill="#173e34">
+<text x="24" y="39" font-size="26" font-weight="700">Elige una tarea acotada</text>
+<path d="M210 105V246" stroke="#69835c" stroke-width="4"/>
+<g fill="#fff" stroke="#bed0b2"><rect x="20" y="59" width="380" height="52" rx="13"/><rect x="20" y="123" width="380" height="52" rx="13"/><rect x="20" y="187" width="380" height="52" rx="13"/></g>
+<g font-size="24" font-weight="600" text-anchor="middle"><text x="210" y="93">¿Se repite?</text><text x="210" y="157">¿Puedes comprobarla?</text><text x="210" y="221">¿Controlas el riesgo?</text></g>
+<rect x="73" y="257" width="274" height="43" rx="20" fill="#d7edaf"/>
+<text x="210" y="286" font-size="23" font-weight="700" text-anchor="middle">Prueba pequeña y revisión</text>
+</g></svg>

@@ -1,0 +1,210 @@
+{
+  "version": 1,
+  "descripcion": "Datos públicos reales de fuentes oficiales para aprendizaje; no son registros sintéticos.",
+  "datasets": {
+    "exoplanetas": {
+      "id": "exoplanetas",
+      "archivo": "datos/exoplanetas.csv",
+      "original": "originales/exoplanetas.json",
+      "url_consulta": "https://exoplanetarchive.ipac.caltech.edu/TAP/sync?query=select+pl_name%2Chostname%2Cdiscoverymethod%2Cpl_rade%2Cpl_orbper%2Cst_teff%2Cst_rad+from+ps+where+default_flag%3D1+and+discoverymethod%3D%27Transit%27+and+disc_year%3C%3D2024+and+pl_rade%3E0+and+pl_orbper%3E0+and+pl_radelim%3D0+and+pl_orbperlim%3D0+order+by+pl_name&format=json",
+      "url_documentacion": "https://exoplanetarchive.ipac.caltech.edu/docs/API_TD_columns.html",
+      "fecha_descarga": "2026-10-19T02:42:55+00:00",
+      "filas": 4332,
+      "columnas": [
+        "pl_name",
+        "hostname",
+        "discoverymethod",
+        "pl_rade",
+        "pl_orbper",
+        "st_teff",
+        "st_rad"
+      ],
+      "unidades": {
+        "pl_name": "identificador",
+        "hostname": "nombre de anfitriona",
+        "discoverymethod": "categoría",
+        "pl_rade": "radios terrestres",
+        "pl_orbper": "días",
+        "st_teff": "K",
+        "st_rad": "radios solares"
+      },
+      "sha256": "d02b79ab5cbefcfb9e419b5328504104a077242037e4f9e9965634244b26b705",
+      "sha256_original": "5bbb538c2a25b1e9913572eb546e09facdc0800c3d1a9d85fd88fea205b7a63c",
+      "licencia": "Datos de acceso público. Citar NASA Exoplanet Archive y las referencias originales; la página de atribución no declara una licencia CC única.",
+      "url_licencia": "https://exoplanetarchive.ipac.caltech.edu/docs/acknowledge.html",
+      "filtros": "select pl_name,hostname,discoverymethod,pl_rade,pl_orbper,st_teff,st_rad from ps where default_flag=1 and discoverymethod='Transit' and disc_year<=2024 and pl_rade>0 and pl_orbper>0 and pl_radelim=0 and pl_orbperlim=0 order by pl_name",
+      "transformacion": "Se conservan las siete columnas consultadas. Se ordenan por nombre. Nulos estelares se escriben como celdas vacías; no se imputan.",
+      "limites": [
+        "Todos los registros que cumplen el filtro; no es una muestra aleatoria del universo.",
+        "La selección incluye solo detección por tránsito hasta 2024 con radio y periodo positivos sin banderas de límite.",
+        "Una fila representa un planeta. Las anfitrionas se repiten; sus parámetros pueden diferir entre referencias de planetas.",
+        "Los valores publicados pueden revisarse después de la fecha de corte del descubrimiento."
+      ],
+      "metadatos": {}
+    },
+    "poblacion": {
+      "id": "poblacion",
+      "archivo": "datos/poblacion.csv",
+      "original": "originales/poblacion.json",
+      "url_consulta": "https://api.worldbank.org/v2/country/COL;PER;ECU/indicator/SP.POP.TOTL?date=2000:2024&format=json&per_page=1000",
+      "url_documentacion": "https://data.worldbank.org/indicator/SP.POP.TOTL?locations=CO-PE-EC",
+      "fecha_descarga": "2026-10-19T02:42:55+00:00",
+      "filas": 75,
+      "columnas": [
+        "pais",
+        "codigo",
+        "anio",
+        "poblacion"
+      ],
+      "unidades": {
+        "pais": "nombre",
+        "codigo": "ISO 3166-1 alfa-3",
+        "anio": "año calendario",
+        "poblacion": "personas"
+      },
+      "sha256": "2d8f014615be1d7d8bbf5e7fd529212c3301ec7a6dbdbc9def3d315f03a13458",
+      "sha256_original": "fa0de84568e377b212ef1599c13343992d5c870c239b8025af7c461f712f3043",
+      "licencia": "Creative Commons Attribution 4.0 (CC BY 4.0), según la ficha del indicador.",
+      "url_licencia": "https://data.worldbank.org/indicator/SP.POP.TOTL?locations=CO",
+      "filtros": "SP.POP.TOTL; Colombia, Perú y Ecuador; años 2000–2024; 75 combinaciones país-año esperadas.",
+      "transformacion": "Se extraen countryiso3code, date y value; se traducen únicamente los nombres de los tres países. Se ordena por código y año; los nulos se conservan vacíos.",
+      "limites": [
+        "Las estimaciones y series históricas pueden revisarse.",
+        "No sumar valores de distintos años ni tratar las cifras como microdatos individuales.",
+        "Las diferencias con DANE pueden corresponder a metodología, versión o fecha de referencia."
+      ],
+      "metadatos": {
+        "actualizacion_fuente": "2026-10-08",
+        "paginas": 1
+      }
+    },
+    "clima": {
+      "id": "clima",
+      "archivo": "datos/clima.csv",
+      "original": "originales/clima.json",
+      "url_consulta": "https://power.larc.nasa.gov/api/temporal/daily/point?parameters=T2M%2CPRECTOTCORR&community=AG&longitude=-74.0721&latitude=4.711&start=20240101&end=20241231&format=JSON&time-standard=LST",
+      "url_documentacion": "https://power.larc.nasa.gov/docs/services/api/temporal/daily/",
+      "fecha_descarga": "2026-10-19T02:42:55+00:00",
+      "filas": 366,
+      "columnas": [
+        "fecha",
+        "temperatura_c",
+        "precipitacion_mm"
+      ],
+      "unidades": {
+        "fecha": "día en hora solar local (LST)",
+        "temperatura_c": "°C",
+        "precipitacion_mm": "mm acumulados en el día"
+      },
+      "sha256": "f528d32b51e0571b09234619d1b353810e797ff563220be2d0fb5045e6a7eff3",
+      "sha256_original": "a2be3342a3a9851a3275780ca2c98a3328e320f84a4e5c18de20f038d087161c",
+      "licencia": "Acceso gratuito a los datos NASA POWER; conservar atribución al proyecto y a sus fuentes. Revisar condiciones de la fuente para otros usos.",
+      "url_licencia": "https://power.larc.nasa.gov/",
+      "filtros": "Punto de consulta 4.7110, -74.0721; Bogotá; 2024 completo; comunidad AG; días LST.",
+      "transformacion": "T2M pasa a temperatura_c. PRECTOTCORR expresa mm/día: al integrar cada intervalo diario completo, el valor numérico equivale a mm del día. -999 se convierte en vacío. Se conserva LST.",
+      "limites": [
+        "Es una celda de rejilla de fuentes como MERRA2, no una estación urbana de Bogotá.",
+        "La elevación y la resolución espacial de la celda pueden diferir del sitio de interés.",
+        "Un solo año permite explorar estacionalidad; no demuestra una tendencia climática de largo plazo.",
+        "LST es hora solar local; no equivale al huso horario civil de Colombia."
+      ],
+      "metadatos": {
+        "time_standard": "LST",
+        "coordenadas_celda": [
+          -74.072,
+          4.711,
+          1790.38
+        ],
+        "fuentes": [
+          "MERRA2"
+        ],
+        "unidades_originales": {
+          "T2M": {
+            "units": "C",
+            "longname": "Temperature at 2 Meters"
+          },
+          "PRECTOTCORR": {
+            "units": "mm/day",
+            "longname": "Precipitation Corrected"
+          }
+        }
+      }
+    },
+    "sismos": {
+      "id": "sismos",
+      "archivo": "datos/sismos.csv",
+      "original": "originales/sismos.json",
+      "url_consulta": "https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&starttime=2024-01-01T00%3A00%3A00&endtime=2024-01-31T23%3A59%3A59.999&minmagnitude=5&eventtype=earthquake&orderby=time-asc&limit=20000",
+      "url_documentacion": "https://earthquake.usgs.gov/fdsnws/event/1/",
+      "fecha_descarga": "2026-10-19T02:42:55+00:00",
+      "filas": 133,
+      "columnas": [
+        "id",
+        "fecha",
+        "latitud",
+        "longitud",
+        "profundidad_km",
+        "magnitud",
+        "tipo_magnitud"
+      ],
+      "unidades": {
+        "id": "identificador USGS",
+        "fecha": "instante UTC",
+        "latitud": "grados",
+        "longitud": "grados",
+        "profundidad_km": "km",
+        "magnitud": "escala indicada por tipo_magnitud",
+        "tipo_magnitud": "categoría"
+      },
+      "sha256": "ef822dff1e99fc8016c07ea54f401b95e602d8165552fd1cbf5e176ed9690ef7",
+      "sha256_original": "e9e070fbf9a68d885553972d8e67a447ffdcd66a1c1e79794a9d0c3b4392ca82",
+      "licencia": "Datos del catálogo USGS de acceso público; citar USGS y conservar la procedencia y fecha. Revisar créditos específicos de productos asociados.",
+      "url_licencia": "https://www.usgs.gov/information-policies-and-instructions/copyrights-and-credits",
+      "filtros": "Catálogo global; enero de 2024 en UTC; tipo earthquake; magnitud ≥5; máximo técnico 20.000.",
+      "transformacion": "Se transforma GeoJSON a tabla: coordinates[0] es longitud, [1] latitud y [2] profundidad. Tiempo Unix en milisegundos se convierte a ISO 8601 UTC.",
+      "limites": [
+        "Se rechaza una respuesta que alcance 20.000 filas para evitar truncamiento silencioso.",
+        "La magnitud tiene escala logarítmica; no mide directamente intensidad ni daños.",
+        "Los tipos de magnitud y las revisiones pueden variar. El catálogo no predice sismos futuros."
+      ],
+      "metadatos": {}
+    }
+  },
+  "ampliaciones": {
+    "dane_santander": {
+      "id": "dane_santander",
+      "archivo": "datos/piramide-santander-2024.csv",
+      "original": "originales/dane-santander-2024-extracto.json",
+      "url_consulta": "https://www.dane.gov.co/files/censo2018/proyecciones-de-poblacion/Departamental/PPED-AreaSexoEdadDep-2018-2050_VP.xlsx",
+      "fecha_descarga": "2026-10-19T02:48:41+00:00",
+      "sha256": "353ac07746fef32f7d8e32fa0bf866ffd538a623a6ac2bad26a1d4e454dc9ad4",
+      "sha256_original": "dd96226209bc187b00672b2b36c78898d4bb08310bd44a7065b0e187bde29ded",
+      "sha256_xlsx_consultado": "ba42efa193e9d194df2ba4036199bed83c688744892fb6ad56a20a6b406f819f",
+      "bytes_xlsx_consultado": 6631115,
+      "filas": 101,
+      "columnas": [
+        "edad",
+        "hombres",
+        "mujeres"
+      ],
+      "unidades": {
+        "edad": "años cumplidos; 100 representa 100 años y más",
+        "hombres": "personas",
+        "mujeres": "personas"
+      },
+      "total": 2380650,
+      "hombres": 1168768,
+      "mujeres": 1211882,
+      "filtros": "Departamento 68, Santander; año 2024; área Total; encabezado fila 9.",
+      "transformacion": "Se extraen columnas Hombres/Mujeres por edad. Se comprueba la suma por sexo y ambos sexos contra la misma fila. No se suman áreas con Total.",
+      "licencia": "Fuente pública DANE. Se distribuye únicamente un extracto numérico con atribución; el XLSX completo se consulta en el enlace oficial y no se incluye en el paquete.",
+      "url_documentacion": "https://www.dane.gov.co/index.php/estadisticas-por-tema/demografia-y-poblacion/proyecciones-de-poblacion",
+      "limites": [
+        "Son proyecciones con base en CNPV 2018, no un conteo censal de 2024.",
+        "El grupo final representa 100 años y más. La figura agrupa edades en intervalos de cinco años.",
+        "La página publica el anexo el 8 de agosto de 2025; la hoja PPED declara actualización del 30 de julio de 2025.",
+        "Se conserva un extracto de las celdas consultadas; el archivo XLSX completo no se redistribuye."
+      ]
+    }
+  }
+}

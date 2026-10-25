@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="es-CO"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="light"><title>Práctica NASA: planetas y estrellas anfitrionas · Biblioteca de la guía</title>
+<link rel="stylesheet" href="../../css/documents.css"><link rel="stylesheet" href="devbrain-prose.css" data-devbrain-prose>
+<script defer src="devbrain-prose.js" data-devbrain-prose-runtime></script></head><body>
+<a class="skip-link" href="#documento">Ir al documento</a>
+<nav class="reader-nav" aria-label="Acciones del documento"><a href="index.html">← Biblioteca</a>
+<a href="../../index.html#preparacion">Abrir guía web</a><a href="../../materiales/analisis-datos/fichas/ficha-nasa.md" download>Descargar fuente Markdown</a>
+<span>Imprime o guarda en PDF con Ctrl+P</span></nav>
+<div class="reading-layout"><aside class="reading-sidebar"><p class="eyebrow">En este documento</p>
+<details open><summary>Ver apartados</summary><div class="toc">
+<ul>
+<li><a href="#en-tres-pasos">En tres pasos</a></li>
+<li><a href="#revisa-tres-criterios">Revisa tres criterios</a></li>
+<li><a href="#ampliacion-opcional">Ampliación opcional</a></li>
+</ul>
+</div>
+</details></aside>
+<main id="documento" class="document-sheet"><header class="document-header"><p class="eyebrow">Guía IA para administrativos</p>
+<span class="document-badge">Laboratorio de datos y documentos</span><p class="document-context">Consulta el contenido por apartados y conserva el archivo fuente si necesitas editarlo.</p></header>
+<article class="document-content"><h1 id="practica-nasa-planetas-y-estrellas-anfitrionas">Práctica NASA: planetas y estrellas anfitrionas</h1>
+<p>La IA analiza datos públicos reales de NASA Exoplanet Archive y prepara los archivos. Tú contrastas el resultado con sus fuentes. Esta práctica pertenece al laboratorio independiente; no añadas información personal.</p>
+<p><strong>Pregunta preparada:</strong> ¿cómo se distribuyen los radios y periodos orbitales de los planetas seleccionados?</p>
+<p><strong>Fuentes:</strong> <code>datos/exoplanetas.csv</code>, <code>diccionario.csv</code> y <code>fuentes.json</code>. El paquete para IA los conserva bajo <code>fuentes/</code>. El CSV usa coma y UTF-8. Una fila representa un planeta; <code>hostname</code> puede repetirse porque una estrella tiene varios planetas.</p>
+<p>La descarga usa <code>ps</code>, <code>default_flag=1</code>, detección por tránsito, descubrimiento hasta 2024 y filtros de radio y periodo indicados en el manifiesto. No representa todos los exoplanetas ni todas las estrellas.</p>
+<p><strong>Ejemplo:</strong> una anfitriona con dos planetas aporta dos filas; eso no demuestra que sus parámetros estelares coincidan.</p>
+<h2 id="en-tres-pasos">En tres pasos</h2>
+<ol>
+<li><strong>Entrega el encargo.</strong> Descarga el <a href="../../materiales/ia/lab-nasa.zip">paquete NASA</a>. Adjunta las fuentes y copia el <a href="materiales--ia--lab-nasa--ENCARGO-CHAT.html">encargo para chat</a>, o abre la carpeta en Antigravity o Codex y usa el <a href="materiales--ia--lab-nasa--ENCARGO-IDE.html">encargo para IDE</a>. No necesitas redactar instrucciones ni llenar una ficha.</li>
+<li><strong>Revisa lo generado.</strong> La IA genera inspección, conteos, mediana de <code>pl_rade</code>, histograma de radios y dispersión de <code>pl_orbper</code> frente a <code>pl_rade</code>, con tablas equivalentes. Prepara la regla para anfitrionas repetidas, la conclusión y el documento con fuentes y límites. Aplica los tres criterios siguientes y pide ajustes en la misma conversación.</li>
+<li><strong>Descarga y conserva.</strong> Pide tablas, gráficos, procedimiento, documento y <code>resultado.json</code> para <code>LAB-A01</code>. Recibe el JSON en «Guarda tu evidencia», revisa la vista y guarda el borrador. La revisión humana no realizada queda pendiente; importar no acredita aprobación del instructor.</li>
+</ol>
+<h2 id="revisa-tres-criterios">Revisa tres criterios</h2>
+<ul>
+<li><strong>Selección y faltantes.</strong> Contrasta tres planetas por nombre con el original y la consulta de <a href="https://exoplanetarchive.ipac.caltech.edu/">NASA Exoplanet Archive</a>. Comprueba filtros, unidades y datos estelares ausentes, sin valores inventados.</li>
+<li><strong>Cálculos y figuras.</strong> Abre el cálculo de control de la mediana generado por la IA. Revisa conteo, unidades y escalas lineal y logarítmica; los valores deben ser positivos al usar logaritmo. Las tablas deben corresponder a los gráficos.</li>
+<li><strong>Anfitrionas y alcance.</strong> Comprueba el número de anfitrionas distintas y la regla para conflictos en <code>st_teff</code> o <code>st_rad</code>. No se promedian ni eliminan discrepancias por defecto. La conclusión debe reconocer la selección y el sesgo de detección.</li>
+</ul>
+<h2 id="ampliacion-opcional">Ampliación opcional</h2>
+<p>Pide a la IA repetir el procedimiento desde el original. Para comparar métodos de descubrimiento o errores de medición, encarga otra consulta: esos contrastes no se resuelven con las columnas y filtros iniciales.</p></article>
+<footer class="document-footer">Guía IA para administrativos · Versión de lectura de <a href="../../materiales/analisis-datos/fichas/ficha-nasa.md">ficha-nasa.md</a>.
+Las decisiones y los pendientes conservan el estado del archivo fuente.</footer></main></div></body></html>

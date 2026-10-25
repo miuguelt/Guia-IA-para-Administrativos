@@ -1,0 +1,292 @@
+<!doctype html>
+<html lang="es-CO"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="light"><title>Explora datos y documentos con IA · Biblioteca de la guía</title>
+<link rel="stylesheet" href="../../css/documents.css"><link rel="stylesheet" href="devbrain-prose.css" data-devbrain-prose>
+<script defer src="devbrain-prose.js" data-devbrain-prose-runtime></script></head><body>
+<a class="skip-link" href="#documento">Ir al documento</a>
+<nav class="reader-nav" aria-label="Acciones del documento"><a href="index.html">← Biblioteca</a>
+<a href="../../index.html#preparacion">Abrir guía web</a><a href="../analisis-datos/guia-laboratorio.md" download>Descargar fuente Markdown</a>
+<span>Imprime o guarda en PDF con Ctrl+P</span></nav>
+<div class="reading-layout"><aside class="reading-sidebar"><p class="eyebrow">En este documento</p>
+<details open><summary>Ver apartados</summary><div class="toc">
+<ul>
+<li><a href="#forma-de-trabajo-con-ia">Forma de trabajo con IA</a></li>
+<li><a href="#entrega-el-encargo-y-recibe-los-archivos">Entrega el encargo y recibe los archivos</a></li>
+<li><a href="#1-que-podras-hacer">1. Qué podrás hacer</a></li>
+<li><a href="#2-organiza-tu-carpeta-y-el-tiempo">2. Organiza tu carpeta y el tiempo</a></li>
+<li><a href="#3-sigue-un-procedimiento-comun">3. Sigue un procedimiento común</a></li>
+<li><a href="#4-elige-la-herramienta-por-la-tarea">4. Elige la herramienta por la tarea</a><ul>
+<li><a href="#ruta-breve-para-comprobar-un-csv-en-excel">Ruta breve para comprobar un CSV en Excel</a></li>
+</ul>
+</li>
+<li><a href="#5-cinco-practicas-con-una-finalidad-diferente">5. Cinco prácticas con una finalidad diferente</a><ul>
+<li><a href="#a-planetas-y-estrellas-anfitrionas">A. Planetas y estrellas anfitrionas</a></li>
+<li><a href="#b-poblacion-y-territorio">B. Población y territorio</a></li>
+<li><a href="#c-temperatura-y-precipitacion">C. Temperatura y precipitación</a></li>
+<li><a href="#d-sismos">D. Sismos</a></li>
+<li><a href="#e-documentos-extensos">E. Documentos extensos</a></li>
+</ul>
+</li>
+<li><a href="#6-representa-sin-deformar">6. Representa sin deformar</a></li>
+<li><a href="#7-profundiza-con-una-pregunta-delimitada">7. Profundiza con una pregunta delimitada</a></li>
+<li><a href="#8-revisa-tu-entrega">8. Revisa tu entrega</a></li>
+</ul>
+</div>
+</details></aside>
+<main id="documento" class="document-sheet"><header class="document-header"><p class="eyebrow">Guía IA para administrativos</p>
+<span class="document-badge">Laboratorio de datos y documentos</span><p class="document-context">Consulta el contenido por apartados y conserva el archivo fuente si necesitas editarlo.</p></header>
+<article class="document-content"><h1 id="explora-datos-y-documentos-con-ia">Explora datos y documentos con IA</h1>
+<p>Laboratorio complementario e independiente. Ruta inicial: 12 horas sugeridas. Ruta avanzada opcional: entre 12 y 16 horas adicionales. Estos tiempos no modifican la propuesta de 40 horas del recorrido administrativo, la referencia curricular de 48 horas ni las evidencias MG-A01 a MG-A05. Son estimaciones de aprendizaje, no promesas de ahorro.</p>
+<p>Esta guía usa datos públicos reales de fuentes oficiales. Los archivos preparados conservan su procedencia y sus transformaciones. No incorpores expedientes, credenciales ni información personal de tu dependencia. Los documentos externos se obtienen desde sus portales; su disponibilidad pública no equivale a un permiso de redistribución o de carga en cualquier servicio.</p>
+<p>La <a href="../../index.html#laboratorio-datos">versión web del laboratorio</a> reúne ejemplos, exploradores, instrucciones por herramienta y descargas. Esta guía permite organizar y revisar el trabajo fuera del navegador. Los nombres, filtros y conteos exactos de las muestras están en <a href="../../materiales/analisis-datos/fuentes.json">fuentes.json</a>; las variables se describen en <a href="../../materiales/analisis-datos/diccionario.csv">diccionario.csv</a>.</p>
+<h2 id="forma-de-trabajo-con-ia">Forma de trabajo con IA</h2>
+<p>La IA prepara los archivos de la actividad con el encargo y las fuentes del paquete. El aprendiz entrega ese encargo a un chat autorizado o a Antigravity o Codex, revisa el resultado y descarga los productos. Los campos que se describen son la estructura de salida para la IA. Los datos ausentes, las mediciones no realizadas y las revisiones humanas no observadas quedan pendientes; el instructor conserva la valoración formal.</p>
+<p>Los <a href="../../index.html#preparacion">encargos de la guía web</a> están listos para usar. La conversación, el informe y el JSON generado conservan el trabajo sin transcribirlo en otra ficha. Si la herramienta no puede ejecutar la tarea, se conserva esa limitación como pendiente y se consulta una opción autorizada.</p>
+<h2 id="entrega-el-encargo-y-recibe-los-archivos">Entrega el encargo y recibe los archivos</h2>
+<ol>
+<li>Descarga un paquete de la tabla y entrega su encargo al chat autorizado o al agente de Antigravity o Codex.</li>
+<li>La IA realiza el análisis y genera tablas, gráficos e informe. Contrasta una referencia del resultado y pide corregir cualquier diferencia.</li>
+<li>Descarga los archivos y el JSON de entrega. La IA conserva límites y pendientes; importa el archivo en la guía sin transcribir sus campos.</li>
+</ol>
+<div aria-label="Tabla de apoyo" class="table-wrap" role="region" tabindex="0"><table>
+<thead>
+<tr>
+<th>Práctica</th>
+<th>Paquete y encargo preparados</th>
+<th>Producto que genera la IA</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Planetas</td>
+<td><a href="../../materiales/ia/lab-nasa.zip">Paquete NASA</a> · <a href="materiales--ia--lab-nasa--ENCARGO-CHAT.html">Chat</a> · <a href="materiales--ia--lab-nasa--ENCARGO-IDE.html">Antigravity o Codex</a></td>
+<td>Distribución, figuras, tabla de control e informe.</td>
+</tr>
+<tr>
+<td>Población</td>
+<td><a href="../../materiales/ia/lab-poblacion.zip">Paquete</a> · <a href="materiales--ia--lab-poblacion--ENCARGO-CHAT.html">Chat</a> · <a href="materiales--ia--lab-poblacion--ENCARGO-IDE.html">IDE</a></td>
+<td>Comparación por país y periodo, gráficos e informe.</td>
+</tr>
+<tr>
+<td>Clima</td>
+<td><a href="../../materiales/ia/lab-clima.zip">Paquete</a> · <a href="materiales--ia--lab-clima--ENCARGO-CHAT.html">Chat</a> · <a href="materiales--ia--lab-clima--ENCARGO-IDE.html">IDE</a></td>
+<td>Medias de temperatura, acumulados de lluvia y cobertura.</td>
+</tr>
+<tr>
+<td>Sismos</td>
+<td><a href="../../materiales/ia/lab-sismos.zip">Paquete</a> · <a href="materiales--ia--lab-sismos--ENCARGO-CHAT.html">Chat</a> · <a href="materiales--ia--lab-sismos--ENCARGO-IDE.html">IDE</a></td>
+<td>Mapa, distribuciones, tabla e informe con límites.</td>
+</tr>
+<tr>
+<td>Documentos</td>
+<td><a href="../../materiales/ia/lab-documentos.zip">Paquete</a> · <a href="materiales--ia--lab-documentos--ENCARGO-CHAT.html">Chat</a> · <a href="materiales--ia--lab-documentos--ENCARGO-IDE.html">IDE</a></td>
+<td>Inventario, matriz de citas, cobertura e informe.</td>
+</tr>
+</tbody>
+</table></div>
+<p>Las ampliaciones siguientes explican los controles del procedimiento que se encarga al asistente. La ejecución propia queda pendiente si la cuenta no puede procesar los archivos; observar un simulador no acredita ese trabajo.</p>
+<h2 id="1-que-podras-hacer">1. Qué podrás hacer</h2>
+<p>Formular una pregunta que pueda responderse con datos, encontrar una fuente oficial, revisar una tabla, elegir un gráfico, encargar cálculos a la IA y comprobar las conclusiones. También podrás comparar documentos y reconocer qué parte de una colección se revisó realmente. La ampliación enseña cómo conservar y repetir un procedimiento sobre volúmenes mayores.</p>
+<p>No necesitas escribir código para empezar. Necesitas poder abrir archivos, comparar una salida con su fuente y explicar una decisión. Si una herramienta no puede ejecutar el análisis, pide que el informe conserve el pendiente y consulta otra herramienta autorizada; no presentes su explicación como un cálculo realizado.</p>
+<h2 id="2-organiza-tu-carpeta-y-el-tiempo">2. Organiza tu carpeta y el tiempo</h2>
+<p>Conserva cuatro grupos de archivos: originales, datos preparados, resultados y documentación. No reemplaces la descarga original. Pide a la IA conservar la fecha y el nombre del conjunto con cada resultado para distinguir versiones.</p>
+<div aria-label="Tabla de apoyo" class="table-wrap" role="region" tabindex="0"><table>
+<thead>
+<tr>
+<th>Trabajo de la ruta inicial</th>
+<th style="text-align: right;">Tiempo sugerido</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Pregunta, fuente y herramienta</td>
+<td style="text-align: right;">1 hora</td>
+</tr>
+<tr>
+<td>Descarga, diccionario e inspección</td>
+<td style="text-align: right;">2 horas</td>
+</tr>
+<tr>
+<td>Primer análisis con chat web</td>
+<td style="text-align: right;">2 horas</td>
+</tr>
+<tr>
+<td>Planetas y estrellas</td>
+<td style="text-align: right;">2 horas</td>
+</tr>
+<tr>
+<td>Población, temperatura y sismos</td>
+<td style="text-align: right;">2 horas</td>
+</tr>
+<tr>
+<td>Documentos con referencias</td>
+<td style="text-align: right;">2 horas</td>
+</tr>
+<tr>
+<td>Presentación y revisión</td>
+<td style="text-align: right;">1 hora</td>
+</tr>
+</tbody>
+</table></div>
+<p>En los bloques con varios casos, observa todos los ejemplos y resuelve una variante delimitada. Puedes profundizar en los demás a tu ritmo. El instructor puede ajustar la distribución según acceso y experiencia sin confundirla con el horario del programa principal.</p>
+<h2 id="3-sigue-un-procedimiento-comun">3. Sigue un procedimiento común</h2>
+<ol>
+<li><strong>Entrega el encargo.</strong> Pide a la IA precisar la comparación, qué representa una fila, población, periodo y unidades. «¿Cómo cambia la población de tres países?» todavía necesita años y fuente.</li>
+<li><strong>Encarga la preparación.</strong> La IA usa los archivos del paquete y conserva consulta, versión, fecha y condiciones de uso. Si se amplía la fuente, debe obtenerla por una vía permitida y comprobar que sea una descarga válida.</li>
+<li><strong>Inspecciona.</strong> Pide columnas, tipos, filas, fechas, faltantes y duplicados. Compara varias filas con el original. Conserva los códigos como texto cuando sus ceros o longitud sean relevantes.</li>
+<li><strong>Revisa la preparación.</strong> Pide a la IA las reglas para fechas, unidades y valores ausentes, junto con original, transformación, conteos y motivos de exclusión. Un vacío no es cero; un extremo no es automáticamente un error.</li>
+<li><strong>Visualiza.</strong> Pide gráfico y tabla equivalente. Revisa una marca, un filtro y una cifra. Título, ejes, fuente, periodo y denominador deben coincidir con la pregunta.</li>
+<li><strong>Valida y descarga.</strong> Pide una comprobación independiente y contrasta su referencia. La IA entrega fuentes, reglas, conversación, código cuando exista, resultados y límites; deja pendientes las revisiones humanas no observadas.</li>
+</ol>
+<p>Instrucción inicial para el chat:</p>
+<blockquote>
+<p>Examina el archivo antes de calcular. Explica qué representa cada fila, muestra las columnas y sus unidades e informa el total de registros, los faltantes y los identificadores repetidos. Muéstrame tres filas de control. No elimines ni completes datos. Si no puedes leer todo, indica qué revisaste y qué falta.</p>
+</blockquote>
+<p>Después de revisar la respuesta:</p>
+<blockquote>
+<p>Responde esta pregunta con la tabla revisada. Explica los filtros y cálculos. Entrega un gráfico adecuado, la tabla que lo alimenta y una descripción textual. Incluye unidades, periodo, fuente y observaciones válidas. Separa lo que muestran los datos de lo que no permiten concluir. Conserva el procedimiento para repetirlo.</p>
+</blockquote>
+<h2 id="4-elige-la-herramienta-por-la-tarea">4. Elige la herramienta por la tarea</h2>
+<div aria-label="Tabla de apoyo" class="table-wrap" role="region" tabindex="0"><table>
+<thead>
+<tr>
+<th>Necesidad</th>
+<th>Ruta</th>
+<th>Evidencia que debes conservar</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Explorar una tabla acotada sin programar</td>
+<td>ChatGPT o Gemini con análisis de archivos disponible</td>
+<td>Archivo leído, tabla calculada, gráfico y comprobación.</td>
+</tr>
+<tr>
+<td>Repetir un análisis sobre una carpeta</td>
+<td>Codex o Antigravity</td>
+<td>Plan, cambios, comandos, pruebas y resultados regenerados.</td>
+</tr>
+<tr>
+<td>Entender cada cálculo</td>
+<td>Jupyter o Google Colab</td>
+<td>Cuaderno ejecutado en orden, entradas y salidas.</td>
+</tr>
+<tr>
+<td>Comparar fuentes documentales</td>
+<td>NotebookLM o chat con archivos; preparación por lotes con un agente</td>
+<td>Inventario, citas comprobadas, matriz de evidencia y pendientes.</td>
+</tr>
+<tr>
+<td>Revisar números de forma independiente</td>
+<td>Excel, Sheets, Calc o calculadora</td>
+<td>Fórmula, celdas o cantidades que corroboran el resultado.</td>
+</tr>
+</tbody>
+</table></div>
+<p>Abre en la web <a href="../../index.html#lab-herramientas">los recorridos por herramienta</a>. Cada uno explica qué entregar, qué pedir y cómo reconocer un error. La disponibilidad de funciones depende de cuenta, versión y organización. Tener los archivos en el computador no significa que el modelo de IA funcione sin conexión.</p>
+<h3 id="ruta-breve-para-comprobar-un-csv-en-excel">Ruta breve para comprobar un CSV en Excel</h3>
+<p>El libro de práctica ya incluye una hoja de inicio, tablas filtrables, fórmulas y gráficos donde aportan a la lectura. Usa una copia de trabajo y conserva intactos el CSV y el original JSON.</p>
+<ol>
+<li>En Excel, abre <strong>Datos &gt; Desde texto/CSV</strong> y elige el CSV. Revisa la codificación UTF-8, el separador y la vista previa antes de cargar. Si tu versión muestra otros nombres, busca la opción para importar desde texto o CSV.</li>
+<li>En la vista previa, comprueba que cada campo quede en su columna. Define como texto los códigos que deban conservar ceros iniciales; revisa que las fechas y los números se interpreten como valores y no como texto.</li>
+<li>Carga el conjunto como tabla. Usa los filtros de sus encabezados para elegir país, fecha o categoría. Anota los criterios y compara el número de filas visibles con el archivo fuente.</li>
+<li>Calcula en celdas aparte y conserva la fórmula. Para comparar dos años, usa <code>(valor final − valor inicial) / valor inicial × 100</code>; deja el resultado pendiente si falta un extremo o el inicial es cero. En población, no sumes años: cada fila representa un país en un año.</li>
+<li>Inserta un gráfico desde la tabla filtrada solo si ayuda a responder la pregunta. Incluye título, unidad, periodo y fuente; comprueba un punto o barra frente a su fila y presenta también la tabla o una descripción breve.</li>
+<li>Guarda el resultado como un archivo nuevo <code>.xlsx</code>. Registra el origen, los filtros, las fórmulas y los límites para que otra persona pueda repetir la comprobación.</li>
+</ol>
+<p>Para consultas repetidas, Power Query puede importar y aplicar los mismos pasos de limpieza sin sobrescribir el archivo de origen. Revisa la vista previa y los tipos antes de actualizar: una transformación reproducible también puede estar mal configurada.</p>
+<h2 id="5-cinco-practicas-con-una-finalidad-diferente">5. Cinco prácticas con una finalidad diferente</h2>
+<h3 id="a-planetas-y-estrellas-anfitrionas">A. Planetas y estrellas anfitrionas</h3>
+<p>Abre <code>datos/exoplanetas.csv</code>. Una fila representa un planeta. La selección incluye detecciones por tránsito hasta 2024, con radio y periodo positivos y sin las banderas de límite especificadas en la consulta. Es una selección del catálogo, no una muestra aleatoria del universo. El corte de descubrimiento no impide revisiones posteriores de los parámetros.</p>
+<p>En <a href="https://exoplanetarchive.ipac.caltech.edu/">NASA Exoplanet Archive</a>, localiza la tabla de sistemas planetarios y su diccionario. Reconoce <code>pl_name</code>, <code>hostname</code>, <code>pl_rade</code>, <code>pl_orbper</code>, <code>st_teff</code> y <code>st_rad</code>. Reproduce los filtros del manifiesto y descarga una copia nueva si quieres comparar versiones.</p>
+<p>Pide a la IA un histograma de radio en radios terrestres y una dispersión de periodo en días frente a radio. Pide que compare escala lineal y logarítmica e informe valores omitidos. Para estudiar estrellas, encarga al agente el conteo de anfitrionas y la regla para parámetros discrepantes; no multipliques el peso de una estrella por su cantidad de planetas. El archivo inicial no incluye columnas de incertidumbre: para dibujar barras de error necesitas ampliar la consulta y leer sus definiciones.</p>
+<p><strong>Entrega:</strong> dos gráficos planetarios, una revisión de anfitrionas y una conclusión sobre la selección. Pide a la IA el archivo de salida según <a href="materiales--analisis-datos--fichas--ficha-nasa.html">ficha-nasa.md</a>.</p>
+<h3 id="b-poblacion-y-territorio">B. Población y territorio</h3>
+<p>Abre <code>datos/poblacion.csv</code>: Colombia, Perú y Ecuador, 2000–2024, indicador <code>SP.POP.TOTL</code> del Banco Mundial. Una fila corresponde a país y año; la unidad es personas. No sumes años como si fueran personas distintas.</p>
+<p>En la <a href="https://data.worldbank.org/indicator/SP.POP.TOTL">ficha oficial del indicador</a>, selecciona países y periodo y revisa metadatos y descarga. Pide a la IA las líneas y el cambio entre dos años comunes: <code>(valor final − valor inicial) / valor inicial × 100</code>. Si falta alguno de los extremos o el inicial es cero, informa que esa operación no puede realizarse así.</p>
+<p>La ampliación colombiana usa <code>datos/piramide-santander-2024.csv</code>: edades, hombres y mujeres de Santander en 2024, área total, según la proyección del DANE actualizada en 2025. La edad 100 reúne 100 años y más. Abre <a href="https://www.dane.gov.co/index.php/estadisticas-por-tema/demografia-y-poblacion/proyecciones-de-poblacion">proyecciones del DANE</a>, localiza el anexo del manifiesto y contrasta el extracto. Estos campos no están en el CSV internacional: son otra tabla y otra fuente. No presentes una proyección como un conteo observado ni compares versiones distintas sin explicar sus diferencias.</p>
+<p><strong>Entrega:</strong> evolución, comparación porcentual y nota de comparabilidad. Pide a la IA el archivo de salida según <a href="materiales--analisis-datos--fichas--ficha-poblacion.html">ficha-poblacion.md</a>.</p>
+<h3 id="c-temperatura-y-precipitacion">C. Temperatura y precipitación</h3>
+<p>Abre <code>datos/clima.csv</code>: consulta NASA POWER para coordenadas de Bogotá durante 2024. La serie usa hora solar local (LST), que no es la hora civil de Colombia. Corresponde a un producto de rejilla, no a una estación instalada en esa dirección.</p>
+<p>En <a href="https://power.larc.nasa.gov/">NASA POWER</a>, localiza el visor, selecciona punto, periodo, frecuencia diaria y variables. Guarda metadatos y unidades. El manifiesto explica la transformación de <code>T2M</code> a <code>temperatura_c</code> y de <code>PRECTOTCORR</code> a acumulados diarios de <code>precipitacion_mm</code>.</p>
+<p>Pide a la IA temperatura por fecha, distribuciones por mes y precipitación resumida con la operación adecuada a su unidad. Comprueba los días válidos que informa antes de comparar. El año sirve para explorar variación durante el periodo; no demuestra una tendencia climática de largo plazo.</p>
+<p><strong>Entrega:</strong> serie, comparación mensual y registro de cobertura. Pide a la IA el archivo de salida según <a href="materiales--analisis-datos--fichas--ficha-clima.html">ficha-clima.md</a>.</p>
+<h3 id="d-sismos">D. Sismos</h3>
+<p>Abre <code>datos/sismos.csv</code>: catálogo global USGS, enero de 2024 en UTC, eventos de tipo <code>earthquake</code> y magnitud de al menos 5. Identifica <code>id</code>, fecha, coordenadas, profundidad, magnitud y tipo de magnitud.</p>
+<p>En el <a href="https://earthquake.usgs.gov/fdsnws/event/1/">catálogo USGS</a>, conserva fechas, región y umbral de la consulta. Si amplías el volumen, divide la consulta en ventanas y verifica sus límites y los identificadores; no aceptes una respuesta truncada como completa.</p>
+<p>Encarga a la IA el mapa de puntos, el histograma de profundidades y la comparación de conteos por periodo con el mismo criterio de selección. La magnitud no es la intensidad percibida ni una medida directa del daño. Estos gráficos no predicen dónde ocurrirá el próximo sismo.</p>
+<p><strong>Entrega:</strong> mapa con tabla equivalente, distribución y límites. Pide a la IA el archivo de salida según <a href="materiales--analisis-datos--fichas--ficha-sismos.html">ficha-sismos.md</a>.</p>
+<h3 id="e-documentos-extensos">E. Documentos extensos</h3>
+<p>Usa el inventario y los enlaces del paquete documental para obtener informes oficiales del DANE. Empieza por metodología general, actualizaciones y notas técnicas. Compara pregunta, periodo, fuentes, supuestos y cambios entre versiones. Los documentos históricos se leen como antecedentes, no como instrucciones vigentes.</p>
+<p>Encarga primero a la IA el inventario de archivos y páginas. Pide después la extracción y una matriz con: afirmación, documento, versión, página, evidencia breve, estado y revisión. Distingue número de página del archivo y número impreso cuando sean distintos. Comprueba cada cita en el original.</p>
+<p>El archivo <a href="https://www.dane.gov.co/files/censo2018/proyecciones-de-poblacion/Documento-metodologico-proyecciones.pdf">Metodología general de proyecciones</a> contiene en su segunda página una restricción de reproducción. El laboratorio entrega enlaces y fichas originales; no incluye ese PDF en los paquetes. No des por hecho que un resumen bibliográfico contiene todo el documento ni que una búsqueda sin resultados prueba ausencia de información.</p>
+<p><strong>Entrega:</strong> inventario, matriz y síntesis con cobertura declarada. Pide a la IA el archivo de salida según <a href="materiales--analisis-datos--fichas--ficha-documentos.html">ficha-documentos.md</a>.</p>
+<h2 id="6-representa-sin-deformar">6. Representa sin deformar</h2>
+<div aria-label="Tabla de apoyo" class="table-wrap" role="region" tabindex="0"><table>
+<thead>
+<tr>
+<th>Pregunta</th>
+<th>Gráfico</th>
+<th>Comprobación esencial</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Comparar grupos</td>
+<td>Barras o puntos</td>
+<td>Unidad, periodo, denominador y rango.</td>
+</tr>
+<tr>
+<td>Seguir cambios</td>
+<td>Líneas</td>
+<td>Orden temporal, vacíos y frecuencia.</td>
+</tr>
+<tr>
+<td>Examinar distribución</td>
+<td>Histograma, caja y puntos</td>
+<td>Intervalos, mediana, extremos y tamaño de grupo.</td>
+</tr>
+<tr>
+<td>Relacionar variables</td>
+<td>Dispersión</td>
+<td>Escala, ausencias, concentración y sesgo.</td>
+</tr>
+<tr>
+<td>Examinar composición</td>
+<td>Barras al 100 % o pirámide</td>
+<td>Categorías, grupos y total de referencia.</td>
+</tr>
+<tr>
+<td>Ubicar eventos</td>
+<td>Mapa y tabla</td>
+<td>Coordenadas, cobertura y geometría.</td>
+</tr>
+<tr>
+<td>Comparar combinaciones</td>
+<td>Mapa de calor o pequeños múltiples</td>
+<td>Misma escala y faltantes identificados.</td>
+</tr>
+<tr>
+<td>Mostrar incertidumbre</td>
+<td>Bandas o intervalos</td>
+<td>Fuente o método de los límites.</td>
+</tr>
+</tbody>
+</table></div>
+<p>Una escala logarítmica facilita comparar razones cuando el rango es amplio; debes declararla y tratar ceros y negativos. No uses perspectiva 3D como decoración. La visualización debe ofrecer etiquetas, descripción, tabla, contraste y operación con teclado; la información no puede depender únicamente del color o del puntero.</p>
+<h2 id="7-profundiza-con-una-pregunta-delimitada">7. Profundiza con una pregunta delimitada</h2>
+<p>La <a href="../../index.html#lab-avanzado">ruta avanzada en la web</a> explica descripción, incertidumbre, regresión, PCA, agrupamiento, series, geografía y procesamiento por lotes. Cada método exige una decisión y una comprobación, no solo pedir al asistente que lo aplique.</p>
+<ul>
+<li><strong>Estadística:</strong> distingue dispersión y error de estimación. Conserva tamaños de grupo y supuestos; una muestra grande también puede estar sesgada.</li>
+<li><strong>Modelos:</strong> separa entrenamiento y evaluación antes de aprender transformaciones. Compara contra una referencia sencilla y revisa errores. Asociación no demuestra causalidad.</li>
+<li><strong>Tiempo:</strong> reserva fechas futuras respecto del entrenamiento. No mezcles al azar los datos temporales ni calcules transformaciones usando información del tramo reservado.</li>
+<li><strong>Territorio:</strong> comprueba códigos, geometrías y año. Un promedio territorial no describe a cada individuo.</li>
+<li><strong>Volumen:</strong> encarga al agente medir bytes, tiempo y registros, seleccionar columnas y periodos y procesar por lotes con Parquet/DuckDB cuando corresponda. Nunca sustituyas una falla por otro conjunto sin declararlo.</li>
+<li><strong>Documentos:</strong> pide al agente conservar las páginas procesadas, fallidas y pendientes. Revisa extracción y citas. Una búsqueda por fragmentos no certifica lectura exhaustiva.</li>
+</ul>
+<p>En <a href="../../index.html#lab-catalogos">catálogos para ampliar</a> encontrarás pasos para Gaia de ESA, NASA Earthdata, NOAA GHCN Daily y NASA NTRS. Gaia requiere elegir consulta y variables; Earthdata, producto y calidad; NOAA, estación y unidades; NTRS, documentos con acceso al texto. Los catálogos completos no son requisitos de descarga.</p>
+<h2 id="8-revisa-tu-entrega">8. Revisa tu entrega</h2>
+<p>Entrega a la IA la estructura de la <a href="materiales--analisis-datos--fichas--ficha-analisis.html">ficha de análisis</a> y el <a href="../../materiales/analisis-datos/fichas/registro-ejecucion.csv">registro de ejecución</a>. La entrega reúne una pregunta, fuente, procedimiento, resultado visual accesible, comprobación y límites. Pide que proponga una pregunta posterior compatible con las fuentes disponibles.</p>
+<p>Antes de cerrar, verifica que otra persona pueda identificar la versión del archivo, reproducir un cálculo y volver a la evidencia de una afirmación. Si una parte no se ejecutó, déjala explícita. Este producto complementario no sustituye las evidencias curriculares ni genera por sí solo un juicio institucional.</p></article>
+<footer class="document-footer">Guía IA para administrativos · Versión de lectura de <a href="../analisis-datos/guia-laboratorio.md">guia-laboratorio.md</a>.
+Las decisiones y los pendientes conservan el estado del archivo fuente.</footer></main></div></body></html>

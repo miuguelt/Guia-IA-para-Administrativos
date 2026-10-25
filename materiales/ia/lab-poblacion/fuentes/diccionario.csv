@@ -1,0 +1,25 @@
+conjunto,columna,unidad,tipo,faltante,fuente
+exoplanetas,pl_name,identificador,texto,no permitido,https://exoplanetarchive.ipac.caltech.edu/docs/API_TD_columns.html
+exoplanetas,hostname,nombre de anfitriona,texto,no permitido,https://exoplanetarchive.ipac.caltech.edu/docs/API_TD_columns.html
+exoplanetas,discoverymethod,categoría,texto,no permitido,https://exoplanetarchive.ipac.caltech.edu/docs/API_TD_columns.html
+exoplanetas,pl_rade,radios terrestres,número,no permitido,https://exoplanetarchive.ipac.caltech.edu/docs/API_TD_columns.html
+exoplanetas,pl_orbper,días,número,no permitido,https://exoplanetarchive.ipac.caltech.edu/docs/API_TD_columns.html
+exoplanetas,st_teff,K,número,celda vacía,https://exoplanetarchive.ipac.caltech.edu/docs/API_TD_columns.html
+exoplanetas,st_rad,radios solares,número,celda vacía,https://exoplanetarchive.ipac.caltech.edu/docs/API_TD_columns.html
+poblacion,pais,nombre,texto,no permitido,https://data.worldbank.org/indicator/SP.POP.TOTL?locations=CO-PE-EC
+poblacion,codigo,ISO 3166-1 alfa-3,texto,no permitido,https://data.worldbank.org/indicator/SP.POP.TOTL?locations=CO-PE-EC
+poblacion,anio,año calendario,número,no permitido,https://data.worldbank.org/indicator/SP.POP.TOTL?locations=CO-PE-EC
+poblacion,poblacion,personas,número,celda vacía,https://data.worldbank.org/indicator/SP.POP.TOTL?locations=CO-PE-EC
+clima,fecha,día en hora solar local (LST),texto,no permitido,https://power.larc.nasa.gov/docs/services/api/temporal/daily/
+clima,temperatura_c,°C,número,celda vacía,https://power.larc.nasa.gov/docs/services/api/temporal/daily/
+clima,precipitacion_mm,mm acumulados en el día,número,celda vacía,https://power.larc.nasa.gov/docs/services/api/temporal/daily/
+sismos,id,identificador USGS,texto,no permitido,https://earthquake.usgs.gov/fdsnws/event/1/
+sismos,fecha,instante UTC,texto,no permitido,https://earthquake.usgs.gov/fdsnws/event/1/
+sismos,latitud,grados,número,no permitido,https://earthquake.usgs.gov/fdsnws/event/1/
+sismos,longitud,grados,número,no permitido,https://earthquake.usgs.gov/fdsnws/event/1/
+sismos,profundidad_km,km,número,no permitido,https://earthquake.usgs.gov/fdsnws/event/1/
+sismos,magnitud,escala indicada por tipo_magnitud,número,no permitido,https://earthquake.usgs.gov/fdsnws/event/1/
+sismos,tipo_magnitud,categoría,texto,no permitido,https://earthquake.usgs.gov/fdsnws/event/1/
+dane_santander,edad,años cumplidos; 100 representa 100 años y más,número,no permitido,https://www.dane.gov.co/files/censo2018/proyecciones-de-poblacion/Departamental/PPED-AreaSexoEdadDep-2018-2050_VP.xlsx
+dane_santander,hombres,personas,número,no permitido,https://www.dane.gov.co/files/censo2018/proyecciones-de-poblacion/Departamental/PPED-AreaSexoEdadDep-2018-2050_VP.xlsx
+dane_santander,mujeres,personas,número,no permitido,https://www.dane.gov.co/files/censo2018/proyecciones-de-poblacion/Departamental/PPED-AreaSexoEdadDep-2018-2050_VP.xlsx

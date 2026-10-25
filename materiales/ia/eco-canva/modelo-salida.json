@@ -1,0 +1,11 @@
+{
+  "schemaVersion": 1,
+  "artifactId": "ECO-A02",
+  "fields": {
+    "contexto": "",
+    "encargo": "",
+    "material": "",
+    "verificacion": ""
+  },
+  "tool": "no identificado"
+}

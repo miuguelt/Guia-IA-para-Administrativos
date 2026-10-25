@@ -1,0 +1,66 @@
+.case-practice { margin: 24px 0; border: 1px solid #cad9cf; border-radius: 20px; background: #f1f5ef; overflow: hidden; }
+.case-header, .case-practice [data-case-stage], .case-footer { padding: clamp(18px, 3vw, 32px); }
+.case-header { background: #e6eee2; border-bottom: 1px solid #cad9cf; }
+.case-header h3 { font-size: clamp(1.3rem, 2.2vw, 1.85rem); color: var(--green); margin: 9px 0; }
+.case-header p { max-width:100%; text-align:var(--text-align-reading, start); }
+.case-summary { font-weight: 650; color: #245642; }
+.case-stage-nav { display: none; gap: 8px; padding: 16px; border-bottom: 1px solid #cad9cf; background: #f8faf6; }
+.case-ready .case-stage-nav { display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); }
+.case-stage-nav button { padding: 12px; min-height: 48px; min-width: 0; overflow-wrap: anywhere; border: 1px solid #bdcdbf; border-radius: 10px; background: #f0f4ec; color: #28533d; cursor: pointer; font: inherit; font-size: .85rem; text-align: left; }
+.case-stage-nav button span { display: block; font-weight: 750; }
+.case-stage-nav [aria-current="step"] { background: #245642; border-color: #245642; color: white; }
+.case-practice button:focus-visible, .case-practice input:focus-visible, .case-practice select:focus-visible, .case-practice summary:focus-visible { outline: 3px solid var(--focus-ring, #946a24); outline-offset: 3px; }
+.case-practice [data-case-stage] > h4 { font-size: 1.2rem; margin: 0 0 20px; }
+.case-practice [hidden] { display: none !important; }
+.case-sources { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 290px), 1fr)); gap: 14px; margin: 20px 0; }
+.case-source-record { padding: 18px; border-radius: 12px; background: #fcfdfb; border: 1px solid #d1dccd; min-width: 0; }
+.case-source-record h4 { font-size: .9rem; color: #27553f; overflow-wrap: break-word; margin: 0 0 12px; }
+.case-source-record dl { display: grid; gap: 12px; margin: 0; }
+.case-source-record dt { color: #536454; font-size: .8rem; }
+.case-source-record dd { margin: 3px 0 0; overflow-wrap: break-word; font-size: .9rem; }
+.case-source-record code { white-space: pre-wrap; font-family: inherit; }
+.case-source-links { display: flex; flex-wrap: wrap; gap: 10px 22px; }
+.case-source-links a { overflow-wrap: anywhere; }
+.case-question { margin: 0 0 20px; padding: clamp(16px, 2vw, 24px); border: 1px solid #d0dccd; border-radius: 12px; background: #fcfdfb; }
+.case-question fieldset { border: 0; padding: 0; min-width: 0; }
+.case-question legend { font-weight: 700; line-height: 1.5; padding: 0; margin-bottom: 15px; }
+.case-inputs { display: grid; gap: 10px; }
+.case-inputs > label { display: grid; gap: 8px; }
+.case-inputs > .check-option { display: flex; align-items: flex-start; min-height: 44px; }
+.case-inputs input[type="text"] { width: min(100%, 280px); padding: 12px; border: 1px solid #9eaf9d; border-radius: 8px; font: inherit; background: #fff; color: #20332e; }
+.case-inputs select { width: 100%; max-width: 100%; min-height: 48px; padding: 10px; border: 1px solid #9eaf9d; border-radius: 8px; font: inherit; color: #20332e; background: #fff; }
+ [data-case-instruction-preview] { border-left: 3px solid #63876a; padding: 14px; background: var(--soft); }
+.case-question[data-state="correct"] { border-left: 5px solid #367249; }
+.case-question[data-state="review"] { border-left: 5px solid #9b6c2d; }
+.case-question [data-case-feedback] { margin: 16px 0 0; line-height: 1.6; }
+.case-question [data-case-hint-text] { background: #f4eddf; padding: 12px; border-radius: 8px; }
+.case-tools { margin-bottom: 24px; }
+.case-tools > summary, .case-solution > summary { cursor: pointer; padding: 14px 0; min-height: 44px; font-weight: 650; color: #28533d; }
+.case-tools .tool-lab, .case-tools .ratio-lab { margin: 15px 0; }
+.case-footer { border-top: 1px solid #cad9cf; display: block; }
+.case-practice:not(.case-ready) .case-footer button,
+.case-practice:not(.case-ready) .case-question .check-actions { display: none; }
+.case-ready .case-footer { display: block; }
+.case-footer p { margin: 12px 0 0; font-size: .85rem; }
+@media(max-width: 700px) { .case-ready .case-stage-nav { grid-template-columns: repeat(2,minmax(0,1fr)); } .case-question .check-actions { align-items: stretch; flex-direction: column; } }
+@media print { .case-practice [data-case-stage], .case-practice [hidden] { display: block !important; } .case-stage-nav, .case-footer, .case-question button { display: none !important; } .case-practice { overflow: visible; background: white; } .case-source-record,.case-question { break-inside: avoid; } }
+@media print { .case-practice details::details-content { content-visibility: visible !important; } .case-practice details:not([open]) > :not(summary) { display: block !important; } }
+
+/* devbrain-prose-contract:start */
+/* Contrato 7.4: cada región ocupa su espacio y conserva sus controles. */
+:where(p, dd, blockquote) {
+    --text-align-reading: start;
+    box-sizing: border-box;
+    inline-size: 100%;
+    max-inline-size: 100%;
+    min-inline-size: 0;
+    text-align: var(--text-align-reading);
+    text-align-last: start;
+    white-space: normal;
+    word-break: normal;
+    overflow-wrap: break-word;
+    hyphens: none;
+    -webkit-hyphens: none;
+}
+:where(dd, blockquote) { margin-inline: 0; }
+/* devbrain-prose-contract:end */

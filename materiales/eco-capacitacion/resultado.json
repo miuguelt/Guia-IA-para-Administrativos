@@ -1,0 +1,11 @@
+{
+  "schemaVersion": 1,
+  "artifactId": "ECO-A02",
+  "fields": {
+    "contexto": "Ejemplo consultable de capacitación para personal de oficina. No registra una ejecución del aprendiz. Formato: simulación HTML autónoma de tres situaciones; programa local de orgánicos pendiente de confirmar.",
+    "encargo": "Codex preparó una simulación sin puntos ni premios a partir de eco-lote.csv, eco-criterios.csv y la orientación de MinAmbiente sobre separación desde casa. Se solicitaron decisiones contextualizadas, consecuencias sustentadas, accesibilidad y ausencia de recursos externos.",
+    "material": "simulacion.html: recurso completo con tres situaciones, seis alternativas consultables e ilustración esquemática de un puesto de trabajo. No contiene registros personales ni presenta procedimientos aprobados. El archivo funciona sin conexión; sus enlaces de fuentes requieren conexión al abrirlos.",
+    "verificacion": "Autocomprobación: botella y papel limpios corresponden a blanco; servilleta usada con comida a negro; banano y verduras son orgánicos aprovechables, con disposición local por confirmar. La tercera situación exige corregir una contradicción entre imagen y texto. Pruebas automatizadas de las tres situaciones, las seis alternativas, teclado y composición. Revisión humana del aprendiz y valoración del instructor pendientes."
+  },
+  "tool": "Codex"
+}

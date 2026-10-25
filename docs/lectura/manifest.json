@@ -1,0 +1,821 @@
+[
+  {
+    "title": "Fundamentos y diagnóstico de tareas administrativas",
+    "group": "Acompañamiento del instructor",
+    "href": "docs--01-fundamentos.html",
+    "source": "../01-fundamentos.md",
+    "format": "Markdown"
+  },
+  {
+    "title": "Instrucciones claras y comprobables",
+    "group": "Acompañamiento del instructor",
+    "href": "docs--02-diseno.html",
+    "source": "../02-diseno.md",
+    "format": "Markdown"
+  },
+  {
+    "title": "Flujos administrativos y reglas reproducibles",
+    "group": "Acompañamiento del instructor",
+    "href": "docs--03-implementacion.html",
+    "source": "../03-implementacion.md",
+    "format": "Markdown"
+  },
+  {
+    "title": "Comprobación de cifras y auditoría de respuestas",
+    "group": "Acompañamiento del instructor",
+    "href": "docs--04-validacion.html",
+    "source": "../04-validacion.md",
+    "format": "Markdown"
+  },
+  {
+    "title": "Informe, prueba individual y transferencia al puesto",
+    "group": "Acompañamiento del instructor",
+    "href": "docs--05-cierre.html",
+    "source": "../05-cierre.md",
+    "format": "Markdown"
+  },
+  {
+    "title": "Orientaciones para acompañar el laboratorio de datos y documentos",
+    "group": "Laboratorio de datos y documentos",
+    "href": "docs--analisis-datos--guia-instructor.html",
+    "source": "../analisis-datos/guia-instructor.md",
+    "format": "Markdown"
+  },
+  {
+    "title": "Explora datos y documentos con IA",
+    "group": "Laboratorio de datos y documentos",
+    "href": "docs--analisis-datos--guia-laboratorio.html",
+    "source": "../analisis-datos/guia-laboratorio.md",
+    "format": "Markdown"
+  },
+  {
+    "title": "Verificación del laboratorio de datos y documentos",
+    "group": "Laboratorio de datos y documentos",
+    "href": "docs--analisis-datos--validacion.html",
+    "source": "../analisis-datos/validacion.md",
+    "format": "Markdown"
+  },
+  {
+    "title": "Calendario de formación · 40 horas",
+    "group": "Acompañamiento del instructor",
+    "href": "docs--cronograma-detallado.html",
+    "source": "../cronograma-detallado.md",
+    "format": "Markdown"
+  },
+  {
+    "title": "Caso de Estudio 01: Catálogo de Procesos Administrativos - Redes CIMI",
+    "group": "Antecedentes históricos",
+    "href": "docs--ejercicios--caso-01-procesos-redes-cimi.html",
+    "source": "../ejercicios/caso-01-procesos-redes-cimi.md",
+    "format": "Markdown"
+  },
+  {
+    "title": "Caso de Estudio 02: Arquitectura de Prompting y Control de Deriva",
+    "group": "Antecedentes históricos",
+    "href": "docs--ejercicios--caso-02-arquitectura-prompt.html",
+    "source": "../ejercicios/caso-02-arquitectura-prompt.md",
+    "format": "Markdown"
+  },
+  {
+    "title": "Caso de Estudio 02: Conjunto de PQRS Reales para Tratamiento No Estructurado",
+    "group": "Antecedentes históricos",
+    "href": "docs--ejercicios--caso-02-dataset-pqrs-desordenadas.html",
+    "source": "../ejercicios/caso-02-dataset-pqrs-desordenadas.md",
+    "format": "Markdown"
+  },
+  {
+    "title": "Caso de Estudio 03: Transcripción de Reunión Caótica para Extracción Estructurada",
+    "group": "Antecedentes históricos",
+    "href": "docs--ejercicios--caso-03-acta-reunion-caotica.html",
+    "source": "../ejercicios/caso-03-acta-reunion-caotica.md",
+    "format": "Markdown"
+  },
+  {
+    "title": "Caso de Estudio 04: Tabla de Compras y Suministros con Trampas Deliberadas",
+    "group": "Antecedentes históricos",
+    "href": "docs--ejercicios--caso-04-tabla-suministros-con-trampas.html",
+    "source": "../ejercicios/caso-04-tabla-suministros-con-trampas.md",
+    "format": "Markdown"
+  },
+  {
+    "title": "Plantilla de informe ejecutivo y plan de transferencia",
+    "group": "Prácticas y plantillas",
+    "href": "docs--ejercicios--plantilla-informe-productividad.html",
+    "source": "../ejercicios/plantilla-informe-productividad.md",
+    "format": "Markdown"
+  },
+  {
+    "title": "Guía editorial · español de Colombia",
+    "group": "Revisión de la guía",
+    "href": "docs--estilo-redaccion-es-co.html",
+    "source": "../estilo-redaccion-es-co.md",
+    "format": "Markdown"
+  },
+  {
+    "title": "Plantilla de evidencias del curso",
+    "group": "Prácticas y plantillas",
+    "href": "docs--evidencias-template.html",
+    "source": "../evidencias-template.md",
+    "format": "Markdown"
+  },
+  {
+    "title": "Guía Maestra para la Creación y Gestión de GEMAS de IA en el Sector Administrativo SENA",
+    "group": "Antecedentes históricos",
+    "href": "docs--guia-creacion-gemas-administrativas-sena.html",
+    "source": "../guia-creacion-gemas-administrativas-sena.md",
+    "format": "Markdown"
+  },
+  {
+    "title": "Guía Maestra: Dominio de Google Gemini y Subherramientas para la Gestión Administrativa y la Vida Diaria",
+    "group": "Antecedentes históricos",
+    "href": "docs--guia-maestra-gemini-canva-administrativos-sena.html",
+    "source": "../guia-maestra-gemini-canva-administrativos-sena.md",
+    "format": "Markdown"
+  },
+  {
+    "title": "Guía práctica de IA para tareas administrativas",
+    "group": "Guías para el aprendiz",
+    "href": "docs--guia-practica-ia-administrativos-sena.html",
+    "source": "../guia-practica-ia-administrativos-sena.md",
+    "format": "Markdown"
+  },
+  {
+    "title": "Cuidado de datos y archivos en los retos",
+    "group": "Guías para el aprendiz",
+    "href": "docs--guia-seguridad-y-riesgos-ia.html",
+    "source": "../guia-seguridad-y-riesgos-ia.md",
+    "format": "Markdown"
+  },
+  {
+    "title": "Herramientas y preparación del curso",
+    "group": "Guías para el aprendiz",
+    "href": "docs--herramientas-y-preparacion.html",
+    "source": "../herramientas-y-preparacion.md",
+    "format": "Markdown"
+  },
+  {
+    "title": "Instrumentos de evaluación del curso",
+    "group": "Acompañamiento del instructor",
+    "href": "docs--instrumentos-evaluacion.html",
+    "source": "../instrumentos-evaluacion.md",
+    "format": "Markdown"
+  },
+  {
+    "title": "Propuesta de módulo independiente: explora datos y documentos con IA",
+    "group": "Revisión de la guía",
+    "href": "docs--plan-modulo-analisis-datos.html",
+    "source": "../plan-modulo-analisis-datos.md",
+    "format": "Markdown"
+  },
+  {
+    "title": "Fuentes oficiales y vigencia",
+    "group": "Guías para el aprendiz",
+    "href": "docs--referencias-oficiales-vigencia.html",
+    "source": "../referencias-oficiales-vigencia.md",
+    "format": "Markdown"
+  },
+  {
+    "title": "Estudio autónomo y claridad del recorrido · 21 de octubre de 2026",
+    "group": "Revisión de la guía",
+    "href": "docs--revision-autonomia.html",
+    "source": "../revision-autonomia.md",
+    "format": "Markdown"
+  },
+  {
+    "title": "EcoBogotá · capacitación con IA",
+    "group": "Revisión de la guía",
+    "href": "docs--revision-ecobogota-capacitacion-ia.html",
+    "source": "../revision-ecobogota-capacitacion-ia.md",
+    "format": "Markdown"
+  },
+  {
+    "title": "Revisión del recorrido con IA · 19 de octubre de 2026",
+    "group": "Revisión de la guía",
+    "href": "docs--revision-flujo-ia.html",
+    "source": "../revision-flujo-ia.md",
+    "format": "Markdown"
+  },
+  {
+    "title": "Revisión pedagógica y editorial de la guía",
+    "group": "Revisión de la guía",
+    "href": "docs--revision-pedagogica.html",
+    "source": "../revision-pedagogica.md",
+    "format": "Markdown"
+  },
+  {
+    "title": "Revisión de recursos y prácticas con fuentes",
+    "group": "Revisión de la guía",
+    "href": "docs--revision-practicas-interactivas.html",
+    "source": "../revision-practicas-interactivas.md",
+    "format": "Markdown"
+  },
+  {
+    "title": "Revisión de contenido e imágenes para productividad con IA",
+    "group": "Revisión de la guía",
+    "href": "docs--revision-productividad-ia.html",
+    "source": "../revision-productividad-ia.md",
+    "format": "Markdown"
+  },
+  {
+    "title": "Reorganización y simplificación de la guía",
+    "group": "Revisión de la guía",
+    "href": "docs--revision-simplificacion.html",
+    "source": "../revision-simplificacion.md",
+    "format": "Markdown"
+  },
+  {
+    "title": "Observación de comprensión con aprendices",
+    "group": "Revisión de la guía",
+    "href": "docs--validacion-con-aprendices.html",
+    "source": "../validacion-con-aprendices.md",
+    "format": "Markdown"
+  },
+  {
+    "title": "Lee documentos, localiza evidencia y registra lo pendiente",
+    "group": "Laboratorio de datos y documentos",
+    "href": "materiales--analisis-datos--documentos--fichas-corpus.html",
+    "source": "../../materiales/analisis-datos/documentos/fichas-corpus.md",
+    "format": "Markdown"
+  },
+  {
+    "title": "Clave de revisión para el instructor",
+    "group": "Laboratorio de datos y documentos",
+    "href": "materiales--analisis-datos--fichas--clave-revision.html",
+    "source": "../../materiales/analisis-datos/fichas/clave-revision.md",
+    "format": "Markdown"
+  },
+  {
+    "title": "Ficha de análisis generada con IA",
+    "group": "Laboratorio de datos y documentos",
+    "href": "materiales--analisis-datos--fichas--ficha-analisis.html",
+    "source": "../../materiales/analisis-datos/fichas/ficha-analisis.md",
+    "format": "Markdown"
+  },
+  {
+    "title": "Práctica de temperatura y precipitación",
+    "group": "Laboratorio de datos y documentos",
+    "href": "materiales--analisis-datos--fichas--ficha-clima.html",
+    "source": "../../materiales/analisis-datos/fichas/ficha-clima.md",
+    "format": "Markdown"
+  },
+  {
+    "title": "Práctica documental: compara métodos y versiones",
+    "group": "Laboratorio de datos y documentos",
+    "href": "materiales--analisis-datos--fichas--ficha-documentos.html",
+    "source": "../../materiales/analisis-datos/fichas/ficha-documentos.md",
+    "format": "Markdown"
+  },
+  {
+    "title": "Práctica NASA: planetas y estrellas anfitrionas",
+    "group": "Laboratorio de datos y documentos",
+    "href": "materiales--analisis-datos--fichas--ficha-nasa.html",
+    "source": "../../materiales/analisis-datos/fichas/ficha-nasa.md",
+    "format": "Markdown"
+  },
+  {
+    "title": "Práctica de población: compara periodos y territorios",
+    "group": "Laboratorio de datos y documentos",
+    "href": "materiales--analisis-datos--fichas--ficha-poblacion.html",
+    "source": "../../materiales/analisis-datos/fichas/ficha-poblacion.md",
+    "format": "Markdown"
+  },
+  {
+    "title": "Práctica de sismos: eventos, magnitudes y profundidad",
+    "group": "Laboratorio de datos y documentos",
+    "href": "materiales--analisis-datos--fichas--ficha-sismos.html",
+    "source": "../../materiales/analisis-datos/fichas/ficha-sismos.md",
+    "format": "Markdown"
+  },
+  {
+    "title": "Rúbrica del laboratorio complementario",
+    "group": "Laboratorio de datos y documentos",
+    "href": "materiales--analisis-datos--fichas--rubrica-instructor.html",
+    "source": "../../materiales/analisis-datos/fichas/rubrica-instructor.md",
+    "format": "Markdown"
+  },
+  {
+    "title": "Trabaja con datos oficiales y conserva la evidencia",
+    "group": "Laboratorio de datos y documentos",
+    "href": "materiales--analisis-datos--instrucciones-herramientas.html",
+    "source": "../../materiales/analisis-datos/instrucciones-herramientas.md",
+    "format": "Markdown"
+  },
+  {
+    "title": "Video explicativo con IA · EcoBogotá",
+    "group": "Prácticas y plantillas",
+    "href": "materiales--ia--eco--ENCARGO-CHAT.html",
+    "source": "../../materiales/ia/eco/ENCARGO-CHAT.md",
+    "format": "Markdown"
+  },
+  {
+    "title": "Video explicativo con IA · EcoBogotá",
+    "group": "Prácticas y plantillas",
+    "href": "materiales--ia--eco--ENCARGO-IDE.html",
+    "source": "../../materiales/ia/eco/ENCARGO-IDE.md",
+    "format": "Markdown"
+  },
+  {
+    "title": "Infografía en Canva con IA · EcoBogotá",
+    "group": "Prácticas y plantillas",
+    "href": "materiales--ia--eco-canva--ENCARGO-CHAT.html",
+    "source": "../../materiales/ia/eco-canva/ENCARGO-CHAT.md",
+    "format": "Markdown"
+  },
+  {
+    "title": "Infografía en Canva con IA · EcoBogotá",
+    "group": "Prácticas y plantillas",
+    "href": "materiales--ia--eco-canva--ENCARGO-IDE.html",
+    "source": "../../materiales/ia/eco-canva/ENCARGO-IDE.md",
+    "format": "Markdown"
+  },
+  {
+    "title": "Simulación de oficina con IA · EcoBogotá",
+    "group": "Prácticas y plantillas",
+    "href": "materiales--ia--eco-simulacion--ENCARGO-CHAT.html",
+    "source": "../../materiales/ia/eco-simulacion/ENCARGO-CHAT.md",
+    "format": "Markdown"
+  },
+  {
+    "title": "Simulación de oficina con IA · EcoBogotá",
+    "group": "Prácticas y plantillas",
+    "href": "materiales--ia--eco-simulacion--ENCARGO-IDE.html",
+    "source": "../../materiales/ia/eco-simulacion/ENCARGO-IDE.md",
+    "format": "Markdown"
+  },
+  {
+    "title": "Lee la variación de temperatura",
+    "group": "Prácticas y plantillas",
+    "href": "materiales--ia--lab-clima--ENCARGO-CHAT.html",
+    "source": "../../materiales/ia/lab-clima/ENCARGO-CHAT.md",
+    "format": "Markdown"
+  },
+  {
+    "title": "Lee la variación de temperatura",
+    "group": "Prácticas y plantillas",
+    "href": "materiales--ia--lab-clima--ENCARGO-IDE.html",
+    "source": "../../materiales/ia/lab-clima/ENCARGO-IDE.md",
+    "format": "Markdown"
+  },
+  {
+    "title": "Compara documentos con citas",
+    "group": "Prácticas y plantillas",
+    "href": "materiales--ia--lab-documentos--ENCARGO-CHAT.html",
+    "source": "../../materiales/ia/lab-documentos/ENCARGO-CHAT.md",
+    "format": "Markdown"
+  },
+  {
+    "title": "Compara documentos con citas",
+    "group": "Prácticas y plantillas",
+    "href": "materiales--ia--lab-documentos--ENCARGO-IDE.html",
+    "source": "../../materiales/ia/lab-documentos/ENCARGO-IDE.md",
+    "format": "Markdown"
+  },
+  {
+    "title": "Explora planetas y estrellas",
+    "group": "Prácticas y plantillas",
+    "href": "materiales--ia--lab-nasa--ENCARGO-CHAT.html",
+    "source": "../../materiales/ia/lab-nasa/ENCARGO-CHAT.md",
+    "format": "Markdown"
+  },
+  {
+    "title": "Explora planetas y estrellas",
+    "group": "Prácticas y plantillas",
+    "href": "materiales--ia--lab-nasa--ENCARGO-IDE.html",
+    "source": "../../materiales/ia/lab-nasa/ENCARGO-IDE.md",
+    "format": "Markdown"
+  },
+  {
+    "title": "Compara población en el tiempo",
+    "group": "Prácticas y plantillas",
+    "href": "materiales--ia--lab-poblacion--ENCARGO-CHAT.html",
+    "source": "../../materiales/ia/lab-poblacion/ENCARGO-CHAT.md",
+    "format": "Markdown"
+  },
+  {
+    "title": "Compara población en el tiempo",
+    "group": "Prácticas y plantillas",
+    "href": "materiales--ia--lab-poblacion--ENCARGO-IDE.html",
+    "source": "../../materiales/ia/lab-poblacion/ENCARGO-IDE.md",
+    "format": "Markdown"
+  },
+  {
+    "title": "Explora los sismos del catálogo",
+    "group": "Prácticas y plantillas",
+    "href": "materiales--ia--lab-sismos--ENCARGO-CHAT.html",
+    "source": "../../materiales/ia/lab-sismos/ENCARGO-CHAT.md",
+    "format": "Markdown"
+  },
+  {
+    "title": "Explora los sismos del catálogo",
+    "group": "Prácticas y plantillas",
+    "href": "materiales--ia--lab-sismos--ENCARGO-IDE.html",
+    "source": "../../materiales/ia/lab-sismos/ENCARGO-IDE.md",
+    "format": "Markdown"
+  },
+  {
+    "title": "Reúne la evidencia MG-A01",
+    "group": "Prácticas y plantillas",
+    "href": "materiales--ia--MG-A01--ENCARGO-CHAT.html",
+    "source": "../../materiales/ia/MG-A01/ENCARGO-CHAT.md",
+    "format": "Markdown"
+  },
+  {
+    "title": "Reúne la evidencia MG-A01",
+    "group": "Prácticas y plantillas",
+    "href": "materiales--ia--MG-A01--ENCARGO-IDE.html",
+    "source": "../../materiales/ia/MG-A01/ENCARGO-IDE.md",
+    "format": "Markdown"
+  },
+  {
+    "title": "Reúne la evidencia MG-A02",
+    "group": "Prácticas y plantillas",
+    "href": "materiales--ia--MG-A02--ENCARGO-CHAT.html",
+    "source": "../../materiales/ia/MG-A02/ENCARGO-CHAT.md",
+    "format": "Markdown"
+  },
+  {
+    "title": "Reúne la evidencia MG-A02",
+    "group": "Prácticas y plantillas",
+    "href": "materiales--ia--MG-A02--ENCARGO-IDE.html",
+    "source": "../../materiales/ia/MG-A02/ENCARGO-IDE.md",
+    "format": "Markdown"
+  },
+  {
+    "title": "Reúne la evidencia MG-A03",
+    "group": "Prácticas y plantillas",
+    "href": "materiales--ia--MG-A03--ENCARGO-CHAT.html",
+    "source": "../../materiales/ia/MG-A03/ENCARGO-CHAT.md",
+    "format": "Markdown"
+  },
+  {
+    "title": "Reúne la evidencia MG-A03",
+    "group": "Prácticas y plantillas",
+    "href": "materiales--ia--MG-A03--ENCARGO-IDE.html",
+    "source": "../../materiales/ia/MG-A03/ENCARGO-IDE.md",
+    "format": "Markdown"
+  },
+  {
+    "title": "Reúne la evidencia MG-A04",
+    "group": "Prácticas y plantillas",
+    "href": "materiales--ia--MG-A04--ENCARGO-CHAT.html",
+    "source": "../../materiales/ia/MG-A04/ENCARGO-CHAT.md",
+    "format": "Markdown"
+  },
+  {
+    "title": "Reúne la evidencia MG-A04",
+    "group": "Prácticas y plantillas",
+    "href": "materiales--ia--MG-A04--ENCARGO-IDE.html",
+    "source": "../../materiales/ia/MG-A04/ENCARGO-IDE.md",
+    "format": "Markdown"
+  },
+  {
+    "title": "Reúne la evidencia MG-A05",
+    "group": "Prácticas y plantillas",
+    "href": "materiales--ia--MG-A05--ENCARGO-CHAT.html",
+    "source": "../../materiales/ia/MG-A05/ENCARGO-CHAT.md",
+    "format": "Markdown"
+  },
+  {
+    "title": "Reúne la evidencia MG-A05",
+    "group": "Prácticas y plantillas",
+    "href": "materiales--ia--MG-A05--ENCARGO-IDE.html",
+    "source": "../../materiales/ia/MG-A05/ENCARGO-IDE.md",
+    "format": "Markdown"
+  },
+  {
+    "title": "Crea tu primer informe con IA",
+    "group": "Prácticas y plantillas",
+    "href": "materiales--ia--preparacion--ENCARGO-CHAT.html",
+    "source": "../../materiales/ia/preparacion/ENCARGO-CHAT.md",
+    "format": "Markdown"
+  },
+  {
+    "title": "Crea tu primer informe con IA",
+    "group": "Prácticas y plantillas",
+    "href": "materiales--ia--preparacion--ENCARGO-IDE.html",
+    "source": "../../materiales/ia/preparacion/ENCARGO-IDE.md",
+    "format": "Markdown"
+  },
+  {
+    "title": "Reto 0 · Decide qué información compartir",
+    "group": "Prácticas y plantillas",
+    "href": "materiales--ia--reto-0--ENCARGO-CHAT.html",
+    "source": "../../materiales/ia/reto-0/ENCARGO-CHAT.md",
+    "format": "Markdown"
+  },
+  {
+    "title": "Reto 0 · Decide qué información compartir",
+    "group": "Prácticas y plantillas",
+    "href": "materiales--ia--reto-0--ENCARGO-IDE.html",
+    "source": "../../materiales/ia/reto-0/ENCARGO-IDE.md",
+    "format": "Markdown"
+  },
+  {
+    "title": "Reto 1 · Convierte el lineamiento en una respuesta verificable",
+    "group": "Prácticas y plantillas",
+    "href": "materiales--ia--reto-1--ENCARGO-CHAT.html",
+    "source": "../../materiales/ia/reto-1/ENCARGO-CHAT.md",
+    "format": "Markdown"
+  },
+  {
+    "title": "Reto 1 · Convierte el lineamiento en una respuesta verificable",
+    "group": "Prácticas y plantillas",
+    "href": "materiales--ia--reto-1--ENCARGO-IDE.html",
+    "source": "../../materiales/ia/reto-1/ENCARGO-IDE.md",
+    "format": "Markdown"
+  },
+  {
+    "title": "Reto 2 · Prepara dos respuestas para revisión",
+    "group": "Prácticas y plantillas",
+    "href": "materiales--ia--reto-2--ENCARGO-CHAT.html",
+    "source": "../../materiales/ia/reto-2/ENCARGO-CHAT.md",
+    "format": "Markdown"
+  },
+  {
+    "title": "Reto 2 · Prepara dos respuestas para revisión",
+    "group": "Prácticas y plantillas",
+    "href": "materiales--ia--reto-2--ENCARGO-IDE.html",
+    "source": "../../materiales/ia/reto-2/ENCARGO-IDE.md",
+    "format": "Markdown"
+  },
+  {
+    "title": "Reto 3 · Prueba una instrucción reutilizable",
+    "group": "Prácticas y plantillas",
+    "href": "materiales--ia--reto-3--ENCARGO-CHAT.html",
+    "source": "../../materiales/ia/reto-3/ENCARGO-CHAT.md",
+    "format": "Markdown"
+  },
+  {
+    "title": "Reto 3 · Prueba una instrucción reutilizable",
+    "group": "Prácticas y plantillas",
+    "href": "materiales--ia--reto-3--ENCARGO-IDE.html",
+    "source": "../../materiales/ia/reto-3/ENCARGO-IDE.md",
+    "format": "Markdown"
+  },
+  {
+    "title": "Reto 4 · Bandeja de 50 mensajes con razones visibles",
+    "group": "Prácticas y plantillas",
+    "href": "materiales--ia--reto-4--ENCARGO-CHAT.html",
+    "source": "../../materiales/ia/reto-4/ENCARGO-CHAT.md",
+    "format": "Markdown"
+  },
+  {
+    "title": "Reto 4 · Bandeja de 50 mensajes con razones visibles",
+    "group": "Prácticas y plantillas",
+    "href": "materiales--ia--reto-4--ENCARGO-IDE.html",
+    "source": "../../materiales/ia/reto-4/ENCARGO-IDE.md",
+    "format": "Markdown"
+  },
+  {
+    "title": "Reto 5 · Acta que distingue acuerdo de intención",
+    "group": "Prácticas y plantillas",
+    "href": "materiales--ia--reto-5--ENCARGO-CHAT.html",
+    "source": "../../materiales/ia/reto-5/ENCARGO-CHAT.md",
+    "format": "Markdown"
+  },
+  {
+    "title": "Reto 5 · Acta que distingue acuerdo de intención",
+    "group": "Prácticas y plantillas",
+    "href": "materiales--ia--reto-5--ENCARGO-IDE.html",
+    "source": "../../materiales/ia/reto-5/ENCARGO-IDE.md",
+    "format": "Markdown"
+  },
+  {
+    "title": "Reto 6 · Datos desordenados con una regla reproducible",
+    "group": "Prácticas y plantillas",
+    "href": "materiales--ia--reto-6--ENCARGO-CHAT.html",
+    "source": "../../materiales/ia/reto-6/ENCARGO-CHAT.md",
+    "format": "Markdown"
+  },
+  {
+    "title": "Reto 6 · Datos desordenados con una regla reproducible",
+    "group": "Prácticas y plantillas",
+    "href": "materiales--ia--reto-6--ENCARGO-IDE.html",
+    "source": "../../materiales/ia/reto-6/ENCARGO-IDE.md",
+    "format": "Markdown"
+  },
+  {
+    "title": "Reto 7 · Diseña el flujo antes de automatizar",
+    "group": "Prácticas y plantillas",
+    "href": "materiales--ia--reto-7--ENCARGO-CHAT.html",
+    "source": "../../materiales/ia/reto-7/ENCARGO-CHAT.md",
+    "format": "Markdown"
+  },
+  {
+    "title": "Reto 7 · Diseña el flujo antes de automatizar",
+    "group": "Prácticas y plantillas",
+    "href": "materiales--ia--reto-7--ENCARGO-IDE.html",
+    "source": "../../materiales/ia/reto-7/ENCARGO-IDE.md",
+    "format": "Markdown"
+  },
+  {
+    "title": "Reto 8 · Presupuesto, tasa y gráfico con unidades",
+    "group": "Prácticas y plantillas",
+    "href": "materiales--ia--reto-8--ENCARGO-CHAT.html",
+    "source": "../../materiales/ia/reto-8/ENCARGO-CHAT.md",
+    "format": "Markdown"
+  },
+  {
+    "title": "Reto 8 · Presupuesto, tasa y gráfico con unidades",
+    "group": "Prácticas y plantillas",
+    "href": "materiales--ia--reto-8--ENCARGO-IDE.html",
+    "source": "../../materiales/ia/reto-8/ENCARGO-IDE.md",
+    "format": "Markdown"
+  },
+  {
+    "title": "Reto 9 · Auditoría de una respuesta convincente ✦",
+    "group": "Prácticas y plantillas",
+    "href": "materiales--ia--reto-9--ENCARGO-CHAT.html",
+    "source": "../../materiales/ia/reto-9/ENCARGO-CHAT.md",
+    "format": "Markdown"
+  },
+  {
+    "title": "Reto 9 · Auditoría de una respuesta convincente ✦",
+    "group": "Prácticas y plantillas",
+    "href": "materiales--ia--reto-9--ENCARGO-IDE.html",
+    "source": "../../materiales/ia/reto-9/ENCARGO-IDE.md",
+    "format": "Markdown"
+  },
+  {
+    "title": "Reto integrador · Plan, análisis y sustentación",
+    "group": "Prácticas y plantillas",
+    "href": "materiales--ia--reto-integrador--ENCARGO-CHAT.html",
+    "source": "../../materiales/ia/reto-integrador/ENCARGO-CHAT.md",
+    "format": "Markdown"
+  },
+  {
+    "title": "Reto integrador · Plan, análisis y sustentación",
+    "group": "Prácticas y plantillas",
+    "href": "materiales--ia--reto-integrador--ENCARGO-IDE.html",
+    "source": "../../materiales/ia/reto-integrador/ENCARGO-IDE.md",
+    "format": "Markdown"
+  },
+  {
+    "title": "Comprueba si la cita existe",
+    "group": "Prácticas y plantillas",
+    "href": "materiales--ia--variante-cita-inexistente--ENCARGO-CHAT.html",
+    "source": "../../materiales/ia/variante-cita-inexistente/ENCARGO-CHAT.md",
+    "format": "Markdown"
+  },
+  {
+    "title": "Comprueba si la cita existe",
+    "group": "Prácticas y plantillas",
+    "href": "materiales--ia--variante-cita-inexistente--ENCARGO-IDE.html",
+    "source": "../../materiales/ia/variante-cita-inexistente/ENCARGO-IDE.md",
+    "format": "Markdown"
+  },
+  {
+    "title": "Revisa el inventario con una regla propia",
+    "group": "Prácticas y plantillas",
+    "href": "materiales--ia--variante-inventario-documental--ENCARGO-CHAT.html",
+    "source": "../../materiales/ia/variante-inventario-documental/ENCARGO-CHAT.md",
+    "format": "Markdown"
+  },
+  {
+    "title": "Revisa el inventario con una regla propia",
+    "group": "Prácticas y plantillas",
+    "href": "materiales--ia--variante-inventario-documental--ENCARGO-IDE.html",
+    "source": "../../materiales/ia/variante-inventario-documental/ENCARGO-IDE.md",
+    "format": "Markdown"
+  },
+  {
+    "title": "Atiende una solicitud jurídica sin inventar el plazo",
+    "group": "Prácticas y plantillas",
+    "href": "materiales--ia--variante-juridica--ENCARGO-CHAT.html",
+    "source": "../../materiales/ia/variante-juridica/ENCARGO-CHAT.md",
+    "format": "Markdown"
+  },
+  {
+    "title": "Atiende una solicitud jurídica sin inventar el plazo",
+    "group": "Prácticas y plantillas",
+    "href": "materiales--ia--variante-juridica--ENCARGO-IDE.html",
+    "source": "../../materiales/ia/variante-juridica/ENCARGO-IDE.md",
+    "format": "Markdown"
+  },
+  {
+    "title": "Relaciona el acta con la tabla de práctica",
+    "group": "Prácticas y plantillas",
+    "href": "materiales--ia--variante-retencion-documental--ENCARGO-CHAT.html",
+    "source": "../../materiales/ia/variante-retencion-documental/ENCARGO-CHAT.md",
+    "format": "Markdown"
+  },
+  {
+    "title": "Relaciona el acta con la tabla de práctica",
+    "group": "Prácticas y plantillas",
+    "href": "materiales--ia--variante-retencion-documental--ENCARGO-IDE.html",
+    "source": "../../materiales/ia/variante-retencion-documental/ENCARGO-IDE.md",
+    "format": "Markdown"
+  },
+  {
+    "title": "Clasifica los mensajes de talento humano",
+    "group": "Prácticas y plantillas",
+    "href": "materiales--ia--variante-talento-humano--ENCARGO-CHAT.html",
+    "source": "../../materiales/ia/variante-talento-humano/ENCARGO-CHAT.md",
+    "format": "Markdown"
+  },
+  {
+    "title": "Clasifica los mensajes de talento humano",
+    "group": "Prácticas y plantillas",
+    "href": "materiales--ia--variante-talento-humano--ENCARGO-IDE.html",
+    "source": "../../materiales/ia/variante-talento-humano/ENCARGO-IDE.md",
+    "format": "Markdown"
+  },
+  {
+    "title": "Ficha · Diagnóstico de una tarea · MG-A01",
+    "group": "Prácticas y plantillas",
+    "href": "materiales--retos--diagnostico-tarea-ficha.html",
+    "source": "../../materiales/retos/diagnostico-tarea-ficha.csv",
+    "format": "CSV"
+  },
+  {
+    "title": "Ficha · Reto integrador · Análisis y sustentación",
+    "group": "Prácticas y plantillas",
+    "href": "materiales--retos--integrador-ficha.html",
+    "source": "../../materiales/retos/integrador-ficha.csv",
+    "format": "CSV"
+  },
+  {
+    "title": "Registro opcional de tiempos · Recurso complementario",
+    "group": "Prácticas y plantillas",
+    "href": "materiales--retos--registro-tiempos.html",
+    "source": "../../materiales/retos/registro-tiempos.csv",
+    "format": "CSV"
+  },
+  {
+    "title": "Ficha · Reto 0 · Semáforo de datos",
+    "group": "Prácticas y plantillas",
+    "href": "materiales--retos--reto-00-ficha.html",
+    "source": "../../materiales/retos/reto-00-ficha.csv",
+    "format": "CSV"
+  },
+  {
+    "title": "Ficha · Reto 1 · Instrucción CRTT",
+    "group": "Prácticas y plantillas",
+    "href": "materiales--retos--reto-01-ficha.html",
+    "source": "../../materiales/retos/reto-01-ficha.csv",
+    "format": "CSV"
+  },
+  {
+    "title": "Ficha · Reto 2 · Respuesta a PQRS",
+    "group": "Prácticas y plantillas",
+    "href": "materiales--retos--reto-02-ficha.html",
+    "source": "../../materiales/retos/reto-02-ficha.csv",
+    "format": "CSV"
+  },
+  {
+    "title": "Ficha · Reto 3 · Pruebas del asistente",
+    "group": "Prácticas y plantillas",
+    "href": "materiales--retos--reto-03-ficha.html",
+    "source": "../../materiales/retos/reto-03-ficha.csv",
+    "format": "CSV"
+  },
+  {
+    "title": "Ficha · Reto 4 · Priorización de mensajes",
+    "group": "Prácticas y plantillas",
+    "href": "materiales--retos--reto-04-ficha.html",
+    "source": "../../materiales/retos/reto-04-ficha.csv",
+    "format": "CSV"
+  },
+  {
+    "title": "Ficha · Reto 5 · Acta y compromisos",
+    "group": "Prácticas y plantillas",
+    "href": "materiales--retos--reto-05-ficha.html",
+    "source": "../../materiales/retos/reto-05-ficha.csv",
+    "format": "CSV"
+  },
+  {
+    "title": "Ficha · Reto 6 · Regla reproducible",
+    "group": "Prácticas y plantillas",
+    "href": "materiales--retos--reto-06-ficha.html",
+    "source": "../../materiales/retos/reto-06-ficha.csv",
+    "format": "CSV"
+  },
+  {
+    "title": "Ficha · Reto 7 · Diseño de flujo",
+    "group": "Prácticas y plantillas",
+    "href": "materiales--retos--reto-07-ficha.html",
+    "source": "../../materiales/retos/reto-07-ficha.csv",
+    "format": "CSV"
+  },
+  {
+    "title": "Ficha · Reto 8 · Análisis descriptivo",
+    "group": "Prácticas y plantillas",
+    "href": "materiales--retos--reto-08-ficha.html",
+    "source": "../../materiales/retos/reto-08-ficha.csv",
+    "format": "CSV"
+  },
+  {
+    "title": "Ficha · Reto 9 · Auditoría de respuesta",
+    "group": "Prácticas y plantillas",
+    "href": "materiales--retos--reto-09-ficha.html",
+    "source": "../../materiales/retos/reto-09-ficha.csv",
+    "format": "CSV"
+  },
+  {
+    "title": "Casos para observar cómo aplicas lo aprendido",
+    "group": "Prácticas y plantillas",
+    "href": "materiales--validacion--casos-transferencia.html",
+    "source": "../../materiales/validacion/casos-transferencia.md",
+    "format": "Markdown"
+  }
+]

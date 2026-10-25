@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="es-CO"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="light"><title>Práctica de temperatura y precipitación · Biblioteca de la guía</title>
+<link rel="stylesheet" href="../../css/documents.css"><link rel="stylesheet" href="devbrain-prose.css" data-devbrain-prose>
+<script defer src="devbrain-prose.js" data-devbrain-prose-runtime></script></head><body>
+<a class="skip-link" href="#documento">Ir al documento</a>
+<nav class="reader-nav" aria-label="Acciones del documento"><a href="index.html">← Biblioteca</a>
+<a href="../../index.html#preparacion">Abrir guía web</a><a href="../../materiales/analisis-datos/fichas/ficha-clima.md" download>Descargar fuente Markdown</a>
+<span>Imprime o guarda en PDF con Ctrl+P</span></nav>
+<div class="reading-layout"><aside class="reading-sidebar"><p class="eyebrow">En este documento</p>
+<details open><summary>Ver apartados</summary><div class="toc">
+<ul>
+<li><a href="#en-tres-pasos">En tres pasos</a></li>
+<li><a href="#revisa-tres-criterios">Revisa tres criterios</a></li>
+<li><a href="#ampliacion-opcional">Ampliación opcional</a></li>
+</ul>
+</div>
+</details></aside>
+<main id="documento" class="document-sheet"><header class="document-header"><p class="eyebrow">Guía IA para administrativos</p>
+<span class="document-badge">Laboratorio de datos y documentos</span><p class="document-context">Consulta el contenido por apartados y conserva el archivo fuente si necesitas editarlo.</p></header>
+<article class="document-content"><h1 id="practica-de-temperatura-y-precipitacion">Práctica de temperatura y precipitación</h1>
+<p>La IA analiza datos públicos reales de NASA POWER y prepara tablas, gráficos y documento. Tú revisas el alcance y las operaciones con sus fuentes. No incorpores información personal; esta práctica pertenece al laboratorio independiente.</p>
+<p><strong>Pregunta preparada:</strong> ¿cómo varían temperatura y precipitación durante 2024 en la celda consultada para Bogotá?</p>
+<p><strong>Fuentes:</strong> <code>datos/clima.csv</code>, <code>diccionario.csv</code> y <code>fuentes.json</code>. El paquete para IA los conserva bajo <code>fuentes/</code>. El CSV usa coma y UTF-8. La fecha representa un día en hora solar local (LST), no el horario civil de Colombia.</p>
+<p><strong>Ejemplo:</strong> un mes con días ausentes no se compara automáticamente con uno completo. La cobertura debe acompañar el promedio o acumulado.</p>
+<h2 id="en-tres-pasos">En tres pasos</h2>
+<ol>
+<li><strong>Entrega el encargo.</strong> Descarga el <a href="../../materiales/ia/lab-clima.zip">paquete de clima</a>. Adjunta las fuentes y copia el <a href="materiales--ia--lab-clima--ENCARGO-CHAT.html">encargo para chat</a>, o abre la carpeta en Antigravity o Codex y usa el <a href="materiales--ia--lab-clima--ENCARGO-IDE.html">encargo para IDE</a>. Conserva el original.</li>
+<li><strong>Revisa lo generado.</strong> La IA genera inspección diaria, criterio de cobertura, tabla mensual de días esperados y válidos, media de temperatura y acumulado de precipitación. Prepara línea de temperatura, comparación mensual, tablas equivalentes, conclusión y documento con faltantes y límites. Aplica los tres criterios siguientes y solicita ajustes.</li>
+<li><strong>Descarga y conserva.</strong> Pide tablas, gráficos, código o cuaderno ejecutado, documento y <code>resultado.json</code> para <code>LAB-A01</code>. Recibe el JSON en «Guarda tu evidencia», revisa la vista y guarda el borrador. La revisión humana no realizada queda pendiente; la IA no la acredita por sí sola.</li>
+</ol>
+<h2 id="revisa-tres-criterios">Revisa tres criterios</h2>
+<ul>
+<li><strong>Producto y tiempo.</strong> Contrasta punto, periodo, frecuencia y variables con <a href="https://power.larc.nasa.gov/">NASA POWER</a> y el manifiesto. Una celda de rejilla no es una estación instalada en la dirección consultada. Debe conservarse LST y la transformación desde <code>T2M</code> y <code>PRECTOTCORR</code>.</li>
+<li><strong>Cobertura y operación.</strong> Un año bisiesto completo puede tener 366 fechas, pero cada variable requiere su conteo de valores válidos. Abre el cálculo de control de un mes generado por la IA: no se suman °C diarios para resumir temperatura ni se convierten faltantes en cero. La precipitación acumulada requiere intervalos completos y unidades compatibles.</li>
+<li><strong>Figuras y conclusión.</strong> Revisa que tablas y gráficos tengan el mismo periodo y criterio explícito de cobertura. Los extremos no se borran por intuición. Un año no demuestra una tendencia climática de largo plazo.</li>
+</ul>
+<h2 id="ampliacion-opcional">Ampliación opcional</h2>
+<p>Pide a la IA un procedimiento repetible. Para pronosticar, encarga una serie más larga apropiada, la reserva del tramo final y una comparación contra una referencia simple. Comprueba que ese futuro reservado no se use para entrenar ni elegir transformaciones.</p></article>
+<footer class="document-footer">Guía IA para administrativos · Versión de lectura de <a href="../../materiales/analisis-datos/fichas/ficha-clima.md">ficha-clima.md</a>.
+Las decisiones y los pendientes conservan el estado del archivo fuente.</footer></main></div></body></html>

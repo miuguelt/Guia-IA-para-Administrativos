@@ -223,7 +223,7 @@
   }
   
   /**
-   * Normaliza un artefacto a la forma que consumen la estación y el dossier.
+   * Normaliza un artefacto a la forma que consumen la estación y el Portafolio de Evidencias.
    * @param {Object} bruto
    * @param {number} indice
    * @returns {Object}
@@ -278,6 +278,9 @@
     const entrega = bruto || {};
     return {
       packageName: String(entrega.packageName || ''),
+      program: String(entrega.program || ''),
+      context: String(entrega.context || ''),
+      requiredArtifacts: Array.isArray(entrega.requiredArtifacts) ? entrega.requiredArtifacts.map(String) : [],
       format: String(entrega.format || ''),
       where: String(entrega.where || ''),
       namingRule: String(entrega.namingRule || ''),
@@ -406,12 +409,16 @@
         const crudo = localStorage.getItem(this.clave(id));
         if (!crudo) return vacio;
         const dato = JSON.parse(crudo);
-        return {
+        const resultado = {
           values: dato && typeof dato.values === 'object' && dato.values ? dato.values : {},
           checks: dato && typeof dato.checks === 'object' && dato.checks ? dato.checks : {},
           status: DBE_ESTADOS.includes(dato && dato.status) ? dato.status : 'pendiente',
           updatedAt: dato && dato.updatedAt ? String(dato.updatedAt) : null,
         };
+        if (dato && dato.elaboratedProduct && typeof dato.elaboratedProduct === 'object') {
+          resultado.elaboratedProduct = dato.elaboratedProduct;
+        }
+        return resultado;
       } catch (error) {
         console.warn('No se pudo leer la evidencia', id, error);
         return vacio;
@@ -432,6 +439,10 @@
         status: DBE_ESTADOS.includes(parcial.status) ? parcial.status : actual.status,
         updatedAt: new Date().toISOString(),
       };
+      const prod = parcial && parcial.elaboratedProduct !== undefined ? parcial.elaboratedProduct : actual.elaboratedProduct;
+      if (prod && typeof prod === 'object') {
+        siguiente.elaboratedProduct = prod;
+      }
       try {
         localStorage.setItem(this.clave(id), JSON.stringify(siguiente));
       } catch (error) {
@@ -601,7 +612,7 @@
    *
    * Todo se construye con `createElement` y `textContent`. Nada de `innerHTML`
    * con texto del aprendiz: lo que se escribe en una estación se vuelve a pintar
-   * en el dossier, y ese camino es exactamente donde una guía educativa se
+   * en el Portafolio de Evidencias, y ese camino es exactamente donde una guía educativa se
    * convertiría en un ejercicio de XSS contra quien estudia.
    */
   
@@ -738,7 +749,7 @@
    * Serialización de evidencias a Markdown.
    *
    * El aprendiz entrega archivos, no capturas de una web. Cada estación produce
-   * un `.md` que puede pegarse en el dossier, versionarse en Git o convertirse en
+   * un `.md` que puede pegarse en el Portafolio de Evidencias, versionarse en Git o convertirse en
    * PDF, y la consolidación produce el paquete completo con el mismo formato.
    */
   
@@ -1450,7 +1461,7 @@
     const mapa = (registro.submission && registro.submission.competencyMap) || [];
     if (mapa.length) {
       return mapa.map((c) => ({
-        criterio: c.criterion || 'Aplica los estándares y buenas prácticas técnicas del programa ADSO.',
+        criterio: c.criterion || 'Cumple los criterios declarados por el programa.',
         observacion: `Alineado con ${c.evidenceType ? 'evidencia de ' + c.evidenceType : 'requisitos formativos'}.`
       }));
     }
@@ -1460,7 +1471,7 @@
       if (f.artefacto.criterion && !criterios.some((c) => c.criterio === f.artefacto.criterion)) {
         criterios.push({
           criterio: f.artefacto.criterion,
-          observacion: `Verificado mediante ${f.artefacto.instrument || 'instrumento de evaluación'}.`
+          observacion: `Por revisar mediante ${f.artefacto.instrument || 'instrumento de evaluación'}.`
         });
       }
     });
@@ -1485,10 +1496,10 @@
    * @param {HTMLElement} [params.nodoBitacora]
    * @returns {HTMLElement}
    */
-  function dbeConstruirHojaSena({ registro, filas, listas, apprenticeData, nodoBitacora }) {
+  function dbeConstruirHojaSena({ registro, filas, listas, apprenticeData, nodoBitacora, requiredTotal = filas.length }) {
     let tituloDossier = (registro.submission && (registro.submission.packageName || registro.submission.title)) || registro.title || registro.guideId || 'FORMACIÓN PROFESIONAL';
     tituloDossier = String(tituloDossier).replace(/dossier(\s+oficial)?(\s+de)?/gi, '').replace(/\s+/g, ' ').trim();
-    const estadoTexto = listas === filas.length ? 'EVIDENCIA CONSOLIDADA' : (listas > 0 ? 'EN PROCESO' : 'EN DESARROLLO');
+    const estadoTexto = listas === requiredTotal ? 'EVIDENCIA CONSOLIDADA' : (listas > 0 ? 'EN PROCESO' : 'EN DESARROLLO');
   
     // Cabecera institucional
     const cabecera = dbeEl('header', {
@@ -1500,8 +1511,9 @@
             dbeEl('div', { clase: 'sena-shield', texto: 'SENA' }),
             dbeEl('div', {
               hijos: [
-                dbeEl('h2', { texto: 'ADAPTACIÓN DIDÁCTICA · FORMACIÓN ADSO' }),
-                dbeEl('p', { texto: 'Contexto de referencia SENA · Tecnólogo en Análisis y Desarrollo de Software (ADSO)' }),
+                dbeEl('h2', { texto: 'PORTAFOLIO DE EVIDENCIAS · APRENDIZAJE CON IA' }),
+                dbeEl('p', { texto: registro.submission.program || 'Programa de formación por confirmar' }),
+                dbeEl('p', { texto: registro.submission.context }),
                 dbeEl('p', { hijos: [dbeEl('strong', { texto: `REGISTRO INTEGRAL DE EVIDENCIAS: ${tituloDossier.toUpperCase()}` })] })
               ]
             })
@@ -1580,7 +1592,8 @@
             dbeEl('tbody', {
               hijos: filas.map((fila, index) => {
                 const esCumplido = fila.estado === 'lista';
-                const resultadoTexto = esCumplido ? 'CUMPLIDO' : (fila.estado === 'borrador' ? 'EN BORRADOR' : 'PENDIENTE');
+                const opcional = registro.submission.requiredArtifacts.length > 0 && !registro.submission.requiredArtifacts.includes(fila.artefacto.id);
+                const resultadoTexto = esCumplido ? 'REVISIÓN REGISTRADA' : (fila.estado === 'borrador' ? 'EN BORRADOR' : (opcional ? 'OPCIONAL · SIN REALIZAR' : 'PENDIENTE'));
                 const resultadoBadge = esCumplido ? 'badge badge--success' : (fila.estado === 'borrador' ? 'badge badge--warning' : 'badge badge--pending');
                 const codigo = fila.artefacto.code || `EV-${String(index + 1).padStart(2, '0')}`;
                 return dbeEl('tr', {
@@ -1622,7 +1635,7 @@
               hijos: criterios.map((item) => dbeEl('tr', {
                 hijos: [
                   dbeEl('td', { texto: item.criterio }),
-                  dbeEl('td', { texto: '[ X ] SÍ   [   ] NO' }),
+                  dbeEl('td', { texto: 'Pendiente de auto-revisión' }),
                   dbeEl('td', { texto: item.observacion })
                 ]
               }))
@@ -1636,7 +1649,7 @@
             dbeEl('div', {
               clase: 'verdict-options',
               hijos: [
-                dbeEl('label', { hijos: [dbeEl('input', { attrs: { type: 'radio', name: 'resultado_aprendizaje', checked: true } }), dbeEl('strong', { texto: ' LISTO PARA REVISIÓN' })] }),
+                dbeEl('label', { hijos: [dbeEl('input', { attrs: { type: 'radio', name: 'resultado_aprendizaje' } }), dbeEl('strong', { texto: ' LISTO PARA REVISIÓN' })] }),
                 dbeEl('label', { hijos: [dbeEl('input', { attrs: { type: 'radio', name: 'resultado_aprendizaje' } }), dbeEl('strong', { texto: ' REQUIERE AJUSTES' })] })
               ]
             })
@@ -1707,7 +1720,7 @@
   function dbeLeerPerfilAprendiz(prefijo) {
     const clave = `${prefijo || 'dbe'}_apprentice_profile`;
     const perfilInicial = {
-      name: 'APRENDIZ ADSO',
+      name: 'Por diligenciar',
       docNumber: '',
       ficha: '<NÚMERO_DE_FICHA>',
       centro: 'Por diligenciar',
@@ -1728,7 +1741,7 @@
           instructor: 'INSTRUCTOR TÉCNICO SENA',
         };
         const camposCoincidentes = Object.keys(camposDeEjemplo)
-          .filter((campo) => perfil && String(perfil[campo] || '').trim() === camposDeEjemplo[campo]);
+          .filter((campo) => perfil && (String(perfil[campo] || '').trim() === camposDeEjemplo[campo] || (campo === 'name' && perfil[campo] === 'APRENDIZ ADSO')));
         if (!camposCoincidentes.length) return perfil;
         const perfilLimpio = { ...perfil };
         camposCoincidentes.forEach((campo) => {
@@ -1873,7 +1886,8 @@
   
     const pintar = () => {
       const filas = construirFilas();
-      const listas = filas.filter((fila) => fila.estado === 'lista').length;
+      const principales = filas.filter((fila) => !registro.submission.requiredArtifacts.length || registro.submission.requiredArtifacts.includes(fila.artefacto.id));
+      const listas = principales.filter((fila) => fila.estado === 'lista').length;
       const bitacora = store ? store.leerBitacora() : [];
   
       // 1. Tarjeta de Formulario de Identificación (no-print)
@@ -1887,7 +1901,7 @@
             hijos: [
               dbeCrearGrupoInput('Nombre Completo del Aprendiz:', 'ev-name', apprenticeData.name),
               dbeCrearGrupoInput('Documento de Identidad:', 'ev-doc', apprenticeData.docNumber),
-              dbeCrearGrupoInput('Número de Ficha ADSO:', 'ev-ficha', apprenticeData.ficha),
+              dbeCrearGrupoInput('Número de ficha, si aplica:', 'ev-ficha', apprenticeData.ficha),
               dbeCrearGrupoInput('Centro de Formación:', 'ev-centro', apprenticeData.centro),
               dbeCrearGrupoInput('Regional SENA:', 'ev-regional', apprenticeData.regional),
               dbeCrearGrupoInput('Nombre del Instructor Líder:', 'ev-instructor', apprenticeData.instructor),
@@ -1913,11 +1927,12 @@
         const payload = {
           apprentice: apprenticeData,
           guideId: registro.guideId,
-          program: 'Tecnólogo en Análisis y Desarrollo de Software (ADSO) - Ficha ' + apprenticeData.ficha,
-          competency: (registro.submission && registro.submission.packageName) || 'Desarrollo de Software ADSO',
-          dossierStatus: listas === filas.length ? 'COMPLETED' : 'IN_PROGRESS',
+          program: registro.submission.program || 'Programa por confirmar',
+          backup: store.exportar(registro.artifacts.map((artefacto) => artefacto.id)),
+          competency: (registro.submission && registro.submission.packageName) || 'Criterios por confirmar',
+          dossierStatus: listas === principales.length ? 'COMPLETED' : 'IN_PROGRESS',
           evaluationTimestamp: new Date().toISOString(),
-          summary: { total: filas.length, completed: listas, pending: filas.length - listas },
+          summary: { total: principales.length, completed: listas, pending: principales.length - listas },
           artifacts: filas.map((f) => ({
             id: f.artefacto.id,
             code: f.artefacto.code,
@@ -1951,10 +1966,10 @@
         dbeCopiar(md, botonCopiarMd);
       });
   
-      formCard.appendChild(dbeEl('div', {
+      const accionesExportacion = dbeEl('div', {
         clase: 'evidence-actions-bar no-print',
         hijos: [botonImprimir, botonDescargarJson, botonDescargarMd, botonCopiarMd]
-      }));
+      });
   
       // 3. Hoja imprimible de trabajo
       const dossierSheet = dbeConstruirHojaSena({
@@ -1962,17 +1977,18 @@
         filas,
         listas,
         apprenticeData,
-        nodoBitacora: dbeVistaBitacora(bitacora)
+        nodoBitacora: dbeVistaBitacora(bitacora),
+        requiredTotal: principales.length
       });
   
       // 4. Bloque de pendientes / avisos
-      const pendientes = filas.filter((fila) => fila.estado !== 'lista');
+      const pendientes = principales.filter((fila) => fila.estado !== 'lista');
       const bloquePendientes = pendientes.length
         ? dbeEl('div', {
           clase: 'dbe-dossier__pendientes no-print',
           hijos: [
             dbeEl('h3', { clase: 'dbe-dossier__subtitulo', texto: `Te faltan ${pendientes.length} evidencias por completar` }),
-            dbeEl('p', { clase: 'dbe-bloque__texto', texto: 'Cada enlace te devuelve a la estación donde se encuentra la teoría, el ejemplo y el formulario correspondiente:' }),
+            dbeEl('p', { clase: 'dbe-bloque__texto', texto: 'Cada enlace abre el módulo donde puedes revisar y guardar el resultado:' }),
             dbeEl('ul', {
               clase: 'dbe-lista',
               hijos: pendientes.map((fila) => dbeEl('li', {
@@ -1995,7 +2011,8 @@
       const tarjeta = dbeEl('div', {
         clase: 'dbe-dossier evidence-wrapper',
         hijos: [
-          dbeEl('div', { clase: 'no-print', hijos: [dbeBarraProgreso(listas, filas.length), bloquePendientes] }),
+          dbeEl('div', { clase: 'no-print', hijos: [dbeBarraProgreso(listas, principales.length), bloquePendientes] }),
+          accionesExportacion,
           formCard,
           dossierSheet,
           dbeEl('p', {
@@ -2128,7 +2145,7 @@
     dbeAvisarHuerfanos(huerfanos);
   
     const nodoDossier = raiz.querySelector('[data-db-evidence-dossier]');
-    const dossier = nodoDossier ? dbeMontarDossier(nodoDossier, registro, store) : null;
+    const portafolio = nodoDossier ? dbeMontarDossier(nodoDossier, registro, store) : null;
     if (!nodoDossier) {
       console.warn('DevBrainEvidence: la guía no declara [data-db-evidence-dossier]; no hay consolidación final.');
     }
@@ -2141,7 +2158,7 @@
       registro,
       store,
       estaciones: montadas,
-      dossier,
+      dossier: portafolio,
       huerfanos: huerfanos.map((artefacto) => artefacto.id),
       /**
        * Devuelve el resumen de estados, útil para gamificación o pruebas.

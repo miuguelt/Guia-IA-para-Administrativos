@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="es-CO"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="light"><title>Verificación del laboratorio de datos y documentos · Biblioteca de la guía</title>
+<link rel="stylesheet" href="../../css/documents.css"><link rel="stylesheet" href="devbrain-prose.css" data-devbrain-prose>
+<script defer src="devbrain-prose.js" data-devbrain-prose-runtime></script></head><body>
+<a class="skip-link" href="#documento">Ir al documento</a>
+<nav class="reader-nav" aria-label="Acciones del documento"><a href="index.html">← Biblioteca</a>
+<a href="../../index.html#preparacion">Abrir guía web</a><a href="../analisis-datos/validacion.md" download>Descargar fuente Markdown</a>
+<span>Imprime o guarda en PDF con Ctrl+P</span></nav>
+<div class="reading-layout"><aside class="reading-sidebar"><p class="eyebrow">En este documento</p>
+<details open><summary>Ver apartados</summary><div class="toc">
+<ul>
+<li><a href="#actualizacion-de-verificacion-24-de-octubre-de-2026">Actualización de verificación · 24 de octubre de 2026</a></li>
+<li><a href="#forma-de-trabajo-con-ia">Forma de trabajo con IA</a></li>
+<li><a href="#material-entregado">Material entregado</a></li>
+<li><a href="#comprobaciones-ejecutadas">Comprobaciones ejecutadas</a></li>
+<li><a href="#limites-de-la-validacion">Límites de la validación</a></li>
+</ul>
+</div>
+</details></aside>
+<main id="documento" class="document-sheet"><header class="document-header"><p class="eyebrow">Guía IA para administrativos</p>
+<span class="document-badge">Laboratorio de datos y documentos</span><p class="document-context">Consulta el contenido por apartados y conserva el archivo fuente si necesitas editarlo.</p></header>
+<article class="document-content"><h1 id="verificacion-del-laboratorio-de-datos-y-documentos">Verificación del laboratorio de datos y documentos</h1>
+<h2 id="actualizacion-de-verificacion-24-de-octubre-de-2026">Actualización de verificación · 24 de octubre de 2026</h2>
+<p>Se amplió la ruta inicial de Excel en la web y en la guía del aprendiz. Incluye importación de CSV con revisión de UTF-8 y separador, tipos de columna, filtros, una regla de cambio porcentual con casos no calculables, elección de gráfico y rastro para repetir el análisis. La ruta se contrastó con la ayuda oficial de Microsoft, registrada en <a href="docs--referencias-oficiales-vigencia.html">fuentes de vigencia</a>. Los valores de los conjuntos originales no se modificaron.</p>
+<p>La compilación generó 111 documentos de lectura, 28 paquetes para IA y cinco paquetes de análisis. Los PDF se regeneraron desde los archivos fuente: 33 páginas para el aprendiz y 6 para el instructor. Se renderizaron y revisaron visualmente las 39 páginas. La prueba real de Edge comprobó la interfaz y la guía descargable en 320, 390, 768, 1440, 1920 y 2560 px, al 200 % de zoom e impresión, sin desbordamientos ni texto recortado.</p>
+<p>Las comprobaciones globales de esta versión pasaron: <code>npm test</code> (267 JavaScript y 63 Python), <code>npm run check:redaccion</code>, cobertura (100 % de funciones, 99,36 % de líneas y 91,68 % de ramas), contrato educativo estricto y entregables estrictos (siete artefactos y siete estaciones, sin errores ni advertencias).</p>
+<p>La auditoría de modularidad reporta dos archivos por encima del límite de 400 líneas (<code>analysis_data.py</code>, 546; <code>js/simulators.js</code>, 563) y diez advertencias; el script no identificó una raíz Git, por lo que no distingue código previo de código nuevo. La presentación de código marca dos copias locales del SDK que difieren de la distribución compartida; su adaptación está documentada y requiere resolución en la fuente canónica compartida antes de sincronizar. No se sobrescribieron.</p>
+<p>La ficha del curso complementario del SENA consultada registra 48 horas, mientras que esta propuesta totaliza 40. La equivalencia, las condiciones de la cohorte y la comprensión con aprendices siguen pendientes de validación institucional o humana. Este laboratorio es complementario y no reemplaza las evidencias curriculares.</p>
+<p>El inventario completo, incluidas las rutas de <code>output/</code>, está en <a href="../inventario-proyecto.xlsx">inventario del proyecto</a>. Las páginas históricas de abajo conservan los resultados y alcances con los que se ejecutaron.</p>
+<p>Fecha: 18 de octubre de 2026, Colombia. El módulo es independiente y opcional. Conserva los seis módulos formativos del curso, sus horas y las cinco evidencias curriculares. LAB-A01 utiliza el mecanismo central de evidencias y queda fuera de su porcentaje de avance.</p>
+<h2 id="forma-de-trabajo-con-ia">Forma de trabajo con IA</h2>
+<p>La IA prepara los archivos de la actividad con el encargo y las fuentes del paquete. El aprendiz entrega ese encargo a un chat autorizado o a Antigravity o Codex, revisa el resultado y descarga los productos. Los campos que se describen son la estructura de salida para la IA. Los datos ausentes, las mediciones no realizadas y las revisiones humanas no observadas quedan pendientes; el instructor conserva la valoración formal.</p>
+<p>Los <a href="../../index.html#preparacion">encargos de la guía web</a> están listos para usar. La conversación, el informe y el JSON generado conservan el trabajo sin transcribirlo en otra ficha. Si la herramienta no puede ejecutar la tarea, se conserva esa limitación como pendiente y se consulta una opción autorizada.</p>
+<h2 id="material-entregado">Material entregado</h2>
+<ul>
+<li>Cinco laboratorios con pasos de búsqueda, descarga, inspección, análisis y comprobación: NASA, población, clima, sismos y documentación.</li>
+<li>Explorador local con cinco vistas, controles de escala y selección, representación alternativa, tabla paginada y exportación CSV. Funciona con los datos incrustados sin solicitar servicios externos.</li>
+<li>Cinco ZIP reproducibles, cuatro cuadernos Jupyter, un programa de análisis, originales JSON y CSV preparados, diccionario y manifiesto con hashes.</li>
+<li>Libro XLSX de seis pestañas. Se compararon sus registros, valores, nulos y fechas contra los cinco CSV. La ampliación DANE se incluye en el diccionario.</li>
+<li>Guía del aprendiz de 28 páginas y guía del instructor de 6 páginas, con revisión visual de páginas, figuras, tablas y rúbrica. El Markdown es una guía de trabajo abreviada; el PDF reúne explicaciones y fichas.</li>
+<li>Diez referencias documentales que suman 293 páginas. Se distribuyen tres PDF NASA; los otros siete documentos se enlazan. La matriz de ejemplo registra tres afirmaciones verificadas y sus páginas, sin declarar lectura exhaustiva.</li>
+</ul>
+<h2 id="comprobaciones-ejecutadas">Comprobaciones ejecutadas</h2>
+<p>Se escribieron y ejecutaron pruebas que fallaban antes de implementar el modelo, la interfaz, los paquetes y la ampliación del diccionario. Después se comprobaron resultados, filtros, duplicados, ausencias, exportación, errores y navegación. Las pruebas usan muestras conocidas y contrastan los CSV reales con los originales conservados.</p>
+<p>La suite JavaScript pasa con 159 pruebas. La compuerta completa informa 100 % de funciones, 99,77 % de líneas y 88,85 % de ramas en su alcance declarado. Los dos archivos nuevos del explorador tienen 100 % de funciones y líneas. La suite Python incluye 23 pruebas; su compuerta comprueba las 22 funciones del analizador y la función del empaquetador, además de las funciones del constructor existente.</p>
+<p>Los cuatro cuadernos se ejecutaron contra los datos locales. Se comprobó también un ZIP descomprimido con el comando de validación, sin red. La reconstrucción de paquetes produce los mismos bytes. Los datos publicados corresponden a 4.332 planetas, 75 filas de población, 366 días de clima, 133 sismos y 101 edades de la proyección de Santander.</p>
+<p>Microsoft Edge se revisó a 1.440, 390 y 320 píxeles de ancho. Se comprobaron cinco vistas, tablas, enlaces internos, foco y ausencia de desbordamiento horizontal de página o errores de JavaScript. La información visual tiene descripción y tabla; los controles se manejan con teclado. Esta revisión no certifica compatibilidad con todos los lectores de pantalla.</p>
+<p>Pasaron el verificador editorial, la compilación y las compuertas canónicas <code>Test-DevBrainEducationalGuide.ps1 -Strict</code> y <code>Test-GuideDeliverables.ps1 -Strict</code>, ambas sin advertencias. La CI ejecuta las suites JavaScript y Python, exige la cobertura de funciones JavaScript y publica su informe. Los controles Python de funciones fallan si se añade una función sin ejecutar en las pruebas.</p>
+<h2 id="limites-de-la-validacion">Límites de la validación</h2>
+<p>Los recorridos de ChatGPT, Gemini, Codex y Antigravity se documentaron con sus fuentes oficiales. La ejecución comprobada corresponde al código y los cuadernos incluidos; no se inició sesión en las cuentas de cada producto para repetir todos sus recorridos. Las capacidades visibles dependen de la cuenta y la versión.</p>
+<p>La guía explica cómo escalar a catálogos, lotes de documentos, Parquet, DuckDB, formatos científicos y análisis estadístico. No se descargaron catálogos completos ni se midió el rendimiento sobre millones de registros o miles de PDF. La navegación y el análisis de las muestras funcionan localmente; una IA alojada requiere su conexión y acceso.</p>
+<p>La duración sugerida y la comprensión de las actividades requieren validación pedagógica con aprendices. No se publicó el sitio ni se creó un commit. La actualización del índice de código registró 669 nodos y 1.105 relaciones con estado <code>degraded</code>; este índice auxiliar no interviene en la compilación ni en las pruebas aprobadas.</p></article>
+<footer class="document-footer">Guía IA para administrativos · Versión de lectura de <a href="../analisis-datos/validacion.md">validacion.md</a>.
+Las decisiones y los pendientes conservan el estado del archivo fuente.</footer></main></div></body></html>

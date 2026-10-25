@@ -1,108 +1,59 @@
-# Estación 03: Automatización de Flujos Documentales y Tratamiento de Información No Estructurada
-**Programa:** Implementación de herramientas de inteligencia artificial en la optimización de la productividad (21720210 V1)  
-**Ambiente de Formación:** Redes CIMI · SENA Girón  
-**Fase Pedagógica:** Apropiación (Parte 1) · **Duración:** 10 horas (Laboratorio Práctico)  
-**Resultado de Aprendizaje (RAP):** RA1. Establecer uso de la inteligencia artificial según requerimientos de optimización del proceso productivo.  
-**Evidencia Asociada:** MG-A03 (Evidencia de Desempeño - Pipeline Asistido de Gestión Documental)
+# Flujos administrativos y reglas reproducibles
 
----
 
-## 1. Tratamiento de Información No Estructurada en la Gestión Pública
+**Encargos listos:** [Reto 4](../materiales/ia/reto-4/LEEME.html) · [Reto 5](../materiales/ia/reto-5/LEEME.html) · [Reto 6](../materiales/ia/reto-6/LEEME.html) · [Reto 7](../materiales/ia/reto-7/LEEME.html).
 
-El mayor porcentaje de la información que ingresa a una coordinación administrativa del SENA corresponde a **datos no estructurados**: correos electrónicos extensos, transcripciones de comités de evaluación, quejas ciudadanas escritas con redacción confusa y archivos escaneados.
+## Forma de trabajo con IA
 
-Tradicionalmente, un funcionario debe leer manualmente cada línea, interpretar el sentido, extraer los datos en una libreta o Excel, y luego redactar una respuesta.  
+La IA prepara los archivos de la actividad con el encargo y las fuentes del paquete. El aprendiz entrega ese encargo a un chat autorizado o a Antigravity o Codex, revisa el resultado y descarga los productos. Los campos que se describen son la estructura de salida para la IA. Los datos ausentes, las mediciones no realizadas y las revisiones humanas no observadas quedan pendientes; el instructor conserva la valoración formal.
 
-En esta estación implementamos un **Pipeline Asistido de 5 Capas** para convertir texto libre en datos estructurados y borradores automáticos, asegurando trazabilidad y cero pérdida de información.
+Los [encargos de la guía web](../index.html#preparacion) están listos para usar. La conversación, el informe y el JSON generado conservan el trabajo sin transcribirlo en otra ficha. Si la herramienta no puede ejecutar la tarea, se conserva esa limitación como pendiente y se consulta una opción autorizada.
 
-```mermaid
-flowchart LR
-    A["1. Texto Crudo<br/>(Correo/Acta/PQRS)"] --> B["2. Sanitización<br/>(Anonimizar PII Ley 1581)"]
-    B --> C["3. Extracción IA<br/>(Prompt R-C-I-R-S Blindado)"]
-    C --> D["4. Normalización<br/>(Tabla / JSON / Formato)"]
-    D --> E["5. Puerta Humana<br/>(Aprobación y Firma)"]
-```
+## Propósito y recorrido
 
----
+El aprendiz entrega las fuentes del curso a la IA para clasificar mensajes, preparar un acta y normalizar un campo. Después encarga a la IA el diseño y la prueba de un flujo de solicitudes. Revisa referencias, excepciones y decisiones pendientes sin reconstruir a mano el procesamiento encargado.
 
-## 2. Laboratorio 1: Procesamiento de Transcripciones Complejas de Reuniones
+El módulo ocupa nueve horas: 60 minutos de explicación y ensayo, 150 del Reto 4, 150 del Reto 5, 120 del Reto 6 y 60 del Reto 7. MG-A03 reúne los cuatro productos. Use I-5 de los [instrumentos de evaluación](instrumentos-evaluacion.md).
 
-### El Desafío
-En el [Caso de Estudio 03: Transcripción de Reunión Caótica](file:///c:/Users/Miguel/Documents/Aplicaciones/_projects/Guia%20IA%20para%20Administrativos/docs/ejercicios/caso-03-acta-reunion-caotica.md), los coordinadores e instructores de Redes CIMI discuten múltiples temas entremezclados: alistamiento del ambiente, fallo de switches, quejas de aprendices, contratos de instructores y compras de fibra para 2027.
+## Reto 4 · Clasificación con razones visibles
 
-### Procedimiento de Implementación (Ciclo Iterativo V.E.R.A.)
+Entregue `correos-50.csv` al asistente autorizado: contiene 50 códigos, diez situaciones repetidas en cinco lotes. Pida una regla basada en señales textuales, personas afectadas y plazo explícito, la clasificación completa y diez borradores de situaciones distintas.
 
-Para garantizar el aprendizaje profesional y evitar el síndrome del "copiar y pegar rápido", este laboratorio exige múltiples iteraciones:
+Compruebe los 50 códigos y contraste diez clasificaciones con la fuente. La prioridad sugerida es didáctica; la prioridad institucional depende del área. Revise los pendientes de cada borrador. La variante de talento humano sustituye cinco de los diez borradores y conserva sus restricciones de carga.
 
-**Iteración 1: Ejecución Inicial (Provocando el Fallo)**
-1. Envíe a la IA el texto del caso de estudio con una instrucción genérica y débil: *"Haz un resumen de esta reunión y dime qué toca hacer"*.
-2. **Revisar:** Analice críticamente el resultado. ¿Qué falló? (¿Atribuyó tareas a quien solo preguntó? ¿Omitió fechas? ¿Confundió a los instructores?). Documente estos fallos en su plantilla de productividad (Evidencia MG-A05).
+## Reto 5 · Acta con acuerdos y pendientes
 
-**Iteración 2: Blindaje R-C-I-R-S**
-3. Redacte un nuevo prompt estructurado aplicando la arquitectura R-C-I-R-S y delimitadores XML.
-4. Utilice el siguiente borrador como base y complételo:
+Encargue el acta a partir de `transcripcion.csv`. Cada punto conserva minuto y frase de origen, distingue decisión, propuesta, compromiso o duda y deja pendientes responsables y fechas que no constan.
 
-```text
-Actúa como Secretario Técnico de Comités del SENA CIMI.
-Analiza la transcripción de la reunión delimitada entre <reunion> y </reunion>.
+En 03:12 se pide confirmar contactos antes de enviar; no se afirma que Logística ya los confirmó. Use ese contraste para revisar el acta y conservarla como borrador. La variante documental añade su serie y subserie.
 
-Genera exclusivamente dos artefactos:
-1. TABLA DE COMPROMISOS OPERATIVOS con las columnas:
-   | No. | Compromiso Específico | Responsable Directo (Nombre Exacto) | Fecha y Hora Límite | Precondición o Recurso |
-2. MATRIZ DE RIESGOS Y ALERTAS con las columnas:
-   | Alerta Identificada | Dependencia Involucrada | Acción Inmediata Requerida |
+## Reto 6 · Limpieza sin perder el original
 
-REGLAS DE RIGOR:
-- [INSERTE RESTRICCIÓN PARA EVITAR QUE QUIEN PREGUNTE SE ASIGNE LA TAREA]
-- [INSERTE RESTRICCIÓN SOBRE FECHAS INEXACTAS]
-```
+`datos-sofia.csv` tiene 30 registros, 29 códigos distintos y cuatro estados vacíos. SIM-0012 aparece en las filas 16 y 23 con aprendices distintos: ambas se conservan. Las referencias incluyen tres líneas iniciales y el encabezado; si la aplicación cambia la numeración, busque por código y contenido.
 
-**Iteración 3: Verificación Crítica y Atribución**
-5. **Verificar:** Compruebe que la tarea de llamar a los instructores contratistas atrasados con las notas (`Carlos, Andrea y Javier`) fue asignada a **Claudia Duarte**, mientras que a **Gloria Rojas** se le asignó consolidar las horas el lunes 2 de noviembre y tramitar la salida de cable en almacén.
-6. Si la IA mezcló a Claudia con Gloria, ejecute una tercera iteración ajustando el prompt (añadiendo una restricción anti-alucinación explícita sobre nombres). Documente este refinamiento.
+Pida un procedimiento que añada «Estado revisado», quite espacios, convierta a mayúsculas y marque «REVISAR» si falta el estado. Compruebe SIM-0002 → FINALIZADO y SIM-0003 → REVISAR. Los conteos esperados son 9 EN CURSO, 9 FINALIZADO, 8 PENDIENTE y 4 REVISAR. Conserve identificadores y fechas originales.
 
----
+Distinga la propuesta de su ejecución. Si la herramienta no ejecuta el procedimiento, pida que el archivo indique ese límite y deje pendiente la comprobación del procesamiento.
 
-## 3. Laboratorio 2: Pipeline de Clasificación y Borrador de PQRS Masivas
+La variante de inventario tiene ocho registros y otra regla: normalizar «Soporte» en una columna nueva. Sus cuatro incidencias involucran cinco filas: fechas ausentes, una pareja semejante, fechas invertidas y folios en cero. No aplique la regla de Estado a un archivo que no tiene ese campo.
 
-Utilizando el [Caso de Estudio 02: Conjunto de PQRS](file:///c:/Users/Miguel/Documents/Aplicaciones/_projects/Guia%20IA%20para%20Administrativos/docs/ejercicios/caso-02-dataset-pqrs-desordenadas.md):
+## Reto 7 · Probar antes de automatizar
 
-### Procedimiento de Implementación (Ciclo Iterativo V.E.R.A.)
+Solicite un diseño y una simulación de `reto-07-casos-flujo.csv`. Revise primero la urgencia, porque una solicitud completa también puede ser urgente. Las salidas esperadas son FL-01: resumen para revisión; FL-02: pregunta por la franja; FL-03: detención y consulta a una persona responsable.
 
-1. **Iteración 1: Ejecución Inicial (Provocando el Fallo)**
-   - Cargue las 5 PQRS en una sesión limpia.
-   - Utilice un prompt sencillo: *"Clasifica estas 5 quejas del SENA y redacta una respuesta para cada una"*.
-   - **Revisar:** Observe los resultados. ¿La IA redactó las respuestas con un tono inadecuado? ¿Clasificó mal los tipos de solicitud (Petición de Información vs Queja)? ¿No tuvo en cuenta los tiempos de ley? Documente los errores en su plantilla de evidencias.
+El producto conserva activador, entradas, reglas, ramas y aprobación humana. La IA ejecuta la simulación en chat o en el IDE y genera el diagrama; no conecta cuentas ni despliega una automatización. El diseño se relaciona con RA1; la ejecución de la regla y su comprobación aportan a RA2. El instructor confirma la suficiencia de estas evidencias para la ficha.
 
-2. **Iteración 2: Blindaje y Generación de la Matriz**
-   - Construya un nuevo prompt con estructura R-C-I-R-S.
-   - En el **[CONTEXTO]**, especifique la diferencia entre Petición de Documentos (10 días) y Petición de Información (15 días) según la Ley 1755 de 2015.
-   - Solicite que **solamente** se genere una Matriz de Enrutamiento (Tabla) con las columnas: ID, Remitente Anonimizado, Tipología, Dependencia de Destino, Plazo Legal y Estado.
-   - **Ejecutar TDD (Test-Driven Development):** Valide que la IA asignó correctamente el caso `PQRS-003` (Cédula retenida) a Coordinación Académica con el plazo legal adecuado.
+## Aplicación al puesto
 
-3. **Iteración 3: Borrador Institucional Asistido**
-   - En la *misma sesión* (para aprovechar el contexto), o en una nueva (para evitar deriva, dependiendo de lo que haya decidido en su estrategia), redacte un prompt específico para el caso `PQRS-001` (paz y salvo de biblioteca).
-   - Indique en las **[RESTRICCIONES]** que la carta debe solicitar explícitamente el "paz y salvo previo de biblioteca con la plantilla oficial del CIMI", manteniendo un tono solemne.
-   - **Atribuir y Aprobar (HITL):** Lea la respuesta generada. Verifique que no se asumen compromisos por fuera de la política de la entidad. Edite manualmente si es necesario (el humano siempre firma).
+Pida identificar una tabla o trámite recurrente y explicar qué fuente, campo permitido y excepciones cambiarían. El curso trabaja con materiales de práctica; una prueba con fuentes reales requiere autorización.
 
----
 
-## 4. Taller Autónomo y Registro de Evidencia MG-A03
+## Apoyos para comprender antes del reto
 
-El aprendiz debe demostrar en su computador la ejecución del flujo asistido y registrar:
+Presente las cuatro tareas como aplicaciones del mismo método: identificar la fuente, encargar el producto, comprobar casos y pedir correcciones. Trabaje un producto a la vez. La ruta distingue los mensajes del Reto 4, el acta del Reto 5, la tabla del Reto 6 y el flujo del Reto 7.
 
-1. **Acta Ejecutiva Generada del Caso 03:**
-   - Resumen ejecutivo por temas de agenda.
-   - Tabla completa de compromisos verificada y contrastada.
-2. **Matriz de Enrutamiento de las 5 PQRS del Caso 02:**
-   - Tabla consolidada con: ID, Remitente Anonimizado, Tipología, Dependencia de Destino, Plazo Legal según Ley 1755 de 2015 y Estado.
-3. **Borrador de Comunicación Oficial Asistido:**
-   - Texto final de respuesta formal para el caso de mayor urgencia (`PQRS-002`), redactado en tono solemne SENA y respetando el debido proceso del aprendiz.
-4. **Registro de Tiempos de Ejecución:**
-   - Tiempo invertido manualmente vs. tiempo con el pipeline de IA (demostración de la ganancia de productividad).
+Explique la regla reproducible con SIM-0002 y SIM-0003 antes de consultar los detalles sobre ejecución de código. El punto visible en FINALIZADO· representa el espacio final. El aprendiz solicita el procesamiento y revisa la salida; la disponibilidad de ejecución depende de la herramienta autorizada.
 
-### Lista de Chequeo de Aceptación (Criterio de Evaluación RA1)
-- [ ] La tabla de compromisos extraída refleja fielmente la reunión sin inventar acuerdos inexistentes.
-- [ ] No hay confusión de responsables entre los intervinientes de la reunión.
-- [ ] La clasificación de las PQRS cita correctamente los términos legales de la Ley 1755 de 2015.
-- [ ] Los borradores generados cumplen con el manual de estilo y redacción institucional del SENA.
+Las dos preguntas de «Observa» permiten comprobar el uso de una columna nueva y la conservación de las ocurrencias de SIM-0012. Pida explicar qué dato autoriza la transformación y qué queda para revisión. Las preguntas forman parte del tiempo de explicación del módulo.
+
+Para observar la comprensión real del grupo, use la [pauta con aprendices](validacion-con-aprendices.md).

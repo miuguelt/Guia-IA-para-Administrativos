@@ -1,0 +1,11 @@
+{
+  "schemaVersion": 1,
+  "artifactId": "MG-A02",
+  "fields": {
+    "prompt_maestro_rcirs": "",
+    "pruebas_de_estres": "",
+    "protocolo_anti_deriva": "",
+    "uso_ia_y_revision": ""
+  },
+  "tool": "no identificado"
+}

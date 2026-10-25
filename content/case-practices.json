@@ -1,0 +1,570 @@
+{
+  "m01-fundamentos": {
+    "revision": 1,
+    "title": "Revisa una solicitud urgente de sala",
+    "intro": "Reconoce qué puedes preparar y qué debe confirmar Logística. Cada decisión debe apoyarse en la solicitud o en un apartado del lineamiento.",
+    "sources": [
+      {
+        "file": "reto-01-solicitud-urgente.csv",
+        "rows": [
+          5
+        ]
+      },
+      {
+        "file": "lineamiento-ficticio.csv",
+        "rows": [
+          6,
+          7,
+          8,
+          9,
+          11
+        ]
+      }
+    ],
+    "questions": [
+      {
+        "id": "disponibles",
+        "stage": 1,
+        "prompt": "¿Qué datos ya puedes conservar en el borrador?",
+        "options": [
+          "Actividad: taller; aforo: 18 personas.",
+          "Sede y horario confirmados.",
+          "Fecha exacta y aprobación."
+        ],
+        "expected": "0",
+        "explanation": "El mensaje indica un taller para 18 personas. No identifica sede ni horario.",
+        "reference": "Solicitud URG-01, fila 5.",
+        "hint": "Busca las dos cantidades o características que aparecen expresamente en la solicitud.",
+        "hints": [
+          "Orientación: Identifica las dos características expresamente confirmadas en el mensaje inicial.",
+          "Dónde buscar: Revisa el texto del mensaje URG-01 en reto-01-solicitud-urgente.csv, fila 5.",
+          "Clave para resolver: Conserva el tipo de actividad y el número de asistentes; descarta fechas y sedes que no constan."
+        ]
+      },
+      {
+        "id": "pendientes",
+        "stage": 1,
+        "prompt": "¿Qué debes pedir para completar los datos de la solicitud?",
+        "options": [
+          "Nombres y cédulas de los asistentes.",
+          "Sede, fecha de calendario y franja horaria.",
+          "Solo el nombre del instructor."
+        ],
+        "expected": "1",
+        "explanation": "«Mañana» necesita una fecha de referencia. El lineamiento pide sede, fecha y franja; no pide datos personales de los asistentes.",
+        "reference": "Lineamiento, apartado Solicitud; URG-01.",
+        "hint": "Compara los campos del apartado Solicitud con lo que dice URG-01.",
+        "hints": [
+          "Orientación: Compara los campos mínimos exigidos para una reserva con los datos que llegaron en URG-01.",
+          "Dónde buscar: Consulta el apartado Solicitud en lineamiento-ficticio.csv frente al mensaje URG-01.",
+          "Clave para resolver: Se requieren sede, fecha exacta de calendario y franja horaria; no se piden datos personales."
+        ]
+      },
+      {
+        "id": "urgencia",
+        "stage": 2,
+        "prompt": "El borrador dice: «Como es urgente, su reserva queda aprobada». ¿Cómo lo corriges?",
+        "options": [
+          "Conservar la aprobación y agregar un saludo.",
+          "Dar por cumplidos los cinco días de anticipación.",
+          "Pedir los datos faltantes y dejar la disponibilidad y la urgencia para decisión humana."
+        ],
+        "expected": "2",
+        "explanation": "El lineamiento no define excepciones por urgencia. La persona responsable de Logística confirma la disponibilidad o propone alternativas.",
+        "reference": "Lineamiento, apartados Disponibilidad, Aprobación y Urgencia.",
+        "hint": "Una urgencia no equivale a una excepción prevista en la fuente.",
+        "hints": [
+          "Orientación: Evalúa si la urgencia del usuario permite omitir la verificación de disponibilidad física.",
+          "Dónde buscar: Revisa los apartados Aprobación y Urgencia en el lineamiento de salas.",
+          "Clave para resolver: La urgencia amerita atención rápida, pero la reserva queda pendiente de verificación humana."
+        ]
+      },
+      {
+        "id": "anticipacion",
+        "stage": 2,
+        "prompt": "¿Puedes afirmar que el pedido cumple la anticipación de cinco días hábiles?",
+        "options": [
+          "Sí, porque dice mañana.",
+          "No: faltan las fechas de referencia y de la actividad.",
+          "Sí, si la IA lo escribe con seguridad."
+        ],
+        "expected": "1",
+        "explanation": "El plazo figura en el lineamiento, pero no puedes comprobarlo sin fechas exactas. Debe quedar pendiente.",
+        "reference": "Lineamiento, Anticipación; URG-01, Fecha de referencia.",
+        "hint": "Distingue la regla del dato necesario para aplicarla.",
+        "hints": [
+          "Orientación: Distingue la regla reglamentaria del dato fáctico requerido para verificar su cumplimiento.",
+          "Dónde buscar: Comprueba la columna Fecha de referencia en la fila 5 de URG-01.",
+          "Clave para resolver: Sin fecha de recepción del mensaje, no puedes calcular si se cumplen los cinco días de anticipación."
+        ]
+      }
+    ]
+  },
+  "m02-diseno": {
+    "revision": 1,
+    "title": "Prepara una respuesta con respaldo",
+    "intro": "Contrasta tres solicitudes y construye un encargo reutilizable. Los borradores de esta práctica están preparados para comparar decisiones; no son respuestas generadas en vivo.",
+    "sources": [
+      {
+        "file": "pqrs-complejas.csv",
+        "rows": [
+          5,
+          6,
+          7
+        ]
+      }
+    ],
+    "questions": [
+      {
+        "id": "pc01",
+        "stage": 1,
+        "prompt": "En PC-01, «me avisaron por el grupo» corresponde a…",
+        "options": [
+          "Una confirmación oficial del nuevo salón.",
+          "Una afirmación que debe contrastarse con la fuente autorizada.",
+          "Una instrucción para cambiar el horario."
+        ],
+        "expected": "1",
+        "explanation": "La persona relata un aviso. Su petición es confirmar salón, horario y enlace; la fuente no confirma el cambio.",
+        "reference": "PQRS complejas, PC-01, fila 5.",
+        "hint": "Distingue quién afirma algo de quién tiene autoridad para confirmarlo.",
+        "hints": [
+          "Orientación: Distingue la afirmación de un tercero de la confirmación formal emitida por la dependencia competente.",
+          "Dónde buscar: Lee el relato de la persona en la fila 5 (PC-01) de pqrs-complejas.csv.",
+          "Clave para resolver: El aviso informal por mensajería es una afirmación ciudadana por contrastar con la fuente autorizada."
+        ]
+      },
+      {
+        "id": "pc02",
+        "stage": 1,
+        "prompt": "En PC-02, ¿qué debe conservar el análisis?",
+        "options": [
+          "El certificado ya está listo para descargar.",
+          "El portal está equivocado.",
+          "La solicitud de orientación y la discrepancia de estado; el soporte requerido no consta."
+        ],
+        "expected": "2",
+        "explanation": "El mensaje menciona estados distintos, pero no permite resolverlos ni identificar el soporte que falta.",
+        "reference": "PQRS complejas, PC-02, fila 6.",
+        "hint": "No decidas cuál versión es válida si el caso no aporta la comprobación.",
+        "hints": [
+          "Orientación: Analiza cómo registrar versiones contradictorias sin dar por válida ninguna de ellas anticipadamente.",
+          "Dónde buscar: Consulta la fila 6 (PC-02) de pqrs-complejas.csv.",
+          "Clave para resolver: Conserva la discrepancia entre el dicho del usuario y el estado del portal, señalando el soporte ausente."
+        ]
+      },
+      {
+        "id": "encargo",
+        "stage": 2,
+        "type": "instruction",
+        "prompt": "Construye una instrucción que puedas reutilizar en los tres casos.",
+        "parts": [
+          {
+            "label": "Fuente y contexto",
+            "options": [
+              [
+                "caso",
+                "Usa únicamente el texto del caso PC-01, PC-02 o PC-03."
+              ],
+              [
+                "supone",
+                "Completa los datos con lo que suele ocurrir."
+              ]
+            ]
+          },
+          {
+            "label": "Rol y tarea",
+            "options": [
+              [
+                "analiza",
+                "Como asistente administrativo, separa petición, afirmaciones y pendientes; cita frases y prepara un borrador."
+              ],
+              [
+                "aprueba",
+                "Como autoridad del trámite, aprueba lo que solicita la persona."
+              ]
+            ]
+          },
+          {
+            "label": "Tono",
+            "options": [
+              [
+                "claro",
+                "Escribe con claridad y respeto."
+              ],
+              [
+                "promete",
+                "Promete una solución inmediata para tranquilizar a la persona."
+              ]
+            ]
+          },
+          {
+            "label": "Límites",
+            "options": [
+              [
+                "verifica",
+                "No inventes fechas, horas, enlaces ni gestiones realizadas. Deja los datos ausentes pendientes de verificación."
+              ],
+              [
+                "completa",
+                "Añade una fecha probable cuando no aparezca."
+              ]
+            ]
+          }
+        ],
+        "expected": "caso|analiza|claro|verifica",
+        "explanation": "El encargo delimita la fuente, la tarea, el tono y los límites. La misma instrucción también debe conservar vacíos en una solicitud incompleta.",
+        "reference": "PQRS complejas, PC-01 a PC-03.",
+        "hint": "Busca una tarea concreta, una fuente delimitada y una regla para los datos ausentes.",
+        "hints": [
+          "Orientación: Construye una instrucción con estructura CRTT que opere de forma segura en los tres casos.",
+          "Dónde buscar: Revisa las cuatro partes del encargo reutilizable en la lección de diseño de prompts.",
+          "Clave para resolver: Elige delimitar la fuente al caso, analizar y separar pendientes, mantener tono claro y prohibir suposiciones."
+        ]
+      },
+      {
+        "id": "pc03",
+        "stage": 2,
+        "prompt": "Para PC-03, el borrador dice: «Confirmamos la nueva fecha anunciada por sus compañeros». ¿Qué ajuste corresponde?",
+        "options": [
+          "Retirar la confirmación: la comunicación oficial aplaza la actividad y no incluye fecha nueva.",
+          "Cambiar confirmamos por aseguramos.",
+          "Conservarla porque dos personas coinciden."
+        ],
+        "expected": "0",
+        "explanation": "El comentario de terceros no reemplaza la comunicación oficial. La nueva fecha queda por verificar.",
+        "reference": "PQRS complejas, PC-03, fila 7.",
+        "hint": "Compara lo publicado oficialmente con lo que comentan los compañeros.",
+        "hints": [
+          "Orientación: Contrasta la comunicación oficial de aplazamiento frente a los rumores de nueva fecha.",
+          "Dónde buscar: Examina la fila 7 (PC-03) de pqrs-complejas.csv.",
+          "Clave para resolver: Retira la confirmación de fecha: el comunicado oficial no fija fecha nueva y el dato queda pendiente."
+        ]
+      }
+    ]
+  },
+  "m03-implementacion": {
+    "revision": 1,
+    "title": "Limpia estados y conserva el origen",
+    "intro": "Trabaja con cinco filas de Datos SOFIA. Prueba las reglas en el comparador y contrasta la salida con el original. La muestra no acredita el procesamiento de los 30 registros ni la ejecución del reto con IA.",
+    "sources": [
+      {
+        "file": "datos-sofia.csv",
+        "rows": [
+          5,
+          6,
+          7,
+          16,
+          23
+        ]
+      }
+    ],
+    "questions": [
+      {
+        "id": "origen",
+        "stage": 1,
+        "prompt": "¿Dónde debes guardar el estado transformado?",
+        "options": [
+          "Sobre el original, sin conservar una copia.",
+          "En Estado revisado, conservando fila, código y Estado sin normalizar.",
+          "En una fila nueva sin código."
+        ],
+        "expected": "1",
+        "explanation": "La columna original permite verificar qué cambió. La identidad incluye la fila, porque un código puede repetirse.",
+        "reference": "Datos SOFIA, encabezado y filas 5, 6, 7, 16 y 23.",
+        "hint": "La salida debe permitir volver al valor que recibió la regla.",
+        "hints": [
+          "Orientación: Considera el principio de conservación de la fuente en transformaciones de bases de datos.",
+          "Dónde buscar: Revisa el encabezado de datos-sofia.csv y la estructura de columnas antes/después.",
+          "Clave para resolver: Guarda el dato normalizado en una columna nueva conservando fila, código y estado original."
+        ]
+      },
+      {
+        "id": "vacio",
+        "stage": 1,
+        "prompt": "SIM-0003 no tiene estado. ¿Cuál es la salida prevista?",
+        "options": [
+          "FINALIZADO.",
+          "EN CURSO.",
+          "REVISAR."
+        ],
+        "expected": "2",
+        "explanation": "La regla señala el vacío sin completar el dato por suposición.",
+        "reference": "Datos SOFIA, SIM-0003, fila 7.",
+        "hint": "Una marca para revisar no inventa un estado del proceso.",
+        "hints": [
+          "Orientación: Evalúa cómo tratar registros que carecen de información en el campo principal.",
+          "Dónde buscar: Observa la fila 7 (SIM-0003) en datos-sofia.csv.",
+          "Clave para resolver: La regla reproducible asigna la etiqueta REVISAR sin inferir un estado no registrado."
+        ]
+      },
+      {
+        "id": "espacio",
+        "stage": 2,
+        "prompt": "Activa las reglas en el comparador. ¿Qué debe producir «FINALIZADO »?",
+        "options": [
+          "FINALIZADO, en una columna nueva.",
+          "Eliminar el registro.",
+          "Cambiar su fecha de ingreso."
+        ],
+        "expected": "0",
+        "explanation": "Quitar el espacio final normaliza el estado; no autoriza modificar los demás campos.",
+        "reference": "Datos SOFIA, SIM-0002, fila 6. El punto del comparador representa un espacio.",
+        "hint": "El cambio autorizado afecta el texto del estado, no la existencia del registro.",
+        "hints": [
+          "Orientación: Identifica qué alcance tiene la limpieza de espacios en blanco en una columna de texto.",
+          "Dónde buscar: Prueba el caso SIM-0002 en el comparador interactivo de reglas.",
+          "Clave para resolver: Quitar el espacio final normaliza el término a FINALIZADO sin alterar los demás campos del registro."
+        ]
+      },
+      {
+        "id": "repeticiones",
+        "stage": 2,
+        "prompt": "SIM-0012 aparece en las filas 16 y 23. ¿Cómo verificas la salida?",
+        "options": [
+          "Dejar solo la primera ocurrencia.",
+          "Conservar las dos filas y sus referencias, aunque compartan código.",
+          "Unir los valores y completar las fechas."
+        ],
+        "expected": "1",
+        "explanation": "La regla de estados no autoriza eliminar ni fusionar registros. La muestra debe conservar cinco filas.",
+        "reference": "Datos SOFIA, filas 16 y 23.",
+        "hint": "Contar códigos distintos no equivale a contar filas de origen.",
+        "hints": [
+          "Orientación: Distingue entre la identidad de un código administrativo y la unicidad de las filas de una tabla.",
+          "Dónde buscar: Inspecciona las filas 16 y 23 de datos-sofia.csv donde se repite SIM-0012.",
+          "Clave para resolver: Conserva ambas filas con sus referencias; la regla de limpieza no autoriza eliminar duplicados."
+        ]
+      }
+    ]
+  },
+  "m04-validacion": {
+    "revision": 1,
+    "title": "Comprueba la tasa y sus conclusiones",
+    "intro": "Calcula con los valores de Bienestar y contrasta cada afirmación por separado. Una cifra correcta no confirma el periodo ni explica una causa.",
+    "sources": [
+      {
+        "file": "bienestar.csv",
+        "rows": [
+          5
+        ]
+      }
+    ],
+    "questions": [
+      {
+        "id": "parte",
+        "stage": 1,
+        "prompt": "¿Cómo se ordenan las cantidades para obtener la tasa?",
+        "options": [
+          "840 deserciones entre 42 matriculados.",
+          "42 deserciones entre 840 matriculados.",
+          "42 deserciones entre el presupuesto."
+        ],
+        "expected": "1",
+        "explanation": "Las deserciones son la parte y los matriculados son el total correspondiente.",
+        "reference": "Bienestar, Centro A, fila 5.",
+        "hint": "Lee los encabezados antes de elegir qué dividir.",
+        "hints": [
+          "Orientación: Recuerda los conceptos matemáticos de numerador y denominador al calcular una proporción.",
+          "Dónde buscar: Revisa los encabezados de columnas en la fila 4 y 5 de bienestar.csv.",
+          "Clave para resolver: Las deserciones representan la parte que se divide entre el total de matriculados."
+        ]
+      },
+      {
+        "id": "periodo",
+        "stage": 1,
+        "prompt": "«La tabla corresponde al consolidado oficial del primer semestre de 2026». ¿Cómo clasificas esta afirmación?",
+        "options": [
+          [
+            "verified",
+            "Respaldada"
+          ],
+          [
+            "contradicted",
+            "Contradicha"
+          ],
+          [
+            "not-stated",
+            "No consta"
+          ]
+        ],
+        "expected": "not-stated",
+        "explanation": "Bienestar no informa el periodo. La ausencia del dato no demuestra un periodo diferente.",
+        "reference": "Bienestar, encabezados y fila 5.",
+        "hint": "Busca una columna o aviso que establezca el periodo; no lo deduzcas de otra tabla.",
+        "hints": [
+          "Orientación: Verifica si la afirmación sobre el periodo cronológico tiene sustento expreso en la tabla.",
+          "Dónde buscar: Inspecciona todas las columnas y avisos de bienestar.csv buscando fechas o semestres.",
+          "Clave para resolver: Al no constar el periodo en el archivo, la afirmación se clasifica como «No consta»."
+        ]
+      },
+      {
+        "id": "tasa",
+        "stage": 2,
+        "type": "rate",
+        "prompt": "Comprueba la operación e ingresa el porcentaje obtenido.",
+        "expected": "42|840|5",
+        "explanation": "42 ÷ 840 × 100 = 5 %. Conserva las cantidades y la operación junto al resultado.",
+        "reference": "Bienestar, Centro A, fila 5.",
+        "hint": "Divide las deserciones entre los matriculados y multiplica por 100.",
+        "hints": [
+          "Orientación: Aplica la fórmula porcentual estándar relacionando las cantidades verificadas.",
+          "Dónde buscar: Toma las cifras de deserciones (42) y matriculados (840) del Centro A en bienestar.csv.",
+          "Clave para resolver: Divide 42 entre 840, multiplica por 100 y anota el 5 % resultante junto a los datos fuente."
+        ]
+      },
+      {
+        "id": "cifra",
+        "stage": 2,
+        "prompt": "«El Centro A registra 84 deserciones entre 840 matriculados». ¿Qué dice la fuente?",
+        "options": [
+          [
+            "verified",
+            "Respaldada"
+          ],
+          [
+            "contradicted",
+            "Contradicha"
+          ],
+          [
+            "not-stated",
+            "No consta"
+          ]
+        ],
+        "expected": "contradicted",
+        "explanation": "La fuente registra 42 deserciones, no 84. Esta afirmación contradice una cifra que sí aparece.",
+        "reference": "Bienestar, Centro A, fila 5.",
+        "hint": "Compara la cantidad exacta, no solo si el mensaje parece razonable.",
+        "hints": [
+          "Orientación: Contrasta la cantidad afirmada en el enunciado con el registro oficial de la fila.",
+          "Dónde buscar: Comprueba el número de deserciones del Centro A en bienestar.csv.",
+          "Clave para resolver: La fuente registra 42 deserciones y no 84; la afirmación contradice el dato comprobable."
+        ]
+      },
+      {
+        "id": "causa",
+        "stage": 2,
+        "prompt": "«La tasa se debe a dificultades de transporte». ¿Qué puedes afirmar?",
+        "options": [
+          [
+            "verified",
+            "Respaldada"
+          ],
+          [
+            "contradicted",
+            "Contradicha"
+          ],
+          [
+            "not-stated",
+            "No consta"
+          ]
+        ],
+        "expected": "not-stated",
+        "explanation": "La tabla no aporta una explicación causal. Debes retirar esa conclusión o plantearla como pregunta para otra investigación.",
+        "reference": "Bienestar, columnas disponibles.",
+        "hint": "Un cálculo descriptivo no aporta por sí solo la causa de lo ocurrido.",
+        "hints": [
+          "Orientación: Distingue un indicador estadístico de una atribución causal sobre las razones del retiro.",
+          "Dónde buscar: Revisa si en bienestar.csv existe alguna variable o columna sobre transporte o movilidad.",
+          "Clave para resolver: Como la tabla no mide causas de deserción, la afirmación se clasifica como «No consta»."
+        ]
+      }
+    ]
+  },
+  "m05-cierre": {
+    "revision": 1,
+    "title": "Convierte una diferencia en una pregunta",
+    "intro": "Prepara un hallazgo con fila, centro, operación y pendientes. La comparación debe distinguir registros con el mismo código y conservar el alcance del borrador.",
+    "sources": [
+      {
+        "file": "contratos.csv",
+        "rows": [
+          12,
+          21
+        ]
+      },
+      {
+        "file": "directriz.csv",
+        "rows": [
+          7,
+          8,
+          10
+        ]
+      }
+    ],
+    "questions": [
+      {
+        "id": "ocurrencia",
+        "stage": 1,
+        "prompt": "¿Qué referencia identifica el registro que debes revisar?",
+        "options": [
+          "Solo SIM-CT-008.",
+          "SIM-CT-008, fila 12, Centro H; la fila 21, Centro A, se conserva por separado.",
+          "Las dos filas forman un único contrato confirmado."
+        ],
+        "expected": "1",
+        "explanation": "El código se repite. La fila y el centro distinguen las ocurrencias; la fila 21 tiene diferencia cero.",
+        "reference": "Contratos, filas 12 y 21.",
+        "hint": "Lee el centro y los valores de cada ocurrencia antes de agrupar.",
+        "hints": [
+          "Orientación: Identifica qué elementos individualizan un contrato cuando el código alfanumérico se repite.",
+          "Dónde buscar: Compara las filas 12 y 21 de contratos.csv.",
+          "Clave para resolver: La combinación de código SIM-CT-008, fila 12 y Centro H identifica el registro que presenta diferencia."
+        ]
+      },
+      {
+        "id": "soporte",
+        "stage": 1,
+        "prompt": "¿Qué debe quedar pendiente en la fila 12?",
+        "options": [
+          "Fecha y soporte documental.",
+          "El valor planeado, que no aparece.",
+          "Una declaración de incumplimiento."
+        ],
+        "expected": "0",
+        "explanation": "D12 está vacía y G12 dice Por confirmar. Ambos valores monetarios sí están disponibles.",
+        "reference": "Contratos, celdas D12, E12, F12 y G12.",
+        "hint": "Distingue un dato ausente de una cifra que sí puedes comprobar.",
+        "hints": [
+          "Orientación: Observa cuáles campos de la fila tienen valores financieros y cuáles presentan vacíos o notas de confirmación.",
+          "Dónde buscar: Examina las celdas D12 (fecha) y G12 (soporte) en contratos.csv.",
+          "Clave para resolver: La fecha está vacía y el soporte figura «Por confirmar»; esos dos campos quedan pendientes de acreditación."
+        ]
+      },
+      {
+        "id": "diferencia",
+        "stage": 2,
+        "type": "amount",
+        "prompt": "Calcula comprometido menos planeado para la fila 12. Ingresa la diferencia en COP.",
+        "expected": "1250000",
+        "explanation": "$25.650.000 − $24.400.000 = $1.250.000 COP. El resultado aritmético necesita explicación documental.",
+        "reference": "Contratos, F12 menos E12.",
+        "hint": "Resta 24.400.000 de 25.650.000. Puedes escribir 1250000 o 1.250.000.",
+        "hints": [
+          "Orientación: Realiza la sustracción entre el valor comprometido y el valor planeado para la fila 12.",
+          "Dónde buscar: Toma el valor comprometido de F12 ($25.650.000) y el planeado de E12 ($24.400.000).",
+          "Clave para resolver: La diferencia es de $1.250.000 COP; ingresa 1250000 en el campo numérico."
+        ]
+      },
+      {
+        "id": "pregunta",
+        "stage": 2,
+        "prompt": "¿Qué frase puedes incorporar al borrador?",
+        "options": [
+          "La diferencia prueba una irregularidad.",
+          "El soporte ya está aprobado y el mensaje fue enviado.",
+          "En la fila 12, Centro H, ¿qué soporte y fecha deben verificarse para explicar la diferencia de $1.250.000 COP?"
+        ],
+        "expected": "2",
+        "explanation": "La pregunta conserva el cálculo y su localizador. La Directriz pide dejar las diferencias como preguntas y no enviar el borrador.",
+        "reference": "Contratos, fila 12; Directriz, Mensaje y Restricción.",
+        "hint": "Una pregunta verificable identifica el registro y pide lo que falta sin anticipar un juicio.",
+        "hints": [
+          "Orientación: Redacta una formulación que comunique la diferencia cuantitativa sin prejuzgar irregularidades.",
+          "Dónde buscar: Revisa las restricciones de la Directriz en directriz.csv y la guía de hallazgos del Módulo 05.",
+          "Clave para resolver: Cita la fila 12, el Centro H, la diferencia de $1.250.000 COP y pide el soporte y fecha pendientes."
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,6 @@
+﻿Variante opcional por área · Reto 2 · Área jurídica
+Variante opcional de práctica, sin tiempo adicional: usa VJ-01 en lugar de PC-03. Los marcadores no corresponden a personas reales.
+
+Código;Área;Solicitud;Dato faltante;Punto que revisa una persona del área
+VJ-01;Jurídica;<NOMBRE_FICTICIO> pide copia del procedimiento de reserva de salas y pregunta en qué plazo le responderán.;No indica el medio para recibir la respuesta.;"El plazo de respuesta queda por confirmar con el área jurídica; el borrador no lo afirma."
+VJ-02;Jurídica;Una persona solicita copia de un acta en la que aparecen datos de otros asistentes.;No indica para qué necesita el documento.;"Decidir si se entrega una versión con datos de terceros reducidos; la IA no lo decide."

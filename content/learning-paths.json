@@ -1,0 +1,685 @@
+{
+  "preparacion": {
+    "goal": "Pedir a la IA un informe breve y comprobar sus cifras con el archivo original.",
+    "product": "Un informe de máximo una página con cifras revisadas, fuente y datos pendientes.",
+    "setup": [
+      [
+        "Tu tarea",
+        "Resumir los resultados de Bienestar para una reunión de coordinación."
+      ],
+      [
+        "Qué necesitas",
+        "bienestar.csv, un chat autorizado que trabaje con archivos o Antigravity."
+      ],
+      [
+        "Qué vas a guardar",
+        "Un informe de máximo una página y la conversación donde lo revisaste."
+      ]
+    ],
+    "terms": [
+      [
+        "Asistente de IA",
+        "Herramienta que recibe un encargo y ayuda a analizar archivos o generar documentos. Su resultado requiere revisión."
+      ],
+      [
+        "Instrucción",
+        "Mensaje que le dice al asistente qué debe hacer, con qué información y cómo entregar el resultado."
+      ],
+      [
+        "Fuente",
+        "Archivo o documento de origen con los datos originales. En esta práctica, bienestar.csv reúne matrícula y deserción escolar en diez centros de formación del SENA."
+      ],
+      [
+        "Caso testigo",
+        "Registro con datos conocidos (Centro A: 840 matriculados, 42 deserciones y 5 %) que permite detectar un error concreto. Que coincida esa fila no demuestra que las demás se hayan leído correctamente."
+      ],
+      [
+        "Borrador",
+        "Primera versión del informe. La revisas y corriges antes de usarla."
+      ],
+      [
+        "Tasa",
+        "Parte de un total expresada en porcentaje. Si hay 42 deserciones entre 840 matriculados, la tasa es 5 %."
+      ],
+      [
+        "No consta",
+        "La fuente no incluye ese dato. Debe quedar pendiente de confirmar."
+      ],
+      [
+        "Ética y gobernanza",
+        "Conjunto de normas y salvaguardas para usar la IA de manera transparente, respetuosa de la privacidad y sujeta a supervisión humana."
+      ],
+      [
+        "Sesgo algorítmico",
+        "Preferencia sin una razón pertinente que puede surgir de los datos, de la pregunta o de la respuesta y alterar el trato entre casos comparables."
+      ],
+      [
+        "Portafolio de Evidencias",
+        "Registro digital de aprendizaje que reúne en este navegador tus cinco evidencias curriculares (MG-A01 a MG-A05) para revisión, exportación y valoración final del instructor."
+      ]
+    ],
+    "steps": [
+      [
+        "Descarga",
+        "Obtén bienestar.csv y adjúntalo al chat o abre la carpeta en Antigravity."
+      ],
+      [
+        "Encarga",
+        "Copia la instrucción lista y pide la tabla y el resumen."
+      ],
+      [
+        "Comprueba",
+        "Compara el Centro A con el testigo: 840, 42 y 5 %."
+      ],
+      [
+        "Descarga",
+        "Pide el informe y el reporte; conserva fuente y pendientes."
+      ]
+    ],
+    "practice": [
+      [
+        "Obtén el análisis",
+        "Copia el encargo del paso 2 en tu chat autorizado o Antigravity.",
+        "La IA entrega tabla, cálculo y resumen con fuente."
+      ],
+      [
+        "Revisa el testigo",
+        "Compara las cifras visibles del Centro A.",
+        "La salida conserva 840, 42 y 5 %; el periodo no consta."
+      ],
+      [
+        "Descarga el informe",
+        "Pide el informe y su reporte en la misma conversación.",
+        "Obtienes archivos completos, sin llenar una ficha."
+      ]
+    ],
+    "checks": [
+      {
+        "question": "¿Qué necesita la IA para preparar un informe revisable?",
+        "scenario": "Tienes bienestar.csv y necesitas un resumen para una reunión.",
+        "options": [
+          {
+            "text": "El archivo y una instrucción sobre el resultado y cómo revisarlo.",
+            "correct": true,
+            "feedback": "La fuente permite comprobar las cifras; el encargo precisa qué debe entregar la IA."
+          },
+          {
+            "text": "Solo pedirle: «Haz un informe profesional».",
+            "feedback": "Esa frase no identifica los datos ni el resultado esperado. Adjunta la fuente y precisa la tarea."
+          },
+          {
+            "text": "Copiar a mano todos los datos antes de encargar el análisis.",
+            "feedback": "Puedes entregar el archivo existente. Revisa que el asistente pueda leerlo y conserva la fuente."
+          }
+        ],
+        "explanation": "Entrega una fuente que la herramienta pueda leer, pide un resultado concreto y define qué comprobarás. La revisión empieza con las cifras de origen."
+      },
+      {
+        "question": "¿Cómo corriges una conclusión añadida por la IA?",
+        "scenario": "El cálculo da 5 %, pero el resumen dice que el presupuesto causó esa tasa. La tabla no informa el periodo.",
+        "options": [
+          {
+            "text": "Conservar la causa porque el cálculo es correcto.",
+            "feedback": "Un cálculo correcto no respalda una causa. La tabla tampoco permite confirmar el periodo."
+          },
+          {
+            "text": "Pedir que retire la causa y conserve «periodo no consta».",
+            "correct": true,
+            "feedback": "Puedes comunicar el cálculo comprobado y dejar visible el dato ausente, sin añadir una explicación causal."
+          },
+          {
+            "text": "Completar el periodo con el año actual.",
+            "feedback": "El año actual no reemplaza el dato de la fuente. Pide confirmación y conserva «no consta»."
+          }
+        ],
+        "explanation": "Comprueba por separado el cálculo y la redacción. Una cifra puede estar bien calculada mientras una conclusión carece de respaldo."
+      }
+    ]
+  },
+  "m01-fundamentos": {
+    "goal": "Encargar a la IA un diagnóstico y reconocer qué datos y decisiones requieren revisión humana.",
+    "product": "Un diagnóstico con entrada, salida, criterio de calidad y tiempo inicial medido o pendiente.",
+    "terms": [
+      [
+        "Entrada y salida",
+        "La entrada es lo que recibes; la salida es el producto que debes entregar."
+      ],
+      [
+        "Línea base",
+        "Medida inicial para comparar la misma tarea después. Incluye revisión y corrección."
+      ],
+      [
+        "Criterio de calidad",
+        "Condición concreta para aceptar el producto, como conservar los datos pendientes y citar la fuente."
+      ],
+      [
+        "Datos necesarios",
+        "Información que permite resolver la tarea. Los datos que no aportan deben quedar fuera."
+      ],
+      [
+        "Gobernanza y Ley 1581",
+        "Obligación de proteger datos personales y sensibles, garantizando que ninguna decisión se tome sin supervisión humana."
+      ],
+      [
+        "CRTT",
+        "Contexto, Rol, Tarea y Tono: método para estructurar una instrucción clara a la IA. Añade fuente delimitada, límites operativos, formato y criterio de aceptación."
+      ],
+      [
+        "Portafolio de Evidencias",
+        "Registro digital de aprendizaje que reúne en este navegador tus cinco evidencias curriculares (MG-A01 a MG-A05) para revisión, exportación y valoración final del instructor."
+      ]
+    ],
+    "steps": [
+      [
+        "Descarga",
+        "Obtén las fuentes; las tarjetas restringidas se consultan solo en tu equipo."
+      ],
+      [
+        "Encarga",
+        "Copia el encargo seguro y pide el producto a la IA."
+      ],
+      [
+        "Comprueba",
+        "Revisa los tres criterios del reto y sus fuentes."
+      ],
+      [
+        "Descarga",
+        "Obtén el reporte; lo no observado queda pendiente."
+      ]
+    ],
+    "practice": [
+      [
+        "Reto 0 · Protege los datos",
+        "Copia el encargo seguro para que la IA prepare cinco decisiones y dos textos reducidos.",
+        "Los textos excluyen identificadores, salud y credenciales."
+      ],
+      [
+        "Reto 1 · Obtén una respuesta",
+        "Adjunta lineamiento y URG-01 y pide la tabla y el borrador.",
+        "Los requisitos tienen fuente y la reserva queda pendiente de confirmación."
+      ],
+      [
+        "Pide el diagnóstico",
+        "Usa el encargo posterior a los retos; la IA genera MG-A01.",
+        "La línea base sin medición observada queda pendiente."
+      ]
+    ],
+    "checks": [
+      {
+        "question": "¿Cómo abordarías una solicitud de sala incompleta?",
+        "scenario": "Necesitas señalar las solicitudes sin fecha, preparar una pregunta y confirmar la reserva.",
+        "options": [
+          {
+            "text": "Dejar que la IA complete la fecha y apruebe la reserva.",
+            "feedback": "La fecha ausente requiere confirmación. La aprobación corresponde a la persona responsable."
+          },
+          {
+            "text": "Usar una regla para detectar el vacío, IA para el borrador y una persona para aprobar.",
+            "correct": true,
+            "feedback": "Cada parte tiene un resultado distinto: detectar un vacío, redactar una pregunta y tomar una decisión autorizada."
+          },
+          {
+            "text": "Aprobar cuando el mensaje diga que es urgente.",
+            "feedback": "La urgencia no cambia por sí sola los requisitos del lineamiento ni concede una aprobación."
+          }
+        ],
+        "explanation": "Escoge la herramienta por la operación que necesitas. Una regla detecta condiciones explícitas; la IA prepara texto; la persona responsable confirma y autoriza."
+      },
+      {
+        "question": "¿Qué conservarías para identificar el tipo de petición?",
+        "scenario": "La tarjeta B incluye nombre e identificación de una persona que consulta por cupo.",
+        "options": [
+          {
+            "text": "La identificación, porque ya retiré el nombre.",
+            "feedback": "La identificación todavía permite reconocer a la persona y no aporta a identificar el tipo de consulta."
+          },
+          {
+            "text": "Todos los datos para que la IA tenga más contexto.",
+            "feedback": "El contexto útil depende de la tarea. Nombre e identificación no son necesarios para reconocer una consulta por cupo."
+          },
+          {
+            "text": "«Una persona consulta por cupo».",
+            "correct": true,
+            "feedback": "Ese fragmento conserva el tipo de petición y excluye datos que no se necesitan para esta tarea."
+          }
+        ],
+        "explanation": "Define primero qué necesitas obtener. Reduce la fuente a los datos necesarios y revisa si alguna combinación todavía permite identificar a una persona."
+      }
+    ],
+    "transfer": {
+      "scenario": "Recibes una solicitud de sala completa, marcada como urgente.",
+      "question": "¿La información completa permite que la IA apruebe la reserva?",
+      "answer": "No. La urgencia requiere consulta a la persona responsable. La IA prepara un resumen con fuente y conserva la decisión pendiente."
+    }
+  },
+  "m02-diseno": {
+    "goal": "Pedir borradores con fuentes y probar una instrucción reutilizable sin redactarla desde cero.",
+    "product": "Dos borradores revisados y una misma instrucción probada con PC-01, PC-02 y PC-03.",
+    "terms": [
+      [
+        "Petición",
+        "Lo que la persona necesita que se atienda o confirme."
+      ],
+      [
+        "Afirmación",
+        "Lo que alguien dice. Su presencia en un mensaje no confirma que haya ocurrido."
+      ],
+      [
+        "Pendiente",
+        "Dato o decisión que debe comprobarse con la fuente o el área responsable."
+      ],
+      [
+        "CRTT",
+        "Contexto, Rol, Tarea y Tono: cuatro partes para ordenar el encargo. Añade fuente, límites, formato y criterio de revisión."
+      ]
+    ],
+    "steps": [
+      [
+        "Descarga",
+        "Obtén los casos y adjúntalos al chat o a Antigravity."
+      ],
+      [
+        "Encarga",
+        "Copia la instrucción preparada; la IA genera tablas, borradores y plantilla."
+      ],
+      [
+        "Comprueba",
+        "Revisa petición, afirmaciones y pendientes."
+      ],
+      [
+        "Descarga",
+        "Guarda el archivo que genere la IA con las tres pruebas."
+      ]
+    ],
+    "practice": [
+      [
+        "Observa PC-01",
+        "Compara el mensaje con la tabla ya resuelta.",
+        "El aviso recibido no equivale a confirmación oficial."
+      ],
+      [
+        "Reto 2 · Obtén dos borradores",
+        "Copia el encargo y pide a la IA dos respuestas completas.",
+        "Cada borrador mantiene visibles sus pendientes."
+      ],
+      [
+        "Reto 3 · Prueba la plantilla",
+        "La IA aplica la misma versión a PC-01, PC-02 y PC-03.",
+        "El reporte incluye tres salidas reales y no inventa una revisión humana."
+      ]
+    ],
+    "checks": [
+      {
+        "question": "¿Qué permite afirmar PC-01?",
+        "scenario": "La persona dice: «Me avisaron por el grupo que cambiaba el salón», pero pide que se lo confirmen.",
+        "options": [
+          {
+            "text": "El cambio de salón ya está confirmado.",
+            "feedback": "El mensaje recoge una afirmación y una consulta. Hace falta verificar el cambio con la fuente autorizada."
+          },
+          {
+            "text": "La persona relata un aviso; el cambio queda por verificar.",
+            "correct": true,
+            "feedback": "Así conservas lo que dice el mensaje y distingues la afirmación de una confirmación oficial."
+          },
+          {
+            "text": "La actividad se canceló.",
+            "feedback": "La fuente no dice que se canceló. Esa conclusión añade una decisión que no consta."
+          }
+        ],
+        "explanation": "Una afirmación forma parte del análisis de la solicitud. Solo puedes presentarla como confirmada si la fuente permite comprobarla."
+      },
+      {
+        "question": "¿Cómo pruebas una instrucción que quieres reutilizar?",
+        "scenario": "Preparaste una plantilla para organizar peticiones con datos pendientes.",
+        "options": [
+          {
+            "text": "La pruebo solo con el caso más fácil.",
+            "feedback": "Una prueba no muestra cómo responde ante solicitudes distintas. Usa los tres casos previstos y conserva sus resultados."
+          },
+          {
+            "text": "Cambio la instrucción para cada caso y comparo los resultados.",
+            "feedback": "Para evaluar una versión, úsala igual en los tres casos y cambia solo la fuente. Si la ajustas, repite las pruebas afectadas."
+          },
+          {
+            "text": "Pido a la IA aplicar la misma versión a los tres casos y conservar las salidas.",
+            "correct": true,
+            "feedback": "Las pruebas permiten justificar si la versión sirve, qué límites conserva y por qué merece un ajuste."
+          }
+        ],
+        "explanation": "La IA conserva versión, entrada y resultado real. Tú compruebas las salidas; si pides un ajuste, la IA repite las tres pruebas."
+      }
+    ],
+    "transfer": {
+      "scenario": "Una persona afirma que su certificado ya fue aprobado, pero no adjunta un soporte.",
+      "question": "¿Puedes anunciar que el certificado está disponible?",
+      "answer": "No. Conserva lo que afirma la persona, pide el soporte necesario y deja el estado por confirmar. Una afirmación no sustituye la fuente autorizada."
+    }
+  },
+  "m03-implementacion": {
+    "goal": "Encargar una transformación de registros y comprobar que conserve las referencias, las filas y los datos pendientes.",
+    "product": "Una clasificación, un acta, una copia de datos revisada y un diseño de flujo con pruebas.",
+    "terms": [
+      [
+        "Regla reproducible",
+        "Pasos escritos que dan el mismo resultado con la misma entrada, como quitar espacios de un estado."
+      ],
+      [
+        "Trazabilidad",
+        "Referencia que permite volver al origen: código, fila o minuto de la transcripción."
+      ],
+      [
+        "Excepción",
+        "Caso que la regla no resuelve con certeza y debe dejar para revisión."
+      ],
+      [
+        "Simulación",
+        "Recorrido de casos de prueba para observar la salida prevista de un diseño."
+      ]
+    ],
+    "steps": [
+      [
+        "Descarga",
+        "Obtén la fuente del reto."
+      ],
+      [
+        "Encarga",
+        "Copia la instrucción para que la IA genere el producto y sus referencias."
+      ],
+      [
+        "Comprueba",
+        "Contrasta conteos, casos testigo y excepciones."
+      ],
+      [
+        "Descarga",
+        "Guarda salida, procedimiento y reporte de ejecución."
+      ]
+    ],
+    "practice": [
+      [
+        "Reto 4 · Obtén la clasificación",
+        "Pide a la IA 50 mensajes clasificados y diez borradores.",
+        "Los códigos y las señales se pueden comprobar."
+      ],
+      [
+        "Reto 5 · Obtén el acta",
+        "Pide el acta con minutos fuente y preguntas pendientes.",
+        "Propuestas, acuerdos y fechas ausentes se distinguen."
+      ],
+      [
+        "Reto 6 · Obtén la copia revisada",
+        "Pide generar y ejecutar la regla en una columna nueva.",
+        "SIM-0002, SIM-0003 y ambas ocurrencias de SIM-0012 se conservan."
+      ],
+      [
+        "Reto 7 · Obtén el flujo",
+        "Pide un diagrama y las tres simulaciones.",
+        "La urgencia se revisa primero; ninguna reserva se aprueba ni se envía."
+      ]
+    ],
+    "checks": [
+      {
+        "question": "¿Cuál es la salida correcta de la regla de estados?",
+        "scenario": "SIM-0002 tiene «FINALIZADO » con un espacio final y SIM-0003 no tiene estado.",
+        "options": [
+          {
+            "text": "Reemplazar el original y completar el vacío como FINALIZADO.",
+            "feedback": "Conserva la columna original. El vacío no permite deducir un estado y debe quedar como REVISAR."
+          },
+          {
+            "text": "Crear una columna nueva: FINALIZADO y REVISAR.",
+            "correct": true,
+            "feedback": "La regla quita el espacio de SIM-0002 y señala el vacío de SIM-0003, mientras el origen permanece intacto."
+          },
+          {
+            "text": "Eliminar ambas filas para limpiar la tabla.",
+            "feedback": "La limpieza de este campo no autoriza borrar registros. Conserva las filas y señala lo que necesita revisión."
+          }
+        ],
+        "explanation": "Aplica la regla escrita al campo permitido y deja el original disponible para comparar. Un valor ausente se señala, no se completa por suposición."
+      },
+      {
+        "question": "¿Qué haces con las dos ocurrencias de SIM-0012?",
+        "scenario": "El mismo código aparece en las filas 16 y 23 con aprendices distintos.",
+        "options": [
+          {
+            "text": "Conservar ambas filas y sus referencias para revisión.",
+            "correct": true,
+            "feedback": "El código repetido no basta para declarar que es el mismo registro. Las filas y su contenido deben conservarse."
+          },
+          {
+            "text": "Borrar una fila porque el código está repetido.",
+            "feedback": "Los registros tienen contenido distinto. Esta regla no autoriza fusionarlos ni eliminar una ocurrencia."
+          },
+          {
+            "text": "Inventar otro código para evitar la repetición.",
+            "feedback": "Cambiar un identificador por intuición altera la fuente. Conserva el dato y pide revisión."
+          }
+        ],
+        "explanation": "Localiza una ocurrencia por código, fila y contenido. Un duplicado aparente es un asunto por revisar, no una autorización para borrar o renombrar."
+      }
+    ],
+    "transfer": {
+      "scenario": "Una clasificación contiene cincuenta filas, pero repite C-004 y omite C-005.",
+      "question": "¿Basta con que coincida la cantidad de filas?",
+      "answer": "No. Contrasta los códigos: pide recuperar C-005 y corregir la repetición de C-004 con la misma regla. Después vuelve a comprobar el conteo y las referencias."
+    }
+  },
+  "m04-validacion": {
+    "goal": "Comprobar una cifra y una afirmación antes de comunicarlas, indicando su fuente y sus límites.",
+    "product": "Cálculos y un gráfico revisados, junto con una tabla de afirmaciones contrastadas.",
+    "terms": [
+      [
+        "Numerador y denominador",
+        "El numerador es la parte contada: 42 deserciones. El denominador es el total de referencia: 840 matrículas."
+      ],
+      [
+        "Población",
+        "Grupo al que pertenecen los datos, por ejemplo los matriculados de un centro."
+      ],
+      [
+        "Periodo y filtro",
+        "Periodo: fechas que cubre la tabla. Filtro: condición usada para escoger registros, como Centro A."
+      ],
+      [
+        "Causa",
+        "Explicación de por qué ocurre algo. Una proporción por sí sola no demuestra esa explicación."
+      ],
+      [
+        "Análisis avanzado de datos",
+        "Uso de herramientas de IA que ejecutan código o scripts para transformar tablas y generar gráficos a partir de archivos crudos."
+      ]
+    ],
+    "steps": [
+      [
+        "Descarga",
+        "Obtén las fuentes de cifras y afirmaciones."
+      ],
+      [
+        "Encarga",
+        "Pide a la IA operaciones, gráfico y tabla de contraste."
+      ],
+      [
+        "Comprueba",
+        "Compara el testigo y las referencias de origen."
+      ],
+      [
+        "Descarga",
+        "Pide ajustes cuando hagan falta y guarda los archivos."
+      ]
+    ],
+    "practice": [
+      [
+        "Comprueba Centro A",
+        "Compara la salida con el testigo preparado, sin transcribir cantidades.",
+        "42 ÷ 840 × 100 = 5 %; el periodo no consta."
+      ],
+      [
+        "Reto 8 · Obtén cifras y gráfico",
+        "La IA genera tablas y gráfico; tú revisas unidades, centros y meses.",
+        "El gráfico identifica COP, enero a marzo de 2026 y fuente."
+      ],
+      [
+        "Reto 9 · Obtén la auditoría",
+        "La IA genera el contraste de cuatro afirmaciones; comprueba cada cita.",
+        "Hay una respaldada, dos contradichas y una que no consta."
+      ]
+    ],
+    "checks": [
+      {
+        "question": "¿Qué porcentaje representan 42 de 840?",
+        "scenario": "La fuente de Bienestar registra 42 deserciones y 840 matrículas para el Centro A.",
+        "options": [
+          {
+            "text": "5 %, porque 42 ÷ 840 = 0,05 y 0,05 × 100 = 5.",
+            "correct": true,
+            "feedback": "El total usado como base es 840. La parte de ese total equivale al 5 %."
+          },
+          {
+            "text": "20 %, porque 840 ÷ 42 = 20.",
+            "feedback": "Invertiste la operación. Divide la parte, 42, entre el total, 840, y convierte el resultado a porcentaje."
+          },
+          {
+            "text": "42 %, porque hubo 42 deserciones.",
+            "feedback": "42 es una cantidad. Para calcular el porcentaje necesitas compararla con el total de 840 matrículas."
+          }
+        ],
+        "explanation": "La tasa es parte ÷ total × 100. El testigo preparado permite contrastar 42 de 840 con 5 %, sin volver a digitarlo."
+      },
+      {
+        "question": "¿Qué conclusión está respaldada?",
+        "scenario": "El cálculo da 5 %. La fuente de Bienestar no informa el periodo ni explica causas.",
+        "options": [
+          {
+            "text": "El presupuesto causó la deserción.",
+            "feedback": "La tabla permite describir una tasa, pero no demuestra que el presupuesto haya sido su causa."
+          },
+          {
+            "text": "El Centro A tiene una tasa de 5 % en esta tabla; el periodo no consta.",
+            "correct": true,
+            "feedback": "La frase conserva el cálculo comprobado y aclara el dato ausente, sin extender la conclusión."
+          },
+          {
+            "text": "La tasa será de 5 % el próximo año.",
+            "feedback": "Ese resultado futuro no está demostrado. El cálculo describe los registros disponibles."
+          }
+        ],
+        "explanation": "Puedes comunicar una descripción comprobada. Una causa o una predicción necesita evidencia adicional; el periodo ausente debe quedar visible."
+      }
+    ],
+    "transfer": {
+      "scenario": "En una prueba separada hay 84 deserciones y 840 matrículas. El periodo sigue sin constar.",
+      "question": "¿Qué cambia en la conclusión?",
+      "answer": "84 ÷ 840 × 100 = 10 %. Cambia la tasa; el periodo y la causa siguen sin estar demostrados. Esta prueba no reemplaza los datos originales."
+    }
+  },
+  "m05-cierre": {
+    "goal": "Presentar una mejora con hallazgos comprobados, preguntas pendientes y una comparación honesta del tiempo de trabajo.",
+    "product": "Un análisis revisado, un informe, un mensaje en borrador y una lámina; después, un caso individual y un piloto propuesto.",
+    "terms": [
+      [
+        "Hallazgo",
+        "Resultado que puedes mostrar con su referencia de origen y el cálculo cuando corresponda."
+      ],
+      [
+        "Ocurrencia",
+        "Cada aparición de un código en una fila. Un código repetido puede corresponder a otro centro."
+      ],
+      [
+        "Tiempo completo",
+        "Preparación + generación + revisión + corrección de una tarea comparable."
+      ],
+      [
+        "Piloto",
+        "Prueba acotada de una mejora con responsable, autorización, criterios y seguimiento."
+      ]
+    ],
+    "steps": [
+      [
+        "Descarga",
+        "Obtén Contratos y Directriz; cada fila conserva código y centro."
+      ],
+      [
+        "Encarga",
+        "Copia la instrucción para que la IA genere el análisis."
+      ],
+      [
+        "Comprueba",
+        "Contrasta las diferencias, referencias y preguntas pendientes."
+      ],
+      [
+        "Descarga",
+        "Pide los productos finales y el piloto con tiempos no observados pendientes."
+      ]
+    ],
+    "practice": [
+      [
+        "Valida el análisis",
+        "Pide a la IA diferencias por fila y centro y compara los testigos.",
+        "Fila 12 Centro H: $1.250.000 COP; fila 21 Centro A permanece separada."
+      ],
+      [
+        "Revisa las preguntas",
+        "La IA formula las preguntas por fecha, soporte y conflictos entre columnas.",
+        "Las diferencias se presentan como preguntas con fuente."
+      ],
+      [
+        "Obtén los productos",
+        "Pide informe, mensaje borrador y lámina en la misma conversación.",
+        "Los archivos conservan las cifras revisadas y sus límites."
+      ],
+      [
+        "Demuestra y transfiere",
+        "Encarga el caso individual y el reporte de ejecución a la IA.",
+        "El ahorro queda pendiente si falta una referencia equivalente."
+      ]
+    ],
+    "checks": [
+      {
+        "question": "¿Cómo presentas las dos ocurrencias de SIM-CT-008?",
+        "scenario": "La fila 12, Centro H, tiene diferencia de $1.250.000 COP. La fila 21, Centro A, tiene valores iguales.",
+        "options": [
+          {
+            "text": "Las fusiono y presento una diferencia para todo el código.",
+            "feedback": "El código identifica dos ocurrencias de centros distintos. Cita fila y centro para conservar su alcance."
+          },
+          {
+            "text": "Conservo las filas separadas y formulo una pregunta con fuente para la diferencia del Centro H.",
+            "correct": true,
+            "feedback": "La referencia distingue los registros y permite preguntar por el soporte sin afirmar una irregularidad."
+          },
+          {
+            "text": "Declaro que hay una irregularidad porque los valores son diferentes.",
+            "feedback": "La diferencia requiere explicación y soporte. Por sí sola no prueba una irregularidad."
+          }
+        ],
+        "explanation": "Describe cada ocurrencia con fila, código y centro. Comprueba la operación y convierte los pendientes en preguntas con su fuente."
+      },
+      {
+        "question": "¿Qué puedes afirmar sobre el tiempo de este ejemplo?",
+        "scenario": "La tarea manual comparable toma 12 min. Con IA se usan 4 de preparación, 2 de generación, 5 de revisión y 2 de corrección.",
+        "options": [
+          {
+            "text": "El flujo asistido toma 13 min; en este ejemplo no hay ahorro.",
+            "correct": true,
+            "feedback": "4 + 2 + 5 + 2 = 13 min. El tiempo completo supera el de la tarea manual comparable."
+          },
+          {
+            "text": "El trabajo toma 2 min porque solo cuenta la generación.",
+            "feedback": "La preparación, la revisión y la corrección también son parte de la tarea. Inclúyelas en la comparación."
+          },
+          {
+            "text": "Puedo asegurar que la IA siempre ahorra tiempo.",
+            "feedback": "Este ejemplo no muestra ahorro. Una propuesta de mejora necesita mediciones comparables y revisión de calidad."
+          }
+        ],
+        "explanation": "Compara trabajos completos y equivalentes. La IA puede organizar la medición existente, pero no inventar tiempos ni ahorro."
+      }
+    ],
+    "transfer": {
+      "scenario": "Una tarea manual toma 20 min. La preparación asistida toma 5, la generación 3, la revisión 10 y la corrección 4.",
+      "question": "¿Qué balance puedes comunicar?",
+      "answer": "El ciclo asistido suma 22 min frente a 20 min manuales: necesita 2 min adicionales. Solo puedes comparar si ambas tareas cumplen el mismo criterio y las cifras fueron observadas."
+    }
+  }
+}

@@ -1,0 +1,72 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Resultado generado · Reúne la evidencia MG-A01",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "artifactId",
+    "fields",
+    "tool"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "const": 1
+    },
+    "artifactId": {
+      "const": "MG-A01"
+    },
+    "fields": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "reto00_semaforo_datos",
+        "proceso_seleccionado",
+        "matriz_viabilidad",
+        "analisis_riesgo_ley1581",
+        "metrica_linea_base",
+        "reto01_prompt_crtt",
+        "reto01_verificacion",
+        "uso_ia_y_revision"
+      ],
+      "properties": {
+        "reto00_semaforo_datos": {
+          "type": "string",
+          "minLength": 1
+        },
+        "proceso_seleccionado": {
+          "type": "string",
+          "minLength": 1
+        },
+        "matriz_viabilidad": {
+          "type": "string",
+          "minLength": 1
+        },
+        "analisis_riesgo_ley1581": {
+          "type": "string",
+          "minLength": 1
+        },
+        "metrica_linea_base": {
+          "type": "string",
+          "minLength": 1
+        },
+        "reto01_prompt_crtt": {
+          "type": "string",
+          "minLength": 1
+        },
+        "reto01_verificacion": {
+          "type": "string",
+          "minLength": 1
+        },
+        "uso_ia_y_revision": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "tool": {
+      "type": "string",
+      "minLength": 1
+    }
+  }
+}

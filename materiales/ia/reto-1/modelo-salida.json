@@ -1,0 +1,13 @@
+{
+  "schemaVersion": 1,
+  "artifactId": "MG-A01",
+  "fields": {
+    "proceso_seleccionado": "",
+    "matriz_viabilidad": "",
+    "metrica_linea_base": "",
+    "reto01_prompt_crtt": "",
+    "reto01_verificacion": "",
+    "uso_ia_y_revision": ""
+  },
+  "tool": "no identificado"
+}

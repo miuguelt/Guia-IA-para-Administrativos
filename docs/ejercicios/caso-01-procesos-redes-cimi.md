@@ -1,3 +1,5 @@
+> **ARCHIVO HISTÓRICO — NO USAR COMO MATERIAL DE ESTA COHORTE.** Este contenido fue preparado para Redes CIMI/Girón y no se ha validado para la propuesta de cohorte del CGAO, Subsede Vélez, Regional Santander. Para esta formación use la [guía vigente](../../index.html), la [cartilla de aprendices](../Documentos/Cartilla_aprendices_retos_IA_SENA_Bogota.docx), el [libro de práctica](../Documentos/Materiales_practica_IA_SENA_Bogota.xlsx) y la [guía de herramientas y preparación](../herramientas-y-preparacion.md). No cargue datos personales o institucionales reales en servicios de IA externos. Funciones, nombres y permisos de herramientas pueden cambiar; verifique el acceso con el equipo formador.
+
 # Caso de Estudio 01: Catálogo de Procesos Administrativos - Redes CIMI
 **Curso:** Implementación de herramientas de IA en la optimización de la productividad (21720210 V1)  
 **Ambiente:** Redes CIMI - SENA Girón  
@@ -66,7 +68,15 @@ Para este ejercicio, el aprendiz debe evaluar los siguientes 8 procesos reales d
 
 ---
 
-## 3. Instrucción para el Aprendiz
+## 3. Utilidad de la IA en este Reto
+Comprender la utilidad de la IA requiere discernir dónde aporta valor y dónde introduce riesgos. En este caso de estudio, la IA demuestra su utilidad al:
+- **Procesamiento de Lenguaje Natural (NLP):** Acelerar la lectura y clasificación de textos caóticos (PQRS, actas, resúmenes).
+- **Asistencia en Redacción:** Superar el "síndrome de la hoja en blanco" en memorandos y respuestas repetitivas, adaptando el tono institucional.
+- **Limitaciones Clave:** Mostrar que la IA **no es adecuada** para cálculos matemáticos exactos (nómina) o para procesar datos confidenciales sin anonimización (procesos disciplinarios).
+
+---
+
+## 4. Instrucción para el Aprendiz
 1. Analice cada uno de los 8 procesos utilizando la **Matriz de Viabilidad de IA** suministrada en `docs/01-fundamentos.md`.
 2. Para cada proceso defina:
    - Nivel de viabilidad (Alta, Media, Nula/Prohibida).

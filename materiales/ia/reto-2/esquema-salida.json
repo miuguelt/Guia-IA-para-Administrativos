@@ -1,0 +1,47 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Resultado generado · Genera dos borradores de respuesta",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "artifactId",
+    "fields",
+    "tool"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "const": 1
+    },
+    "artifactId": {
+      "const": "MG-A02"
+    },
+    "fields": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "pqrs_borrador",
+        "pqrs_verificacion",
+        "uso_ia_y_revision"
+      ],
+      "properties": {
+        "pqrs_borrador": {
+          "type": "string",
+          "minLength": 1
+        },
+        "pqrs_verificacion": {
+          "type": "string",
+          "minLength": 1
+        },
+        "uso_ia_y_revision": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "tool": {
+      "type": "string",
+      "minLength": 1
+    }
+  }
+}

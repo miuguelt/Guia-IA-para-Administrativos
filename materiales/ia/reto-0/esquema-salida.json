@@ -1,0 +1,47 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Resultado generado · Decide qué datos puedes cargar",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "artifactId",
+    "fields",
+    "tool"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "const": 1
+    },
+    "artifactId": {
+      "const": "MG-A01"
+    },
+    "fields": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "reto00_semaforo_datos",
+        "analisis_riesgo_ley1581",
+        "uso_ia_y_revision"
+      ],
+      "properties": {
+        "reto00_semaforo_datos": {
+          "type": "string",
+          "minLength": 1
+        },
+        "analisis_riesgo_ley1581": {
+          "type": "string",
+          "minLength": 1
+        },
+        "uso_ia_y_revision": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "tool": {
+      "type": "string",
+      "minLength": 1
+    }
+  }
+}

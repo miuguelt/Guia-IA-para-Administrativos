@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 180" role="img" aria-labelledby="title desc">
+  <title id="title">Frasco de vidrio limpio</title>
+  <desc id="desc">Frasco transparente, enjuagado y sin residuos visibles, con tapa retirada.</desc>
+  <rect width="240" height="180" rx="20" fill="#f3f6f2"/>
+  <path d="M72 148h96" stroke="#cbd8cf" stroke-width="4" stroke-linecap="round"/>
+  <path d="M94 59h52v10l9 10v51a12 12 0 0 1-12 12H97a12 12 0 0 1-12-12V79l9-10z" fill="#d8f1ef" stroke="#356d72" stroke-width="4" stroke-linejoin="round"/>
+  <path d="M98 48h44v9H98z" fill="#f4f7f4" stroke="#356d72" stroke-width="4"/>
+  <path d="M93 88h54M94 125h52" stroke="#a6d4d0" stroke-width="3"/>
+  <path d="M101 78v18M103 105v9" stroke="#fff" stroke-width="5" stroke-linecap="round"/>
+  <path d="M96 40h48" stroke="#81978a" stroke-width="3" stroke-linecap="round"/>
+</svg>

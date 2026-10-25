@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 180" role="img" aria-labelledby="title desc">
+  <title id="title">Caja de cartón limpia y seca</title>
+  <desc id="desc">Caja de cartón desplegada, sin humedad, grasa ni restos adheridos.</desc>
+  <rect width="240" height="180" rx="20" fill="#f3f6f2"/>
+  <path d="M66 148h108" stroke="#cbd8cf" stroke-width="4" stroke-linecap="round"/>
+  <path d="M78 78l42-20 42 20-42 22z" fill="#d9ad73" stroke="#755638" stroke-width="4" stroke-linejoin="round"/>
+  <path d="M78 78v49l42 21v-48z" fill="#c89458" stroke="#755638" stroke-width="4" stroke-linejoin="round"/>
+  <path d="M162 78v49l-42 21v-48z" fill="#b98249" stroke="#755638" stroke-width="4" stroke-linejoin="round"/>
+  <path d="M103 67l42 22M120 100v48" stroke="#8c6841" stroke-width="3"/>
+  <path d="M87 86v33M153 85v34" stroke="#e9c999" stroke-width="3"/>
+</svg>

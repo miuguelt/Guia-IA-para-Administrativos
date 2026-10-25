@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 330 124" role="img" aria-labelledby="title desc">
+  <title id="title">Código nacional de separación por colores</title>
+  <desc id="desc">Tres recipientes muestran las categorías: blanco para aprovechables, negro para no aprovechables y verde para orgánicos aprovechables.</desc>
+  <rect fill="#fff" height="72" rx="12" stroke="#60766a" stroke-width="2" width="92" x="5" y="8" />
+  <rect fill="#202a27" height="72" rx="12" width="92" x="119" y="8" />
+  <rect fill="#287a39" height="72" rx="12" width="92" x="233" y="8" />
+  <path d="M28 29h46l-4 37H32zM142 29h46l-4 37h-38zM256 29h46l-4 37h-38z" fill="none" stroke="#60766a" stroke-width="3" />
+  <text fill="#17211d" font-size="12" font-weight="700" text-anchor="middle" x="51" y="103">BLANCO</text>
+  <text fill="#17211d" font-size="12" font-weight="700" text-anchor="middle" x="165" y="103">NEGRO</text>
+  <text fill="#17211d" font-size="12" font-weight="700" text-anchor="middle" x="279" y="103">VERDE</text>
+</svg>

@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="420" height="360" viewBox="0 0 420 360" role="img" aria-labelledby="title desc">
+<title id="title">Balance de tiempo con preparación inicial</title>
+<desc id="desc">Ejemplo ilustrativo con diez productos aceptados por ejecución. El método manual toma sesenta minutos y el asistido cuarenta y cinco, más veinte iniciales. Primera ejecución: sesenta frente a sesenta y cinco minutos. Dos ejecuciones: ciento veinte frente a ciento diez, diez minutos menos.</desc>
+<rect width="420" height="360" rx="24" fill="#f1f6ed"/>
+<g font-family="Segoe UI, sans-serif" fill="#173e34">
+<text x="24" y="36" font-size="25" font-weight="700">Cuenta también la preparación</text>
+<text x="24" y="64" font-size="19">Ejemplo · misma calidad de salida</text>
+<text x="24" y="101" font-size="23" font-weight="700">Primera ejecución</text>
+<text x="24" y="133" font-size="20">Manual</text><rect x="112" y="115" width="240" height="25" rx="5" fill="#bcc9b3"/><text x="362" y="134" font-size="20">60</text>
+<text x="24" y="170" font-size="20">Con IA</text><rect x="112" y="152" width="80" height="25" rx="5" fill="#d8a646"/><rect x="192" y="152" width="180" height="25" rx="5" fill="#225746"/><text x="24" y="198" font-size="21">20 + 45 = 65 min · 5 min adicionales</text>
+<text x="24" y="239" font-size="23" font-weight="700">Dos ejecuciones</text>
+<text x="24" y="269" font-size="20">Manual</text><rect x="112" y="251" width="240" height="25" rx="5" fill="#bcc9b3"/><text x="359" y="270" font-size="20">120</text>
+<text x="24" y="306" font-size="20">Con IA</text><rect x="112" y="288" width="40" height="25" rx="5" fill="#d8a646"/><rect x="152" y="288" width="180" height="25" rx="5" fill="#225746"/><text x="341" y="307" font-size="20">110</text>
+<text x="24" y="340" font-size="20" font-weight="700">20 + 45 + 45 = 110 min · 10 min menos</text>
+</g></svg>

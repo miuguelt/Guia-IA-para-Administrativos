@@ -1,0 +1,26 @@
+{
+  "name": "aula-ia-administrativos",
+  "version": "1.4.0",
+  "private": true,
+  "description": "Guía estática con pruebas de navegación y evidencias",
+  "scripts": {
+    "build": "python scripts/build-challenge-materials.py && python scripts/build-ai-task-kits.py && python scripts/build-course.py && python scripts/build-styled-documents.py && python scripts/build-analysis-materials.py",
+    "check:redaccion": "node scripts/check-redaccion.cjs",
+    "test": "node --test tests/*.test.cjs && python -m unittest discover -s tests -p test_*.py",
+    "test:browser:layout": "node tests/edge_viewport_audit.cjs",
+    "test:coverage": "node --test --experimental-test-coverage --test-coverage-include=scripts/check-redaccion.cjs --test-coverage-include=js/evidence-accessibility.js --test-coverage-include=js/calendar-print.js --test-coverage-include=js/course-tools.js --test-coverage-functions=100 tests/redaccion.test.cjs tests/course.test.cjs tests/course-tools.test.cjs",
+    "test:coverage:eco": "node --test --experimental-test-coverage --test-coverage-include=js/simulators.js --test-coverage-include=js/portafolio.js --test-coverage-functions=100 tests/ecobogota.test.cjs",
+    "test:coverage:aids": "node --test --experimental-test-coverage --test-coverage-include=js/interactive-aids*.js --test-coverage-functions=100 tests/interactive-aids.test.cjs tests/pedagogia-audit.test.cjs",
+    "test:coverage:decision": "node --test --experimental-test-coverage --test-coverage-include=js/decision-simulator.js --test-coverage-functions=100 tests/decision-simulator.test.cjs",
+    "test:coverage:progress": "node --test --experimental-test-coverage --test-coverage-include=js/course-progress.js --test-coverage-functions=100 tests/course-progress.test.cjs",
+    "test:coverage:all": "node --test --experimental-test-coverage --test-coverage-include=js/*.js --test-coverage-include=scripts/check-redaccion.cjs --test-coverage-functions=100 tests/*.test.cjs",
+    "build:documents": "python scripts/build-styled-documents.py --format-downloads",
+    "test:browser:eco": "node tests/eco-training-visual.cjs"
+  },
+  "devDependencies": {
+    "jsdom": "^30.1.1"
+  },
+  "dependencies": {
+    "fflate": "0.8.3"
+  }
+}

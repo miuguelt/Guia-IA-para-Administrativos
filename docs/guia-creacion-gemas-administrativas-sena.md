@@ -1,3 +1,5 @@
+> **ARCHIVO HISTÓRICO — NO USAR COMO MATERIAL DE ESTA COHORTE.** Este contenido fue preparado para Redes CIMI/Girón y no se ha validado para la propuesta de cohorte del CGAO, Subsede Vélez, Regional Santander. Para esta formación use la [guía vigente](../index.html), la [cartilla de aprendices](Documentos/Cartilla_aprendices_retos_IA_SENA_Bogota.docx), el [libro de práctica](Documentos/Materiales_practica_IA_SENA_Bogota.xlsx) y la [guía de herramientas y preparación](herramientas-y-preparacion.md). No cargue datos personales o institucionales reales en servicios de IA externos. Funciones, nombres y permisos de herramientas pueden cambiar; verifique el acceso con el equipo formador.
+
 # Guía Maestra para la Creación y Gestión de GEMAS de IA en el Sector Administrativo SENA
 **Programa de Formación:** Implementación de herramientas de inteligencia artificial en la optimización de la productividad (Código 21720210 V1)  
 **Centro de Formación:** Centro Industrial de Mantenimiento Integral (CIMI) · SENA Regional Santander / Redes de Gestión Administrativa  
@@ -12,7 +14,7 @@
 En el uso cotidiano de la Inteligencia Artificial generativa (como Google Gemini), la mayoría de los usuarios utilizan la ventana de chat tradicional. Cada vez que inician una nueva sesión, deben explicarle a la IA quiénes son, qué formato necesitan, qué tono institucional deben mantener y cuáles son las reglas del SENA. Este hábito genera tres grandes problemas:
 1. **Pérdida recurrente de tiempo:** Reescribir instrucciones largas en cada jornada laboral.
 2. **Inconsistencia en los resultados:** Respuestas que varían en formato, tono y calidad de un día para otro.
-3. **Deriva contextual y alucinación:** Al no tener restricciones fijadas de raíz, la IA asume roles inapropiados, inventa normas que no existen en el SENA o utiliza términos extranjeros ("tutor", "asignatura", "deberes", "vosotros").
+3. **Deriva contextual y alucinación:** Al no tener restricciones fijadas de raíz, la IA asume roles inapropiados, inventa normas que no existen en el SENA o utiliza términos ajenos al lenguaje institucional, como «tutor», «asignatura», «deberes» o fórmulas de tratamiento peninsulares.
 
 Una **GEMA (Gem)** en el ecosistema de Google Gemini es una versión **personalizada y persistente** de la inteligencia artificial. Funciona como un "asistente especializado" al que se le configuran de manera permanente:
 * **Una identidad y rol específico:** (ej. *Secretario Técnico de Comités* o *Analista de Matrículas SOFIA Plus*).
@@ -215,7 +217,7 @@ Entrega el balance con la siguiente estructura:
 Eres la Secretaria Técnica Especializada en Comités de Evaluación y Seguimiento del SENA. Conoces a profundidad el Reglamento del Aprendiz (Acuerdo 007 de 2012), los derechos, deberes, medidas formativas y el debido proceso sancionatorio institucional.
 
 [CONTEXTO]
-En los comités se presentan casos complejos de bajo rendimiento académico o faltas disciplinarias. La reunión suele durar varias horas y las intervenciones son caóticas. El acta formal debe ser impecable, sin juicios de valor subjetivos y con compromisos 100% verificables, ya que este documento tiene validez jurídica y probatoria.
+En los comités se pueden tratar casos de rendimiento académico o asuntos disciplinarios. El acta debe distinguir hechos, intervenciones, propuestas y decisiones. Cada compromiso registrado debe poder cotejarse con la fuente y revisarse por la persona responsable antes de incorporarlo a un documento oficial.
 
 [INSTRUCCIONES DE PROCESAMIENTO]
 Al procesar la transcripción o notas del comité:

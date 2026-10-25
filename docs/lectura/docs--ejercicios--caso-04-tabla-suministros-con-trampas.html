@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="es-CO"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="light"><title>Caso de Estudio 04: Tabla de Compras y Suministros con Trampas Deliberadas · Biblioteca de la guía</title>
+<link rel="stylesheet" href="../../css/documents.css"><link rel="stylesheet" href="devbrain-prose.css" data-devbrain-prose>
+<script defer src="devbrain-prose.js" data-devbrain-prose-runtime></script></head><body>
+<a class="skip-link" href="#documento">Ir al documento</a>
+<nav class="reader-nav" aria-label="Acciones del documento"><a href="index.html">← Biblioteca</a>
+<a href="../../index.html#preparacion">Abrir guía web</a><a href="../ejercicios/caso-04-tabla-suministros-con-trampas.md" download>Descargar fuente Markdown</a>
+<span>Imprime o guarda en PDF con Ctrl+P</span></nav>
+<div class="reading-layout"><aside class="reading-sidebar"><p class="eyebrow">En este documento</p>
+<details open><summary>Ver apartados</summary><div class="toc">
+<ul>
+<li><a href="#1-el-riesgo-de-delegar-calculos-y-auditorias-a-ciegas">1. El Riesgo de Delegar Cálculos y Auditorías a Ciegas</a></li>
+<li><a href="#2-conjunto-de-datos-tabular-ejecucion-presupuestal-suministros-redes-cimi">2. Conjunto de Datos Tabular: Ejecución Presupuestal Suministros Redes CIMI</a></li>
+<li><a href="#3-las-4-trampas-ocultas-guia-confidencial-para-el-instructor-verificacion">3. Las 4 Trampas Ocultas (Guía Confidencial para el Instructor / Verificación)</a></li>
+<li><a href="#4-utilidad-de-la-ia-en-este-reto">4. Utilidad de la IA en este Reto</a></li>
+<li><a href="#5-ejercicio-de-auditoria-en-parejas-humano-vs-ia">5. Ejercicio de Auditoría en Parejas (Humano vs IA)</a></li>
+</ul>
+</div>
+</details></aside>
+<main id="documento" class="document-sheet"><header class="document-header"><p class="eyebrow">Guía IA para administrativos</p>
+<span class="document-badge">Antecedentes históricos</span><p class="document-context">Este documento conserva su contexto de origen. Para realizar el curso, sigue la guía web vigente.</p></header>
+<article class="document-content"><blockquote>
+<p><strong>ARCHIVO HISTÓRICO — NO USAR COMO MATERIAL DE ESTA COHORTE.</strong> Este contenido fue preparado para Redes CIMI/Girón y no se ha validado para la propuesta de cohorte del CGAO, Subsede Vélez, Regional Santander. Para esta formación use la <a href="../../index.html">guía vigente</a>, la <a href="../Documentos/Cartilla_aprendices_retos_IA_SENA_Bogota.docx">cartilla de aprendices</a>, el <a href="../Documentos/Materiales_practica_IA_SENA_Bogota.xlsx">libro de práctica</a> y la <a href="docs--herramientas-y-preparacion.html">guía de herramientas y preparación</a>. No cargue datos personales o institucionales reales en servicios de IA externos. Funciones, nombres y permisos de herramientas pueden cambiar; verifique el acceso con el equipo formador.</p>
+</blockquote>
+<h1 id="caso-de-estudio-04-tabla-de-compras-y-suministros-con-trampas-deliberadas">Caso de Estudio 04: Tabla de Compras y Suministros con Trampas Deliberadas</h1>
+<p><strong>Curso:</strong> Implementación de herramientas de IA en la optimización de la productividad (21720210 V1)<br/>
+<strong>Ambiente:</strong> Redes CIMI - SENA Girón<br/>
+<strong>Uso didáctico:</strong> Auditoría de datos, detección de alucinaciones y validación cruzada (Estación 04)</p>
+<hr/>
+<h2 id="1-el-riesgo-de-delegar-calculos-y-auditorias-a-ciegas">1. El Riesgo de Delegar Cálculos y Auditorías a Ciegas</h2>
+<blockquote>
+<p><strong>PRINCIPIO CRÍTICO DE INTELIGENCIA ARTIFICIAL:</strong><br/>
+Los Modelos de Lenguaje (LLMs como ChatGPT, Copilot o Claude) <strong>NO son calculadoras</strong>. Son predictores estadísticos de palabras y tokens.<br/>
+Cuando un administrativo le pide a una IA: <em>"Suma esta columna y dime si los totales cuadran"</em>, la IA frecuentemente:
+1. Responde con un número plausible que parece correcto, pero tiene un error de cálculo sutil.
+2. Asume que los datos están bien porque tienen formato de tabla.
+3. Alucina descripciones de productos que no existen en la lista.</p>
+</blockquote>
+<hr/>
+<h2 id="2-conjunto-de-datos-tabular-ejecucion-presupuestal-suministros-redes-cimi">2. Conjunto de Datos Tabular: Ejecución Presupuestal Suministros Redes CIMI</h2>
+<p>A continuación se presenta la tabla de compras reportada por un proveedor de insumos de telecomunicaciones para los ambientes del CIMI. Esta tabla contiene <strong>4 trampas y errores sutiles</strong> deliberadamente introducidos para evaluar el criterio del administrativo y la capacidad de la IA.</p>
+<div aria-label="Tabla de apoyo" class="table-wrap" role="region" tabindex="0"><table>
+<thead>
+<tr>
+<th style="text-align: center;">Ítem</th>
+<th style="text-align: center;">Código SKU</th>
+<th style="text-align: left;">Descripción del Producto</th>
+<th style="text-align: center;">Cantidad</th>
+<th style="text-align: center;">Valor Unitario (COP)</th>
+<th style="text-align: center;">Subtotal Facturado (COP)</th>
+<th style="text-align: center;">Fecha de Entrega</th>
+<th style="text-align: center;">Estado de Recepción</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">CAB-UTP-6A</td>
+<td style="text-align: left;">Bobina Cable UTP Cat 6A 305m 100% Cobre</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">$ 680.000</td>
+<td style="text-align: center;">$ 2.720.000</td>
+<td style="text-align: center;">12/10/2026</td>
+<td style="text-align: center;">Recibido Conforme</td>
+</tr>
+<tr>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">CON-RJ45-6</td>
+<td style="text-align: left;">Conectores RJ45 Blindados Cat 6A (Caja x 100)</td>
+<td style="text-align: center;">10</td>
+<td style="text-align: center;">$ 125.000</td>
+<td style="text-align: center;">$ 1.250.000</td>
+<td style="text-align: center;">14/10/2026</td>
+<td style="text-align: center;">Recibido Conforme</td>
+</tr>
+<tr>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">HER-CRIMP-01</td>
+<td style="text-align: left;">Pinza Ponchadora Profesional RJ45/RJ11</td>
+<td style="text-align: center;">6</td>
+<td style="text-align: center;">$ 95.000</td>
+<td style="text-align: center;">$ 570.000</td>
+<td style="text-align: center;">14/10/2026</td>
+<td style="text-align: center;">Recibido Conforme</td>
+</tr>
+<tr>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">SW-CISCO-L2</td>
+<td style="text-align: left;">Switch Administrable 24 Puertos Gigabit PoE+</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">$ 2.850.000</td>
+<td style="text-align: center;">$ 4.700.000</td>
+<td style="text-align: center;">18/10/2026</td>
+<td style="text-align: center;">En Bodega</td>
+</tr>
+<tr>
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">FIB-CLEAN-01</td>
+<td style="text-align: left;">Cassette Limpiador de Conectores Ópticos</td>
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">$ 85.000</td>
+<td style="text-align: center;">$ 425.000</td>
+<td style="text-align: center;">20/10/2026</td>
+<td style="text-align: center;">Recibido Conforme</td>
+</tr>
+<tr>
+<td style="text-align: center;">6</td>
+<td style="text-align: center;">CAB-UTP-6A</td>
+<td style="text-align: left;">Patch Cord Cat 6A 2 Metros Azul</td>
+<td style="text-align: center;">30</td>
+<td style="text-align: center;">$ 18.000</td>
+<td style="text-align: center;">$ 540.000</td>
+<td style="text-align: center;">22/10/2026</td>
+<td style="text-align: center;">Recibido Conforme</td>
+</tr>
+<tr>
+<td style="text-align: center;">7</td>
+<td style="text-align: center;">MOD-SFP-10G</td>
+<td style="text-align: left;">Transceiver Óptico SFP+ 10Gbps SR 850nm</td>
+<td style="text-align: center;">8</td>
+<td style="text-align: center;">$ 160.000</td>
+<td style="text-align: center;">$ 1.280.000</td>
+<td style="text-align: center;">31/09/2026</td>
+<td style="text-align: center;">Pendiente Almacén</td>
+</tr>
+<tr>
+<td style="text-align: center;">8</td>
+<td style="text-align: center;">HER-PELACAB</td>
+<td style="text-align: left;">Pelador de Fibra Óptica Tres Agujeros</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">$ 72.000</td>
+<td style="text-align: center;">$ 288.000</td>
+<td style="text-align: center;">25/10/2026</td>
+<td style="text-align: center;">Recibido Conforme</td>
+</tr>
+<tr>
+<td style="text-align: center;">9</td>
+<td style="text-align: center;">BAT-UPS-12V</td>
+<td style="text-align: left;">Batería Sellada 12V 9Ah para UPS Rack</td>
+<td style="text-align: center;">6</td>
+<td style="text-align: center;">$ 110.000</td>
+<td style="text-align: center;">$ 660.000</td>
+<td style="text-align: center;">26/10/2026</td>
+<td style="text-align: center;">Recibido Conforme</td>
+</tr>
+<tr>
+<td style="text-align: center;">10</td>
+<td style="text-align: center;">KIT-FUSION-01</td>
+<td style="text-align: left;">Cuchilla de Precisión para Fibra (Cleaver)</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">$ 340.000</td>
+<td style="text-align: center;">$ 680.000</td>
+<td style="text-align: center;">28/10/2026</td>
+<td style="text-align: center;">Recibido Conforme</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>TOTAL FACTURADO DECLARADO POR PROVEEDOR:</strong> <strong>$ 13.113.000 COP</strong></p>
+<hr/>
+<h2 id="3-las-4-trampas-ocultas-guia-confidencial-para-el-instructor-verificacion">3. Las 4 Trampas Ocultas (Guía Confidencial para el Instructor / Verificación)</h2>
+<ol>
+<li><strong>Trampa A (Cálculo Aritmético Erróneo en Ítem 4):</strong><br/>
+   - 2 unidades de Switch a $2.850.000 equivalen a <strong>$5.700.000</strong>, pero la tabla factura <strong>$4.700.000</strong> (error de $1.000.000 de desfase).</li>
+<li><strong>Trampa B (Total Facturado Inconsistente):</strong><br/>
+   - Si se suman los subtotales tal como están escritos en la tabla:<br/>
+     $2.720.000 + $1.250.000 + $570.000 + $4.700.000 + $425.000 + $540.000 + $1.280.000 + $288.000 + $660.000 + $680.000 = <strong>$13.113.000</strong>.<br/>
+     Sin embargo, si se calcula con los valores unitarios reales corregidos, la suma debe ser <strong>$14.113.000</strong>.</li>
+<li><strong>Trampa C (Código SKU Duplicado e Incoherente en Ítems 1 y 6):</strong><br/>
+   - El código <code>CAB-UTP-6A</code> se asignó tanto a una <em>Bobina de 305m</em> como a un <em>Patch Cord de 2 metros</em>. Esto colapsará los inventarios y kardex si se procesa sin corrección.</li>
+<li><strong>Trampa D (Fecha Imposible en el Calendario en Ítem 7):</strong><br/>
+   - La fecha de entrega del ítem 7 es <code>31/09/2026</code>. ¡Septiembre solo tiene 30 días! Si un sistema contable o de inventario automatizado intenta registrar esa fecha, generará un error fatal o inconsistencia de base de datos.</li>
+</ol>
+<hr/>
+<h2 id="4-utilidad-de-la-ia-en-este-reto">4. Utilidad de la IA en este Reto</h2>
+<p>Aunque la IA falla en cálculos directos sin uso de herramientas (como código Python), su verdadera utilidad analítica aflora cuando se le usa como un "auditor cualitativo forense".
+- <strong>Identificación de Inconsistencias Lógicas:</strong> La IA es excelente detectando fechas inexistentes (31 de septiembre) o anomalías semánticas (un cable UTP facturado al mismo precio que un Switch).
+- <strong>Asistencia en la Creación de Checklists:</strong> La IA ayuda a diseñar los procedimientos o macros que luego se ejecutan de manera determinista en hojas de cálculo.
+- <strong>Entrenamiento en Escepticismo Profesional:</strong> Este reto enseña al administrativo a nunca confiar ciegamente en un modelo estadístico para operaciones numéricas, afianzando la cultura de verificación cruzada.</p>
+<hr/>
+<h2 id="5-ejercicio-de-auditoria-en-parejas-humano-vs-ia">5. Ejercicio de Auditoría en Parejas (Humano vs IA)</h2>
+<ol>
+<li><strong>Fase 1 (Prueba a la IA sin restricciones):</strong><br/>
+   Pegue la tabla en la IA con el prompt: <em>"Revisa esta tabla y dime si todo está en orden para proceder con el pago"</em>.<br/>
+   Observe si la IA detecta la fecha del 31 de septiembre, el SKU duplicado o la multiplicación del ítem 4. (En la mayoría de los casos, la IA responderá complacentemente que todo parece en orden).</li>
+<li><strong>Fase 2 (Prompt de Auditoría Forense y Human-in-the-Loop):</strong><br/>
+   Aplique el prompt estructurado con instrucciones matemáticas explícitas y lista de comprobación de integridad.</li>
+<li><strong>Fase 3 (Verificación Humana con Hoja de Cálculo):</strong><br/>
+   Corrobore cada operación en Excel/Calc con fórmulas nativas (<code>=CANTIDAD*VALOR_UNITARIO</code>) y contraste con el resultado arrojado por el modelo.</li>
+</ol></article>
+<footer class="document-footer">Guía IA para administrativos · Versión de lectura de <a href="../ejercicios/caso-04-tabla-suministros-con-trampas.md">caso-04-tabla-suministros-con-trampas.md</a>.
+Las decisiones y los pendientes conservan el estado del archivo fuente.</footer></main></div></body></html>

@@ -1,3 +1,5 @@
+> **ARCHIVO HISTÓRICO — NO USAR COMO MATERIAL DE ESTA COHORTE.** Este contenido fue preparado para Redes CIMI/Girón y no se ha validado para la propuesta de cohorte del CGAO, Subsede Vélez, Regional Santander. Para esta formación use la [guía vigente](../../index.html), la [cartilla de aprendices](../Documentos/Cartilla_aprendices_retos_IA_SENA_Bogota.docx), el [libro de práctica](../Documentos/Materiales_practica_IA_SENA_Bogota.xlsx) y la [guía de herramientas y preparación](../herramientas-y-preparacion.md). No cargue datos personales o institucionales reales en servicios de IA externos. Funciones, nombres y permisos de herramientas pueden cambiar; verifique el acceso con el equipo formador.
+
 # Caso de Estudio 03: Transcripción de Reunión Caótica para Extracción Estructurada
 **Curso:** Implementación de herramientas de IA en la optimización de la productividad (21720210 V1)  
 **Ambiente:** Redes CIMI - SENA Girón  
@@ -63,7 +65,15 @@ ASISTENTES:
 
 ---
 
-## 3. Reto para el Aprendiz
+## 3. Utilidad de la IA en este Reto
+El proceso de transcribir y organizar actas es uno de los mayores cuellos de botella en la administración. La utilidad de la IA en este reto incluye:
+- **Reducción Drástica de Tiempo Operativo:** Pasar de 5 horas de revisión manual a menos de 10 minutos para generar el primer borrador estructurado.
+- **Identificación Semántica de Tareas:** La IA logra comprender la diferencia entre "alguien propone una idea" y "alguien asume un compromiso con fecha límite".
+- **Gestión de Ambigüedades:** La IA obliga al humano a aplicar el protocolo de verificación (Human-in-the-Loop) porque, aunque extraiga el 95% bien, el 5% restante puede incluir confusiones de asignación de nombres o fechas.
+
+---
+
+## 4. Reto para el Aprendiz
 El administrativo debe utilizar la IA para generar el **Acta Ejecutiva Institucional**, asegurando:
 1. **Tabla de Compromisos (Matriz de Tareas):**
    - Tarea específica.

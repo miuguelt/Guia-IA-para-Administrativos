@@ -1,0 +1,11 @@
+{
+  "schemaVersion": 1,
+  "artifactId": "MG-A03",
+  "fields": {
+    "reto06_regla": "",
+    "reto06_limpieza": "",
+    "tiempo_medido_vs_manual": "",
+    "uso_ia_y_revision": ""
+  },
+  "tool": "no identificado"
+}

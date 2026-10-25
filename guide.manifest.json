@@ -1,22 +1,23 @@
 {
   "standard": {
     "id": "devbrain.educational-guide",
-    "version": "2.4.0"
+    "version": "2.5.0"
   },
   "guide": {
-    "id": "cimi-ia-administrativos-21720210",
+    "id": "sena-bogota-ia-administrativos-21720210",
     "title": "Implementación de herramientas de inteligencia artificial en la optimización de la productividad",
     "format": "web",
     "entrypoint": "./index.html",
     "language": "es-CO",
-    "version": "1.0.0",
+    "version": "1.4.0",
     "servicePort": 8161,
-    "summary": "Guía técnica y pedagógica intensiva de 48 horas en Redes CIMI (03 al 06 de noviembre de 2026, 7:30 a. m. a 5:30 p. m.) para optimizar procesos administrativos con IA generativa y predictiva, criterio técnico, control de deriva y protocolos anti-alucinación.",
+    "summary": "Aula web de preparación y cinco módulos de aplicación. Incluye diez retos breves (0 a 9), un integrador y cinco evidencias. Cada módulo de aplicación enseña herramientas, presenta un ejemplo resuelto, guía la práctica y permite documentar verificaciones. Esta cohorte tiene una duración propuesta de 40 horas: 36 directas y 4 autónomas. La oferta SENA consultada publica 48 horas; la adaptación no equivale por sí sola al diseño curricular completo.",
     "schedule": {
-      "dates": "Del 3 al 6 de noviembre del 2026",
-      "dailyHours": "Martes a viernes: de 7:30 a. m. a 5:30 p. m.",
-      "venue": "Ambiente de formación: Redes CIMI",
-      "modality": "Presencial intensiva (40 horas directas en ambiente + 8 horas de trabajo autónomo guiado y portafolio)"
+      "dates": "Martes a viernes. Fechas calendario por confirmar con coordinación.",
+      "dailyHours": "Martes a viernes, 7:30 a. m. a 5:30 p. m.; 540 minutos directos dentro de la franja y 60 minutos autónomos cada día, por fuera de ella. Las pausas propuestas ocupan una hora de reloj incluida en la franja.",
+      "venue": "Centros y sedes de formación del SENA a nivel nacional; ambiente y sede física según la convocatoria.",
+      "modality": "Propuesta adaptada de cohorte: 36 horas directas en cuatro jornadas y 4 horas autónomas, 40 horas en total. La ficha oficial publica 48 horas; esta propuesta no constituye equivalencia ni reemplaza la validación curricular del instructor. La ventana diaria es de 7:30 a. m. a 5:30 p. m.; las pausas propuestas suman 60 min y dejan 9 horas de formación directa. Fechas y lugar exacto por confirmar.",
+      "breaks": "Propuesta diaria por confirmar: 9:30–9:40, 12:30–13:10 y 15:30–15:40. Suma 60 min no formativos."
     }
   },
   "curricularAlignment": {
@@ -32,6 +33,87 @@
       "code": "220501094",
       "name": "Estructurar propuesta técnica de servicio de tecnología de información de acuerdo con tipo de requerimiento y marcos de referencia"
     },
+    "criteriaSource": {
+      "path": "docs/Documentos/Informe Programa de Formación Complementaria (1).pdf",
+      "page": 3,
+      "programVersion": "21720210 V1",
+      "status": "Fuente curricular suministrada. Su contenido se contrastó con el archivo local; la vigencia para la ficha y el aval de la adaptación de 40 horas siguen pendientes de confirmación institucional."
+    },
+    "evaluationCriteria": [
+      {
+        "learningResult": "RA1",
+        "text": "SELECCIONA HERRAMIENTA CON BASE EN REQUERIMIENTO DE AUTOMATIZACIÓN DE PROCESO.",
+        "activities": [
+          "Diagnóstico de tarea y elección de herramienta",
+          "Reto 0",
+          "Reto 1"
+        ],
+        "artifacts": [
+          "MG-A01"
+        ],
+        "instruments": [
+          "I-3"
+        ],
+        "validationStatus": "El instructor confirma la suficiencia de la justificación para la ficha."
+      },
+      {
+        "learningResult": "RA1",
+        "text": "DISEÑA PROCESO AUTOMATIZADO DE ACUERDO CON APLICABILIDAD DE LA HERRAMIENTA Y LÓGICA O UNA APLICACIÓN SIMPLE, UNA SOLUCIÓN FUNCIONAL SIN PROGRAMACIÓN AVANZADA.",
+        "activities": [
+          "Reto 6: regla reproducible probada en una copia",
+          "Reto 7: diagrama y tres rutas simuladas"
+        ],
+        "artifacts": [
+          "MG-A03"
+        ],
+        "instruments": [
+          "I-5"
+        ],
+        "validationStatus": "El instructor confirma si la regla ejecutada y el diseño probado son suficientes o se requiere otra implementación. El diagrama no demuestra un despliegue; una regla solo propuesta conserva pendiente su ejecución."
+      },
+      {
+        "learningResult": "RA2",
+        "text": "FORMULA PROMPTS EN HERRAMIENTAS DE INTELIGENCIA ARTIFICIAL GENERATIVA SEGÚN PARÁMETROS DE ENTRENAMIENTO Y DE OPTIMIZACIÓN DE PROCESO.",
+        "activities": [
+          "Reto 1: instrucción CRTT y contraste con la fuente",
+          "Reto 3: misma versión probada con tres casos"
+        ],
+        "artifacts": [
+          "MG-A01",
+          "MG-A02"
+        ],
+        "instruments": [
+          "I-3",
+          "I-4"
+        ],
+        "validationStatus": "El instructor confirma el alcance exigido por la fuente. Esta ruta trabaja instrucciones y contexto; no entrena un modelo."
+      },
+      {
+        "learningResult": "RA2",
+        "text": "VALIDA FUNCIONALIDAD DE LA HERRAMIENTA CON BASE EN RESULTADOS ESPERADOS.",
+        "activities": [
+          "Pruebas de instrucción",
+          "Regla normal y vacía",
+          "Comprobación numérica y auditoría de afirmaciones",
+          "Integrador y prueba individual"
+        ],
+        "artifacts": [
+          "MG-A02",
+          "MG-A03",
+          "MG-A04",
+          "MG-A05"
+        ],
+        "instruments": [
+          "I-4",
+          "I-5",
+          "I-6",
+          "I-7",
+          "I-8",
+          "I-9"
+        ],
+        "validationStatus": "La ejecución propia con IA debe observarse. Una demostración o un ensayo manual mantiene ese desempeño pendiente."
+      }
+    ],
     "learningResults": [
       {
         "code": "RA1",
@@ -44,80 +126,90 @@
     ]
   },
   "duration": {
-    "recommendedTotalHours": "48 horas",
-    "hours": 48,
-    "directHours": 40,
-    "autonomousHours": 8
+    "recommendedTotalHours": "Duración propuesta para esta cohorte: 40 horas (36 horas directas y 4 autónomas). La ficha oficial del SENA publica una duración de 48 horas; esta adaptación requiere validación curricular y no equivale por sí sola al programa completo.",
+    "hours": 40,
+    "directHours": 36,
+    "autonomousHours": 4,
+    "breakdownStatus": "Cuatro jornadas de 7:30 a. m. a 5:30 p. m.: 9 horas directas dentro de la franja + 1 hora autónoma por fuera de ella, cada día. Cada subtotal directo es 540 min. La pausa diaria de 60 min está dentro de la ventana de reloj. La ficha del programa publica una duración de 48 h; confirmar equivalencia y aval con el instructor. Fechas y ambiente por confirmar."
   },
   "platform": {
     "sdk": "devbrain-learner-sdk",
-    "bootstrap": "window.DevBrainEvidence.montar()",
-    "storagePrefix": "guia_ia_para_administrativos",
-    "modules": 5,
-    "xpTotal": 500
+    "bootstrap": "window.DevBrainSDK.createApp() y window.DevBrainSDK.evidence.montar()",
+    "storagePrefix": "sena_bogota_ia_administrativos_21720210",
+    "modules": 6,
+    "preparation": {
+      "sectionId": "preparacion",
+      "minutes": 60,
+      "graded": false,
+      "purpose": "Confirmar acceso a IA y practicar una tarea completa: entregar una fuente de práctica, encargar el análisis, comprobar el resultado y obtener un informe en la misma conversación."
+    }
   },
   "project": {
-    "caseStudy": "Optimización Integral de Procesos de la Coordinación Redes CIMI",
-    "challenge": "Transformar la productividad de los procesos de gestión documental, PQRS y reportes del CIMI mediante herramientas de IA, aplicando estrictos criterios de verificación humana, control de alucinaciones y protección de datos institucionales.",
-    "finalProduct": "Dossier técnico y portafolio de evidencias con matriz de procesos, catálogo de prompts blindados, pipeline de clasificación documental, auditoría cruzada de datos y reporte final de optimización.",
+    "caseStudy": "Mejora de una tarea administrativa en centros y sedes del SENA a nivel nacional; participantes y grupo de formación.",
+    "challenge": "Resolver diez retos de trabajo administrativo (0 a 9) y un integrador; escoger herramientas, diseñar reglas, especificar un flujo sin desplegarlo, verificar cifras y respuestas y sustentar conclusiones con revisión humana.",
+    "finalProduct": "Portafolio de Evidencias: diagnóstico, cuidado de datos y Prompt CRTT (Retos 0 y 1); borradores PQRS y tres pruebas de una instrucción (2 y 3); priorización, acta, limpieza y diagrama probado de flujo (4 a 7); análisis numérico y auditoría trazable (8 y 9); integrador, prueba individual, mediciones y plan de transferencia.",
     "deliverablesRegistry": "deliverables.registry.json",
     "checkpoints": [
       {
         "id": "CP-01",
-        "name": "Diagnóstico de Procesos y Matriz de Viabilidad",
+        "name": "Diagnóstico, datos y Prompt CRTT",
         "evidence": "MG-A01",
-        "criterion": "Evalúa y clasifica procesos administrativos determinando viabilidad técnica de IA y salvaguardas de confidencialidad."
+        "criterion": "Justifica una tarea y su herramienta, minimiza datos en el Reto 0 y prueba una instrucción CRTT contra el Lineamiento ficticio."
       },
       {
         "id": "CP-02",
-        "name": "Arquitectura de Prompts Blindados",
+        "name": "PQRS y Asistente de rol",
         "evidence": "MG-A02",
-        "criterion": "Diseña prompts con estructura R-C-I-R-S delimitados y directivas negativas para prevenir la deriva de contexto y alucinación."
+        "criterion": "Distingue hechos, petición y vacíos; prueba una instrucción reutilizable con tres casos, uno incompleto, y registra ajustes."
       },
       {
         "id": "CP-03",
-        "name": "Tratamiento Documental No Estructurado",
+        "name": "Flujo y regla reproducible",
         "evidence": "MG-A03",
-        "criterion": "Ejecuta un flujo asistido de extracción de compromisos en actas y clasificación de PQRS conforme a términos de ley."
+        "criterion": "Entrega productos trazables de priorización, acta y limpieza; prueba una regla o fórmula reproducible sobre una copia y conserva vacíos."
       },
       {
         "id": "CP-04",
-        "name": "Auditoría de Datos y Protocolo HITL",
+        "name": "Análisis y auditoría de respuesta verificables",
         "evidence": "MG-A04",
-        "criterion": "Detecta inconsistencias numéricas y trampas deliberadas en datasets, formalizando el protocolo Human-in-the-Loop."
+        "criterion": "Comprueba cálculos, unidades, periodos y denominadores; audita afirmaciones de una respuesta y limita las conclusiones a la fuente."
       },
       {
         "id": "CP-05",
-        "name": "Informe de Optimización y Transferencia",
+        "name": "Caso integrador, valoración y transferencia",
         "evidence": "MG-A05",
-        "criterion": "Consolida el informe técnico cuantificando horas netas ahorradas, mitigación de riesgos y sustentación del proyecto."
+        "criterion": "Resuelve individualmente un caso nuevo, presenta diferencias como preguntas trazables, informa tiempos comparables y propone un piloto revisable."
       }
     ]
   },
   "learningSequence": [
     {
       "phase": "reflection",
-      "name": "Reflexión inicial: El impacto de la IA en la gestión administrativa y el riesgo del desvío",
-      "purpose": "Despertar el sentido crítico del administrativo frente a la automatización, reconociendo el valor de la intervención humana y los peligros de delegar ciegamente tareas críticas a la IA.",
-      "hours": 6
+      "name": "Día 1: preparación de herramientas, diagnóstico y Retos 0 y 1",
+      "purpose": "Practicar herramientas previas durante 60 min, elegir una herramienta, minimizar datos y contrastar un prompt con su fuente; aplicar el método a una tarea y medir su línea base.",
+      "hours": 9,
+      "autonomousHours": 1
     },
     {
       "phase": "contextualization",
-      "name": "Contextualización: Arquitectura de prompts blindados y tratamiento de información no estructurada",
-      "purpose": "Comprender la diferencia entre IA generativa y predictiva, analizando cómo estructurar instrucciones precisas con restricciones para evitar la deriva de contexto y alucinaciones.",
-      "hours": 10
+      "name": "Día 2: Retos 2 y 3",
+      "purpose": "Preparar borradores de PQRS y una instrucción reutilizable; probarla con tres situaciones de práctica.",
+      "hours": 9,
+      "autonomousHours": 1
     },
     {
       "phase": "appropriation",
-      "name": "Apropiación: Automatización de flujos documentales y auditoría de datos administrativos",
-      "purpose": "Diseñar e implementar procesos automatizados sin código para clasificación de PQRS, extracción de actas y análisis predictivo de datos con validación cruzada y Human-in-the-Loop.",
-      "hours": 20
+      "name": "Día 3: Retos 4 a 7",
+      "purpose": "Clasificar mensajes, elaborar un acta trazable, encargar a la IA una regla reproducible y comprobar filas normales y vacías, y diseñar un flujo con ramas y aprobación humana (Retos 4 a 7).",
+      "hours": 9,
+      "autonomousHours": 1
     },
     {
       "phase": "transfer",
-      "name": "Transferencia: Informe técnico de optimización, gobernanza de datos y plan de productividad",
-      "purpose": "Consolidar un informe técnico reproducible con métricas de productividad alcanzadas, protocolos de seguridad para proteger información sensible y sustentación de resultados.",
-      "hours": 12
+      "name": "Día 4: Retos 8 y 9, integrador y cierre",
+      "purpose": "Contrastar análisis descriptivo y predictivo, auditar afirmaciones, presentar el integrador en rondas de 15 minutos por equipo (hasta ocho), resolver un caso nuevo individual y acordar un piloto.",
+      "hours": 9,
+      "autonomousHours": 1
     }
   ],
   "evidence": {
@@ -135,53 +227,133 @@
   },
   "assessment": {
     "instruments": [
-      "Lista de chequeo técnica de criterios anti-alucinación y prompting",
-      "Rúbrica de desempeño en automatización de flujos y análisis de datos",
-      "Lista de verificación de seguridad de la información y gobernanza (Ley 1581)",
-      "Rúbrica de evaluación del informe técnico de optimización"
-    ]
+      "I-0 Diagnóstico de acceso y saberes previos, sin nota",
+      "I-1 Lista de cuidado de datos antes de cada reto",
+      "I-2 Lista de cotejo de los diez retos breves y el integrador",
+      "I-3 Lista técnica de viabilidad y fuente, MG-A01",
+      "I-4 Rúbrica de instrucción reutilizable, MG-A02",
+      "I-5 Rúbrica de flujo asistido y regla reproducible, MG-A03",
+      "I-6 Lista de comprobación numérica y rúbrica descriptiva, MG-A04",
+      "I-7 Prueba práctica individual con caso nuevo",
+      "I-8 Rúbrica del reto integrador, MG-A05",
+      "I-9 Rúbrica del informe y transferencia, MG-A05",
+      "I-10 Hoja de consolidación del instructor, borrador; no sustituye el formato institucional SENA"
+    ],
+    "scale": "Escala formativa propuesta: 0 Sin evidencia; 1 Requiere ajuste; 2 Cumple; 3 Cumple y sustenta. Sin ponderación oficial.",
+    "formalJudgment": "El instructor revisa los criterios vigentes y registra Aprobado (A) o No Aprobado (NA); DevBrain no emite el juicio."
   },
   "glossary": [
     {
-      "term": "IA Generativa",
-      "meaning": "Modelos de inteligencia artificial capaces de generar nuevo contenido (texto, resúmenes, tablas, código) a partir de patrones lingüísticos aprendidos."
+      "term": "IA generativa",
+      "meaning": "Herramienta que produce texto u otros contenidos con base en instrucciones y contexto. La salida puede sonar plausible y contener errores o datos que la fuente no respalda."
     },
     {
-      "term": "IA Predictiva",
-      "meaning": "Modelos analíticos orientados a prever probabilidades, clasificar eventos futuros o detectar tendencias a partir de datos históricos estructurados."
+      "term": "IA predictiva",
+      "meaning": "Método que estima una categoría o un valor a partir de ejemplos históricos. Su desempeño se evalúa con datos relevantes no usados para ajustar el modelo; la estimación no confirma un hecho futuro."
     },
     {
-      "term": "Deriva Contextual (Context Drift)",
-      "meaning": "Pérdida progresiva del foco y de las restricciones iniciales en una conversación larga con un modelo de lenguaje debido a saturación de la ventana de contexto."
+      "term": "Automatización basada en reglas",
+      "meaning": "Secuencia explícita y repetible que procesa entradas, condiciones y salidas; las excepciones y decisiones que requieren aprobación deben detener el flujo para revisión."
     },
     {
-      "term": "Alucinación",
-      "meaning": "Generación de respuestas aparentemente convincentes y formales por parte de la IA pero basadas en hechos, cifras, leyes o citas completamente falsas o inexistentes."
+      "term": "Deriva de contexto",
+      "meaning": "Una respuesta puede perder de vista parte del objetivo o los límites cuando una conversación es extensa, cambia de tarea o contiene indicaciones en conflicto. Reafirma las condiciones y vuelve a cotejar con la fuente."
     },
     {
-      "term": "Prompting R-C-I-R-S",
-      "meaning": "Estructura profesional de ingeniería de instrucciones en 5 capas: Rol, Contexto, Instrucción central, Restricciones negativas y Formato de Salida."
+      "term": "Respuesta no sustentada",
+      "meaning": "Afirmación verosímil que no se puede comprobar en la fuente de trabajo, incluidas cifras, referencias o detalles sin respaldo."
     },
     {
-      "term": "Human-in-the-Loop (HITL)",
-      "meaning": "Principio operativo que exige la revisión, validación crítica y aprobación final de un funcionario humano antes de ejecutar o emitir cualquier resultado asistido por IA."
+      "term": "Instrucción CRTT",
+      "meaning": "Instrucción organizada en Contexto, Rol, Tarea y Tono; agrega fuente, límites, formato y criterio observable de revisión."
+    },
+    {
+      "term": "Revisión humana",
+      "meaning": "Una persona responsable compara la salida con su fuente, resuelve los asuntos que requieren criterio y decide si puede utilizarse o comunicarse."
     }
   ],
   "sources": [
     {
       "title": "Diseño Curricular Oficial SENA 21720210 V1",
       "locator": "Dirección General SENA - Formación Complementaria (2025/2026)",
-      "use": "Competencia 220501094, Resultados de Aprendizaje RA1 y RA2, criterios de evaluación oficiales."
+      "use": "Competencia 220501094, Resultados de Aprendizaje RA1 y RA2, criterios de evaluación oficiales y duración publicada de 48 horas; confirmar la versión vigente del diseño y la adaptación de 40 horas con el instructor."
     },
     {
       "title": "Ley Estatutaria 1581 de 2012 (Habeas Data)",
-      "locator": "Congreso de la República de Colombia",
+      "locator": "Congreso de Colombia; texto en el Gestor Normativo de Función Pública.",
       "use": "Marco normativo para la protección de datos personales, confidencialidad y restricciones de privacidad."
     },
     {
-      "title": "Código de Procedimiento Administrativo y de lo Contencioso Administrativo (Ley 1755 de 2015)",
-      "locator": "Congreso de la República de Colombia",
-      "use": "Términos legales para atención de peticiones, quejas, reclamos y solicitudes de documentos."
+      "title": "Ley Estatutaria 1755 de 2015, por medio de la cual se regula el Derecho Fundamental de Petición",
+      "locator": "Congreso de Colombia; Gestor Normativo de Función Pública. La Ley 1437 de 2011 expide el CPACA.",
+      "use": "Referencia para que el instructor consulte el marco vigente; los ejercicios del curso no enseñan plazos ni emiten orientación jurídica."
+    },
+    {
+      "title": "Cartilla de retos de IA para el trabajo administrativo",
+      "locator": "docs/Documentos/Cartilla_aprendices_retos_IA_SENA_Bogota.docx",
+      "use": "Siete retos originales, productos, alternativas de trabajo y reflexión. La web añade los retos 0, 7 y 9."
+    },
+    {
+      "title": "Guía del facilitador de IA para SENA Bogotá",
+      "locator": "docs/Documentos/Guia_facilitador_IA_SENA_Bogota.docx",
+      "use": "Secuencia propuesta, preparación, evaluación y transferencia."
+    },
+    {
+      "title": "Materiales de práctica de IA para SENA Bogotá",
+      "locator": "docs/Documentos/Materiales_practica_IA_SENA_Bogota.xlsx",
+      "use": "Casos de práctica y fichas para los retos originales; los retos 0, 7 y 9 se presentan en la web."
+    },
+    {
+      "title": "Oferta SENA Betowa: Implementación de herramientas de inteligencia artificial en la optimización de la productividad",
+      "locator": "https://betowa.sena.edu.co/oferta/implementacion-de-herramientas-de-inteligencia-artificial-en-la-optimizacion-de-la-productividad?programId=229107",
+      "use": "La oferta vigente consultada indica tipo complementaria, modalidad virtual y duración de 48 horas; verificar antes de programar cohortes futuras."
+    }
+  ],
+  "learnerProfile": {
+    "audience": "Aprendices y personal administrativo del SENA a nivel nacional; grupos de formación de acuerdo con la programación institucional.",
+    "priorKnowledge": "No se presupone experiencia con IA, automatización o diseño. Aplicar diagnóstico breve antes del curso.",
+    "teamRoles": [
+      "Facilitador",
+      "Operador",
+      "Verificador",
+      "Relator"
+    ],
+    "accessibility": "Confirmar necesidades de accesibilidad, conectividad, equipos y lectura antes de iniciar.",
+    "safety": "Usar el libro de práctica y copias; no ingresar información institucional o personal real en asistentes de IA.",
+    "learningModes": {
+      "default": "autonomo",
+      "available": [
+        "autonomo",
+        "aula"
+      ],
+      "description": "Estudio autónomo con los mismos casos y cinco evidencias; formación con instructor conserva jornadas, equipos e instrumentos. La revisión propia no equivale a evaluación institucional."
+    }
+  },
+  "tools": {
+    "required": [
+      "Acceso a un asistente de IA autorizado y una cuenta habilitada para la práctica",
+      "Archivos de práctica por reto o libro de práctica Materiales_practica_IA_SENA_Bogota.xlsx",
+      "Temporizador o reloj"
+    ],
+    "optional": [
+      "Excel, Sheets o Calc para consultar la fuente y abrir la salida generada",
+      "Word, Docs o Writer para revisar un documento generado",
+      "Canva, PowerPoint o Google Slides para abrir o ajustar una lámina generada"
+    ],
+    "devbrain": "La página usa devbrain-learner-sdk para navegación y consolidación local de evidencias; no reemplaza las aplicaciones de práctica ni el juicio del instructor.",
+    "readinessCheck": "Confirmar equipos, conectividad, cuentas aprobadas, necesidades de accesibilidad, formato de entrega y protocolo para equipos compartidos."
+  },
+  "complementaryModules": [
+    {
+      "id": "laboratorio-datos",
+      "title": "Explora datos y documentos con IA",
+      "optional": true,
+      "independent": true,
+      "suggestedInitialHours": 12,
+      "suggestedAdvancedHours": "12–16",
+      "affectsCurricularProgress": false,
+      "evidence": "LAB-A01",
+      "sources": "materiales/analisis-datos/fuentes.json"
     }
   ]
 }

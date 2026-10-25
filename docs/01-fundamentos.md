@@ -1,110 +1,76 @@
-# Estación 01: Diagnóstico de Procesos, Mapeo de Flujos y Criterio de Viabilidad para IA
-**Programa:** Implementación de herramientas de inteligencia artificial en la optimización de la productividad (21720210 V1)  
-**Ambiente de Formación:** Redes CIMI · SENA Girón  
-**Fase Pedagógica:** Reflexión inicial · **Duración:** 6 horas (Presencial + Taller)  
-**Resultado de Aprendizaje (RAP):** RA1. Establecer uso de la inteligencia artificial según requerimientos de optimización del proceso productivo.  
-**Evidencia Asociada:** MG-A01 (Evidencia de Conocimiento - Matriz de Viabilidad y Diagnóstico)
+# Fundamentos y diagnóstico de tareas administrativas
 
----
 
-## 1. Fundamentos: ¿Por qué y cuándo automatizar con Inteligencia Artificial?
+**Encargos listos:** [Reto 0](../materiales/ia/reto-0/LEEME.html) · [Reto 1](../materiales/ia/reto-1/LEEME.html).
 
-En la gestión administrativa moderna, el tiempo laboral suele disiparse en actividades de bajo valor intelectual pero alta carga operativa: transcribir datos de un formato a otro, redactar respuestas rutinarias a quejas repetitivas, ordenar notas de reuniones y consolidar planillas.
+## Forma de trabajo con IA
 
-Sin embargo, el error más común al intentar "innovar" con tecnología es aplicar Inteligencia Artificial a problemas que se resuelven mejor con una simple fórmula de Excel, o peor aún, intentar usar IA en procesos con datos altamente confidenciales donde el riesgo legal supera cualquier beneficio.
+La IA prepara los archivos de la actividad con el encargo y las fuentes del paquete. El aprendiz entrega ese encargo a un chat autorizado o a Antigravity o Codex, revisa el resultado y descarga los productos. Los campos que se describen son la estructura de salida para la IA. Los datos ausentes, las mediciones no realizadas y las revisiones humanas no observadas quedan pendientes; el instructor conserva la valoración formal.
 
-### 1.1 Tipos de Tecnologías de Automatización en la Administración
+Los [encargos de la guía web](../index.html#preparacion) están listos para usar. La conversación, el informe y el JSON generado conservan el trabajo sin transcribirlo en otra ficha. Si la herramienta no puede ejecutar la tarea, se conserva esa limitación como pendiente y se consulta una opción autorizada.
 
-```text
-┌─────────────────────────┬──────────────────────────────────┬─────────────────────────────────┐
-│ TECNOLOGÍA              │ ¿PARA QUÉ SIRVE?                 │ EJEMPLO ADMINISTRATIVO          │
-├─────────────────────────┼──────────────────────────────────┼─────────────────────────────────┤
-│ Reglas Fijas / Macros   │ Tareas mecánicas, estructuradas, │ Liquidar horas fijas en Excel,  │
-│ (Automatización clásica)│ números exactos, sin ambigüedad. │ enviar recordatorios de fechas. │
-├─────────────────────────┼──────────────────────────────────┼─────────────────────────────────┤
-│ Inteligencia Artificial │ Procesar lenguaje natural, texto │ Clasificar quejas (PQRS),       │
-│ Generativa (LLMs)       │ no estructurado, redactar actas. │ resumir documentos, borradores. │
-├─────────────────────────┼──────────────────────────────────┼─────────────────────────────────┤
-│ Inteligencia Artificial │ Predecir comportamientos futuros,│ Detectar deserción de aprendices│
-│ Predictiva (ML)         │ encontrar patrones en datos.     │ proyectar compras trimestrales. │
-├─────────────────────────┼──────────────────────────────────┼─────────────────────────────────┤
-│ Proceso Manual Estricto │ Casos de alto riesgo jurídico,   │ Conceptos disciplinarios graves,│
-│ (Criterio Humano Puro)  │ datos médicos reservados.        │ despidos, fallos de tutela.     │
-└─────────────────────────┴──────────────────────────────────┴─────────────────────────────────┘
-```
+## Propósito
 
-### 1.2 La Regla de los Tres Filtros de Viabilidad
-Antes de llevar una tarea a una IA, el administrativo debe pasarla por tres preguntas filtro:
-1. **Filtro de Confidencialidad:** ¿Contiene datos personales sensibles (salud, cédulas, expedientes disciplinarios)? Si la respuesta es sí y no se pueden anonimizar, **SE PROHÍBE EL USO DE IA PÚBLICA**.
-2. **Filtro de Aritmética:** ¿La tarea consiste principalmente en sumar, multiplicar o conciliar cifras numéricas exactas? Si la respuesta es sí, **USE EXCEL O UNA MACRO, NO UN LLM**.
-3. **Filtro de Variabilidad:** ¿La entrada es texto variado, desordenado, con faltas de ortografía o redacción libre (correos, actas)? Si la respuesta es sí, **LA IA ES LA HERRAMIENTA ÓPTIMA**.
+El módulo «Comprende el problema» permite delimitar una tarea, elegir cómo abordarla y registrar una medida inicial. Su producto es MG-A01: diagnóstico, decisiones sobre información y una instrucción contrastada con el lineamiento. La ruta adapta los casos de práctica de la cartilla original para la formación institucional del SENA a nivel nacional.
 
----
+Antes de iniciar, el instructor aplica el diagnóstico de acceso y saberes previos de [herramientas y preparación](herramientas-y-preparacion.md): manejo de archivos, hoja de cálculo, chat autorizado, conectividad y accesibilidad. No se presupone experiencia previa.
 
-## 2. Ejemplo Resuelto: Evaluación de Viabilidad en Proceso Real
+## Opciones según la tarea
 
-### Proceso Evaluado: Recepción y Respuesta a Peticiones de Certificados de Estudio
-- **Situación:** La coordinación recibe diariamente 30 correos de ex-aprendices solicitando duplicados de diplomas o certificaciones de horas cursadas. Los aprendices escriben de formas muy distintas ("hola me llamo pablo quiero mi diploma", "Solicitud formal de certificado ficha 2410...").
-- **Diagnóstico del Proceso:**
-  - *Entrada:* Texto no estructurado (correo electrónico).
-  - *Tarea:* Identificar el tipo de certificado, el programa de formación y verificar si el aprendiz adjuntó copia del documento de identidad.
-  - *Decisión Técnica:* **VIABILIDAD ALTA PARA IA GENERATIVA**.
-  - *Diseño de la Solución:* Un asistente de IA analiza el cuerpo del correo, extrae los datos clave a una tabla normalizada y redacta el borrador de respuesta indicando si falta algún requisito.
-  - *Control Humano (HITL):* La secretaria revisa la tabla generada en 15 segundos y da clic en "Aprobar y Enviar".
-  - *Impacto medido:* Reducción de tiempo de 8 minutos por correo a 1 minuto por correo (Ahorro del 87.5% de tiempo).
+- **IA generativa:** ayuda a redactar, resumir, clasificar o reorganizar texto. Puede omitir o inventar detalles; sus resultados se comprueban contra la fuente.
+- **Regla o automatización sencilla:** repite instrucciones explícitas, como marcar una celda vacía o normalizar espacios en una columna de una hoja de cálculo. Debe probarse con una fila normal y una fila límite.
+- **Análisis predictivo:** estima resultados futuros con datos históricos adecuados, criterios claros y evaluación del desempeño. El libro de este curso no incluye una serie temporal preparada para construir y validar una predicción; el Reto 8 se limita a describir datos.
+- **Revisión humana:** confirma permisos, resuelve excepciones y asume la aprobación. Un asistente puede organizar la información para esa revisión; no reemplaza a la persona responsable.
 
----
+## Diagnóstico de una tarea
 
-## 3. Contraejemplo de Riesgo: El Fallo por Automatización a Ciegas
+1. Entregue al asistente el encargo de diagnóstico y las fuentes de práctica. Solicite tarea, producto, unidad comparable, entradas, pasos y salida.
+2. Revise la propuesta de herramienta y sus riesgos. Pida que la IA use únicamente frecuencias y tiempos observados disponibles y deje pendiente lo que no se midió.
+3. Encargue el informe y el JSON a partir de la versión revisada. Confirme con el responsable qué información y herramienta podrían usarse en el puesto.
 
-### Caso: "La Liquidación de Contratistas con ChatGPT"
-- **El Error:** Un auxiliar administrativo intentó acelerar la liquidación mensual de 20 instructores contratistas pegando el reporte de asistencia en ChatGPT y pidiéndole: *"Multiplica las horas por $48.500 y dame la tabla final para firmar la orden de pago"*.
-- **La Falla:** La IA multiplicó correctamente 16 de las filas, pero en 4 filas calculó valores con diferencias de hasta $350.000 COP debido a la naturaleza estocástica de los tokens numéricos.
-- **Consecuencia:** La coordinación firmó la cuenta de cobro con errores y Control Interno devolvió el trámite 2 semanas después, bloqueando el pago a los instructores e iniciando un proceso de indagación administrativa.
-- **Lección Aprendida:** **La IA Generativa no es una calculadora**. Toda operación matemática debe ser ejecutada mediante fórmulas de hoja de cálculo.
+La web ilustra la línea base con tres solicitudes de práctica que toman 6, 8 y 7 minutos. El promedio es 7 minutos por solicitud; describe el ejemplo, no demuestra un ahorro ni permite generalizar al área. Una comparación posterior necesita tareas de dificultad semejante, el mismo criterio de calidad y el tiempo completo de ambos métodos.
 
----
+## Secuencia de las ocho horas
 
-## 4. El Protocolo V.E.R.A. (Metodología de Trabajo Profesional)
+| Actividad | Tiempo | Propósito |
+| --- | ---: | --- |
+| Explicación y ejemplos | 45 min | Delimitar la tarea, comparar opciones y comprender la línea base. |
+| Reto 0 | 75 min | Decidir qué información puede usarse y reducir lo innecesario. |
+| Reto 1 | 165 min | Usar el encargo preparado y contrastar la respuesta con el lineamiento. |
+| Diagnóstico de una tarea | 135 min | Describir, medir y justificar la opción elegida. |
+| Devolución y registro | 60 min | Revisar los productos e importar el archivo generado para MG-A01. |
+| Total | 480 min | Ocho horas; la preparación de herramientas ocupa una hora aparte. |
 
-Para evitar estos errores operativos, durante todas las estaciones de este curso aplicaremos de forma obligatoria el **Protocolo V.E.R.A.**, el cual rige el trabajo administrativo asistido por IA:
+La ruta del diagnóstico se consulta en «Aprende» y se realiza después de los retos. «Observa» contiene dos casos resueltos: una solicitud urgente y una línea base. «Resuelve» reúne las consignas y los paquetes descargables; «Guarda tu evidencia» recibe la evidencia.
 
-1. **V**erificar la viabilidad: Asegurar que la tarea no incluye cálculos ciegos o datos confidenciales sin sanitizar.
-2. **E**jecutar (TDD - Test Driven Development): Probar el prompt en un caso controlado antes de aplicarlo masivamente.
-3. **R**evisar y Refinar: Detectar alucinaciones, sesgos de complacencia o pérdida de contexto, y ajustar las instrucciones.
-4. **A**tribuir (HITL): El humano asume la responsabilidad legal y final, firmando el documento o aprobando el dato, jamás delegando la firma a la máquina.
+## Los dos retos
 
----
+En el **Reto 0**, se clasifican cinco tarjetas y se preparan dos versiones reducidas de la tarjeta B, conservando la consulta por cupo. A y D pueden usarse en el ejercicio; B se reduce; C y E no se cargan al chat. Esta pauta no autoriza a compartir información equivalente de un trámite real. La IA incluye la autorización pendiente en el archivo que el aprendiz revisa.
 
-## 5. Práctica Guiada: Análisis de los 8 Procesos de Redes CIMI
+En el **Reto 1**, se revisan los ocho apartados del Lineamiento ficticio. El caso urgente permite comprobar que la fuente exige cinco días hábiles de anticipación y no establece excepciones para la urgencia. Logística conserva la confirmación de disponibilidad y la aprobación. La instrucción, la tabla y el borrador deben respetar esos límites.
 
-Abra el documento [Caso de Estudio 01](file:///c:/Users/Miguel/Documents/Aplicaciones/_projects/Guia%20IA%20para%20Administrativos/docs/ejercicios/caso-01-procesos-redes-cimi.md) y analice los 8 procesos del área:
-1. P1: Radicación de PQRS de Aprendices
-2. P2: Elaboración de Actas de Comité
-3. P3: Liquidación de Honorarios de Instructores
-4. P4: Redacción de Comunicados y Circulares
-5. P5: Detección Temprana de Deserción
-6. P6: Inventario de Equipos de Laboratorio
-7. P7: Conceptos Disciplinarios Confidenciales
-8. P8: Preguntas Frecuentes de Aspirantes
+Abra la pestaña Lineamiento ficticio del libro de práctica. En pareja, una persona entrega el encargo preparado y la otra contrasta la salida con el texto. La IA conserva las versiones y las correcciones solicitadas.
 
----
+El prompt debe especificar Contexto, Rol, Tarea, Tono y Límites (CRTT). Añada la fuente permitida, el formato de salida y qué hacer si falta un dato. Estos elementos precisan el encargo; no obligan a repetir etiquetas ni a inventar un rol elaborado. El producto incluye las dos versiones de la instrucción, una respuesta con referencia a la fuente y una revisión explicada. Si la salida respeta el criterio, se justifica conservarla; si falla, se registra la corrección.
 
-## 6. Taller Autónomo y Registro de Evidencia MG-A01
+### Lista de cotejo
 
-Complete en el formulario interactivo de esta estación (o en su archivo Markdown de evidencias) los siguientes campos obligatorios:
+- Verifique que la tarea describa una necesidad y un producto comprobable.
+- Revise que entrada, pasos, salida y punto de revisión se correspondan.
+- Compruebe la justificación de la opción seleccionada.
+- Confirme que se identificaron riesgos y condiciones de uso pendientes.
+- Revise que el tiempo incluya correcciones o que la medición figure como pendiente.
+- Contraste el resultado del Reto 1 con los apartados citados.
 
-1. **Selección del Proceso:** Elija uno de los procesos del centro (o uno equivalente de su propio puesto de trabajo administrativo).
-2. **Flujograma de Entrada y Salida:** Describa el proceso actual (quién entrega la información, cómo llega, qué operaciones manuales se hacen y a quién se entrega el resultado).
-3. **Matriz de Viabilidad Diligenciada:**
-   - ¿Por qué es viable para IA?
-   - ¿Qué tipo de IA requiere (Generativa, Predictiva, Híbrida)?
-   - ¿Qué datos sensibles deben ser filtrados antes de procesar?
-   - ¿Cuál es el riesgo mayor si la IA falla y cómo se previene?
-4. **Métrica Proyectada de Productividad:** Tiempo manual actual vs. Tiempo estimado asistido con IA.
+Este producto se registra en MG-A01. Consulte los [instrumentos de evaluación](instrumentos-evaluacion.md) antes de marcar cumplimiento.
 
-### Lista de Chequeo de Aceptación (Criterio de Evaluación RA1)
-- [ ] El proceso seleccionado tiene justificación técnica clara (no es un capricho tecnológico).
-- [ ] Se identifican con precisión las entradas, transformaciones y salidas del proceso.
-- [ ] Se declaran los riesgos de confidencialidad y la postura frente a la Ley 1581 de 2012.
-- [ ] No se delegan operaciones matemáticas críticas puramente a modelos de lenguaje sin salvaguarda.
+
+## Apoyos para comprender antes del reto
+
+Presente tres decisiones iniciales: aplicar una regla, preparar texto con IA y solicitar una decisión humana. La explicación de análisis predictivo se consulta como ampliación. Presente la línea base como el tiempo inicial de referencia de una tarea completa.
+
+Recorra el ejemplo en cuatro pasos: fuente, encargo, resultado y revisión. Pida al aprendiz justificar por qué «mañana» requiere una fecha de referencia y por qué la urgencia no aprueba la reserva. Las dos preguntas de «Observa» comprueban la elección de herramienta y la reducción de la tarjeta B. Muestre la retroalimentación y permita un nuevo intento dentro del tiempo de explicación.
+
+La ruta de productos ordena Reto 0, Reto 1 y diagnóstico. Antes de avanzar, compruebe que el aprendiz puede explicar qué comparte, qué queda pendiente y cómo mediría una tarea comparable.
+
+Para observar la comprensión real del grupo, use la [pauta con aprendices](validacion-con-aprendices.md).

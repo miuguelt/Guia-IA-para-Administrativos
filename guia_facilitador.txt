@@ -1,21 +1,29 @@
 INMERSIÓN ADMINISTRATIVA EN IA
 Guía de facilitación
-SENA Bogotá · Ruta intensiva de cuatro jornadas · Material editable de trabajo
+SENA · Ruta intensiva de cuatro jornadas · Material editable de trabajo
 Una guía para conducir las actividades, cuidar el uso de información y recoger evidencias de aprendizaje y productividad.
 
 
 Versión de facilitación · Recursos de práctica adjuntos en el libro de datos ficticios
 
+Recorrido vigente con documentos generados por IA
+Esta versión adapta las instrucciones del material de origen institucional. La ruta vigente incluye 10 retos breves, del 0 al 9, y un reto integrador. La propuesta tiene 40 horas: 36 horas directas y 4 autónomas. La oferta oficial consultada publica 48 horas; la adaptación requiere aprobación curricular y no constituye equivalencia. Las actividades de origen que aparecen después usan la numeración vigente de los retos; sus horarios se conservan como antecedentes, no como una agenda aprobada de la cohorte actual.
+1. Entregue el paquete y muestre cómo copiar el encargo y adjuntar las fuentes o abrir la carpeta en Antigravity o Codex. No solicite transcribir prompts ni llenar fichas.
+2. Pida a la IA el resultado indicado por el encargo y sus anexos. Acompañe la comprobación del aprendiz contra una cifra o afirmación de la fuente y la solicitud de ajustes.
+3. Muestre la descarga y la recepción de resultado-<clave>.html o del formato indicado por el paquete en «Guarda tu evidencia». El guardado deja un borrador y la confirmación registra la revisión del aprendiz; la valoración corresponde al instructor.
+Los casos y archivos se prepararon para aprender y no contienen registros reales. No se requieren datos personales. Las mediciones y comprobaciones que no hayan ocurrido deben quedar pendientes.
+Los paquetes contienen ENCARGO-CHAT.md, ENCARGO-IDE.md, fuentes, modelo-salida.json y esquema-salida.json. El encargo se copia sin editarlo. El texto entre corchetes de un modelo señala un dato pendiente y no se presenta como un resultado. La conversación se conserva junto con los archivos; importar o descargar no demuestra una revisión humana ni una aprobación institucional.
+Actividades del material de origen adaptadas para IA
 Cómo usar este kit
-Antes de cada jornada, revise la agenda y la ficha correspondiente. Prepare la herramienta autorizada y la alternativa sin conexión. Durante la actividad, modele una vez, acompañe la práctica y reserve el cierre para la verificación humana y la evidencia.
+Antes de cada jornada, revise la agenda de origen y la ruta web vigente. Prepare un chat autorizado o un IDE como Antigravity o Codex. Modele cómo copiar el encargo, adjuntar las fuentes, revisar la salida y descargar los documentos; la IA prepara los productos y el aprendiz los contrasta.
 Guía del facilitador: secuencia de los 36 bloques y fichas de conducción de los 24 bloques de aprendizaje.
 Cartilla del aprendiz: retos, misiones, pasos, prompts y productos que debe entregar cada equipo.
-Libro Materiales de práctica: insumos ficticios y pestaña Fichas de reto con formatos editables para registrar los productos de cada equipo.
+Libro Materiales de práctica: fuentes preparadas para aprender y fichas de referencia que la IA completa sobre una copia, sin modificar los datos originales.
 Bitácora de facilitación: agenda, registro de evidencias, rúbrica del reto integrador y transferencia a 30 días.
 Preparación general
 Confirme proyector, conexión, acceso individual o por parejas y permisos de uso de las herramientas disponibles.
 Descargue o distribuya copias de práctica; conserve una copia original sin editar y pida que cada equipo trabaje sobre duplicados.
-Si no hay licencia o acceso, use el material impreso, una hoja de cálculo y revisión entre pares. Ningún reto depende de un proveedor específico.
+Si falta acceso a una herramienta autorizada, use una demostración ya preparada. Deje pendiente la ejecución propia con IA; no la sustituya por digitación ni registre una práctica que no ocurrió.
 Organice equipos diversos según el grupo real. Roles sugeridos: facilitador del equipo, navegador, verificador y relator; roten roles cuando el tamaño lo permita.
 Use temporizador visible. Anuncie el producto esperado y los minutos de cada fase antes de empezar.
 Acuerdos de seguridad y calidad
@@ -25,10 +33,10 @@ Agenda de las cuatro jornadas
 La siguiente tabla conserva las horas y los bloques de la agenda base. Las fichas siguientes detallan la conducción paso a paso de los bloques de aprendizaje; las pausas y el almuerzo mantienen su propósito de descanso y reanudación.
 
 Guía de conducción por bloque
-Cada ficha indica preparación, recursos, distribución del tiempo, instrucciones para proyectar o entregar, evidencia, verificación y alternativa. Los prompts se pueden adaptar conservando los límites de uso seguro.
+Cada ficha conserva preparación, recursos y tiempos del material de origen. Las tablas siguientes son un guion para proyectar al aprendiz: la IA genera documentos y el aprendiz revisa las fuentes. Los encargos vigentes están completos en los paquetes enlazados; no requieren llenar plantillas.
 1. Apertura IA en el trabajo administrativo
-Preparación: Abre PQRS 50 y ensaya la conexión. Explica que la muestra y sus códigos son ficticios.
-Herramientas y recursos: Copilot institucional, ChatGPT o Gemini autorizados; proyector; cronómetro; pestaña PQRS 50.
+Preparación: Abra PQRS 50 y ensaye el acceso al asistente autorizado. Explique que los archivos se prepararon para aprender y no contienen registros reales.
+Herramientas y recursos: chat autorizado o carpeta en Antigravity o Codex; fuentes del paquete, encargo completo y criterios de revisión. La IA genera los documentos y el aprendiz los contrasta y descarga.
 Material de práctica: PQRS 50
 Secuencia y tiempos
 
@@ -36,11 +44,11 @@ Duración planificada: 90 minutos. Bloque en agenda: 90 minutos.
 Prompt de demostración: Clasifica estas solicitudes por tema y urgencia usando solo señales explícitas del texto. Devuelve código, tema, urgencia sugerida, señal que sustenta la urgencia y dato faltante. No inventes plazos, responsables ni respuestas oficiales.
 Evidencia por recoger: Matriz de clasificación, revisión de cinco casos y tarea repetitiva con línea base.
 Lista de verificación: La IA puede clasificar, pero la urgencia sugerida se contrasta con criterios humanos. No se presenta un ahorro como real sin comparar la misma tarea y calidad.
-Alternativa: Clasifica diez casos en una hoja de cálculo y usa los mismos criterios de revisión sin conectividad.
+Alternativa de acceso: presente una demostración con archivos preparados y conserve pendiente la ejecución propia del aprendiz con IA. La revisión y la evaluación humanas no se atribuyen a una herramienta.
 
 2. Reto 1 Prompt Engineering 101
-Preparación: Ten el formato CRTT a la vista y un caso de práctica sin datos personales.
-Herramientas y recursos: Chat de IA aprobado; bloc de notas o cartilla del aprendiz.
+Preparación: Tenga a la vista el encargo CRTT completo y el Lineamiento ficticio del paquete, sin datos personales.
+Herramientas y recursos: chat autorizado o carpeta en Antigravity o Codex; fuentes del paquete, encargo completo y criterios de revisión. La IA genera los documentos y el aprendiz los contrasta y descarga.
 Material de práctica: Lineamiento ficticio
 Secuencia y tiempos
 
@@ -48,11 +56,11 @@ Duración planificada: 90 minutos. Bloque en agenda: 90 minutos.
 Prompt de demostración: Contexto: estoy orientando una consulta sobre el procedimiento ficticio de uso de salas. Rol: asistente administrativo que explica sin reemplazar a la persona responsable. Tarea: responde la pregunta únicamente con la guía adjunta, cita el apartado y señala qué dato falta. Tono: claro, respetuoso e institucional. No completes con normas externas.
 Evidencia por recoger: Prompt inicial, versión mejorada y verificación contra la guía.
 Lista de verificación: La salida cita el material entregado, responde la pregunta y marca la incertidumbre. Si no encuentra respaldo, debe decirlo.
-Alternativa: Usa el material impreso y subraya Contexto, Rol, Tarea y Tono antes de escribir una respuesta manual.
+Alternativa de acceso: presente una demostración con archivos preparados y conserve pendiente la ejecución propia del aprendiz con IA. La revisión y la evaluación humanas no se atribuyen a una herramienta.
 
 3. Reto 2 El teléfono roto de las PQRS
-Preparación: Asigna una PQRS compleja distinta por equipo. Proyecta la lista de cotejo de revisión.
-Herramientas y recursos: Chat aprobado; cartilla; pestaña PQRS complejas; hoja de cotejo.
+Preparación: Asigne los casos del paquete y proyecte los criterios para contrastar los borradores generados por la IA.
+Herramientas y recursos: chat autorizado o carpeta en Antigravity o Codex; fuentes del paquete, encargo completo y criterios de revisión. La IA genera los documentos y el aprendiz los contrasta y descarga.
 Material de práctica: PQRS complejas
 Secuencia y tiempos
 
@@ -60,11 +68,11 @@ Duración planificada: 120 minutos. Bloque en agenda: 120 minutos.
 Prompt de demostración: Usa solo el texto de la solicitud y la ficha de procedimiento incluida en el material. Prepara un borrador respetuoso que resuma la petición y proponga los pasos respaldados por esa ficha. No cites leyes externas, no inventes fechas ni decisiones. Separa al final los datos faltantes y las afirmaciones que debe validar un funcionario.
 Evidencia por recoger: Borrador, prompt, iteraciones y lista de afirmaciones verificadas o pendientes.
 Lista de verificación: Cero datos personales; ninguna fecha, norma, responsable o decisión inventada; tono claro; revisión humana visible.
-Alternativa: Realiza el mismo ejercicio en papel: borrador propio, lista de hechos y lista de dudas antes de comparar con la IA.
+Alternativa de acceso: presente una demostración con archivos preparados y conserve pendiente la ejecución propia del aprendiz con IA. La revisión y la evaluación humanas no se atribuyen a una herramienta.
 
 4. Domando la burocracia Gestión de texto
-Preparación: Usa la guía ficticia de salas o una resolución pública vigente previamente verificada.
-Herramientas y recursos: Copilot en Edge o chat autorizado; Word; pestaña Lineamiento ficticio.
+Preparación: Use el lineamiento de práctica o una fuente pública cuya vigencia ya haya comprobado; adjúntela al encargo de la IA.
+Herramientas y recursos: chat autorizado o carpeta en Antigravity o Codex; fuentes del paquete, encargo completo y criterios de revisión. La IA genera los documentos y el aprendiz los contrasta y descarga.
 Material de práctica: Lineamiento ficticio
 Secuencia y tiempos
 
@@ -72,58 +80,58 @@ Duración planificada: 120 minutos. Bloque en agenda: 120 minutos.
 Prompt de demostración: Resume el material en cinco puntos. Para cada punto incluye el apartado que lo respalda. Después extrae acción, responsable mencionado, plazo explícito y condición. Escribe 'no especificado' cuando el documento no contenga un dato. No infieras una fecha ni una obligación.
 Evidencia por recoger: Resumen con referencias y tabla de responsabilidades revisada contra la fuente.
 Lista de verificación: Las referencias permiten ubicar el texto; se conservan condiciones y excepciones; las ausencias quedan visibles.
-Alternativa: Trabaja con una impresión de la guía, marca los apartados y completa la tabla a mano.
+Alternativa de acceso: presente una demostración con archivos preparados y conserve pendiente la ejecución propia del aprendiz con IA. La revisión y la evaluación humanas no se atribuyen a una herramienta.
 
 5. Reto 3 Clonación de roles
-Preparación: Pide que cada participante seleccione tres tareas simuladas de la cartilla. No deben pegar casos de su puesto.
-Herramientas y recursos: Chat aprobado o instrucciones guardadas en Word; cartilla del aprendiz.
+Preparación: Pida usar los tres casos del paquete para probar la instrucción. No solicite casos reales del puesto de trabajo.
+Herramientas y recursos: chat autorizado o carpeta en Antigravity o Codex; fuentes del paquete, encargo completo y criterios de revisión. La IA genera los documentos y el aprendiz los contrasta y descarga.
 Material de práctica: Cartilla del aprendiz
 Secuencia y tiempos
 
 Duración planificada: 120 minutos. Bloque en agenda: 120 minutos.
-Prompt de demostración: Actúa como asistente de [rol general]. Ayúdame con [tareas permitidas] y entrega el resultado en [formato]. Usa solo la información incluida en el mensaje. Si faltan datos, pregunta. No inventes normativa, fechas, personas ni decisiones. Señala qué debe revisar un funcionario. No solicites identificaciones ni información sensible.
+Prompt de demostración: Actúa como asistente de redacción preliminar de PQRS. Usa los tres casos del paquete y genera una instrucción reutilizable, sus tres salidas y la tabla de comprobaciones. Entrega archivos descargables y resultado.json. No inventes normativa, fechas, personas, decisiones ni revisiones humanas; conserva los datos ausentes como pendientes.
 Evidencia por recoger: Prompt maestro y resultados de tres pruebas simuladas.
 Lista de verificación: El prompt define límites y exige revisión humana; no incorpora nombres, cédulas, expedientes ni credenciales.
-Alternativa: Diseña la instrucción en Word y revisa sus tres casos con una lista de cotejo, sin ejecutarla en una herramienta pública.
+Alternativa de acceso: presente una demostración con archivos preparados y conserve pendiente la ejecución propia del aprendiz con IA. La revisión y la evaluación humanas no se atribuyen a una herramienta.
 
 6. Retrospectiva Día 1
-Preparación: Deja visible el registro de evidencias de Bóveda y las preguntas de cierre.
-Herramientas y recursos: Pizarra, cronómetro y pestaña Bóveda.
+Preparación: Deje visibles los archivos generados y las preguntas de cierre; no solicite transcribir las evidencias.
+Herramientas y recursos: chat autorizado o carpeta en Antigravity o Codex; fuentes del paquete, encargo completo y criterios de revisión. La IA genera los documentos y el aprendiz los contrasta y descarga.
 Material de práctica: Registro Bóveda
 Secuencia y tiempos
 
 Prompt de demostración: ¿Qué resultado verificamos, qué cambió después de corregir el prompt y qué decisión debe seguir en manos de una persona?
 Evidencia por recoger: Aprendizaje, duda y evidencia que respalda cualquier tiempo registrado.
 Lista de verificación: No se suman minutos estimados como horas ahorradas sin comparación equivalente y aprobación.
-Alternativa: Recoge las respuestas en tarjetas de papel.
+Alternativa de acceso: presente una demostración con archivos preparados y conserve pendiente la ejecución propia del aprendiz con IA. La revisión y la evaluación humanas no se atribuyen a una herramienta.
 
 7. Bandeja de entrada inteligente
-Preparación: Prepara un hilo ficticio y comprueba las funciones disponibles en las cuentas institucionales.
-Herramientas y recursos: Outlook con función IA autorizada; alternativa: chat aprobado con hilo ficticio; Word.
+Preparación: Prepare el hilo del material de práctica y compruebe el asistente autorizado disponible.
+Herramientas y recursos: chat autorizado o carpeta en Antigravity o Codex; fuentes del paquete, encargo completo y criterios de revisión. La IA genera los documentos y el aprendiz los contrasta y descarga.
 Material de práctica: Correos 50
 Secuencia y tiempos
 
 Duración planificada: 120 minutos. Bloque en agenda: 120 minutos.
-Prompt de demostración: Resume el hilo adjunto en hechos confirmados, solicitudes, acuerdos y asuntos pendientes. Luego redacta un borrador de respuesta [conciliadora/directiva]. No agregues compromisos ni fechas que no estén en el hilo. Lista al final qué debe comprobar el responsable antes de enviarlo.
+Prompt de demostración: Resume el hilo adjunto en hechos confirmados, solicitudes, acuerdos y asuntos pendientes. Genera dos borradores descargables: uno conciliador y otro directivo. No agregues compromisos ni fechas ausentes. Incluye lo que el responsable debe comprobar antes de un eventual envío autorizado.
 Evidencia por recoger: Resumen y borrador marcado como pendiente de revisión.
 Lista de verificación: No se envía el mensaje; se valida destinatario, compromisos, fecha y tono antes del uso real.
-Alternativa: Usa un hilo ficticio impreso y redacta el resumen con resaltadores por categorías.
+Alternativa de acceso: presente una demostración con archivos preparados y conserve pendiente la ejecución propia del aprendiz con IA. La revisión y la evaluación humanas no se atribuyen a una herramienta.
 
 8. Reto 4 Bandeja cero en tiempo récord
-Preparación: Entrega una copia de Correos 50 y define las señales de prioridad para la simulación.
-Herramientas y recursos: Outlook de práctica o Excel; chat autorizado; pestaña Correos 50.
+Preparación: Entregue una copia de Correos 50 con su encargo y confirme las señales de prioridad que debe usar la IA.
+Herramientas y recursos: chat autorizado o carpeta en Antigravity o Codex; fuentes del paquete, encargo completo y criterios de revisión. La IA genera los documentos y el aprendiz los contrasta y descarga.
 Material de práctica: Correos 50
 Secuencia y tiempos
 
 Duración planificada: 60 minutos. Bloque en agenda: 60 minutos.
-Prompt de demostración: Clasifica estos mensajes con prioridad alta, media o baja usando solamente impacto, plazo expreso y personas afectadas. Devuelve ID, prioridad sugerida, señal textual y acción de revisión. No inventes SLA. Luego propone borradores para los diez mensajes priorizados, sin enviar nada.
+Prompt de demostración: Clasifica estos mensajes con prioridad alta, media o baja usando solamente impacto, plazo expreso y personas afectadas. Devuelve ID, prioridad sugerida, señal textual y acción de revisión. No inventes SLA. Luego propón borradores para los diez mensajes priorizados, sin enviar nada.
 Evidencia por recoger: Matriz de clasificación, razones de prioridad y diez borradores revisados.
 Lista de verificación: Las prioridades se justifican con evidencia del mensaje; los mensajes críticos se confirman con el criterio del área.
-Alternativa: Permite ordenar y filtrar manualmente en Excel; compara velocidad y consistencia con la clasificación asistida.
+Alternativa de acceso: presente una demostración con archivos preparados y conserve pendiente la ejecución propia del aprendiz con IA. La revisión y la evaluación humanas no se atribuyen a una herramienta.
 
 9. Documentación colaborativa y reuniones
-Preparación: Abre la directriz simulada y el lineamiento ficticio en copias separadas.
-Herramientas y recursos: Word y Teams con funciones disponibles; chat autorizado con archivos ficticios.
+Preparación: Abra la directriz y el lineamiento de práctica en copias separadas; indique que ambos se adjuntan al encargo.
+Herramientas y recursos: chat autorizado o carpeta en Antigravity o Codex; fuentes del paquete, encargo completo y criterios de revisión. La IA genera los documentos y el aprendiz los contrasta y descarga.
 Material de práctica: Directriz y Lineamiento
 Secuencia y tiempos
 
@@ -131,11 +139,11 @@ Duración planificada: 120 minutos. Bloque en agenda: 120 minutos.
 Prompt de demostración: Con base únicamente en los dos insumos, crea un borrador de plan de capacitación con objetivo, actividades, materiales y datos por confirmar. Marca cada dato que no esté definido como 'pendiente'. No asignes responsables ni fechas que no aparezcan.
 Evidencia por recoger: Plan borrador con fuentes y lista de vacíos.
 Lista de verificación: No se presenta como instrucción aprobada; los responsables y fechas se confirman con el dueño del proceso.
-Alternativa: Redacta el plan a mano con los dos insumos impresos y compara contra la lista de cotejo.
+Alternativa de acceso: presente una demostración con archivos preparados y conserve pendiente la ejecución propia del aprendiz con IA. La revisión y la evaluación humanas no se atribuyen a una herramienta.
 
 10. Reto 5 El acta imposible
-Preparación: Abre Transcripcion y prepara la hoja de extracción de decisiones y compromisos.
-Herramientas y recursos: Teams o Word; chat autorizado; pestaña Transcripcion.
+Preparación: Abra Transcripcion y el encargo para que la IA genere el acta y la extracción de compromisos.
+Herramientas y recursos: chat autorizado o carpeta en Antigravity o Codex; fuentes del paquete, encargo completo y criterios de revisión. La IA genera los documentos y el aprendiz los contrasta y descarga.
 Material de práctica: Transcripcion
 Secuencia y tiempos
 
@@ -143,11 +151,11 @@ Duración planificada: 120 minutos. Bloque en agenda: 120 minutos.
 Prompt de demostración: Prepara un borrador de acta usando solo la transcripción. Separa decisiones, compromisos y asuntos discutidos sin decisión. Para cada compromiso registra responsable y fecha únicamente si se mencionan. Marca 'por confirmar' cuando falte alguno. Incluye la frase de origen que respalda cada decisión.
 Evidencia por recoger: Acta, matriz de compromisos y lista de vacíos.
 Lista de verificación: No se atribuye un compromiso a quien no lo aceptó; no se transforma una propuesta en decisión; fechas y responsables se rastrean a la transcripción.
-Alternativa: Extrae los compromisos en papel y construye el acta con plantilla de Word sin IA.
+Alternativa de acceso: presente una demostración con archivos preparados y conserve pendiente la ejecución propia del aprendiz con IA. La revisión y la evaluación humanas no se atribuyen a una herramienta.
 
 11. Integración El flujo de trabajo perfecto
-Preparación: Entrega Directriz simulada y abre plantillas vacías de plan y anuncio.
-Herramientas y recursos: Outlook, Word y Teams; Copilot institucional si está disponible; alternativa con archivos ficticios en chat aprobado.
+Preparación: Entregue Directriz y el encargo para que la IA genere el plan y el anuncio, sin plantillas que el aprendiz deba llenar.
+Herramientas y recursos: chat autorizado o carpeta en Antigravity o Codex; fuentes del paquete, encargo completo y criterios de revisión. La IA genera los documentos y el aprendiz los contrasta y descarga.
 Material de práctica: Directriz
 Secuencia y tiempos
 
@@ -155,22 +163,22 @@ Duración planificada: 120 minutos. Bloque en agenda: 120 minutos.
 Prompt de demostración: A partir de este correo ficticio, genera primero un resumen de solicitudes y restricciones. Después crea un plan de acción y un anuncio para Teams. Distingue hechos de sugerencias, no completes datos faltantes y marca ambos textos como borradores pendientes de aprobación.
 Evidencia por recoger: Secuencia correo, plan y anuncio con fuentes rastreables.
 Lista de verificación: No se envían mensajes; el plan no crea responsables o compromisos sin autorización.
-Alternativa: Completa las tres piezas manualmente con una ficha de transferencia entre cada paso.
+Alternativa de acceso: presente una demostración con archivos preparados y conserve pendiente la ejecución propia del aprendiz con IA. La revisión y la evaluación humanas no se atribuyen a una herramienta.
 
 12. Retrospectiva Día 2
-Preparación: Ten a la mano la hoja Bóveda y el ejemplo de borrador revisado.
-Herramientas y recursos: Pizarra y Bóveda.
+Preparación: Tenga a la mano los archivos generados y un ejemplo cuyo estado de revisión se haya comprobado.
+Herramientas y recursos: chat autorizado o carpeta en Antigravity o Codex; fuentes del paquete, encargo completo y criterios de revisión. La IA genera los documentos y el aprendiz los contrasta y descarga.
 Material de práctica: Registro Bóveda
 Secuencia y tiempos
 
 Prompt de demostración: ¿Qué paso de revisión evitó una respuesta o compromiso incorrecto?
 Evidencia por recoger: Un control humano explícito y una evidencia del reto.
 Lista de verificación: Distingue tiempo de redacción de tiempo total de revisión.
-Alternativa: Usa tarjetas de salida.
+Alternativa de acceso: presente una demostración con archivos preparados y conserve pendiente la ejecución propia del aprendiz con IA. La revisión y la evaluación humanas no se atribuyen a una herramienta.
 
 13. Hablando con las celdas
-Preparación: Abre Datos SOFIA y prepara una copia sin fórmulas previas.
-Herramientas y recursos: Excel; Copilot para Excel si la licencia y el archivo lo permiten; alternativa con chat aprobado.
+Preparación: Abra Datos SOFIA y prepare una copia para que la IA genere las transformaciones y las fórmulas sin alterar la fuente.
+Herramientas y recursos: chat autorizado o carpeta en Antigravity o Codex; fuentes del paquete, encargo completo y criterios de revisión. La IA genera los documentos y el aprendiz los contrasta y descarga.
 Material de práctica: Datos SOFIA
 Secuencia y tiempos
 
@@ -178,11 +186,11 @@ Duración planificada: 120 minutos. Bloque en agenda: 120 minutos.
 Prompt de demostración: Describe cómo estandarizar la columna de fecha sin modificar la fuente. Indica la fórmula exacta, la lógica y un ejemplo verificable. Señala registros vacíos o ambiguos y no inventes su valor.
 Evidencia por recoger: Copia transformada, fórmula explicada y cálculo de control.
 Lista de verificación: Conserva la fuente, prueba filas incompletas y confirma los resultados fuera de la IA.
-Alternativa: Usa funciones conocidas de Excel y valida con un ejemplo calculado manualmente.
+Alternativa de acceso: presente una demostración con archivos preparados y conserve pendiente la ejecución propia del aprendiz con IA. La revisión y la evaluación humanas no se atribuyen a una herramienta.
 
 14. Reto 6 El informe sucio
-Preparación: Reparte una copia de Datos SOFIA. Señala que son datos de demostración sin relación con personas reales.
-Herramientas y recursos: Excel y Copilot disponible; alternativa con funciones de Excel y chat autorizado.
+Preparación: Distribuya una copia de Datos SOFIA y su encargo; estos registros preparados para aprender no corresponden a personas reales.
+Herramientas y recursos: chat autorizado o carpeta en Antigravity o Codex; fuentes del paquete, encargo completo y criterios de revisión. La IA genera los documentos y el aprendiz los contrasta y descarga.
 Material de práctica: Datos SOFIA
 Secuencia y tiempos
 
@@ -190,11 +198,11 @@ Duración planificada: 60 minutos. Bloque en agenda: 60 minutos.
 Prompt de demostración: Analiza esta tabla ficticia. Devuelve reglas de limpieza para espacios, mayúsculas y formatos de fecha. No elimines duplicados ni completes vacíos sin identificarlos. Propón una columna de observación para los casos que requieren decisión humana.
 Evidencia por recoger: Copia depurada, conteo antes/después y reglas documentadas.
 Lista de verificación: No se pierde el original; duplicados y vacíos quedan registrados; ninguna fecha ambigua se infiere.
-Alternativa: Limpia con filtros, ESPACIOS, MAYUSC/MINUSC y formato de fecha, con la misma bitácora.
+Alternativa de acceso: presente una demostración con archivos preparados y conserve pendiente la ejecución propia del aprendiz con IA. La revisión y la evaluación humanas no se atribuyen a una herramienta.
 
 15. Visualización y preguntas estratégicas
-Preparación: Abre Gastos Q1 y formula de antemano una pregunta con población y periodo.
-Herramientas y recursos: Excel; Copilot si está habilitado; alternativa con tabla dinámica y gráficos estándar.
+Preparación: Abra Gastos Q1 y el encargo con su pregunta, población y periodo para el análisis con IA.
+Herramientas y recursos: chat autorizado o carpeta en Antigravity o Codex; fuentes del paquete, encargo completo y criterios de revisión. La IA genera los documentos y el aprendiz los contrasta y descarga.
 Material de práctica: Gastos Q1
 Secuencia y tiempos
 
@@ -202,11 +210,11 @@ Duración planificada: 120 minutos. Bloque en agenda: 120 minutos.
 Prompt de demostración: Para Q1, suma por centro los gastos de papelería de enero, febrero y marzo. Ordena de mayor a menor y crea un gráfico de barras con unidades en pesos simulados. Muestra el filtro usado y el total calculado.
 Evidencia por recoger: Tabla dinámica o resumen, gráfico y oración que responda la pregunta.
 Lista de verificación: Se suman los tres meses del mismo periodo; se conserva la unidad; no se confunde gasto más alto con desempeño mejor.
-Alternativa: Usa SUMAR.SI.CONJUNTO y un gráfico de barras manual.
+Alternativa de acceso: presente una demostración con archivos preparados y conserve pendiente la ejecución propia del aprendiz con IA. La revisión y la evaluación humanas no se atribuyen a una herramienta.
 
-16. Reto 7 El presupuesto oculto
-Preparación: Entrega Bienestar sin conclusiones precalculadas. Pide abrir una copia.
-Herramientas y recursos: Excel con análisis descriptivo; chat aprobado; pestaña Bienestar.
+16. Reto 8 El presupuesto oculto
+Preparación: Entregue Bienestar y su encargo. Pida que la IA trabaje sobre una copia y genere cálculos, gráfico y tabla equivalente.
+Herramientas y recursos: chat autorizado o carpeta en Antigravity o Codex; fuentes del paquete, encargo completo y criterios de revisión. La IA genera los documentos y el aprendiz los contrasta y descarga.
 Material de práctica: Bienestar
 Secuencia y tiempos
 
@@ -214,11 +222,11 @@ Duración planificada: 120 minutos. Bloque en agenda: 120 minutos.
 Prompt de demostración: Con la tabla, describe asociaciones entre presupuesto por aprendiz, participación y tasa de deserción. Cita los valores y el número de centros. No infieras causalidad. Enumera variables que podrían explicar diferencias y un análisis adicional necesario.
 Evidencia por recoger: Cálculos, gráfico y tres conclusiones descriptivas con limitaciones.
 Lista de verificación: La tasa usa deserciones/aprendices matriculados; el presupuesto está en COP ficticios; asociación no prueba causalidad.
-Alternativa: Calcula las tasas con fórmulas y discute la asociación sin IA.
+Alternativa de acceso: presente una demostración con archivos preparados y conserve pendiente la ejecución propia del aprendiz con IA. La revisión y la evaluación humanas no se atribuyen a una herramienta.
 
 17. Storytelling ejecutivo con IA
-Preparación: Conserva las tres conclusiones verificadas del Reto 7 y una captura del gráfico.
-Herramientas y recursos: PowerPoint y Copilot disponibles; alternativa PowerPoint manual o presentación web autorizada.
+Preparación: Conserve las tres conclusiones y el gráfico del Reto 8. Compruebe su revisión antes de adjuntarlos al encargo de presentación.
+Herramientas y recursos: chat autorizado o carpeta en Antigravity o Codex; fuentes del paquete, encargo completo y criterios de revisión. La IA genera los documentos y el aprendiz los contrasta y descarga.
 Material de práctica: Bienestar
 Secuencia y tiempos
 
@@ -226,22 +234,22 @@ Duración planificada: 120 minutos. Bloque en agenda: 120 minutos.
 Prompt de demostración: Crea un esquema de cinco diapositivas para una reunión directiva con estas conclusiones verificadas. En cada lámina separa dato, lectura y pregunta para decidir. No agregues cifras. Incluye notas del orador y advierte que los datos son simulados.
 Evidencia por recoger: Cinco diapositivas, notas del orador y conexión visible con fuente/cálculo.
 Lista de verificación: Las diapositivas mantienen unidades y límites, no inventan cifras y no usan imágenes como si fueran evidencia.
-Alternativa: Usa plantilla institucional autorizada y arma las láminas manualmente.
+Alternativa de acceso: presente una demostración con archivos preparados y conserve pendiente la ejecución propia del aprendiz con IA. La revisión y la evaluación humanas no se atribuyen a una herramienta.
 
 18. Retrospectiva numérica
-Preparación: Prepara un error aritmético sencillo en un ejemplo ficticio.
-Herramientas y recursos: Excel y pizarra.
+Preparación: Prepare un error aritmético en un ejemplo de práctica y el encargo para que la IA genere un control reproducible.
+Herramientas y recursos: chat autorizado o carpeta en Antigravity o Codex; fuentes del paquete, encargo completo y criterios de revisión. La IA genera los documentos y el aprendiz los contrasta y descarga.
 Material de práctica: Bienestar
 Secuencia y tiempos
 
-Prompt de demostración: ¿Qué celda o supuesto cambia el resultado? Recalcula sin IA y explica el control que habría detectado el error.
+Prompt de demostración: Identifica la celda o supuesto que cambia el resultado y genera un cálculo de control reproducible con una fórmula o un script. Explica el error y entrega la tabla de comprobación. No declares que una persona lo revisó; esa revisión permanece pendiente hasta que ocurra.
 Evidencia por recoger: Lista de dos verificaciones independientes para el hackathon.
 Lista de verificación: Una conclusión numérica se rastrea hasta la tabla y la fórmula.
-Alternativa: Calculadora básica y revisión cruzada por otra persona.
+Alternativa de acceso: presente una demostración con archivos preparados y conserve pendiente la ejecución propia del aprendiz con IA. La revisión y la evaluación humanas no se atribuyen a una herramienta.
 
 19. Reglas y alineación de equipos
-Preparación: Prepara hojas de puntuación, caso simulado y roles de equipo.
-Herramientas y recursos: Agenda, cronómetro, rúbrica y materiales de datos.
+Preparación: Prepare el caso, las rúbricas y los roles del equipo. La IA organiza los documentos; el jurado conserva la asignación de puntajes.
+Herramientas y recursos: chat autorizado o carpeta en Antigravity o Codex; fuentes del paquete, encargo completo y criterios de revisión. La IA genera los documentos y el aprendiz los contrasta y descarga.
 Material de práctica: Rúbrica del hackathon
 Secuencia y tiempos
 
@@ -249,23 +257,23 @@ Duración planificada: 60 minutos. Bloque en agenda: 60 minutos.
 Prompt de demostración: Antes de usar IA, enumera entregables, fuentes disponibles, supuestos prohibidos y verificaciones humanas. Propón roles para análisis, redacción, control de datos y presentación.
 Evidencia por recoger: Integrantes, roles, acceso y plan inicial.
 Lista de verificación: Ajusta equipos al grupo real; rúbrica igual para todos; herramientas permitidas confirmadas.
-Alternativa: Roles, plan y revisión se realizan con papel y la carpeta de fuentes ficticias.
+Alternativa de acceso: presente una demostración con archivos preparados y conserve pendiente la ejecución propia del aprendiz con IA. La revisión y la evaluación humanas no se atribuyen a una herramienta.
 
 20. Fase 1 Planeación del caso
-Preparación: Entrega el caso ficticio de revisión de contratación 2025 y Contratos.
-Herramientas y recursos: Excel, Word, chat autorizado, rúbrica; pestaña Contratos.
+Preparación: Entregue el caso de revisión de contratación 2025, Contratos y el encargo para la IA; mantenga sus diferencias como preguntas de corroboración.
+Herramientas y recursos: chat autorizado o carpeta en Antigravity o Codex; fuentes del paquete, encargo completo y criterios de revisión. La IA genera los documentos y el aprendiz los contrasta y descarga.
 Material de práctica: Contratos y Directriz
 Secuencia y tiempos
 
 Duración planificada: 120 minutos. Bloque en agenda: 120 minutos.
-Prompt de demostración: Con base en el caso y la tabla ficticia, propone un plan de análisis con pasos, producto esperado, dato que se necesita y control de calidad. No concluyas que existe incumplimiento o fraude. Distingue hallazgos verificables de preguntas por investigar.
+Prompt de demostración: Con base en el caso y la tabla ficticia, propón un plan de análisis con pasos, producto esperado, dato que se necesita y control de calidad. No concluyas que existe incumplimiento o fraude. Distingue hallazgos verificables de preguntas por investigar.
 Evidencia por recoger: Plan priorizado, inventario de fuentes y lista de preguntas.
 Lista de verificación: El caso queda identificado como simulado; una anomalía es una señal para revisar, no prueba de irregularidad.
-Alternativa: Usa plantilla de plan de trabajo sin IA.
+Alternativa de acceso: presente una demostración con archivos preparados y conserve pendiente la ejecución propia del aprendiz con IA. La revisión y la evaluación humanas no se atribuyen a una herramienta.
 
 21. Fase 2 Ejecución y generación
-Preparación: Entrega una copia de Contratos y asigna un equipo mentor/auditor que haga preguntas.
-Herramientas y recursos: Excel, Word y Outlook de práctica; IA aprobada para archivos ficticios.
+Preparación: Entregue una copia de Contratos y su encargo. Asigne un equipo que contraste las salidas de la IA y formule preguntas de revisión.
+Herramientas y recursos: chat autorizado o carpeta en Antigravity o Codex; fuentes del paquete, encargo completo y criterios de revisión. La IA genera los documentos y el aprendiz los contrasta y descarga.
 Material de práctica: Contratos
 Secuencia y tiempos
 
@@ -273,11 +281,11 @@ Duración planificada: 120 minutos. Bloque en agenda: 120 minutos.
 Prompt de demostración: Compara valor planeado, comprometido y estado de expediente en la tabla ficticia. Lista discrepancias con código de fila y columna fuente. No califiques una discrepancia como incumplimiento; formula la pregunta de verificación correspondiente.
 Evidencia por recoger: Copia analítica, borradores y lista de excepciones trazables.
 Lista de verificación: No se borran filas ni se afirma irregularidad sin corroboración. Todo correo queda como borrador.
-Alternativa: Usa filtros, fórmulas de diferencia y plantillas de Word con revisión entre pares.
+Alternativa de acceso: presente una demostración con archivos preparados y conserve pendiente la ejecución propia del aprendiz con IA. La revisión y la evaluación humanas no se atribuyen a una herramienta.
 
 22. Fase 3 Presentación de soluciones
-Preparación: Organiza el orden de máximo ocho equipos y activa temporizador visible.
-Herramientas y recursos: Proyector, diapositivas o Word, rúbrica y tabla de resultados.
+Preparación: Organice el orden de máximo ocho equipos y active un temporizador visible; las presentaciones deben usar los archivos generados y sus comprobaciones.
+Herramientas y recursos: chat autorizado o carpeta en Antigravity o Codex; fuentes del paquete, encargo completo y criterios de revisión. La IA genera los documentos y el aprendiz los contrasta y descarga.
 Material de práctica: Rúbrica del hackathon
 Secuencia y tiempos
 
@@ -285,35 +293,600 @@ Duración planificada: 120 minutos. Bloque en agenda: 120 minutos.
 Prompt de demostración: Explica el problema, el entregable, el prompt decisivo, una salida corregida, una verificación y el tiempo medido. Separa datos simulados de recomendaciones.
 Evidencia por recoger: Presentación, prompts, verificación y registro de tiempo comparable.
 Lista de verificación: Evalúa con rúbrica. No sumes horas no comparables ni aceptes salidas sin revisión.
-Alternativa: Presentación oral apoyada en una hoja impresa.
+Alternativa de acceso: presente una demostración con archivos preparados y conserve pendiente la ejecución propia del aprendiz con IA. La revisión y la evaluación humanas no se atribuyen a una herramienta.
 
-23. Evaluación retroalimentación y premiación
-Preparación: Imprime o distribuye rúbricas idénticas y registra un jurado por equipo.
-Herramientas y recursos: Rúbrica del hackathon, cronómetro y pizarra.
+23. Evaluación, retroalimentación y premiación
+Preparación: Distribuya rúbricas idénticas y confirme el jurado. La IA puede organizar el archivo; el juicio y el puntaje corresponden a los evaluadores.
+Herramientas y recursos: chat autorizado o carpeta en Antigravity o Codex; fuentes del paquete, encargo completo y criterios de revisión. La IA genera los documentos y el aprendiz los contrasta y descarga.
 Material de práctica: Rúbrica del hackathon
 Secuencia y tiempos
 
-Prompt de demostración: Para cada criterio, registra la evidencia observada y el puntaje. Si falta evidencia, no supongas que el criterio se cumplió.
+Prompt de demostración: Organiza el archivo de rúbrica únicamente con la evidencia observada y los puntajes que el jurado haya asignado. No emitas el juicio del instructor ni inventes valoraciones. Conserva como pendiente cualquier criterio sin evidencia o puntaje confirmado.
 Evidencia por recoger: Rúbrica diligenciada, retroalimentación breve y resultado explicado.
 Lista de verificación: No se premia solo rapidez. Se aplican los mismos criterios a todos los equipos.
-Alternativa: Consolidación manual con suma de pesos y un segundo revisor.
+Alternativa de acceso: presente una demostración con archivos preparados y conserve pendiente la ejecución propia del aprendiz con IA. La revisión y la evaluación humanas no se atribuyen a una herramienta.
 
 24. Cierre y transferencia al puesto
-Preparación: Entrega hoja de piloto de 30 días y acuerda cómo se guardará la evidencia.
-Herramientas y recursos: Cartilla, pestaña Transferencia en la bitácora y calendario de seguimiento.
+Preparación: Entregue el encargo del piloto de 30 días y acuerde cómo se conservarán los archivos generados y su revisión.
+Herramientas y recursos: chat autorizado o carpeta en Antigravity o Codex; fuentes del paquete, encargo completo y criterios de revisión. La IA genera los documentos y el aprendiz los contrasta y descarga.
 Material de práctica: Plan de transferencia
 Secuencia y tiempos
 
 Duración planificada: 60 minutos. Bloque en agenda: 60 minutos.
-Prompt de demostración: Ayúdame a convertir este proceso en un piloto pequeño. Devuelve objetivo, unidad para medir, tiempo base que debo registrar, prueba con información ficticia o autorizada, revisión humana, responsable y fecha de seguimiento. No prometas un ahorro antes de medirlo.
+Prompt de demostración: Genera un piloto pequeño con objetivo, unidad para medir, línea base disponible, prueba con información de práctica o autorizada, revisión humana, responsable y fecha de seguimiento. Los tiempos no observados, responsables no confirmados y fechas sin acuerdo quedan pendientes. Entrega el documento descargable sin prometer ahorros antes de medirlos.
 Evidencia por recoger: Un piloto con proceso, línea base, responsable, fecha y control de información.
 Lista de verificación: No se promete una cifra; el piloto espera autorización de herramienta/datos y cotejo de calidad.
-Alternativa: Completa la ficha en papel y fija el seguimiento con el responsable.
+Alternativa de acceso: presente una demostración con archivos preparados y conserve pendiente la ejecución propia del aprendiz con IA. La revisión y la evaluación humanas no se atribuyen a una herramienta.
 
 Pautas de revisión para el facilitador
 
 Medición y cierre
-Para cada tarea candidata, registre línea base, volumen comparable, tiempo con apoyo de IA, calidad y tiempo de corrección.
-Calcule el tiempo neto solo con evidencia y en la misma unidad de trabajo; la bitácora separa estimaciones de ahorros validados.
+Pida a la IA que organice las mediciones disponibles de línea base, volumen comparable, tiempo con IA, calidad y corrección. Revise las fuentes de observación; deje pendiente lo que no se haya medido.
+Pida a la IA el cálculo de tiempo neto con las observaciones disponibles y la misma unidad de trabajo. Compruebe que separe estimaciones, mediciones y ahorros pendientes de validación.
 Recoja el compromiso de piloto de 30 días: tarea pequeña, responsable, herramienta autorizada, fuente de datos, revisión y fecha de seguimiento.
-Al cierre de cada jornada, solicite un aprendizaje, una duda y un resultado que requirió corrección. Registre lo pendiente sin inventar resultados.
+Al cierre, pida a la IA una síntesis de la conversación y los archivos, con aprendizaje, duda y correcciones documentadas. Revise que no invente experiencias ni presente como realizada una revisión pendiente.
+Enfoque
+Qué se busca
+Acompañar
+Guiar a personas con trayectorias y niveles de experiencia digital distintos, conectando la IA con tareas administrativas concretas.
+Proteger
+Practicar con material ficticio. Usar herramientas y datos reales solo cuando exista autorización institucional.
+Demostrar
+Guardar prompts, productos, correcciones humanas y mediciones comparables; no declarar ahorros estimados como resultados.
+Encargo vigente
+Paquete con fuentes e instrucciones
+Reto 0 · Decide qué información compartir
+materiales/ia/reto-0.zip
+Reto 1 · Convierte el lineamiento en una respuesta verificable
+materiales/ia/reto-1.zip
+Reto 2 · Prepara dos respuestas para revisión
+materiales/ia/reto-2.zip
+Reto 3 · Prueba una instrucción reutilizable
+materiales/ia/reto-3.zip
+Reto 4 · Bandeja de 50 mensajes con razones visibles
+materiales/ia/reto-4.zip
+Reto 5 · Acta que distingue acuerdo de intención
+materiales/ia/reto-5.zip
+Reto 6 · Datos desordenados con una regla reproducible
+materiales/ia/reto-6.zip
+Reto 7 · Diseña el flujo antes de automatizar
+materiales/ia/reto-7.zip
+Reto 8 · Presupuesto, tasa y gráfico con unidades
+materiales/ia/reto-8.zip
+Reto 9 · Auditoría de una respuesta convincente ✦
+materiales/ia/reto-9.zip
+Reto integrador · Plan, análisis y sustentación
+materiales/ia/reto-integrador.zip
+Regla
+Aplicación durante el curso
+Datos
+No pegar nombres, identificaciones, casos ciudadanos, credenciales, expedientes ni información interna en servicios sin autorización.
+Fuentes
+La IA no acredita normas ni procedimientos por sí sola. Contraste afirmaciones con el documento de origen y su vigencia.
+Decisiones
+Las salidas son borradores de entrenamiento. No enviar respuestas, correos, actas ni decisiones sin aprobación humana.
+Incertidumbre
+Marque lo que falta como pendiente o por confirmar. No complete vacíos por intuición.
+Productividad
+Compare la misma tarea, volumen y estándar de calidad. Registre correcciones y autorización antes de contabilizar ahorro.
+Hackathon
+Una diferencia en los datos ficticios es una pregunta de revisión, no prueba de incumplimiento, irregularidad o fraude.
+Día
+Hora
+Min
+Bloque
+Evidencia o cierre
+Día 1
+07:00–08:30
+90
+Apertura: IA en el trabajo administrativo
+Lista de tareas candidatas y una medición inicial de tiempo para una tarea representativa.
+Día 1
+08:30–10:00
+90
+Reto 1: Prompt Engineering 101
+Prompt inicial y versión mejorada con criterios de verificación.
+Día 1
+10:00–10:30
+30
+Pausa activa
+Pausa realizada.
+Día 1
+10:30–12:30
+120
+Reto 2: El teléfono roto de las PQRS
+Borrador, prompt usado, número de iteraciones y lista de verificaciones humanas.
+Día 1
+12:30–14:00
+90
+Almuerzo
+Almuerzo realizado.
+Día 1
+14:00–16:00
+120
+Domando la burocracia: gestión de texto
+Resumen, tabla de responsabilidades y referencias al documento fuente.
+Día 1
+16:00–16:30
+30
+Pausa activa
+Pausa realizada.
+Día 1
+16:30–18:30
+120
+Reto 3: Clonación de roles
+Prompt reutilizable con contexto, tareas permitidas, formato y límites.
+Día 1
+18:30–19:00
+30
+Retrospectiva y Bóveda del Tiempo
+Registro del reto y reflexión de cierre.
+Día 2
+07:00–09:00
+120
+La bandeja de entrada inteligente
+Resumen y borradores con tono adaptado y hechos verificados.
+Día 2
+09:00–10:00
+60
+Reto 4: Bandeja cero en tiempo récord
+Matriz de prioridad y 10 borradores con la razón de priorización.
+Día 2
+10:00–10:30
+30
+Pausa activa
+Pausa realizada.
+Día 2
+10:30–12:30
+120
+Documentación colaborativa y reuniones
+Borrador de plan con fuente, supuestos y puntos pendientes.
+Día 2
+12:30–14:00
+90
+Almuerzo
+Almuerzo realizado.
+Día 2
+14:00–16:00
+120
+Reto 5: El acta imposible
+Acta, lista de compromisos y vacíos que requieren confirmación.
+Día 2
+16:00–16:30
+30
+Pausa activa
+Pausa realizada.
+Día 2
+16:30–18:30
+120
+Integración: el flujo de trabajo
+Cadena correo–plan–anuncio con borradores y fuentes enlazadas.
+Día 2
+18:30–19:00
+30
+Retrospectiva y Bóveda del Tiempo
+Registro del reto y aprendizaje del día.
+Día 3
+07:00–09:00
+120
+Hablando con las celdas
+Tabla de práctica y fórmula revisada con un cálculo de control.
+Día 3
+09:00–10:00
+60
+Reto 6: El informe sucio
+Base estandarizada y lista de reglas de limpieza.
+Día 3
+10:00–10:30
+30
+Pausa activa
+Pausa realizada.
+Día 3
+10:30–12:30
+120
+Visualización y preguntas estratégicas
+Gráfico y respuesta acompañados del filtro y el cálculo.
+Día 3
+12:30–14:00
+90
+Almuerzo
+Almuerzo realizado.
+Día 3
+14:00–16:00
+120
+Reto 8: El presupuesto oculto
+Tres conclusiones ejecutivas con cálculos y límites visibles.
+Día 3
+16:00–16:30
+30
+Pausa activa
+Pausa realizada.
+Día 3
+16:30–18:30
+120
+Storytelling ejecutivo con IA
+Presentación de cinco diapositivas con notas y fuente de datos.
+Día 3
+18:30–19:00
+30
+Retrospectiva: alucinaciones numéricas
+Lista de comprobación numérica para el hackathon.
+Día 4
+07:00–08:00
+60
+Reglas y alineación de equipos
+Equipos y plan de trabajo inicial.
+Día 4
+08:00–10:00
+120
+Fase 1: planeación del caso
+Plan de trabajo priorizado y preguntas de verificación.
+Día 4
+10:00–10:30
+30
+Pausa activa
+Pausa realizada.
+Día 4
+10:30–12:30
+120
+Fase 2: ejecución y generación
+Base revisada, borradores y estructura del informe con evidencia.
+Día 4
+12:30–14:00
+90
+Almuerzo
+Almuerzo realizado.
+Día 4
+14:00–16:00
+120
+Fase 3: presentación de soluciones
+Presentación, prompts utilizados y evidencia del tiempo reportado.
+Día 4
+16:00–16:30
+30
+Pausa de celebración
+Pausa realizada.
+Día 4
+16:30–18:00
+90
+Evaluación, retroalimentación y premiación
+Rúbricas diligenciadas y retroalimentación por equipo.
+Día 4
+18:00–19:00
+60
+Cierre y transferencia al puesto
+Compromiso de transferencia diligenciado y dueño del seguimiento.
+Min
+Guion para el aprendiz
+15
+Bienvenida, propósito y acuerdos de cuidado de datos.
+20
+Demostración cronometrada para clasificar 50 solicitudes ficticias; observa el tiempo y los errores.
+20
+Revisa en plenaria cinco casos y separa hechos, sugerencias y datos faltantes.
+25
+Pide a la IA una propuesta de tarea repetitiva del caso y su unidad. Si no hay observaciones del tiempo actual, la línea base queda pendiente.
+10
+Pide a la IA una pregunta de transferencia y un registro de línea base; comprueba que el tiempo no medido quede pendiente.
+Min
+Guion para el aprendiz
+10
+Pide a la IA que explique Contexto, Rol, Tarea y Tono con un ejemplo del lineamiento adjunto.
+15
+Pide a la IA que compare el encargo con una versión incompleta y señale qué información falta.
+20
+Copia el encargo preparado y adjunta el lineamiento. La IA genera la ficha CRTT y la respuesta con referencias.
+20
+Revisa que la respuesta generada cite reglas presentes en el material y deje visibles los vacíos.
+15
+Pide a la IA un ajuste a partir del error u omisión que detectaste y comprueba la nueva salida.
+10
+Compara las dos versiones y descarga el registro y el encargo reutilizable que genera la IA.
+Min
+Guion para el aprendiz
+10
+Abre el caso y comprueba que el resultado esperado sea un borrador pendiente de aprobación.
+15
+Pide a la IA una tabla de petición, hechos, fechas expresas y datos ausentes; contrástala con el caso.
+20
+Copia el encargo CRTT del paquete, adjunta el caso y pide a la IA la primera versión descargable.
+25
+Contrasta la respuesta con el caso. Pide a la IA que identifique afirmaciones sin sustento.
+20
+Pide a la IA que corrija el borrador e incluya una pregunta de aclaración cuando falte un dato.
+20
+Revisa con otro equipo la exactitud y el tono; solicita a la IA los ajustes que acuerden.
+10
+Descarga el encargo, el borrador y el registro generado; comprueba que las observaciones no se atribuyan a una revisión que no ocurrió.
+Min
+Guion para el aprendiz
+10
+Presenta el objetivo y muestra cómo referenciar un fragmento fuente.
+15
+Lee el material e identifica encabezados, fechas, responsables y excepciones.
+25
+Pide a la IA un resumen ejecutivo de cinco puntos con referencias a apartados y comprueba su trazabilidad.
+25
+Pide a la IA la tabla de acciones, responsables, condiciones y fechas, sin completar datos ausentes.
+25
+Verifica cada fila en el texto original y marca lo que no aparece.
+20
+Dos parejas comparan los resúmenes y comentan omisiones.
+Min
+Guion para el aprendiz
+15
+Pide a la IA un mapa de la tarea de práctica y su resultado esperado; comprueba las entradas y las salidas.
+20
+Pide a la IA que genere el prompt maestro con rol, contexto, tareas, formato y límites definidos por el paquete.
+30
+Encarga a la IA las tres pruebas con la misma instrucción y revisa el caso con información faltante.
+25
+Una pareja revisa utilidad, errores y datos que la IA solicitó innecesariamente.
+20
+Solicita a la IA el ajuste de límites y de la instrucción de verificación; vuelve a comprobar las pruebas afectadas.
+10
+Descarga la versión revisada y el ejemplo de uso seguro que genera la IA.
+Min
+Guion para el aprendiz
+5
+Pide a la IA una síntesis de la conversación con un aprendizaje y una duda; revisa que no invente experiencias tuyas.
+10
+Intercambio por parejas: qué resultado requirió corrección.
+10
+Plenaria: elige un prompt que mejoró la precisión.
+5
+Descarga el registro generado por la IA y comprueba que todo ahorro no validado siga pendiente.
+Min
+Guion para el aprendiz
+15
+Explica qué puede resumirse y qué no se debe enviar a un servicio no autorizado.
+25
+Demuestra un resumen del hilo con hechos, acuerdos y pendientes.
+25
+Pide a la IA dos versiones de respuesta con tonos distintos y comprueba que ambas conserven los hechos.
+25
+Cada persona trabaja un caso ficticio y detecta supuestos.
+20
+En parejas comparan tono, exactitud y cortesía.
+10
+Cierran con un borrador listo para revisión, sin enviarlo.
+Min
+Guion para el aprendiz
+5
+Revisa el encargo preparado y las señales de prioridad: impacto, plazo explícito y personas afectadas.
+5
+Adjunta una copia del archivo y comprueba que la IA conserve los identificadores y los datos originales.
+20
+Pide a la IA la tabla de los 50 mensajes con categoría, prioridad sugerida y señal textual.
+10
+Pide a la IA los diez mensajes priorizados con la señal de cada elección; contrasta los criterios con el texto.
+15
+Pide a la IA los diez borradores descargables y comprueba que permanezcan sin enviar.
+5
+Pide a la IA que incorpore los errores detectados y los ajustes solicitados en el registro descargable.
+Min
+Guion para el aprendiz
+15
+Muestra cómo generar un borrador a partir de dos insumos.
+20
+Pide a la IA una tabla de propósito, restricciones y preguntas pendientes por archivo; contrástala con las fuentes.
+35
+Pide a la IA el plan con objetivo, actividad, responsable por confirmar y fuente; revisa los datos ausentes.
+25
+Verifica si cada afirmación se respalda en los archivos.
+15
+Pide revisión a otra pareja.
+10
+Guarda el borrador y los pendientes.
+Min
+Guion para el aprendiz
+10
+Pide a la IA un ejemplo de la diferencia entre una decisión y una intervención usando la transcripción adjunta.
+10
+Lee la transcripción para reconocer el contexto y luego adjúntala al encargo de la IA.
+20
+Pide a la IA la extracción de decisiones, acciones, responsables, fechas y puntos sin acuerdo, con su frase fuente.
+25
+Pide a la IA el borrador de acta a partir de la extracción y conserva los datos ausentes como pendientes.
+20
+Comprueba cada decisión y compromiso contra la transcripción.
+25
+Compara el acta con otro equipo y pide a la IA las correcciones respaldadas por la transcripción.
+10
+Descarga el acta, la lista de datos faltantes y resultado.json preparados por la IA.
+Min
+Guion para el aprendiz
+15
+Lee el correo simulado y señala el encargo.
+25
+Pide a la IA el resumen de hechos y preguntas pendientes; comprueba que no convierta suposiciones en hechos.
+35
+Pide a la IA el plan de acción con fuente y responsables por confirmar, pendiente de aprobación.
+20
+Pide a la IA el anuncio para Teams y conserva el archivo como borrador sin enviar.
+15
+Otra pareja rastrea cada punto hasta su fuente.
+10
+Presenta el flujo y su control humano.
+Min
+Guion para el aprendiz
+5
+Pide a la IA que señale los borradores con datos pendientes y revisa con sus fuentes por qué aún no pueden enviarse.
+10
+Contrasta respuestas en parejas.
+10
+Plenaria sobre datos faltantes y tono.
+5
+Descarga el registro generado por la IA; comprueba qué evidencias están revisadas y cuáles siguen pendientes.
+Min
+Guion para el aprendiz
+15
+Explora encabezados, tipos de dato y calidad.
+20
+Pide a la IA la fórmula con la explicación de cada parte y un caso de control reproducible.
+25
+Encarga a la IA la transformación de una copia de la tabla y revisa una muestra con la fuente.
+25
+Revisa el cálculo de control generado con una fórmula o un script y comprueba un caso límite contra la fuente.
+20
+Pide a la IA la regla de formato condicional con su criterio explicado y comprueba un caso que activa la regla.
+10
+Pide a la IA que organice la comprobación realmente realizada; la pareja revisa que no se atribuya una validación inexistente.
+5
+Cierra con una duda.
+Min
+Guion para el aprendiz
+5
+Revisa el objetivo del encargo y conserva el archivo original; la IA debe trabajar en una copia.
+10
+Pide a la IA el conteo de vacíos, duplicados y variantes antes de limpiar; contrasta una muestra con la fuente.
+20
+Encarga a la IA la normalización de estados y fechas válidas y la documentación de cada regla aplicada.
+10
+Pide a la IA que señale los registros que requieren decisión y deje sus valores pendientes, sin inferirlos.
+10
+Otra pareja revisa una muestra y un caso límite.
+5
+Descarga la copia limpia, las reglas y la bitácora que genera la IA; conserva la fuente.
+Min
+Guion para el aprendiz
+10
+Pide a la IA que delimite variables, periodo y unidad de la pregunta del encargo; revisa la selección.
+25
+Pide a la IA la tabla de resumen por centro con filtros, fórmulas y unidades visibles.
+25
+Pide a la IA un gráfico ordenado con eje desde cero y su tabla equivalente; comprueba las etiquetas.
+25
+Pide a la IA otra selección del filtro y comprueba con las filas fuente cómo cambian los totales.
+20
+Pide a la IA que redacte el hallazgo con valor, alcance y límites; contrástalo con la tabla y el gráfico.
+15
+Otro equipo verifica la fuente y la lectura.
+Min
+Guion para el aprendiz
+10
+Revisa con la fuente las definiciones, el periodo y los tamaños de población que usará la IA.
+15
+Pide a la IA las tasas y el presupuesto por aprendiz con numerador, denominador y fórmula visibles.
+35
+Pide a la IA el gráfico de presupuesto por aprendiz y deserción con su tabla equivalente y valores atípicos identificados.
+20
+Solicita a la IA tres conclusiones con evidencia y límite.
+20
+Pide a la IA un cálculo de control, contrástalo con la fuente y solicita retirar afirmaciones causales sin respaldo.
+15
+Revisa la conclusión y la pregunta de gestión generadas por la IA antes de compartir el resultado.
+5
+Pide a la IA que guarde el hallazgo con alcance, límites y pendientes en el documento descargable.
+Min
+Guion para el aprendiz
+10
+Revisa la audiencia y la decisión delimitadas en el encargo de presentación para la IA.
+15
+Pide a la IA que separe evidencia, interpretación y recomendación en la presentación.
+30
+Pide a la IA cinco diapositivas con un mensaje por lámina y sin agregar cifras ajenas a las fuentes.
+25
+Pide a la IA las notas del orador y las referencias al cálculo; comprueba cada afirmación.
+25
+Revisa legibilidad, causalidad, escalas e imágenes.
+15
+Presenta en dos minutos y recibe una observación.
+Min
+Guion para el aprendiz
+5
+Presenta un resultado con error deliberado.
+10
+El grupo rastrea dato, fórmula y denominador.
+10
+Contrasta métodos de doble revisión.
+5
+Pide a la IA la regla de control que surge de la revisión del equipo y descarga el documento.
+Min
+Guion para el aprendiz
+10
+Forma equipos diversos y confirma roles.
+10
+Explica las reglas, el tiempo y la rúbrica.
+15
+Entrega el brief del caso sin compartir datos reales.
+15
+Verifica acceso a archivos, herramientas y alternativa.
+10
+Pide a la IA el plan inicial y los riesgos; el equipo revisa que correspondan al caso.
+Min
+Guion para el aprendiz
+10
+Lee el caso y comprueba que el encargo a la IA delimite la decisión que seguirá en manos de una persona.
+20
+Revisa los entregables y criterios de aceptación del encargo preparado antes de ejecutarlo con IA.
+30
+Pide a la IA una secuencia de trabajo con fuentes y responsables por confirmar; revisa su viabilidad.
+25
+Pide a la IA el inventario de riesgos, datos incompletos y preguntas; comprueba que no complete vacíos.
+20
+Usa IA para revisar el plan, sin crear hechos.
+15
+El facilitador valida el alcance y la secuencia.
+Min
+Guion para el aprendiz
+10
+Reparte roles y confirma el alcance.
+20
+Encarga a la IA la limpieza de una copia y la documentación de excepciones; revisa los registros señalados.
+25
+Pide a la IA las diferencias y los totales con sus fórmulas; verifica una muestra contra las filas fuente.
+25
+Pide a la IA el informe con fuente por afirmación y sin conclusiones de incumplimiento o fraude.
+20
+Pide a la IA los borradores de comunicación interna y comprueba que estén pendientes de aprobación y sin enviar.
+10
+Revisa prompts y datos usados.
+10
+El mentor verifica evidencia y pendientes.
+Min
+Guion para el aprendiz
+120
+Reserva 15 minutos por equipo: ocho para exposición, cuatro para preguntas y tres para evidencia y cambio humano. Si hay menos equipos, usa el tiempo restante para retroalimentación.
+Min
+Guion para el aprendiz
+10
+Explica escala y pesos.
+30
+Cada jurado puntúa evidencias por criterio.
+20
+Equipos entregan una fortaleza y una mejora concreta.
+15
+Consolida puntajes y resuelve diferencias con evidencia.
+10
+Reconoce calidad, utilidad y aprendizaje.
+5
+Pide a la IA que organice únicamente los puntajes finales que el jurado haya asignado; no inventes valoraciones.
+Min
+Guion para el aprendiz
+10
+Reflexiona sobre supervisión humana y uso permitido.
+15
+Selecciona un proceso pequeño, repetible y no sensible.
+15
+Pide a la IA que organice tiempo base, unidad y volumen semanal. Si no hay observaciones, esos datos deben quedar pendientes.
+10
+Pide a la IA un plan con responsable por confirmar, primer paso y revisión a 30 días; valida lo que corresponda con el instructor.
+10
+Lee el compromiso en pareja y cierra.
+Actividad
+Qué debe observarse
+Reto 1 · Prompt CRTT
+Contexto, rol, tarea y tono explícitos; fuente delimitada; salida con referencias; vacíos reconocidos.
+Reto 2 · PQRS
+Borrador respetuoso; petición y hechos separados; sin normas, fechas ni decisiones inventadas; dudas pendientes visibles.
+Reto 4 · Bandeja
+La prioridad indica su señal; el equipo no envía mensajes; compromisos y destinatarios quedan por verificar.
+Reto 5 · Acta
+La salida generada distingue acuerdos de propuestas e incluye responsable, fecha y frase de origen solo si constan; el aprendiz comprueba la referencia.
+Reto 6 · Datos
+Conserva original; aplica reglas documentadas; identifica vacíos y posibles duplicados sin borrarlos.
+Reto 8 · Presupuesto
+Denominador consistente; cálculos comprobados; lenguaje descriptivo sin atribuir causalidad.
+Hackathon
+Trazabilidad a fila y columna; cada discrepancia se formula como pregunta; no se hacen acusaciones ni se envían borradores.

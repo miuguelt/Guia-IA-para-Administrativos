@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="420" height="320" viewBox="0 0 420 320" role="img" aria-labelledby="title desc">
+<title id="title">Corregir con una referencia</title>
+<desc id="desc">En PC-01 la fuente no confirma una hora nueva. Una respuesta que añade las ocho necesita una corrección concreta. La versión revisada mantiene la hora pendiente y vuelve a comprobarse con la fuente.</desc>
+<rect width="420" height="320" rx="24" fill="#f1f6ed"/>
+<g font-family="Segoe UI, sans-serif" fill="#173e34">
+<text x="24" y="39" font-size="26" font-weight="700">Corrige sin empezar de cero</text>
+<rect x="20" y="58" width="380" height="60" rx="14" fill="#fff" stroke="#bed0b2"/>
+<text x="36" y="83" font-size="19" fill="#52694c">FUENTE · PC-01</text><text x="36" y="108" font-size="23">La hora nueva no consta.</text>
+<rect x="20" y="132" width="380" height="57" rx="14" fill="#fff3e1" stroke="#a8781e"/>
+<text x="36" y="158" font-size="19" fill="#6c4b0d">BORRADOR CON ERROR</text><text x="36" y="181" font-size="22">«La actividad será a las 8».</text>
+<path d="M210 192V213m-7-7 7 7 7-7" fill="none" stroke="#225746" stroke-width="3"/>
+<rect x="20" y="222" width="380" height="76" rx="14" fill="#fff" stroke="#bed0b2"/>
+<text x="36" y="249" font-size="20" font-weight="700">RETIRA LA HORA AÑADIDA</text><text x="36" y="278" font-size="23">Vuelve a la fuente y comprueba.</text>
+</g></svg>

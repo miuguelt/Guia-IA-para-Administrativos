@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 330 272" role="img" aria-labelledby="title desc">
+  <title id="title">Flujo para revisar una clasificación dudosa</title>
+  <desc id="desc">Observa el material y su condición. Si el criterio y la fuente son claros, registra la categoría. Si la información o el criterio no permiten resolver el caso, o hay desacuerdo, detén la decisión automática y pide revisión humana.</desc>
+  <rect fill="#eef6f0" height="54" rx="12" stroke="#5c8067" stroke-width="2" width="286" x="22" y="8" />
+  <text fill="#173e2b" font-size="13" font-weight="700" text-anchor="middle" x="165" y="30">Observa material y condición</text>
+  <text fill="#334155" font-size="11" text-anchor="middle" x="165" y="47">Compara con la fuente vigente</text>
+  <path d="M165 63v20m-6-7 6 7 6-7" fill="none" stroke="#38624b" stroke-width="3" />
+  <rect fill="#fff" height="54" rx="12" stroke="#5c8067" stroke-width="2" width="286" x="22" y="86" />
+  <text fill="#173e2b" font-size="13" font-weight="700" text-anchor="middle" x="165" y="108">¿El criterio está claro?</text>
+  <text fill="#334155" font-size="11" text-anchor="middle" x="165" y="126">Revisa contaminación y datos faltantes</text>
+  <path d="M165 141v16m-6-7 6 7 6-7M165 157H83v12m0-6-6 6 6 6m82-18v12m0-6-6 6 6 6" fill="none" stroke="#38624b" stroke-width="3" />
+  <rect fill="#edf6e7" height="76" rx="12" stroke="#6d9d52" stroke-width="2" width="138" x="14" y="178" />
+  <text fill="#173e2b" font-size="12" font-weight="700" text-anchor="middle" x="83" y="201">Sí, está claro</text>
+  <text fill="#334155" font-size="11" text-anchor="middle" x="83" y="220">Registra categoría</text>
+  <text fill="#334155" font-size="11" text-anchor="middle" x="83" y="237">y criterio</text>
+  <rect fill="#fff3d8" height="76" rx="12" stroke="#b87510" stroke-width="2" width="160" x="156" y="178" />
+  <text fill="#6b3b00" font-size="12" font-weight="700" text-anchor="middle" x="236" y="201">No o hay duda</text>
+  <text fill="#334155" font-size="11" text-anchor="middle" x="236" y="220">Pide revisión</text>
+  <text fill="#334155" font-size="11" text-anchor="middle" x="236" y="237">humana</text>
+</svg>

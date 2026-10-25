@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="es-CO"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="light"><title>Caso de Estudio 01: Catálogo de Procesos Administrativos - Redes CIMI · Biblioteca de la guía</title>
+<link rel="stylesheet" href="../../css/documents.css"><link rel="stylesheet" href="devbrain-prose.css" data-devbrain-prose>
+<script defer src="devbrain-prose.js" data-devbrain-prose-runtime></script></head><body>
+<a class="skip-link" href="#documento">Ir al documento</a>
+<nav class="reader-nav" aria-label="Acciones del documento"><a href="index.html">← Biblioteca</a>
+<a href="../../index.html#preparacion">Abrir guía web</a><a href="../ejercicios/caso-01-procesos-redes-cimi.md" download>Descargar fuente Markdown</a>
+<span>Imprime o guarda en PDF con Ctrl+P</span></nav>
+<div class="reading-layout"><aside class="reading-sidebar"><p class="eyebrow">En este documento</p>
+<details open><summary>Ver apartados</summary><div class="toc">
+<ul>
+<li><a href="#1-contexto-operativo">1. Contexto Operativo</a></li>
+<li><a href="#2-inventario-de-procesos-para-diagnostico">2. Inventario de Procesos para Diagnóstico</a><ul>
+<li><a href="#proceso-p1-radicacion-y-pre-clasificacion-de-pqrs-de-aprendices">Proceso P1: Radicación y Pre-clasificación de PQRS de Aprendices</a></li>
+<li><a href="#proceso-p2-elaboracion-de-actas-de-comite-de-evaluacion-y-seguimiento">Proceso P2: Elaboración de Actas de Comité de Evaluación y Seguimiento</a></li>
+<li><a href="#proceso-p3-calculo-matematico-de-horas-y-liquidacion-de-honorarios-de-instructores">Proceso P3: Cálculo Matemático de Horas y Liquidación de Honorarios de Instructores</a></li>
+<li><a href="#proceso-p4-redaccion-de-memorandos-y-circulares-informativas-internas">Proceso P4: Redacción de Memorandos y Circulares Informativas Internas</a></li>
+<li><a href="#proceso-p5-analisis-y-deteccion-temprana-de-aprendices-en-riesgo-de-desercion">Proceso P5: Análisis y Detección Temprana de Aprendices en Riesgo de Deserción</a></li>
+<li><a href="#proceso-p6-consolidacion-y-verificacion-de-inventario-de-equipos-de-laboratorio">Proceso P6: Consolidación y Verificación de Inventario de Equipos de Laboratorio</a></li>
+<li><a href="#proceso-p7-custodia-y-emision-de-conceptos-disciplinarios-confidenciales">Proceso P7: Custodia y Emisión de Conceptos Disciplinarios Confidenciales</a></li>
+<li><a href="#proceso-p8-generacion-de-respuestas-a-preguntas-frecuentes-de-aspirantes-a-cursos">Proceso P8: Generación de Respuestas a Preguntas Frecuentes de Aspirantes a Cursos</a></li>
+</ul>
+</li>
+<li><a href="#3-utilidad-de-la-ia-en-este-reto">3. Utilidad de la IA en este Reto</a></li>
+<li><a href="#4-instruccion-para-el-aprendiz">4. Instrucción para el Aprendiz</a></li>
+</ul>
+</div>
+</details></aside>
+<main id="documento" class="document-sheet"><header class="document-header"><p class="eyebrow">Guía IA para administrativos</p>
+<span class="document-badge">Antecedentes históricos</span><p class="document-context">Este documento conserva su contexto de origen. Para realizar el curso, sigue la guía web vigente.</p></header>
+<article class="document-content"><blockquote>
+<p><strong>ARCHIVO HISTÓRICO — NO USAR COMO MATERIAL DE ESTA COHORTE.</strong> Este contenido fue preparado para Redes CIMI/Girón y no se ha validado para la propuesta de cohorte del CGAO, Subsede Vélez, Regional Santander. Para esta formación use la <a href="../../index.html">guía vigente</a>, la <a href="../Documentos/Cartilla_aprendices_retos_IA_SENA_Bogota.docx">cartilla de aprendices</a>, el <a href="../Documentos/Materiales_practica_IA_SENA_Bogota.xlsx">libro de práctica</a> y la <a href="docs--herramientas-y-preparacion.html">guía de herramientas y preparación</a>. No cargue datos personales o institucionales reales en servicios de IA externos. Funciones, nombres y permisos de herramientas pueden cambiar; verifique el acceso con el equipo formador.</p>
+</blockquote>
+<h1 id="caso-de-estudio-01-catalogo-de-procesos-administrativos-redes-cimi">Caso de Estudio 01: Catálogo de Procesos Administrativos - Redes CIMI</h1>
+<p><strong>Curso:</strong> Implementación de herramientas de IA en la optimización de la productividad (21720210 V1)<br/>
+<strong>Ambiente:</strong> Redes CIMI - SENA Girón<br/>
+<strong>Uso didáctico:</strong> Taller de diagnóstico y matriz de viabilidad (Estación 01 - Reto MG-A01)</p>
+<hr/>
+<h2 id="1-contexto-operativo">1. Contexto Operativo</h2>
+<p>En el Centro Industrial del Mantenimiento Integral (CIMI), la coordinación del área de Redes y Telecomunicaciones gestiona diariamente una alta carga administrativa. El personal de apoyo administrativo invierte entre el 60% y el 75% de su jornada laboral en tareas manuales de transcripción, archivo, redacción de respuestas rutinarias y consolidación de reportes en hojas de cálculo.</p>
+<p>Para este ejercicio, el aprendiz debe evaluar los siguientes 8 procesos reales del centro, determinar su viabilidad para ser optimizados con IA y clasificar qué tipo de tecnología requiere (Regla simple / Macro tradicional vs. IA Generativa vs. IA Predictiva vs. No viable por confidencialidad).</p>
+<hr/>
+<h2 id="2-inventario-de-procesos-para-diagnostico">2. Inventario de Procesos para Diagnóstico</h2>
+<h3 id="proceso-p1-radicacion-y-pre-clasificacion-de-pqrs-de-aprendices">Proceso P1: Radicación y Pre-clasificación de PQRS de Aprendices</h3>
+<ul>
+<li><strong>Descripción:</strong> Llegan correos de aprendices con solicitudes heterogéneas (solicitud de paz y salvo, reclamos de notas, peticiones de aplazamiento, denuncias de convivencia). El funcionario debe leer cada correo, tipificar el tipo de solicitud, identificar la ficha del aprendiz y remitir al instructor o coordinador correspondiente.</li>
+<li><strong>Volumen:</strong> 40 a 60 correos diarios.</li>
+<li><strong>Tiempo actual:</strong> 3 a 4 horas diarias.</li>
+<li><strong>Dolor principal:</strong> Textos desordenados, faltas de ortografía, datos incompletos.</li>
+</ul>
+<h3 id="proceso-p2-elaboracion-de-actas-de-comite-de-evaluacion-y-seguimiento">Proceso P2: Elaboración de Actas de Comité de Evaluación y Seguimiento</h3>
+<ul>
+<li><strong>Descripción:</strong> Durante las reuniones semanales de comité (2 horas de duración), se graban las intervenciones o se toman notas rápidas. Posteriormente, el administrativo pasa en limpio los acuerdos, las sanciones, los compromisos pedagógicos y la lista de asistentes en el formato institucional SENA.</li>
+<li><strong>Volumen:</strong> 3 a 5 actas semanales (8 a 15 páginas cada una).</li>
+<li><strong>Tiempo actual:</strong> 5 a 6 horas por acta.</li>
+<li><strong>Dolor principal:</strong> Dificultad para resumir sin perder detalles jurídicos y compromisos con fechas límite.</li>
+</ul>
+<h3 id="proceso-p3-calculo-matematico-de-horas-y-liquidacion-de-honorarios-de-instructores">Proceso P3: Cálculo Matemático de Horas y Liquidación de Honorarios de Instructores</h3>
+<ul>
+<li><strong>Descripción:</strong> Revisar planillas de asistencia y cruzar las horas programadas en Sofía Plus con las horas efectivamente ejecutadas por cada instructor contratista, multiplicando por el valor hora pactado para emitir el certificado de cumplimiento.</li>
+<li><strong>Volumen:</strong> 35 instructores mensuales.</li>
+<li><strong>Tiempo actual:</strong> 2 días completos al final de cada mes.</li>
+<li><strong>Dolor principal:</strong> Errores aritméticos humanos por cansancio visual.</li>
+<li><strong>Pregunta crítica para el aprendiz:</strong> ¿Debe usar un modelo de lenguaje (LLM) para hacer estas operaciones matemáticas o es un riesgo crítico de alucinación?</li>
+</ul>
+<h3 id="proceso-p4-redaccion-de-memorandos-y-circulares-informativas-internas">Proceso P4: Redacción de Memorandos y Circulares Informativas Internas</h3>
+<ul>
+<li><strong>Descripción:</strong> Redactar comunicados oficiales dirigidos a aprendices o instructores sobre fechas de matrículas, mantenimientos preventivos en los ambientes de Redes CIMI, o normas de seguridad en laboratorios.</li>
+<li><strong>Volumen:</strong> 4 a 6 comunicados al mes.</li>
+<li><strong>Tiempo actual:</strong> 1.5 horas por comunicado (redacción, estilo, tono formal SENA).</li>
+<li><strong>Dolor principal:</strong> Bloqueo del redactor, inconsistencias en el tono formal e institucional.</li>
+</ul>
+<h3 id="proceso-p5-analisis-y-deteccion-temprana-de-aprendices-en-riesgo-de-desercion">Proceso P5: Análisis y Detección Temprana de Aprendices en Riesgo de Deserción</h3>
+<ul>
+<li><strong>Descripción:</strong> Cruzar variables de fallas acumuladas, notas por debajo de 3.5 en las primeras 4 semanas, estrato socioeconómico y reporte de participación en talleres para identificar aprendices que probablemente abandonarán la formación antes del tercer trimestre.</li>
+<li><strong>Volumen:</strong> 400 aprendices activos en el área.</li>
+<li><strong>Tiempo actual:</strong> Se detecta tarde, cuando el aprendiz ya ha desertado.</li>
+<li><strong>Dolor principal:</strong> Falta de capacidad de análisis predictivo sobre los datos existentes.</li>
+</ul>
+<h3 id="proceso-p6-consolidacion-y-verificacion-de-inventario-de-equipos-de-laboratorio">Proceso P6: Consolidación y Verificación de Inventario de Equipos de Laboratorio</h3>
+<ul>
+<li><strong>Descripción:</strong> Comparar el listado físico de switches, routers, patch cords y herramientas de crimpado con el registro en el sistema de inventarios del centro. Se reportan novedades como equipos en mantenimiento, bajas o traslados entre ambientes.</li>
+<li><strong>Volumen:</strong> Listado de 650 ítems.</li>
+<li><strong>Tiempo actual:</strong> 16 horas al mes.</li>
+<li><strong>Dolor principal:</strong> Nombres de modelos ligeramente diferentes ("Cisco Catalyst 2960" vs "Switch 2960-Cisco"), dificultando el cruce tradicional en Excel (BUSCARV).</li>
+</ul>
+<h3 id="proceso-p7-custodia-y-emision-de-conceptos-disciplinarios-confidenciales">Proceso P7: Custodia y Emisión de Conceptos Disciplinarios Confidenciales</h3>
+<ul>
+<li><strong>Descripción:</strong> Documentos que contienen información médica reservada, antecedentes o testimonios confidenciales de aprendices en procesos sancionatorios graves.</li>
+<li><strong>Volumen:</strong> 2 a 3 casos por trimestre.</li>
+<li><strong>Tiempo actual:</strong> Variable.</li>
+<li><strong>Dolor principal:</strong> Riesgo legal extremo si la información trasciende.</li>
+<li><strong>Pregunta crítica para el aprendiz:</strong> ¿Se puede ingresar este texto a ChatGPT o Copilot gratuito en la nube? ¿Qué exige la Ley 1581 de 2012 de Habeas Data?</li>
+</ul>
+<h3 id="proceso-p8-generacion-de-respuestas-a-preguntas-frecuentes-de-aspirantes-a-cursos">Proceso P8: Generación de Respuestas a Preguntas Frecuentes de Aspirantes a Cursos</h3>
+<ul>
+<li><strong>Descripción:</strong> Responder dudas repetitivas que llegan al WhatsApp o correo institucional sobre requisitos de ingreso, horarios de cursos complementarios (como el curso 21720210), uso del uniforme y ubicación de los ambientes en el CIMI Girón.</li>
+<li><strong>Volumen:</strong> 80 consultas semanales.</li>
+<li><strong>Tiempo actual:</strong> 1.5 horas diarias.</li>
+<li><strong>Dolor principal:</strong> Interrupción constante del trabajo profundo para responder siempre lo mismo.</li>
+</ul>
+<hr/>
+<h2 id="3-utilidad-de-la-ia-en-este-reto">3. Utilidad de la IA en este Reto</h2>
+<p>Comprender la utilidad de la IA requiere discernir dónde aporta valor y dónde introduce riesgos. En este caso de estudio, la IA demuestra su utilidad al:
+- <strong>Procesamiento de Lenguaje Natural (NLP):</strong> Acelerar la lectura y clasificación de textos caóticos (PQRS, actas, resúmenes).
+- <strong>Asistencia en Redacción:</strong> Superar el "síndrome de la hoja en blanco" en memorandos y respuestas repetitivas, adaptando el tono institucional.
+- <strong>Limitaciones Clave:</strong> Mostrar que la IA <strong>no es adecuada</strong> para cálculos matemáticos exactos (nómina) o para procesar datos confidenciales sin anonimización (procesos disciplinarios).</p>
+<hr/>
+<h2 id="4-instruccion-para-el-aprendiz">4. Instrucción para el Aprendiz</h2>
+<ol>
+<li>Analice cada uno de los 8 procesos utilizando la <strong>Matriz de Viabilidad de IA</strong> suministrada en <code>docs/01-fundamentos.md</code>.</li>
+<li>Para cada proceso defina:
+   - Nivel de viabilidad (Alta, Media, Nula/Prohibida).
+   - Tecnología sugerida (Regla fija / Excel tradicional, IA Generativa, IA Predictiva / Machine Learning, o Proceso Manual Estricto).
+   - Riesgo potencial si la IA comete un error (Alucinación, filtración de datos sensibles, desvío de directrices).
+   - Medida de salvaguarda y criterio humano requerido.</li>
+</ol></article>
+<footer class="document-footer">Guía IA para administrativos · Versión de lectura de <a href="../ejercicios/caso-01-procesos-redes-cimi.md">caso-01-procesos-redes-cimi.md</a>.
+Las decisiones y los pendientes conservan el estado del archivo fuente.</footer></main></div></body></html>

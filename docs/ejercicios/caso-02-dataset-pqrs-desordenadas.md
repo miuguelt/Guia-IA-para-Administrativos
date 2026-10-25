@@ -1,3 +1,5 @@
+> **ARCHIVO HISTÓRICO — NO USAR COMO MATERIAL DE ESTA COHORTE.** Este contenido fue preparado para Redes CIMI/Girón y no se ha validado para la propuesta de cohorte del CGAO, Subsede Vélez, Regional Santander. Para esta formación use la [guía vigente](../../index.html), la [cartilla de aprendices](../Documentos/Cartilla_aprendices_retos_IA_SENA_Bogota.docx), el [libro de práctica](../Documentos/Materiales_practica_IA_SENA_Bogota.xlsx) y la [guía de herramientas y preparación](../herramientas-y-preparacion.md). No cargue datos personales o institucionales reales en servicios de IA externos. Funciones, nombres y permisos de herramientas pueden cambiar; verifique el acceso con el equipo formador.
+
 # Caso de Estudio 02: Conjunto de PQRS Reales para Tratamiento No Estructurado
 **Curso:** Implementación de herramientas de IA en la optimización de la productividad (21720210 V1)  
 **Ambiente:** Redes CIMI - SENA Girón  
@@ -7,7 +9,7 @@
 
 ## 1. Instrucciones de Seguridad y Buenas Prácticas
 > **ADVERTENCIA DE PRIVACIDAD (Ley 1581 de 2012):**  
-> En este ejercicio pedagógico los nombres, números de cédula, correos y fichas han sido anonimizados o son datos ficticios.  
+> En este ejercicio, los nombres, números de cédula, correos y fichas son datos de práctica; no corresponden a registros reales.  
 > **Regla de Oro Administrativa:** Jamás ingrese nombres reales, números de documento, direcciones o información médica en herramientas de IA comerciales públicas sin anonimización previa.
 
 ---
@@ -77,7 +79,15 @@ Atentamente, Laura Viviana Mendoza - Gerente General.
 
 ---
 
-## 3. Retos de Aprendizaje con este Dataset
+## 3. Utilidad de la IA en este Reto
+En este ejercicio, la IA demuestra su verdadero potencial como "procesador de texto no estructurado". La utilidad principal de la IA radica en:
+- **Estructuración de Datos:** Transformar párrafos caóticos con jerga y errores ortográficos en formatos JSON o tablas tabulares estructuradas sin intervención manual.
+- **Detección de Intenciones:** Identificar el tipo de solicitud (Petición, Queja, Felicitación) de manera probabilística, superando las limitaciones de los filtros tradicionales por palabras clave.
+- **Redacción Institucional Asistida:** Acelerar el tiempo de respuesta inicial, generando borradores que cumplen con la Ley 1755 de 2015, permitiendo al funcionario concentrarse solo en la validación y firma.
+
+---
+
+## 4. Retos de Aprendizaje con este Dataset
 
 1. **Reto de Extracción Estructurada:** Convertir el texto libre en una tabla JSON / Markdown normalizada con los campos: `ID`, `Remitente`, `Tipo_PQRS` (Petición, Queja, Reclamo, Sugerencia, Felicitación), `Nivel_Prioridad` (Alta, Media, Baja), `Competencia_Destino` (Coordinación Académica, Biblioteca, Almacén, Contratación, Relaciones Corporativas), `Datos_Faltantes`, `Requiere_Verificacion_Humana` (Sí/No).
 2. **Reto Anti-Alucinación:** Diseñar el prompt con directivas explícitas de no invención: *Si el aprendiz no da su número de ficha exacto o dice 'creo que es', la IA debe marcar 'FICHA NO CONFIRMADA' y bajo ninguna circunstancia inventar un número de ficha válido*.

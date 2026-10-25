@@ -1,0 +1,68 @@
+{
+  "reto-0": {
+    "result": "Semáforo visual de cinco tarjetas, dos textos reducidos y la autorización pendiente.",
+    "source": "Tarjeta B: nombre e identificación de quien consulta por cupo.",
+    "review": "¿Cada tarjeta muestra qué puedes usar, reducir o no cargar, y por qué?",
+    "output": "Cinco tarjetas por color, dos versiones de B sin identificadores y una autorización pendiente."
+  },
+  "reto-1": {
+    "result": "Mapa de los ocho apartados del lineamiento (aplica / no aplica), dos instrucciones comparadas y borrador con datos pendientes.",
+    "source": "URG-01: taller para 18 personas; mensaje marcado como urgente.",
+    "review": "¿Cada requisito cita un apartado y la urgencia sigue sin aprobar la reserva?",
+    "output": "URG-01 queda pendiente de sede, fecha y franja; el mapa cita los apartados aplicables."
+  },
+  "reto-2": {
+    "result": "Dos tarjetas de respuesta con fuentes, hechos y preguntas pendientes.",
+    "source": "PC-03: solicitud de aplazamiento y comentarios sobre una nueva fecha.",
+    "review": "¿Cada tarjeta distingue la petición de lo que la fuente confirma?",
+    "output": "Dos borradores, uno por caso; los datos no confirmados quedan pendientes."
+  },
+  "reto-3": {
+    "result": "Matriz visual con tres casos de prueba, salidas y correcciones.",
+    "source": "PC-02: la persona afirma que terminó; el portal muestra otro estado.",
+    "review": "¿La prueba PC-02 conserva el soporte que no consta?",
+    "output": "Tres pruebas comparables y el requisito faltante queda como pregunta."
+  },
+  "reto-4": {
+    "result": "Tablero de 50 mensajes con prioridades justificadas y diez borradores sin enviar.",
+    "source": "C-001: falla del portal, 35 personas y cierre simulado hoy a las 16:00.",
+    "review": "¿La prioridad se explica con una señal textual y su impacto?",
+    "output": "Cada tarjeta conserva código, categoría, motivo y estado de borrador."
+  },
+  "reto-5": {
+    "result": "Línea de tiempo del acta con minutos fuente, acuerdos y pendientes.",
+    "source": "03:12: «No lo demos por hecho. Confirmemos contactos antes de enviar».",
+    "review": "¿Cada acuerdo tiene un minuto y los responsables ausentes siguen pendientes?",
+    "output": "Las propuestas no se presentan como acuerdos; responsables y fechas se anotan solo cuando constan."
+  },
+  "reto-6": {
+    "result": "Comparación antes y después con regla, conteos y excepciones.",
+    "source": "SIM-0002 tiene una variante del estado; SIM-0003 tiene el estado vacío.",
+    "review": "¿La página conserva el valor original y las dos filas SIM-0012?",
+    "output": "SIM-0002 queda FINALIZADO, SIM-0003 queda REVISAR y las dos filas SIM-0012 permanecen."
+  },
+  "reto-7": {
+    "result": "Diagrama de flujo con tres recorridos y puntos de revisión humana.",
+    "source": "FL-01 completa; FL-02 sin franja; FL-03 completa y urgente.",
+    "review": "¿FL-03 se detiene para revisar la urgencia aunque la solicitud esté completa?",
+    "output": "FL-01 continúa, FL-02 pregunta por la franja y FL-03 se detiene para revisión humana."
+  },
+  "reto-8": {
+    "result": "Tablero de tasas verificables y gastos en COP, con dos hallazgos y límites.",
+    "source": "Centro A: 42 deserciones y 840 matriculados.",
+    "review": "¿El denominador y el periodo aparecen junto a cada cifra?",
+    "output": "Centro A: 42 ÷ 840 × 100 = 5 %. Bienestar no informa periodo; no se atribuyen causas."
+  },
+  "reto-9": {
+    "result": "Matriz de afirmaciones y fuentes; la orden intrusa se clasifica aparte.",
+    "source": "Frase de ejemplo, distinta de las de tu archivo: «La reserva queda aprobada al enviar el formulario».",
+    "review": "¿Cada afirmación cita un apartado que existe en el lineamiento?",
+    "output": "La afirmación de aprobación contradice la confirmación de logística; la orden intrusa no se ejecuta."
+  },
+  "reto-integrador": {
+    "result": "Página ejecutiva con hallazgos, prueba individual y piloto a 30 días.",
+    "source": "SIM-CT-008 aparece en las filas 12 y 21.",
+    "review": "¿Cada hallazgo tiene fila y cálculo, y el piloto distingue acciones propuestas de realizadas?",
+    "output": "La prueba individual conserva fuente y comprobación; el piloto queda como propuesta."
+  }
+}

@@ -305,6 +305,10 @@
   --dbc-num-w: 3ch;
   --dbc-canal-w: 0ch;
 
+  inline-size: 100%;
+  min-inline-size: 0;
+  max-inline-size: 100%;
+  box-sizing: border-box;
   margin: 0 0 1.25rem;
   border: 1px solid var(--dbc-borde);
   border-radius: 12px;
@@ -420,6 +424,10 @@
 /* ------------------------------ Código ---------------------------- */
 
 .dbc__scroll {
+  inline-size: 100%;
+  min-inline-size: 0;
+  max-inline-size: 100%;
+  box-sizing: border-box;
   overflow-x: auto;
   overflow-y: hidden;
   background: var(--dbc-bg);
@@ -789,7 +797,9 @@
 .dbe-estacion__proposito {
   color: var(--dbe-texto-suave);
   margin: 0;
-  max-width: 78ch;
+  inline-size: 100%;
+  max-inline-size: 100%;
+  min-inline-size: 0;
 }
 
 /* Bloques de contenido --------------------------------------------------- */
@@ -808,7 +818,10 @@
 
 .dbe-bloque__texto {
   margin: 0 0 0.5rem;
-  max-width: 78ch;
+  inline-size: 100%;
+  max-inline-size: 100%;
+  min-inline-size: 0;
+  box-sizing: border-box;
   white-space: pre-line;
 }
 
@@ -853,7 +866,10 @@
 .dbe-lista {
   margin: 0 0 var(--dbe-espacio);
   padding-left: 1.25rem;
-  max-width: 78ch;
+  inline-size: 100%;
+  max-inline-size: 100%;
+  min-inline-size: 0;
+  box-sizing: border-box;
 }
 
 .dbe-lista li {
@@ -936,7 +952,10 @@
   color: var(--dbe-texto-suave);
   font-size: 0.875rem;
   margin: 0 0 0.3rem;
-  max-width: 78ch;
+  inline-size: 100%;
+  max-inline-size: 100%;
+  min-inline-size: 0;
+  box-sizing: border-box;
 }
 
 .dbe-campo__control {
@@ -1005,7 +1024,9 @@ textarea.dbe-campo__control {
   display: flex;
   gap: 0.55rem;
   margin-bottom: 0.45rem;
-  max-width: 78ch;
+  inline-size: 100%;
+  max-inline-size: 100%;
+  min-inline-size: 0;
 }
 
 .dbe-chequeo__item input {
@@ -1037,7 +1058,10 @@ textarea.dbe-campo__control {
 
 .dbe-definiciones dd {
   margin: 0.1rem 0 0;
-  max-width: 78ch;
+  inline-size: 100%;
+  max-inline-size: 100%;
+  min-inline-size: 0;
+  box-sizing: border-box;
 }
 
 .dbe-acciones {
@@ -1094,7 +1118,10 @@ textarea.dbe-campo__control {
   color: var(--dbe-texto-suave);
   font-size: 0.9375rem;
   margin: 0;
-  max-width: 78ch;
+  inline-size: 100%;
+  max-inline-size: 100%;
+  min-inline-size: 0;
+  box-sizing: border-box;
 }
 
 .dbe-estacion__enlace a,
@@ -1214,7 +1241,10 @@ textarea.dbe-campo__control {
   color: var(--dbe-texto-suave);
   font-size: 0.9375rem;
   margin: var(--dbe-espacio) 0 0;
-  max-width: 78ch;
+  inline-size: 100%;
+  max-inline-size: 100%;
+  min-inline-size: 0;
+  box-sizing: border-box;
   padding-top: var(--dbe-espacio);
 }
 
@@ -1287,16 +1317,37 @@ textarea.dbe-campo__control {
   }
 }
 
+/* devbrain-prose-contract:start */
+/* Contrato 7.4: cada región ocupa su espacio y conserva sus controles. */
+:where(p, dd, blockquote) {
+    --text-align-reading: start;
+    box-sizing: border-box;
+    inline-size: 100%;
+    max-inline-size: 100%;
+    min-inline-size: 0;
+    text-align: var(--text-align-reading);
+    text-align-last: start;
+    white-space: normal;
+    word-break: normal;
+    overflow-wrap: break-word;
+    hyphens: none;
+    -webkit-hyphens: none;
+}
+:where(dd, blockquote) { margin-inline: 0; }
+/* devbrain-prose-contract:end */
 
-/* ==========================================================================
-   ESTÁNDAR INSTITUCIONAL SENA: DOSSIER INTEGRAL DE EVIDENCIAS
-   ========================================================================== */
 
-.evidence-wrapper {
+/* --- theme/evidence-portfolio.css --- */
+/* Portafolio de Evidencias: formulario y hoja imprimible.
+ * Estos selectores pertenecen exclusivamente al componente; la guía conserva
+ * su tipografía, controles, navegación y decisiones de impresión.
+ */
+
+.dbe-dossier.evidence-wrapper {
   margin: 1.5rem 0;
 }
 
-.evidence-form-card {
+.dbe-dossier .evidence-form-card {
   background: var(--dbe-fondo);
   border: 1px solid var(--dbe-borde);
   border-radius: var(--dbe-radio);
@@ -1304,60 +1355,64 @@ textarea.dbe-campo__control {
   margin-bottom: 2rem;
 }
 
-.evidence-title {
+.dbe-dossier .evidence-title {
   margin-top: 0;
   margin-bottom: 0.5rem;
   font-size: 1.25rem;
   color: var(--dbe-texto);
 }
 
-.text-muted {
+.dbe-dossier .text-muted {
   color: var(--dbe-texto-suave);
   font-size: 0.9rem;
   margin-bottom: 1.25rem;
 }
 
-.evidence-form-grid {
+.dbe-dossier .evidence-form-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 16rem), 1fr));
   gap: 1rem;
 }
 
-.sim-form-group {
+.dbe-dossier .sim-form-group {
   display: flex;
   flex-direction: column;
   gap: 0.35rem;
 }
 
-.sim-label {
+.dbe-dossier .sim-label {
   font-size: 0.85rem;
   font-weight: 600;
   color: var(--dbe-texto-suave);
 }
 
-.sim-input {
+.dbe-dossier .sim-input {
   background: var(--dbe-fondo-suave);
   border: 1px solid var(--dbe-borde);
   color: var(--dbe-texto);
   padding: 0.55rem 0.85rem;
   border-radius: 6px;
   font-size: 0.95rem;
-  outline: none;
+  font-family: inherit;
+  min-width: 0;
+  width: 100%;
   transition: border-color 0.2s ease;
 }
 
-.sim-input:focus {
-  border-color: #39a900;
+.dbe-dossier .sim-input:focus-visible {
+  border-color: var(--dbe-acento);
+  outline: 3px solid var(--dbe-acento);
+  outline-offset: 2px;
 }
 
-.evidence-actions-bar {
+.dbe-dossier .evidence-actions-bar {
   display: flex;
   flex-wrap: wrap;
   gap: 0.75rem;
   margin-top: 1.5rem;
 }
 
-.btn {
+.dbe-dossier .btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -1369,30 +1424,31 @@ textarea.dbe-campo__control {
   border-radius: 6px;
   border: none;
   cursor: pointer;
-  transition: all 0.2s ease;
+  min-height: 2.75rem;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
   text-decoration: none;
 }
 
-.btn--primary {
-  background-color: #39a900;
+.dbe-dossier .btn--primary {
+  background-color: #246f08;
   color: #ffffff;
 }
 
-.btn--primary:hover {
-  background-color: #2e8b00;
+.dbe-dossier .btn--primary:hover {
+  background-color: #1d5a06;
 }
 
-.btn--secondary {
+.dbe-dossier .btn--secondary {
   background-color: var(--dbe-fondo-suave);
   color: var(--dbe-texto);
   border: 1px solid var(--dbe-borde);
 }
 
-.btn--secondary:hover {
+.dbe-dossier .btn--secondary:hover {
   background-color: var(--dbe-borde);
 }
 
-/* Hoja Formal Imprimible del SENA */
+/* Hoja de trabajo imprimible */
 .sena-dossier-sheet {
   background-color: #ffffff !important;
   color: #0f172a !important;
@@ -1403,7 +1459,7 @@ textarea.dbe-campo__control {
   box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
 }
 
-.dossier-header {
+.sena-dossier-sheet .dossier-header {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
@@ -1411,15 +1467,19 @@ textarea.dbe-campo__control {
   padding-bottom: 1.5rem;
   margin-bottom: 2rem;
   gap: 1.5rem;
+  flex-wrap: wrap;
+  background: transparent;
 }
 
-.dossier-logo {
+.sena-dossier-sheet .dossier-logo {
   display: flex;
   align-items: center;
   gap: 1.25rem;
+  flex-wrap: wrap;
+  min-width: 0;
 }
 
-.sena-shield {
+.sena-dossier-sheet .sena-shield {
   background-color: #39a900 !important;
   color: #ffffff !important;
   font-size: 1.75rem;
@@ -1433,31 +1493,33 @@ textarea.dbe-campo__control {
   min-width: 80px;
 }
 
-.dossier-header h2 {
+.sena-dossier-sheet .dossier-header h2 {
   font-size: 1.2rem;
   font-weight: 800;
   color: #0f172a !important;
   margin: 0 0 0.25rem 0;
 }
 
-.dossier-header p {
+.sena-dossier-sheet .dossier-header p {
   margin: 0.2rem 0;
   font-size: 0.9rem;
   color: #334155 !important;
 }
 
-.dossier-meta-box {
+.sena-dossier-sheet .dossier-meta-box {
   text-align: right;
-  white-space: nowrap;
+  white-space: normal;
+  max-width: 100%;
+  overflow-wrap: break-word;
 }
 
-.dossier-meta-box p {
+.sena-dossier-sheet .dossier-meta-box p {
   margin: 0.35rem 0;
   font-size: 0.9rem;
   color: #334155 !important;
 }
 
-.dossier-subtitle {
+.sena-dossier-sheet .dossier-subtitle {
   font-size: 1.1rem;
   color: #39a900 !important;
   margin: 1.75rem 0 0.75rem 0;
@@ -1466,28 +1528,31 @@ textarea.dbe-campo__control {
   font-weight: 700;
 }
 
-.dossier-table {
+.sena-dossier-sheet .dossier-table {
   width: 100%;
+  max-width: 100%;
+  display: block;
+  overflow-x: auto;
   border-collapse: collapse;
   margin-bottom: 1.5rem;
   font-size: 0.9rem;
 }
 
-.dossier-table th,
-.dossier-table td {
+.sena-dossier-sheet .dossier-table th,
+.sena-dossier-sheet .dossier-table td {
   border: 1px solid #cbd5e1;
   padding: 0.65rem 0.85rem;
   text-align: left;
   color: #0f172a !important;
 }
 
-.dossier-table th {
+.sena-dossier-sheet .dossier-table th {
   background-color: #f1f5f9 !important;
   font-weight: 700;
   color: #1e293b !important;
 }
 
-.dossier-verdict-box {
+.sena-dossier-sheet .dossier-verdict-box {
   background-color: #f8fafc !important;
   border: 1px solid #cbd5e1;
   padding: 1rem 1.25rem;
@@ -1496,13 +1561,14 @@ textarea.dbe-campo__control {
   color: #0f172a !important;
 }
 
-.verdict-options {
+.sena-dossier-sheet .verdict-options {
   display: flex;
-  gap: 2.5rem;
+  gap: 1rem;
+  flex-wrap: wrap;
   margin-top: 0.65rem;
 }
 
-.verdict-options label {
+.sena-dossier-sheet .verdict-options label {
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -1510,26 +1576,34 @@ textarea.dbe-campo__control {
   font-size: 0.95rem;
 }
 
-.dossier-signatures {
+.sena-dossier-sheet .dossier-signatures {
   display: flex;
   justify-content: space-around;
   margin-top: 3.5rem;
   text-align: center;
   gap: 2rem;
+  flex-wrap: wrap;
 }
 
-.sig-line {
-  flex: 1;
+.sena-dossier-sheet .sig-line {
+  flex: 1 1 min(100%, 16rem);
+  min-width: 0;
   text-align: center;
   color: #0f172a !important;
 }
 
-.sig-line p {
+.sena-dossier-sheet .sig-line p {
   margin: 0.25rem 0;
 }
 
+.sena-dossier-sheet .sig-line .sig-rule {
+  height: 1.25rem;
+  margin: 0 0 0.25rem;
+  border-bottom: 1px solid currentColor;
+}
+
 /* Badges Institucionales */
-.badge {
+.sena-dossier-sheet .badge {
   display: inline-block;
   padding: 0.25rem 0.65rem;
   border-radius: 4px;
@@ -1539,52 +1613,60 @@ textarea.dbe-campo__control {
   letter-spacing: 0.03em;
 }
 
-.badge--success {
+.sena-dossier-sheet .badge--success {
   background-color: #dcfce7 !important;
   color: #15803d !important;
   border: 1px solid #86efac;
 }
 
-.badge--warning {
+.sena-dossier-sheet .badge--warning {
   background-color: #fef9c3 !important;
   color: #a16207 !important;
   border: 1px solid #fde047;
 }
 
-.badge--pending {
+.sena-dossier-sheet .badge--pending {
   background-color: #f1f5f9 !important;
   color: #64748b !important;
   border: 1px solid #cbd5e1;
 }
 
-/* Ajustes de Impresión Formal (@media print) */
-@media print {
-  body {
-    background: #ffffff !important;
-    color: #000000 !important;
+
+.dbe-dossier .sim-form-group,
+.sena-dossier-sheet > *,
+.sena-dossier-sheet .dossier-logo > * {
+  min-width: 0;
+  max-width: 100%;
+}
+
+.dbe-dossier .btn:focus-visible {
+  outline: 3px solid var(--dbe-acento);
+  outline-offset: 2px;
+}
+
+.sena-dossier-sheet .dossier-section {
+  background: transparent;
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dbe-dossier .btn,
+  .dbe-dossier .sim-input {
+    transition: none;
   }
-  .no-print,
-  .dbe-acciones,
-  .dbe-restaurar,
-  .dbe-ia__registro,
-  .dbe-progreso,
-  .evidence-form-card,
-  .evidence-actions-bar,
-  .app-header,
-  .nav-tabs-wrapper,
-  .sidebar,
-  .reading-progress,
-  .reading-progress-bar,
-  .btn,
-  button,
-  nav,
-  header,
-  aside,
-  footer {
+}
+
+@media print {
+  .dbe-dossier .no-print,
+  .dbe-dossier button,
+  .dbe-dossier .dbe-progreso,
+  .dbe-dossier .evidence-form-card,
+  .dbe-dossier .evidence-actions-bar {
     display: none !important;
   }
 
-  .dbe-estacion,
   .dbe-dossier,
   .sena-dossier-sheet {
     border: none !important;
@@ -1592,35 +1674,78 @@ textarea.dbe-campo__control {
     padding: 0 !important;
     margin: 0 !important;
     background: #ffffff !important;
-    color: #000000 !important;
+    color: #0f172a !important;
     width: 100% !important;
     max-width: 100% !important;
   }
 
-  .dossier-table th {
-    background-color: #f1f5f9 !important;
-    -webkit-print-color-adjust: exact;
-    print-color-adjust: exact;
+  .sena-dossier-sheet .dossier-header {
+    display: flex !important;
   }
 
-  .sena-shield {
-    background-color: #39a900 !important;
-    color: #ffffff !important;
-    -webkit-print-color-adjust: exact;
-    print-color-adjust: exact;
+  .sena-dossier-sheet .dossier-table {
+    display: table;
+    overflow: visible;
   }
 
-  .badge--success {
-    background-color: #dcfce7 !important;
-    color: #15803d !important;
+  .sena-dossier-sheet .dossier-table th,
+  .sena-dossier-sheet .sena-shield,
+  .sena-dossier-sheet .badge--success {
     -webkit-print-color-adjust: exact;
     print-color-adjust: exact;
   }
 }
 
+/* devbrain-prose-contract:start */
+/* Contrato 7.4: cada región ocupa su espacio y conserva sus controles. */
+:where(p, dd, blockquote) {
+    --text-align-reading: start;
+    box-sizing: border-box;
+    inline-size: 100%;
+    max-inline-size: 100%;
+    min-inline-size: 0;
+    text-align: var(--text-align-reading);
+    text-align-last: start;
+    white-space: normal;
+    word-break: normal;
+    overflow-wrap: break-word;
+    hyphens: none;
+    -webkit-hyphens: none;
+}
+:where(dd, blockquote) { margin-inline: 0; }
+/* devbrain-prose-contract:end */
+
 
 /* --- theme/responsive.css --- */
 /* Media Queries para el SDK */
+
+img,
+video {
+  max-inline-size: 100%;
+  block-size: auto;
+}
+
+svg {
+  max-inline-size: 100%;
+}
+
+.ia-extension-module {
+  box-sizing: border-box;
+  inline-size: 100%;
+  max-inline-size: 100%;
+  min-inline-size: 0;
+}
+
+.ia-extension-module > * {
+  min-width: 0;
+  max-width: 100%;
+  overflow-wrap: break-word;
+}
+
+.ia-extension-module code {
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
 
 @media (max-width: 900px) {
   .sdk-form-grid {
@@ -1629,6 +1754,28 @@ textarea.dbe-campo__control {
 }
 
 @media (max-width: 620px) {
+  .app-header {
+    min-width: 0;
+    flex-wrap: wrap;
+  }
+
+  .app-status {
+    flex: 1 1 100%;
+    min-width: 0;
+    max-width: 100%;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    overflow-wrap: break-word;
+  }
+
+  .app-status > *,
+  .level-chip {
+    min-width: 0;
+    max-width: 100%;
+    flex-wrap: wrap;
+    overflow-wrap: break-word;
+  }
+
   .sdk-form-grid {
     grid-template-columns: 1fr;
   }

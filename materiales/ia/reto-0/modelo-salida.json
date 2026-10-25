@@ -1,0 +1,10 @@
+{
+  "schemaVersion": 1,
+  "artifactId": "MG-A01",
+  "fields": {
+    "reto00_semaforo_datos": "",
+    "analisis_riesgo_ley1581": "",
+    "uso_ia_y_revision": ""
+  },
+  "tool": "no identificado"
+}

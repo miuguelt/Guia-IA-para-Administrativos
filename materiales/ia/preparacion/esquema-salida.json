@@ -1,0 +1,47 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Resultado generado · Crea tu primer informe con IA",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "artifactId",
+    "fields",
+    "tool"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "const": 1
+    },
+    "artifactId": {
+      "const": null
+    },
+    "fields": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "informe",
+        "comprobacion",
+        "pendientes"
+      ],
+      "properties": {
+        "informe": {
+          "type": "string",
+          "minLength": 1
+        },
+        "comprobacion": {
+          "type": "string",
+          "minLength": 1
+        },
+        "pendientes": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "tool": {
+      "type": "string",
+      "minLength": 1
+    }
+  }
+}

@@ -1,0 +1,7 @@
+﻿Variante opcional por área · Reto 5 · Gestión documental
+"Tabla didáctica de práctica; no es la tabla de retención documental del SENA. Úsala sin tiempo adicional para indicar la serie del acta al cerrarla."
+
+Código;Serie;Subserie;Soporte;Años en archivo de gestión;Pregunta para la persona responsable del archivo
+RD-01;Actas;Actas de reunión;Electrónico;2;¿El acta requiere firma antes de archivarse?
+RD-02;Informes;Informes de gestión;Electrónico;3;¿Quién aprueba la versión final?
+RD-03;PQRS;Respuestas a peticiones;Electrónico;2;¿Se archiva la petición junto con la respuesta?

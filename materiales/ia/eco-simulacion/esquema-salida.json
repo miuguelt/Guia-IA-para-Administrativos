@@ -1,0 +1,52 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Resultado generado · Simulación de oficina con IA · EcoBogotá",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "artifactId",
+    "fields",
+    "tool"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "const": 1
+    },
+    "artifactId": {
+      "const": "ECO-A02"
+    },
+    "fields": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "contexto",
+        "encargo",
+        "material",
+        "verificacion"
+      ],
+      "properties": {
+        "contexto": {
+          "type": "string",
+          "minLength": 1
+        },
+        "encargo": {
+          "type": "string",
+          "minLength": 1
+        },
+        "material": {
+          "type": "string",
+          "minLength": 1
+        },
+        "verificacion": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "tool": {
+      "type": "string",
+      "minLength": 1
+    }
+  }
+}

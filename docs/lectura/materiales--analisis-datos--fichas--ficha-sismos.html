@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="es-CO"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="light"><title>Práctica de sismos: eventos, magnitudes y profundidad · Biblioteca de la guía</title>
+<link rel="stylesheet" href="../../css/documents.css"><link rel="stylesheet" href="devbrain-prose.css" data-devbrain-prose>
+<script defer src="devbrain-prose.js" data-devbrain-prose-runtime></script></head><body>
+<a class="skip-link" href="#documento">Ir al documento</a>
+<nav class="reader-nav" aria-label="Acciones del documento"><a href="index.html">← Biblioteca</a>
+<a href="../../index.html#preparacion">Abrir guía web</a><a href="../../materiales/analisis-datos/fichas/ficha-sismos.md" download>Descargar fuente Markdown</a>
+<span>Imprime o guarda en PDF con Ctrl+P</span></nav>
+<div class="reading-layout"><aside class="reading-sidebar"><p class="eyebrow">En este documento</p>
+<details open><summary>Ver apartados</summary><div class="toc">
+<ul>
+<li><a href="#en-tres-pasos">En tres pasos</a></li>
+<li><a href="#revisa-tres-criterios">Revisa tres criterios</a></li>
+<li><a href="#ampliacion-opcional">Ampliación opcional</a></li>
+</ul>
+</div>
+</details></aside>
+<main id="documento" class="document-sheet"><header class="document-header"><p class="eyebrow">Guía IA para administrativos</p>
+<span class="document-badge">Laboratorio de datos y documentos</span><p class="document-context">Consulta el contenido por apartados y conserva el archivo fuente si necesitas editarlo.</p></header>
+<article class="document-content"><h1 id="practica-de-sismos-eventos-magnitudes-y-profundidad">Práctica de sismos: eventos, magnitudes y profundidad</h1>
+<p>La IA describe una selección pública real del catálogo USGS y genera los archivos. Tú revisas los filtros y los resultados. No incorpores información personal; esta práctica pertenece al laboratorio independiente.</p>
+<p><strong>Pregunta preparada:</strong> ¿cómo se distribuyen los eventos seleccionados en el espacio, el tiempo y la profundidad?</p>
+<p><strong>Fuentes:</strong> <code>datos/sismos.csv</code>, <code>diccionario.csv</code> y <code>fuentes.json</code>. El paquete para IA los conserva bajo <code>fuentes/</code>. El CSV usa coma y UTF-8. La descarga comprende eventos globales de enero de 2024 en UTC, tipo <code>earthquake</code> y magnitud de al menos 5.</p>
+<p><strong>Ejemplo:</strong> cambiar UTC por hora local puede trasladar un evento a otro día. El conteo diario debe declarar el estándar horario.</p>
+<h2 id="en-tres-pasos">En tres pasos</h2>
+<ol>
+<li><strong>Entrega el encargo.</strong> Descarga el <a href="../../materiales/ia/lab-sismos.zip">paquete de sismos</a>. Adjunta las fuentes y copia el <a href="materiales--ia--lab-sismos--ENCARGO-CHAT.html">encargo para chat</a>, o abre la carpeta en Antigravity o Codex y usa el <a href="materiales--ia--lab-sismos--ENCARGO-IDE.html">encargo para IDE</a>. Conserva la consulta registrada.</li>
+<li><strong>Revisa lo generado.</strong> La IA genera la inspección de identificadores y variables, el mapa con base geográfica verificable, el histograma de profundidad y los conteos por día. Entrega tablas equivalentes, descripción, conclusión y documento con procedimiento y límites. Aplica los tres criterios siguientes y pide correcciones.</li>
+<li><strong>Descarga y conserva.</strong> Pide tablas, gráficos, mapa, procedimiento, documento y <code>resultado.json</code> para <code>LAB-A01</code>. Recibe el JSON en «Guarda tu evidencia» y guarda tras revisar la vista. La revisión humana no realizada sigue pendiente; el producto no es una predicción ni una aprobación institucional.</li>
+</ol>
+<h2 id="revisa-tres-criterios">Revisa tres criterios</h2>
+<ul>
+<li><strong>Catálogo y filtros.</strong> Compara fechas, umbral, tipo de evento y formato con el <a href="https://earthquake.usgs.gov/fdsnws/event/1/">servicio del catálogo USGS</a> y el manifiesto. Comprueba identificadores únicos, profundidad y tipo de magnitud; una revisión posterior del catálogo puede cambiar registros.</li>
+<li><strong>Puntos y conteos.</strong> Contrasta un evento, una profundidad y un conteo con el original. En GeoJSON el orden es longitud y latitud. Comprueba que el mapa coincida con su tabla y que la agrupación diaria mantenga UTC.</li>
+<li><strong>Límites.</strong> La conclusión debe distinguir magnitud, intensidad percibida y daños. Este mapa no permite predecir sismos futuros ni interpretar ausencia de puntos como ausencia de riesgo.</li>
+</ul>
+<h2 id="ampliacion-opcional">Ampliación opcional</h2>
+<p>Pide a la IA una descarga de un periodo mayor mediante ventanas acotadas. Revisa los límites entre ventanas, los identificadores y las restricciones del servicio: una respuesta truncada no representa todos los eventos que cumplen los filtros.</p></article>
+<footer class="document-footer">Guía IA para administrativos · Versión de lectura de <a href="../../materiales/analisis-datos/fichas/ficha-sismos.md">ficha-sismos.md</a>.
+Las decisiones y los pendientes conservan el estado del archivo fuente.</footer></main></div></body></html>

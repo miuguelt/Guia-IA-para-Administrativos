@@ -1,176 +1,414 @@
-['Leeme', 'PQRS 50', 'PQRS complejas', 'Correos 50', 'Transcripcion', 'Datos SOFIA', 'Bienestar', 'Gastos Q1', 'Contratos', 'Lineamiento ficticio', 'Directriz', 'Fichas de reto']
+Extracción del libro de práctica vigente. Los datos fuente se conservan sin cambios.
 
 --- Leeme ---
-   Materiales de práctica para el curso de inteligencia artificial  ...                                         Unnamed: 2
-0  Todos los registros, nombres de centros, horar...               ...                                                NaN
-1                                                NaN               ...                                                NaN
-2                                          Actividad               ...                                                Uso
-3                           Apertura y clasificación               ...  Cincuenta solicitudes sintéticas para una demo...
-4                                      Reto 2 y tono               ...  Ocho casos ficticios para redactar y verificar...
-5                                             Reto 4               ...  Cincuenta correos simulados para priorizar y p...
-6                                             Reto 5               ...  Diálogo ficticio de diez minutos para construi...
-7                                     Día 3 y Reto 6               ...  Tabla administrativa ficticia con categorías y...
-8                                      Visualización               ...  Gastos mensuales ficticios por centro durante ...
-9                                             Reto 7               ...  Presupuesto, matrícula, participación y deserc...
-
-[10 rows x 3 columns]
+Guía de uso de los materiales de práctica		
+Los casos y archivos se prepararon para aprender y no contienen registros reales. No representan decisiones ni operaciones del SENA.		
+		
+Cómo empezar		
+Paso	Acción	Cómo comprobarlo
+1. Elige la pestaña	Abre la pestaña que aparece en la ruta de la actividad y lee sus dos primeras filas.	Identifica qué representa cada registro y qué datos no están disponibles.
+2. Trabaja en una copia	Usa los filtros de la tabla para revisar un grupo o periodo. Conserva intacta la fuente.	Antes de contar, confirma que no quede un filtro activo que excluya filas.
+3. Define cómo analizar	Usa fórmulas o una tabla dinámica para resumir. Elige un gráfico solo si aclara una comparación o una tendencia.	Incluye periodo, unidad y fuente. Una asociación no demuestra una causa.
+4. Pide apoyo a la IA	Entrega el encargo del paquete correspondiente junto con las pestañas necesarias en una herramienta autorizada.	Solicita un borrador y conserva los datos ausentes o las decisiones pendientes.
+5. Revisa el resultado	Compara una muestra con la fuente y pide ajustes en la misma conversación.	Contrasta al menos tres filas. La IA no aprueba solicitudes ni determina prioridades institucionales.
+		
+Contenido del libro		
+Actividad	Pestaña	Qué puedes hacer
+Apertura y clasificación	PQRS 50	Filtra por tema o canal y compara la clasificación con el texto de cada solicitud.
+Reto 2 y tono	PQRS complejas	Prepara borradores, identifica información faltante y revisa el tono.
+Reto 4	Correos 50	Compara señales de plazo y afectación. La prioridad final requiere criterio humano.
+Reto 5	Transcripcion	Separa acuerdos, propuestas y pendientes con referencia a la intervención.
+Día 3 y Reto 6	Datos SOFIA	Normaliza categorías en una copia y registra fechas o códigos por verificar.
+Visualización	Gastos Q1	Compara meses y centros con una tabla dinámica o un gráfico de columnas.
+Reto 8	Bienestar	Calcula tasas y describe los datos sin atribuir causas.
+Reto integrador	Contratos	Revisa fechas, soportes, códigos repetidos y diferencias como preguntas de verificación.
+Resumen documental	Lineamiento ficticio	Distingue lo que el lineamiento indica de lo que queda por confirmar.
+Integración	Directriz	Prepara un plan y un borrador; confirma fecha y responsable antes de circularlos.
+Todos los retos	Fichas de reto	La IA completa una copia. Revisa el resultado y descarga los archivos.
+		
+Recursos de Excel		
+Función	Úsala para	Comprueba antes de concluir
+Filtros y ordenación	Localizar casos por tema, plazo o categoría.	Revisa si los filtros dejan registros por fuera de la selección.
+Fórmulas	CONTAR.SI, SUMAR.SI.CONJUNTO y PROMEDIO.SI.CONJUNTO ayudan a resumir datos.	Comprueba los rangos, la unidad y los valores vacíos. El nombre y el separador pueden variar según el idioma de Excel.
+Tabla dinámica	Contar casos por categoría o comparar gastos por mes y centro.	Agrupa solo datos comparables y conserva una copia del archivo fuente.
+Gráficos	Usa barras para comparar categorías y líneas para mostrar cambios en el tiempo.	Agrega título, unidad, periodo y fuente; evita inferir causas.
+Formato condicional	Resaltar vacíos, diferencias o posibles duplicados durante una revisión.	El color llama la atención, pero no confirma que un registro sea incorrecto.
+Power Query	Si tu versión de Excel lo incluye, guarda los pasos de importación y limpieza que debas repetir.	Verifica el resultado en una muestra antes de reemplazar una tabla de trabajo.
+		
+Herramientas complementarias		
+Herramienta	Cuándo ayuda	Qué debes conservar
+Excel o Google Sheets	Filtrar, calcular y visualizar una copia de los materiales.	Guarda el archivo editado y registra las fórmulas o filtros usados.
+ChatGPT o Gemini	Pedir un borrador o un análisis usando el encargo preparado.	Adjunta solo los archivos de práctica y revisa la salida contra la fuente.
+Codex o Antigravity	Repetir una tarea en una carpeta y conservar el código o los pasos.	Conserva fuentes, resultados y cualquier paso que haya quedado pendiente.
+Jupyter o Colab	Ejecutar análisis paso a paso cuando la actividad incluya un cuaderno.	En Colab, carga también los CSV. El cuaderno no incluye por sí solo los archivos vecinos.
+		
+Protege la información: no cargues datos personales, expedientes ni decisiones institucionales. Usa únicamente los materiales de práctica y no presentes un borrador como aprobación oficial.		
+		
 
 --- PQRS 50 ---
-             Solicitudes ficticias para clasificación  ...                                     Unnamed: 5
-0  Datos de práctica. Las señales describen el te...  ...                                            NaN
-1                                                NaN  ...                                            NaN
-2                                             Código  ...                                  Señal textual
-3                                              P-001  ...                Sin fecha expresa; una persona.
-4                                              P-002  ...       Afectación individual; momento señalado.
-5                                              P-003  ...                   Dato necesario para asistir.
-6                                              P-004  ...  Conflicto de agenda; falta identificar grupo.
-7                                              P-005  ...         Varias personas afectadas; evento hoy.
-8                                              P-006  ...      Consulta de recepción; sin plazo expreso.
-9                                              P-007  ...               Requiere guía de fuente vigente.
-
-[10 rows x 6 columns]
+Solicitudes para practicar la clasificación														
+Datos de práctica. Las señales describen el texto, no determinan la prioridad institucional.														
+														
+Código	Canal	Tema aparente	Texto de la solicitud	Lote	Señal textual									
+P-001	Correo	Certificado	Solicito saber cómo consultar el certificado del curso. La pantalla no muestra la opción. ¿Qué debo hacer?	Lote 01	Sin fecha expresa; una persona.									
+P-002	Formulario	Acceso	El portal rechaza el ingreso desde esta mañana y no puedo revisar mi horario. ¿Qué debo hacer?	Lote 01	Afectación individual; momento señalado.									
+P-003	Correo	Horario	¿Me confirman a qué hora inicia la jornada de práctica? El mensaje anterior no lo aclara. ¿Qué debo hacer?	Lote 01	Dato necesario para asistir.									
+P-004	Formulario	Cambio de grupo	Me cambiaron el grupo, pero el nuevo horario coincide con otra actividad. ¿Qué debo hacer?	Lote 01	Conflicto de agenda; falta identificar grupo.									
+P-005	Correo	Cancelación	Nos informaron que la sesión de hoy se cancela. No sabemos si habrá recuperación. ¿Qué debo hacer?	Lote 01	Varias personas afectadas; evento hoy.									
+P-006	Formulario	Documento	Adjunté un formato y quisiera confirmar si lo recibieron. ¿Qué debo hacer?	Lote 01	Consulta de recepción; sin plazo expreso.									
+P-007	Correo	Apoyo	Quisiera conocer los pasos para solicitar apoyo de bienestar. ¿Qué debo hacer?	Lote 01	Requiere guía de fuente vigente.									
+P-008	Formulario	Sala	La sala asignada no tiene proyector disponible y la sesión empieza pronto. ¿Qué debo hacer?	Lote 01	Impacto operativo próximo.									
+P-009	Correo	Pago	No aparece el comprobante de un apoyo esperado. Solicito revisar el estado. ¿Qué debo hacer?	Lote 01	No hay datos de persona o monto.									
+P-010	Formulario	Queja	Esperé bastante para recibir atención y no me indicaron el siguiente paso. ¿Qué debo hacer?	Lote 01	Queja de servicio; requiere respuesta empática.									
+P-011	Correo	Certificado	Solicito saber cómo consultar el certificado del curso. La pantalla no muestra la opción. Agradezco orientación.	Lote 02	Sin fecha expresa; una persona.									
+P-012	Formulario	Acceso	El portal rechaza el ingreso desde esta mañana y no puedo revisar mi horario. Agradezco orientación.	Lote 02	Afectación individual; momento señalado.									
+P-013	Correo	Horario	¿Me confirman a qué hora inicia la jornada de práctica? El mensaje anterior no lo aclara. Agradezco orientación.	Lote 02	Dato necesario para asistir.									
+P-014	Formulario	Cambio de grupo	Me cambiaron el grupo, pero el nuevo horario coincide con otra actividad. Agradezco orientación.	Lote 02	Conflicto de agenda; falta identificar grupo.									
+P-015	Correo	Cancelación	Nos informaron que la sesión de hoy se cancela. No sabemos si habrá recuperación. Agradezco orientación.	Lote 02	Varias personas afectadas; evento hoy.									
+P-016	Formulario	Documento	Adjunté un formato y quisiera confirmar si lo recibieron. Agradezco orientación.	Lote 02	Consulta de recepción; sin plazo expreso.									
+P-017	Correo	Apoyo	Quisiera conocer los pasos para solicitar apoyo de bienestar. Agradezco orientación.	Lote 02	Requiere guía de fuente vigente.									
+P-018	Formulario	Sala	La sala asignada no tiene proyector disponible y la sesión empieza pronto. Agradezco orientación.	Lote 02	Impacto operativo próximo.									
+P-019	Correo	Pago	No aparece el comprobante de un apoyo esperado. Solicito revisar el estado. Agradezco orientación.	Lote 02	No hay datos de persona o monto.									
+P-020	Formulario	Queja	Esperé bastante para recibir atención y no me indicaron el siguiente paso. Agradezco orientación.	Lote 02	Queja de servicio; requiere respuesta empática.									
+P-021	Correo	Certificado	Solicito saber cómo consultar el certificado del curso. La pantalla no muestra la opción. No encuentro más información.	Lote 03	Sin fecha expresa; una persona.									
+P-022	Formulario	Acceso	El portal rechaza el ingreso desde esta mañana y no puedo revisar mi horario. No encuentro más información.	Lote 03	Afectación individual; momento señalado.									
+P-023	Correo	Horario	¿Me confirman a qué hora inicia la jornada de práctica? El mensaje anterior no lo aclara. No encuentro más información.	Lote 03	Dato necesario para asistir.									
+P-024	Formulario	Cambio de grupo	Me cambiaron el grupo, pero el nuevo horario coincide con otra actividad. No encuentro más información.	Lote 03	Conflicto de agenda; falta identificar grupo.									
+P-025	Correo	Cancelación	Nos informaron que la sesión de hoy se cancela. No sabemos si habrá recuperación. No encuentro más información.	Lote 03	Varias personas afectadas; evento hoy.									
+P-026	Formulario	Documento	Adjunté un formato y quisiera confirmar si lo recibieron. No encuentro más información.	Lote 03	Consulta de recepción; sin plazo expreso.									
+P-027	Correo	Apoyo	Quisiera conocer los pasos para solicitar apoyo de bienestar. No encuentro más información.	Lote 03	Requiere guía de fuente vigente.									
+P-028	Formulario	Sala	La sala asignada no tiene proyector disponible y la sesión empieza pronto. No encuentro más información.	Lote 03	Impacto operativo próximo.									
+P-029	Correo	Pago	No aparece el comprobante de un apoyo esperado. Solicito revisar el estado. No encuentro más información.	Lote 03	No hay datos de persona o monto.									
+P-030	Formulario	Queja	Esperé bastante para recibir atención y no me indicaron el siguiente paso. No encuentro más información.	Lote 03	Queja de servicio; requiere respuesta empática.									
+P-031	Correo	Certificado	Solicito saber cómo consultar el certificado del curso. La pantalla no muestra la opción. Por favor indiquen el paso siguiente.	Lote 04	Sin fecha expresa; una persona.									
+P-032	Formulario	Acceso	El portal rechaza el ingreso desde esta mañana y no puedo revisar mi horario. Por favor indiquen el paso siguiente.	Lote 04	Afectación individual; momento señalado.									
+P-033	Correo	Horario	¿Me confirman a qué hora inicia la jornada de práctica? El mensaje anterior no lo aclara. Por favor indiquen el paso siguiente.	Lote 04	Dato necesario para asistir.									
+P-034	Formulario	Cambio de grupo	Me cambiaron el grupo, pero el nuevo horario coincide con otra actividad. Por favor indiquen el paso siguiente.	Lote 04	Conflicto de agenda; falta identificar grupo.									
+P-035	Correo	Cancelación	Nos informaron que la sesión de hoy se cancela. No sabemos si habrá recuperación. Por favor indiquen el paso siguiente.	Lote 04	Varias personas afectadas; evento hoy.									
+P-036	Formulario	Documento	Adjunté un formato y quisiera confirmar si lo recibieron. Por favor indiquen el paso siguiente.	Lote 04	Consulta de recepción; sin plazo expreso.									
+P-037	Correo	Apoyo	Quisiera conocer los pasos para solicitar apoyo de bienestar. Por favor indiquen el paso siguiente.	Lote 04	Requiere guía de fuente vigente.									
+P-038	Formulario	Sala	La sala asignada no tiene proyector disponible y la sesión empieza pronto. Por favor indiquen el paso siguiente.	Lote 04	Impacto operativo próximo.									
+P-039	Correo	Pago	No aparece el comprobante de un apoyo esperado. Solicito revisar el estado. Por favor indiquen el paso siguiente.	Lote 04	No hay datos de persona o monto.									
+P-040	Formulario	Queja	Esperé bastante para recibir atención y no me indicaron el siguiente paso. Por favor indiquen el paso siguiente.	Lote 04	Queja de servicio; requiere respuesta empática.									
+P-041	Correo	Certificado	Solicito saber cómo consultar el certificado del curso. La pantalla no muestra la opción. Quedo pendiente de una respuesta.	Lote 05	Sin fecha expresa; una persona.									
+P-042	Formulario	Acceso	El portal rechaza el ingreso desde esta mañana y no puedo revisar mi horario. Quedo pendiente de una respuesta.	Lote 05	Afectación individual; momento señalado.									
+P-043	Correo	Horario	¿Me confirman a qué hora inicia la jornada de práctica? El mensaje anterior no lo aclara. Quedo pendiente de una respuesta.	Lote 05	Dato necesario para asistir.									
+P-044	Formulario	Cambio de grupo	Me cambiaron el grupo, pero el nuevo horario coincide con otra actividad. Quedo pendiente de una respuesta.	Lote 05	Conflicto de agenda; falta identificar grupo.									
+P-045	Correo	Cancelación	Nos informaron que la sesión de hoy se cancela. No sabemos si habrá recuperación. Quedo pendiente de una respuesta.	Lote 05	Varias personas afectadas; evento hoy.									
+P-046	Formulario	Documento	Adjunté un formato y quisiera confirmar si lo recibieron. Quedo pendiente de una respuesta.	Lote 05	Consulta de recepción; sin plazo expreso.									
+P-047	Correo	Apoyo	Quisiera conocer los pasos para solicitar apoyo de bienestar. Quedo pendiente de una respuesta.	Lote 05	Requiere guía de fuente vigente.									
+P-048	Formulario	Sala	La sala asignada no tiene proyector disponible y la sesión empieza pronto. Quedo pendiente de una respuesta.	Lote 05	Impacto operativo próximo.									
+P-049	Correo	Pago	No aparece el comprobante de un apoyo esperado. Solicito revisar el estado. Quedo pendiente de una respuesta.	Lote 05	No hay datos de persona o monto.									
+P-050	Formulario	Queja	Esperé bastante para recibir atención y no me indicaron el siguiente paso. Quedo pendiente de una respuesta.	Lote 05	Queja de servicio; requiere respuesta empática.									
 
 --- PQRS complejas ---
-             Casos ficticios para redactar borradores  ...                                         Unnamed: 3
-0  No representan ciudadanos ni derechos de petic...  ...                                                NaN
-1                                                NaN  ...                                                NaN
-2                                             Código  ...                            Dato faltante o cuidado
-3                                              PC-01  ...  No se incluye nombre, código personal ni fecha...
-4                                              PC-02  ...  No se indica cuál gestión ni qué soporte exige...
-5                                              PC-03  ...  Distinguir comunicación oficial del comentario...
-6                                              PC-04  ...  No se proporciona identificador de caso; pedir...
-7                                              PC-05  ...  Rumor no confirmado; no se conoce ciclo, monto...
-8                                              PC-06  ...  Falta sede y hora exacta; seguir el lineamient...
-9                                              PC-07  ...  No decidir elegibilidad; se debe indicar el ca...
-
-[10 rows x 4 columns]
+Casos de práctica para redactar borradores														
+No representan ciudadanos ni derechos de petición reales. No contienen nombres ni identificaciones.														
+														
+Código	Tema	Texto de la solicitud	Dato faltante o cuidado											
+PC-01	Acceso y horario	Me avisaron por el grupo que cambiaba el salón pero no sé si también la hora; el enlace del calendario abre una sesión vieja. ¿Me confirman cuál usar?	No se incluye nombre, código personal ni fecha exacta. La hora nueva no aparece.											
+PC-02	Certificación	Terminé el curso según mi instructor, pero el portal muestra otro estado. Necesito el certificado para una gestión próxima y no sé qué soporte falta.	No se indica cuál gestión ni qué soporte exige el procedimiento.											
+PC-03	Cancelación	El mensaje dice que la actividad queda aplazada hasta nuevo aviso. Dos compañeros comentan que ya hay fecha, pero no la encuentro en la comunicación oficial.	Distinguir comunicación oficial del comentario de terceros; no hay fecha nueva.											
+PC-04	Bienestar	Solicité orientación hace unos días y no recuerdo qué formulario utilicé. ¿Pueden revisar dónde quedó? No quiero enviar dos veces lo mismo.	No se proporciona identificador de caso; pedir canal o fecha sin solicitar datos innecesarios.											
+PC-05	Pago de apoyo	En el grupo dicen que el pago se hará mañana, pero mi consulta anterior no recibió confirmación. ¿Me indican si debo esperar o hacer otra gestión?	Rumor no confirmado; no se conoce ciclo, monto ni elegibilidad.											
+PC-06	Reserva de sala	La sala que aparece en el calendario está ocupada, y la actividad empieza en poco tiempo. ¿La pueden cambiar? El aviso de reserva no tiene responsable.	Falta sede y hora exacta; seguir el lineamiento ficticio de uso de salas.											
+PC-07	Cambio de grupo	El cambio de grupo resuelve un cruce, pero ahora coincide con el transporte que tengo asignado. ¿Puedo volver al grupo anterior?	No decidir elegibilidad; se debe indicar el canal o información faltante según la ficha.											
+PC-08	Queja de atención	Me enviaron de una oficina a otra y en cada lugar me piden empezar de nuevo. Solo quiero saber cuál es el paso correcto.	Responder con empatía; la fuente no define el procedimiento particular.											
 
 --- Correos 50 ---
-                  Correos simulados para priorización  ...         Unnamed: 6
-0  Fechas, horarios, emisor y afectaciones perten...  ...                NaN
-1                                                NaN  ...                NaN
-2                                             Código  ...     Plazo simulado
-3                                              C-001  ...          Hoy 16:00
-4                                              C-002  ...      En 20 minutos
-5                                              C-003  ...             Mañana
-6                                              C-004  ...  Sin plazo expreso
-7                                              C-005  ...          Hoy 12:00
-8                                              C-006  ...        Próximo mes
-9                                              C-007  ...          Hoy 17:00
-
-[10 rows x 7 columns]
+Mensajes de práctica para priorización														
+No contiene mensajes reales. Una señal textual no determina por sí sola la prioridad institucional.														
+														
+Código	Hora	Emisor	Asunto	Cuerpo del mensaje	Personas afectadas	Plazo								
+C-001	07:00	Coordinación	Portal de inscripción	El portal presenta error para varios grupos y el plazo cierra hoy a las 16:00. ¿Quién confirma continuidad? Referencia 01.	35	Hoy 16:00								
+C-002	14:13	Apoyo administrativo	Cambio de aula	La pantalla de la sala asignada no funciona y la sesión comienza en 20 minutos. Hay una sala alterna libre según recepción. Referencia 01.	24	En 20 minutos								
+C-003	09:26	Equipo de sede	Documento de proveedor	Falta un anexo en la carpeta. La revisión del expediente se programó para mañana. Referencia 01.	2	Mañana								
+C-004	16:39	Mesa de ayuda	Consulta de horario	¿La reunión de seguimiento es a las 9 o a las 10? El calendario y el correo no coinciden. Referencia 01.	6	Sin plazo expreso								
+C-005	11:52	Logística de práctica	Cancelación de jornada	El transporte reporta cierre de vía y varias sedes consultan si se mantiene la actividad de la tarde. Referencia 01.	80	Hoy 12:00								
+C-006	18:05	Coordinación	Solicitud de papelería	Solicito reposición de marcadores para el próximo mes. No hay afectación inmediata. Referencia 01.	1	Próximo mes								
+C-007	13:18	Apoyo administrativo	Acceso a plataforma	No se puede ingresar desde dos sedes; el registro de asistencia cierra al final del día. Referencia 01.	18	Hoy 17:00								
+C-008	08:31	Equipo de sede	Confirmación de acta	Adjunto el borrador de acta de la semana pasada para comentarios cuando tengan disponibilidad. Referencia 01.	5	Esta semana								
+C-009	15:44	Mesa de ayuda	Mantenimiento preventivo	El proveedor propone visita técnica para la próxima semana y solicita confirmar una franja horaria. Referencia 01.	3	Próxima semana								
+C-010	10:57	Logística de práctica	Ruta de apoyo	Una persona pregunta dónde encuentra la guía de solicitud de apoyo. No adjunta datos de su caso. Referencia 01.	1	Sin plazo expreso								
+C-011	17:10	Coordinación	Portal de inscripción	El portal presenta error para varios grupos y el plazo cierra hoy a las 16:00. ¿Quién confirma continuidad? Referencia 02.	35	Hoy 16:00								
+C-012	12:23	Apoyo administrativo	Cambio de aula	La pantalla de la sala asignada no funciona y la sesión comienza en 20 minutos. Hay una sala alterna libre según recepción. Referencia 02.	24	En 20 minutos								
+C-013	07:36	Equipo de sede	Documento de proveedor	Falta un anexo en la carpeta. La revisión del expediente se programó para mañana. Referencia 02.	2	Mañana								
+C-014	14:49	Mesa de ayuda	Consulta de horario	¿La reunión de seguimiento es a las 9 o a las 10? El calendario y el correo no coinciden. Referencia 02.	6	Sin plazo expreso								
+C-015	09:02	Logística de práctica	Cancelación de jornada	El transporte reporta cierre de vía y varias sedes consultan si se mantiene la actividad de la tarde. Referencia 02.	80	Hoy 12:00								
+C-016	16:15	Coordinación	Solicitud de papelería	Solicito reposición de marcadores para el próximo mes. No hay afectación inmediata. Referencia 02.	1	Próximo mes								
+C-017	11:28	Apoyo administrativo	Acceso a plataforma	No se puede ingresar desde dos sedes; el registro de asistencia cierra al final del día. Referencia 02.	18	Hoy 17:00								
+C-018	18:41	Equipo de sede	Confirmación de acta	Adjunto el borrador de acta de la semana pasada para comentarios cuando tengan disponibilidad. Referencia 02.	5	Esta semana								
+C-019	13:54	Mesa de ayuda	Mantenimiento preventivo	El proveedor propone visita técnica para la próxima semana y solicita confirmar una franja horaria. Referencia 02.	3	Próxima semana								
+C-020	08:07	Logística de práctica	Ruta de apoyo	Una persona pregunta dónde encuentra la guía de solicitud de apoyo. No adjunta datos de su caso. Referencia 02.	1	Sin plazo expreso								
+C-021	15:20	Coordinación	Portal de inscripción	El portal presenta error para varios grupos y el plazo cierra hoy a las 16:00. ¿Quién confirma continuidad? Referencia 03.	35	Hoy 16:00								
+C-022	10:33	Apoyo administrativo	Cambio de aula	La pantalla de la sala asignada no funciona y la sesión comienza en 20 minutos. Hay una sala alterna libre según recepción. Referencia 03.	24	En 20 minutos								
+C-023	17:46	Equipo de sede	Documento de proveedor	Falta un anexo en la carpeta. La revisión del expediente se programó para mañana. Referencia 03.	2	Mañana								
+C-024	12:59	Mesa de ayuda	Consulta de horario	¿La reunión de seguimiento es a las 9 o a las 10? El calendario y el correo no coinciden. Referencia 03.	6	Sin plazo expreso								
+C-025	07:12	Logística de práctica	Cancelación de jornada	El transporte reporta cierre de vía y varias sedes consultan si se mantiene la actividad de la tarde. Referencia 03.	80	Hoy 12:00								
+C-026	14:25	Coordinación	Solicitud de papelería	Solicito reposición de marcadores para el próximo mes. No hay afectación inmediata. Referencia 03.	1	Próximo mes								
+C-027	09:38	Apoyo administrativo	Acceso a plataforma	No se puede ingresar desde dos sedes; el registro de asistencia cierra al final del día. Referencia 03.	18	Hoy 17:00								
+C-028	16:51	Equipo de sede	Confirmación de acta	Adjunto el borrador de acta de la semana pasada para comentarios cuando tengan disponibilidad. Referencia 03.	5	Esta semana								
+C-029	11:04	Mesa de ayuda	Mantenimiento preventivo	El proveedor propone visita técnica para la próxima semana y solicita confirmar una franja horaria. Referencia 03.	3	Próxima semana								
+C-030	18:17	Logística de práctica	Ruta de apoyo	Una persona pregunta dónde encuentra la guía de solicitud de apoyo. No adjunta datos de su caso. Referencia 03.	1	Sin plazo expreso								
+C-031	13:30	Coordinación	Portal de inscripción	El portal presenta error para varios grupos y el plazo cierra hoy a las 16:00. ¿Quién confirma continuidad? Referencia 04.	35	Hoy 16:00								
+C-032	08:43	Apoyo administrativo	Cambio de aula	La pantalla de la sala asignada no funciona y la sesión comienza en 20 minutos. Hay una sala alterna libre según recepción. Referencia 04.	24	En 20 minutos								
+C-033	15:56	Equipo de sede	Documento de proveedor	Falta un anexo en la carpeta. La revisión del expediente se programó para mañana. Referencia 04.	2	Mañana								
+C-034	10:09	Mesa de ayuda	Consulta de horario	¿La reunión de seguimiento es a las 9 o a las 10? El calendario y el correo no coinciden. Referencia 04.	6	Sin plazo expreso								
+C-035	17:22	Logística de práctica	Cancelación de jornada	El transporte reporta cierre de vía y varias sedes consultan si se mantiene la actividad de la tarde. Referencia 04.	80	Hoy 12:00								
+C-036	12:35	Coordinación	Solicitud de papelería	Solicito reposición de marcadores para el próximo mes. No hay afectación inmediata. Referencia 04.	1	Próximo mes								
+C-037	07:48	Apoyo administrativo	Acceso a plataforma	No se puede ingresar desde dos sedes; el registro de asistencia cierra al final del día. Referencia 04.	18	Hoy 17:00								
+C-038	14:01	Equipo de sede	Confirmación de acta	Adjunto el borrador de acta de la semana pasada para comentarios cuando tengan disponibilidad. Referencia 04.	5	Esta semana								
+C-039	09:14	Mesa de ayuda	Mantenimiento preventivo	El proveedor propone visita técnica para la próxima semana y solicita confirmar una franja horaria. Referencia 04.	3	Próxima semana								
+C-040	16:27	Logística de práctica	Ruta de apoyo	Una persona pregunta dónde encuentra la guía de solicitud de apoyo. No adjunta datos de su caso. Referencia 04.	1	Sin plazo expreso								
+C-041	11:40	Coordinación	Portal de inscripción	El portal presenta error para varios grupos y el plazo cierra hoy a las 16:00. ¿Quién confirma continuidad? Referencia 05.	35	Hoy 16:00								
+C-042	18:53	Apoyo administrativo	Cambio de aula	La pantalla de la sala asignada no funciona y la sesión comienza en 20 minutos. Hay una sala alterna libre según recepción. Referencia 05.	24	En 20 minutos								
+C-043	13:06	Equipo de sede	Documento de proveedor	Falta un anexo en la carpeta. La revisión del expediente se programó para mañana. Referencia 05.	2	Mañana								
+C-044	08:19	Mesa de ayuda	Consulta de horario	¿La reunión de seguimiento es a las 9 o a las 10? El calendario y el correo no coinciden. Referencia 05.	6	Sin plazo expreso								
+C-045	15:32	Logística de práctica	Cancelación de jornada	El transporte reporta cierre de vía y varias sedes consultan si se mantiene la actividad de la tarde. Referencia 05.	80	Hoy 12:00								
+C-046	10:45	Coordinación	Solicitud de papelería	Solicito reposición de marcadores para el próximo mes. No hay afectación inmediata. Referencia 05.	1	Próximo mes								
+C-047	17:58	Apoyo administrativo	Acceso a plataforma	No se puede ingresar desde dos sedes; el registro de asistencia cierra al final del día. Referencia 05.	18	Hoy 17:00								
+C-048	12:11	Equipo de sede	Confirmación de acta	Adjunto el borrador de acta de la semana pasada para comentarios cuando tengan disponibilidad. Referencia 05.	5	Esta semana								
+C-049	07:24	Mesa de ayuda	Mantenimiento preventivo	El proveedor propone visita técnica para la próxima semana y solicita confirmar una franja horaria. Referencia 05.	3	Próxima semana								
+C-050	14:37	Logística de práctica	Ruta de apoyo	Una persona pregunta dónde encuentra la guía de solicitud de apoyo. No adjunta datos de su caso. Referencia 05.	1	Sin plazo expreso								
 
 --- Transcripcion ---
-                Transcripción de una reunión ficticia  ...                                         Unnamed: 2
-0  Diálogo de práctica de diez minutos. Verifica ...  ...                                                NaN
-1                                                NaN  ...                                                NaN
-2                                             Tiempo  ...                                       Intervención
-3                                              00:00  ...  Abrimos el comité simulado. Necesitamos acorda...
-4                                              00:32  ...  Tengo inventario de tres sedes. De las otras d...
-5                                              01:04  ...  El cuadro compartido tiene dos totales distint...
-6                                              01:36  ...  Primero necesitamos un único inventario. ¿Quié...
-7                                              02:08  ...  Puedo enviar el formato, pero no sé a quién de...
-8                                              02:40  ...  En el correo anterior aparecía el contacto de ...
-9                                              03:12  ...  No lo demos por hecho. Confirmemos contactos a...
-
-[10 rows x 3 columns]
+Transcripción para la práctica de reunión														
+Diálogo de práctica de diez minutos. Verifica decisiones, responsables y fechas contra cada intervención.														
+														
+Tiempo	Rol	Intervención												
+00:00	Coordinación	Abrimos el comité. Necesitamos acordar qué información llevar a la revisión de la próxima semana.												
+00:32	Logística	Tengo inventario de tres sedes. De las otras dos me dijeron que está actualizado, pero no he recibido los formatos.												
+01:04	Administración	El cuadro compartido tiene dos totales distintos. No sé si uno incluye mantenimiento.												
+01:36	Coordinación	Primero necesitamos un único inventario. ¿Quién puede pedir el dato que falta?												
+02:08	Apoyo administrativo	Puedo enviar el formato, pero no sé a quién de cada sede dirigirlo.												
+02:40	Logística	En el correo anterior aparecía el contacto de cada sede. Tal vez sigue vigente.												
+03:12	Coordinación	No lo demos por hecho. Confirmemos contactos antes de enviar.												
+03:44	Administración	El cierre para armar el informe era el viernes. ¿Este viernes o el siguiente?												
+04:16	Coordinación	El viernes que viene, creo. Revisemos el calendario al terminar.												
+04:48	Logística	Para una sede hay dos equipos que aparecen fuera de servicio, aunque uno fue reparado ayer.												
+05:20	Apoyo administrativo	Podemos marcar el inventario con estado y fecha de última verificación.												
+05:52	Coordinación	Sí, incluyamos ese campo. El equipo reparado debe tener soporte antes de cambiarlo a disponible.												
+06:24	Administración	También está el presupuesto de mantenimiento. El valor del archivo no coincide con el correo.												
+06:56	Logística	No usemos ninguno hasta saber cuál es la fuente aprobada.												
+07:28	Coordinación	De acuerdo. Dejemos el dato como pendiente y pidamos confirmación al área responsable.												
+08:00	Apoyo administrativo	¿Quién arma el borrador de acta? Puedo consolidar lo que tenemos.												
+08:32	Coordinación	Prepara el borrador y me lo compartes. No lo circulamos hasta que revisemos fecha y contactos.												
+09:04	Administración	Entonces hoy enviamos el formato de inventario cuando se confirmen los contactos.												
+09:36	Logística	Sí, y revisamos los totales cuando llegue la sede pendiente.												
+10:00	Coordinación	Cierro. Quedan confirmaciones por hacer antes de publicar el informe.												
 
 --- Datos SOFIA ---
-    Exportación administrativa ficticia para limpieza  ...                Unnamed: 5
-0  Registros creados para el curso. No provienen ...  ...                       NaN
-1                                                NaN  ...                       NaN
-2                                    Código simulado  ...  Municipio sin normalizar
-3                                           SIM-0001  ...                     Vélez
-4                                           SIM-0002  ...                     VÉLEZ
-5                                           SIM-0003  ...           Puente Nacional
-6                                           SIM-0004  ...                  Barbosa 
-7                                           SIM-0005  ...                   Barbosa
-8                                           SIM-0006  ...                    velez 
-9                                           SIM-0007  ...                     Vélez
-
-[10 rows x 6 columns]
+Muestra para limpiar una exportación administrativa														
+Registros creados para el curso. No provienen de SOFIA Plus ni de aprendices reales.														
+														
+Código	Aprendiz	Programa sin normalizar	Fecha de ingreso sin normalizar	Estado sin normalizar	Municipio sin normalizar									
+SIM-0001	Aprendiz 001	GESTION ADMINISTRATIVA	2026-03-01	EN CURSO	Vélez									
+SIM-0002	Aprendiz 002	Gestión administrativa 	1/3/26	FINALIZADO 	VÉLEZ									
+SIM-0003	Aprendiz 003	SERVICIO AL CLIENTE	01-03-2026		Puente Nacional									
+SIM-0004	Aprendiz 004	Servicio al cliente	marzo 1 2026	Finalizado	Barbosa 									
+SIM-0005	Aprendiz 005	ANALISIS DE DATOS		pendiente 	Barbosa									
+SIM-0006	Aprendiz 006	GESTION ADMINISTRATIVA	2026/03/08	en curso 	velez 									
+SIM-0007	Aprendiz 007	Gestión administrativa 	08/03/2026	Pendiente	Vélez									
+SIM-0008	Aprendiz 008	SERVICIO AL CLIENTE	2026-03-01	EN CURSO	VÉLEZ									
+SIM-0009	Aprendiz 009	Servicio al cliente	1/3/26	FINALIZADO 	Puente Nacional									
+SIM-0010	Aprendiz 010	ANALISIS DE DATOS	01-03-2026		Barbosa 									
+SIM-0011	Aprendiz 011	GESTION ADMINISTRATIVA	marzo 1 2026	Finalizado	Barbosa									
+SIM-0012	Aprendiz 012	Gestión administrativa 		pendiente 	velez 									
+SIM-0013	Aprendiz 013	SERVICIO AL CLIENTE	2026/03/08	en curso 	Vélez									
+SIM-0014	Aprendiz 014	Servicio al cliente	08/03/2026	Pendiente	VÉLEZ									
+SIM-0015	Aprendiz 015	ANALISIS DE DATOS	2026-03-01	EN CURSO	Puente Nacional									
+SIM-0016	Aprendiz 016	GESTION ADMINISTRATIVA	1/3/26	FINALIZADO 	Barbosa 									
+SIM-0017	Aprendiz 017	Gestión administrativa 	01-03-2026		Barbosa									
+SIM-0018	Aprendiz 018	SERVICIO AL CLIENTE	marzo 1 2026	Finalizado	velez 									
+SIM-0012	Aprendiz 019	Servicio al cliente		pendiente 	Vélez									
+SIM-0020	Aprendiz 020	ANALISIS DE DATOS	2026/03/08	en curso 	VÉLEZ									
+SIM-0021	Aprendiz 021	GESTION ADMINISTRATIVA	08/03/2026	Pendiente	Puente Nacional									
+SIM-0022	Aprendiz 022	Gestión administrativa 	2026-03-01	EN CURSO	Barbosa 									
+SIM-0023	Aprendiz 023	SERVICIO AL CLIENTE	1/3/26	FINALIZADO 	Barbosa									
+SIM-0024	Aprendiz 024	Servicio al cliente	01-03-2026		velez 									
+SIM-0025	Aprendiz 025	ANALISIS DE DATOS	marzo 1 2026	Finalizado	Vélez									
+SIM-0026	Aprendiz 026	GESTION ADMINISTRATIVA		pendiente 	VÉLEZ									
+SIM-0027	Aprendiz 027	Gestión administrativa 	2026/03/08	en curso 	Puente Nacional									
+SIM-0028	Aprendiz 028	SERVICIO AL CLIENTE	08/03/2026	Pendiente	Barbosa 									
+SIM-0029	Aprendiz 029	Servicio al cliente	2026-03-01	EN CURSO	Barbosa									
+SIM-0030	Aprendiz 030	ANALISIS DE DATOS	1/3/26	FINALIZADO 	velez 									
 
 --- Bienestar ---
-            Datos ficticios para análisis descriptivo  ...                 Unnamed: 5
-0  Cifras simuladas en COP. Una asociación no dem...  ...                        NaN
-1                                                NaN  ...                        NaN
-2                                    Centro ficticio  ...  Participantes actividades
-3                                           Centro A  ...                        230
-4                                           Centro B  ...                        188
-5                                           Centro C  ...                        310
-6                                           Centro D  ...                        160
-7                                           Centro E  ...                        344
-8                                           Centro F  ...                        225
-9                                           Centro G  ...                        279
-
-[10 rows x 6 columns]
+Datos de práctica para análisis descriptivo														
+Cifras en COP. Una asociación no demuestra que una variable cause la otra.														
+														
+Centro	Aprendices matriculados	Deserciones	Presupuesto bienestar COP	Tasa de deserción	Participantes actividades									
+Centro A	840	42	18500000	=C5/B5	230									
+Centro B	720	54	16000000	=C6/B6	188									
+Centro C	960	61	24500000	=C7/B7	310									
+Centro D	680	31	17100000	=C8/B8	160									
+Centro E	1020	77	26800000	=C9/B9	344									
+Centro F	755	48	20500000	=C10/B10	225									
+Centro G	890	59	22100000	=C11/B11	279									
+Centro H	610	38	15200000	=C12/B12	141									
+Centro I	970	64	25300000	=C13/B13	301									
+Centro J	730	36	19800000	=C14/B14	204									
 
 --- Gastos Q1 ---
-     Gastos ficticios de papelería para visualización  ...          Unnamed: 3
-0  Valores simulados en pesos. El primer trimestr...  ...                 NaN
-1                                                NaN  ...                 NaN
-2                                    Centro ficticio  ...  Gasto COP simulado
-3                                           Centro A  ...             1280000
-4                                           Centro A  ...             1038300
-5                                           Centro A  ...             1449400
-6                                           Centro B  ...              957321
-7                                           Centro B  ...              776821
-8                                           Centro B  ...             1075721
-9                                           Centro C  ...             1654642
-
-[10 rows x 4 columns]
+Datos de práctica de papelería para visualización														
+Montos en pesos. El primer trimestre comprende enero, febrero y marzo.														
+														
+Centro	Mes	Periodo	Gasto COP											
+Centro A	Enero	2026 Q1	1280000											
+Centro A	Febrero	2026 Q1	1038300											
+Centro A	Marzo	2026 Q1	1449400											
+Centro B	Enero	2026 Q1	957321											
+Centro B	Febrero	2026 Q1	776821											
+Centro B	Marzo	2026 Q1	1075721											
+Centro C	Enero	2026 Q1	1654642											
+Centro C	Febrero	2026 Q1	1351742											
+Centro C	Marzo	2026 Q1	1875042											
+Centro D	Enero	2026 Q1	1231963											
+Centro D	Febrero	2026 Q1	1008263											
+Centro D	Marzo	2026 Q1	1386363											
+Centro E	Enero	2026 Q1	939284											
+Centro E	Febrero	2026 Q1	771384											
+Centro E	Marzo	2026 Q1	1047184											
+Centro F	Enero	2026 Q1	1536605											
+Centro F	Febrero	2026 Q1	1264305											
+Centro F	Marzo	2026 Q1	1731505											
+Centro G	Enero	2026 Q1	1093926											
+Centro G	Febrero	2026 Q1	904426											
+Centro G	Marzo	2026 Q1	1219826											
+Centro H	Enero	2026 Q1	1861247											
+Centro H	Febrero	2026 Q1	1536747											
+Centro H	Marzo	2026 Q1	2099647											
 
 --- Contratos ---
-                Registros simulados para el hackathon  ...                      Unnamed: 7
-0  Los registros no corresponden a contratación r...  ...                             NaN
-1                                                NaN  ...                             NaN
-2                                    Código simulado  ...             Observación inicial
-3                                         SIM-CT-001  ...  Registro ficticio de práctica.
-4                                         SIM-CT-002  ...  Registro ficticio de práctica.
-5                                         SIM-CT-003  ...  Registro ficticio de práctica.
-6                                         SIM-CT-004  ...  Registro ficticio de práctica.
-7                                         SIM-CT-005  ...  Registro ficticio de práctica.
-8                                         SIM-CT-006  ...  Registro ficticio de práctica.
-9                                         SIM-CT-007  ...  Registro ficticio de práctica.
-
-[10 rows x 8 columns]
+Datos de práctica para el reto integrador														
+Una diferencia requiere verificación; por sí sola no demuestra incumplimiento.														
+														
+Código	Centro	Tipo de proceso	Fecha	Valor planeado COP	Valor comprometido COP	Estado del soporte	Observación inicial							
+SIM-CT-001	Centro A	Formación	2025-02-14	18000000	18000000	Documentos completos								
+SIM-CT-002	Centro B	Mantenimiento	2025-04-30	43600000	43060000	Pendiente de soporte								
+SIM-CT-003	Centro C	Suministros		40400000	40040000	En revisión								
+SIM-CT-004	Centro D	Servicios	2025-07-18	37200000	37020000	Por confirmar								
+SIM-CT-005	Centro E	Formación	2025-09-05	34000000	34000000	Documentos completos								
+SIM-CT-006	Centro F	Mantenimiento	2025-02-14	30800000	30260000	Pendiente de soporte								
+SIM-CT-007	Centro G	Suministros	2025-04-30	27600000	27240000	En revisión								
+SIM-CT-008	Centro H	Servicios		24400000	25650000	Por confirmar	El valor comprometido supera el planeado; solicitar conciliación.							
+SIM-CT-009	Centro A	Formación	2025-07-18	21200000	21200000	Documentos completos								
+SIM-CT-010	Centro B	Mantenimiento	2025-09-05	18000000	17460000	Pendiente de soporte								
+SIM-CT-011	Centro C	Suministros	2025-02-14	43600000	43240000	En revisión								
+SIM-CT-012	Centro D	Servicios	2025-04-30	40400000	40220000	Por confirmar	Falta fecha en el registro.							
+SIM-CT-013	Centro E	Formación		37200000	37200000	Documentos completos								
+SIM-CT-014	Centro F	Mantenimiento	2025-07-18	34000000	33460000	Pendiente de soporte								
+SIM-CT-015	Centro G	Suministros	2025-09-05	30800000	30440000	En revisión								
+SIM-CT-016	Centro H	Servicios	2025-02-14	27600000	27420000	Por confirmar								
+SIM-CT-008	Centro A	Formación	2025-04-30	24400000	24400000	Documentos completos	Código repetido deliberadamente en el ejercicio.							
+SIM-CT-018	Centro B	Mantenimiento		21200000	20660000	Pendiente de soporte								
+SIM-CT-019	Centro C	Suministros	2025-07-18	18000000	17640000	En revisión								
+SIM-CT-020	Centro D	Servicios	2025-09-05	43600000	43420000	Por confirmar								
+SIM-CT-021	Centro E	Formación	2025-02-14	40400000	40400000	Documentos completos	Estado pendiente; verificar soporte antes de concluir.							
+SIM-CT-022	Centro F	Mantenimiento	2025-04-30	37200000	36660000	Pendiente de soporte								
+SIM-CT-023	Centro G	Suministros		34000000	33640000	En revisión								
+SIM-CT-024	Centro H	Servicios	2025-07-18	30800000	30620000	Por confirmar								
 
 --- Lineamiento ficticio ---
-                    Guía ficticia de reserva de salas                                         Unnamed: 1
-0  Material didáctico de ocho apartados. No es no...                                                NaN
-1                                                NaN                                                NaN
-2                                           Apartado                                   Texto de la guía
-3                                          Propósito  Procedimiento de práctica para reservar salas ...
-4                                          Solicitud  La persona solicitante informa actividad, sede...
-5                                       Anticipación  El ejercicio supone que las solicitudes se pre...
-6                                     Disponibilidad  La reserva depende de la disponibilidad confir...
-7                                         Aprobación  La persona responsable de logística confirma o...
-8                                            Cambios  Si cambia fecha, aforo o equipo requerido, se ...
-9                                           Urgencia  La ficha no define excepciones para solicitude...
+Guía de reserva de salas														
+Material didáctico de ocho apartados. No es normativa ni una política institucional.														
+														
+Apartado	Texto de la guía													
+Propósito	Procedimiento de ejemplo para reservar salas. No corresponde a una política del SENA.													
+Solicitud	La persona solicitante informa actividad, sede, fecha, franja horaria y aforo. La ficha no pide datos personales de asistentes.													
+Anticipación	El ejercicio supone que las solicitudes se presentan con cinco días hábiles de anticipación.													
+Disponibilidad	La reserva depende de la disponibilidad confirmada por el equipo de logística.													
+Aprobación	La persona responsable de logística confirma o propone alternativas. La IA no aprueba reservas.													
+Cambios	Si cambia fecha, aforo o equipo requerido, se debe actualizar la solicitud y esperar nueva confirmación.													
+Urgencia	La ficha no define excepciones para solicitudes urgentes. Ese caso queda pendiente de decisión humana.													
+Versión	Guía didáctica v1.0, preparada para la práctica.													
 
 --- Directriz ---
-                           Mensaje directivo ficticio                                         Unnamed: 1
-0  Insumo de práctica para producir un plan y un ...                                                NaN
-1                                                NaN                                                NaN
-2                                              Campo                                          Contenido
-3                                                 De                        Dirección Regional simulada
-4                                             Asunto  Preparación de una revisión administrativa fic...
-5                                            Mensaje  Para el ejercicio de mañana, preparen un resum...
-6                                        Restricción  No se envían correos ni se presenta el borrado...
-7                                        Entregables  Plan de acción en Word, tabla de hallazgos con...
-8                                     Dato pendiente  La fecha y el responsable de publicación no se...
+Mensaje directivo de práctica														
+Insumo de práctica para producir un plan y un anuncio en borrador. No se debe enviar.														
+														
+Campo	Contenido													
+De	Dirección Regional													
+Asunto	Preparación de una revisión administrativa													
+Mensaje	Para el ejercicio de mañana, preparen un resumen de la tabla de contratos, una lista de documentos por confirmar y un borrador de comunicación interna. Presenten el método de verificación y dejen cualquier diferencia como pregunta, no como conclusión.													
+Restricción	No se envían correos ni se presenta el borrador como instrucción oficial.													
+Entregables	Plan de acción en Word, tabla de hallazgos con fila fuente y borrador para Teams.													
+Dato pendiente	La fecha y el responsable de publicación no se especifican. El equipo debe marcarlos para confirmar.													
 
 --- Fichas de reto ---
-                      Fichas editables para los retos  ...             Unnamed: 3
-0  Completa sobre copias y con datos ficticios. D...  ...                    NaN
-1                                                NaN  ...                    NaN
-2                               Reto 1 · Prompt CRTT  ...                    NaN
-3                                   Parte o criterio  ...  Verificación / ajuste
-4                                                NaN  ...                    NaN
-5                                                NaN  ...                    NaN
-6                                                NaN  ...                    NaN
-7                                                NaN  ...                    NaN
-8                                                NaN  ...                    NaN
-9              Reto 2 · Borrador de respuesta a PQRS  ...                    NaN
-
-[10 rows x 4 columns]
+Fichas editables para los retos			
+La IA completa estas fichas sobre una copia con los datos de práctica. Tú revisas las fuentes y descargas el resultado; no necesitas llenar filas. Usa el encargo de materiales/ia/reto-0.zip a reto-9.zip o reto-integrador.zip. Los datos ausentes y la revisión humana no realizada quedan pendientes. No agregues información personal ni decisiones institucionales reales.			
+			
+Reto 1 · Prompt CRTT			
+Parte o criterio	Borrador del equipo	Fuente o entrada	Verificación / ajuste
+			
+			
+			
+			
+			
+Reto 2 · Borrador de respuesta a PQRS			
+Código de caso	Hechos y petición	Dato por confirmar	Borrador / revisión
+			
+			
+			
+			
+			
+			
+			
+			
+			
+Reto 3 · Asistente de rol			
+Tarea simulada	Instrucción reutilizable	Resultado de prueba	Ajuste y revisión
+			
+			
+			
+			
+Reto 4 · Priorización de correos			
+Código de correo	Prioridad sugerida	Señal textual	Borrador / validación
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+Reto 5 · Acta y compromisos			
+Minuto	Decisión / propuesta / pendiente	Frase de origen	Responsable / fecha
+			
+			
+			
+			
+			
+			
+			
+			
+			
+Reto 6 · Registro de limpieza			
+Columna	Regla aplicada	Filas afectadas	Pendientes / control
+			
+			
+			
+			
+			
+			
+			
+Reto 8 · Lectura de presupuesto			
+Pregunta	Cálculo / fuente	Hallazgo descriptivo	Límite / pregunta nueva
+			
+			
+			
+			
+			
+			
+Reto integrador · Análisis trazable			
+Entregable	Fila / fuente	Diferencia o pregunta	Validación humana
+			
+			
+			
+			
+			
+			

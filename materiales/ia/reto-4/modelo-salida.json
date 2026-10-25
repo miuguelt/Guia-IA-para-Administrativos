@@ -1,0 +1,10 @@
+{
+  "schemaVersion": 1,
+  "artifactId": "MG-A03",
+  "fields": {
+    "reto04_priorizacion": "",
+    "tiempo_medido_vs_manual": "",
+    "uso_ia_y_revision": ""
+  },
+  "tool": "no identificado"
+}

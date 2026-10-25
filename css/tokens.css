@@ -1,0 +1,51 @@
+:root {
+  --sena-primary: #39a900;
+  --paper: #f8fafc;
+  --surface: #ffffff;
+  --white: var(--surface);
+  --ink: #1e293b;
+  --muted: #475569;
+  --green: #225746;
+  --green-dark: #153e38;
+  --lime: #d5edaa;
+  --line: #dce3da;
+  --soft: #edf3e8;
+  --radius: 18px;
+  --focus-ring: #155eef;
+  --eco-shadow: 0 14px 38px rgb(30 41 59 / 8%);
+
+  /* Escala de ritmo vertical y espaciado modular (base 8px) */
+  --space-2xs: 4px;
+  --space-xs: 8px;
+  --space-sm: 12px;
+  --space-md: 16px;
+  --space-lg: 24px;
+  --space-xl: 32px;
+  --space-2xl: 48px;
+
+  /* Colores de contraste seguro WCAG AA / AAA */
+  --amber-contrast-text: #7c4a00;
+  --amber-contrast-border: #fed375;
+  --amber-feedback-text: #8f3d00;
+  --text-accent-muted: #526d48;
+  --decor-muted: #6a855a;
+  --text-measure-max: 100%;
+
+  /* Tipografía de lectura fluida y justificación tipográfica */
+  --line-height-reading: 1.65;
+  --text-align-reading: start;
+  --text-justify-reading: inter-word;
+  --hyphens-reading: none;
+  --overflow-wrap-reading: break-word;
+
+  /* Elevaciones y radios armónicos de tarjetas */
+  --card-shadow: 0 4px 14px rgba(34, 87, 70, 0.04);
+  --card-radius: 16px;
+  --card-radius-sm: 14px;
+
+  /* Superficies diferenciadas por rol de aprendizaje */
+  --surface-theory: #ffffff;
+  --surface-lab: #f8faf8;
+  --surface-challenge: #ffffff;
+  --surface-evidence: #ffffff;
+}

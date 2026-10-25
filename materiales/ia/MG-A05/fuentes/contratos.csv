@@ -1,0 +1,28 @@
+﻿Datos de práctica para el reto integrador;;;;;;;
+"Una diferencia requiere verificación; por sí sola no demuestra incumplimiento.";;;;;;;
+;;;;;;;
+Código;Centro;Tipo de proceso;Fecha;Valor planeado COP;Valor comprometido COP;Estado del soporte;Observación inicial
+SIM-CT-001;Centro A;Formación;2025-02-14;18000000;18000000;Documentos completos;
+SIM-CT-002;Centro B;Mantenimiento;2025-04-30;43600000;43060000;Pendiente de soporte;
+SIM-CT-003;Centro C;Suministros;;40400000;40040000;En revisión;
+SIM-CT-004;Centro D;Servicios;2025-07-18;37200000;37020000;Por confirmar;
+SIM-CT-005;Centro E;Formación;2025-09-05;34000000;34000000;Documentos completos;
+SIM-CT-006;Centro F;Mantenimiento;2025-02-14;30800000;30260000;Pendiente de soporte;
+SIM-CT-007;Centro G;Suministros;2025-04-30;27600000;27240000;En revisión;
+SIM-CT-008;Centro H;Servicios;;24400000;25650000;Por confirmar;"El valor comprometido supera el planeado; solicitar conciliación."
+SIM-CT-009;Centro A;Formación;2025-07-18;21200000;21200000;Documentos completos;
+SIM-CT-010;Centro B;Mantenimiento;2025-09-05;18000000;17460000;Pendiente de soporte;
+SIM-CT-011;Centro C;Suministros;2025-02-14;43600000;43240000;En revisión;
+SIM-CT-012;Centro D;Servicios;2025-04-30;40400000;40220000;Por confirmar;Falta fecha en el registro.
+SIM-CT-013;Centro E;Formación;;37200000;37200000;Documentos completos;
+SIM-CT-014;Centro F;Mantenimiento;2025-07-18;34000000;33460000;Pendiente de soporte;
+SIM-CT-015;Centro G;Suministros;2025-09-05;30800000;30440000;En revisión;
+SIM-CT-016;Centro H;Servicios;2025-02-14;27600000;27420000;Por confirmar;
+SIM-CT-008;Centro A;Formación;2025-04-30;24400000;24400000;Documentos completos;Código repetido deliberadamente en el ejercicio.
+SIM-CT-018;Centro B;Mantenimiento;;21200000;20660000;Pendiente de soporte;
+SIM-CT-019;Centro C;Suministros;2025-07-18;18000000;17640000;En revisión;
+SIM-CT-020;Centro D;Servicios;2025-09-05;43600000;43420000;Por confirmar;
+SIM-CT-021;Centro E;Formación;2025-02-14;40400000;40400000;Documentos completos;"Estado pendiente; verificar soporte antes de concluir."
+SIM-CT-022;Centro F;Mantenimiento;2025-04-30;37200000;36660000;Pendiente de soporte;
+SIM-CT-023;Centro G;Suministros;;34000000;33640000;En revisión;
+SIM-CT-024;Centro H;Servicios;2025-07-18;30800000;30620000;Por confirmar;

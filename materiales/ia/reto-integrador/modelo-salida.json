@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 1,
+  "artifactId": "MG-A05",
+  "fields": {
+    "trazabilidad_hackathon": "",
+    "presentacion_y_revision": "",
+    "prueba_individual": "",
+    "informe_tecnico_completo": "",
+    "cuantificacion_ahorro_horas": "",
+    "protocolo_gobernanza_riesgos": "",
+    "compromiso_transferencia": "",
+    "uso_ia_y_revision": ""
+  },
+  "tool": "no identificado"
+}

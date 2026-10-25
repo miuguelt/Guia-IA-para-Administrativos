@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="es-CO"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="light"><title>Trabaja con datos oficiales y conserva la evidencia · Biblioteca de la guía</title>
+<link rel="stylesheet" href="../../css/documents.css"><link rel="stylesheet" href="devbrain-prose.css" data-devbrain-prose>
+<script defer src="devbrain-prose.js" data-devbrain-prose-runtime></script></head><body>
+<a class="skip-link" href="#documento">Ir al documento</a>
+<nav class="reader-nav" aria-label="Acciones del documento"><a href="index.html">← Biblioteca</a>
+<a href="../../index.html#preparacion">Abrir guía web</a><a href="../../materiales/analisis-datos/instrucciones-herramientas.md" download>Descargar fuente Markdown</a>
+<span>Imprime o guarda en PDF con Ctrl+P</span></nav>
+<div class="reading-layout"><aside class="reading-sidebar"><p class="eyebrow">En este documento</p>
+<details open><summary>Ver apartados</summary><div class="toc">
+<ul>
+<li><a href="#en-tres-pasos">En tres pasos</a></li>
+<li><a href="#chatgpt-o-gemini-en-el-navegador">ChatGPT o Gemini en el navegador</a></li>
+<li><a href="#codex-en-una-carpeta-local">Codex en una carpeta local</a></li>
+<li><a href="#antigravity">Antigravity</a></li>
+<li><a href="#jupyter-y-colab">Jupyter y Colab</a></li>
+<li><a href="#documentos-y-citas">Documentos y citas</a></li>
+<li><a href="#revisa-tres-criterios">Revisa tres criterios</a></li>
+</ul>
+</div>
+</details></aside>
+<main id="documento" class="document-sheet"><header class="document-header"><p class="eyebrow">Guía IA para administrativos</p>
+<span class="document-badge">Laboratorio de datos y documentos</span><p class="document-context">Consulta el contenido por apartados y conserva el archivo fuente si necesitas editarlo.</p></header>
+<article class="document-content"><h1 id="trabaja-con-datos-oficiales-y-conserva-la-evidencia">Trabaja con datos oficiales y conserva la evidencia</h1>
+<p>Este material pertenece al laboratorio independiente de análisis de datos. Los archivos numéricos son extractos de fuentes públicas oficiales; las preguntas y los recorridos se prepararon para aprender. Consulta la procedencia de cada archivo antes de reutilizarlo. Usa únicamente los archivos públicos de la práctica en las herramientas externas.</p>
+<h2 id="en-tres-pasos">En tres pasos</h2>
+<ol>
+<li><strong>Entrega el encargo preparado.</strong> Descarga el paquete de <a href="../../materiales/ia/lab-nasa.zip">NASA</a>, <a href="../../materiales/ia/lab-poblacion.zip">población</a>, <a href="../../materiales/ia/lab-clima.zip">clima</a>, <a href="../../materiales/ia/lab-sismos.zip">sismos</a> o <a href="../../materiales/ia/lab-documentos.zip">documentos</a>. Adjunta sus fuentes al chat autorizado y copia ENCARGO-CHAT.md; en Antigravity o Codex, abre la carpeta y copia ENCARGO-IDE.md. Conserva las carpetas y los originales.</li>
+<li><strong>Revisa la producción de la IA.</strong> La IA genera inspección, tablas, gráficos o matriz de evidencia, conclusión, procedimiento y documento. La pregunta y los productos están definidos en el paquete. Contrasta una cifra o cita con el original y solicita los ajustes en la misma conversación; no necesitas escribir ni transcribir respuestas.</li>
+<li><strong>Descarga los archivos.</strong> Pide los resultados y <code>resultado.json</code> para <code>LAB-A01</code>. Recibe ese JSON en «Guarda tu evidencia», revisa la vista y guarda el borrador. La revisión humana no realizada permanece pendiente; una importación no es aprobación institucional.</li>
+</ol>
+<p>No necesitas usar todas las herramientas. Las opciones siguientes amplían el procedimiento del encargo; la IA ejecuta los cálculos y prepara los documentos.</p>
+<h2 id="chatgpt-o-gemini-en-el-navegador">ChatGPT o Gemini en el navegador</h2>
+<p>Adjunta el CSV y su documentación mediante el control de archivos. Pide una inspección de columnas, unidades, fechas, duplicados y valores ausentes. Verifica tres filas antes de solicitar una conclusión. Si tu cuenta no ejecuta cálculos sobre archivos, usa el cuaderno de la práctica.</p>
+<p>Instrucción inicial:</p>
+<pre><code class="language-text">Describe los archivos adjuntos y verifica su estructura. Indica qué representa cada
+fila, las unidades, el periodo, los duplicados y los valores ausentes. Muéstrame tres
+filas identificadas para compararlas con el original. Después responde mi pregunta
+con una tabla calculada y un gráfico. Explica filtros y fórmulas. No inventes valores.
+</code></pre>
+<p>Pide una figura adecuada para la pregunta: barras para comparar categorías, líneas para tiempo, histograma para distribución y dispersión para relaciones. Solicita el dato calculado detrás de cada punto o barra. Descarga la tabla, la imagen y el procedimiento; conserva las decisiones que tomaste durante el chat.</p>
+<p>Para explorar con controles, pide zoom, filtros y una tabla equivalente. Comprueba que los controles modifiquen tanto el gráfico como el conteo. La disponibilidad de visualizaciones depende de la cuenta y la superficie.</p>
+<p>Fuentes: <a href="https://learn.chatgpt.com/docs/artifacts-viewer">archivos en ChatGPT</a>, <a href="https://learn.chatgpt.com/docs/visualizations">visualizaciones en ChatGPT</a>, <a href="https://support.google.com/gemini/answer/14903178?hl=es-419">archivos y gráficos en Gemini</a>.</p>
+<h2 id="codex-en-una-carpeta-local">Codex en una carpeta local</h2>
+<ol>
+<li>Abre la carpeta del paquete en un chat del proyecto y copia ENCARGO-IDE.md. La IA identifica datos, cuaderno y herramientas; una imagen adjunta no concede acceso a toda una carpeta.</li>
+<li>Pide a la IA ejecutar el plan, el programa o el cuaderno y repetirlo desde los originales en un entorno reiniciado. Revisa exclusiones, unidades y cualquier comando que solicite autorización, con su carpeta de destino.</li>
+<li>Abre los archivos generados, contrasta tres resultados con las entradas y descarga código, documentos y respaldo JSON. Un paso que no se haya ejecutado debe quedar pendiente.</li>
+</ol>
+<pre><code class="language-text">Analiza los datos de esta carpeta y conserva los originales. Prepara un cuaderno
+o programa que pueda ejecutar de nuevo. Documenta columnas, unidades, filtros
+y tratamiento de valores ausentes. Crea las figuras y una tabla de control.
+Ejecuta comprobaciones con aserciones sobre filas, fechas y cálculos.
+Entrega los archivos resultantes e indica cualquier paso que no se haya ejecutado.
+</code></pre>
+<p>Para NASA, usa el archivo <code>exoplanetas.csv</code> y <code>01-exoplanetas.ipynb</code>. Compara radio y periodo orbital; revisa los valores positivos antes de usar una escala logarítmica. El conjunto de práctica contiene detecciones por tránsito, por lo que no sirve para comparar la frecuencia de todos los métodos de descubrimiento.</p>
+<p>Fuentes: <a href="https://learn.chatgpt.com/docs/app">aplicación</a>, <a href="https://learn.chatgpt.com/docs/artifacts-viewer">archivos y visores por superficie</a>.</p>
+<h2 id="antigravity">Antigravity</h2>
+<ol>
+<li>Abre la carpeta de clima en Antigravity y copia ENCARGO-IDE.md. Pide al agente localizar <code>clima.csv</code>, su documentación y el entorno de ejecución; los controles dependen de la superficie disponible.</li>
+<li>La IA ejecuta el análisis y corrige los errores antes de interpretar los datos. Revisa media mensual de temperatura, suma de precipitación y conteo de días válidos.</li>
+<li>Abre figuras y tablas, comprueba filtros, fechas y ejes, y descarga el código y los resultados. La IA debe indicar si el HTML depende de recursos externos.</li>
+</ol>
+<pre><code class="language-text">Analiza clima.csv. Identifica el periodo, las coordenadas, la escala temporal
+y la procedencia de los valores. Calcula temperatura media y precipitación
+acumulada por mes, con días válidos. No conviertas datos ausentes en cero.
+Crea dos paneles, una tabla y un filtro por fechas. Guarda el código y comprueba
+los resultados. Explica el alcance de una serie de un año para estudiar el clima.
+</code></pre>
+<p>La documentación distingue varias superficies de Antigravity; los controles exactos dependen de la versión. Un artefacto puede ser un plan o una visualización. Verifica que el resultado gráfico provenga del archivo calculado y no sea una ilustración del resultado esperado.</p>
+<p>Fuentes: <a href="https://antigravity.google/docs/agent/">agente</a>, <a href="https://antigravity.google/blog/visualizing-with-the-help-of-antigravity">artefactos visuales</a>.</p>
+<h2 id="jupyter-y-colab">Jupyter y Colab</h2>
+<p>Elige uno de los cuadernos incluidos: <code>01-exoplanetas.ipynb</code>, <code>02-poblacion.ipynb</code>, <code>03-clima.ipynb</code> o <code>04-sismos.ipynb</code>. Conserva los CSV junto con la estructura de carpetas que espera el cuaderno.</p>
+<p>En Colab, abre la opción de subir un cuaderno y carga el <code>.ipynb</code> preparado por la IA. Sube también sus archivos de datos: el cuaderno no arrastra automáticamente los archivos vecinos. Si la ruta difiere, pide a la IA el cuaderno corregido; no necesitas editar código.</p>
+<p>En Jupyter, abre el cuaderno desde la carpeta del paquete y selecciona el entorno de Python preparado. Pide al agente del IDE ejecutarlo desde la primera celda y comprobar dependencias. Ante un archivo no encontrado, debe revisar nombre y ubicación antes de cambiar la lógica.</p>
+<p>Para ampliar la práctica, pide a la IA otra selección del filtro y una explicación de la diferencia; contrasta ambos resultados con sus tablas. La IA debe repetir todo en una sesión reiniciada para detectar dependencias ocultas entre celdas. Descarga el cuaderno ejecutado y los resultados; los archivos de una sesión temporal de Colab pueden desaparecer.</p>
+<p>Fuentes: <a href="https://jupyter.org/">Jupyter</a>, <a href="https://research.google.com/colaboratory/faq.html">Colab</a>.</p>
+<h2 id="documentos-y-citas">Documentos y citas</h2>
+<p>Abre <code>documentos/manifiesto.csv</code>. El conjunto de lectura tiene diez referencias; algunos PDF se obtienen desde el enlace oficial. No cargues un documento en un servicio externo si sus condiciones no permiten ese uso. Las fichas de trabajo y las plantillas son materiales propios del módulo.</p>
+<p>Para una primera práctica, lee las tres fuentes DANE en el visor oficial y compara las afirmaciones de <code>ejemplo-verificado.csv</code>. La página se cuenta desde la primera hoja del PDF; también se registra el número impreso cuando existe. Conserva la edición del documento: una proyección publicada en 2025 describe un escenario, no una observación del futuro.</p>
+<p>Para usar NotebookLM, que la documentación actual denomina Gemini Notebook, crea un cuaderno y agrega las fuentes permitidas del encargo documental. Pide a la IA la tabla con afirmación, documento, página, cita y limitación. Abre cada cita y revisa la página original. Si la respuesta no tiene apoyo, pide a la IA conservar <code>no encontrado</code>. Un resumen no certifica que se haya revisado cada página.</p>
+<pre><code class="language-text">Usa únicamente las fuentes seleccionadas. Compara sus métodos, periodos,
+variables y limitaciones. Para cada afirmación indica documento y página;
+si el visor no da página, indica sección y un fragmento que pueda localizar.
+Separa resultados observados, supuestos y proyecciones. Registra no encontrado
+cuando no haya respaldo y no combines cifras de ediciones distintas.
+</code></pre>
+<p>Para cientos de documentos, encarga a Codex o Antigravity el inventario, la detección de páginas sin texto, el reconocimiento óptico de caracteres (OCR) cuando corresponda y la extracción por página. La IA conserva originales, texto y fallos, y segmenta por secciones con identificador de documento. Los fragmentos sirven para explorar; una pregunta exhaustiva requiere recorridos completos y conteos verificables que tú puedas comprobar.</p>
+<p>Fuentes: <a href="https://support.google.com/gemininotebook/answer/16179559?hl=es-419">citas y selección de fuentes</a>, <a href="https://support.google.com/gemininotebook/answer/16206563?hl=es-419">cuadernos y exportación</a>, <a href="https://ocrmypdf.readthedocs.io/en/latest/introduction.html">OCRmyPDF</a>.</p>
+<h2 id="revisa-tres-criterios">Revisa tres criterios</h2>
+<ul>
+<li><strong>Fuente y cobertura.</strong> La pregunta coincide con alcance, unidad y periodo; la consulta, los originales, las exclusiones y los datos ausentes están identificados.</li>
+<li><strong>Comprobación y representación.</strong> Puedes contrastar tres resultados con datos o páginas originales. Los gráficos tienen título, ejes, unidades, fuente y tabla equivalente; el procedimiento permite repetirlos.</li>
+<li><strong>Conclusión y revisión.</strong> La explicación distingue descripción, asociación, hipótesis y causalidad. Los fallos y la revisión humana que no haya ocurrido siguen pendientes; la IA no acredita esas acciones.</li>
+</ul>
+<p>Para herramientas visuales adicionales, consulta la sección web de herramientas. Excel y Power Query ayudan con tablas y pasos de limpieza; Power BI conecta varias vistas; OpenRefine sirve para revisar categorías. pandas procesa tablas, DuckDB consulta archivos grandes y Parquet facilita lecturas por columnas. Plotly y Altair permiten exploración interactiva; Matplotlib permite preparar figuras exportables. Elige según la tarea y conserva siempre los datos calculados.</p></article>
+<footer class="document-footer">Guía IA para administrativos · Versión de lectura de <a href="../../materiales/analisis-datos/instrucciones-herramientas.md">instrucciones-herramientas.md</a>.
+Las decisiones y los pendientes conservan el estado del archivo fuente.</footer></main></div></body></html>

@@ -1,0 +1,9 @@
+﻿Variante opcional por área · Reto 4 · Talento humano
+Mensajes de práctica, sin tiempo adicional: úsalos en lugar de cinco de los diez borradores. No representan solicitudes reales.
+
+Código;Área;Mensaje;Pista para decidir
+TH-01;Talento humano;Solicito una certificación laboral para un trámite que vence el viernes.;"Hay plazo explícito; el borrador no expide la certificación."
+TH-02;Talento humano;Quiero saber cuántos días de vacaciones tengo pendientes.;"La respuesta depende de un sistema institucional; marca el dato como pendiente."
+TH-03;Talento humano;Llegó un soporte de salud. Su contenido no se incluye en este archivo seguro ni se entrega a la IA.;"Es información de salud: no la cargues al chat; registra solo que llegó un soporte."
+TH-04;Talento humano;"Necesito cambiar la cuenta bancaria donde recibo el pago; respondan hoy con el formulario.";"Un cambio de cuenta bancaria pedido con urgencia es una señal de posible fraude; remítelo al canal oficial del área sin pedir datos por correo."
+TH-05;Talento humano;¿Cuál es el horario de atención de la oficina esta semana?;"Consulta informativa sin datos personales; prioridad baja."

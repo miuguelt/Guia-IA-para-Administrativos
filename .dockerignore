@@ -18,7 +18,14 @@
 # --- DevBrain baseline: build-irrelevant content ---
 *.md
 !README.md
-docs/
+!docs/
+!docs/**
+# La biblioteca se regenera desde las fuentes en la etapa de construcción.
+docs/lectura/
+docs/architecture/
+!materiales/analisis-datos/**/*.md
+!materiales/validacion/*.md
+!materiales/ia/**/*.md
 tests/
 logs/
 tmp/
@@ -45,6 +52,10 @@ docker-compose.override.yml
 *.xcf
 design/
 mockups/
+.temp_edge_profile/
+.playwright-cli/
+node_modules/
+output/
 
 # --- DevBrain: rastros de agentes IA (bloque gestionado) ---
 # Rastros de agentes IA: jamas entran en la imagen
@@ -122,3 +133,7 @@ PROJECT_GENOME.md
 conversations/
 memory-bank/
 # --- end DevBrain rastros de agentes IA ---
+
+# --- DevBrain repo hygiene (managed block) ---
+.pytest_cache/
+# --- end DevBrain repo hygiene ---

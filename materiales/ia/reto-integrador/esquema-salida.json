@@ -1,0 +1,72 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Resultado generado · Genera un informe que puedas sustentar",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "artifactId",
+    "fields",
+    "tool"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "const": 1
+    },
+    "artifactId": {
+      "const": "MG-A05"
+    },
+    "fields": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "trazabilidad_hackathon",
+        "presentacion_y_revision",
+        "prueba_individual",
+        "informe_tecnico_completo",
+        "cuantificacion_ahorro_horas",
+        "protocolo_gobernanza_riesgos",
+        "compromiso_transferencia",
+        "uso_ia_y_revision"
+      ],
+      "properties": {
+        "trazabilidad_hackathon": {
+          "type": "string",
+          "minLength": 1
+        },
+        "presentacion_y_revision": {
+          "type": "string",
+          "minLength": 1
+        },
+        "prueba_individual": {
+          "type": "string",
+          "minLength": 1
+        },
+        "informe_tecnico_completo": {
+          "type": "string",
+          "minLength": 1
+        },
+        "cuantificacion_ahorro_horas": {
+          "type": "string",
+          "minLength": 1
+        },
+        "protocolo_gobernanza_riesgos": {
+          "type": "string",
+          "minLength": 1
+        },
+        "compromiso_transferencia": {
+          "type": "string",
+          "minLength": 1
+        },
+        "uso_ia_y_revision": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "tool": {
+      "type": "string",
+      "minLength": 1
+    }
+  }
+}

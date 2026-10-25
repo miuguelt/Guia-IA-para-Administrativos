@@ -1,0 +1,107 @@
+<div class="lab-card" id="lab-herramientas"><h2>Elige una herramienta y conserva el procedimiento</h2><p>Usa un chat que procese archivos o un IDE con agente, como Antigravity o Codex. El encargo preparado incluye fuentes, operaciones y archivos de salida.</p><p><strong>Ejemplo:</strong> entrega el paquete de población al chat y pide que genere la tabla comparativa y el informe.</p><ol class="ai-workflow lab-steps"><li>Descarga el paquete de la práctica que elegiste.</li><li>Adjúntalo al chat o abre la carpeta en el IDE y entrega su encargo.</li><li>Revisa los archivos que devuelve la IA, pide corregir los errores y conserva los asuntos pendientes.</li></ol><p>Si la cuenta no procesa archivos, conserva el encargo y consulta otra herramienta autorizada. La ejecución sigue pendiente hasta que se realice.</p><details class="lab-result-guide"><summary>Consultar conceptos, fuentes y opciones de ampliación</summary>
+
+<p>Empieza con una pregunta que puedas responder con datos: cómo cambió una población, qué tan dispersas son las temperaturas o qué método usan varios informes. La herramienta adecuada depende del archivo, del resultado y de cuántas veces necesitarás repetir el análisis. Puedes comenzar sin programar y avanzar hacia un cuaderno que muestre los cálculos.</p>
+<p>En estas prácticas, <strong>Codex</strong> es el agente de OpenAI. <strong>Antigravity</strong> es el entorno de Google para trabajar con proyectos y agentes. El <strong>chat web</strong> permite adjuntar archivos y conversar sobre ellos. Tener un proyecto en tu computador no significa que el modelo de IA funcione sin conexión.</p>
+<div class="lab-grid">
+<article class="lab-card"><h3>Quiero entender una tabla</h3><p>Usa ChatGPT o Gemini en el navegador. Adjunta el CSV y su diccionario, pide una revisión de calidad y solicita primero una tabla pequeña. Después crea el gráfico. Es una entrada accesible cuando todavía no necesitas automatizar el trabajo.</p><p><a href="#lab-poblacion">Practica con población</a>.</p></article>
+<article class="lab-card"><h3>Quiero repetir el análisis</h3><p>Usa Codex o Antigravity sobre una carpeta. El agente puede preparar y ejecutar un programa, conservar resultados y ayudarte a corregir errores. Pide que el análisis se pueda ejecutar de nuevo desde los originales.</p><p><a href="#lab-nasa">Practica con exoplanetas</a> o <a href="#lab-clima">con clima</a>.</p></article>
+<article class="lab-card"><h3>Quiero entender cada cálculo</h3><p>Abre el cuaderno de la práctica en Jupyter o Colab. Cada celda reúne un paso de código y su salida. Ejecuta en orden y cambia una variable a la vez. La IA puede explicar el código mientras tú compruebas los resultados.</p><p><a href="#lab-cuadernos">Abre un cuaderno paso a paso</a>.</p></article>
+<article class="lab-card"><h3>Quiero comparar muchos documentos</h3><p>Usa NotebookLM para explorar un conjunto delimitado de fuentes con citas. Para cientos de archivos, prepara primero el inventario y la extracción con Codex o Antigravity. Conserva una matriz que permita volver al documento y a la página.</p><p><a href="#lab-documentos">Practica con documentos oficiales</a>.</p></article>
+</div>
+<p>Las opciones de carga, los nombres de algunos controles y las capacidades disponibles cambian según la cuenta, la organización y la versión. Si una opción no aparece, usa el archivo descargable o la ruta de cuaderno de la misma práctica. No necesitas una clave de API para seguir la ruta inicial.</p>
+</details></div>
+<article class="lab-card"><h2>Chat web: del archivo a un resultado que puedas revisar</h2><details class="lab-result-guide"><summary>Consultar conceptos, fuentes y opciones de ampliación</summary>
+
+<ol class="lab-steps">
+<li><strong>Prepara los archivos.</strong> Descarga el paquete de población. Conserva el CSV y lee su ficha de procedencia. Identifica qué representa una fila: un país en un año. No pegues una captura cuando puedas adjuntar la tabla original.</li>
+<li><strong>Abre una conversación.</strong> Entra a ChatGPT o Gemini con la cuenta que tengas disponible. Usa la opción de adjuntar archivos y selecciona el CSV y la ficha. Elige una función capaz de trabajar con archivos si tu cuenta ofrece varias opciones.</li>
+<li><strong>Pide que revise antes de calcular.</strong> Solicita nombres de columnas, tipos, cantidad de filas, periodo, unidades, duplicados y datos ausentes. Comprueba que el archivo que describe sea el que adjuntaste.</li>
+<li><strong>Solicita una tabla de control.</strong> Pide tres filas identificadas por país y año. Búscalas en el CSV. Si no coinciden, resuelve la lectura del archivo antes de pedir conclusiones.</li>
+<li><strong>Formula una comparación concreta.</strong> Por ejemplo, compara el cambio porcentual entre el primer y el último año común a tres países. Pide mostrar el valor inicial, el final y la fórmula.</li>
+<li><strong>Elige el gráfico.</strong> Usa líneas para la evolución y barras para el cambio entre dos años. Solicita título, fuente, unidades y tabla equivalente. Una escala en millones debe decirlo expresamente.</li>
+<li><strong>Descarga la evidencia.</strong> Guarda la tabla calculada, el gráfico y el código o procedimiento usado, cuando esté disponible. Copia también el periodo de consulta y las decisiones sobre datos ausentes.</li>
+</ol>
+<pre class="lab-prompt"><code>Trabaja con los archivos adjuntos. Primero describe las columnas, las unidades,
+el periodo, los duplicados y los valores ausentes. Muéstrame tres filas de control.
+Después compara el cambio de población de los países en el periodo común.
+Explica la fórmula, entrega la tabla calculada y crea líneas y barras con etiquetas.
+No completes datos ausentes ni cambies unidades sin explicarlo.
+Separa lo que muestran los datos de las posibles explicaciones.</code></pre>
+<p><strong>Si recibes una respuesta sin cálculos:</strong> pide que procese el archivo y muestre la tabla usada. Si la cuenta no puede hacerlo, abre el cuaderno. Si el gráfico interactivo no se puede descargar, conserva una figura estática y la tabla; no dependas del historial del chat como único respaldo.</p>
+<p>Consulta las instrucciones oficiales de <a href="https://learn.chatgpt.com/docs/artifacts-viewer" rel="noopener noreferrer" target="_blank">archivos en ChatGPT</a>, <a href="https://learn.chatgpt.com/docs/visualizations" rel="noopener noreferrer" target="_blank">visualizaciones</a> y <a href="https://support.google.com/gemini/answer/14903178?hl=es-419" rel="noopener noreferrer" target="_blank">archivos y gráficos en Gemini</a>.</p>
+</details></article>
+<article class="lab-card"><h2>Codex: un análisis que se ejecuta desde una carpeta</h2><details class="lab-result-guide"><summary>Consultar conceptos, fuentes y opciones de ampliación</summary>
+
+<p>Esta ruta es útil para reunir datos, código, gráficos y comprobaciones. El laboratorio NASA te permite observar cómo una instrucción en lenguaje natural se convierte en un procedimiento que puedes revisar.</p>
+<ol class="lab-steps">
+<li><strong>Abre el paquete.</strong> Descomprime <a download="" href="materiales/analisis-datos/paquetes/nasa.zip">el laboratorio NASA</a> en una carpeta de práctica. No trabajes sobre la única copia de un archivo propio.</li>
+<li><strong>Selecciona la carpeta en Codex.</strong> Abre o agrega el proyecto local. Crea un chat dentro de ese proyecto para que el agente pueda encontrar los archivos que mencionarás. En la extensión del editor, abre primero la carpeta de trabajo.</li>
+<li><strong>Define la entrega.</strong> Pide un cuaderno o un programa, una tabla de datos procesados, figuras y un informe breve. Solicita que conserve el archivo original y explique las dependencias antes de instalarlas.</li>
+<li><strong>Revisa el plan.</strong> Comprueba qué filas entrarán a cada gráfico, qué significan las columnas y cómo tratará los registros incompletos. Una exclusión debe quedar contada y justificada.</li>
+<li><strong>Ejecuta y observa.</strong> Deja que el agente use las herramientas disponibles en el proyecto. Si necesita autorización de ejecución, revisa el comando y la carpeta. Pide que informe cualquier operación que falle; una figura de muestra no reemplaza el cálculo.</li>
+<li><strong>Comprueba el análisis.</strong> Solicita aserciones sobre filas, unidades, llaves únicas y resultados de control. Revisa manualmente algunos puntos del gráfico en la tabla de origen.</li>
+<li><strong>Repite desde el comienzo.</strong> Pide ejecutar el análisis en una sesión limpia. Debe reconstruir los resultados a partir de los archivos incluidos, sin depender de variables de un chat anterior.</li>
+</ol>
+<pre class="lab-prompt"><code>Abre los datos y el cuaderno de este laboratorio. Explícame qué representa cada fila.
+Conserva los originales y prepara resultados reproducibles en una carpeta separada.
+Crea un histograma, una dispersión y una tabla de control con las unidades correctas.
+Cuenta los registros incluidos y excluidos de cada figura.
+Ejecuta comprobaciones y vuelve a ejecutar el análisis desde el comienzo.
+Entrega las rutas de los archivos y diferencia hallazgos de hipótesis.</code></pre>
+<p><strong>Cómo revisar el resultado:</strong> abre el HTML o la imagen producida y contrástala con el CSV. El modo de línea de comandos y algunas extensiones no muestran los mismos visores que la aplicación. Puedes abrir el archivo con un navegador o lector compatible. <a href="https://learn.chatgpt.com/docs/app" rel="noopener noreferrer" target="_blank">Documentación de la aplicación</a> y <a href="https://learn.chatgpt.com/docs/artifacts-viewer" rel="noopener noreferrer" target="_blank">revisión de archivos por superficie</a>.</p>
+</details></article>
+<article class="lab-card"><h2>Antigravity: explorar, ejecutar y revisar artefactos</h2><details class="lab-result-guide"><summary>Consultar conceptos, fuentes y opciones de ampliación</summary>
+
+<p>La práctica de clima utiliza Antigravity para organizar un análisis y revisar sus gráficos. Un artefacto es un resultado del agente, como un plan, un informe o una visualización. Pídele que distinga un boceto de un resultado calculado.</p>
+<ol class="lab-steps">
+<li><strong>Prepara el proyecto.</strong> Descomprime <a download="" href="materiales/analisis-datos/paquetes/clima.zip">el laboratorio de clima</a> y abre la carpeta en Antigravity. En el IDE, usa el panel del agente; en la aplicación, selecciona el proyecto correspondiente.</li>
+<li><strong>Identifica archivos y entorno.</strong> Pide al agente listar el CSV, el cuaderno y las instrucciones. Solicita que compruebe si puede ejecutar Python y qué bibliotecas están disponibles. No interpretes una respuesta sobre capacidades como una ejecución realizada.</li>
+<li><strong>Solicita el plan.</strong> Si está disponible, usa el modo de planificación. La tarea debe incluir revisión del periodo, detección de valores ausentes, agregaciones mensuales y dos gráficos separados para temperatura y precipitación.</li>
+<li><strong>Revisa supuestos.</strong> La temperatura mensual se obtiene promediando valores diarios válidos; la precipitación acumulada requiere sumar valores diarios y revisar la cobertura. No son la misma operación.</li>
+<li><strong>Ejecuta el análisis.</strong> Revisa los cambios y las solicitudes de ejecución que presente tu versión. Pide guardar el código y los resultados. Si muestra un gráfico interactivo, confirma que use el archivo incluido y que indique el periodo filtrado.</li>
+<li><strong>Prueba los controles.</strong> Cambia el mes o el rango de fechas. Verifica que el conteo y la tabla cambien junto con la figura. Solicita foco visible, etiquetas y manejo por teclado.</li>
+<li><strong>Exporta y comprueba.</strong> Abre el resultado fuera del proyecto, si su formato lo permite. Pide indicar si el HTML funciona sin conexión o necesita bibliotecas o mapas externos.</li>
+</ol>
+<pre class="lab-prompt"><code>Analiza clima.csv y su procedencia. Revisa fechas, unidades y valores ausentes.
+Calcula temperatura media y precipitación acumulada por mes, indicando días válidos.
+Crea líneas para temperatura y barras para precipitación en paneles separados.
+Agrega un filtro por fechas, una tabla accesible y una explicación de los cálculos.
+Conserva el código, comprueba los totales y aclara qué representan estos datos.
+No presentes un año de observaciones como prueba de cambio climático.</code></pre>
+<p>Antigravity tiene varias superficies y sus controles pueden cambiar. Las instrucciones oficiales explican el <a href="https://antigravity.google/docs/agent/" rel="noopener noreferrer" target="_blank">trabajo del agente</a> y los <a href="https://antigravity.google/blog/visualizing-with-the-help-of-antigravity" rel="noopener noreferrer" target="_blank">artefactos visuales</a>. Usa el plan y los archivos como referencias estables del recorrido.</p>
+</details></article>
+<article class="lab-card" id="lab-cuadernos"><h2>Jupyter y Colab: observa el análisis por etapas</h2><details class="lab-result-guide"><summary>Consultar conceptos, fuentes y opciones de ampliación</summary>
+
+<p>Un cuaderno <code>.ipynb</code> combina texto, código y resultados. El código queda visible: puedes pedir una explicación de una línea, revisar una fórmula y ejecutar de nuevo. No necesitas aprender todas las instrucciones de Python antes de completar una práctica.</p>
+<ol class="lab-steps">
+<li>Descarga un paquete completo. Lee las primeras celdas del cuaderno para conocer los archivos y dependencias que necesita.</li>
+<li>En <a href="https://colab.research.google.com/" rel="noopener noreferrer" target="_blank">Colab</a>, abre la opción de subir un cuaderno y selecciona el archivo <code>.ipynb</code>. Carga también los datos en las rutas que indique el cuaderno. Subir el cuaderno no sube automáticamente toda la carpeta del paquete.</li>
+<li>Si usas Jupyter, abre la carpeta descomprimida y selecciona el cuaderno. Usa el entorno de Python indicado en sus instrucciones. No instales herramientas duplicadas si el equipo ya tiene un entorno preparado.</li>
+<li>Ejecuta las celdas desde arriba. Espera a que termine cada una y lee su salida. Si aparece un error de ruta, comprueba la ubicación del CSV; si falta una biblioteca, revisa la celda de preparación.</li>
+<li>Cambia solo un filtro, por ejemplo el país o el mes, y vuelve a ejecutar desde la celda que lo usa. Explica qué resultado esperabas y qué ocurrió.</li>
+<li>Reinicia la sesión de cálculo y ejecuta todas las celdas. Guarda el cuaderno ejecutado y descarga resultados. Las sesiones de Colab son temporales; los archivos de su entorno no constituyen un respaldo permanente.</li>
+</ol>
+<p>Los cuadernos disponibles son <a download="" href="materiales/analisis-datos/cuadernos/01-exoplanetas.ipynb">exoplanetas</a>, <a download="" href="materiales/analisis-datos/cuadernos/02-poblacion.ipynb">población</a>, <a download="" href="materiales/analisis-datos/cuadernos/03-clima.ipynb">clima</a> y <a download="" href="materiales/analisis-datos/cuadernos/04-sismos.ipynb">sismos</a>. Consulta las características de <a href="https://jupyter.org/" rel="noopener noreferrer" target="_blank">Jupyter</a> y los <a href="https://research.google.com/colaboratory/faq.html" rel="noopener noreferrer" target="_blank">recursos y límites de Colab</a>.</p>
+</details></article>
+<article class="lab-card"><h2>Amplía el análisis con herramientas especializadas</h2><details class="lab-result-guide"><summary>Consultar conceptos, fuentes y opciones de ampliación</summary>
+
+<div class="lab-grid">
+<article class="lab-card"><h3>Excel: importa, compara y comprueba</h3><p>Esta ruta sirve para revisar una tabla sin programar. Conserva el CSV original y trabaja en un libro nuevo. Los nombres de los controles cambian entre versiones, pero la vista previa y los tipos de columna siguen siendo decisiones importantes.</p>
+<ol class="lab-steps">
+<li><strong>Importa el archivo.</strong> En <strong>Datos &gt; Desde texto/CSV</strong>, selecciona el CSV. Revisa la codificación, el separador y la vista previa; si las tildes se ven mal o todas las columnas quedan juntas, corrige la importación antes de cargar.</li>
+<li><strong>Comprueba los tipos.</strong> Conserva como texto los códigos con ceros iniciales. Revisa que las fechas y cantidades queden como fechas y números. Compara los encabezados, el total de filas y tres registros con la ficha de procedencia.</li>
+<li><strong>Organiza la tabla.</strong> Activa filtros para elegir país, año o categoría. Si vas a resumir varios grupos, una tabla dinámica puede ayudar; verifica que la operación sea adecuada. Para población por año, no sumes años como si fueran personas distintas.</li>
+<li><strong>Calcula con una regla visible.</strong> Para comparar un valor inicial y uno final, usa <code>(final − inicial) / inicial</code> y aplica formato de porcentaje. Si falta un extremo o el inicial es cero, marca el resultado como «no calculable»; no lo reemplaces por cero.</li>
+<li><strong>Grafica para responder la pregunta.</strong> Usa líneas para una evolución temporal y barras para una comparación acotada. Incluye título, unidades, periodo y fuente. Contrasta un punto o una barra con la fila que la alimenta y entrega también la tabla.</li>
+<li><strong>Guarda y deja rastro.</strong> Guarda el análisis como un archivo nuevo <code>.xlsx</code>. Anota filtros, fórmulas, fecha de descarga y decisiones sobre ausencias para que otra persona pueda repetirlo.</li>
+</ol>
+<p>Si repites la importación, Power Query puede guardar los pasos de transformación. Antes de actualizar, revisa la vista previa, los tipos y la cantidad de filas: repetir un paso no garantiza que esté bien configurado. Consulta la ayuda oficial sobre <a href="https://support.microsoft.com/es-es/excel/opening-csv-utf-8-files-correctly-in-excel" rel="noopener noreferrer" target="_blank">CSV con codificación UTF-8</a>, <a href="https://support.microsoft.com/es-es/excel/get-started/import-or-export-text-txt-or-csv-files" rel="noopener noreferrer" target="_blank">importación de archivos de texto</a> y <a href="https://support.microsoft.com/es-es/excel/import-data-from-data-sources-power-query" rel="noopener noreferrer" target="_blank">Power Query</a>.</p></article>
+<article class="lab-card"><h3>Power BI</h3><p>Úsalo cuando necesites varias vistas conectadas: una línea de población, barras por país y filtros de año. Importa el CSV, verifica tipos, construye las medidas y revisa cómo se cruzan los filtros. Para el valor de un año, no sumes todos los años. La publicación y la actualización deben comprobarse en tu entorno. <a href="https://learn.microsoft.com/en-us/power-bi/fundamentals/desktop-getting-started" rel="noopener noreferrer" target="_blank">Primer informe</a>.</p></article>
+<article class="lab-card"><h3>OpenRefine</h3><p>Úsalo para detectar variantes de nombres en una tabla propia. Crea una faceta de texto, revisa categorías y agrupa propuestas de coincidencia. Antes de unir «San José» con otro nombre parecido, verifica el código territorial. Exporta la tabla limpia y conserva el historial de transformaciones. <a href="https://openrefine.org/docs" rel="noopener noreferrer" target="_blank">Manual oficial</a>.</p></article>
+<article class="lab-card"><h3>pandas y DuckDB</h3><p>pandas permite filtrar, unir y resumir tablas desde Python. Cuando reúnes muchos archivos, DuckDB permite consultar columnas y periodos sin convertir el trabajo en una conversación de millones de filas. Parquet organiza los datos por columnas y facilita estas consultas. Comienza con una muestra, pero calcula los resultados finales sobre el universo declarado. <a href="https://pandas.pydata.org/docs/getting_started/intro_tutorials/index.html" rel="noopener noreferrer" target="_blank">pandas</a> y <a href="https://duckdb.org/docs/current/data/parquet/overview" rel="noopener noreferrer" target="_blank">DuckDB y Parquet</a>.</p></article>
+<article class="lab-card"><h3>Plotly y Altair</h3><p>Pide Plotly para explorar puntos con zoom, filtros y detalles; un HTML puede conservar interactividad. Altair permite relacionar selecciones entre varias vistas. Con muchos puntos, solicita agregaciones, transparencias o mapas de densidad y explica qué se está agrupando. <a href="https://plotly.com/python/interactive-html-export/" rel="noopener noreferrer" target="_blank">Exportación de Plotly</a> y <a href="https://altair-viz.github.io/user_guide/interactions/index.html" rel="noopener noreferrer" target="_blank">interacciones en Altair</a>.</p></article>
+<article class="lab-card"><h3>Matplotlib</h3><p>Úsalo para una figura que vas a imprimir o incorporar en un informe. Pide resolución suficiente, unidades, etiquetas completas e incertidumbre cuando los datos la incluyan. Exporta SVG o PDF para conservar trazos nítidos y PNG para una vista rápida. <a href="https://matplotlib.org/stable/users/explain/quick_start.html" rel="noopener noreferrer" target="_blank">Guía oficial</a>.</p></article>
+</div>
+<p class="lab-callout"><strong>Entrega accesible:</strong> acompaña cada visual con una tabla y una explicación. Usa etiquetas y formas además del color, evita animaciones indispensables y prueba el teclado y el aumento de tamaño. Una persona debe poder entender el resultado aunque no vea el gráfico.</p>
+<p><a download="" href="materiales/analisis-datos/instrucciones-herramientas.md">Descarga las instrucciones de trabajo</a>.</p>
+</details></article>

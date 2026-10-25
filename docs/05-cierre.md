@@ -1,79 +1,53 @@
-# Estación 05: Informe Técnico de Optimización, Gobernanza de Riesgos y Transferencia Productiva
-**Programa:** Implementación de herramientas de inteligencia artificial en la optimización de la productividad (21720210 V1)  
-**Ambiente de Formación:** Redes CIMI · SENA Girón  
-**Fase Pedagógica:** Transferencia · **Duración:** 12 horas (Taller de Cierre, Sustentación y Portafolio)  
-**Resultados de Aprendizaje (RAP):**  
-- RA1. Establecer uso de la inteligencia artificial según requerimientos de optimización del proceso productivo.  
-- RA2. Programar proceso automatizado de acuerdo con diseño y tipo de inteligencia artificial.  
-**Evidencia Asociada:** MG-A05 (Evidencia de Producto - Informe Técnico de Optimización Administrativa y Dossier Aprobado)
+# Informe, prueba individual y transferencia al puesto
 
----
 
-## 1. De la Experimentación al Impacto Real en el Puesto de Trabajo
+**Encargos listos:** [Reto integrador](../materiales/ia/reto-integrador/LEEME.html).
 
-A lo largo de las 48 horas de este programa intensivo en el Ambiente de Redes CIMI, el personal administrativo ha transitado una curva de aprendizaje integral:
+## Forma de trabajo con IA
 
-1. **Día 1:** Aprendieron a mapear sus procesos y a decir **NO** a la IA cuando la tarea es confidencial o puramente aritmética.
-2. **Día 2:** Dominaron la arquitectura de prompts **R-C-I-R-S** y los delimitadores para evitar la alucinación y la deriva de contexto.
-3. **Día 3:** Automatizaron flujos documentales no estructurados (PQRS masivas y actas complejas de comités).
-4. **Día 4 (Mañana):** Realizaron auditorías forenses de datos, desenmascararon trampas numéricas y formalizaron el protocolo **Human-in-the-Loop**.
+La IA prepara los archivos de la actividad con el encargo y las fuentes del paquete. El aprendiz entrega ese encargo a un chat autorizado o a Antigravity o Codex, revisa el resultado y descarga los productos. Los campos que se describen son la estructura de salida para la IA. Los datos ausentes, las mediciones no realizadas y las revisiones humanas no observadas quedan pendientes; el instructor conserva la valoración formal.
 
-El reto de esta última estación es **consolidar y defender el Informe Técnico de Optimización**, demostrando cómo lo aprendido se traduce en horas reales de tiempo ahorrado para el centro y en un blindaje total contra errores operativos.
+Los [encargos de la guía web](../index.html#preparacion) están listos para usar. La conversación, el informe y el JSON generado conservan el trabajo sin transcribirlo en otra ficha. Si la herramienta no puede ejecutar la tarea, se conserva esa limitación como pendiente y se consulta una opción autorizada.
 
----
+## Propósito y tiempo
 
-## 2. Estructura Oficial del Informe Técnico Final
+El integrador reúne lo aprendido: encargar el análisis, revisar resultados, solicitar productos y explicar decisiones. MG-A05 conserva trabajo de equipo, desempeño individual y propuesta de prueba en el puesto.
 
-Utilice la [Plantilla Oficial del Informe de Productividad](file:///c:/Users/Miguel/Documents/Aplicaciones/_projects/Guia%20IA%20para%20Administrativos/docs/ejercicios/plantilla-informe-productividad.md) para estructurar su documento de entrega.
+El bloque ocupa 330 minutos: 240 de trabajo en equipo, 45 de prueba individual, 30 para consolidar mediciones y proponer el piloto, y 15 de devolución. Los diez minutos de explicación inicial están incluidos en los 240. La web reserva 120 minutos para hasta ocho equipos, con 15 por equipo; confirme la organización según el tamaño real del grupo.
 
-### Componentes Clave del Informe
-1. **Línea Base ("Antes"):** Cuantificación del tiempo manual que consumía la tarea antes de usar IA (horas semanales dedicadas, estrés operativo y tasa de reprocesos).
-2. **Solución Implementada ("Después"):** Descripción de la herramienta configurada, el prompt blindado maestro y el flujo de trabajo asistido.
-3. **Cuantificación de Productividad:**
-   - Cálculo del porcentaje de mejora en tiempo de respuesta.
-   - Cálculo de horas netas ahorradas por semana.
-   - Proyección anual de horas liberadas para tareas misionales y de atención humana.
-4. **Declaración de Gobernanza y Control del Riesgo:**
-   - Cómo se garantiza que no se suban datos confidenciales (Ley 1581 de 2012).
-   - Cómo se evita que la IA dañe archivos maestros originales (Regla del Sandbox).
-   - Lista de chequeo HITL que se firma antes de despachar cada trámite.
-5. **Plan de Transferencia al Puesto de Trabajo:** Compromiso concreto de aplicación a partir del lunes siguiente en el Centro CIMI.
+## Análisis y productos de equipo
 
----
+Asigne facilitador, operador, verificador y relator. El equipo entrega `contratos.csv` y `directriz.csv` al asistente autorizado en una conversación. Encarga diferencias, pendientes, informe, mensaje en borrador y lámina. Conserva la fila, el código y el centro, además de la operación cuando corresponda.
 
-## 3. Ejemplo de Cuantificación de Productividad en un Caso Real
+En SIM-CT-008, fila 12, Centro H, la diferencia es 25.650.000 − 24.400.000 = 1.250.000 COP. La fecha falta y el soporte está por confirmar. La fila 21, Centro A, repite el código con valores iguales; no se deben fusionar ambas ocurrencias.
 
-| Indicador de Gestión | Medición Antes (Manual) | Medición Después (Con IA + Criterio) | % de Ahorro / Mejora |
-| :--- | :---: | :---: | :---: |
-| Elaboración de Acta de Comité (2h de reunión) | 5.5 horas de transcripción | 1.2 horas (extracción + revisión humana) | **78.2% de ahorro** |
-| Clasificación y respuesta a 15 PQRS diarias | 3.0 horas al día | 45 minutos al día | **75.0% de ahorro** |
-| Revisión y auditoría de tabla de compras | 2.0 horas con fatiga visual | 30 minutos (IA auditora + fórmulas Excel) | **75.0% de ahorro** |
-| **Tiempo total semanal liberado:** | **20.5 horas semanales** | **5.2 horas semanales** | **15.3 horas/sem ahorradas** |
+Revise conflictos entre observaciones y campos: SIM-CT-012 tiene fecha aunque su nota diga que falta; SIM-CT-021 indica documentos completos mientras la nota menciona pendientes. La IA señala el conflicto y el equipo lo deja por confirmar. Las diferencias se presentan como preguntas y no prueban una irregularidad.
 
-> **Impacto Anual Proyectado:**  
-> `15.3 horas semanales x 48 semanas laborales = 734.4 horas anuales recuperadas` por cada funcionario administrativo capacitado. Esto equivale a más de 3 meses completos de jornada laboral reorientados hacia la atención de calidad al aprendiz y el bienestar institucional.
+Contraste los hallazgos, solicite ajustes y presente las fuentes. Los borradores no se envían. Solicite los archivos editables y el JSON de entrega. Si la herramienta no puede generarlos, conserve esa limitación como pendiente y utilice otra opción autorizada.
 
----
+## Prueba individual
 
-## 4. Sustentación Relámpago en el Ambiente Redes CIMI
+Asigne un caso de `casos-individuales.csv` por aprendiz. Puede usar IA sin ayuda del equipo. Observe cómo entrega la fuente y el encargo preparado, comprueba el resultado y sustenta una corrección o la decisión de conservarlo. Solicite cálculos solo cuando correspondan al caso.
 
-Durante la tarde del viernes 06 de noviembre, cada participante realizará una **presentación relámpago de 3 minutos** ante el grupo y el instructor tutor:
-- **Minuto 1:** El dolor de su puesto de trabajo antes del curso (la tarea repetitiva).
-- **Minuto 2:** La solución con IA y la demostración de cómo evitó un error o alucinación gracias al criterio técnico.
-- **Minuto 3:** El tiempo ahorrado y el compromiso de seguridad para su dependencia.
+Registre I-7 aparte del resultado de equipo. Use I-8 para la sustentación; confirme escala y ponderaciones institucionales antes de aplicarlas. Los materiales recibidos no contienen valores numéricos para esos pesos.
 
----
+## Medición y piloto
 
-## 5. Taller Autónomo y Registro de Evidencia MG-A05
+Pida a la IA consolidar los tiempos observados disponibles de preparación, generación, revisión y corrección, conservando los soportes y las ausencias. Compare con una referencia manual de igual unidad, dificultad y calidad, si existe. Sin una referencia equivalente, el ahorro queda pendiente; no presente una estimación como resultado ni exija repetir toda la tarea a mano.
 
-Diligencie en el formulario de la estación (o en su portafolio de evidencias) los siguientes campos:
+Use la [plantilla de productividad](ejercicios/plantilla-informe-productividad.md) para proponer un piloto de 30 días: tarea acotada, fuentes y herramienta autorizadas, responsable por confirmar, línea base y seguimiento. I-9 evalúa esta propuesta; el curso no autoriza su adopción institucional.
 
-1. **Informe Técnico Completo Diligenciado:** Texto consolidado con todas las secciones de la plantilla oficial.
-2. **Matriz Comparativa de Ahorro de Horas:** Cifras reales demostrables de su ejercicio práctico.
-3. **Decálogo de Compromiso Ético y de Seguridad:** Las 5 reglas inquebrantables que aplicará en su ejercicio diario para evitar fallas y salvaguardar la información institucional del SENA.
+## Cierre
 
-### Lista de Chequeo de Aceptación (Criterios de Evaluación RA1 y RA2)
-- [ ] El informe cuantifica de manera verosímil y razonada el ahorro de tiempo (sin promesas mágicas infundadas).
-- [ ] Se incluye la arquitectura del prompt blindado con delimitadores y restricciones anti-deriva.
-- [ ] Se documenta el protocolo de cumplimiento de la Ley 1581 de 2012 y protección de archivos maestros.
-- [ ] Se integran las 5 evidencias completas en el portafolio digital para la certificación oficial del curso 21720210 V1.
+El aprendiz exporta el Portafolio de Evidencias por el canal que confirme la coordinación. El Instructor Técnico Líder revisa las evidencias y registra `Aprobado (A)` o `No Aprobado (NA)`. «Lista para entregar» indica que los campos están diligenciados; el juicio formal corresponde al instructor.
+
+
+## Apoyos para comprender y presentar por etapas
+
+Organice el integrador en cuatro etapas: validar el análisis, documentar las preguntas, preparar los productos y demostrar el método en el caso individual. La instrucción publicada pide devolver primero el análisis y esperar la revisión antes de generar informe, mensaje y lámina. Los tres productos deben conservar las cifras y los límites de la versión revisada.
+
+El ejemplo sigue fuente, encargo, resultado y revisión. Después del cálculo, consulte los conflictos entre columnas y la comparación de tiempo completo. El aprendiz debe revisar estos asuntos antes de presentar o proponer la mejora.
+
+Las dos preguntas comprueban la separación de las filas 12 y 21 de SIM-CT-008 y el cálculo de 13 min frente a 12 min en el ejemplo. Solicite una justificación y use la retroalimentación antes del reto. Las etapas y preguntas están dentro de los 240 min de equipo y 90 min individuales y devolución ya establecidos.
+
+Para observar la comprensión real del grupo, use la [pauta con aprendices](validacion-con-aprendices.md).

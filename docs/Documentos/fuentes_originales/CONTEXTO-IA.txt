@@ -1,0 +1,7 @@
+ARCHIVOS DE ORIGEN CONSERVADOS
+
+Cartilla_aprendices_retos_IA_SENA_Bogota.docx, Guia_facilitador_IA_SENA_Bogota.docx y Materiales_practica_IA_SENA_Bogota.xlsx son copias anteriores a la adaptación de consignas al flujo con IA. Conservan las instrucciones y los horarios del material recibido; se guardan como antecedentes y no son la ruta actual del aprendiz.
+
+Las versiones de uso están un nivel arriba, en docs/Documentos. La guía web vigente reúne los diez retos breves, el integrador y los paquetes de materiales/ia. Las notas actuales distinguen la propuesta de 40 horas de las 48 horas de la oferta oficial, sin declarar equivalencia ni aprobación curricular.
+
+Los datos de práctica no contienen registros reales. Las copias de origen no se sobrescriben al regenerar la adaptación.

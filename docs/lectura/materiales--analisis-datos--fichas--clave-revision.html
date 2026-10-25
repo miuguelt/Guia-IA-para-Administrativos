@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="es-CO"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="light"><title>Clave de revisión para el instructor · Biblioteca de la guía</title>
+<link rel="stylesheet" href="../../css/documents.css"><link rel="stylesheet" href="devbrain-prose.css" data-devbrain-prose>
+<script defer src="devbrain-prose.js" data-devbrain-prose-runtime></script></head><body>
+<a class="skip-link" href="#documento">Ir al documento</a>
+<nav class="reader-nav" aria-label="Acciones del documento"><a href="index.html">← Biblioteca</a>
+<a href="../../index.html#preparacion">Abrir guía web</a><a href="../../materiales/analisis-datos/fichas/clave-revision.md" download>Descargar fuente Markdown</a>
+<span>Imprime o guarda en PDF con Ctrl+P</span></nav>
+<div class="reading-layout"><aside class="reading-sidebar"><p class="eyebrow">En este documento</p>
+<details open><summary>Ver apartados</summary><div class="toc">
+<ul>
+<li><a href="#muestra-inicial-consultada-el-18-de-octubre-de-2026-en-colombia">Muestra inicial consultada el 18 de octubre de 2026 en Colombia</a></li>
+<li><a href="#relaciones-que-deben-quedar-claras">Relaciones que deben quedar claras</a></li>
+<li><a href="#preguntas-para-observar-comprension">Preguntas para observar comprensión</a></li>
+</ul>
+</div>
+</details></aside>
+<main id="documento" class="document-sheet"><header class="document-header"><p class="eyebrow">Guía IA para administrativos</p>
+<span class="document-badge">Laboratorio de datos y documentos</span><p class="document-context">Consulta el contenido por apartados y conserva el archivo fuente si necesitas editarlo.</p></header>
+<article class="document-content"><h1 id="clave-de-revision-para-el-instructor">Clave de revisión para el instructor</h1>
+<p>Esta clave corresponde al laboratorio independiente y a sus datos públicos. Compruebe la versión en <code>fuentes.json</code> antes de usar los valores. Una descarga posterior puede cambiar; no ajuste el resultado del aprendiz para hacerlo coincidir sin revisar primero la fuente.</p>
+<h2 id="muestra-inicial-consultada-el-18-de-octubre-de-2026-en-colombia">Muestra inicial consultada el 18 de octubre de 2026 en Colombia</h2>
+<div aria-label="Tabla de apoyo" class="table-wrap" role="region" tabindex="0"><table>
+<thead>
+<tr>
+<th>Caso</th>
+<th>Control de estructura</th>
+<th>Control numérico de referencia</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Exoplanetas</td>
+<td>4.332 planetas y 3.282 nombres de anfitrionas; selección por tránsito.</td>
+<td>Mediana de <code>pl_rade</code>: 2,39 radios terrestres.</td>
+</tr>
+<tr>
+<td>Población</td>
+<td>75 combinaciones: tres países y 25 años, 2000–2024.</td>
+<td>Colombia: 39.089.934 personas en 2000 y 52.886.363 en 2024; cambio aproximado 35,2941 %.</td>
+</tr>
+<tr>
+<td>Pirámide DANE</td>
+<td>Santander 2024, área total, 101 edades; 100 agrupa 100 años y más.</td>
+<td>Total: 2.380.650 personas; 1.168.768 hombres y 1.211.882 mujeres. Proyección actualizada en 2025.</td>
+</tr>
+<tr>
+<td>Clima</td>
+<td>366 fechas de 2024; consulta POWER para Bogotá en LST.</td>
+<td>Media de temperatura aproximada: 19,669617 °C; precipitación acumulada: 1.816,08 mm, con la cobertura y transformación del manifiesto.</td>
+</tr>
+<tr>
+<td>Sismos</td>
+<td>133 eventos globales de enero de 2024, magnitud de al menos 5.</td>
+<td>Máxima magnitud de la descarga: 7,5; conserve el tipo de magnitud de los eventos.</td>
+</tr>
+</tbody>
+</table></div>
+<p>Estos valores describen la descarga conservada. No son una actualización automática de la fuente. Compare con el original y con el resumen generado por los scripts. La hora de descarga del manifiesto está en UTC; el día indicado aquí corresponde a Colombia.</p>
+<h2 id="relaciones-que-deben-quedar-claras">Relaciones que deben quedar claras</h2>
+<p><strong>NASA:</strong> no acepte comparar métodos de descubrimiento con el archivo inicial porque todos los registros son de tránsito. Una fila representa un planeta, no una estrella; revisar anfitrionas requiere una regla que no oculte parámetros discrepantes. No hay columnas de incertidumbre para inventar barras de error. Una escala logarítmica debe ser explícita y no admite ceros o negativos en su forma habitual.</p>
+<p><strong>Población:</strong> el denominador del cambio porcentual es el valor inicial. No se suman años como habitantes distintos. El CSV internacional no tiene edad ni sexo; la pirámide usa el extracto DANE separado. Compruebe la suma de edades, el grupo abierto de 100 años y más y la simetría de las escalas. Una proyección del DANE no debe etiquetarse como observación censal ni equipararse sin revisión a otra serie.</p>
+<p><strong>Clima:</strong> un año bisiesto tiene 366 días, pero el conteo de fechas no sustituye revisar valores válidos. La muestra es un producto de rejilla; no es una estación urbana. LST no equivale a la hora civil colombiana. El manifiesto informa las unidades y la transformación de precipitación. Un solo año no sustenta una tendencia climática prolongada.</p>
+<p><strong>Sismos:</strong> compruebe identificadores, UTC, umbral y ventana. Magnitud, intensidad y daño son conceptos diferentes. La ausencia de puntos bajo un filtro no significa ausencia de riesgo. No acepte predicciones del próximo evento derivadas del gráfico.</p>
+<p><strong>Documentos:</strong> use las afirmaciones del ejemplo verificado del paquete como controles pequeños. Revise página del archivo, página impresa y versión. «No encontrada» no significa «falsa». La cobertura necesita denominadores; un PDF cargado puede no haberse extraído completo. Respete las condiciones de cada documento y no redistribuya los informes restringidos.</p>
+<h2 id="preguntas-para-observar-comprension">Preguntas para observar comprensión</h2>
+<ol>
+<li>¿Qué cambia en su conclusión si falta un mes o un grupo?</li>
+<li>¿Cómo sabe que una fila representa un objeto y no otra medición del mismo objeto?</li>
+<li>¿Qué cifra puede recalcular sin depender de la respuesta del asistente?</li>
+<li>¿Qué parte del corpus quedó sin revisar y por qué?</li>
+<li>¿Qué necesitaría para pasar de describir una relación a sostener una explicación causal?</li>
+</ol>
+<p>No exija una interpretación única cuando varias estén sustentadas. Solicite que el aprendiz muestre su evidencia y corrija el alcance cuando sea necesario.</p></article>
+<footer class="document-footer">Guía IA para administrativos · Versión de lectura de <a href="../../materiales/analisis-datos/fichas/clave-revision.md">clave-revision.md</a>.
+Las decisiones y los pendientes conservan el estado del archivo fuente.</footer></main></div></body></html>

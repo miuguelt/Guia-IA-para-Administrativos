@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Cronograma Oficial Formativo · IA en la Productividad Administrativa (21720210 V1)</title>
+  <title>Referencia histórica CIMI de Girón — no vigente para CGAO Vélez</title>
   <style>
     :root {
       --sena-green: #39a900;
@@ -607,23 +607,68 @@
         break-inside: avoid !important;
       }
     }
-  </style>
+
+    /* Este documento heredado corresponde a otra sede y no se debe distribuir. */
+    .document-wrapper { display: none !important; }
+    .retired-warning {
+      max-width: 850px;
+      margin: 2rem auto;
+      padding: 1.5rem;
+      border: 2px solid #b91c1c;
+      border-radius: 0.5rem;
+      background: #fef2f2;
+      color: #7f1d1d;
+      font: 1rem/1.55 -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+    }
+    .retired-warning h1 { margin: 0 0 0.75rem; font-size: 1.4rem; }
+    .retired-warning p + p { margin-top: 0.65rem; }
+    .retired-warning a { color: #075985; font-weight: 700; }
+    @media print {
+      .document-wrapper { display: none !important; }
+      .retired-warning { margin: 0; border: 2px solid #b91c1c; }
+    }
+
+/* devbrain-prose-contract:start */
+/* Contrato 7.4: cada región ocupa su espacio y conserva sus controles. */
+:where(p, dd, blockquote) {
+    --text-align-reading: start;
+    box-sizing: border-box;
+    inline-size: 100%;
+    max-inline-size: 100%;
+    min-inline-size: 0;
+    text-align: var(--text-align-reading);
+    text-align-last: start;
+    white-space: normal;
+    word-break: normal;
+    overflow-wrap: break-word;
+    hyphens: none;
+    -webkit-hyphens: none;
+}
+:where(dd, blockquote) { margin-inline: 0; }
+/* devbrain-prose-contract:end */
+</style>
+<link rel="stylesheet" href="devbrain-prose.css" data-devbrain-prose>
+<script defer src="devbrain-prose.js" data-devbrain-prose-runtime></script>
 </head>
 <body>
 
   <!-- Screen Actions Bar (Toolbar) -->
   <div class="screen-actions-bar">
     <div class="info">
-      <span>📄 Cronograma Oficial de Formación (48 Horas) · SENA CIMI Girón</span>
+      <span>Referencia histórica · CIMI Girón · NO distribuir como cronograma vigente</span>
     </div>
     <div class="actions">
       <a href="index.html" class="btn btn-outline">⬅️ Volver al Portal</a>
-      <button onclick="window.print()" class="btn btn-secondary">🖨️ Imprimir / Guardar PDF</button>
-      <a href="docs/cronograma-oficial-48h.pdf" download="Cronograma_Oficial_IA_Productividad_SENA_CIMI.pdf" class="btn btn-primary">📥 Descargar PDF Generado</a>
     </div>
   </div>
 
-  <div class="document-wrapper">
+  <main class="retired-warning" role="alert">
+    <h1>Documento retirado para este curso</h1>
+    <p>El contenido histórico de esta página fue preparado para Redes CIMI, en Girón (Santander). No corresponde a la propuesta para CGAO, Subsede Vélez, Regional Santander. Sus horarios, actividades y avales no están confirmados para esta cohorte.</p>
+    <p>No lo imprima ni lo entregue como cronograma vigente. Consulte la <a href="index.html#calendario">guía y el cronograma navegable del aula</a>. Las fechas, el ambiente y la distribución horaria necesitan confirmación del equipo formador antes de publicar.</p>
+  </main>
+
+  <div class="document-wrapper" hidden aria-hidden="true">
 
     <!-- ==================== PÁGINA 1 ==================== -->
     <section class="pdf-page">
@@ -1086,14 +1131,14 @@
             </tr>
             <tr class="row-pause">
               <td class="col-time">15:30 – 15:50</td>
-              <td colspan="3">☕ Pausa activa y verificación del dossier digital</td>
+              <td colspan="3">☕ Pausa activa y verificación del Portafolio de Evidencias</td>
             </tr>
             <tr>
               <td class="col-time">15:50 – 17:00</td>
               <td class="col-topic">
                 <strong>Sustentación de Resultados y Evidencia MG-A05:</strong> Presentación relámpago individual (3 minutos) del caso de optimización administrativa intervenido, horas ahorradas y salvaguardas adoptadas.
               </td>
-              <td class="col-resource">Estación <code>m05-cierre</code> y Dossier de Evidencias</td>
+              <td class="col-resource">Estación <code>m05-cierre</code> y Portafolio de Evidencias</td>
               <td class="col-deliverable"><span class="badge-artifact badge-artifact-purple">ARTEFACTO MG-A05</span><br><small>Evidencia de Producto (Final)</small></td>
             </tr>
             <tr>
@@ -1107,10 +1152,10 @@
             <tr class="row-autonomous">
               <td class="col-time">Post-taller (2h)</td>
               <td class="col-topic">
-                <strong>Verificación y Empaquetado de Portafolio:</strong> Exportación del expediente consolidado de evidencias según nomenclatura canónica para la emisión de certificación.
+                <strong>Verificación y empaquetado del Portafolio de Evidencias:</strong> Exportación del expediente consolidado de evidencias según nomenclatura canónica para la emisión de certificación.
               </td>
-              <td class="col-resource">Plataforma SENA SofiaPlus / Territorium</td>
-              <td class="col-deliverable"><span class="badge-milestone">Portafolio digital 100% verificado</span></td>
+              <td class="col-resource">Plataforma SENA SOFIA Plus / Zajuna</td>
+              <td class="col-deliverable"><span class="badge-milestone">Portafolio de Evidencias verificado</span></td>
             </tr>
           </tbody>
         </table>

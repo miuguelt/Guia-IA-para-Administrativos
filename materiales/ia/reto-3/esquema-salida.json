@@ -1,0 +1,52 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Resultado generado · Prueba una instrucción reutilizable",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "artifactId",
+    "fields",
+    "tool"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "const": 1
+    },
+    "artifactId": {
+      "const": "MG-A02"
+    },
+    "fields": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "prompt_maestro_rcirs",
+        "pruebas_de_estres",
+        "protocolo_anti_deriva",
+        "uso_ia_y_revision"
+      ],
+      "properties": {
+        "prompt_maestro_rcirs": {
+          "type": "string",
+          "minLength": 1
+        },
+        "pruebas_de_estres": {
+          "type": "string",
+          "minLength": 1
+        },
+        "protocolo_anti_deriva": {
+          "type": "string",
+          "minLength": 1
+        },
+        "uso_ia_y_revision": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "tool": {
+      "type": "string",
+      "minLength": 1
+    }
+  }
+}

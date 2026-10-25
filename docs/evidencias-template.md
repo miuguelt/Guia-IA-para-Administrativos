@@ -1,129 +1,154 @@
-# Portafolio Consolidado de Evidencias de Aprendizaje
-**Curso:** Implementación de herramientas de inteligencia artificial en la optimización de la productividad  
-**Código del Programa:** 21720210 · **Versión:** 1 · **Horas Curriculares:** 48 horas  
-**Centro de Formación:** Centro Industrial del Mantenimiento Integral - CIMI Girón  
-**Ambiente de Aprendizaje:** Redes CIMI  
-**Fechas de Ejecución:** Del 03 al 06 de noviembre de 2026 (7:30 a. m. a 5:30 p. m.)  
-**Competencia Laboral:** 220501094 - *Estructurar propuesta técnica de servicio de tecnología de información de acuerdo con tipo de requerimiento y marcos de referencia.*  
-**Resultados de Aprendizaje:** RA1 y RA2  
+# Plantilla de evidencias del curso
 
----
+**Programa:** Implementación de herramientas de inteligencia artificial en la optimización de la productividad
+**Código y versión:** 21720210 · Versión 1
+**Duración propuesta para esta cohorte:** 40 horas (36 directas + 4 autónomas). La oferta oficial consultada publica una duración de 48 horas; esta adaptación requiere validación curricular.
+**Calendario:** martes a viernes, 7:30 a. m. a 5:30 p. m. (9 horas directas diarias); una hora autónoma adicional por día fuera de la franja presencial. Fechas calendario, ficha, sede, ambiente y medio de entrega pendientes de confirmación.
+**Competencia:** 220501094 · Estructurar propuesta técnica de servicio de tecnología de información de acuerdo con el tipo de requerimiento y marcos de referencia.
+**Resultados de aprendizaje:** RA1 y RA2, según el diseño curricular suministrado.
 
-## 1. Datos Generales del Aprendiz / Funcionario
-- **Nombre Completo:** _________________________________________________
-- **Número de Documento (C.C.):** ______________________________________
-- **Correo Electrónico Institucional:** _________________________________
-- **Dependencia / Coordinación:** _____________________________________
-- **Ficha de Caracterización:** ________________________________________
-- **Instructor Tutor:** ________________________________________________
+Esta plantilla reúne cinco evidencias para los diez retos de la ruta web y el integrador. Los siete retos de la cartilla original se complementan con los retos 0, 7 y 9. Entrega esta estructura al asistente junto con los materiales de práctica para que genere los archivos; no incluyas datos personales ni envíes los borradores como trámites reales. El instructor realiza la valoración formal.
 
----
+El archivo generado debe registrar el asistente utilizado, la fuente, el encargo, la salida y las correcciones solicitadas. La IA no debe atribuir al aprendiz una revisión que no le conste. Una demostración observada no equivale a una ejecución propia con IA.
 
-## 2. Evidencia MG-A01: Diagnóstico de Procesos y Matriz de Viabilidad (Conocimiento - RA1)
-*Estación 01: Fundamentos y Flujos Administrativos (03 de Noviembre de 2026)*
 
-### 2.1 Proceso Administrativo Seleccionado
-- **Nombre de la Tarea / Proceso:**
-- **Entradas actuales (cómo y quién entrega la información):**
-- **Operaciones manuales repetitivas que consumen tiempo:**
-- **Salidas actuales (formato y destinatario):**
+## Forma de trabajo con IA
 
-### 2.2 Evaluación de Viabilidad Tecnológica
-- **Tipo de solución recomendada:**
-  - [ ] Automatización por Regla / Hoja de Cálculo
-  - [ ] Inteligencia Artificial Generativa
-  - [ ] Inteligencia Artificial Predictiva
-  - [ ] Proceso Manual Restringido
-- **Justificación técnica de la selección:**
-- **Datos confidenciales o sensibles a sanitizar (Ley 1581 de 2012):**
-- **Riesgo mayor identificado si la IA falla y salvaguarda humana:**
+La IA prepara los archivos de la actividad con el encargo y las fuentes del paquete. El aprendiz entrega ese encargo a un chat autorizado o a Antigravity o Codex, revisa el resultado y descarga los productos. Los campos que se describen son la estructura de salida para la IA. Los datos ausentes, las mediciones no realizadas y las revisiones humanas no observadas quedan pendientes; el instructor conserva la valoración formal.
 
----
+Los [encargos de la guía web](../index.html#preparacion) están listos para usar. La conversación, el informe y el JSON generado conservan el trabajo sin transcribirlo en otra ficha. Si la herramienta no puede ejecutar la tarea, se conserva esa limitación como pendiente y se consulta una opción autorizada.
 
-## 3. Evidencia MG-A02: Catálogo de Prompts Blindados y Decálogo Anti-Deriva (Producto - RA2)
-*Estación 02: Arquitectura de Prompting Seguro y Prevención de Deriva (04 de Noviembre de 2026)*
+## Identificación institucional
 
-### 3.1 Prompt Maestro Blindado (Estructura R-C-I-R-S)
-- **Rol asignado a la IA:**
-- **Contexto normativo e institucional delimitado:**
-- **Instrucción operativa central:**
-- **Restricciones negativas anti-alucinación y delimitadores utilizados:**
-- **Formato exacto de salida:**
+La práctica y la generación de archivos no exigen nombres, documentos ni datos personales. La identificación y las firmas institucionales se incorporan únicamente por el procedimiento autorizado, fuera del chat de IA. Si no se han confirmado, permanecen pendientes.
 
-### 3.2 Registro del Ciclo V.E.R.A. y Pruebas de Estrés
-- **Iteración 1 (Fallo provocado con prompt básico):**
-  - Prompt inicial genérico utilizado:
-  - Error, alucinación o desvío de tono observado:
-- **Iteración 2 (Blindaje R-C-I-R-S y Delimitadores):**
-  - Restricción negativa anti-alucinación incorporada:
-  - Delimitadores empleados (`"""` o etiquetas XML):
-- **Iteración 3 (Verificación y Control de Deriva):**
-  - Comprobación fáctica de la salida:
-  - Regla de sesión limpia aplicada:
+Los apartados siguientes especifican los campos que prepara la IA en el informe y el JSON; no son una ficha adicional para diligenciar.
 
----
+## MG-A01 · Diagnóstico y Prompt CRTT · Retos 0 y 1
 
-## 4. Evidencia MG-A03: Pipeline de Flujo Documental Asistido (Desempeño - RA1)
-*Estación 03: Automatización de Información No Estructurada (05 de Noviembre de 2026)*
+- Reto 0: decisiones de uso de los datos, fragmentos reducidos y autorización pendiente:
+- Tarea y necesidad administrativa que se quiere revisar:
+- Entradas, pasos repetitivos y salida esperada:
+- Frecuencia y tiempo por unidad; marca como pendiente lo que no se midió:
+- Opción elegida: IA generativa, fórmula o regla, IA predictiva o proceso manual:
+- Justificación, fuente y riesgos que deben controlarse:
+- Prompt inicial con Contexto, Rol, Tarea, Tono y Límites:
+- Versión mejorada para el Lineamiento ficticio:
+- Frase o apartado de la fuente que comprueba la respuesta:
+- Dato ausente o asunto por confirmar:
+- Revisión y ajuste realizado:
 
-### 4.1 Caso Procesado (Acta Compleja o Lote de PQRS)
-- **Caso seleccionado del banco de ejercicios:**
-- **Tabla de entidades y compromisos extraída:**
-  *(Pegue aquí la tabla Markdown generada)*
-- **Borrador de comunicación formal institucional generado:**
-  *(Pegue aquí el texto formal obtenido en tono SENA)*
+## MG-A02 · PQRS y Asistente de rol · Retos 2 y 3
 
-### 4.2 Registro de Iteraciones del Pipeline (Protocolo V.E.R.A.)
-- **Iteración 1 (Extracción simple):** Resultado, omisiones o confusión de responsables detectada:
-- **Iteración 2 (Prompt estructurado R-C-I-R-S):** Ajuste de responsabilidades y términos legales:
-- **Iteración 3 (Verificación humana y control de calidad):** Correcciones manuales antes de la firma:
+- Códigos de los dos casos y sus borradores:
+- Petición:
+- Hechos expresos y fuente:
+- Información faltante:
+- Borrador de respuesta, pendiente de aprobación:
+- Afirmaciones verificadas y correcciones:
+- Instrucción reutilizable: tarea, contexto y fuente, formato, límites y criterio de aceptación:
+- Prueba 1 y resultado:
+- Prueba 2 y resultado:
+- Prueba 3 con un dato faltante y resultado:
+- Revisión de cada prueba, errores si los hubo y razón para conservar o ajustar la instrucción:
 
-### 4.3 Medición de Productividad en el Procesamiento Documental
-- **Tiempo estimado que tomaba manualmente:** _____ minutos / horas.
-- **Tiempo real invertido con el pipeline asistido:** _____ minutos.
-- **Porcentaje neto de tiempo ahorrado:** _____ %.
+## MG-A03 · Flujo y Regla Reproducible · Retos 4, 5, 6 y 7
 
----
+### Reto 4 · Bandeja cero
 
-## 5. Evidencia MG-A04: Matriz de Auditoría Forense y Protocolo HITL (Desempeño - RA2)
-*Estación 04: Auditoría de Datos y Detección de Errores (06 de Noviembre de 2026 - Mañana)*
+- Códigos de mensajes revisados:
+- Tabla de prioridades sugeridas con la señal textual que justifica cada una:
+- Diez borradores que no fueron enviados:
+- Asuntos y plazos que requieren confirmación del área:
 
-### 5.1 Informe de Auditoría sobre Caso 04 (Tabla de Suministros Redes CIMI)
-- **Trampa 1 (Multiplicación errónea):** Hallazgo y valor real:
-- **Trampa 2 (Total general descuadrado):** Hallazgo y valor real:
-- **Trampa 3 (Fecha inexistente en calendario):** Hallazgo y valor real:
-- **Trampa 4 (Código SKU duplicado):** Hallazgo y valor real:
+### Reto 5 · Acta imposible
 
-### 5.2 Contraste de Auditoría Forense (Protocolo V.E.R.A. e HITL)
-- **Falso positivo de la IA (Sycophancy / Complacencia en Iteración 1):** ¿Qué respondió la IA ante la pregunta ingenua?
-- **Validación Matemática en Excel (Iteración 3):** Fórmulas utilizadas (`=B2*C2`, `=SUMA(...)`) y discrepancia real confirmada:
-- **Lista de verificación de 5 pasos que el funcionario ejecutará antes de firmar cualquier reporte cuantitativo (HITL):**
-  1. __________________________________________________________________
-  2. __________________________________________________________________
-  3. __________________________________________________________________
-  4. __________________________________________________________________
-  5. __________________________________________________________________
+- Decisiones, propuestas y asuntos pendientes por separado:
+- Acciones, responsables y fechas solo cuando constan:
+- Minuto o frase de origen por cada punto:
+- Información que queda pendiente de confirmar:
 
----
+### Reto 6 · Informe sucio y automatización sencilla
 
-## 6. Evidencia MG-A05: Informe Técnico Final de Productividad (Producto - RA1 y RA2)
-*Estación 05: Consolidación y Transferencia (06 de Noviembre de 2026 - Tarde)*
+- Nombre de la copia de trabajo; ubicación del original sin modificar:
+- Procedimiento generado por la IA, estado de ejecución y regla aplicada:
+- Resultado en una fila normal y en una fila con dato faltante:
+- Conteos antes y después:
+- Vacíos o posibles duplicados marcados para revisión, sin borrar ni completar:
+- Limitaciones de la regla y corrección humana:
 
-### 6.1 Síntesis del Informe de Impacto
-- **Proceso optimizado:**
-- **Registro de Iteraciones V.E.R.A. resumido:**
-- **Horas semanales ahorradas demostradas:** _____ horas/semana.
-- **Proyección de horas anuales liberadas:** _____ horas/año.
-- **Medidas aplicadas para evitar daño a archivos de trabajo y desvío de directrices:**
+### Reto 7 · Diseño y simulación de un flujo
 
-### 6.2 Compromiso de Transferencia y Práctica Ética
-- **Compromiso operativo en su puesto de trabajo a partir del lunes siguiente:**
-- **Firma del Aprendiz / Administrativo:** _____________________________
+- Instrucción reutilizable y diseño generado por la IA:
+- Salidas de los casos completo, incompleto y urgente, con su revisión:
+- Orden de condiciones: primero urgencia; FL-03 se detiene aunque esté completa:
+- Punto de aprobación humana y límite: diseño sin despliegue externo:
 
----
+## MG-A04 · Lectura de presupuesto y auditoría · Retos 8 y 9
 
-## 7. Concepto de Evaluación y Cierre Curricular
-- **Total Evidencias Aprobadas:** _____ de 5 (MG-A01, MG-A02, MG-A03, MG-A04, MG-A05).
-- **Concepto Integral:** [ ] APROBADO   [ ] NO APROBADO
-- **Firma del Instructor Tutor:** _______________________________________
-- **Fecha:** 06 de noviembre de 2026
+### Reto 8 · Presupuesto, tasa y gráfico con unidades
+
+- Fuente: hoja Bienestar o Gastos Q1:
+- Pregunta que se quiere responder:
+- Numerador, denominador, unidad y periodo:
+- Cálculo generado por la IA y comprobación independiente con la fuente:
+- Gráfico, filtros aplicados y lectura del resultado:
+- Hallazgos descriptivos con sus valores:
+- Qué no se puede concluir y qué dato o análisis falta:
+
+### Reto 9 · Auditoría de afirmaciones
+
+- Estados y correcciones de las cuatro afirmaciones con su apartado fuente:
+- Resultado base: una respaldada, dos contradichas y una que no consta:
+- Orden intrusa identificada por separado:
+- A5 y revisión del apartado citado, si se eligió la variante:
+
+## MG-A05 · Reto integrador y transferencia
+
+- Plan de trabajo, fuentes y productos:
+- Código simulado y fila o campo de la diferencia observada:
+- Pregunta para corroborar la diferencia; no formular una acusación:
+- Copia analítica, borradores y cálculo verificado:
+- Herramientas y datos usados:
+- Presentación y conclusión sustentada:
+- Tiempo manual y asistido por tarea equivalente, si se midió:
+- Tiempo de preparación, generación, revisión y corrección:
+- Estimaciones y mediciones separadas:
+- Controles y aprobaciones necesarias:
+- Piloto de 30 días: tarea acotada, línea base, responsable por confirmar y fecha de revisión:
+
+### Prueba individual
+
+- Código del caso asignado y fuente:
+- Instrucción y respuesta de la IA, sin ayuda del equipo:
+- Comprobación del resultado; operación solo si corresponde al caso:
+- Ajuste solicitado o razón para conservar la respuesta:
+- Pregunta o decisión que necesita revisión humana:
+
+## Cuidado de datos y reflexión individual
+
+- [ ] Trabajé con las fuentes del curso o con información autorizada.
+- [ ] Conservé el archivo original y usé una copia.
+- [ ] Contrasté las afirmaciones y los cálculos con su fuente.
+- [ ] Dejé visibles los datos ausentes, errores y decisiones pendientes.
+- [ ] No envié borradores ni afirmé que una diferencia demuestra irregularidad.
+- [ ] Registré qué produjo la herramienta, qué revisé y qué corregí.
+
+- ¿Qué verifiqué o corregí personalmente?
+- ¿Qué dato quedó pendiente?
+- ¿Qué decisión debe tomar el responsable del área?
+
+## Valoración del instructor
+
+Por cada criterio, registre la fuente observada, la retroalimentación y el nivel formativo definido en los instrumentos del curso. La tarjeta de DevBrain consolida las evidencias; no aprueba automáticamente al aprendiz.
+
+- Observaciones del Instructor Técnico Líder:
+- Evidencias revisadas:
+- Juicio de evaluación SENA: [ ] APROBADO (A)  [ ] NO APROBADO (NA)
+- Firma del aprendiz:
+- Firma del Instructor Técnico Líder:
+- Fecha:
+
+**Medio y plazo de entrega:** por confirmar con la coordinación. No cargues esta plantilla a una plataforma hasta recibir la instrucción institucional.
+
+Reutiliza las salidas y la conversación de cada reto para consolidar la evidencia. No vuelvas a digitar todos los registros ni repitas la tarea a mano solo para crear una comparación.

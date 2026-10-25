@@ -1,0 +1,10 @@
+{
+  "schemaVersion": 1,
+  "artifactId": null,
+  "fields": {
+    "informe": "",
+    "comprobacion": "",
+    "pendientes": ""
+  },
+  "tool": "no identificado"
+}

@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 180" role="img" aria-labelledby="title desc">
+  <title id="title">Papel metalizado</title>
+  <desc id="desc">Envoltorio metalizado plateado, arrugado y sin marca ni restos de contenido.</desc>
+  <rect width="240" height="180" rx="20" fill="#f3f6f2"/>
+  <path d="M67 147h106" stroke="#cbd8cf" stroke-width="4" stroke-linecap="round"/>
+  <path d="M83 59l14 7 13-8 16 7 16-6 12 10 11-3 5 17-6 14 5 15-13 8-13 21-16-8-15 7-12-10-17 3-5-15-13-8 8-16-5-15 15-8z" fill="#cbd3d7" stroke="#5d6d72" stroke-width="4" stroke-linejoin="round"/>
+  <path d="M96 69l20 17-7 20 24-16 18 11M84 94l21 11-10 20M135 61l-4 25 22-15M119 120l8 20 10-20" fill="none" stroke="#f8fbfc" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M93 77l10 8M151 111l11 6" stroke="#9eabb0" stroke-width="3" stroke-linecap="round"/>
+</svg>

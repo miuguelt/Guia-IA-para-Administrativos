@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="420" height="320" viewBox="0 0 420 320" role="img" aria-labelledby="title desc">
+<title id="title">De la fuente al producto revisado</title>
+<desc id="desc">La fuente y la instrucción permiten generar un borrador. La revisión humana vuelve a la fuente, pide una corrección cuando corresponde y conserva un producto comprobado.</desc>
+<rect width="420" height="320" rx="24" fill="#f1f6ed"/>
+<g font-family="Segoe UI, sans-serif" fill="#173e34">
+<text x="24" y="39" font-size="25" font-weight="700">Un resultado que puedes explicar</text>
+<path d="M53 85V264" stroke="#69835c" stroke-width="4"/>
+<g fill="#ffffff" stroke="#bed0b2"><rect x="20" y="59" width="380" height="51" rx="14"/><rect x="20" y="122" width="380" height="51" rx="14"/><rect x="20" y="185" width="380" height="51" rx="14"/><rect x="20" y="248" width="380" height="51" rx="14"/></g>
+<g fill="#225746"><circle cx="49" cy="85" r="17"/><circle cx="49" cy="148" r="17"/><circle cx="49" cy="211" r="17"/><circle cx="49" cy="274" r="17"/></g>
+<g fill="#ffffff" font-size="20" font-weight="700" text-anchor="middle"><text x="49" y="92">1</text><text x="49" y="155">2</text><text x="49" y="218">3</text><text x="49" y="281">4</text></g>
+<g font-size="24" font-weight="600"><text x="80" y="93">Fuente + instrucción</text><text x="80" y="156">Borrador de la IA</text><text x="80" y="219">Comprobar y corregir</text><text x="80" y="282">Producto revisado</text></g>
+</g></svg>

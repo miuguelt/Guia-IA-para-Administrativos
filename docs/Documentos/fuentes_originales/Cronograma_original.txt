@@ -1,0 +1,136 @@
+# Diseño Instruccional: Inmersión Administrativa en IA (SENA Bogotá)
+
+**Público Objetivo:** Personal Administrativo SENA Regional Bogotá (Perfil intergeneracional, fluidez tecnológica heterogénea).
+**Duración:** 4 Días (Intensivo 07:00 a.m. - 07:00 p.m.)
+**Ecosistema Tecnológico:** Microsoft 365 (Word, Excel, PowerPoint, Outlook, Teams) + Microsoft Copilot + ChatGPT/Gemini.
+**Sistema de Gamificación:** "La Bóveda del Tiempo". Los equipos ganan puntos equivalentes a "Horas Ahorradas" en tareas operativas. El equipo con más "días" ahorrados al final de la jornada gana la certificación con honores.
+
+---
+
+## Día 1: Desmitificación y El "Segundo Cerebro"
+**Meta del día:** Superar la tecnofobia, entender la lógica de los Modelos de Lenguaje Grande (LLMs) y dominar la ingeniería de prompts para gestión documental.
+
+*   **07:00 - 08:30 | Kick-off: "La IA no te reemplaza, te asciende"**
+    *   **Objetivo:** Generar asombro ("Aha! moment") y romper la resistencia al cambio.
+    *   **Herramienta:** Copilot Web / ChatGPT.
+    *   **Dinámica (Micro-cápsula + Demo):** Demostración en vivo resolviendo un cuello de botella clásico del SENA (ej. clasificar 50 PQRS de aspirantes) en 5 minutos.
+*   **08:30 - 10:00 | Reto 1: Prompt Engineering 101**
+    *   **Objetivo:** Estructurar comandos efectivos usando el modelo CRTT (Contexto, Rol, Tarea, Tono).
+    *   **Herramienta:** Bloc de notas + Copilot Web.
+    *   **Dinámica (Taller guiado):** Ejercicio de "anatomía del prompt". Los participantes construyen su primer comando estructurado para solicitar información sobre lineamientos de contratación.
+*   **10:00 - 10:30 | Break y Pausa Activa Cognitiva**
+    *   *Estiramiento físico y desconexión visual.*
+*   **10:30 - 12:30 | Reto 2 (CBL Gamificado): "El Teléfono Roto de las PQRS"**
+    *   **Objetivo:** Iterar y refinar prompts en equipo para obtener la respuesta más precisa.
+    *   **Herramienta:** ChatGPT / Copilot Web.
+    *   **Dinámica (Competencia):** Equipos intergeneracionales reciben un Derecho de Petición real, complejo y mal redactado por un ciudadano. Gana el equipo que logre que la IA redacte la respuesta jurídica y procedimental más exacta, institucional y empática en menos intentos.
+*   **12:30 - 14:00 | Almuerzo libre**
+*   **14:00 - 16:00 | Taller Práctico: Domando la Burocracia (Gestión de Texto)**
+    *   **Objetivo:** Sintetizar documentos extensos y extraer planes de acción procesables.
+    *   **Herramienta:** ChatPDF / Copilot en Edge.
+    *   **Dinámica (Práctica en parejas):** Cargar PDFs de Resoluciones recientes de la Dirección General del SENA o del Consejo Directivo. Pedir a la IA resúmenes ejecutivos, identificación de fechas clave y tabla de responsabilidades.
+*   **16:00 - 16:30 | Break y Pausa Activa**
+*   **16:30 - 18:30 | Reto 3: Clonación de Roles (Tu Asistente Personal)**
+    *   **Objetivo:** Sistematizar tareas repetitivas creando un entorno pre-configurado en la IA.
+    *   **Herramienta:** Custom Instructions (ChatGPT) o Prompts Guardados en Word.
+    *   **Dinámica (CBL individual):** Cada participante diseña un prompt maestro para su rol ("Actúa como un Asistente Senior de Contratación SECOP del SENA..."). Prueban el asistente con 3 tareas diarias de su puesto real.
+*   **18:30 - 19:00 | Retrospectiva y Bóveda del Tiempo**
+    *   **Objetivo:** Consolidar el aprendizaje del día.
+    *   **Dinámica:** Cálculo en plenaria de "Horas Ahorradas". Actualización del tablero de puntuación.
+
+---
+
+## Día 2: Ecosistema Microsoft y Copilot en la Operación Diaria
+**Meta del día:** Dominar la comunicación eficiente y la documentación colaborativa sin salir del entorno institucional.
+
+*   **07:00 - 09:00 | Micro-cápsula: La Bandeja de Entrada Inteligente**
+    *   **Objetivo:** Aprender a resumir hilos largos y generar respuestas contextuales.
+    *   **Herramienta:** Microsoft Outlook + Copilot.
+    *   **Dinámica (Demostración y Práctica):** Técnicas de "Resumir por Copilot" en hilos de correo. Generación de borradores ajustando el tono (Conciliador para un aprendiz molesto, Directivo para un proveedor).
+*   **09:00 - 10:00 | Reto 4: "Bandeja Cero en Tiempo Récord"**
+    *   **Objetivo:** Aplicar la IA para gestionar crisis de comunicación masiva.
+    *   **Herramienta:** Outlook + Copilot.
+    *   **Dinámica (CBL de velocidad):** Se envía a los participantes un archivo con 50 correos simulados (cancelación de clases, caídas de SOFIA Plus, dudas de contratos). Deben clasificar, priorizar y tener borradores de respuesta listos para los 10 más urgentes.
+*   **10:00 - 10:30 | Break y Pausa Activa**
+*   **10:30 - 12:30 | Micro-cápsula: Documentación Colaborativa y Reuniones**
+    *   **Objetivo:** Automatizar la creación de insumos y relatorías.
+    *   **Herramienta:** Microsoft Word y Teams + Copilot.
+    *   **Dinámica:** Generar borradores en Word basados en otros archivos (ej. "Crea un plan de capacitación basado en este correo y este PDF de lineamientos").
+*   **12:30 - 14:00 | Almuerzo libre**
+*   **14:00 - 16:00 | Reto 5: "El Acta Imposible"**
+    *   **Objetivo:** Extraer compromisos, decisiones y cronogramas del caos.
+    *   **Herramienta:** Transcripciones de Teams + Copilot en Word.
+    *   **Dinámica (CBL en equipos):** Se reproduce un audio de 10 minutos de una reunión simulada (y caótica) de un Comité de Centro de Formación. Los equipos deben usar la transcripción para generar el acta perfecta, tabla de compromisos y responsables en menos de 15 minutos.
+*   **16:00 - 16:30 | Break y Pausa Activa**
+*   **16:30 - 18:30 | Integración: El Flujo de Trabajo Perfecto**
+    *   **Objetivo:** Conectar herramientas. Pasar de la comunicación a la acción documentada.
+    *   **Herramienta:** Outlook -> Word -> Teams.
+    *   **Dinámica (Simulación):** Reciben un correo del Director Regional con una directriz urgente. Deben: 1) Resumir el correo. 2) Crear un documento de plan de acción en Word. 3) Redactar el mensaje de anuncio para el canal de Teams del equipo.
+*   **18:30 - 19:00 | Retrospectiva y Bóveda del Tiempo**
+    *   *Actualización del tablero de puntos identificando cuellos de botella reales superados.*
+
+---
+
+## Día 3: Análisis de Datos para No Analistas
+**Meta del día:** Eliminar la fobia a Excel y empoderar al personal para tomar decisiones basadas en datos conversacionales.
+
+*   **07:00 - 09:00 | Micro-cápsula: Hablando con las Celdas**
+    *   **Objetivo:** Comprender cómo interrogar bases de datos usando lenguaje natural.
+    *   **Herramienta:** Microsoft Excel + Copilot.
+    *   **Dinámica (Práctica guiada):** Inserción de columnas de fórmulas generadas por IA, identificación de tendencias y formatos condicionales sin escribir sintaxis de código.
+*   **09:00 - 10:00 | Reto 6: "El Informe Sucio"**
+    *   **Objetivo:** Limpiar y estandarizar datos masivos rápidamente.
+    *   **Herramienta:** Excel + Copilot / Flash Fill con IA.
+    *   **Dinámica (CBL de precisión):** Reciben una exportación simulada y desordenada de SOFIA Plus (nombres mezclados con cédulas, fechas inconsistentes, celdas vacías). Gana quien logre la base de datos impecable usando solo comandos de texto a la IA.
+*   **10:00 - 10:30 | Break y Pausa Activa**
+*   **10:30 - 12:30 | Micro-cápsula: Visualización y Preguntas Estratégicas**
+    *   **Objetivo:** Generar insights gráficos y cruzar variables.
+    *   **Herramienta:** Excel (Tablas Dinámicas IA / Gráficos sugeridos).
+    *   **Dinámica:** Formular preguntas al documento: "¿Cuál es el Centro de Formación con mayor gasto en papelería en el Q1?" y dejar que la IA construya el gráfico.
+*   **12:30 - 14:00 | Almuerzo libre**
+*   **14:00 - 16:00 | Reto 7: "El Presupuesto Oculto"**
+    *   **Objetivo:** Pasar del dato básico al análisis predictivo/descriptivo.
+    *   **Herramienta:** Excel + Copilot.
+    *   **Dinámica (CBL Analítico):** Se entrega una base de datos de deserción de aprendices vs. asignación presupuestal de bienestar. Los equipos deben encontrar la correlación oculta y pedir a la IA que redacte 3 conclusiones ejecutivas basadas en los datos.
+*   **16:00 - 16:30 | Break y Pausa Activa**
+*   **16:30 - 18:30 | Storytelling Ejecutivo con IA**
+    *   **Objetivo:** Transformar datos fríos en presentaciones de alto impacto.
+    *   **Herramienta:** PowerPoint + Copilot / Herramientas como Gamma.app.
+    *   **Dinámica (Taller creativo):** Tomar las 3 conclusiones del Reto 7 y usar Copilot en PowerPoint para generar una presentación de 5 diapositivas (con imágenes, estructura y notas del orador) lista para el Director Regional.
+*   **18:30 - 19:00 | Retrospectiva: Alucinaciones Numéricas**
+    *   **Objetivo:** Aprender pensamiento crítico ante la IA.
+    *   **Dinámica:** Discusión sobre por qué la IA no es una calculadora infalible y métodos para auditar sus resultados (doble chequeo humano).
+
+---
+
+## Día 4: "Hackathon" Administrativo SENA (El Gran Reto)
+**Meta del día:** Aplicación transversal de todo el conocimiento en un entorno de presión simulada de la vida real.
+
+*   **07:00 - 08:00 | Reglas y Alineación de Equipos**
+    *   **Objetivo:** Establecer las bases de la competencia.
+    *   **Dinámica:** Formación estratégica de "Escuadrones de Crisis" interdisciplinarios e intergeneracionales. Entrega del *Brief* de evaluación (Velocidad, Calidad, Prompts utilizados).
+*   **08:00 - 10:00 | Fase 1 (Planeación): El Caso de Crisis SENA**
+    *   **Objetivo:** Diseñar una estrategia de respuesta estructurada.
+    *   **Herramienta:** Uso libre del ecosistema M365 + IA.
+    *   **Dinámica (Simulación):** Se destapa el caso: *"Auditoría sorpresa de la Contraloría sobre la contratación de instructores 2025. Se requiere un informe histórico, cruce de datos y un plan de comunicación interna para mañana a primera hora"*. Los equipos hacen lluvia de ideas con IA para estructurar el plan de ataque.
+*   **10:00 - 10:30 | Break y Pausa Activa (Manejo de Estrés)**
+*   **10:30 - 12:30 | Fase 2 (Ejecución y Generación)**
+    *   **Objetivo:** Producción masiva de entregables con apoyo de IA.
+    *   **Herramienta:** Excel (análisis), Word (informe), Outlook (correos), PowerPoint (sustentación).
+    *   **Dinámica (Deep Work):** Los equipos ejecutan. Deben limpiar la base de contratos, generar los borradores de los correos a los subdirectores de centro y montar la estructura del informe. Los facilitadores actúan como "mentores/auditores" circulando por la sala.
+*   **12:30 - 14:00 | Almuerzo libre**
+*   **14:00 - 16:00 | Fase 3 (Presentación de Soluciones)**
+    *   **Objetivo:** Demostrar destreza en la herramienta y explicar el proceso lógico.
+    *   **Dinámica (Role-play directivo):** Cada escuadrón tiene 15 minutos para exponer su solución ante el "Director Regional" (Instructor). **Regla de oro:** Deben mostrar *cómo* la IA les ahorró tiempo y proyectar en pantalla los prompts exactos que marcaron la diferencia.
+*   **16:00 - 16:30 | Break de Celebración**
+*   **16:30 - 18:00 | Evaluación, Feedback y Premiación**
+    *   **Objetivo:** Retroalimentación constructiva y refuerzo positivo.
+    *   **Dinámica:** Rúbrica de calificación cruzada. Apertura de la "Bóveda del Tiempo" final y premiación al equipo más eficiente (diplomas simbólicos de "Maestros Prompters SENA").
+*   **18:00 - 19:00 | Cierre, Homeostasis Tecnológica y Certificación**
+    *   **Objetivo:** Asegurar la transferencia al puesto de trabajo.
+    *   **Dinámica:** Reflexión guiada sobre la ética de la IA, el valor del toque humano ("Human-in-the-loop") y firma de un "contrato personal" con el hábito o proceso administrativo específico que automatizarán a partir del lunes siguiente.
+```eof
+
+He refinado tu excelente base introduciendo dinámicas de gamificación ("La Bóveda del Tiempo"), definiendo las metodologías didácticas específicas para evitar la clase magistral (micro-cápsulas vs. CBL), y contextualizando firmemente los ejercicios a las realidades de una entidad pública de formación como el SENA (SOFIA Plus, PQRSDs, SECOP, Actas de comité).
+
+¿Te gustaría que diseñemos juntos el contenido de alguna de las **micro-cápsulas** o que detallemos la **rúbrica de evaluación** para el Hackathon del Día 4?

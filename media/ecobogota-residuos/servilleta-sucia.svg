@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 180" role="img" aria-labelledby="title desc">
+  <title id="title">Servilleta usada con comida</title>
+  <desc id="desc">Servilleta blanca arrugada con una mancha pequeña de comida visible.</desc>
+  <rect width="240" height="180" rx="20" fill="#f3f6f2"/>
+  <path d="M66 147h108" stroke="#cbd8cf" stroke-width="4" stroke-linecap="round"/>
+  <path d="M79 67l29 8 17-15 16 20 22-7-6 24 12 19-25 6-9 21-20-13-21 9-5-23-21-12 18-17z" fill="#fff" stroke="#829188" stroke-width="4" stroke-linejoin="round"/>
+  <path d="M105 82l17 11-9 14 18 8" fill="none" stroke="#d2d6d0" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M137 91c7-5 16-2 18 5 2 6-4 12-11 12-6 0-11-5-10-10 0-3 1-5 3-7z" fill="#c98d58" opacity=".88"/>
+  <circle cx="94" cy="115" r="4" fill="#c98d58"/>
+</svg>

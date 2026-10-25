@@ -1,0 +1,153 @@
+[
+  {
+    "href": "materiales/ia/fuentes-comunes/reto-00-descripciones-seguras.csv",
+    "name": "Descripciones seguras de cinco tarjetas",
+    "kind": "Reto 0",
+    "detail": "Incluye únicamente descripciones autorizadas para adjuntar. No contiene tarjetas originales con identificación, salud o credenciales.",
+    "usedBy": [
+      "reto-0",
+      "MG-A01"
+    ]
+  },
+  {
+    "href": "materiales/retos/reto-01-solicitud-urgente.csv",
+    "name": "Solicitud urgente de sala",
+    "kind": "Reto 1",
+    "detail": "Caso URG-01 para contrastar el lineamiento; la fecha exacta, la sede y la franja no constan.",
+    "usedBy": [
+      "reto-1",
+      "MG-A01"
+    ]
+  },
+  {
+    "href": "materiales/retos/lineamiento-ficticio.csv",
+    "name": "Lineamiento ficticio de reserva de salas",
+    "kind": "Fuente común",
+    "detail": "Fuente de ocho apartados para revisar solicitudes, borradores, afirmaciones y rutas de decisión.",
+    "usedBy": [
+      "reto-1",
+      "reto-9",
+      "reto-7",
+      "MG-A01",
+      "MG-A03",
+      "MG-A04",
+      "variante-cita-inexistente"
+    ]
+  },
+  {
+    "href": "materiales/retos/pqrs-complejas.csv",
+    "name": "Casos de PQRS complejas",
+    "kind": "Fuente común",
+    "detail": "Trae los casos PC-01 a PC-08; los retos usan PC-01, PC-02 y PC-03 para preparar respuestas y probar una instrucción.",
+    "usedBy": [
+      "reto-2",
+      "reto-3",
+      "MG-A02",
+      "variante-juridica"
+    ]
+  },
+  {
+    "href": "materiales/retos/correos-50.csv",
+    "name": "Bandeja de 50 mensajes",
+    "kind": "Fuente común",
+    "detail": "Conserva los 50 códigos y permite comparar la priorización y los borradores de la variante de Talento Humano.",
+    "usedBy": [
+      "reto-4",
+      "MG-A03",
+      "variante-talento-humano"
+    ]
+  },
+  {
+    "href": "materiales/retos/transcripcion.csv",
+    "name": "Transcripción de reunión",
+    "kind": "Fuente común",
+    "detail": "Usa los minutos para verificar acuerdos, propuestas, compromisos y asuntos pendientes.",
+    "usedBy": [
+      "reto-5",
+      "MG-A03",
+      "variante-retencion-documental"
+    ]
+  },
+  {
+    "href": "materiales/retos/datos-sofia.csv",
+    "name": "Tabla de Datos SOFIA",
+    "kind": "Fuente común",
+    "detail": "Conserva filas y columnas originales al comparar estados; incluye códigos repetidos y valores que requieren revisión.",
+    "usedBy": [
+      "reto-6",
+      "MG-A03"
+    ]
+  },
+  {
+    "href": "materiales/retos/bienestar.csv",
+    "name": "Tabla de Bienestar",
+    "kind": "Fuente común",
+    "detail": "Contiene diez centros. El periodo no consta. Centro A permite comprobar una tasa de 5 %.",
+    "usedBy": [
+      "reto-8",
+      "MG-A04",
+      "preparacion"
+    ]
+  },
+  {
+    "href": "materiales/retos/gastos-q1.csv",
+    "name": "Gastos del primer trimestre",
+    "kind": "Fuente común",
+    "detail": "Contiene enero, febrero y marzo de 2026 para los centros A–H, en COP.",
+    "usedBy": [
+      "reto-8",
+      "MG-A04"
+    ]
+  },
+  {
+    "href": "materiales/retos/reto-09-afirmaciones.csv",
+    "name": "Afirmaciones para auditar",
+    "kind": "Fuente común",
+    "detail": "Incluye cuatro afirmaciones y una orden intrusa; la variante agrega A5 desde su archivo propio.",
+    "usedBy": [
+      "reto-9",
+      "MG-A04",
+      "variante-cita-inexistente"
+    ]
+  },
+  {
+    "href": "materiales/retos/reto-07-casos-flujo.csv",
+    "name": "Tres solicitudes para probar el flujo",
+    "kind": "Fuente común",
+    "detail": "Incluye una solicitud completa, otra con un dato faltante y una consulta marcada como urgente.",
+    "usedBy": [
+      "reto-7",
+      "MG-A03"
+    ]
+  },
+  {
+    "href": "materiales/retos/contratos.csv",
+    "name": "Tabla de contratos",
+    "kind": "Fuente común",
+    "detail": "Fuente para ubicar diferencias por fila, centro, valor y operación en el integrador.",
+    "usedBy": [
+      "reto-integrador",
+      "MG-A05"
+    ]
+  },
+  {
+    "href": "materiales/retos/directriz.csv",
+    "name": "Directriz del integrador",
+    "kind": "Fuente común",
+    "detail": "Confirma los productos del ejercicio y que el borrador se conserva sin enviar.",
+    "usedBy": [
+      "reto-integrador",
+      "MG-A05"
+    ]
+  },
+  {
+    "href": "materiales/retos/casos-individuales.csv",
+    "name": "Casos para la prueba individual",
+    "kind": "Fuente común",
+    "detail": "El instructor asigna un caso distinto a cada aprendiz para comprobar aplicación individual.",
+    "usedBy": [
+      "reto-integrador",
+      "MG-A05"
+    ]
+  }
+]

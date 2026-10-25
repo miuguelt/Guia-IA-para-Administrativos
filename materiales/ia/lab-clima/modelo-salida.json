@@ -1,0 +1,12 @@
+{
+  "schemaVersion": 1,
+  "artifactId": "LAB-A01",
+  "fields": {
+    "pregunta": "",
+    "fuente": "",
+    "procedimiento": "",
+    "verificacion": "",
+    "conclusion": ""
+  },
+  "tool": "no identificado"
+}

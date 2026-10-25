@@ -1,0 +1,54 @@
+﻿Mensajes de práctica para priorización;;;;;;
+No contiene mensajes reales. Una señal textual no determina por sí sola la prioridad institucional.;;;;;;
+;;;;;;
+Código;Hora;Emisor;Asunto;Cuerpo del mensaje;Personas afectadas;Plazo
+C-001;07:00;Coordinación;Portal de inscripción;El portal presenta error para varios grupos y el plazo cierra hoy a las 16:00. ¿Quién confirma continuidad? Referencia 01.;35;Hoy 16:00
+C-002;14:13;Apoyo administrativo;Cambio de aula;La pantalla de la sala asignada no funciona y la sesión comienza en 20 minutos. Hay una sala alterna libre según recepción. Referencia 01.;24;En 20 minutos
+C-003;09:26;Equipo de sede;Documento de proveedor;Falta un anexo en la carpeta. La revisión del expediente se programó para mañana. Referencia 01.;2;Mañana
+C-004;16:39;Mesa de ayuda;Consulta de horario;¿La reunión de seguimiento es a las 9 o a las 10? El calendario y el correo no coinciden. Referencia 01.;6;Sin plazo expreso
+C-005;11:52;Logística de práctica;Cancelación de jornada;El transporte reporta cierre de vía y varias sedes consultan si se mantiene la actividad de la tarde. Referencia 01.;80;Hoy 12:00
+C-006;18:05;Coordinación;Solicitud de papelería;Solicito reposición de marcadores para el próximo mes. No hay afectación inmediata. Referencia 01.;1;Próximo mes
+C-007;13:18;Apoyo administrativo;Acceso a plataforma;"No se puede ingresar desde dos sedes; el registro de asistencia cierra al final del día. Referencia 01.";18;Hoy 17:00
+C-008;08:31;Equipo de sede;Confirmación de acta;Adjunto el borrador de acta de la semana pasada para comentarios cuando tengan disponibilidad. Referencia 01.;5;Esta semana
+C-009;15:44;Mesa de ayuda;Mantenimiento preventivo;El proveedor propone visita técnica para la próxima semana y solicita confirmar una franja horaria. Referencia 01.;3;Próxima semana
+C-010;10:57;Logística de práctica;Ruta de apoyo;Una persona pregunta dónde encuentra la guía de solicitud de apoyo. No adjunta datos de su caso. Referencia 01.;1;Sin plazo expreso
+C-011;17:10;Coordinación;Portal de inscripción;El portal presenta error para varios grupos y el plazo cierra hoy a las 16:00. ¿Quién confirma continuidad? Referencia 02.;35;Hoy 16:00
+C-012;12:23;Apoyo administrativo;Cambio de aula;La pantalla de la sala asignada no funciona y la sesión comienza en 20 minutos. Hay una sala alterna libre según recepción. Referencia 02.;24;En 20 minutos
+C-013;07:36;Equipo de sede;Documento de proveedor;Falta un anexo en la carpeta. La revisión del expediente se programó para mañana. Referencia 02.;2;Mañana
+C-014;14:49;Mesa de ayuda;Consulta de horario;¿La reunión de seguimiento es a las 9 o a las 10? El calendario y el correo no coinciden. Referencia 02.;6;Sin plazo expreso
+C-015;09:02;Logística de práctica;Cancelación de jornada;El transporte reporta cierre de vía y varias sedes consultan si se mantiene la actividad de la tarde. Referencia 02.;80;Hoy 12:00
+C-016;16:15;Coordinación;Solicitud de papelería;Solicito reposición de marcadores para el próximo mes. No hay afectación inmediata. Referencia 02.;1;Próximo mes
+C-017;11:28;Apoyo administrativo;Acceso a plataforma;"No se puede ingresar desde dos sedes; el registro de asistencia cierra al final del día. Referencia 02.";18;Hoy 17:00
+C-018;18:41;Equipo de sede;Confirmación de acta;Adjunto el borrador de acta de la semana pasada para comentarios cuando tengan disponibilidad. Referencia 02.;5;Esta semana
+C-019;13:54;Mesa de ayuda;Mantenimiento preventivo;El proveedor propone visita técnica para la próxima semana y solicita confirmar una franja horaria. Referencia 02.;3;Próxima semana
+C-020;08:07;Logística de práctica;Ruta de apoyo;Una persona pregunta dónde encuentra la guía de solicitud de apoyo. No adjunta datos de su caso. Referencia 02.;1;Sin plazo expreso
+C-021;15:20;Coordinación;Portal de inscripción;El portal presenta error para varios grupos y el plazo cierra hoy a las 16:00. ¿Quién confirma continuidad? Referencia 03.;35;Hoy 16:00
+C-022;10:33;Apoyo administrativo;Cambio de aula;La pantalla de la sala asignada no funciona y la sesión comienza en 20 minutos. Hay una sala alterna libre según recepción. Referencia 03.;24;En 20 minutos
+C-023;17:46;Equipo de sede;Documento de proveedor;Falta un anexo en la carpeta. La revisión del expediente se programó para mañana. Referencia 03.;2;Mañana
+C-024;12:59;Mesa de ayuda;Consulta de horario;¿La reunión de seguimiento es a las 9 o a las 10? El calendario y el correo no coinciden. Referencia 03.;6;Sin plazo expreso
+C-025;07:12;Logística de práctica;Cancelación de jornada;El transporte reporta cierre de vía y varias sedes consultan si se mantiene la actividad de la tarde. Referencia 03.;80;Hoy 12:00
+C-026;14:25;Coordinación;Solicitud de papelería;Solicito reposición de marcadores para el próximo mes. No hay afectación inmediata. Referencia 03.;1;Próximo mes
+C-027;09:38;Apoyo administrativo;Acceso a plataforma;"No se puede ingresar desde dos sedes; el registro de asistencia cierra al final del día. Referencia 03.";18;Hoy 17:00
+C-028;16:51;Equipo de sede;Confirmación de acta;Adjunto el borrador de acta de la semana pasada para comentarios cuando tengan disponibilidad. Referencia 03.;5;Esta semana
+C-029;11:04;Mesa de ayuda;Mantenimiento preventivo;El proveedor propone visita técnica para la próxima semana y solicita confirmar una franja horaria. Referencia 03.;3;Próxima semana
+C-030;18:17;Logística de práctica;Ruta de apoyo;Una persona pregunta dónde encuentra la guía de solicitud de apoyo. No adjunta datos de su caso. Referencia 03.;1;Sin plazo expreso
+C-031;13:30;Coordinación;Portal de inscripción;El portal presenta error para varios grupos y el plazo cierra hoy a las 16:00. ¿Quién confirma continuidad? Referencia 04.;35;Hoy 16:00
+C-032;08:43;Apoyo administrativo;Cambio de aula;La pantalla de la sala asignada no funciona y la sesión comienza en 20 minutos. Hay una sala alterna libre según recepción. Referencia 04.;24;En 20 minutos
+C-033;15:56;Equipo de sede;Documento de proveedor;Falta un anexo en la carpeta. La revisión del expediente se programó para mañana. Referencia 04.;2;Mañana
+C-034;10:09;Mesa de ayuda;Consulta de horario;¿La reunión de seguimiento es a las 9 o a las 10? El calendario y el correo no coinciden. Referencia 04.;6;Sin plazo expreso
+C-035;17:22;Logística de práctica;Cancelación de jornada;El transporte reporta cierre de vía y varias sedes consultan si se mantiene la actividad de la tarde. Referencia 04.;80;Hoy 12:00
+C-036;12:35;Coordinación;Solicitud de papelería;Solicito reposición de marcadores para el próximo mes. No hay afectación inmediata. Referencia 04.;1;Próximo mes
+C-037;07:48;Apoyo administrativo;Acceso a plataforma;"No se puede ingresar desde dos sedes; el registro de asistencia cierra al final del día. Referencia 04.";18;Hoy 17:00
+C-038;14:01;Equipo de sede;Confirmación de acta;Adjunto el borrador de acta de la semana pasada para comentarios cuando tengan disponibilidad. Referencia 04.;5;Esta semana
+C-039;09:14;Mesa de ayuda;Mantenimiento preventivo;El proveedor propone visita técnica para la próxima semana y solicita confirmar una franja horaria. Referencia 04.;3;Próxima semana
+C-040;16:27;Logística de práctica;Ruta de apoyo;Una persona pregunta dónde encuentra la guía de solicitud de apoyo. No adjunta datos de su caso. Referencia 04.;1;Sin plazo expreso
+C-041;11:40;Coordinación;Portal de inscripción;El portal presenta error para varios grupos y el plazo cierra hoy a las 16:00. ¿Quién confirma continuidad? Referencia 05.;35;Hoy 16:00
+C-042;18:53;Apoyo administrativo;Cambio de aula;La pantalla de la sala asignada no funciona y la sesión comienza en 20 minutos. Hay una sala alterna libre según recepción. Referencia 05.;24;En 20 minutos
+C-043;13:06;Equipo de sede;Documento de proveedor;Falta un anexo en la carpeta. La revisión del expediente se programó para mañana. Referencia 05.;2;Mañana
+C-044;08:19;Mesa de ayuda;Consulta de horario;¿La reunión de seguimiento es a las 9 o a las 10? El calendario y el correo no coinciden. Referencia 05.;6;Sin plazo expreso
+C-045;15:32;Logística de práctica;Cancelación de jornada;El transporte reporta cierre de vía y varias sedes consultan si se mantiene la actividad de la tarde. Referencia 05.;80;Hoy 12:00
+C-046;10:45;Coordinación;Solicitud de papelería;Solicito reposición de marcadores para el próximo mes. No hay afectación inmediata. Referencia 05.;1;Próximo mes
+C-047;17:58;Apoyo administrativo;Acceso a plataforma;"No se puede ingresar desde dos sedes; el registro de asistencia cierra al final del día. Referencia 05.";18;Hoy 17:00
+C-048;12:11;Equipo de sede;Confirmación de acta;Adjunto el borrador de acta de la semana pasada para comentarios cuando tengan disponibilidad. Referencia 05.;5;Esta semana
+C-049;07:24;Mesa de ayuda;Mantenimiento preventivo;El proveedor propone visita técnica para la próxima semana y solicita confirmar una franja horaria. Referencia 05.;3;Próxima semana
+C-050;14:37;Logística de práctica;Ruta de apoyo;Una persona pregunta dónde encuentra la guía de solicitud de apoyo. No adjunta datos de su caso. Referencia 05.;1;Sin plazo expreso

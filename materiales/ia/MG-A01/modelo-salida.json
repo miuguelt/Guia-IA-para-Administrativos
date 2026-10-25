@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 1,
+  "artifactId": "MG-A01",
+  "fields": {
+    "reto00_semaforo_datos": "",
+    "proceso_seleccionado": "",
+    "matriz_viabilidad": "",
+    "analisis_riesgo_ley1581": "",
+    "metrica_linea_base": "",
+    "reto01_prompt_crtt": "",
+    "reto01_verificacion": "",
+    "uso_ia_y_revision": ""
+  },
+  "tool": "no identificado"
+}

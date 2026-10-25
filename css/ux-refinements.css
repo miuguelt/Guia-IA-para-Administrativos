@@ -1,0 +1,112 @@
+/* Ajustes de experiencia: barra superior compacta, navegación agrupada y recorrido por pasos.
+   Se carga al final del paquete del curso para resolver por orden de cascada, sin !important. */
+
+/* Barra superior: en pantallas angostas ocupa dos filas en lugar de cuatro. */
+.mode-caption { color: var(--muted); font-weight: 500; }
+
+@media (max-width: 850px) {
+  .course-topbar {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto auto;
+    grid-template-areas: "location mode resources" "progress progress progress";
+    align-items: center;
+    gap: 6px 8px;
+    min-height: 0;
+    padding: 8px 14px;
+  }
+  .topbar-location { grid-area: location; flex-wrap: nowrap; min-width: 0; }
+  .study-mode-switch { grid-area: mode; }
+  .resources-menu { grid-area: resources; margin-left: 0; }
+  .course-progress-container { grid-area: progress; flex-wrap: nowrap; gap: 8px; margin-left: 0; justify-content: flex-start; }
+  .progress-bar-wrap { flex: 1 1 auto; min-width: 0; }
+  .progress-bar-wrap progress { width: 100%; }
+  .mode-caption { display: none; }
+}
+
+@media (max-width: 520px) {
+  .course-topbar {
+    position: sticky;
+    grid-template-columns: minmax(0, 1fr) auto auto;
+    grid-template-areas: "location location location" "progress mode resources";
+  }
+  .resource-link .resource-label {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+  }
+  .resources-caret { display: none; }
+  .study-mode-switch > summary { padding: 10px; }
+}
+
+/* Navegación lateral: separa la ruta obligatoria de los complementos. */
+.nav-group-label {
+  margin: 18px 0 6px;
+  padding: 0 12px;
+  color: #c9dccd;
+  font-size: .8rem;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+.nav-group-label:first-child { margin-top: 4px; }
+
+/* Ubicación detallada en la barra superior: módulo › paso › reto. */
+.breadcrumb-step { color: var(--muted); font-weight: 500; }
+.breadcrumb-step::before { content: "›"; margin: 0 6px; color: var(--decor-muted); }
+
+/* Pie de cada paso: regresar y continuar. */
+.phase-footer .phase-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 44px;
+  padding: 10px 14px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: var(--surface);
+  color: var(--green);
+  font-weight: 600;
+  cursor: pointer;
+}
+.phase-footer .phase-back:hover,
+.phase-footer .phase-back:focus-visible { border-color: var(--green); }
+
+#course-nav.is-filtering .nav-group-label { display: none; }
+
+/* «Guarda tu evidencia»: tres pasos visibles y alternativas agrupadas. */
+.delivery-steps {
+  display: grid;
+  gap: 8px;
+  margin: 10px 0 14px;
+  padding-left: 1.4rem;
+}
+.delivery-steps li { padding-left: 4px; }
+.delivery-steps li::marker { color: var(--green); font-weight: 700; }
+.delivery-help {
+  margin: 14px 0;
+  padding: 12px 14px;
+  border: 1px dashed var(--line);
+  border-radius: 12px;
+  background: var(--surface-lab);
+}
+.delivery-help > summary {
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  color: var(--green);
+  font-weight: 650;
+  cursor: pointer;
+}
+.delivery-help[open] > summary { margin-bottom: 8px; }
+
+/* Portafolio: cada acceso muestra el estado de su evidencia. */
+.portfolio-links a { flex-direction: column; align-items: flex-start; gap: 2px; }
+.portfolio-links a small { color: var(--text-accent-muted); font-size: .8rem; font-weight: 500; }
+
+/* El menú lateral se oculta sin deslizarse al cargar la página. */
+@media (max-width: 850px) {
+  body.navigation-ready:not(.menu-animated) .course-sidebar { transition: none; }
+}

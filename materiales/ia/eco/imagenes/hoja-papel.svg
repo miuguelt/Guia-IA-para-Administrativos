@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 180" role="img" aria-labelledby="title desc">
+  <title id="title">Hoja de papel limpia</title>
+  <desc id="desc">Hoja blanca seca y sin manchas, con una esquina doblada.</desc>
+  <rect width="240" height="180" rx="20" fill="#f3f6f2"/>
+  <path d="M72 148h96" stroke="#cbd8cf" stroke-width="4" stroke-linecap="round"/>
+  <path d="M83 40h53l24 24v73H83z" fill="#fff" stroke="#60756b" stroke-width="4" stroke-linejoin="round"/>
+  <path d="M136 40v25h24" fill="#e9efea" stroke="#60756b" stroke-width="4" stroke-linejoin="round"/>
+  <path d="M99 82h46M99 96h46M99 110h34" stroke="#b9c8bd" stroke-width="3" stroke-linecap="round"/>
+</svg>

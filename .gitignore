@@ -39,6 +39,11 @@ docker-compose.override.yml
 .sass-cache/
 *.css.map
 *.js.map
+node_modules/
+__pycache__/
+.temp_edge_profile/
+.playwright-cli/
+output/
 
 # --- DevBrain: rastros de agentes IA (bloque gestionado) ---
 # Estado local de agentes (lo regenera Sync-DevBrainIdeIntegration)
@@ -62,7 +67,8 @@ docker-compose.override.yml
 .qoder/
 .entire/
 .srclight/
-.devbrain/
+.devbrain/*
+!.devbrain/invariants.json
 .playwright-mcp/
 .agents/
 
@@ -92,3 +98,8 @@ PROJECT_GENOME.md
 conversations/
 memory-bank/
 # --- end DevBrain rastros de agentes IA ---
+
+# --- DevBrain repo hygiene (managed block) ---
+dist/
+.pytest_cache/
+# --- end DevBrain repo hygiene ---

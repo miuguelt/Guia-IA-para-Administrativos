@@ -1,0 +1,677 @@
+<!doctype html>
+<html lang="es-CO"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="light"><title>Instrumentos de evaluación del curso · Biblioteca de la guía</title>
+<link rel="stylesheet" href="../../css/documents.css"><link rel="stylesheet" href="devbrain-prose.css" data-devbrain-prose>
+<script defer src="devbrain-prose.js" data-devbrain-prose-runtime></script></head><body>
+<a class="skip-link" href="#documento">Ir al documento</a>
+<nav class="reader-nav" aria-label="Acciones del documento"><a href="index.html">← Biblioteca</a>
+<a href="../../index.html#preparacion">Abrir guía web</a><a href="../instrumentos-evaluacion.md" download>Descargar fuente Markdown</a>
+<span>Imprime o guarda en PDF con Ctrl+P</span></nav>
+<div class="reading-layout"><aside class="reading-sidebar"><p class="eyebrow">En este documento</p>
+<details open><summary>Ver apartados</summary><div class="toc">
+<ul>
+<li><a href="#forma-de-trabajo-con-ia">Forma de trabajo con IA</a></li>
+<li><a href="#proposito-y-limites">Propósito y límites</a></li>
+<li><a href="#relacion-con-los-criterios-del-diseno-curricular-suministrado">Relación con los criterios del diseño curricular suministrado</a></li>
+<li><a href="#enfoque-de-la-practica-con-ia">Enfoque de la práctica con IA</a></li>
+<li><a href="#instrumentos-y-momento-de-aplicacion">Instrumentos y momento de aplicación</a></li>
+<li><a href="#escala-formativa-comun">Escala formativa común</a></li>
+<li><a href="#i-0-diagnostico-de-acceso-y-saberes-previos">I-0 · Diagnóstico de acceso y saberes previos</a></li>
+<li><a href="#i-1-lista-de-cuidado-de-datos-y-preparacion">I-1 · Lista de cuidado de datos y preparación</a></li>
+<li><a href="#i-2-lista-de-cotejo-de-diez-retos-breves-y-el-integrador">I-2 · Lista de cotejo de diez retos breves y el integrador</a></li>
+<li><a href="#i-3-viabilidad-fuente-y-prompt-crtt-mg-a01">I-3 · Viabilidad, fuente y prompt CRTT — MG-A01</a></li>
+<li><a href="#i-4-instruccion-reutilizable-y-pruebas-mg-a02">I-4 · Instrucción reutilizable y pruebas — MG-A02</a></li>
+<li><a href="#i-5-flujo-asistido-y-regla-reproducible-mg-a03">I-5 · Flujo asistido y regla reproducible — MG-A03</a></li>
+<li><a href="#i-6-comprobacion-numerica-y-analisis-descriptivo-mg-a04">I-6 · Comprobación numérica y análisis descriptivo — MG-A04</a></li>
+<li><a href="#i-7-prueba-practica-individual-con-caso-nuevo-mg-a05">I-7 · Prueba práctica individual con caso nuevo — MG-A05</a></li>
+<li><a href="#i-8-rubrica-del-reto-integrador-mg-a05">I-8 · Rúbrica del reto integrador — MG-A05</a></li>
+<li><a href="#i-9-rubrica-del-informe-ejecutivo-y-plan-de-transferencia-mg-a05">I-9 · Rúbrica del informe ejecutivo y plan de transferencia — MG-A05</a></li>
+<li><a href="#i-10-hoja-de-consolidacion-del-instructor-borrador-de-trabajo">I-10 · Hoja de consolidación del instructor — borrador de trabajo</a></li>
+<li><a href="#registro-de-pendientes-de-validacion">Registro de pendientes de validación</a></li>
+</ul>
+</div>
+</details></aside>
+<main id="documento" class="document-sheet"><header class="document-header"><p class="eyebrow">Guía IA para administrativos</p>
+<span class="document-badge">Acompañamiento del instructor</span><p class="document-context">Consulta el contenido por apartados y conserva el archivo fuente si necesitas editarlo.</p></header>
+<article class="document-content"><h1 id="instrumentos-de-evaluacion-del-curso">Instrumentos de evaluación del curso</h1>
+<h2 id="forma-de-trabajo-con-ia">Forma de trabajo con IA</h2>
+<p>La IA prepara los archivos de la actividad a partir del encargo y las fuentes del paquete. El aprendiz entrega ese encargo al chat o al IDE autorizado, revisa el resultado y descarga los productos; los campos de las fichas describen lo que debe generar la IA. Usted observa la ejecución y conserva su responsabilidad de evaluación. Los datos ausentes y las revisiones humanas no observadas quedan pendientes.</p>
+<p>Los <a href="../../index.html#preparacion">encargos de la guía web</a> están listos para usar. La conversación, el informe y el JSON generado conservan el trabajo sin transcribirlo en otra ficha. Si la herramienta no puede ejecutar la tarea, se conserva esa limitación como pendiente y se consulta una opción autorizada.</p>
+<h2 id="proposito-y-limites">Propósito y límites</h2>
+<p>Este paquete de trabajo conecta los diez retos breves de la guía (Retos 0 a 9) y el reto integrador con las cinco evidencias DevBrain. Los ejemplos y archivos son materiales de práctica; no use datos personales ni registros reales. Es una propuesta práctica para el equipo formador, no un instrumento oficial del SENA. Antes de aplicarlo, la coordinación y el instructor confirman ficha, resultados y criterios vigentes, escala y pesos del integrador, formato institucional, firmas y canal de entrega. DevBrain registra y organiza productos; el instructor conserva la responsabilidad del juicio <code>Aprobado (A)</code> o <code>No Aprobado (NA)</code>.</p>
+<p>La cartilla entregada pide ponderaciones para el reto integrador, pero no incluye valores. Por eso aquí no hay porcentajes, nota mínima ni regla automática para aprobar. La escala de abajo sirve para retroalimentar durante la práctica; no reemplaza la escala oficial que determine el SENA.</p>
+<h2 id="relacion-con-los-criterios-del-diseno-curricular-suministrado">Relación con los criterios del diseño curricular suministrado</h2>
+<p>La página 3 del <a href="../Documentos/Informe Programa de Formación Complementaria (1).pdf">diseño curricular 21720210, versión 1</a> distribuye los criterios entre RA1 y RA2. La tabla conserva esa relación y señala dónde observarlos en esta propuesta. La coincidencia documental no equivale al aval de la adaptación de 40 horas ni certifica el desempeño de un aprendiz.</p>
+<div aria-label="Tabla de apoyo" class="table-wrap" role="region" tabindex="0"><table>
+<thead>
+<tr>
+<th>Resultado y criterio de la fuente</th>
+<th>Actividad y producto que permiten observarlo</th>
+<th>Instrumento y evidencia</th>
+<th>Alcance por confirmar</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>RA1 · Selecciona herramienta con base en requerimiento de automatización de proceso.</td>
+<td>Elección justificada de tarea y herramienta; identifica entradas, salida y revisión.</td>
+<td>I-3 · MG-A01</td>
+<td>El instructor confirma la suficiencia de la justificación para la ficha.</td>
+</tr>
+<tr>
+<td>RA1 · Diseña proceso automatizado de acuerdo con aplicabilidad de la herramienta y lógica o una aplicación simple, una solución funcional sin programación avanzada.</td>
+<td>Reto 6: regla reproducible probada en una copia. Reto 7: diagrama y tres rutas simuladas.</td>
+<td>I-5 · MG-A03</td>
+<td>El diagrama no es un despliegue. Si solo se observa una propuesta sin ejecutar la regla, el desempeño práctico queda pendiente; el instructor confirma si se requiere otra implementación.</td>
+</tr>
+<tr>
+<td>RA2 · Formula prompts en herramientas de inteligencia artificial generativa según parámetros de entrenamiento y de optimización de proceso.</td>
+<td>Retos 1 y 3: instrucción CRTT y prueba de una misma versión con tres casos, uno incompleto.</td>
+<td>I-3 e I-4 · MG-A01 y MG-A02</td>
+<td>La ruta trabaja instrucciones y contexto; no entrena un modelo. El instructor confirma el alcance exigido por la fuente.</td>
+</tr>
+<tr>
+<td>RA2 · Valida funcionalidad de la herramienta con base en resultados esperados.</td>
+<td>Compara salidas con fuentes y reglas; comprueba casos normales y límite, cálculos y afirmaciones; resuelve un caso individual.</td>
+<td>I-4 a I-9 · MG-A02 a MG-A05</td>
+<td>Debe observarse la ejecución propia con IA; la demostración o el ensayo manual no la sustituyen.</td>
+</tr>
+</tbody>
+</table></div>
+<p>EcoBogotá es una práctica complementaria opcional: no sustituye estos criterios ni forma parte de las cinco evidencias curriculares. Su relación con otro programa o resultado oficial requiere confirmación.</p>
+<h2 id="enfoque-de-la-practica-con-ia">Enfoque de la práctica con IA</h2>
+<p>Evalúe si el aprendiz entrega una fuente, encarga el procesamiento, comprueba datos clave y pide correcciones hasta obtener un producto útil. La digitación de registros, la construcción manual de tablas, el llenado de formularios de tiempos o el dominio de fórmulas no son el objetivo de esta ruta. En la preparación se conserva un informe y la conversación; no se solicita una ficha adicional. Una demostración observada permite revisar el método, pero la ejecución propia con IA queda pendiente hasta que exista acceso.</p>
+<h2 id="instrumentos-y-momento-de-aplicacion">Instrumentos y momento de aplicación</h2>
+<div aria-label="Tabla de apoyo" class="table-wrap" role="region" tabindex="0"><table>
+<thead>
+<tr>
+<th>Código</th>
+<th>Instrumento</th>
+<th>Aplicación</th>
+<th>Registro relacionado</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>I-0</td>
+<td>Diagnóstico de acceso y saberes previos, sin nota</td>
+<td>Antes de iniciar</td>
+<td>Hoja de diagnóstico de este documento</td>
+</tr>
+<tr>
+<td>I-1</td>
+<td>Lista de cuidado de datos y preparación</td>
+<td>Antes de cada reto y cada herramienta</td>
+<td>Lista de control de este documento</td>
+</tr>
+<tr>
+<td>I-2</td>
+<td>Lista de cotejo de diez retos breves y el integrador</td>
+<td>Al cerrar cada reto</td>
+<td>Matriz de indicadores de este documento</td>
+</tr>
+<tr>
+<td>I-3</td>
+<td>Lista de viabilidad, fuente y prompt CRTT</td>
+<td>Retos 0 y 1 y diagnóstico</td>
+<td>MG-A01</td>
+</tr>
+<tr>
+<td>I-4</td>
+<td>Rúbrica de instrucción y pruebas</td>
+<td>Retos 2 y 3</td>
+<td>MG-A02</td>
+</tr>
+<tr>
+<td>I-5</td>
+<td>Rúbrica del flujo asistido y la regla reproducible</td>
+<td>Retos 4, 5, 6 y 7</td>
+<td>MG-A03</td>
+</tr>
+<tr>
+<td>I-6</td>
+<td>Comprobación numérica y auditoría de respuesta</td>
+<td>Retos 8 y 9</td>
+<td>MG-A04</td>
+</tr>
+<tr>
+<td>I-7</td>
+<td>Prueba práctica individual con un caso nuevo</td>
+<td>Cierre individual</td>
+<td>MG-A05; se registra aparte del resultado de equipo</td>
+</tr>
+<tr>
+<td>I-8</td>
+<td>Rúbrica del reto integrador</td>
+<td>Planeación, presentación y revisión</td>
+<td>MG-A05</td>
+</tr>
+<tr>
+<td>I-9</td>
+<td>Rúbrica del informe ejecutivo y plan de transferencia</td>
+<td>Cierre</td>
+<td>MG-A05</td>
+</tr>
+<tr>
+<td>I-10</td>
+<td>Hoja de consolidación del instructor, borrador de trabajo</td>
+<td>Después de revisar todas las evidencias</td>
+<td>No sustituye el formato institucional SENA</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="escala-formativa-comun">Escala formativa común</h2>
+<p>Marque un nivel por criterio y escriba la evidencia observada. No sume ni pondere niveles para emitir un juicio oficial.</p>
+<div aria-label="Tabla de apoyo" class="table-wrap" role="region" tabindex="0"><table>
+<thead>
+<tr>
+<th>Nivel</th>
+<th>Ancla común para los instrumentos de práctica</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0 · Sin evidencia</td>
+<td>No hay producto o desempeño que permita observar el criterio.</td>
+</tr>
+<tr>
+<td>1 · Requiere ajuste</td>
+<td>Hay un intento, pero omite un elemento clave, contradice la fuente o necesita guía para corregirlo.</td>
+</tr>
+<tr>
+<td>2 · Cumple lo esperado</td>
+<td>El producto satisface el indicador y conserva la fuente o el procedimiento necesario para revisarlo.</td>
+</tr>
+<tr>
+<td>3 · Cumple y sustenta</td>
+<td>Además de cumplir, el aprendiz comprueba el resultado, explica una decisión y reconoce un límite o dato pendiente.</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="i-0-diagnostico-de-acceso-y-saberes-previos">I-0 · Diagnóstico de acceso y saberes previos</h2>
+<p><strong>Uso:</strong> el instructor lo diligencia al comenzar. No tiene nota. Pregunte por disponibilidad y experiencia, no solicite contraseñas, documentos, expedientes ni ejemplos del trabajo real.</p>
+<div aria-label="Tabla de apoyo" class="table-wrap" role="region" tabindex="0"><table>
+<thead>
+<tr>
+<th>Pregunta</th>
+<th>Respuesta o apoyo que requiere el grupo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>¿Puede abrir, guardar y volver a encontrar un archivo?</td>
+<td></td>
+</tr>
+<tr>
+<td>¿Ha usado una hoja de cálculo? ¿Puede filtrar, sumar o reconocer una fórmula?</td>
+<td></td>
+</tr>
+<tr>
+<td>¿Ha usado un chat de IA? ¿Cuál? No anote datos de acceso.</td>
+<td></td>
+</tr>
+<tr>
+<td>¿Tiene equipo y conectividad disponibles durante la práctica?</td>
+<td></td>
+</tr>
+<tr>
+<td>¿La cuenta institucional habilita el chat de IA elegido?</td>
+<td>☐ Sí ☐ No ☐ Por confirmar ☐ No se usará</td>
+</tr>
+<tr>
+<td>¿Qué alternativa necesita: guía impresa, Calc/Excel sin conexión, lectura acompañada, tamaño de letra, teclado u otra?</td>
+<td></td>
+</tr>
+<tr>
+<td>¿Qué apoyos de accesibilidad o ritmo conviene preparar?</td>
+<td></td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Decisión de preparación:</strong> ☐ ruta con equipo ☐ ruta sin conexión ☐ ambas listas. Apoyos acordados: <strong><em>_</em></strong><strong><em>_</em></strong><strong><em>_</em></strong><strong><em>_</em></strong>__.</p>
+<h2 id="i-1-lista-de-cuidado-de-datos-y-preparacion">I-1 · Lista de cuidado de datos y preparación</h2>
+<p>Complete antes de abrir el chat o introducir contenido. Si cualquier control queda sin confirmar, detenga la carga y use la actividad sin conexión.</p>
+<div aria-label="Tabla de apoyo" class="table-wrap" role="region" tabindex="0"><table>
+<thead>
+<tr>
+<th>Control previo</th>
+<th>Sí</th>
+<th>No / pendiente</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>El ejercicio usa exclusivamente la cartilla o el libro de práctica.</td>
+<td>☐</td>
+<td>☐</td>
+</tr>
+<tr>
+<td>Se trabaja en una copia; el archivo de origen queda intacto.</td>
+<td>☐</td>
+<td>☐</td>
+</tr>
+<tr>
+<td>El chat y la cuenta fueron autorizados para esta actividad por el responsable institucional.</td>
+<td>☐</td>
+<td>☐</td>
+</tr>
+<tr>
+<td>No se incluirán nombres, documentos, correos, datos sensibles, claves ni expedientes reales.</td>
+<td>☐</td>
+<td>☐</td>
+</tr>
+<tr>
+<td>La salida se rotulará como borrador y una persona la contrastará antes de usarla.</td>
+<td>☐</td>
+<td>☐</td>
+</tr>
+<tr>
+<td>Hay una alternativa manual o sin conexión si falla la herramienta.</td>
+<td>☐</td>
+<td>☐</td>
+</tr>
+</tbody>
+</table></div>
+<p>Reto: <strong><em>_</em>_ Herramienta/cuenta autorizada o alternativa: </strong><strong><em>_</em></strong><strong><em>_</em></strong>__ Revisor: <strong><em>_</em></strong><strong><em>_</em></strong>____</p>
+<h2 id="i-2-lista-de-cotejo-de-diez-retos-breves-y-el-integrador">I-2 · Lista de cotejo de diez retos breves y el integrador</h2>
+<p>Marque <code>Sí</code>, <code>Ajustar</code> o <code>N/A con explicación</code>. Anote el nombre/código del producto, la hoja o la fuente. Un resultado generado por IA no constituye evidencia suficiente por sí mismo.</p>
+<div aria-label="Tabla de apoyo" class="table-wrap" role="region" tabindex="0"><table>
+<thead>
+<tr>
+<th>Reto</th>
+<th>Indicadores observables para marcar al cierre</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0 · Semáforo de datos</td>
+<td>☐ Clasifica cinco tarjetas. ☐ Reduce dos fragmentos. ☐ Excluye datos sensibles o innecesarios del chat. ☐ Declara autorización pendiente.</td>
+</tr>
+<tr>
+<td>1 · Prompt CRTT</td>
+<td>☐ Define contexto, rol, tarea, tono y límites. ☐ Trabaja con <code>Lineamiento ficticio</code>, señala el apartado usado y lo que la fuente no dice. ☐ Justifica conservar la instrucción si cumple o ajustarla y repetir la comprobación.</td>
+</tr>
+<tr>
+<td>2 · PQRS</td>
+<td>☐ Identifica la petición y separa hechos de vacíos. ☐ Redacta dos borradores respetuosos sobre temas distintos. ☐ No inventa norma, plazo, identidad ni decisión. ☐ Señala quién debe revisar.</td>
+</tr>
+<tr>
+<td>3 · Asistente de rol</td>
+<td>☐ La instrucción define tarea, fuente, límites y formato. ☐ La prueba cubre tres situaciones distintas, incluida una con dato faltante. ☐ Justifica conservar la versión que cumple o registra el ajuste y repite las pruebas afectadas. ☐ No pide información personal.</td>
+</tr>
+<tr>
+<td>4 · Bandeja cero</td>
+<td>☐ Clasifica los 50 mensajes por señales textuales. ☐ Explica la selección de diez. ☐ Deja los diez textos como borradores sin enviar. ☐ Identifica prioridad institucional pendiente de confirmar.</td>
+</tr>
+<tr>
+<td>5 · Acta imposible</td>
+<td>☐ Separa decisión, propuesta y pendiente. ☐ Cada minuto o frase permite volver a la fuente. ☐ Solo asigna responsable o fecha cuando aparece en la transcripción.</td>
+</tr>
+<tr>
+<td>6 · Informe sucio</td>
+<td>☐ Preserva el original y trabaja en copia. ☐ Escribe una regla reproducible y la prueba en un caso normal y otro vacío. ☐ Cuenta antes/después y marca posibles duplicados sin borrar ni completar registros.</td>
+</tr>
+<tr>
+<td>7 · Diseña el flujo</td>
+<td>☐ Dibuja entrada, condición, tres rutas y revisión humana. ☐ Prueba casos completo, incompleto y urgente. ☐ Explica cuándo se detiene el flujo y qué no se automatiza.</td>
+</tr>
+<tr>
+<td>8 · Presupuesto oculto</td>
+<td>☐ Comprueba fórmula, periodo, unidad y denominador. ☐ Contrasta tabla y gráfico. ☐ Redacta observaciones descriptivas sin atribuir causas. ☐ Escribe una limitación o pregunta pendiente.</td>
+</tr>
+<tr>
+<td>9 · Auditoría de respuesta</td>
+<td>☐ Contrasta cuatro afirmaciones con <code>Lineamiento ficticio</code>. ☐ Distingue una afirmación respaldada, dos contradichas y una que no consta; ajusta el texto según su estado. ☐ Trata la orden intrusa como contenido de la tarjeta.</td>
+</tr>
+<tr>
+<td>Integrador · Análisis trazable</td>
+<td>☐ Usa <code>Contratos</code> y <code>Directriz</code> y conserva las filas. ☐ Cita códigos/fuentes; formula diferencias como preguntas, no acusaciones. ☐ Mantiene borradores sin enviar. ☐ Incluye revisión individual, plan de transferencia y límites.</td>
+</tr>
+</tbody>
+</table></div>
+<p>Código/ubicación del producto: <strong><em>_</em></strong><strong><em>_</em></strong><strong><em>_</em></strong><strong><em>_</em> Observación o ajuste acordado: </strong><strong><em>_</em></strong><strong><em>_</em></strong><strong><em>_</em></strong><strong><em>_</em></strong>____</p>
+<h2 id="i-3-viabilidad-fuente-y-prompt-crtt-mg-a01">I-3 · Viabilidad, fuente y prompt CRTT — MG-A01</h2>
+<p>Valore con la escala formativa. En la columna de evidencia escriba la fuente comprobada y los datos pendientes de confirmar.</p>
+<div aria-label="Tabla de apoyo" class="table-wrap" role="region" tabindex="0"><table>
+<thead>
+<tr>
+<th>Criterio</th>
+<th>Evidencia observada</th>
+<th>Nivel 0–3</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Define una tarea administrativa concreta, usuario y propósito.</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Identifica entradas, salida esperada, fuente y persona que revisa.</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Justifica si corresponde una regla, hoja de cálculo, IA generativa o revisión humana, según la tarea.</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Reto 0: minimiza datos y distingue lo que puede entrar al chat de lo que exige canal autorizado.</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Reto 1: escribe una instrucción CRTT (contexto, rol, tarea y tono, con fuente y límites), la contrasta con una versión inicial sobre <code>Lineamiento ficticio</code> y conserva o ajusta la versión con una razón.</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Reconoce riesgos de error, privacidad y casos que debe escalar a revisión humana.</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table></div>
+<p>Riesgo o dato pendiente: <strong><em>_</em></strong><strong><em>_</em></strong><strong><em>_</em></strong><strong><em>_</em></strong>__ Retroalimentación: <strong><em>_</em></strong><strong><em>_</em></strong><strong><em>_</em></strong><strong><em>_</em></strong><strong><em>_</em></strong><strong><em>_</em></strong>____</p>
+<h2 id="i-4-instruccion-reutilizable-y-pruebas-mg-a02">I-4 · Instrucción reutilizable y pruebas — MG-A02</h2>
+<div aria-label="Tabla de apoyo" class="table-wrap" role="region" tabindex="0"><table>
+<thead>
+<tr>
+<th>Criterio</th>
+<th>Evidencia observada</th>
+<th>Nivel 0–3</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>La instrucción expresa Contexto, Rol, Tarea y Tono (CRTT), fuente y formato de salida.</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Especifica qué no puede inventar, qué hacer ante un vacío y qué requiere decisión humana.</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Prueba tres casos distintos, uno con información faltante, y registra la entrada usada.</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Compara las tres salidas con la fuente y justifica conservar la instrucción o ajustarla; si cambia, repite las pruebas afectadas.</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>El producto queda identificado como borrador y cumple los límites de datos.</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table></div>
+<p>Caso con información faltante: <strong><em>_</em></strong><strong><em>_</em></strong><strong><em>_</em></strong><strong> Decisión de conservar o ajustar y razón: <strong><em>_</em></strong><strong><em>_</em></strong><strong><em>_</em></strong><strong><em>_</em></strong></strong></p>
+<h2 id="i-5-flujo-asistido-y-regla-reproducible-mg-a03">I-5 · Flujo asistido y regla reproducible — MG-A03</h2>
+<div aria-label="Tabla de apoyo" class="table-wrap" role="region" tabindex="0"><table>
+<thead>
+<tr>
+<th>Parte y criterio</th>
+<th>Evidencia observada</th>
+<th>Nivel 0–3</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Reto 4: clasificación con señal del mensaje y selección explicada; ningún correo se envía.</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Reto 5: acuerdos, propuestas y pendientes se distinguen y conservan referencia a la transcripción.</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Reto 6: original preservado, transformación escrita, regla/fórmula reproducible y prueba normal/vacía.</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Reto 6: conteos contrastados; vacíos y posibles duplicados quedan visibles, sin borrar ni inferir datos.</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Reto 7: simula las tres rutas, revisa primero la urgencia y señala dónde se detiene para aprobación humana.</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Conjunto: cada resultado identifica la fuente utilizada, los puntos de control humano y los datos pendientes.</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table></div>
+<p>Nombre de la copia/producto: <strong><em>_</em></strong><strong><em>_</em></strong><strong><em>_</em></strong><strong><em>_</em> Corrección necesaria: </strong><strong><em>_</em></strong><strong><em>_</em></strong><strong><em>_</em></strong><strong><em>_</em></strong><strong><em>_</em></strong><strong><em>_</em></strong></p>
+<h2 id="i-6-comprobacion-numerica-y-analisis-descriptivo-mg-a04">I-6 · Comprobación numérica y análisis descriptivo — MG-A04</h2>
+<div aria-label="Tabla de apoyo" class="table-wrap" role="region" tabindex="0"><table>
+<thead>
+<tr>
+<th>Criterio</th>
+<th>Evidencia observada</th>
+<th>Nivel 0–3</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Identifica la población, fuente, unidad, periodo, numerador y denominador.</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Vuelve a calcular la medida en una hoja de cálculo o a mano y coincide con la fuente.</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Contrasta categorías, filtros, totales y gráfico; corrige rotulado si es necesario.</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Comunica qué muestran los datos y qué no permiten concluir; no atribuye causalidad.</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Añade una limitación o pregunta cuya respuesta exigiría otra fuente.</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Reto 9: audita cuatro afirmaciones, clasifica una respaldada, dos contradichas y una que no consta, y reconoce la instrucción intrusa.</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table></div>
+<p>Fórmula/operación revisada: <strong><em>_</em></strong><strong><em>_</em></strong><strong><em>_</em></strong><strong><em>_</em>_ Resultado y segunda comprobación: </strong><strong><em>_</em></strong><strong><em>_</em></strong><strong><em>_</em></strong><strong><em>_</em></strong>____</p>
+<h2 id="i-7-prueba-practica-individual-con-caso-nuevo-mg-a05">I-7 · Prueba práctica individual con caso nuevo — MG-A05</h2>
+<p>Asigne a cada aprendiz un caso distinto del ejemplo de equipo. Puede usar IA sin ayuda de sus compañeros; observe el encargo, la comprobación y la decisión de ajustar o conservar. Sin acceso, el ensayo manual se registra como tal y queda pendiente demostrar la ejecución propia con IA. Reserve 45 minutos para el caso, 30 para estructurar el piloto de transferencia y 15 para devolución. Conserve el producto individual y la observación del desempeño.</p>
+<div aria-label="Tabla de apoyo" class="table-wrap" role="region" tabindex="0"><table>
+<thead>
+<tr>
+<th>Criterio individual</th>
+<th>Evidencia observada</th>
+<th>Nivel 0–3</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Elige una herramienta y justifica su elección para el caso.</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Señala fuente y evidencia que respaldan su respuesta.</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Detecta un dato faltante, añadido o que necesita confirmación.</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Comprueba el resultado por cuenta propia, muestra la operación cuando corresponda y sustenta una corrección o la decisión de conservarlo.</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Explica qué decisión debe tomar una persona responsable antes de usar la salida.</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table></div>
+<p>Caso nuevo/código: <strong><em>_</em></strong><strong><em>_</em></strong><strong><em>_</em></strong><strong><em>_</em> Producto individual o nota de observación: </strong><strong><em>_</em></strong><strong><em>_</em></strong><strong><em>_</em></strong><strong><em>_</em></strong>____</p>
+<h2 id="i-8-rubrica-del-reto-integrador-mg-a05">I-8 · Rúbrica del reto integrador — MG-A05</h2>
+<div aria-label="Tabla de apoyo" class="table-wrap" role="region" tabindex="0"><table>
+<thead>
+<tr>
+<th>Criterio</th>
+<th>Evidencia observada</th>
+<th>Nivel 0–3</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Planifica la tarea y cita fila/código, fuente y fragmento que sustentan cada diferencia.</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Formula anomalías como preguntas para corroborar; no atribuye intención ni culpa.</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Comprueba operaciones y conserva el libro original y los registros que requieren revisión.</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Entrega borradores claros, identifica límites y deja explícita la aprobación pendiente.</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Cada integrante puede explicar su aporte y participar en la prueba individual.</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Responde a la retroalimentación; registra la corrección efectuada o sustenta conservar un resultado correcto.</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table></div>
+<p>Producto/equipo: <strong><em>_</em></strong><strong><em>_</em></strong><strong><em>_</em></strong><strong><em>_</em> Fuentes: </strong><strong><em>_</em></strong><strong><em>_</em></strong><strong><em>_</em></strong><strong><em> Ajustes solicitados: </em></strong><strong><em>_</em></strong><strong><em>_</em></strong><strong><em>_</em></strong>__</p>
+<h2 id="i-9-rubrica-del-informe-ejecutivo-y-plan-de-transferencia-mg-a05">I-9 · Rúbrica del informe ejecutivo y plan de transferencia — MG-A05</h2>
+<div aria-label="Tabla de apoyo" class="table-wrap" role="region" tabindex="0"><table>
+<thead>
+<tr>
+<th>Criterio</th>
+<th>Evidencia observada</th>
+<th>Nivel 0–3</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Relaciona cada hallazgo con su código, fila, centro y fuente original.</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Separa hechos comprobados, preguntas de verificación y datos no disponibles.</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Presenta el plan de acción y el borrador institucional sin darlos por aprobados ni enviados.</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Documenta controles de datos, límites, casos de error y responsable de revisión.</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Propone un piloto de 30 días con tarea acotada, criterio de calidad, responsable/fecha por confirmar y revisión humana.</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table></div>
+<p>Aspectos que requieren confirmación: <strong><em>_</em></strong><strong><em>_</em></strong><strong><em>_</em></strong>__ Acción de seguimiento: <strong><em>_</em></strong><strong><em>_</em></strong><strong><em>_</em></strong><strong><em>_</em></strong><strong><em>_</em></strong>_____</p>
+<h2 id="i-10-hoja-de-consolidacion-del-instructor-borrador-de-trabajo">I-10 · Hoja de consolidación del instructor — borrador de trabajo</h2>
+<p>Use esta página como ayuda para revisar. Si el centro dispone de un formato oficial o ficha institucional, ese formato prevalece. No copie identificaciones personales a un equipo compartido ni registre en DevBrain datos que la institución no autorice.</p>
+<p>Aprendiz/ficha según formato autorizado: <strong><em>_</em></strong><strong><em>_</em></strong><strong><em>_</em></strong><strong><em>_</em> Curso/código: </strong><strong><em>_</em></strong><strong><em>_</em></strong><strong> Fecha: <strong><em>_</em></strong><strong><em>_</em></strong></strong></p>
+<div aria-label="Tabla de apoyo" class="table-wrap" role="region" tabindex="0"><table>
+<thead>
+<tr>
+<th>Evidencia</th>
+<th>Instrumento</th>
+<th>Producto revisado y ubicación</th>
+<th>Estado de revisión / observación</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>MG-A01</td>
+<td>I-3</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>MG-A02</td>
+<td>I-4</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>MG-A03</td>
+<td>I-5</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>MG-A04</td>
+<td>I-6</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>MG-A05</td>
+<td>I-7, I-8, I-9</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table></div>
+<p>Resultado oficial consignado por el instructor en el formato institucional: ☐ Aprobado (A) ☐ No Aprobado (NA) ☐ Pendiente según criterios aplicables.</p>
+<p>Observaciones/ajustes acordados: <strong><em>_</em></strong><strong><em>_</em></strong><strong><em>_</em></strong><strong><em>_</em></strong><strong><em>_</em></strong><strong><em>_</em></strong><strong><em>_</em></strong><strong><em>_</em></strong><strong><em>_</em></strong><strong><em>_</em></strong><strong><em>_</em></strong><strong><em>_</em></strong>__</p>
+<p>Instructor responsable: <strong><em>_</em></strong><strong><em>_</em></strong><strong><em>_</em></strong><strong><em>_</em> Firma según formato institucional: </strong><strong><em>_</em></strong><strong><em>_</em></strong><strong><em>_</em></strong><strong><em> Fecha: </em></strong><strong><em>_</em></strong></p>
+<h2 id="registro-de-pendientes-de-validacion">Registro de pendientes de validación</h2>
+<ul>
+<li>Confirmar criterios y resultados de aprendizaje que aplican a esta ficha: suficiencia de la regla y del diseño para RA1, y alcance de las instrucciones y la validación para RA2.</li>
+<li>Confirmar ponderaciones oficiales del reto integrador: los archivos recibidos las mencionan, pero no incluyen la tabla de pesos.</li>
+<li>Confirmar nombre del formato institucional, responsables, firmas y procedimiento para registrar A/NA.</li>
+<li>Confirmar los criterios de accesibilidad y la duración de la prueba individual para esta cohorte.</li>
+</ul></article>
+<footer class="document-footer">Guía IA para administrativos · Versión de lectura de <a href="../instrumentos-evaluacion.md">instrumentos-evaluacion.md</a>.
+Las decisiones y los pendientes conservan el estado del archivo fuente.</footer></main></div></body></html>

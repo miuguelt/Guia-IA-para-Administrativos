@@ -1,3 +1,5 @@
+> **ARCHIVO HISTÓRICO — NO USAR COMO MATERIAL DE ESTA COHORTE.** Este contenido fue preparado para Redes CIMI/Girón y no se ha validado para la propuesta de cohorte del CGAO, Subsede Vélez, Regional Santander. Para esta formación use la [guía vigente](../index.html), la [cartilla de aprendices](Documentos/Cartilla_aprendices_retos_IA_SENA_Bogota.docx), el [libro de práctica](Documentos/Materiales_practica_IA_SENA_Bogota.xlsx) y la [guía de herramientas y preparación](herramientas-y-preparacion.md). No cargue datos personales o institucionales reales en servicios de IA externos. Funciones, nombres y permisos de herramientas pueden cambiar; verifique el acceso con el equipo formador.
+
 # Guía Maestra: Dominio de Google Gemini y Subherramientas para la Gestión Administrativa y la Vida Diaria
 **Especialmente diseñada para Funcionarios Administrativos del SENA y Gestores de Alto Volumen de Información**  
 *Autores:* Especialistas en Productividad con Inteligencia Artificial · Redes de Gestión Administrativa SENA  
@@ -155,7 +157,7 @@ El dominio de Canva no termina a las 5:00 p.m. Su utilidad para simplificar la v
 Canva cuenta con funciones avanzadas que multiplican la velocidad de producción. Destacamos las dos más transformadoras para cualquier usuario:
 
 #### A. La Joya de la Corona Administrativa: Creación en Lote (Bulk Create)
-¿Qué haces cuando debes generar **180 certificados de asistencia**, 200 carnets o 50 reconocimientos personalizados? La mayoría de las personas duplica una diapositiva 180 veces y cambia los nombres uno a uno durante 4 horas. **Con Creación en Lote se hace en 30 segundos:**
+Para preparar muchos certificados o reconocimientos a partir de una tabla, una función de creación en lote puede evitar la edición manual de cada página. El tiempo depende del volumen, del formato y de la revisión de nombres y datos:
 
 ```
                                   FLUJO DE CREACIÓN EN LOTE
@@ -174,7 +176,7 @@ Canva cuenta con funciones avanzadas que multiplican la velocidad de producción
 4. Selecciona **Subir archivo CSV** y carga tu archivo.
 5. Haz clic derecho sobre el texto *"Nombre del Aprendiz"* en tu diseño -> selecciona **Conectar datos** -> escoge la variable `Nombre_Completo`.
 6. Haz clic en **Continuar** -> Canva mostrará la lista de todas las filas del archivo -> Pulsa **Generar páginas**.
-7. En 5 segundos, Canva abrirá un documento nuevo con todas las páginas personalizadas listas para descargar en un único PDF de alta resolución.
+7. Revisa cada página generada, corrige los campos que no coincidan con la fuente y exporta el documento en el formato aprobado.
 
 #### B. Magic Studio (Estudio Mágico con IA)
 * **Escritura Mágica (Magic Write):** Reescribe párrafos, resume textos largos o ajusta el tono de un comunicado directamente dentro del lienzo de diseño.
@@ -217,7 +219,7 @@ Gemini integra progresivamente las capacidades de **Veo**, permitiendo generar c
 * **Estructura del prompt de video:** Describe el movimiento de la cámara (ej. *paneo lento de izquierda a derecha*), la acción de los personajes y la atmósfera atmosférica (ej. *mañana soleada en un campus universitario*).
 
 ### 5.2 El Verdadero Salvavidas Administrativo: Extensión @YouTube
-El mayor beneficio para un administrativo no es generar videos ficticios, sino **ahorrar cientos de horas viendo conferencias, tutoriales y capacitaciones grabadas**:
+Una transcripción autorizada de una capacitación puede facilitar la búsqueda de temas y la preparación de un resumen. Comprueba los pasajes relevantes en el video original antes de citar decisiones o compromisos:
 
 #### ¿Cómo procesar capacitaciones de 2 horas en 3 minutos?
 1. Escribe en el chat de Gemini `@YouTube` seguido del enlace del video.
@@ -246,10 +248,10 @@ Actúa como mi Tutor Interactivo Especializado en el Reglamento del Aprendiz SEN
 Inicia ahora con la primera lección.
 ```
 
-### 6.2 NotebookLM: El Gestor de Conocimiento sin Alucinaciones
-Para instituciones públicas donde cada respuesta debe estar jurídicamente respaldada, **Google NotebookLM** (hermana de Gemini) es la herramienta definitiva:
-* **Funcionamiento basado en fuentes cerradas:** Subes a NotebookLM únicamente los documentos oficiales (PDFs del Reglamento del Aprendiz, Circulares de Dirección General, Manual de Supervisión de Contratos).
-* **Cero Alucinaciones:** NotebookLM responde **únicamente con base en los documentos cargados**, citando con números de página exactos el origen de cada afirmación.
+### 6.2 NotebookLM: consulta de documentos con fuentes
+En una práctica con documentos autorizados, NotebookLM puede ayudar a localizar pasajes y preparar un resumen. La persona responsable debe revisar cada cita y su contexto antes de usarla en un trámite:
+* **Selección de fuentes:** carga solo documentos que la institución permita usar en esa cuenta y para esa finalidad.
+* **Verificación:** compara cada afirmación y cita con el documento original; una respuesta con referencias también puede omitir matices o interpretar mal una norma.
 * **Resúmenes de Audio (Audio Overviews):** Convierte cualquier conjunto de resoluciones complejas en un podcast conversacional donde dos presentadores de IA debaten y explican de forma amena los puntos más importantes del documento para escucharlo en tus trayectos.
 
 ---
@@ -337,7 +339,7 @@ A continuación, se entregan 4 flujos listos para copiar, adaptar y aplicar en e
    "Tengo esta lista desordenada de 40 aprendices. Conviértela en una tabla limpia de dos columnas: 'Nombre_Completo' (en mayúsculas tipo título) y 'Numero_Identificacion' (con formato numérico con puntos). Luego entrégame el texto en formato CSV listo para descargar".
 2. PASO 2 (Guardar): Copia el texto y guárdalo en un archivo de Bloc de Notas como 'asistentes.csv'.
 3. PASO 3 (Canva): Abre Canva, diseña el certificado oficial y usa 'Crear en lote' vinculando las dos columnas.
-4. RESULTADO: 40 certificados generados y listos en 20 segundos sin un solo error tipográfico.
+4. RESULTADO: certificados en borrador que deben cotejarse uno por uno con la tabla antes de aprobarse o enviarse.
 ```
 
 ---
@@ -362,10 +364,10 @@ Antes de adjuntar cualquier archivo de Excel, acta o correo al chat de Gemini:
 
 | Herramienta / Función | ¿Cuándo usarla? | Mayor Beneficio |
 | :--- | :--- | :--- |
-| **Chat de Gemini (C-R-T-T)** | Redactar borradores complejos, circulares y análisis de textos. | Ahorro del 80% en tiempo de redacción inicial. |
-| **Extensión @Canva** | Crear piezas visuales directamente desde ideas discutidas en el chat. | Diseños automáticos en 10 segundos listos para presentar. |
-| **Canva (Crear en Lote)** | Generar decenas de certificados, carnets o reconocimientos desde Excel. | De 4 horas de trabajo manual a 30 segundos. |
-| **Imagen 3 en Gemini** | Ilustraciones originales para carteleras, manuales y presentaciones. | Cero problemas de derechos de autor y personalización total. |
-| **Extensión @YouTube** | Extraer resúmenes, actas y compromisos de capacitaciones largas en video. | Resúmenes ejecutivos sin tener que ver videos de 2 horas. |
-| **NotebookLM** | Preguntas y respuestas estrictamente jurídicas o normativas del SENA. | Respuestas 100% citadas con cero alucinaciones. |
-| **Extensión @Gmail** | Encontrar correos urgentes y redactar respuestas masivas. | Alcanzar la Bandeja Cero en minutos. |
+| **Chat de Gemini (C-R-T-T)** | Preparar borradores y organizar textos ficticios. | Permite comparar versiones; el tiempo y la exactitud deben medirse. |
+| **Extensión @Canva** | Preparar una pieza visual con datos ya revisados, si la función está autorizada. | Produce un borrador que requiere lectura y aprobación. |
+| **Canva (Crear en lote)** | Preparar varias piezas a partir de una tabla autorizada. | Evita parte de la edición repetida; exige cotejar cada página. |
+| **Generación de imágenes** | Ilustraciones para materiales de práctica, si la función está disponible. | Requiere revisar licencias, condiciones de uso y pertinencia institucional. |
+| **Consulta de videos** | Localizar pasajes de capacitaciones autorizadas. | El resumen orienta la búsqueda; los compromisos se verifican en la grabación. |
+| **NotebookLM** | Explorar documentos autorizados. | Las citas y conclusiones se comprueban en el texto original. |
+| **Consulta de correo** | Organizar mensajes de práctica con acceso autorizado. | La prioridad y cada borrador requieren revisión humana. |

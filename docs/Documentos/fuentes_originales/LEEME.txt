@@ -1,0 +1,10 @@
+GUÍA IA PARA ADMINISTRATIVOS
+
+Orden sugerido de uso
+1. Guia_IA_para_Administrativos.docx: preparación y conducción de las cuatro jornadas.
+2. Cartilla_del_aprendiz_retos_IA.docx: distribuir a los aprendices para resolver los retos.
+3. Materiales_de_practica_IA.xlsx: datos ficticios y fichas editables para registrar productos y verificaciones.
+4. Bitacora_de_facilitacion.xlsx: seguimiento de evidencias, rúbrica y transferencia al puesto.
+5. Cronograma_original.txt: cronograma fuente recibido para la preparación del curso.
+
+Los registros del libro de práctica son simulados. Antes de dictar el curso, confirma las herramientas autorizadas y distribuye únicamente los archivos necesarios.

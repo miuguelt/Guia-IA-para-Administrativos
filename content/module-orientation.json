@@ -1,0 +1,102 @@
+{
+  "m01-fundamentos": {
+    "question": "La IA prepara; ¿quién decide?",
+    "essential": "Pide a la IA organizar una solicitud con una instrucción CRTT: Contexto, Rol, Tarea y Tono, más fuente y límites. Una persona responsable confirma la reserva. Comparte solo los datos necesarios.",
+    "product": "Un diagnóstico generado por IA, cinco decisiones sobre datos y una respuesta con fuente.",
+    "concepts": [
+      [
+        "Delimita la tarea",
+        "Identifica qué recibes, qué debes entregar y cómo reconocer un buen resultado."
+      ],
+      [
+        "Clasifica los datos",
+        "Distingue información pública, datos que requieren autorización y datos que no puedes cargar."
+      ],
+      [
+        "Registra el punto de partida",
+        "Usa tiempos observados o deja la medición pendiente."
+      ]
+    ],
+    "review": "Si faltan sede, fecha o franja, pregunta por esos datos. La urgencia no confirma la reserva."
+  },
+  "m02-diseno": {
+    "question": "¿Cómo obtienes una respuesta útil?",
+    "essential": "Ya escribiste una instrucción CRTT en el Reto 1. Ahora la conviertes en una herramienta reutilizable: la misma versión debe funcionar con varios casos. La IA genera la tabla y el borrador; tú revisas qué falta confirmar.",
+    "product": "Dos borradores y una instrucción probada por la IA con PC-01, PC-02 y PC-03.",
+    "concepts": [
+      [
+        "Interpreta la solicitud",
+        "Separa lo que la persona pide, lo que afirma y lo que falta confirmar."
+      ],
+      [
+        "Reutiliza la instrucción",
+        "Parte de tu CRTT del Reto 1 y agrega qué hacer cuando falte un dato o un soporte."
+      ],
+      [
+        "Prueba la misma versión",
+        "Comprueba si funciona con PC-01, PC-02 y PC-03 antes de reutilizarla."
+      ]
+    ],
+    "review": "Un comentario de otra persona sigue siendo una afirmación pendiente de comprobar. Conserva los borradores para revisión."
+  },
+  "m03-implementacion": {
+    "question": "¿Cómo revisas un archivo transformado?",
+    "essential": "Los encargos de este módulo ya traen su CRTT. Antes de copiarlos, identifica su contexto, tarea y límites; después pide el producto con código, fila o minuto de origen para comprobarlo sin reconstruir la tabla.",
+    "product": "Clasificación, acta, copia de datos y flujo generados por IA.",
+    "concepts": [
+      [
+        "Conserva el origen",
+        "Cada clasificación o acuerdo debe volver a un código, fila o minuto."
+      ],
+      [
+        "Distingue regla y criterio",
+        "Una regla exacta, como la del Reto 6, da siempre el mismo resultado; un criterio de clasificación, como el del Reto 4, exige revisar una muestra."
+      ],
+      [
+        "Comprueba el conjunto",
+        "Contrasta conteos, duplicados y excepciones sin borrar registros."
+      ]
+    ],
+    "review": "No borres filas repetidas ni completes responsables o fechas sin una fuente. Mide también la revisión y la corrección."
+  },
+  "m04-validacion": {
+    "question": "¿La cifra y la conclusión tienen respaldo?",
+    "essential": "Una cifra correcta no demuestra una causa. Pide a la IA operaciones y fuentes, y compáralas con el testigo antes de descargar.",
+    "product": "Cálculos, gráfico y cuatro afirmaciones contrastadas.",
+    "concepts": [
+      [
+        "Recalcula",
+        "Comprueba una operación tú mismo, con calculadora o una fórmula en la hoja, sin pedírselo a la misma IA."
+      ],
+      [
+        "Revisa el gráfico",
+        "Confirma unidades, escala, población y periodo."
+      ],
+      [
+        "Contrasta la conclusión",
+        "Distingue lo que respalda la fuente de lo que sigue pendiente."
+      ]
+    ],
+    "review": "42 ÷ 840 × 100 = 5 %. Esa tasa describe los datos; no explica por qué ocurrió ni predice lo que pasará."
+  },
+  "m05-cierre": {
+    "question": "¿Cómo presentas un hallazgo que puedas comprobar?",
+    "essential": "La IA genera el informe a partir de diferencias con fuente. Tú revisas los hallazgos y dejas las autorizaciones y mediciones ausentes pendientes.",
+    "product": "Informe, lámina, caso individual y piloto a 30 días generados por IA.",
+    "concepts": [
+      [
+        "Sustenta el hallazgo",
+        "Conserva fila, centro, operación y preguntas por aclarar."
+      ],
+      [
+        "Compara el esfuerzo",
+        "Incluye preparación, generación, revisión y corrección de tareas equivalentes."
+      ],
+      [
+        "Propón una prueba",
+        "Define un piloto de 30 días con autorización, seguimiento y criterios de calidad."
+      ]
+    ],
+    "review": "Compara tiempos de tareas equivalentes. Si no tienes una referencia observada, deja el ahorro pendiente."
+  }
+}

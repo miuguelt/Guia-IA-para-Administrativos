@@ -1,0 +1,62 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Resultado generado · Pide una respuesta con fuente",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "artifactId",
+    "fields",
+    "tool"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "const": 1
+    },
+    "artifactId": {
+      "const": "MG-A01"
+    },
+    "fields": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "proceso_seleccionado",
+        "matriz_viabilidad",
+        "metrica_linea_base",
+        "reto01_prompt_crtt",
+        "reto01_verificacion",
+        "uso_ia_y_revision"
+      ],
+      "properties": {
+        "proceso_seleccionado": {
+          "type": "string",
+          "minLength": 1
+        },
+        "matriz_viabilidad": {
+          "type": "string",
+          "minLength": 1
+        },
+        "metrica_linea_base": {
+          "type": "string",
+          "minLength": 1
+        },
+        "reto01_prompt_crtt": {
+          "type": "string",
+          "minLength": 1
+        },
+        "reto01_verificacion": {
+          "type": "string",
+          "minLength": 1
+        },
+        "uso_ia_y_revision": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "tool": {
+      "type": "string",
+      "minLength": 1
+    }
+  }
+}

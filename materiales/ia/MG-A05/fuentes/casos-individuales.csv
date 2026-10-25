@@ -1,0 +1,12 @@
+﻿Casos nuevos para la prueba individual · Reto integrador
+"Datos de práctica. El instructor asigna un caso; no se usan datos personales ni decisiones institucionales."
+
+Código;Situación;Entrada;Tarea individual;Comprobación requerida
+IND-01;Solicitud incompleta;"Actividad: taller; sede: Vélez; fecha: martes sin fecha calendario; franja: no consta; aforo: 18.";Elige una herramienta y prepara una respuesta verificable.;"Marca fecha y franja como pendientes; no confirmes la reserva."
+IND-02;Porcentaje;"36 solicitudes completas de 48 recibidas; el periodo no está indicado.";Calcula la proporción y redacta un hallazgo breve.;"Muestra numerador, denominador y operación; indica que el periodo no consta."
+IND-03;Diferencia de valores;"Planeado: 4.200.000 COP; comprometido: 4.480.000 COP; soporte: por confirmar.";Calcula la diferencia y formula una pregunta de revisión.;"Cita valores y unidad; no concluyas que hubo incumplimiento."
+IND-04;Propuesta en una reunión;"A las 02:10 se propone revisar una cifra; no se asigna responsable ni fecha.";Registra el fragmento en una tabla de acta.;Clasifica como propuesta y marca responsable y fecha como pendientes.
+IND-05;Posible duplicado;El código SIM-X17 aparece dos veces con cantidades distintas y sin una regla de conciliación.;Diseña una revisión reproducible sin modificar el original.;"Conserva ambas filas y señala el conflicto; no escojas un valor por intuición."
+IND-06;Clasificación de mensajes;Un mensaje simulado indica que seis grupos no pueden abrir un formulario cuyo cierre es mañana.;Explica qué señal usarías para ordenar una revisión temprana.;"Cita la afectación y el plazo; aclara que no es prioridad institucional."
+IND-07;Gráfico de gastos;"Enero: 1.200.000 COP; febrero: 980.000 COP; marzo: 1.350.000 COP.";Construye un gráfico que permita comparar los tres meses.;"Incluye mes y COP; no atribuyas causas ni hagas una predicción."
+IND-08;Dato no especificado;Una directriz solicita un resumen, pero no indica fecha de publicación ni responsable.;Prepara una lista breve de entregables y pendientes.;Separa lo solicitado de los dos datos que deben confirmarse.

@@ -1,114 +1,47 @@
-# Estación 04: Auditoría de Datos, Detección de Errores e IA Predictiva con Human-in-the-Loop
-**Programa:** Implementación de herramientas de inteligencia artificial en la optimización de la productividad (21720210 V1)  
-**Ambiente de Formación:** Redes CIMI · SENA Girón  
-**Fase Pedagógica:** Apropiación (Parte 2) · **Duración:** 10 horas (Laboratorio Forense de Datos)  
-**Resultado de Aprendizaje (RAP):** RA2. Programar proceso automatizado de acuerdo con diseño y tipo de inteligencia artificial.  
-**Evidencia Asociada:** MG-A04 (Evidencia de Desempeño - Matriz de Auditoría Cruzada y Protocolo HITL)
+# Comprobación de cifras y auditoría de respuestas
 
----
 
-## 1. La Trampa de los Datos Numéricos y la IA Predictiva
+**Encargos listos:** [Reto 8](../materiales/ia/reto-8/LEEME.html) · [Reto 9](../materiales/ia/reto-9/LEEME.html).
 
-Existe una falsa creencia entre muchos profesionales: asumir que si una herramienta de IA es capaz de redactar un ensayo brillante, también es capaz de auditar un presupuesto o sumar una columna contable con precisión infalible.
+## Forma de trabajo con IA
 
-**La realidad técnica:** Los Modelos de Lenguaje Grande (LLMs) procesan números como cadenas de caracteres o *tokens*. No realizan operaciones en un circuito aritmético como un procesador o una hoja de cálculo, sino que predicen qué número suele aparecer después en un texto similar.  
-Por esta razón, un administrativo que confíe ciegamente en una IA para aprobar una factura o liquidar un contrato está asumiendo un riesgo operativo inaceptable.
+La IA prepara los archivos de la actividad con el encargo y las fuentes del paquete. El aprendiz entrega ese encargo a un chat autorizado o a Antigravity o Codex, revisa el resultado y descarga los productos. Los campos que se describen son la estructura de salida para la IA. Los datos ausentes, las mediciones no realizadas y las revisiones humanas no observadas quedan pendientes; el instructor conserva la valoración formal.
 
-En esta estación combinamos la potencia de la **IA Generativa**, las capacidades de la **IA Predictiva** (detección de patrones y tendencias) y el **Criterio Humano (Human-in-the-Loop)** para auditar datos administrativos con 100% de certeza.
+Los [encargos de la guía web](../index.html#preparacion) están listos para usar. La conversación, el informe y el JSON generado conservan el trabajo sin transcribirlo en otra ficha. Si la herramienta no puede ejecutar la tarea, se conserva esa limitación como pendiente y se consulta una opción autorizada.
 
----
+## Propósito y recorrido
 
-## 2. Diferenciación Práctica: IA Generativa vs. IA Predictiva
+El aprendiz encarga cálculos, un gráfico y hallazgos a la IA; después contrasta una respuesta con una fuente escrita. MG-A04 reúne ambos ejercicios. El módulo ocupa 210 minutos: 30 min de explicación, 120 min del Reto 8 y 60 min del Reto 9.
 
-```text
-┌────────────────────────────┬─────────────────────────────┬─────────────────────────────┐
-│ CRITERIO                   │ INTELIGENCIA GENERATIVA     │ INTELIGENCIA PREDICTIVA     │
-├────────────────────────────┼─────────────────────────────┼─────────────────────────────┤
-│ ¿Qué produce?              │ Contenido nuevo (texto,     │ Probabilidades, categorías, │
-│                            │ tablas, correos, código).   │ proyecciones numéricas.     │
-├────────────────────────────┼─────────────────────────────┼─────────────────────────────┤
-│ Entrada típica             │ Texto libre, documentos.    │ Tablas de datos históricos. │
-├────────────────────────────┼─────────────────────────────┼─────────────────────────────┤
-│ Aplicación en el CIMI      │ Redactar informes, actas,   │ Proyectar consumo de fibra  │
-│                            │ estructurar quejas ciudadan.│ predecir deserción escolar. │
-├────────────────────────────┼─────────────────────────────┼─────────────────────────────┤
-│ Riesgo principal           │ Alucinación de datos.       │ Sobreajuste o sesgo en base │
-├────────────────────────────┼─────────────────────────────┼─────────────────────────────┤
-│ Control requerido          │ Restricción estricta R-C-I-R│ Validación estadística y    │
-│                            │ y delimitadores cerrados.   │ contraste con histórico.    │
-└────────────────────────────┴─────────────────────────────┴─────────────────────────────┘
-```
+## Reto 8 · Qué permite afirmar la tabla
 
----
+Entregue `bienestar.csv` y `gastos-q1.csv` al asistente autorizado. Solicite tasas, presupuesto por matriculado, un gráfico y dos hallazgos con sus cantidades de origen. Compruebe con una calculadora independiente los valores que se comunicarán, sin reconstruir toda la hoja.
 
-## 3. Laboratorio Forense: La Prueba de Estrés a la Tabla de Suministros
+El Centro A tiene 42 deserciones entre 840 matriculados: 42 ÷ 840 × 100 = 5 %. Un denominador vacío o cero deja la medida pendiente. El presupuesto por matriculado se expresa en COP por persona.
 
-Abra el [Caso de Estudio 04: Tabla de Compras y Suministros](file:///c:/Users/Miguel/Documents/Aplicaciones/_projects/Guia%20IA%20para%20Administrativos/docs/ejercicios/caso-04-tabla-suministros-con-trampas.md).
+Bienestar incluye A–J y no indica periodo. Gastos Q1 contiene A–H para enero a marzo de 2026. Declare esas diferencias y no combine poblaciones ni periodos como equivalentes. Compruebe centros, meses, unidades, filtros y ejes del gráfico. Si la herramienta no lo genera, conserve la tabla y deje pendiente practicar esa capacidad.
 
-### Procedimiento de Implementación (Ciclo Iterativo V.E.R.A.)
+Los datos permiten describir resultados; no prueban causas ni validan una predicción generalizable. El estilo de la explicación debe conservar ese alcance.
 
-**Iteración 1: El Error del Prompt Inocente (Sycophancy)**
-1. Ingrese a la IA la tabla y pídale: *"Revisa esta tabla de compras del CIMI y dime si está correcta para aprobarla"*.
-2. **Revisar:** Observe cómo la IA, motivada por el sesgo de complacencia (*sycophancy*), frecuentemente felicita la presentación y concluye que *"los cálculos están bien organizados y el total de $13.113.000 cuadra"*. 
-3. Documente en su plantilla de evidencias este falso positivo. Esto demuestra por qué nunca se debe confiar un presupuesto ciegamente a un LLM.
+## Reto 9 · Cuatro afirmaciones y una orden intrusa
 
-**Iteración 2: El Prompt de Auditoría Forense**
-4. Aplique el siguiente prompt con instrucciones cruzadas y restrictivas:
+Contraste `reto-09-afirmaciones.csv` con el Lineamiento ficticio. El resultado esperado es una afirmación respaldada, dos contradichas y una que no consta. Una contradicción se opone a la fuente; la ausencia de información no demuestra falsedad.
 
-```text
-Actúa como Auditor Contable y de Control Interno del SENA CIMI.
-Examina minuciosamente la tabla de compras delimitada entre <factura> y </factura>.
+La aprobación automática contradice el requisito de confirmación de Logística. La identificación de todos los asistentes contradice el apartado Solicitud. Los cinco años de conservación no constan. Pida que la IA genere el archivo con cada estado, apartado y corrección o pregunta pendiente; contraste esas referencias antes de conservarlo.
 
-Tu única misión es encontrar discrepancias, errores de cálculo o anomalías de catálogo.
-Aplica estrictamente las siguientes comprobaciones:
-1. Multiplica de forma independiente 'Cantidad' por 'Valor Unitario' en cada fila y compara con 'Subtotal Facturado'.
-2. Suma todos los subtotales calculados y compáralos con el total declarado.
-3. Verifica la coherencia de fechas en el calendario gregoriano (ej. cantidad de días por mes).
-4. Revisa códigos SKU duplicados con descripciones diferentes.
+La orden de omitir la revisión se identifica aparte: es contenido de la tarjeta y no debe ejecutarse. La variante añade A5 a A1–A4; compruebe si el apartado que cita existe.
 
-Reporta los hallazgos en una TABLA DE NOVEDADES AUDITADAS:
-| Fila | Campo | Valor Declarado | Valor Real Auditado | Impacto Financiero / Operativo |
-```
+## Evaluación y aplicación al puesto
 
-**Iteración 3: Comprobación Excel (HITL - Human in the Loop)**
-5. **Verificar y Atribuir:** Abra Microsoft Excel (o Google Sheets). Copie los datos y ejecute las multiplicaciones de Cantidad por Valor Unitario manualmente utilizando fórmulas deterministas (`=B2*C2`).
-6. Compare la tabla de novedades entregada por la IA con sus cálculos en Excel. Si la IA falló en alguna multiplicación (alucinación matemática), usted debe detectarlo y corregirlo. El administrativo firma la auditoría final, no la máquina.
+Use I-6 de los [instrumentos de evaluación](instrumentos-evaluacion.md). Revise trazabilidad, cálculo, alcance y tratamiento de la orden intrusa. El método sirve para un informe periódico: encargar el análisis, comprobar las cifras que se presentarán y separar resultados de conclusiones que aún no pueden sostenerse.
 
-### Los 4 Hallazgos que el Administrativo Debe Confirmar
-1. **Ítem 4 (Switch Cisco):** Facturado en $4.700.000 cuando 2 x $2.850.000 = **$5.700.000** (Diferencia de $1.000.000 COP a favor del proveedor).
-2. **Total General:** El total real de la compra es **$14.113.000 COP**, no los $13.113.000 facturados.
-3. **Ítem 7 (Transceiver SFP+):** Fecha de entrega registrada como `31/09/2026`. Septiembre solo tiene 30 días. Error de captura que bloquearía los sistemas contables.
-4. **Ítems 1 y 6:** Código SKU `CAB-UTP-6A` asignado tanto a una bobina de 305m ($680.000) como a un patch cord ($18.000).
 
----
+## Apoyos para comprender antes del reto
 
-## 4. El Protocolo Human-in-the-Loop (HITL) en 3 Pasos
+Presente los términos con el ejemplo: 42 es la parte contada, 840 es el total de referencia y 5 % es la proporción. Identifique el grupo, el periodo y el filtro antes de interpretar el resultado. El periodo de Bienestar sigue como «no consta».
 
-Para blindar la operación administrativa del centro, todo reporte con datos cuantitativos debe seguir el flujo HITL:
+La web incorpora un gráfico guiado de dos centros de Gastos Q1. Las barras suman enero a marzo de 2026: Centro A, $3.767.700 COP; Centro B, $2.809.863 COP. Parten de cero y muestran valor, moneda, periodo y fuente. Use el ejemplo para reconocer etiquetas completas; se trata de una selección de dos centros, no de todo el archivo.
 
-```text
-[1. DETECCIÓN ASISTIDA] ──> [2. COMPROBACIÓN EXCEL] ──> [3. FIRMA RESPONSABLE]
-La IA señala posibles        El funcionario verifica     El administrativo emite
-anomalías y redacta la       las operaciones con         el concepto bajo su
-tabla comparativa.           fórmulas matemáticas.       responsabilidad y firma.
-```
+Las preguntas de «Observa» comprueban la operación y la conclusión permitida. Después de esa revisión, trabaje los cálculos y el gráfico del Reto 8 y las afirmaciones del Reto 9 como dos aplicaciones de contrastar con la fuente. Estos apoyos se incluyen en el tiempo ya previsto.
 
----
-
-## 5. Taller Autónomo y Registro de Evidencia MG-A04
-
-El aprendiz debe registrar en su portafolio de evidencias:
-
-1. **Informe de Auditoría de la Tabla de Suministros (Caso 04):**
-   - Tabla de discrepancias encontradas con indicación de valores reales vs. valores declarados.
-   - Diagnóstico del impacto financiero de no haber detectado el desfase de $1.000.000 COP.
-2. **Diseño de un Ejercicio Predictivo Simple:**
-   - Proyección estimada del consumo de conectores RJ45 y cable UTP para el primer trimestre de 2027 basada en el histórico de 2026.
-3. **Protocolo HITL Formalizado:**
-   - Lista de verificación en 5 puntos que aplicará en su puesto de trabajo antes de firmar cualquier trámite administrativo.
-
-### Lista de Chequeo de Aceptación (Criterio de Evaluación RA2)
-- [ ] Se identificaron las 4 trampas deliberadas del dataset sin omitir la fecha inexistente ni el SKU duplicado.
-- [ ] Se demostró la diferencia conceptual entre la predicción de tokens de un LLM y el cálculo determinista de una hoja de cálculo.
-- [ ] El protocolo HITL declara explícitamente los pasos de verificación humana obligatoria.
-- [ ] No se acepta ningún resultado numérico sin contrastación de fórmulas.
+Para observar la comprensión real del grupo, use la [pauta con aprendices](validacion-con-aprendices.md).

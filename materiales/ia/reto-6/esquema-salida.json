@@ -1,0 +1,52 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Resultado generado · Limpia una copia sin perder filas",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "artifactId",
+    "fields",
+    "tool"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "const": 1
+    },
+    "artifactId": {
+      "const": "MG-A03"
+    },
+    "fields": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "reto06_regla",
+        "reto06_limpieza",
+        "tiempo_medido_vs_manual",
+        "uso_ia_y_revision"
+      ],
+      "properties": {
+        "reto06_regla": {
+          "type": "string",
+          "minLength": 1
+        },
+        "reto06_limpieza": {
+          "type": "string",
+          "minLength": 1
+        },
+        "tiempo_medido_vs_manual": {
+          "type": "string",
+          "minLength": 1
+        },
+        "uso_ia_y_revision": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "tool": {
+      "type": "string",
+      "minLength": 1
+    }
+  }
+}

@@ -1,0 +1,99 @@
+const fs = require('node:fs');
+const path = require('node:path');
+const test = require('node:test');
+const assert = require('node:assert/strict');
+
+const styles = fs.readFileSync(path.join(__dirname, '..', 'css', 'guided-experience.css'), 'utf8');
+const learningStyles = fs.readFileSync(path.join(__dirname, '..', 'css', 'course-learning.css'), 'utf8');
+const responsiveStyles = fs.readFileSync(path.join(__dirname, '..', 'css', 'course-responsive.css'), 'utf8');
+const caseStyles = fs.readFileSync(path.join(__dirname, '..', 'css', 'case-practices.css'), 'utf8');
+const documentStyles = fs.readFileSync(path.join(__dirname, '..', 'css', 'documents.css'), 'utf8');
+const moduleOne = fs.readFileSync(path.join(__dirname, '..', 'content', 'lessons', 'm01-fundamentos.html'), 'utf8');
+const readingDocument = fs.readFileSync(path.join(__dirname, '..', 'docs', 'lectura', 'materiales--retos--reto-01-ficha.html'), 'utf8');
+
+test('la prosa ajusta su alineación a la región y conserva todo su ancho', () => {
+  const reading = fs.readFileSync(path.join(__dirname, '..', 'css/guide-reading.css'), 'utf8');
+  const index = fs.readFileSync(path.join(__dirname, '..', 'index.html'), 'utf8');
+  assert.doesNotMatch(reading, /container-type:\s*inline-size/u);
+  assert.doesNotMatch(reading, /@container\s*\(min-width:\s*40rem\)/u);
+  assert.match(reading, /text-align:\s*var\(--text-align-reading/u);
+  assert.match(index, /data-devbrain-prose-runtime/u);
+  assert.match(reading, /text-align-last:\s*start/u);
+  assert.doesNotMatch(styles, /grid-template-columns:[^;]*\d+ch/u);
+});
+
+test('la explicación y el apoyo relacionado comparten el ancho sin comprimir la lectura', () => {
+  assert.match(styles, /\.module-explanation\s*\{[^}]*grid-template-columns:\s*minmax\(0,\s*1fr\)/s);
+  assert.match(styles, /\.module-explanation\s*\{[^}]*grid-template-columns:\s*minmax\(0,\s*1.6fr\)\s+minmax\(0,\s*1fr\)/s);
+  assert.match(styles, /\.module-explanation\s*>\s*\.module-reading\s*\{[^}]*grid-column:\s*1/s);
+});
+
+test('la introducción distribuye prosa y pasos relacionados en columnas amplias', () => {
+  assert.match(styles, /\.lesson-panel\s*\{[^}]*container-type:\s*inline-size/s);
+  assert.match(styles, /@container\s+lesson-panel\s*\(min-width:\s*58rem\)/);
+  assert.match(styles, /\.module-brief\s*\{[^}]*grid-template-columns:\s*minmax\(0,\s*1.2fr\)\s+minmax\(0,\s*1fr\)/s);
+  assert.match(styles, /\.module-brief\s*>\s*\.module-concept-map\s*\{[^}]*grid-column:\s*2/s);
+});
+
+test('el texto ocupa su columna sin truncarse y ajusta la alineación al ancho real', () => {
+  assert.match(styles, /\.brief-lead\s*>\s*p\s*\{[^}]*width:\s*100%/s);
+  assert.match(styles, /\.brief-lead\s*>\s*p\s*\{[^}]*text-align:\s*var\(--text-align-reading,\s*start\)/s);
+  assert.doesNotMatch(styles, /\.brief-lead\s*>\s*p\s*\{[^}]*text-overflow:\s*ellipsis/s);
+  assert.doesNotMatch(styles, /\.brief-lead\s*>\s*p\s*\{[^}]*line-clamp/s);
+});
+
+test('los controles de selección conservan visible su opción completa', () => {
+  assert.doesNotMatch(caseStyles, /text-overflow\s*:\s*ellipsis/iu);
+});
+
+test('la composición vuelve a una columna cuando falta ancho en el contenedor', () => {
+  assert.match(styles, /\.module-brief\s*\{[^}]*grid-template-columns:\s*minmax\(0,\s*1fr\)/s);
+  assert.match(styles, /\.module-concept-map\s*\{[^}]*grid-template-columns:\s*repeat\(3,\s*minmax\(0,\s*1fr\)\)/s);
+  assert.match(styles, /@media\s*\(max-width:\s*680px\)/);
+});
+
+test('el encabezado apilado deja visible el inicio de la lección al navegar en móvil', () => {
+  assert.match(responsiveStyles, /@media\s*\(max-width:\s*520px\)\s*\{[\s\S]*?\.course-topbar\s*\{[^}]*position:\s*static/s);
+});
+
+test('la columna de lectura responde al ancho real del panel', () => {
+  assert.match(styles, /\.lesson-panel\s*\{[^}]*container-type:\s*inline-size/);
+  assert.match(styles, /@container\s+lesson-panel\s*\(min-width:\s*58rem\)/);
+  assert.match(styles, /\.module-brief\s*>\s*\.module-concept-map\s*\{[^}]*grid-column:\s*2/s);
+});
+
+test('los encabezados extensos de las tarjetas de ciclo se ajustan en móvil', () => {
+  assert.match(learningStyles, /\.correspondence-cycle\s*>\s*strong\s*\{[^}]*max-width:\s*100%/s);
+  assert.match(learningStyles, /\.correspondence-cycle\s*>\s*strong\s*\{[^}]*overflow-wrap:\s*break-word/s);
+});
+
+test('las tarjetas del ciclo se reducen al ancho disponible en móvil', () => {
+  assert.match(moduleOne, /grid-template-columns:\s*repeat\(auto-fit,\s*minmax\(min\(100%,\s*180px\),\s*1fr\)\)/);
+  assert.doesNotMatch(moduleOne, /grid-template-columns:\s*repeat\(auto-fit,\s*minmax\(180px,\s*1fr\)\)/);
+});
+
+test('las tarjetas comparativas permiten una columna menor que 280 px', () => {
+  assert.equal((moduleOne.match(/grid-template-columns:\s*repeat\(auto-fit,\s*minmax\(min\(100%,\s*280px\),\s*1fr\)\)/g) || []).length, 2);
+  assert.doesNotMatch(moduleOne, /grid-template-columns:\s*repeat\(auto-fit,\s*minmax\(280px,\s*1fr\)\)/);
+});
+
+test('los contenedores y controles del laboratorio usan un quiebre de respaldo natural', () => {
+  assert.match(responsiveStyles, /\.tool-lab-heading,\s*\.tool-header,\s*\.tool-body,\s*\.tool-footer\s*\{[^}]*overflow-wrap:\s*break-word/s);
+  assert.match(responsiveStyles, /\.tool-lab-fields\s+\.check-option\s*>\s*:not\(input\)\s*\{[^}]*overflow-wrap:\s*break-word/s);
+  assert.match(responsiveStyles, /\.tool-lab button,\s*#safety-scope-simulator button\s*\{[^}]*overflow-wrap:\s*break-word/s);
+});
+
+test('la fila del contador del simulador puede envolver sus botones en móvil', () => {
+  assert.match(moduleOne, /<div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; margin-top: 1rem;">[\s\S]{0,300}id="anon-score"/);
+});
+
+test('las páginas de lectura muestran todo el contenido de la hoja documental', () => {
+  assert.doesNotMatch(documentStyles, /\.document-sheet\{[^}]*overflow:hidden\}/s);
+  assert.match(documentStyles, /\.document-header\s*\{[^}]*border-radius:\s*14px\s+14px\s+0\s+0/s);
+  assert.match(documentStyles, /\.document-footer\s*\{[^}]*border-radius:\s*0\s+0\s+14px\s+14px/s);
+});
+
+test('las páginas regeneradas conservan la hoja y el comportamiento adaptativo', () => {
+  assert.match(readingDocument, /data-devbrain-prose(?:\s|>)/);
+  assert.match(readingDocument, /data-devbrain-prose-runtime(?:\s|>)/);
+});

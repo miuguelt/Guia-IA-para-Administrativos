@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="es-CO"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="light"><title>Práctica de población: compara periodos y territorios · Biblioteca de la guía</title>
+<link rel="stylesheet" href="../../css/documents.css"><link rel="stylesheet" href="devbrain-prose.css" data-devbrain-prose>
+<script defer src="devbrain-prose.js" data-devbrain-prose-runtime></script></head><body>
+<a class="skip-link" href="#documento">Ir al documento</a>
+<nav class="reader-nav" aria-label="Acciones del documento"><a href="index.html">← Biblioteca</a>
+<a href="../../index.html#preparacion">Abrir guía web</a><a href="../../materiales/analisis-datos/fichas/ficha-poblacion.md" download>Descargar fuente Markdown</a>
+<span>Imprime o guarda en PDF con Ctrl+P</span></nav>
+<div class="reading-layout"><aside class="reading-sidebar"><p class="eyebrow">En este documento</p>
+<details open><summary>Ver apartados</summary><div class="toc">
+<ul>
+<li><a href="#en-tres-pasos">En tres pasos</a></li>
+<li><a href="#revisa-tres-criterios">Revisa tres criterios</a></li>
+<li><a href="#ampliacion-dane-opcional">Ampliación DANE opcional</a></li>
+</ul>
+</div>
+</details></aside>
+<main id="documento" class="document-sheet"><header class="document-header"><p class="eyebrow">Guía IA para administrativos</p>
+<span class="document-badge">Laboratorio de datos y documentos</span><p class="document-context">Consulta el contenido por apartados y conserva el archivo fuente si necesitas editarlo.</p></header>
+<article class="document-content"><h1 id="practica-de-poblacion-compara-periodos-y-territorios">Práctica de población: compara periodos y territorios</h1>
+<p>La IA prepara la comparación con datos públicos reales del Banco Mundial. La ampliación usa anexos oficiales del DANE. Tú revisas las fuentes y los resultados, sin transcribirlos. No incorpores registros personales; esta práctica pertenece al laboratorio independiente.</p>
+<p><strong>Pregunta preparada:</strong> ¿cuánto cambió la población de Colombia, Perú y Ecuador entre dos años comunes?</p>
+<p><strong>Fuentes:</strong> <code>datos/poblacion.csv</code>, <code>diccionario.csv</code> y <code>fuentes.json</code>. El paquete para IA los conserva bajo <code>fuentes/</code>. El CSV usa coma y UTF-8. Una fila representa un país y un año; <code>poblacion</code> está expresada en personas.</p>
+<p><strong>Ejemplo:</strong> un cambio de 100 a 110 personas equivale a 10 personas y al 10 %. Este ejemplo explica la operación; no es un dato del archivo.</p>
+<h2 id="en-tres-pasos">En tres pasos</h2>
+<ol>
+<li><strong>Entrega el encargo.</strong> Descarga el <a href="../../materiales/ia/lab-poblacion.zip">paquete de población</a>. Adjunta las fuentes y copia el <a href="materiales--ia--lab-poblacion--ENCARGO-CHAT.html">encargo para chat</a>, o abre la carpeta en Antigravity o Codex y usa el <a href="materiales--ia--lab-poblacion--ENCARGO-IDE.html">encargo para IDE</a>. La pregunta y los productos ya están definidos.</li>
+<li><strong>Revisa lo generado.</strong> La IA genera la inspección país-año, la selección de dos años comunes, la tabla de valores iniciales y finales, diferencias y porcentajes. Prepara líneas de evolución, barras de cambio, tablas equivalentes, conclusión y documento de análisis. Aplica los tres criterios siguientes y pide ajustes.</li>
+<li><strong>Descarga y conserva.</strong> Pide datos calculados, gráficos, procedimiento, documento y <code>resultado.json</code> para <code>LAB-A01</code>. Recibe el JSON en «Guarda tu evidencia» y guarda después de revisar la vista. La revisión humana no realizada permanece pendiente; descargar no equivale a aprobación institucional.</li>
+</ol>
+<h2 id="revisa-tres-criterios">Revisa tres criterios</h2>
+<ul>
+<li><strong>Cobertura y versión.</strong> Contrasta tres filas con el original y la <a href="https://data.worldbank.org/indicator/SP.POP.TOTL">ficha del indicador SP.POP.TOTL</a>. Los dos años deben estar presentes en los tres países, con unidades, consulta y versión visibles.</li>
+<li><strong>Operación y representación.</strong> Comprueba en el cálculo de control generado la fórmula <code>(final − inicial) / inicial × 100</code>. Un extremo ausente o un valor inicial cero deja el porcentaje pendiente con su motivo. No se suman años como habitantes distintos ni se mezclan personas y millones sin indicarlo.</li>
+<li><strong>Interpretación.</strong> Revisa que la conclusión distinga cambio absoluto y relativo, sin atribuir causas que estos datos no documentan. Los gráficos y sus tablas deben usar los mismos años y países.</li>
+</ul>
+<h2 id="ampliacion-dane-opcional">Ampliación DANE opcional</h2>
+<p>Pide a la IA una pirámide a partir de <code>datos/piramide-santander-2024.csv</code>: edad, hombres y mujeres de Santander, área total, en 2024. Son 101 grupos de edad; 100 significa 100 años y más. La proyección se basa en CNPV 2018 y fue actualizada en 2025.</p>
+<p>La IA debe conservar la versión del manifiesto y el enlace a <a href="https://www.dane.gov.co/index.php/estadisticas-por-tema/demografia-y-poblacion/proyecciones-de-poblacion">proyecciones de población del DANE</a>. Revisa escalas simétricas y la suma de hombres y mujeres. Las coordenadas negativas a la izquierda no significan población negativa. La explicación debe distinguir proyección, estimación y conteo observado; esta tabla y la internacional no tienen cifras intercambiables.</p></article>
+<footer class="document-footer">Guía IA para administrativos · Versión de lectura de <a href="../../materiales/analisis-datos/fichas/ficha-poblacion.md">ficha-poblacion.md</a>.
+Las decisiones y los pendientes conservan el estado del archivo fuente.</footer></main></div></body></html>

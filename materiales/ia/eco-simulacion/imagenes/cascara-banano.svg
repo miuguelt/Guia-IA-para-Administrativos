@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 180" role="img" aria-labelledby="title desc">
+  <title id="title">Cáscara de banano</title>
+  <desc id="desc">Cáscara amarilla abierta en tres tiras, sin envoltura ni envase.</desc>
+  <rect width="240" height="180" rx="20" fill="#f3f6f2"/>
+  <path d="M66 147h108" stroke="#cbd8cf" stroke-width="4" stroke-linecap="round"/>
+  <path d="M114 47c-7 20-23 43-25 65-2 17 7 28 21 29 5-28 15-50 12-72z" fill="#f5d867" stroke="#806c31" stroke-width="4" stroke-linejoin="round"/>
+  <path d="M126 69c9 20 28 36 31 54 3 13-6 20-19 18-2-25-7-42-15-56z" fill="#ecc64f" stroke="#806c31" stroke-width="4" stroke-linejoin="round"/>
+  <path d="M113 49c-4-8-3-15 4-21 4 9 8 12 13 15l-7 12z" fill="#78925a" stroke="#526343" stroke-width="3" stroke-linejoin="round"/>
+  <path d="M95 119c9 7 17 11 25 13M140 116l10 4" stroke="#d3a33d" stroke-width="3" stroke-linecap="round"/>
+</svg>
