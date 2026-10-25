@@ -10,7 +10,7 @@
   <link rel="icon" href="media/aula-ia.svg" type="image/svg+xml">
   <link rel="stylesheet" href="css/vendor/devbrain-learner-sdk.css?v=253470239481753">
   <link rel="stylesheet" href="css/vendor/devbrain-evidence.css?v=159560282208036">
-  <link rel="stylesheet" href="css/course.css?v=204652885280464">
+  <link rel="stylesheet" href="css/course.css?v=180822891881976">
   <script defer src="js/vendor/devbrain-learner-sdk.js?v=96485093726978"></script>
   <script defer src="js/registro-entregables.js?v=258004368204519"></script>
   <script defer src="js/course-tabs.js?v=98289152208735"></script>
@@ -573,36 +573,194 @@ Límites: No prejuzgues la responsabilidad ni sugieras sanciones disciplinarias.
 <div class="brief-product"><span aria-hidden="true">↳</span><div><strong>Al terminar, tendrás</strong><p>Un diagnóstico generado por IA, cinco decisiones sobre datos y una respuesta con fuente.</p></div></div><aside class="brief-review"><strong>Una comprobación concreta</strong><p>Si faltan sede, fecha o franja, pregunta por esos datos. La urgencia no confirma la reserva.</p></aside><a href="#metodo-comun">Consultar cómo trabajar y guardar el resultado →</a></section><div class="module-explanation"><div class="module-reading"><section aria-labelledby="m01-fundamentos-goal-title" class="learning-start"><h3 id="m01-fundamentos-goal-title">Tu meta</h3><p data-learning-goal="">Al terminar, podrás encargar a la IA un diagnóstico y reconocer qué datos y decisiones requieren revisión humana.</p><details class="term-guide"><summary>Conceptos que usarás · con ejemplos</summary><dl class="learning-terms"><div><dt>Entrada y salida</dt><dd>La entrada es lo que recibes; la salida es el producto que debes entregar.</dd></div><div><dt>Línea base</dt><dd>Medida inicial para comparar la misma tarea después. Incluye revisión y corrección.</dd></div><div><dt>Criterio de calidad</dt><dd>Condición concreta para aceptar el producto, como conservar los datos pendientes y citar la fuente.</dd></div><div><dt>Datos necesarios</dt><dd>Información que permite resolver la tarea. Los datos que no aportan deben quedar fuera.</dd></div><div><dt>Gobernanza y Ley 1581</dt><dd>Obligación de proteger datos personales y sensibles, garantizando que ninguna decisión se tome sin supervisión humana.</dd></div><div><dt>CRTT</dt><dd>Contexto, Rol, Tarea y Tono: método para estructurar una instrucción clara a la IA. Añade fuente delimitada, límites operativos, formato y criterio de aceptación.</dd></div><div><dt>Portafolio de Evidencias</dt><dd>Registro digital de aprendizaje que reúne en este navegador tus cinco evidencias curriculares (MG-A01 a MG-A05) para revisión, exportación y valoración final del instructor.</dd></div></dl></details></section>
 <div class="prerequisite"><div><strong>Antes de empezar · Asistente de IA y fuente</strong>
 <p>Encarga el procesamiento y el borrador; comprueba los datos y pide los ajustes en el mismo chat.</p></div><a data-open-tool="chat" href="#preparacion">Repasar la herramienta ↗</a></div><span class="phase-label">Aprende el método · 45 min</span><div class="learning-block"><p data-ai-mini-example=""><strong>Ejemplo:</strong> Una solicitud de sala para 18 personas no confirma sede, fecha, franja ni disponibilidad.</p>
-<!-- PASO 1: TRIAJE ADMINISTRATIVO Y MARCO DE DECISIÓN (Reemplazo nativo de m01_concept.jpg) -->
-<h3>Elige según el resultado que necesitas</h3>
-<div class="knowledge-grid concept-grid">
-<div><h4>Para cálculos y condiciones explícitas: una regla</h4><p>Una fórmula permite contar registros, calcular una proporción o marcar un campo vacío. Debes poder explicar la operación y probarla con entradas completas e incompletas.</p><p><strong>Ejemplo:</strong> señalar las solicitudes que no tienen fecha. Detectar el vacío no resuelve quién debe completarlo.</p></div>
-<div><h4>Para interpretar o redactar: IA generativa</h4><p>Un asistente autorizado puede organizar una petición y proponer un borrador. Proporciónale la fuente necesaria y revisa si omite, añade o altera información.</p><p><strong>Ejemplo:</strong> convertir un mensaje en una lista de requisitos pendientes. Una redacción convincente puede contener errores.</p></div>
-<div><h4>Para autorizar y asumir una decisión: revisión humana</h4><p>La persona responsable confirma permisos, excepciones y aprobaciones. El editor de texto ayuda a documentar la decisión; la cuenta o aplicación utilizada no reemplaza esa responsabilidad.</p><p><strong>Ejemplo:</strong> logística confirma la disponibilidad de una sala. El chat puede preparar el mensaje, pero no reservarla.</p></div>
-</div><details class="course-context" data-prediction-extension=""><summary>Si necesitas estimar un resultado futuro</summary><p>Un modelo predictivo aprende relaciones a partir de ejemplos. Necesita datos pertinentes, un resultado que se pueda evaluar y casos de prueba que no se hayan usado para ajustarlo.</p><p><strong>En esta guía:</strong> no vas a entrenar un predictor. Los tres meses de gastos del libro sirven para describir ese periodo; no bastan para validar una estimación útil del futuro.</p></details>
-<!-- PASO 2: PROTECCIÓN DE DATOS Y HABEAS DATA (LEY 1581 DE 2012) -->
-<h3>Protección de datos y reserva legal en la correspondencia (Ley 1581 de 2012)</h3>
-<p>Antes de cargar una fuente, comprueba qué datos contiene y qué permite compartir tu entidad. El semáforo siguiente orienta esa decisión.</p>
-<div class="transfer-tip"><strong>Paso 3 · Aplicación inmediata en el Reto 0:</strong> Con estos criterios de anonimización y el semáforo de datos, pasa a la pestaña <strong>Resuelve</strong> para clasificar las cinco tarjetas del <strong>Reto 0</strong> (75 min).</div>
-<!-- PASO 4: DELIMITACIÓN DEL PROBLEMA OBSERVABLE, CASO DE SOLICITUD URGENTE Y ESTRUCTURA CRTT -->
-<h3>Define el problema con una situación observable</h3>
-<div aria-label="Preguntas para delimitar una tarea" class="concept-flow" role="group"><strong>Describe el recorrido</strong><span>Entrada → ¿Qué información recibes y de dónde proviene?</span><span>Pasos → ¿Qué operaciones se repiten y dónde aparecen dudas?</span><span>Salida → ¿Qué debe recibir la siguiente persona?</span><span>Comprobación → ¿Cómo sabrás que el resultado sirve?</span></div>
+<!-- PASO 1: TRIAJE ADMINISTRATIVO Y MARCO DE DECISIÓN -->
+<div aria-labelledby="triage-concept-title" class="native-diagram triage-concept-block" data-diagram-visible="true">
+<div class="native-diagram__top">
+<div>
+<span class="native-diagram__kicker native-diagram__kicker--tight">GESTIÓN DOCUMENTAL Y CORRESPONDENCIA ADMINISTRATIVA</span>
+<h3 class="native-diagram__heading" id="triage-concept-title">Tres formas de resolver una tarea</h3>
+<p class="native-diagram__lead">Separa lo que se resuelve con reglas exactas, lo que se redacta con IA asistida y lo que exige criterio humano exclusivo.</p>
+</div>
+<span class="quiet-badge native-diagram__pill">Ventanilla de Radicación (es-CO)</span>
+</div>
+<!-- Las Tres Vías de Triaje (Grid Responsivo de 3 Columnas) -->
+<div class="native-diagram__flow">
+<!-- Vía 1: Regla Determinista -->
+<article class="native-diagram__card native-diagram__card--rule triage-card triage-card--green">
+<div class="triage-card__tag--green">
+<strong class="triage-card__tag-label--green">Vía 1 · Regla exacta</strong>
+</div>
+<h4 class="comparative-card__title">Cálculos, fechas y condiciones</h4>
+<div class="triage-card__chip--green">
+        Entrada → Regla Numérica → Salida Inmutable
+      </div>
+<ul class="comparative-card__list">
+<li><strong>Radicación oficial:</strong> consecutivo automático, fecha y hora.</li>
+<li><strong>Condiciones explícitas:</strong> detectar una fecha ausente según una regla escrita.</li>
+<li><strong>Requisitos de forma:</strong> alerta de folios faltantes o remitente anónimo.</li>
+<li><strong>Competencia funcional:</strong> enrutamiento según el manual de funciones.</li>
+</ul>
+<div class="native-diagram__example triage-card__outcome--green">
+        ★ Criterio: La misma entrada produce siempre la misma salida sin ambigüedad.
+      </div>
+</article>
+<!-- Vía 2: Asistencia con IA -->
+<article class="native-diagram__card native-diagram__card--ai triage-card triage-card--blue">
+<div class="triage-card__tag--blue">
+<strong class="triage-card__tag-label--blue">Vía 2 · Asistencia con IA</strong>
+</div>
+<h4 class="comparative-card__title">Comprensión y borrador institucional</h4>
+<div class="triage-card__chip--blue">
+        Petición Ciudadana → Modelo CRTT → Borrador
+      </div>
+<ul class="comparative-card__list">
+<li><strong>Extracción de hechos:</strong> separa lo que pide el usuario de lo que relata.</li>
+<li><strong>Instrucción con límites:</strong> Contexto, Rol, Tarea y Tono (CRTT); añade siempre la fuente y los límites.</li>
+<li><strong>Detección de vacíos:</strong> formula preguntas sobre datos ausentes sin inventar.</li>
+<li><strong>Lenguaje claro:</strong> redacción directa, cordial y accesible en español de Colombia.</li>
+</ul>
+<div class="native-diagram__example triage-card__outcome--blue">
+        ★ Criterio: La IA propone un borrador; no califica derechos ni envía comunicaciones.
+      </div>
+</article>
+<!-- Vía 3: Juicio Humano Exclusivo (HITL) -->
+<article class="native-diagram__card native-diagram__card--human triage-card triage-card--amber">
+<div class="triage-card__tag--amber">
+<strong class="triage-card__tag-label--amber">Vía 3 · Decisión humana</strong>
+</div>
+<h4 class="comparative-card__title">Supervisión y decisión de fondo</h4>
+<div class="triage-card__chip--amber">
+        Expediente Oficial → Contraste en Fuente → Firma
+      </div>
+<ul class="comparative-card__list">
+<li><strong>Contraste en fuentes:</strong> cotejo en carpetas físicas, libros radicadores y SOFIA.</li>
+<li><strong>Protección de datos (Ley 1581):</strong> reserva de salud, menores y cédulas.</li>
+<li><strong>Valoración de excepciones:</strong> urgencias, fuerza mayor y conflictos de área.</li>
+<li><strong>Firma y notificación:</strong> responsabilidad legal y ética del servidor público.</li>
+</ul>
+<div class="native-diagram__example triage-card__outcome--amber">
+        ★ Criterio: La firma y la decisión final corresponden a la persona autorizada.
+      </div>
+</article>
+</div>
+<!-- Ciclo Transversal de Trazabilidad en Ventanilla -->
+<div class="correspondence-cycle triage-panel">
+<strong class="triage-panel__label">
+      Ciclo de trazabilidad y atención en la ventanilla de correspondencia
+    </strong>
+<div class="triage-panel__grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 180px), 1fr)); gap: 0.75rem; align-items: stretch;">
+<div class="metric-box">
+<span class="metric-box__label">01 · RADICACIÓN</span>
+<strong class="metric-box__value">Recepción oficial</strong>
+<span class="metric-box__note">Registro físico o digital y asignación de consecutivo.</span>
+</div>
+<div class="metric-box">
+<span class="metric-box__label">02 · TRIAJE</span>
+<strong class="metric-box__value">Clasificación de vía</strong>
+<span class="metric-box__note">Separación según necesidad: regla exacta, IA o juicio humano.</span>
+</div>
+<div class="metric-box">
+<span class="metric-box__label">03 · ELABORACIÓN</span>
+<strong class="metric-box__value">Cálculo y redacción</strong>
+<span class="metric-box__note">Comprobación de campos y borrador estructurado con CRTT.</span>
+</div>
+<div class="metric-box">
+<span class="metric-box__label">04 · APROBACIÓN</span>
+<strong class="metric-box__value">Firma responsable</strong>
+<span class="metric-box__note">Contraste con el expediente y firma indelegable del funcionario.</span>
+</div>
+</div>
+</div>
+</div>
+<details class="course-context secondary-theory" data-prediction-extension="" data-preserve-accordion="true">
+<summary>Si necesitas estimar un resultado futuro</summary>
+<div class="secondary-theory-content">
+<p>Un modelo predictivo aprende relaciones a partir de ejemplos. Necesita datos pertinentes, un resultado que se pueda evaluar y casos de prueba que no se hayan usado para ajustarlo.</p>
+<p><strong>En esta guía:</strong> no vas a entrenar un predictor. Los tres meses de gastos del libro sirven para describir ese periodo; no bastan para validar una estimación útil del futuro.</p>
+</div>
+</details>
+<!-- PASO 2: TRÍPTICO DEL SEMÁFORO DE PROTECCIÓN DE DATOS (LEY 1581 DE 2012) -->
+<section aria-labelledby="safety-triptych-title" class="data-safety-triptych-section">
+<div class="section-infographic-header">
+<span class="eyebrow">MARCO NORMATIVO INSTITUCIONAL · LEY 1581 DE 2012</span>
+<h3 id="safety-triptych-title">Semáforo de protección y reserva legal de datos</h3>
+<p>Antes de ingresar información en un asistente o chat institucional, clasifica cada dato y aplica su nivel de resguardo obligatorio.</p>
+</div>
+<div class="data-safety-triptych">
+<!-- Nivel Verde -->
+<article class="data-safety-card data-safety-card--green">
+<div class="data-safety-card__badge"><strong>Nivel 1 · Seguro</strong></div>
+<h4 class="data-safety-card__title">Público e institucional</h4>
+<p class="data-safety-card__includes">Leyes, directrices públicas, circulares, formatos de trámite y preguntas procedimentales generales.</p>
+<div class="data-safety-card__rule">
+<strong>Regla de uso:</strong> Comprueba que la fuente sea pública y carezca de anexos personales. Emplea solo el fragmento necesario en la herramienta autorizada.
+</div>
+<span class="data-safety-card__action">Acción permitida: Usar en el asistente</span>
+</article>
+<!-- Nivel Amarillo -->
+<article class="data-safety-card data-safety-card--amber">
+<div class="data-safety-card__badge"><strong>Nivel 2 · Enmascarar</strong></div>
+<h4 class="data-safety-card__title">Semiprivado y operativo</h4>
+<p class="data-safety-card__includes">Casos de aprendices o funcionarios que necesitas redactar sin revelar su identidad ni datos de contacto.</p>
+<div class="data-safety-card__rule">
+<strong>Regla de uso:</strong> Sustituye nombres por roles genéricos y elimina identificadores. Si el caso es real, confirma primero permisos de área.
+</div>
+<span class="data-safety-card__action">Acción requerida: Reducir y proteger</span>
+</article>
+<!-- Nivel Rojo -->
+<article class="data-safety-card data-safety-card--red">
+<div class="data-safety-card__badge"><strong>Nivel 3 · Prohibido</strong></div>
+<h4 class="data-safety-card__title">Sensible y reservado</h4>
+<p class="data-safety-card__includes">Cédulas, contraseñas, historias clínicas, datos de salud, menores de edad o cuentas bancarias.</p>
+<div class="data-safety-card__rule">
+<strong>Regla de uso:</strong> Prohibido cargar en asistentes de IA o chats externos. Trátalos exclusivamente en los sistemas oficiales autorizados por la entidad.
+</div>
+<span class="data-safety-card__action">Acción estricta: No cargar en la IA</span>
+</article>
+</div>
+</section>
+<!-- PASO 3: DELIMITACIÓN DEL PROBLEMA OBSERVABLE -->
+<section aria-labelledby="task-delimitation-title" class="task-delimitation-section">
+<div class="section-infographic-header">
+<span class="eyebrow">MÉTODO DE DELIMITACIÓN OPERATIVA</span>
+<h3 id="task-delimitation-title">Define el problema con una situación observable</h3>
+<p>Antes de encargar una tarea a la IA, recorre estos cuatro momentos para asegurar que el resultado sea concreto y verificable.</p>
+</div>
+<div class="task-stepper">
+<div class="task-step">
+<span class="task-step__num">01 · Entrada</span>
+<h4 class="task-step__title">¿Qué información recibes?</h4>
+<p class="task-step__desc">Identifica la fuente exacta, su procedencia y verifica que no contenga datos reservados.</p>
+</div>
+<div class="task-step">
+<span class="task-step__num">02 · Pasos</span>
+<h4 class="task-step__title">¿Qué operaciones se repiten?</h4>
+<p class="task-step__desc">Determina las comprobaciones repetitivas y señala los puntos donde aparecen dudas o vacíos.</p>
+</div>
+<div class="task-step">
+<span class="task-step__num">03 · Salida</span>
+<h4 class="task-step__title">¿Qué producto entregas?</h4>
+<p class="task-step__desc">Define la tabla, borrador o mensaje con estructura precisa que recibirá la siguiente persona.</p>
+</div>
+<div class="task-step">
+<span class="task-step__num">04 · Control</span>
+<h4 class="task-step__title">¿Cómo verificas la calidad?</h4>
+<p class="task-step__desc">Establece el criterio humano de comprobación para asegurar que el resultado es correcto y útil.</p>
+</div>
+</div>
+</section>
 <div class="comparative-cards-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); gap: 1rem; margin: 1rem 0;">
-<article class="comparative-card" style="background: white; border: 1px solid var(--line); border-radius: 8px; padding: 1rem;">
-<span class="badge-station" style="display: inline-block; margin-bottom: 0.5rem;">Delimitación de la tarea</span>
+<article class="comparative-card">
+<span class="badge-station badge-station--spaced">Delimitación de la tarea</span>
 <h4>Problema observable vs. formulación vaga</h4>
 <p><strong>Formulación vaga:</strong> «Mejorar los trámites con IA» es un propósito demasiado amplio para evaluar un cambio o medir resultados.</p>
 <p><strong>Problema observable:</strong> «Identificar los datos que faltan en una solicitud de sala y preparar un borrador para pedirlos» delimita una tarea concreta, un producto y una forma directa de revisarlo.</p>
 <p>Encarga al asistente identificar los datos faltantes y redactar el borrador; decide si el flujo te sirve según el volumen, la dificultad y el tiempo total de revisión.</p>
 </article>
 </div>
-<details class="course-context"><summary>Dos antecedentes para ampliar: Turing y Dartmouth</summary><p>En 1950, Alan Turing publicó un artículo sobre máquinas e inteligencia. El encuentro de Dartmouth de 1956 fue un hito temprano del campo. Estas referencias ayudan a situar su historia; para escoger una herramienta hoy, necesitas examinar la tarea y comprobar sus resultados.</p><p><a href="https://academic.oup.com/mind/article/LIX/236/433/986238" rel="noopener noreferrer" target="_blank">Artículo de Turing (1950)</a> · <a href="https://home.dartmouth.edu/about/artificial-intelligence-ai-coined-dartmouth" rel="noopener noreferrer" target="_blank">Historia del encuentro de Dartmouth (1956)</a></p></details>
-<p class="learning-timing" data-minutes="45">Recorrido inicial · 45 min: 10 min para describir entrada y salida; 10 min para comparar tipos de solución; 10 min para revisar los ejemplos y las dos preguntas de «Observa»; 15 min para proponer una tarea y definir qué medirías.</p>
-<div class="transfer-tip"><strong>Paso 5 · Aplicación inmediata en el Reto 1:</strong> En la pestaña <strong>Resuelve</strong>, convierte el lineamiento en una respuesta verificable estructurando tu instrucción con CRTT en el <strong>Reto 1</strong> (165 min).</div>
-<!-- PASO 6: MEDICIÓN DE LÍNEA BASE COMO PUENTE AL DIAGNÓSTICO LABORAL -->
 <div class="comparative-cards-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); gap: 1rem; margin: 1rem 0;">
-<article class="comparative-card" style="background: white; border: 1px solid var(--line); border-radius: 8px; padding: 1rem;">
-<span class="badge-station" style="display: inline-block; margin-bottom: 0.5rem;">Medición de partida</span>
+<article class="comparative-card">
+<span class="badge-station badge-station--spaced">Medición de partida</span>
 <h4>Componentes indispensables de tu línea base</h4>
 <p>La <strong>línea base</strong> es tu medida inicial de referencia: cuánto tarda la tarea antes de cambiar el método. Pide a la IA organizar solo las mediciones que consten:</p>
 <ul>
@@ -614,8 +772,45 @@ Límites: No prejuzgues la responsabilidad ni sugieras sanciones disciplinarias.
 <p>Usa tiempos previos observados si corresponden a la misma tarea; no repitas la tarea a mano solo para comparar.</p>
 </article>
 </div>
+<details class="course-context secondary-theory" data-preserve-accordion="true">
+<summary>Dos antecedentes para ampliar: Turing y Dartmouth</summary>
+<div class="secondary-theory-content">
+<p>En 1950, Alan Turing publicó un artículo sobre máquinas e inteligencia. El encuentro de Dartmouth de 1956 fue un hito temprano del campo. Estas referencias ayudan a situar su historia; para escoger una herramienta hoy, necesitas examinar la tarea y comprobar sus resultados.</p>
+<p><a href="https://academic.oup.com/mind/article/LIX/236/433/986238" rel="noopener noreferrer" target="_blank">Artículo de Turing (1950)</a> · <a href="https://home.dartmouth.edu/about/artificial-intelligence-ai-coined-dartmouth" rel="noopener noreferrer" target="_blank">Historia del encuentro de Dartmouth (1956)</a></p>
+</div>
+</details>
+<p class="learning-timing" data-minutes="45">Recorrido inicial · 45 min: 10 min para describir entrada y salida; 10 min para comparar tipos de solución; 10 min para revisar los ejemplos y las dos preguntas de «Observa»; 15 min para proponer una tarea y definir qué medirías.</p>
+<!-- PASO 4: ROADMAP DE CONEXIÓN PRÁCTICA HACIA LOS RETOS -->
+<div class="module-roadmap-connection">
+<div class="roadmap-connection-header">
+<span class="eyebrow">RUTA DE APLICACIÓN EN EL MÓDULO 01</span>
+<h3>Tu conexión práctica con los retos y el diagnóstico</h3>
+<p>Con estos fundamentos visuales, pasarás a la pestaña <strong>Observa</strong> para ensayar el simulador y los casos resueltos, y luego a <strong>Resuelve</strong> para ejecutar tus entregas.</p>
+</div>
+<div class="roadmap-cards-grid">
+<div class="roadmap-step-card">
+<span class="roadmap-step-tag">Reto 0 · 75 min</span>
+<h4>Semáforo de datos y privacidad</h4>
+<p>Clasifica las cinco tarjetas de práctica en verde, amarillo o rojo según la Ley 1581 de 2012 y genera versiones sin datos personales.</p>
+</div>
+<div class="roadmap-step-card">
+<span class="roadmap-step-tag">Reto 1 · 165 min</span>
+<h4>Instrucción estructurada CRTT</h4>
+<p>Aplica Contexto, Rol, Tarea y Tono con límites precisos para evaluar una solicitud urgente frente al lineamiento institucional.</p>
+</div>
+<div class="roadmap-step-card">
+<span class="roadmap-step-tag">Diagnóstico · 135 min</span>
+<h4>Medición de línea base</h4>
+<p>Delimita una tarea repetitiva de tu puesto de trabajo, define qué medirás y documenta tu evidencia inicial.</p>
+</div>
+</div>
+</div>
 <p data-transfer-task="">Aplica este encargo a una solicitud repetitiva de tu área con una fuente autorizada: pide el borrador y revisa los datos que necesita el trámite.</p>
-<section aria-labelledby="decision-sim-title" class="tool-lab decision-simulator" id="decision-simulator">
+</div></div><section aria-labelledby="m01-productivity-title" class="productivity-lesson" data-productivity-topic="seleccionar-la-tarea">
+<span class="eyebrow">ELIGE DÓNDE EMPEZAR</span><h3 id="m01-productivity-title">Busca una mejora que puedas comprobar</h3>
+<p>Mejorar productividad significa obtener un resultado útil con menos esfuerzo total o atender más trabajo con la calidad acordada. Producir más texto no basta. Antes de elegir una aplicación, compara <strong>frecuencia, facilidad de revisión y riesgo</strong>.</p>
+<p class="productivity-criterion" data-productivity-criterion="">Tu elección debe identificar un producto, un criterio de calidad y una razón para preferir una regla, IA o el método manual.</p>
+<details class="course-context"><summary>Ver el ejemplo y ampliar la explicación</summary><div class="productivity-illustrated"><figure data-productivity-visual=""><img alt="Tres preguntas para elegir una tarea: si se repite, si puedes comprobarla y si su riesgo permite una prueba pequeña" height="320" loading="lazy" src="media/productividad-elegir.svg" width="420"/><figcaption>Empieza por una tarea repetida, con fuente disponible y resultado comprobable. Si no puedes controlar el riesgo, consulta a la persona responsable antes de probarla.</figcaption></figure><div><div aria-label="Ejemplos para elegir una primera tarea con IA" class="table-scroll" role="region" tabindex="0"><table class="productivity-table"><thead><tr><th>Tarea de práctica</th><th>Decisión y razón</th></tr></thead><tbody><tr><td>Preparar borradores de solicitudes repetidas.</td><td>Puede ser candidata: la fuente permite contrastar petición y pendientes. Mide también la revisión.</td></tr><tr><td>Sumar una columna con una operación conocida.</td><td>Compara una fórmula o el método manual; un chat puede añadir trabajo sin aportar una ventaja.</td></tr><tr><td>Aprobar una solicitud o resolver una excepción.</td><td>La decisión corresponde a una persona autorizada. La IA puede organizar antecedentes para su revisión.</td></tr></tbody></table></div><p>Pide a la IA un diagnóstico de la solicitud de sala de práctica: producto, destinatario y criterio de calidad. Tú revisas la propuesta. Si el volumen o el tiempo no constan, quedan pendientes.</p></div></div><details class="productivity-recall" data-retrieval-check=""><summary>Sin mirar la tabla: ¿por qué una tarea frecuente puede seguir siendo una mala candidata?</summary><p>Porque la fuente puede ser insuficiente, la revisión puede costar más que el método actual o una decisión puede superar la autoridad de quien usa la herramienta. La frecuencia por sí sola no demuestra beneficio.</p></details></details></section></div><button class="button button-primary" data-next-phase="observa" type="button">Abrir la práctica del módulo <span aria-hidden="true">→</span></button><div class="phase-footer"><small>Paso 1 de 4 · Módulo 01</small><button class="button button-primary" data-next-phase="observa" type="button">Continuar: observa <span aria-hidden="true">→</span></button></div></div><div class="lesson-panel" data-panel="observa"><div class="panel-heading"><h2>Practica con un caso y comprueba tus decisiones.</h2><p>Consulta la fuente, prueba una respuesta y revisa qué debes corregir antes del reto.</p></div><section aria-labelledby="practice-m01-fundamentos-title" class="case-practice" data-case-id="m01-fundamentos" data-simulator="case-practice"><header class="case-header"><span class="eyebrow">PRÁCTICA CON FUENTES</span><h3 id="practice-m01-fundamentos-title">Revisa una solicitud urgente de sala</h3><p>Reconoce qué puedes preparar y qué debe confirmar Logística. Cada decisión debe apoyarse en la solicitud o en un apartado del lineamiento.</p><p>Esta práctica forma parte de la explicación del módulo. Puedes pasar al reto aunque tengas decisiones pendientes y volver a la práctica después.</p><p aria-live="polite" class="case-summary" data-case-summary="" role="status">Sin empezar</p></header><nav aria-label="Etapas de la práctica" class="case-stage-nav"><button aria-controls="practice-m01-fundamentos-0" data-case-go="0" type="button"><span aria-hidden="true">01</span> Consulta la fuente</button><button aria-controls="practice-m01-fundamentos-1" data-case-go="1" type="button"><span aria-hidden="true">02</span> Decide</button><button aria-controls="practice-m01-fundamentos-2" data-case-go="2" type="button"><span aria-hidden="true">03</span> Comprueba</button><button aria-controls="practice-m01-fundamentos-3" data-case-go="3" type="button"><span aria-hidden="true">04</span> Revisa tu resultado</button></nav><section aria-labelledby="practice-m01-fundamentos-0-title" data-case-stage="0" id="practice-m01-fundamentos-0"><h4 id="practice-m01-fundamentos-0-title" tabindex="-1">1. Consulta la fuente</h4><div data-case-source=""><p>Consulta los extractos conservados del archivo original. Los espacios y los campos vacíos también son parte de la fuente.</p><div class="case-source-links"><a download="" href="materiales/retos/reto-01-solicitud-urgente.csv">Descargar reto-01-solicitud-urgente.csv</a><a download="" href="materiales/retos/lineamiento-ficticio.csv">Descargar lineamiento-ficticio.csv</a></div><div class="case-sources"><article class="case-source-record"><h4>reto-01-solicitud-urgente.csv · fila 5</h4><dl><div><dt>Código</dt><dd><code>URG-01</code></dd></div><div><dt>Solicitud</dt><dd><code>Necesito una sala mañana para un taller de 18 personas. ¿Puedes aprobarla porque es urgente?</code></dd></div><div><dt>Fecha de referencia</dt><dd><code>No consta cuándo llegó el mensaje.</code></dd></div></dl></article><article class="case-source-record"><h4>lineamiento-ficticio.csv · fila 6</h4><dl><div><dt>Apartado</dt><dd><code>Solicitud</code></dd></div><div><dt>Texto de la guía</dt><dd><code>La persona solicitante informa actividad, sede, fecha, franja horaria y aforo. La ficha no pide datos personales de asistentes.</code></dd></div></dl></article><article class="case-source-record"><h4>lineamiento-ficticio.csv · fila 7</h4><dl><div><dt>Apartado</dt><dd><code>Anticipación</code></dd></div><div><dt>Texto de la guía</dt><dd><code>El ejercicio supone que las solicitudes se presentan con cinco días hábiles de anticipación.</code></dd></div></dl></article><article class="case-source-record"><h4>lineamiento-ficticio.csv · fila 8</h4><dl><div><dt>Apartado</dt><dd><code>Disponibilidad</code></dd></div><div><dt>Texto de la guía</dt><dd><code>La reserva depende de la disponibilidad confirmada por el equipo de logística.</code></dd></div></dl></article><article class="case-source-record"><h4>lineamiento-ficticio.csv · fila 9</h4><dl><div><dt>Apartado</dt><dd><code>Aprobación</code></dd></div><div><dt>Texto de la guía</dt><dd><code>La persona responsable de logística confirma o propone alternativas. La IA no aprueba reservas.</code></dd></div></dl></article><article class="case-source-record"><h4>lineamiento-ficticio.csv · fila 11</h4><dl><div><dt>Apartado</dt><dd><code>Urgencia</code></dd></div><div><dt>Texto de la guía</dt><dd><code>La ficha no define excepciones para solicitudes urgentes. Ese caso queda pendiente de decisión humana.</code></dd></div></dl></article></div></div></section><section aria-labelledby="practice-m01-fundamentos-1-title" data-case-stage="1" id="practice-m01-fundamentos-1"><h4 id="practice-m01-fundamentos-1-title" tabindex="-1">2. Decide</h4><form class="case-question" data-case-question="disponibles" data-state="pending" id="case-m01-fundamentos-disponibles"><fieldset><legend>¿Qué datos ya puedes conservar en el borrador?</legend><div class="case-inputs"><label class="check-option"><input aria-describedby="case-m01-fundamentos-disponibles-feedback" name="case-m01-fundamentos-disponibles" type="radio" value="0"/><span>Actividad: taller; aforo: 18 personas.</span></label><label class="check-option"><input aria-describedby="case-m01-fundamentos-disponibles-feedback" name="case-m01-fundamentos-disponibles" type="radio" value="1"/><span>Sede y horario confirmados.</span></label><label class="check-option"><input aria-describedby="case-m01-fundamentos-disponibles-feedback" name="case-m01-fundamentos-disponibles" type="radio" value="2"/><span>Fecha exacta y aprobación.</span></label></div></fieldset><div class="check-actions"><button class="button button-primary" data-case-submit="" type="button">Comprobar respuesta</button><button class="text-button" data-case-hint="" type="button">Consultar una pista</button></div><p aria-live="polite" data-case-feedback="" id="case-m01-fundamentos-disponibles-feedback" role="status">Elige una opción o completa el cálculo y comprueba tu respuesta.</p><p data-case-hint-text="" hidden="">Busca las dos cantidades o características que aparecen expresamente en la solicitud.</p></form><form class="case-question" data-case-question="pendientes" data-state="pending" id="case-m01-fundamentos-pendientes"><fieldset><legend>¿Qué debes pedir para completar los datos de la solicitud?</legend><div class="case-inputs"><label class="check-option"><input aria-describedby="case-m01-fundamentos-pendientes-feedback" name="case-m01-fundamentos-pendientes" type="radio" value="0"/><span>Nombres y cédulas de los asistentes.</span></label><label class="check-option"><input aria-describedby="case-m01-fundamentos-pendientes-feedback" name="case-m01-fundamentos-pendientes" type="radio" value="1"/><span>Sede, fecha de calendario y franja horaria.</span></label><label class="check-option"><input aria-describedby="case-m01-fundamentos-pendientes-feedback" name="case-m01-fundamentos-pendientes" type="radio" value="2"/><span>Solo el nombre del instructor.</span></label></div></fieldset><div class="check-actions"><button class="button button-primary" data-case-submit="" type="button">Comprobar respuesta</button><button class="text-button" data-case-hint="" type="button">Consultar una pista</button></div><p aria-live="polite" data-case-feedback="" id="case-m01-fundamentos-pendientes-feedback" role="status">Elige una opción o completa el cálculo y comprueba tu respuesta.</p><p data-case-hint-text="" hidden="">Compara los campos del apartado Solicitud con lo que dice URG-01.</p></form></section><section aria-labelledby="practice-m01-fundamentos-2-title" data-case-stage="2" id="practice-m01-fundamentos-2"><h4 id="practice-m01-fundamentos-2-title" tabindex="-1">3. Comprueba</h4><details class="case-tools"><summary>Explora el resultado con las herramientas del caso</summary><section aria-labelledby="decision-sim-title" class="tool-lab decision-simulator" id="decision-simulator">
 <div class="tool-lab-heading"><span class="eyebrow">SIMULADOR INTERACTIVO</span><h3 id="decision-sim-title">¿Qué herramienta necesitas?</h3><p>Responde a estas preguntas para saber si necesitas una Regla, IA Generativa, Revisión Humana o IA Predictiva.</p></div>
 <div class="tool-lab-fields decision-question"><p id="decision-question-text">¿La tarea requiere aprobar, autorizar, decidir sobre personas o confirmar datos que no están en la fuente?</p><div class="check-actions"><button class="button button-outline" data-decision="yes" type="button">Sí</button><button class="button button-outline" data-decision="no" type="button">No</button></div></div>
 <div class="prompt-output" hidden="" id="decision-result"><span class="tiny-label">RESULTADO</span><p aria-live="polite" id="decision-result-text"></p><button class="text-button" id="decision-reset" type="button">Volver a empezar</button></div>
@@ -626,18 +821,18 @@ Límites: No prejuzgues la responsabilidad ni sugieras sanciones disciplinarias.
 <p>Antes de entregar información a un asistente de IA, clasifica cada fragmento según su nivel de protección y observa la versión protegida para resguardar la identidad de las personas.</p>
 </div>
 <div class="tool-lab-fields">
-<div style="grid-column: 1 / -1;">
+<div class="field-span">
 <span class="tiny-label">FRAGMENTO RECIBIDO</span>
-<blockquote id="anon-case-text" style="margin: 0.5rem 0; padding: 1rem; background: var(--paper); border-left: 4px solid var(--green); border-radius: 4px; font-size: 0.92rem; font-weight: 500;"></blockquote>
-<div style="display: flex; gap: 0.5rem; flex-wrap: wrap; margin-top: 0.75rem;">
+<blockquote class="anon-case" id="anon-case-text"></blockquote>
+<div class="sim-choice-row">
 <button class="button button-outline" data-anon-choice="publico" type="button">Dato público</button>
 <button class="button button-outline" data-anon-choice="privado" type="button">Dato semiprivado/privado</button>
 <button class="button button-outline" data-anon-choice="sensible" type="button">Dato sensible (prohibido)</button>
 </div>
-<div class="safety-feedback-box" hidden="" id="anon-feedback" style="margin-top: 0.75rem;"></div>
+<div class="safety-feedback-box sim-feedback--spaced" hidden="" id="anon-feedback"></div>
 <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; margin-top: 1rem;">
-<span id="anon-score" style="font-size: 0.8rem; font-weight: 600; color: var(--muted);">Casos clasificados: 0 de 4</span>
-<div style="display: flex; gap: 0.5rem;">
+<span class="sim-score" id="anon-score">Casos clasificados: 0 de 4</span>
+<div class="sim-nav">
 <button class="text-button" id="anon-prev" type="button">Anterior</button>
 <button class="text-button" id="anon-next" type="button">Siguiente</button>
 </div>
@@ -648,108 +843,7 @@ Límites: No prejuzgues la responsabilidad ni sugieras sanciones disciplinarias.
 </div>
 </div>
 </div>
-</section><details class="reference-library"><summary>Consultar el esquema: Tres formas de resolver una tarea</summary><div aria-labelledby="triage-concept-title" class="native-diagram triage-concept-block" style="margin: 2rem 0; padding: 1.5rem; background: var(--paper); border: 1px solid var(--line); border-radius: var(--radius); box-shadow: var(--eco-shadow);">
-<div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 0.75rem; margin-bottom: 1.25rem; border-bottom: 2px solid var(--line); padding-bottom: 1rem;">
-<div>
-<span class="native-diagram__kicker" style="display: inline-block; margin-bottom: 0.35rem; font-size: 0.75rem; letter-spacing: 0.04em;">GESTIÓN DOCUMENTAL Y CORRESPONDENCIA ADMINISTRATIVA</span>
-<h3 id="triage-concept-title" style="margin: 0; font-size: 1.25rem; color: var(--green-dark);">Tres formas de resolver una tarea</h3>
-<p style="margin: 0.35rem 0 0 0; font-size: 0.88rem; color: var(--muted);">Separa lo que se resuelve con reglas exactas, lo que se redacta con IA asistida y lo que exige criterio humano exclusivo.</p>
-</div>
-<span class="quiet-badge" style="font-size: 0.75rem; background: var(--lime); color: var(--green-dark); font-weight: 700;">Ventanilla de Radicación (es-CO)</span>
-</div>
-<!-- Las Tres Vías de Triaje (Grid Responsivo de 3 Columnas) -->
-<div class="native-diagram__flow">
-<!-- Vía 1: Regla Determinista -->
-<article class="native-diagram__card native-diagram__card--rule" style="background: var(--surface); border: 1px solid #16a34a; border-radius: 12px; padding: 1.1rem; display: flex; flex-direction: column;">
-<div style="background: #f0fdf4; border: 1px solid #16a34a; border-radius: 6px; padding: 0.35rem 0.5rem; text-align: center; margin-bottom: 0.75rem;">
-<strong style="color: #15803d; font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.03em;">Vía 1 · Regla exacta</strong>
-</div>
-<h4 style="margin: 0 0 0.5rem 0; font-size: 0.98rem; color: var(--ink);">Cálculos, fechas y condiciones</h4>
-<div style="background: var(--paper); border: 1px solid var(--line); border-radius: 6px; padding: 0.4rem 0.6rem; font-size: 0.76rem; font-weight: 700; color: var(--green); text-align: center; margin-bottom: 0.85rem;">
-        Entrada → Regla Numérica → Salida Inmutable
-      </div>
-<ul style="margin: 0 0 1rem 0; padding-left: 1.1rem; font-size: 0.82rem; color: var(--muted); flex-grow: 1; display: grid; gap: 0.45rem;">
-<li><strong>Radicación oficial:</strong> consecutivo automático, fecha y hora.</li>
-<li><strong>Condiciones explícitas:</strong> detectar una fecha ausente según una regla escrita.</li>
-<li><strong>Requisitos de forma:</strong> alerta de folios faltantes o remitente anónimo.</li>
-<li><strong>Competencia funcional:</strong> enrutamiento según el manual de funciones.</li>
-</ul>
-<div class="native-diagram__example" style="background: #fcfdfa; border: 1px dashed #16a34a; border-radius: 8px; padding: 0.55rem; text-align: center; font-size: 0.78rem; color: #15803d; font-weight: 600;">
-        ★ Criterio: La misma entrada produce siempre la misma salida sin ambigüedad.
-      </div>
-</article>
-<!-- Vía 2: Asistencia con IA -->
-<article class="native-diagram__card native-diagram__card--ai" style="background: var(--surface); border: 1px solid #1d4ed8; border-radius: 12px; padding: 1.1rem; display: flex; flex-direction: column;">
-<div style="background: #eff6ff; border: 1px solid #1d4ed8; border-radius: 6px; padding: 0.35rem 0.5rem; text-align: center; margin-bottom: 0.75rem;">
-<strong style="color: #1d4ed8; font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.03em;">Vía 2 · Asistencia con IA</strong>
-</div>
-<h4 style="margin: 0 0 0.5rem 0; font-size: 0.98rem; color: var(--ink);">Comprensión y borrador institucional</h4>
-<div style="background: var(--paper); border: 1px solid var(--line); border-radius: 6px; padding: 0.4rem 0.6rem; font-size: 0.76rem; font-weight: 700; color: #1d4ed8; text-align: center; margin-bottom: 0.85rem;">
-        Petición Ciudadana → Modelo CRTT → Borrador
-      </div>
-<ul style="margin: 0 0 1rem 0; padding-left: 1.1rem; font-size: 0.82rem; color: var(--muted); flex-grow: 1; display: grid; gap: 0.45rem;">
-<li><strong>Extracción de hechos:</strong> separa lo que pide el usuario de lo que relata.</li>
-<li><strong>Instrucción con límites:</strong> Contexto, Rol, Tarea y Tono (CRTT); añade siempre la fuente y los límites.</li>
-<li><strong>Detección de vacíos:</strong> formula preguntas sobre datos ausentes sin inventar.</li>
-<li><strong>Lenguaje claro:</strong> redacción directa, cordial y accesible en español de Colombia.</li>
-</ul>
-<div class="native-diagram__example" style="background: #fcfdfa; border: 1px dashed #1d4ed8; border-radius: 8px; padding: 0.55rem; text-align: center; font-size: 0.78rem; color: #1d4ed8; font-weight: 600;">
-        ★ Criterio: La IA propone un borrador; no califica derechos ni envía comunicaciones.
-      </div>
-</article>
-<!-- Vía 3: Juicio Humano Exclusivo (HITL) -->
-<article class="native-diagram__card native-diagram__card--human" style="background: var(--surface); border: 1px solid #d97706; border-radius: 12px; padding: 1.1rem; display: flex; flex-direction: column;">
-<div style="background: #fffbeb; border: 1px solid #d97706; border-radius: 6px; padding: 0.35rem 0.5rem; text-align: center; margin-bottom: 0.75rem;">
-<strong style="color: #b45309; font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.03em;">Vía 3 · Decisión humana</strong>
-</div>
-<h4 style="margin: 0 0 0.5rem 0; font-size: 0.98rem; color: var(--ink);">Supervisión y decisión de fondo</h4>
-<div style="background: var(--paper); border: 1px solid var(--line); border-radius: 6px; padding: 0.4rem 0.6rem; font-size: 0.76rem; font-weight: 700; color: #b45309; text-align: center; margin-bottom: 0.85rem;">
-        Expediente Oficial → Contraste en Fuente → Firma
-      </div>
-<ul style="margin: 0 0 1rem 0; padding-left: 1.1rem; font-size: 0.82rem; color: var(--muted); flex-grow: 1; display: grid; gap: 0.45rem;">
-<li><strong>Contraste en fuentes:</strong> cotejo en carpetas físicas, libros radicadores y SOFIA.</li>
-<li><strong>Protección de datos (Ley 1581):</strong> reserva de salud, menores y cédulas.</li>
-<li><strong>Valoración de excepciones:</strong> urgencias, fuerza mayor y conflictos de área.</li>
-<li><strong>Firma y notificación:</strong> responsabilidad legal y ética del servidor público.</li>
-</ul>
-<div class="native-diagram__example" style="background: #fcfdfa; border: 1px dashed #d97706; border-radius: 8px; padding: 0.55rem; text-align: center; font-size: 0.78rem; color: #b45309; font-weight: 600;">
-        ★ Criterio: La firma y la decisión final corresponden a la persona autorizada.
-      </div>
-</article>
-</div>
-<!-- Ciclo Transversal de Trazabilidad en Ventanilla -->
-<div class="correspondence-cycle" style="background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 1.1rem;">
-<strong style="display: block; font-size: 0.85rem; color: var(--green-dark); text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 0.75rem;">
-      Ciclo de trazabilidad y atención en la ventanilla de correspondencia
-    </strong>
-<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 180px), 1fr)); gap: 0.75rem; align-items: stretch;">
-<div style="background: #f6f9f3; border: 1px solid var(--line); border-radius: 8px; padding: 0.75rem;">
-<span style="font-size: 0.72rem; font-weight: 700; color: var(--green); display: block;">01 · RADICACIÓN</span>
-<strong style="display: block; font-size: 0.86rem; color: var(--ink); margin: 0.2rem 0;">Recepción oficial</strong>
-<span style="font-size: 0.76rem; color: var(--muted);">Registro físico o digital y asignación de consecutivo.</span>
-</div>
-<div style="background: #f6f9f3; border: 1px solid var(--line); border-radius: 8px; padding: 0.75rem;">
-<span style="font-size: 0.72rem; font-weight: 700; color: var(--green); display: block;">02 · TRIAJE</span>
-<strong style="display: block; font-size: 0.86rem; color: var(--ink); margin: 0.2rem 0;">Clasificación de vía</strong>
-<span style="font-size: 0.76rem; color: var(--muted);">Separación según necesidad: regla exacta, IA o juicio humano.</span>
-</div>
-<div style="background: #f6f9f3; border: 1px solid var(--line); border-radius: 8px; padding: 0.75rem;">
-<span style="font-size: 0.72rem; font-weight: 700; color: var(--green); display: block;">03 · ELABORACIÓN</span>
-<strong style="display: block; font-size: 0.86rem; color: var(--ink); margin: 0.2rem 0;">Cálculo y redacción</strong>
-<span style="font-size: 0.76rem; color: var(--muted);">Comprobación de campos y borrador estructurado con CRTT.</span>
-</div>
-<div style="background: #f6f9f3; border: 1px solid var(--line); border-radius: 8px; padding: 0.75rem;">
-<span style="font-size: 0.72rem; font-weight: 700; color: var(--green); display: block;">04 · APROBACIÓN</span>
-<strong style="display: block; font-size: 0.86rem; color: var(--ink); margin: 0.2rem 0;">Firma responsable</strong>
-<span style="font-size: 0.76rem; color: var(--muted);">Contraste con el expediente y firma indelegable del funcionario.</span>
-</div>
-</div>
-</div>
-</div></details></div></div><section aria-labelledby="m01-productivity-title" class="productivity-lesson" data-productivity-topic="seleccionar-la-tarea">
-<span class="eyebrow">ELIGE DÓNDE EMPEZAR</span><h3 id="m01-productivity-title">Busca una mejora que puedas comprobar</h3>
-<p>Mejorar productividad significa obtener un resultado útil con menos esfuerzo total o atender más trabajo con la calidad acordada. Producir más texto no basta. Antes de elegir una aplicación, compara <strong>frecuencia, facilidad de revisión y riesgo</strong>.</p>
-<p class="productivity-criterion" data-productivity-criterion="">Tu elección debe identificar un producto, un criterio de calidad y una razón para preferir una regla, IA o el método manual.</p>
-<details class="course-context"><summary>Ver el ejemplo y ampliar la explicación</summary><div class="productivity-illustrated"><figure data-productivity-visual=""><img alt="Tres preguntas para elegir una tarea: si se repite, si puedes comprobarla y si su riesgo permite una prueba pequeña" height="320" loading="lazy" src="media/productividad-elegir.svg" width="420"/><figcaption>Empieza por una tarea repetida, con fuente disponible y resultado comprobable. Si no puedes controlar el riesgo, consulta a la persona responsable antes de probarla.</figcaption></figure><div><div aria-label="Ejemplos para elegir una primera tarea con IA" class="table-scroll" role="region" tabindex="0"><table class="productivity-table"><thead><tr><th>Tarea de práctica</th><th>Decisión y razón</th></tr></thead><tbody><tr><td>Preparar borradores de solicitudes repetidas.</td><td>Puede ser candidata: la fuente permite contrastar petición y pendientes. Mide también la revisión.</td></tr><tr><td>Sumar una columna con una operación conocida.</td><td>Compara una fórmula o el método manual; un chat puede añadir trabajo sin aportar una ventaja.</td></tr><tr><td>Aprobar una solicitud o resolver una excepción.</td><td>La decisión corresponde a una persona autorizada. La IA puede organizar antecedentes para su revisión.</td></tr></tbody></table></div><p>Pide a la IA un diagnóstico de la solicitud de sala de práctica: producto, destinatario y criterio de calidad. Tú revisas la propuesta. Si el volumen o el tiempo no constan, quedan pendientes.</p></div></div><details class="productivity-recall" data-retrieval-check=""><summary>Sin mirar la tabla: ¿por qué una tarea frecuente puede seguir siendo una mala candidata?</summary><p>Porque la fuente puede ser insuficiente, la revisión puede costar más que el método actual o una decisión puede superar la autoridad de quien usa la herramienta. La frecuencia por sí sola no demuestra beneficio.</p></details></details></section></div><button class="button button-primary" data-next-phase="observa" type="button">Abrir la práctica del módulo <span aria-hidden="true">→</span></button><div class="phase-footer"><small>Paso 1 de 4 · Módulo 01</small><button class="button button-primary" data-next-phase="observa" type="button">Continuar: observa <span aria-hidden="true">→</span></button></div></div><div class="lesson-panel" data-panel="observa"><div class="panel-heading"><h2>Practica con un caso y comprueba tus decisiones.</h2><p>Consulta la fuente, prueba una respuesta y revisa qué debes corregir antes del reto.</p></div><section aria-labelledby="practice-m01-fundamentos-title" class="case-practice" data-case-id="m01-fundamentos" data-simulator="case-practice"><header class="case-header"><span class="eyebrow">PRÁCTICA CON FUENTES</span><h3 id="practice-m01-fundamentos-title">Revisa una solicitud urgente de sala</h3><p>Reconoce qué puedes preparar y qué debe confirmar Logística. Cada decisión debe apoyarse en la solicitud o en un apartado del lineamiento.</p><p>Esta práctica forma parte de la explicación del módulo. Puedes pasar al reto aunque tengas decisiones pendientes y volver a la práctica después.</p><p aria-live="polite" class="case-summary" data-case-summary="" role="status">Sin empezar</p></header><nav aria-label="Etapas de la práctica" class="case-stage-nav"><button aria-controls="practice-m01-fundamentos-0" data-case-go="0" type="button"><span aria-hidden="true">01</span> Consulta la fuente</button><button aria-controls="practice-m01-fundamentos-1" data-case-go="1" type="button"><span aria-hidden="true">02</span> Decide</button><button aria-controls="practice-m01-fundamentos-2" data-case-go="2" type="button"><span aria-hidden="true">03</span> Comprueba</button><button aria-controls="practice-m01-fundamentos-3" data-case-go="3" type="button"><span aria-hidden="true">04</span> Revisa tu resultado</button></nav><section aria-labelledby="practice-m01-fundamentos-0-title" data-case-stage="0" id="practice-m01-fundamentos-0"><h4 id="practice-m01-fundamentos-0-title" tabindex="-1">1. Consulta la fuente</h4><div data-case-source=""><p>Consulta los extractos conservados del archivo original. Los espacios y los campos vacíos también son parte de la fuente.</p><div class="case-source-links"><a download="" href="materiales/retos/reto-01-solicitud-urgente.csv">Descargar reto-01-solicitud-urgente.csv</a><a download="" href="materiales/retos/lineamiento-ficticio.csv">Descargar lineamiento-ficticio.csv</a></div><div class="case-sources"><article class="case-source-record"><h4>reto-01-solicitud-urgente.csv · fila 5</h4><dl><div><dt>Código</dt><dd><code>URG-01</code></dd></div><div><dt>Solicitud</dt><dd><code>Necesito una sala mañana para un taller de 18 personas. ¿Puedes aprobarla porque es urgente?</code></dd></div><div><dt>Fecha de referencia</dt><dd><code>No consta cuándo llegó el mensaje.</code></dd></div></dl></article><article class="case-source-record"><h4>lineamiento-ficticio.csv · fila 6</h4><dl><div><dt>Apartado</dt><dd><code>Solicitud</code></dd></div><div><dt>Texto de la guía</dt><dd><code>La persona solicitante informa actividad, sede, fecha, franja horaria y aforo. La ficha no pide datos personales de asistentes.</code></dd></div></dl></article><article class="case-source-record"><h4>lineamiento-ficticio.csv · fila 7</h4><dl><div><dt>Apartado</dt><dd><code>Anticipación</code></dd></div><div><dt>Texto de la guía</dt><dd><code>El ejercicio supone que las solicitudes se presentan con cinco días hábiles de anticipación.</code></dd></div></dl></article><article class="case-source-record"><h4>lineamiento-ficticio.csv · fila 8</h4><dl><div><dt>Apartado</dt><dd><code>Disponibilidad</code></dd></div><div><dt>Texto de la guía</dt><dd><code>La reserva depende de la disponibilidad confirmada por el equipo de logística.</code></dd></div></dl></article><article class="case-source-record"><h4>lineamiento-ficticio.csv · fila 9</h4><dl><div><dt>Apartado</dt><dd><code>Aprobación</code></dd></div><div><dt>Texto de la guía</dt><dd><code>La persona responsable de logística confirma o propone alternativas. La IA no aprueba reservas.</code></dd></div></dl></article><article class="case-source-record"><h4>lineamiento-ficticio.csv · fila 11</h4><dl><div><dt>Apartado</dt><dd><code>Urgencia</code></dd></div><div><dt>Texto de la guía</dt><dd><code>La ficha no define excepciones para solicitudes urgentes. Ese caso queda pendiente de decisión humana.</code></dd></div></dl></article></div></div></section><section aria-labelledby="practice-m01-fundamentos-1-title" data-case-stage="1" id="practice-m01-fundamentos-1"><h4 id="practice-m01-fundamentos-1-title" tabindex="-1">2. Decide</h4><form class="case-question" data-case-question="disponibles" data-state="pending" id="case-m01-fundamentos-disponibles"><fieldset><legend>¿Qué datos ya puedes conservar en el borrador?</legend><div class="case-inputs"><label class="check-option"><input aria-describedby="case-m01-fundamentos-disponibles-feedback" name="case-m01-fundamentos-disponibles" type="radio" value="0"/><span>Actividad: taller; aforo: 18 personas.</span></label><label class="check-option"><input aria-describedby="case-m01-fundamentos-disponibles-feedback" name="case-m01-fundamentos-disponibles" type="radio" value="1"/><span>Sede y horario confirmados.</span></label><label class="check-option"><input aria-describedby="case-m01-fundamentos-disponibles-feedback" name="case-m01-fundamentos-disponibles" type="radio" value="2"/><span>Fecha exacta y aprobación.</span></label></div></fieldset><div class="check-actions"><button class="button button-primary" data-case-submit="" type="button">Comprobar respuesta</button><button class="text-button" data-case-hint="" type="button">Consultar una pista</button></div><p aria-live="polite" data-case-feedback="" id="case-m01-fundamentos-disponibles-feedback" role="status">Elige una opción o completa el cálculo y comprueba tu respuesta.</p><p data-case-hint-text="" hidden="">Busca las dos cantidades o características que aparecen expresamente en la solicitud.</p></form><form class="case-question" data-case-question="pendientes" data-state="pending" id="case-m01-fundamentos-pendientes"><fieldset><legend>¿Qué debes pedir para completar los datos de la solicitud?</legend><div class="case-inputs"><label class="check-option"><input aria-describedby="case-m01-fundamentos-pendientes-feedback" name="case-m01-fundamentos-pendientes" type="radio" value="0"/><span>Nombres y cédulas de los asistentes.</span></label><label class="check-option"><input aria-describedby="case-m01-fundamentos-pendientes-feedback" name="case-m01-fundamentos-pendientes" type="radio" value="1"/><span>Sede, fecha de calendario y franja horaria.</span></label><label class="check-option"><input aria-describedby="case-m01-fundamentos-pendientes-feedback" name="case-m01-fundamentos-pendientes" type="radio" value="2"/><span>Solo el nombre del instructor.</span></label></div></fieldset><div class="check-actions"><button class="button button-primary" data-case-submit="" type="button">Comprobar respuesta</button><button class="text-button" data-case-hint="" type="button">Consultar una pista</button></div><p aria-live="polite" data-case-feedback="" id="case-m01-fundamentos-pendientes-feedback" role="status">Elige una opción o completa el cálculo y comprueba tu respuesta.</p><p data-case-hint-text="" hidden="">Compara los campos del apartado Solicitud con lo que dice URG-01.</p></form></section><section aria-labelledby="practice-m01-fundamentos-2-title" data-case-stage="2" id="practice-m01-fundamentos-2"><h4 id="practice-m01-fundamentos-2-title" tabindex="-1">3. Comprueba</h4><form class="case-question" data-case-question="urgencia" data-state="pending" id="case-m01-fundamentos-urgencia"><fieldset><legend>El borrador dice: «Como es urgente, su reserva queda aprobada». ¿Cómo lo corriges?</legend><div class="case-inputs"><label class="check-option"><input aria-describedby="case-m01-fundamentos-urgencia-feedback" name="case-m01-fundamentos-urgencia" type="radio" value="0"/><span>Conservar la aprobación y agregar un saludo.</span></label><label class="check-option"><input aria-describedby="case-m01-fundamentos-urgencia-feedback" name="case-m01-fundamentos-urgencia" type="radio" value="1"/><span>Dar por cumplidos los cinco días de anticipación.</span></label><label class="check-option"><input aria-describedby="case-m01-fundamentos-urgencia-feedback" name="case-m01-fundamentos-urgencia" type="radio" value="2"/><span>Pedir los datos faltantes y dejar la disponibilidad y la urgencia para decisión humana.</span></label></div></fieldset><div class="check-actions"><button class="button button-primary" data-case-submit="" type="button">Comprobar respuesta</button><button class="text-button" data-case-hint="" type="button">Consultar una pista</button></div><p aria-live="polite" data-case-feedback="" id="case-m01-fundamentos-urgencia-feedback" role="status">Elige una opción o completa el cálculo y comprueba tu respuesta.</p><p data-case-hint-text="" hidden="">Una urgencia no equivale a una excepción prevista en la fuente.</p></form><form class="case-question" data-case-question="anticipacion" data-state="pending" id="case-m01-fundamentos-anticipacion"><fieldset><legend>¿Puedes afirmar que el pedido cumple la anticipación de cinco días hábiles?</legend><div class="case-inputs"><label class="check-option"><input aria-describedby="case-m01-fundamentos-anticipacion-feedback" name="case-m01-fundamentos-anticipacion" type="radio" value="0"/><span>Sí, porque dice mañana.</span></label><label class="check-option"><input aria-describedby="case-m01-fundamentos-anticipacion-feedback" name="case-m01-fundamentos-anticipacion" type="radio" value="1"/><span>No: faltan las fechas de referencia y de la actividad.</span></label><label class="check-option"><input aria-describedby="case-m01-fundamentos-anticipacion-feedback" name="case-m01-fundamentos-anticipacion" type="radio" value="2"/><span>Sí, si la IA lo escribe con seguridad.</span></label></div></fieldset><div class="check-actions"><button class="button button-primary" data-case-submit="" type="button">Comprobar respuesta</button><button class="text-button" data-case-hint="" type="button">Consultar una pista</button></div><p aria-live="polite" data-case-feedback="" id="case-m01-fundamentos-anticipacion-feedback" role="status">Elige una opción o completa el cálculo y comprueba tu respuesta.</p><p data-case-hint-text="" hidden="">Distingue la regla del dato necesario para aplicarla.</p></form></section><section aria-labelledby="practice-m01-fundamentos-3-title" data-case-stage="3" id="practice-m01-fundamentos-3"><h4 id="practice-m01-fundamentos-3-title" tabindex="-1">4. Revisa tu resultado</h4><form class="knowledge-check case-question" data-case-question="cierre-1" data-knowledge-check="" data-state="pending" id="check-m01-fundamentos-1"><p class="check-scenario">Necesitas señalar las solicitudes sin fecha, preparar una pregunta y confirmar la reserva.</p><fieldset><legend>1. ¿Cómo abordarías una solicitud de sala incompleta?</legend><label class="check-option"><input aria-describedby="check-m01-fundamentos-1-feedback" data-correct="false" data-feedback="La fecha ausente requiere confirmación. La aprobación corresponde a la persona responsable." name="check-m01-fundamentos-1" type="radio" value="0"><span>Dejar que la IA complete la fecha y apruebe la reserva.</span></input></label><label class="check-option"><input aria-describedby="check-m01-fundamentos-1-feedback" data-correct="true" data-feedback="Cada parte tiene un resultado distinto: detectar un vacío, redactar una pregunta y tomar una decisión autorizada." name="check-m01-fundamentos-1" type="radio" value="1"><span>Usar una regla para detectar el vacío, IA para el borrador y una persona para aprobar.</span></input></label><label class="check-option"><input aria-describedby="check-m01-fundamentos-1-feedback" data-correct="false" data-feedback="La urgencia no cambia por sí sola los requisitos del lineamiento ni concede una aprobación." name="check-m01-fundamentos-1" type="radio" value="2"><span>Aprobar cuando el mensaje diga que es urgente.</span></input></label></fieldset><div class="check-actions"><button class="button button-primary" data-case-submit="" data-check-submit="" type="button">Comprobar respuesta</button><button class="text-button" type="reset">Volver a intentar</button></div><p aria-atomic="true" aria-live="polite" class="check-feedback" data-case-feedback="" data-check-feedback="" id="check-m01-fundamentos-1-feedback" role="status">Elige una opción y comprueba tu respuesta.</p><details class="check-explanation" data-case-help="cierre-1"><summary>Consultar la explicación</summary><p>Escoge la herramienta por la operación que necesitas. Una regla detecta condiciones explícitas; la IA prepara texto; la persona responsable confirma y autoriza.</p></details></form><form class="knowledge-check case-question" data-case-question="cierre-2" data-knowledge-check="" data-state="pending" id="check-m01-fundamentos-2"><p class="check-scenario">La tarjeta B incluye nombre e identificación de una persona que consulta por cupo.</p><fieldset><legend>2. ¿Qué conservarías para identificar el tipo de petición?</legend><label class="check-option"><input aria-describedby="check-m01-fundamentos-2-feedback" data-correct="false" data-feedback="La identificación todavía permite reconocer a la persona y no aporta a identificar el tipo de consulta." name="check-m01-fundamentos-2" type="radio" value="0"><span>La identificación, porque ya retiré el nombre.</span></input></label><label class="check-option"><input aria-describedby="check-m01-fundamentos-2-feedback" data-correct="false" data-feedback="El contexto útil depende de la tarea. Nombre e identificación no son necesarios para reconocer una consulta por cupo." name="check-m01-fundamentos-2" type="radio" value="1"><span>Todos los datos para que la IA tenga más contexto.</span></input></label><label class="check-option"><input aria-describedby="check-m01-fundamentos-2-feedback" data-correct="true" data-feedback="Ese fragmento conserva el tipo de petición y excluye datos que no se necesitan para esta tarea." name="check-m01-fundamentos-2" type="radio" value="2"><span>«Una persona consulta por cupo».</span></input></label></fieldset><div class="check-actions"><button class="button button-primary" data-case-submit="" data-check-submit="" type="button">Comprobar respuesta</button><button class="text-button" type="reset">Volver a intentar</button></div><p aria-atomic="true" aria-live="polite" class="check-feedback" data-case-feedback="" data-check-feedback="" id="check-m01-fundamentos-2-feedback" role="status">Elige una opción y comprueba tu respuesta.</p><details class="check-explanation" data-case-help="cierre-2"><summary>Consultar la explicación</summary><p>Define primero qué necesitas obtener. Reduce la fuente a los datos necesarios y revisa si alguna combinación todavía permite identificar a una persona.</p></details></form><details class="case-solution" data-case-solution=""><summary>Consultar la solución explicada</summary><p>Consultar esta ayuda queda registrado; la práctica se comprueba con tus respuestas.</p><div class="worked-example" data-ai-cycle="" data-urgent-example=""><h4>Una solicitud urgente: qué permite afirmar la fuente</h4>
+</section></details><form class="case-question" data-case-question="urgencia" data-state="pending" id="case-m01-fundamentos-urgencia"><fieldset><legend>El borrador dice: «Como es urgente, su reserva queda aprobada». ¿Cómo lo corriges?</legend><div class="case-inputs"><label class="check-option"><input aria-describedby="case-m01-fundamentos-urgencia-feedback" name="case-m01-fundamentos-urgencia" type="radio" value="0"/><span>Conservar la aprobación y agregar un saludo.</span></label><label class="check-option"><input aria-describedby="case-m01-fundamentos-urgencia-feedback" name="case-m01-fundamentos-urgencia" type="radio" value="1"/><span>Dar por cumplidos los cinco días de anticipación.</span></label><label class="check-option"><input aria-describedby="case-m01-fundamentos-urgencia-feedback" name="case-m01-fundamentos-urgencia" type="radio" value="2"/><span>Pedir los datos faltantes y dejar la disponibilidad y la urgencia para decisión humana.</span></label></div></fieldset><div class="check-actions"><button class="button button-primary" data-case-submit="" type="button">Comprobar respuesta</button><button class="text-button" data-case-hint="" type="button">Consultar una pista</button></div><p aria-live="polite" data-case-feedback="" id="case-m01-fundamentos-urgencia-feedback" role="status">Elige una opción o completa el cálculo y comprueba tu respuesta.</p><p data-case-hint-text="" hidden="">Una urgencia no equivale a una excepción prevista en la fuente.</p></form><form class="case-question" data-case-question="anticipacion" data-state="pending" id="case-m01-fundamentos-anticipacion"><fieldset><legend>¿Puedes afirmar que el pedido cumple la anticipación de cinco días hábiles?</legend><div class="case-inputs"><label class="check-option"><input aria-describedby="case-m01-fundamentos-anticipacion-feedback" name="case-m01-fundamentos-anticipacion" type="radio" value="0"/><span>Sí, porque dice mañana.</span></label><label class="check-option"><input aria-describedby="case-m01-fundamentos-anticipacion-feedback" name="case-m01-fundamentos-anticipacion" type="radio" value="1"/><span>No: faltan las fechas de referencia y de la actividad.</span></label><label class="check-option"><input aria-describedby="case-m01-fundamentos-anticipacion-feedback" name="case-m01-fundamentos-anticipacion" type="radio" value="2"/><span>Sí, si la IA lo escribe con seguridad.</span></label></div></fieldset><div class="check-actions"><button class="button button-primary" data-case-submit="" type="button">Comprobar respuesta</button><button class="text-button" data-case-hint="" type="button">Consultar una pista</button></div><p aria-live="polite" data-case-feedback="" id="case-m01-fundamentos-anticipacion-feedback" role="status">Elige una opción o completa el cálculo y comprueba tu respuesta.</p><p data-case-hint-text="" hidden="">Distingue la regla del dato necesario para aplicarla.</p></form></section><section aria-labelledby="practice-m01-fundamentos-3-title" data-case-stage="3" id="practice-m01-fundamentos-3"><h4 id="practice-m01-fundamentos-3-title" tabindex="-1">4. Revisa tu resultado</h4><form class="knowledge-check case-question" data-case-question="cierre-1" data-knowledge-check="" data-state="pending" id="check-m01-fundamentos-1"><p class="check-scenario">Necesitas señalar las solicitudes sin fecha, preparar una pregunta y confirmar la reserva.</p><fieldset><legend>1. ¿Cómo abordarías una solicitud de sala incompleta?</legend><label class="check-option"><input aria-describedby="check-m01-fundamentos-1-feedback" data-correct="false" data-feedback="La fecha ausente requiere confirmación. La aprobación corresponde a la persona responsable." name="check-m01-fundamentos-1" type="radio" value="0"><span>Dejar que la IA complete la fecha y apruebe la reserva.</span></input></label><label class="check-option"><input aria-describedby="check-m01-fundamentos-1-feedback" data-correct="true" data-feedback="Cada parte tiene un resultado distinto: detectar un vacío, redactar una pregunta y tomar una decisión autorizada." name="check-m01-fundamentos-1" type="radio" value="1"><span>Usar una regla para detectar el vacío, IA para el borrador y una persona para aprobar.</span></input></label><label class="check-option"><input aria-describedby="check-m01-fundamentos-1-feedback" data-correct="false" data-feedback="La urgencia no cambia por sí sola los requisitos del lineamiento ni concede una aprobación." name="check-m01-fundamentos-1" type="radio" value="2"><span>Aprobar cuando el mensaje diga que es urgente.</span></input></label></fieldset><div class="check-actions"><button class="button button-primary" data-case-submit="" data-check-submit="" type="button">Comprobar respuesta</button><button class="text-button" type="reset">Volver a intentar</button></div><p aria-atomic="true" aria-live="polite" class="check-feedback" data-case-feedback="" data-check-feedback="" id="check-m01-fundamentos-1-feedback" role="status">Elige una opción y comprueba tu respuesta.</p><details class="check-explanation" data-case-help="cierre-1"><summary>Consultar la explicación</summary><p>Escoge la herramienta por la operación que necesitas. Una regla detecta condiciones explícitas; la IA prepara texto; la persona responsable confirma y autoriza.</p></details></form><form class="knowledge-check case-question" data-case-question="cierre-2" data-knowledge-check="" data-state="pending" id="check-m01-fundamentos-2"><p class="check-scenario">La tarjeta B incluye nombre e identificación de una persona que consulta por cupo.</p><fieldset><legend>2. ¿Qué conservarías para identificar el tipo de petición?</legend><label class="check-option"><input aria-describedby="check-m01-fundamentos-2-feedback" data-correct="false" data-feedback="La identificación todavía permite reconocer a la persona y no aporta a identificar el tipo de consulta." name="check-m01-fundamentos-2" type="radio" value="0"><span>La identificación, porque ya retiré el nombre.</span></input></label><label class="check-option"><input aria-describedby="check-m01-fundamentos-2-feedback" data-correct="false" data-feedback="El contexto útil depende de la tarea. Nombre e identificación no son necesarios para reconocer una consulta por cupo." name="check-m01-fundamentos-2" type="radio" value="1"><span>Todos los datos para que la IA tenga más contexto.</span></input></label><label class="check-option"><input aria-describedby="check-m01-fundamentos-2-feedback" data-correct="true" data-feedback="Ese fragmento conserva el tipo de petición y excluye datos que no se necesitan para esta tarea." name="check-m01-fundamentos-2" type="radio" value="2"><span>«Una persona consulta por cupo».</span></input></label></fieldset><div class="check-actions"><button class="button button-primary" data-case-submit="" data-check-submit="" type="button">Comprobar respuesta</button><button class="text-button" type="reset">Volver a intentar</button></div><p aria-atomic="true" aria-live="polite" class="check-feedback" data-case-feedback="" data-check-feedback="" id="check-m01-fundamentos-2-feedback" role="status">Elige una opción y comprueba tu respuesta.</p><details class="check-explanation" data-case-help="cierre-2"><summary>Consultar la explicación</summary><p>Define primero qué necesitas obtener. Reduce la fuente a los datos necesarios y revisa si alguna combinación todavía permite identificar a una persona.</p></details></form><details class="case-solution" data-case-solution=""><summary>Consultar la solución explicada</summary><p>Consultar esta ayuda queda registrado; la práctica se comprueba con tus respuestas.</p><div class="worked-example" data-ai-cycle="" data-urgent-example=""><h4>Una solicitud urgente: qué permite afirmar la fuente</h4>
 <p data-ai-source="" data-step="1"><span class="worked-step-label">Paso 1 · Consulta la fuente</span><strong>Mensaje de ejemplo:</strong> «Necesito una sala mañana para un taller de 18 personas. ¿Puedes aprobarla porque es urgente?». Ya sabes reconocer los datos ausentes; ahora revisa si la urgencia cambia el procedimiento.</p><p data-ai-instruction="" data-step="2"><span class="worked-step-label">Paso 2 · Encarga el producto</span>Instrucción para la IA: Usa solo el Lineamiento ficticio y el mensaje de solicitud urgente. Identifica datos disponibles y pendientes, cita el apartado que respalda cada respuesta y prepara el mensaje para pedir lo que falta. No apruebes la reserva.</p>
 <p class="example-reason">Por qué se decide así: «mañana» no identifica una fecha sin referencia. La urgencia tampoco sustituye la confirmación que exige el lineamiento. Por eso el borrador pregunta por lo que falta y deja la reserva pendiente.</p><div aria-label="Revisión de una solicitud urgente contra el lineamiento" class="table-scroll" tabindex="0"><table data-ai-response="" data-step="3"><caption class="worked-step-label">Paso 3 · Lee el resultado</caption><thead><tr><th>Aspecto</th><th>Conclusión de la revisión</th><th>Apartado fuente</th></tr></thead><tbody>
 <tr><td>Datos de la solicitud</td><td>Constan actividad y aforo. Faltan sede, fecha de calendario y franja horaria; «mañana» necesita una fecha de referencia.</td><td>Solicitud</td></tr>
@@ -760,19 +854,7 @@ Límites: No prejuzgues la responsabilidad ni sugieras sanciones disciplinarias.
 </tbody></table></div>
 <p><strong>Borrador:</strong> «Para revisar la solicitud, indícanos la sede, la fecha y el horario. Logística debe confirmar la disponibilidad y decidir cómo atender la urgencia, pues el lineamiento de práctica no establece una excepción».</p>
 <p data-ai-review="" data-step="4"><span class="worked-step-label">Paso 4 · Comprueba antes de usar</span>La tabla organiza la consulta y permite rastrear cada conclusión. El borrador pide lo que falta sin convertir una urgencia en una aprobación.</p>
-</div></details></section><footer class="case-footer"><button data-case-print="" type="button">Imprimir esta práctica</button> <button data-case-reset="" type="button">Reiniciar esta práctica</button><p aria-live="polite" data-case-save-status="" role="status">Activa JavaScript para guardar tus respuestas. La fuente y la solución se pueden leer sin activarlo.</p></footer><script data-case-spec="" type="application/json">{"revision": "cbfb0687193f6f95", "title": "Revisa una solicitud urgente de sala", "intro": "Reconoce qué puedes preparar y qué debe confirmar Logística. Cada decisión debe apoyarse en la solicitud o en un apartado del lineamiento.", "sources": [{"file": "reto-01-solicitud-urgente.csv", "rows": [5]}, {"file": "lineamiento-ficticio.csv", "rows": [6, 7, 8, 9, 11]}], "questions": [{"id": "disponibles", "stage": 1, "prompt": "¿Qué datos ya puedes conservar en el borrador?", "options": [["0", "Actividad: taller; aforo: 18 personas."], ["1", "Sede y horario confirmados."], ["2", "Fecha exacta y aprobación."]], "expected": "0", "explanation": "El mensaje indica un taller para 18 personas. No identifica sede ni horario.", "reference": "Solicitud URG-01, fila 5.", "hint": "Busca las dos cantidades o características que aparecen expresamente en la solicitud.", "hints": ["Orientación: Identifica las dos características expresamente confirmadas en el mensaje inicial.", "Dónde buscar: Revisa el texto del mensaje URG-01 en reto-01-solicitud-urgente.csv, fila 5.", "Clave para resolver: Conserva el tipo de actividad y el número de asistentes; descarta fechas y sedes que no constan."], "type": "choice"}, {"id": "pendientes", "stage": 1, "prompt": "¿Qué debes pedir para completar los datos de la solicitud?", "options": [["0", "Nombres y cédulas de los asistentes."], ["1", "Sede, fecha de calendario y franja horaria."], ["2", "Solo el nombre del instructor."]], "expected": "1", "explanation": "«Mañana» necesita una fecha de referencia. El lineamiento pide sede, fecha y franja; no pide datos personales de los asistentes.", "reference": "Lineamiento, apartado Solicitud; URG-01.", "hint": "Compara los campos del apartado Solicitud con lo que dice URG-01.", "hints": ["Orientación: Compara los campos mínimos exigidos para una reserva con los datos que llegaron en URG-01.", "Dónde buscar: Consulta el apartado Solicitud en lineamiento-ficticio.csv frente al mensaje URG-01.", "Clave para resolver: Se requieren sede, fecha exacta de calendario y franja horaria; no se piden datos personales."], "type": "choice"}, {"id": "urgencia", "stage": 2, "prompt": "El borrador dice: «Como es urgente, su reserva queda aprobada». ¿Cómo lo corriges?", "options": [["0", "Conservar la aprobación y agregar un saludo."], ["1", "Dar por cumplidos los cinco días de anticipación."], ["2", "Pedir los datos faltantes y dejar la disponibilidad y la urgencia para decisión humana."]], "expected": "2", "explanation": "El lineamiento no define excepciones por urgencia. La persona responsable de Logística confirma la disponibilidad o propone alternativas.", "reference": "Lineamiento, apartados Disponibilidad, Aprobación y Urgencia.", "hint": "Una urgencia no equivale a una excepción prevista en la fuente.", "hints": ["Orientación: Evalúa si la urgencia del usuario permite omitir la verificación de disponibilidad física.", "Dónde buscar: Revisa los apartados Aprobación y Urgencia en el lineamiento de salas.", "Clave para resolver: La urgencia amerita atención rápida, pero la reserva queda pendiente de verificación humana."], "type": "choice"}, {"id": "anticipacion", "stage": 2, "prompt": "¿Puedes afirmar que el pedido cumple la anticipación de cinco días hábiles?", "options": [["0", "Sí, porque dice mañana."], ["1", "No: faltan las fechas de referencia y de la actividad."], ["2", "Sí, si la IA lo escribe con seguridad."]], "expected": "1", "explanation": "El plazo figura en el lineamiento, pero no puedes comprobarlo sin fechas exactas. Debe quedar pendiente.", "reference": "Lineamiento, Anticipación; URG-01, Fecha de referencia.", "hint": "Distingue la regla del dato necesario para aplicarla.", "hints": ["Orientación: Distingue la regla reglamentaria del dato fáctico requerido para verificar su cumplimiento.", "Dónde buscar: Comprueba la columna Fecha de referencia en la fila 5 de URG-01.", "Clave para resolver: Sin fecha de recepción del mensaje, no puedes calcular si se cumplen los cinco días de anticipación."], "type": "choice"}, {"id": "cierre-1", "stage": 3, "type": "choice", "prompt": "1. ¿Cómo abordarías una solicitud de sala incompleta?", "expected": "1", "options": [["0", "Dejar que la IA complete la fecha y apruebe la reserva."], ["1", "Usar una regla para detectar el vacío, IA para el borrador y una persona para aprobar."], ["2", "Aprobar cuando el mensaje diga que es urgente."]], "feedbacks": {"0": "La fecha ausente requiere confirmación. La aprobación corresponde a la persona responsable.", "1": "Cada parte tiene un resultado distinto: detectar un vacío, redactar una pregunta y tomar una decisión autorizada.", "2": "La urgencia no cambia por sí sola los requisitos del lineamiento ni concede una aprobación."}, "explanation": "Escoge la herramienta por la operación que necesitas. Una regla detecta condiciones explícitas; la IA prepara texto; la persona responsable confirma y autoriza.", "reference": "Fuentes del caso y explicación del módulo.", "hint": "Vuelve al extracto y distingue lo disponible de lo pendiente.", "hints": ["Orientación: Distingue los datos respaldados por el extracto de los que siguen pendientes.", "Dónde buscar: Vuelve al extracto original en la primera pestaña de esta práctica.", "Clave para resolver: Contrasta cada opción directamente con los campos de la fila fuente."]}, {"id": "cierre-2", "stage": 3, "type": "choice", "prompt": "2. ¿Qué conservarías para identificar el tipo de petición?", "expected": "2", "options": [["0", "La identificación, porque ya retiré el nombre."], ["1", "Todos los datos para que la IA tenga más contexto."], ["2", "«Una persona consulta por cupo»."]], "feedbacks": {"0": "La identificación todavía permite reconocer a la persona y no aporta a identificar el tipo de consulta.", "1": "El contexto útil depende de la tarea. Nombre e identificación no son necesarios para reconocer una consulta por cupo.", "2": "Ese fragmento conserva el tipo de petición y excluye datos que no se necesitan para esta tarea."}, "explanation": "Define primero qué necesitas obtener. Reduce la fuente a los datos necesarios y revisa si alguna combinación todavía permite identificar a una persona.", "reference": "Fuentes del caso y explicación del módulo.", "hint": "Vuelve al extracto y distingue lo disponible de lo pendiente.", "hints": ["Orientación: Distingue los datos respaldados por el extracto de los que siguen pendientes.", "Dónde buscar: Vuelve al extracto original en la primera pestaña de esta práctica.", "Clave para resolver: Contrasta cada opción directamente con los campos de la fila fuente."]}], "id": "m01-fundamentos", "version": 1}</script></section><div class="worked-example"><h4>Semáforo de datos en oficina (Habeas Data · Ley 1581 de 2012)</h4>
-<p>Antes de interactuar con Copilot en Outlook Web, Gemini o cualquier asistente, clasifica la información según este semáforo:</p>
-<div aria-label="Semáforo de datos para protección de la información" class="table-scroll" tabindex="0">
-<table>
-<thead><tr><th>Nivel</th><th>Tipo de información</th><th>Regla de uso</th></tr></thead>
-<tbody>
-<tr><td><strong>Verde · Seguro</strong></td><td>Leyes, directrices públicas, plantillas de correo y preguntas procedimentales generales.</td><td>Comprueba que la fuente sea pública y que no incluya anexos personales o reservados; utiliza solo la parte necesaria en la herramienta permitida.</td></tr>
-<tr><td><strong>Amarillo · Enmascarar</strong></td><td>Casos de aprendices o funcionarios que necesitas redactar sin revelar su identidad.</td><td>En el curso, usa el caso preparado. Para un caso real, consulta primero permisos y procedimiento; cambiar nombres por marcadores no elimina todo riesgo de identificación.</td></tr>
-<tr><td><strong>Rojo · Prohibido</strong></td><td>Cédulas, contraseñas, datos de salud, historias clínicas, menores de edad o cuentas bancarias.</td><td>Nunca cargues esa información a un chat web ni a un asistente de IA. Trátala solo en los sistemas oficiales que tu entidad autorice para ese dato.</td></tr>
-</tbody>
-</table>
-</div>
-</div><div class="worked-example" data-crtt-primer=""><h4>Cómo se arma una instrucción CRTT</h4>
+</div></details></section><footer class="case-footer"><button data-case-print="" type="button">Imprimir esta práctica</button> <button data-case-reset="" type="button">Reiniciar esta práctica</button><p aria-live="polite" data-case-save-status="" role="status">Activa JavaScript para guardar tus respuestas. La fuente y la solución se pueden leer sin activarlo.</p></footer><script data-case-spec="" type="application/json">{"revision": "cbfb0687193f6f95", "title": "Revisa una solicitud urgente de sala", "intro": "Reconoce qué puedes preparar y qué debe confirmar Logística. Cada decisión debe apoyarse en la solicitud o en un apartado del lineamiento.", "sources": [{"file": "reto-01-solicitud-urgente.csv", "rows": [5]}, {"file": "lineamiento-ficticio.csv", "rows": [6, 7, 8, 9, 11]}], "questions": [{"id": "disponibles", "stage": 1, "prompt": "¿Qué datos ya puedes conservar en el borrador?", "options": [["0", "Actividad: taller; aforo: 18 personas."], ["1", "Sede y horario confirmados."], ["2", "Fecha exacta y aprobación."]], "expected": "0", "explanation": "El mensaje indica un taller para 18 personas. No identifica sede ni horario.", "reference": "Solicitud URG-01, fila 5.", "hint": "Busca las dos cantidades o características que aparecen expresamente en la solicitud.", "hints": ["Orientación: Identifica las dos características expresamente confirmadas en el mensaje inicial.", "Dónde buscar: Revisa el texto del mensaje URG-01 en reto-01-solicitud-urgente.csv, fila 5.", "Clave para resolver: Conserva el tipo de actividad y el número de asistentes; descarta fechas y sedes que no constan."], "type": "choice"}, {"id": "pendientes", "stage": 1, "prompt": "¿Qué debes pedir para completar los datos de la solicitud?", "options": [["0", "Nombres y cédulas de los asistentes."], ["1", "Sede, fecha de calendario y franja horaria."], ["2", "Solo el nombre del instructor."]], "expected": "1", "explanation": "«Mañana» necesita una fecha de referencia. El lineamiento pide sede, fecha y franja; no pide datos personales de los asistentes.", "reference": "Lineamiento, apartado Solicitud; URG-01.", "hint": "Compara los campos del apartado Solicitud con lo que dice URG-01.", "hints": ["Orientación: Compara los campos mínimos exigidos para una reserva con los datos que llegaron en URG-01.", "Dónde buscar: Consulta el apartado Solicitud en lineamiento-ficticio.csv frente al mensaje URG-01.", "Clave para resolver: Se requieren sede, fecha exacta de calendario y franja horaria; no se piden datos personales."], "type": "choice"}, {"id": "urgencia", "stage": 2, "prompt": "El borrador dice: «Como es urgente, su reserva queda aprobada». ¿Cómo lo corriges?", "options": [["0", "Conservar la aprobación y agregar un saludo."], ["1", "Dar por cumplidos los cinco días de anticipación."], ["2", "Pedir los datos faltantes y dejar la disponibilidad y la urgencia para decisión humana."]], "expected": "2", "explanation": "El lineamiento no define excepciones por urgencia. La persona responsable de Logística confirma la disponibilidad o propone alternativas.", "reference": "Lineamiento, apartados Disponibilidad, Aprobación y Urgencia.", "hint": "Una urgencia no equivale a una excepción prevista en la fuente.", "hints": ["Orientación: Evalúa si la urgencia del usuario permite omitir la verificación de disponibilidad física.", "Dónde buscar: Revisa los apartados Aprobación y Urgencia en el lineamiento de salas.", "Clave para resolver: La urgencia amerita atención rápida, pero la reserva queda pendiente de verificación humana."], "type": "choice"}, {"id": "anticipacion", "stage": 2, "prompt": "¿Puedes afirmar que el pedido cumple la anticipación de cinco días hábiles?", "options": [["0", "Sí, porque dice mañana."], ["1", "No: faltan las fechas de referencia y de la actividad."], ["2", "Sí, si la IA lo escribe con seguridad."]], "expected": "1", "explanation": "El plazo figura en el lineamiento, pero no puedes comprobarlo sin fechas exactas. Debe quedar pendiente.", "reference": "Lineamiento, Anticipación; URG-01, Fecha de referencia.", "hint": "Distingue la regla del dato necesario para aplicarla.", "hints": ["Orientación: Distingue la regla reglamentaria del dato fáctico requerido para verificar su cumplimiento.", "Dónde buscar: Comprueba la columna Fecha de referencia en la fila 5 de URG-01.", "Clave para resolver: Sin fecha de recepción del mensaje, no puedes calcular si se cumplen los cinco días de anticipación."], "type": "choice"}, {"id": "cierre-1", "stage": 3, "type": "choice", "prompt": "1. ¿Cómo abordarías una solicitud de sala incompleta?", "expected": "1", "options": [["0", "Dejar que la IA complete la fecha y apruebe la reserva."], ["1", "Usar una regla para detectar el vacío, IA para el borrador y una persona para aprobar."], ["2", "Aprobar cuando el mensaje diga que es urgente."]], "feedbacks": {"0": "La fecha ausente requiere confirmación. La aprobación corresponde a la persona responsable.", "1": "Cada parte tiene un resultado distinto: detectar un vacío, redactar una pregunta y tomar una decisión autorizada.", "2": "La urgencia no cambia por sí sola los requisitos del lineamiento ni concede una aprobación."}, "explanation": "Escoge la herramienta por la operación que necesitas. Una regla detecta condiciones explícitas; la IA prepara texto; la persona responsable confirma y autoriza.", "reference": "Fuentes del caso y explicación del módulo.", "hint": "Vuelve al extracto y distingue lo disponible de lo pendiente.", "hints": ["Orientación: Distingue los datos respaldados por el extracto de los que siguen pendientes.", "Dónde buscar: Vuelve al extracto original en la primera pestaña de esta práctica.", "Clave para resolver: Contrasta cada opción directamente con los campos de la fila fuente."]}, {"id": "cierre-2", "stage": 3, "type": "choice", "prompt": "2. ¿Qué conservarías para identificar el tipo de petición?", "expected": "2", "options": [["0", "La identificación, porque ya retiré el nombre."], ["1", "Todos los datos para que la IA tenga más contexto."], ["2", "«Una persona consulta por cupo»."]], "feedbacks": {"0": "La identificación todavía permite reconocer a la persona y no aporta a identificar el tipo de consulta.", "1": "El contexto útil depende de la tarea. Nombre e identificación no son necesarios para reconocer una consulta por cupo.", "2": "Ese fragmento conserva el tipo de petición y excluye datos que no se necesitan para esta tarea."}, "explanation": "Define primero qué necesitas obtener. Reduce la fuente a los datos necesarios y revisa si alguna combinación todavía permite identificar a una persona.", "reference": "Fuentes del caso y explicación del módulo.", "hint": "Vuelve al extracto y distingue lo disponible de lo pendiente.", "hints": ["Orientación: Distingue los datos respaldados por el extracto de los que siguen pendientes.", "Dónde buscar: Vuelve al extracto original en la primera pestaña de esta práctica.", "Clave para resolver: Contrasta cada opción directamente con los campos de la fila fuente."]}], "id": "m01-fundamentos", "version": 1}</script></section><div class="worked-example" data-crtt-primer=""><h4>Cómo se arma una instrucción CRTT</h4>
 <p>CRTT ordena lo que le pides a la IA en cuatro partes: <strong>Contexto</strong>, <strong>Rol</strong>, <strong>Tarea</strong> y <strong>Tono</strong>. A esas cuatro partes siempre se suman la fuente que debe usar, los límites, el formato de salida y cómo vas a revisar el resultado.</p>
 <div aria-label="Partes de una instrucción CRTT con un ejemplo para la solicitud urgente" class="table-scroll" tabindex="0"><table><thead><tr><th scope="col">Parte</th><th scope="col">Pregunta que responde</th><th scope="col">Ejemplo para la solicitud urgente</th></tr></thead><tbody>
 <tr><th scope="row">Contexto</th><td>¿Qué situación y qué fuente hay?</td><td>Una persona pide una sala para mañana; el lineamiento de práctica tiene ocho apartados.</td></tr>
@@ -1026,9 +1108,30 @@ Guarda resultado-MG-A01.html en la carpeta resultados/. Antes de terminar, compr
 <div class="brief-product"><span aria-hidden="true">↳</span><div><strong>Al terminar, tendrás</strong><p>Dos borradores y una instrucción probada por la IA con PC-01, PC-02 y PC-03.</p></div></div><aside class="brief-review"><strong>Una comprobación concreta</strong><p>Un comentario de otra persona sigue siendo una afirmación pendiente de comprobar. Conserva los borradores para revisión.</p></aside><a href="#metodo-comun">Consultar cómo trabajar y guardar el resultado →</a></section><div class="module-explanation"><div class="module-reading"><section aria-labelledby="m02-diseno-goal-title" class="learning-start"><h3 id="m02-diseno-goal-title">Tu meta</h3><p data-learning-goal="">Al terminar, podrás pedir borradores con fuentes y probar una instrucción reutilizable sin redactarla desde cero.</p><details class="term-guide"><summary>Conceptos que usarás · con ejemplos</summary><dl class="learning-terms"><div><dt>Petición</dt><dd>Lo que la persona necesita que se atienda o confirme.</dd></div><div><dt>Afirmación</dt><dd>Lo que alguien dice. Su presencia en un mensaje no confirma que haya ocurrido.</dd></div><div><dt>Pendiente</dt><dd>Dato o decisión que debe comprobarse con la fuente o el área responsable.</dd></div><div><dt>CRTT</dt><dd>Contexto, Rol, Tarea y Tono: cuatro partes para ordenar el encargo. Añade fuente, límites, formato y criterio de revisión.</dd></div></dl></details></section>
 <div class="prerequisite"><div><strong>Antes de empezar · Asistente de IA y fuente</strong>
 <p>Encarga el procesamiento y el borrador; comprueba los datos y pide los ajustes en el mismo chat.</p></div><a data-open-tool="chat" href="#preparacion">Repasar la herramienta ↗</a></div><span class="phase-label">Aprende y ensaya · 60 min</span><div class="learning-block"><p data-ai-mini-example=""><strong>Ejemplo:</strong> PC-01 relata un aviso sobre un cambio de salón; todavía hace falta confirmación.</p>
-<figure style="margin: 1.5rem auto; max-width: 760px;">
-<img alt="Servidora pública atendiendo a una ciudadana en una ventanilla de atención, con el computador y archivadores al fondo" loading="lazy" src="media/m02_concept.jpg" style="width:100%; border-radius: 12px; display: block; box-shadow: 0 4px 18px rgba(0,0,0,0.06);"/>
-<figcaption style="margin-top: 8px; font-size: 0.82rem; color: var(--muted); text-align: center;">Atención de solicitudes ciudadanas: estructuración de instrucciones CRTT para responder con respeto, claridad y apego a la ley.</figcaption>
+<figure aria-label="Recorrido de una solicitud ciudadana hasta una respuesta revisada" class="native-diagram native-diagram--ventanilla" data-diagram-visible="true">
+<div class="native-diagram__header"><span class="native-diagram__kicker">ATENCIÓN DE SOLICITUDES · MÓDULO 02</span><h3 class="native-diagram__title">De la solicitud a una respuesta que puedes revisar</h3><p class="native-diagram__desc">Una persona escribe a la entidad. El asistente ayuda a ordenar y redactar; tú compruebas contra la fuente y decides qué se envía.</p></div>
+<div class="native-diagram__flow">
+<article class="native-diagram__card native-diagram__card--human">
+<div class="native-diagram__card-head"><span class="native-diagram__step-num">1</span><span class="badge-station">Recibes</span></div>
+<h4>La solicitud llega</h4>
+<p>Una petición, queja, reclamo o sugerencia con su código, por ejemplo PC-01.</p>
+</article>
+<article class="native-diagram__card native-diagram__card--rule">
+<div class="native-diagram__card-head"><span class="native-diagram__step-num">2</span><span class="badge-station">Delimitas</span></div>
+<h4>Solo la fuente</h4>
+<p>Copias el texto del caso y señalas qué pide la persona y qué afirma.</p>
+</article>
+<article class="native-diagram__card native-diagram__card--ai">
+<div class="native-diagram__card-head"><span class="native-diagram__step-num">3</span><span class="badge-station">Encargas</span></div>
+<h4>Instrucción CRTT</h4>
+<p>El asistente entrega una tabla de pendientes y luego un borrador cortés.</p>
+</article>
+<article class="native-diagram__card native-diagram__card--danger">
+<div class="native-diagram__card-head"><span class="native-diagram__step-num">4</span><span class="badge-station">Revisas</span></div>
+<h4>Tú decides</h4>
+<p>Contrastas con la fuente, completas lo que falta y apruebas el envío.</p>
+</article>
+</div>
 </figure>
 <h3>Lee la solicitud antes de redactar la respuesta</h3>
 <p>Las peticiones, quejas, reclamos y sugerencias (PQRS) pueden reunir preguntas, opiniones y referencias a mensajes anteriores. Distingue qué pide la persona, qué afirma y qué puedes comprobar con el material disponible. «La persona dice que cambió el salón» no equivale a «el salón cambió».</p>
@@ -1143,26 +1246,26 @@ Has formulado y probado una plantilla CRTT reutilizable en casos individuales. E
 <p>Contrasta este borrador con la fuente de PC-01 en «Observa» y revisa los cuatro criterios. Esta lista es un ensayo guiado; en el Reto 2 debes obtener y revisar tus propios dos borradores.</p>
 </div>
 <div class="tool-lab-fields">
-<div style="grid-column: 1 / -1;">
-<div style="background: var(--paper); border: 1px solid var(--line); border-radius: 8px; padding: 1rem; margin-bottom: 1rem;">
+<div class="field-span">
+<div class="draft-box">
 <span class="tiny-label">BORRADOR EN EVALUACIÓN (CASO PC-01)</span>
-<p style="margin: 0.5rem 0 0 0; font-size: 0.88rem; color: var(--ink);">«Recibimos su consulta sobre el salón y el horario. Para verificarla, necesitamos la fecha de la actividad y el enlace que consultó. Los datos vigentes quedan por confirmar con el área responsable».</p>
+<p class="draft-box__text">«Recibimos su consulta sobre el salón y el horario. Para verificarla, necesitamos la fecha de la actividad y el enlace que consultó. Los datos vigentes quedan por confirmar con el área responsable».</p>
 </div>
-<div style="display: grid; gap: 0.75rem;">
-<label class="check-option" data-pqrs-criterion="cortesia" style="display: flex; gap: 0.5rem; align-items: flex-start; cursor: pointer;">
-<input style="width: auto; margin-top: 3px;" type="checkbox">
+<div class="check-list">
+<label class="check-option check-option--row" data-pqrs-criterion="cortesia">
+<input class="check-option__input" type="checkbox">
 <div><strong>1. Tratamiento institucional cortés:</strong> Saludo formal, tono respetuoso y lenguaje claro.</div>
 </input></label>
-<label class="check-option" data-pqrs-criterion="sin_invenciones" style="display: flex; gap: 0.5rem; align-items: flex-start; cursor: pointer;">
-<input style="width: auto; margin-top: 3px;" type="checkbox">
+<label class="check-option check-option--row" data-pqrs-criterion="sin_invenciones">
+<input class="check-option__input" type="checkbox">
 <div><strong>2. Cero datos inventados:</strong> No inventa horas, fechas, enlaces ni gestiones realizadas que no consten en el mensaje.</div>
 </input></label>
-<label class="check-option" data-pqrs-criterion="trazabilidad" style="display: flex; gap: 0.5rem; align-items: flex-start; cursor: pointer;">
-<input style="width: auto; margin-top: 3px;" type="checkbox">
+<label class="check-option check-option--row" data-pqrs-criterion="trazabilidad">
+<input class="check-option__input" type="checkbox">
 <div><strong>3. Trazabilidad y datos pendientes:</strong> Aclara qué información se necesita y qué queda por confirmar con el área responsable.</div>
 </input></label>
-<label class="check-option" data-pqrs-criterion="decision_humana" style="display: flex; gap: 0.5rem; align-items: flex-start; cursor: pointer;">
-<input style="width: auto; margin-top: 3px;" type="checkbox">
+<label class="check-option check-option--row" data-pqrs-criterion="decision_humana">
+<input class="check-option__input" type="checkbox">
 <div><strong>4. Reserva de la decisión humana:</strong> No aprueba el trámite por su cuenta; remite al área responsable.</div>
 </input></label>
 </div>
@@ -1407,7 +1510,7 @@ Guarda resultado-MG-A02.html en la carpeta resultados/. Antes de terminar, compr
 <h3>Encarga una transformación que puedas comprobar</h3>
 <div class="processing-intro">
 <p><strong>Cada tarea necesita una comprobación distinta.</strong> Conserva la fuente y pide referencias que permitan volver al mensaje, al minuto de la reunión o a la fila original:</p>
-<ul style="margin: 0.6rem 0 1rem 1.25rem; font-size: 0.9rem; line-height: 1.6; color: var(--ink);">
+<ul class="lesson-list">
 <li><strong>Bandeja de correos (Reto 4):</strong> clasifica según impacto colectivo y plazos explícitos; prepara borradores sin enviar comunicaciones.</li>
 <li><strong>Acta de reunión (Reto 5):</strong> extrae compromisos asociando cada punto al minuto exacto de la transcripción; nunca conviertas una propuesta en acuerdo firme.</li>
 <li><strong>Planillas de datos (Reto 6):</strong> aplica reglas reproducibles en una columna nueva calculada, manteniendo la columna original como respaldo intacto.</li>
@@ -1551,18 +1654,18 @@ Después de revisar las transformaciones y probar el diseño del flujo, comproba
 <p>Ensaya las reglas sobre cinco de los 30 registros de datos-sofia.csv. La muestra conserva las filas 5, 6, 7, 16 y 23, incluidas ambas ocurrencias de SIM-0012. Solo cambia «Estado revisado»; los demás campos permanecen intactos. Esta práctica local no demuestra el procesamiento del archivo completo ni la ejecución con IA del Reto 6.</p>
 </div>
 <div class="tool-lab-fields">
-<div style="grid-column: 1 / -1;">
-<div style="display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 1rem;">
-<label class="check-option" data-clean-rule="trim_spaces" style="display: flex; gap: 0.4rem; align-items: center; cursor: pointer;">
-<input style="width: auto;" type="checkbox">
+<div class="field-span">
+<div class="rule-options">
+<label class="check-option check-option--inline" data-clean-rule="trim_spaces">
+<input class="check-option__input--plain" type="checkbox">
 <span>1. Quitar espacios iniciales y finales (TRIM)</span>
 </input></label>
-<label class="check-option" data-clean-rule="uppercase_states" style="display: flex; gap: 0.4rem; align-items: center; cursor: pointer;">
-<input style="width: auto;" type="checkbox">
+<label class="check-option check-option--inline" data-clean-rule="uppercase_states">
+<input class="check-option__input--plain" type="checkbox">
 <span>2. Convertir estados a MAYÚSCULAS</span>
 </input></label>
-<label class="check-option" data-clean-rule="flag_empty_review" style="display: flex; gap: 0.4rem; align-items: center; cursor: pointer;">
-<input style="width: auto;" type="checkbox">
+<label class="check-option check-option--inline" data-clean-rule="flag_empty_review">
+<input class="check-option__input--plain" type="checkbox">
 <span>3. Marcar celdas vacías como REVISAR</span>
 </input></label>
 </div>
@@ -1580,8 +1683,8 @@ Después de revisar las transformaciones y probar el diseño del flujo, comproba
 </tbody>
 </table>
 </div>
-<div style="display: flex; justify-content: space-between; align-items: center; margin-top: 0.75rem;">
-<span id="data-cleaner-count" style="font-size: 0.82rem; font-weight: 600; color: var(--green-dark);">Estados transformados en la muestra: 0 de 5</span>
+<div class="sim-footer--tight">
+<span class="sim-count" id="data-cleaner-count">Estados transformados en la muestra: 0 de 5</span>
 </div>
 <div class="sim-dual-actions">
 <button class="button button-secondary" data-cleaner-copy="" type="button">Copiar texto</button>

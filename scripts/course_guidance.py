@@ -123,11 +123,15 @@ def guided_intro(ident, full_content):
             quick.insert_before(example.extract())
         quick.decompose()
     for details in content.select('.learning-block > details.course-context'):
+        if details.has_attr('data-preserve-accordion') or 'secondary-theory' in details.get('class', []):
+            continue
         summary = details.find('summary', recursive=False)
         if summary:
             summary.decompose()
         details.unwrap()
     for diagram in content.select('.learning-block .native-diagram'):
+        if diagram.get('data-diagram-visible') == 'true' or diagram.has_attr('data-diagram-visible'):
+            continue
         title = diagram.select_one('h3, h4')
         reference = content.new_tag('details', attrs={'class': 'reference-library'})
         summary = content.new_tag('summary')
@@ -136,6 +140,8 @@ def guided_intro(ident, full_content):
         block = diagram.find_parent(class_='learning-block')
         reference.append(diagram.extract())
         block.append(reference)
+    for node in content.select('#decision-simulator, #anonymization-simulator'):
+        node.decompose()
     productivity = content.select_one('.productivity-lesson')
     productivity_html = str(productivity.extract()) if productivity else ''
     return f'''<section class="module-brief" aria-labelledby="{ident}-brief-title"><div class="brief-lead"><span class="eyebrow">EMPIEZA AQUÍ</span><h2 id="{ident}-brief-title">{escape(data["question"])}</h2><p>{escape(data["essential"])}</p></div><ol class="module-concept-map" aria-label="Decisiones de este módulo">{concepts}</ol>{visual}<div class="brief-product"><span aria-hidden="true">↳</span><div><strong>Al terminar, tendrás</strong><p>{escape(data["product"])}</p></div></div><aside class="brief-review"><strong>Una comprobación concreta</strong><p>{escape(data["review"])}</p></aside><a href="#metodo-comun">Consultar cómo trabajar y guardar el resultado →</a></section><div class="module-explanation"><div class="module-reading">{content}</div>{productivity_html}</div><button type="button" class="button button-primary" data-next-phase="observa">Abrir la práctica del módulo <span aria-hidden="true">→</span></button>'''

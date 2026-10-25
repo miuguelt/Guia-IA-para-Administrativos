@@ -4008,3 +4008,377 @@ body[data-learning-mode="autonomo"] #course-nav [data-module-link="preparacion"]
 @media (max-width: 850px) {
   body.navigation-ready:not(.menu-animated) .course-sidebar { transition: none; }
 }
+
+/* ==========================================================================
+   Infografía nativa Módulo 01: Semáforo de Datos, Stepper y Roadmap
+   ========================================================================== */
+
+/* Encabezados de sección infográfica */
+.section-infographic-header {
+  margin: 2.25rem 0 1.25rem;
+  inline-size: 100%;
+}
+.section-infographic-header .eyebrow {
+  display: block;
+  font-size: 0.8rem;
+  font-weight: 750;
+  letter-spacing: 0.08em;
+  color: var(--green);
+  text-transform: uppercase;
+  margin-bottom: 0.35rem;
+}
+.section-infographic-header h3 {
+  margin: 0 0 0.45rem;
+  font-size: 1.25rem;
+  color: var(--green-dark);
+}
+.section-infographic-header p {
+  margin: 0;
+  font-size: 0.88rem;
+  color: var(--muted);
+  line-height: var(--line-height-reading, 1.6);
+  inline-size: 100%;
+  overflow-wrap: break-word;
+}
+
+/* Tríptico del Semáforo de Protección de Datos (Ley 1581) */
+.data-safety-triptych-section {
+  margin: 1.75rem 0 2rem;
+  inline-size: 100%;
+}
+.data-safety-triptych {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr));
+  gap: 1.15rem;
+  margin-top: 1rem;
+}
+.data-safety-card {
+  background: var(--surface);
+  border-radius: 14px;
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 2px 10px rgba(21, 62, 56, 0.05);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+  min-inline-size: 0;
+}
+.data-safety-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(21, 62, 56, 0.08);
+}
+.data-safety-card--green {
+  border: 1px solid #16a34a;
+}
+.data-safety-card--amber {
+  border: 1px solid #d97706;
+}
+.data-safety-card--red {
+  border: 1px solid #dc2626;
+}
+
+.data-safety-card__badge {
+  border-radius: 6px;
+  padding: 0.4rem 0.6rem;
+  text-align: center;
+  margin-bottom: 0.85rem;
+}
+.data-safety-card--green .data-safety-card__badge {
+  background: #f0fdf4;
+  border: 1px solid #16a34a;
+  color: #15803d;
+}
+.data-safety-card--amber .data-safety-card__badge {
+  background: #fffbeb;
+  border: 1px solid #d97706;
+  color: #b45309;
+}
+.data-safety-card--red .data-safety-card__badge {
+  background: #fef2f2;
+  border: 1px solid #dc2626;
+  color: #b91c1c;
+}
+.data-safety-card__badge strong {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  font-weight: 750;
+}
+
+.data-safety-card__title {
+  margin: 0 0 0.5rem;
+  font-size: 1rem;
+  color: var(--ink);
+  line-height: 1.35;
+}
+.data-safety-card__includes {
+  font-size: 0.84rem;
+  color: var(--muted);
+  line-height: 1.5;
+  margin: 0 0 1rem;
+  flex-grow: 1;
+}
+.data-safety-card__rule {
+  font-size: 0.8rem;
+  line-height: 1.5;
+  border-radius: 8px;
+  padding: 0.65rem;
+  border: 1px dashed;
+  margin-bottom: 0.75rem;
+}
+.data-safety-card--green .data-safety-card__rule {
+  background: #fcfdfa;
+  border-color: #16a34a;
+  color: #166534;
+}
+.data-safety-card--amber .data-safety-card__rule {
+  background: #fffdf7;
+  border-color: #d97706;
+  color: #92400e;
+}
+.data-safety-card--red .data-safety-card__rule {
+  background: #fff8f8;
+  border-color: #dc2626;
+  color: #991b1b;
+}
+
+.data-safety-card__action {
+  font-size: 0.8rem;
+  font-weight: 700;
+  display: block;
+}
+.data-safety-card--green .data-safety-card__action {
+  color: #15803d;
+}
+.data-safety-card--amber .data-safety-card__action {
+  color: #b45309;
+}
+.data-safety-card--red .data-safety-card__action {
+  color: #b91c1c;
+}
+
+/* Stepper de Delimitación de Tarea */
+.task-delimitation-section {
+  margin: 2rem 0;
+  inline-size: 100%;
+}
+.task-stepper {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr));
+  gap: 0.85rem;
+  margin: 1.15rem 0 1.5rem;
+}
+.task-step {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 1.1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  box-shadow: 0 2px 8px rgba(21, 62, 56, 0.04);
+  transition: border-color 0.15s ease, transform 0.15s ease;
+  min-inline-size: 0;
+}
+.task-step:hover {
+  border-color: var(--green);
+  transform: translateY(-2px);
+}
+.task-step__num {
+  font-size: 0.8rem;
+  font-weight: 750;
+  letter-spacing: 0.06em;
+  color: var(--green);
+  text-transform: uppercase;
+}
+.task-step__title {
+  margin: 0;
+  font-size: 0.94rem;
+  color: var(--ink);
+  line-height: 1.35;
+}
+.task-step__desc {
+  margin: 0;
+  font-size: 0.82rem;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+/* Acordeones discretos de teoría secundaria */
+details.secondary-theory {
+  margin: 1.25rem 0;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: var(--surface);
+  inline-size: 100%;
+  overflow: clip;
+}
+details.secondary-theory > summary {
+  padding: 0.85rem 1.1rem;
+  font-size: 0.86rem;
+  font-weight: 650;
+  color: var(--green-dark);
+  cursor: pointer;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: background-color 0.15s ease;
+}
+details.secondary-theory > summary::-webkit-details-marker {
+  display: none;
+}
+details.secondary-theory > summary::after {
+  content: "+";
+  font-size: 1.25rem;
+  color: var(--green);
+  line-height: 1;
+}
+details.secondary-theory[open] > summary {
+  border-bottom: 1px solid var(--line);
+  background: #f4f8f1;
+}
+details.secondary-theory[open] > summary::after {
+  content: "−";
+}
+.secondary-theory-content {
+  padding: 1.1rem;
+  font-size: 0.84rem;
+  color: var(--muted);
+  line-height: var(--line-height-reading, 1.6);
+  inline-size: 100%;
+}
+.secondary-theory-content p {
+  margin: 0 0 0.65rem;
+}
+.secondary-theory-content p:last-child {
+  margin-bottom: 0;
+}
+
+/* Roadmap de Conexión Práctica hacia los Retos */
+.module-roadmap-connection {
+  margin: 2.25rem 0 1.5rem;
+  padding: 1.35rem;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-left: 4px solid var(--green);
+  border-radius: 14px;
+  box-shadow: 0 4px 14px rgba(21, 62, 56, 0.04);
+  inline-size: 100%;
+}
+.roadmap-connection-header .eyebrow {
+  display: block;
+  font-size: 0.8rem;
+  font-weight: 750;
+  letter-spacing: 0.08em;
+  color: var(--green);
+  text-transform: uppercase;
+  margin-bottom: 0.35rem;
+}
+.roadmap-connection-header h3 {
+  margin: 0 0 0.35rem;
+  font-size: 1.18rem;
+  color: var(--green-dark);
+}
+.roadmap-connection-header p {
+  margin: 0 0 1.1rem;
+  font-size: 0.86rem;
+  color: var(--muted);
+  line-height: var(--line-height-reading, 1.6);
+}
+.roadmap-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 210px), 1fr));
+  gap: 0.85rem;
+}
+.roadmap-step-card {
+  background: var(--paper, #f7f9f4);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 0.95rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  min-inline-size: 0;
+  transition: border-color 0.15s ease, transform 0.15s ease;
+}
+.roadmap-step-card:hover {
+  border-color: var(--green);
+  transform: translateY(-2px);
+}
+.roadmap-step-tag {
+  font-size: 0.8rem;
+  font-weight: 750;
+  color: var(--green);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+.roadmap-step-card h4 {
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--ink);
+  line-height: 1.35;
+}
+.roadmap-step-card p {
+  margin: 0;
+  font-size: 0.8rem;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+/* ==========================================================================
+   Estilos movidos desde atributos style (M01 y M02): diagramas nativos y simuladores
+   ========================================================================== */
+.triage-concept-block { margin: 2rem 0; padding: 1.5rem; background: var(--paper); border: 1px solid var(--line); border-radius: var(--radius); box-shadow: var(--eco-shadow); }
+.native-diagram__top { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 0.75rem; margin-bottom: 1.25rem; border-bottom: 2px solid var(--line); padding-bottom: 1rem; }
+.native-diagram__kicker--tight { display: inline-block; margin-bottom: 0.35rem; font-size: 0.8rem; letter-spacing: 0.04em; }
+.native-diagram__heading { margin: 0; font-size: 1.25rem; color: var(--green-dark); }
+.native-diagram__lead { margin: 0.35rem 0 0 0; font-size: 0.88rem; color: var(--muted); }
+.native-diagram__pill { font-size: 0.8rem; background: var(--lime); color: var(--green-dark); font-weight: 700; }
+.triage-card--green { background: var(--surface); border: 1px solid #16a34a; border-radius: 12px; padding: 1.1rem; display: flex; flex-direction: column; }
+.triage-card__tag--green { background: #f0fdf4; border: 1px solid #16a34a; border-radius: 6px; padding: 0.35rem 0.5rem; text-align: center; margin-bottom: 0.75rem; }
+.triage-card__tag-label--green { color: #15803d; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.03em; }
+.comparative-card__title { margin: 0 0 0.5rem 0; font-size: 0.98rem; color: var(--ink); }
+.triage-card__chip--green { background: var(--paper); border: 1px solid var(--line); border-radius: 6px; padding: 0.4rem 0.6rem; font-size: 0.8rem; font-weight: 700; color: var(--green); text-align: center; margin-bottom: 0.85rem; }
+.comparative-card__list { margin: 0 0 1rem 0; padding-left: 1.1rem; font-size: 0.82rem; color: var(--muted); flex-grow: 1; display: grid; gap: 0.45rem; }
+.triage-card__outcome--green { background: #fcfdfa; border: 1px dashed #16a34a; border-radius: 8px; padding: 0.55rem; text-align: center; font-size: 0.8rem; color: #15803d; font-weight: 600; }
+.triage-card--blue { background: var(--surface); border: 1px solid #1d4ed8; border-radius: 12px; padding: 1.1rem; display: flex; flex-direction: column; }
+.triage-card__tag--blue { background: #eff6ff; border: 1px solid #1d4ed8; border-radius: 6px; padding: 0.35rem 0.5rem; text-align: center; margin-bottom: 0.75rem; }
+.triage-card__tag-label--blue { color: #1d4ed8; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.03em; }
+.triage-card__chip--blue { background: var(--paper); border: 1px solid var(--line); border-radius: 6px; padding: 0.4rem 0.6rem; font-size: 0.8rem; font-weight: 700; color: #1d4ed8; text-align: center; margin-bottom: 0.85rem; }
+.triage-card__outcome--blue { background: #fcfdfa; border: 1px dashed #1d4ed8; border-radius: 8px; padding: 0.55rem; text-align: center; font-size: 0.8rem; color: #1d4ed8; font-weight: 600; }
+.triage-card--amber { background: var(--surface); border: 1px solid #d97706; border-radius: 12px; padding: 1.1rem; display: flex; flex-direction: column; }
+.triage-card__tag--amber { background: #fffbeb; border: 1px solid #d97706; border-radius: 6px; padding: 0.35rem 0.5rem; text-align: center; margin-bottom: 0.75rem; }
+.triage-card__tag-label--amber { color: #b45309; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.03em; }
+.triage-card__chip--amber { background: var(--paper); border: 1px solid var(--line); border-radius: 6px; padding: 0.4rem 0.6rem; font-size: 0.8rem; font-weight: 700; color: #b45309; text-align: center; margin-bottom: 0.85rem; }
+.triage-card__outcome--amber { background: #fcfdfa; border: 1px dashed #d97706; border-radius: 8px; padding: 0.55rem; text-align: center; font-size: 0.8rem; color: #b45309; font-weight: 600; }
+.triage-panel { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 1.1rem; }
+.triage-panel__label { display: block; font-size: 0.85rem; color: var(--green-dark); text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 0.75rem; }
+.triage-panel__grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 180px), 1fr)); gap: 0.75rem; align-items: stretch; }
+.metric-box { background: #f6f9f3; border: 1px solid var(--line); border-radius: 8px; padding: 0.75rem; }
+.metric-box__label { font-size: 0.8rem; font-weight: 700; color: var(--green); display: block; }
+.metric-box__value { display: block; font-size: 0.86rem; color: var(--ink); margin: 0.2rem 0; }
+.metric-box__note { font-size: 0.8rem; color: var(--muted); }
+.comparative-cards-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); gap: 1rem; margin: 1rem 0; }
+.comparative-card { background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 1rem; }
+.badge-station--spaced { display: inline-block; margin-bottom: 0.5rem; }
+.field-span { grid-column: 1 / -1; }
+.anon-case { margin: 0.5rem 0; padding: 1rem; background: var(--paper); border-left: 4px solid var(--green); border-radius: 4px; font-size: 0.92rem; font-weight: 500; }
+.sim-choice-row { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-top: 0.75rem; }
+.sim-feedback--spaced { margin-top: 0.75rem; }
+.sim-footer { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; margin-top: 1rem; }
+.sim-score { font-size: 0.8rem; font-weight: 600; color: var(--muted); }
+.sim-nav { display: flex; gap: 0.5rem; }
+.draft-box { background: var(--paper); border: 1px solid var(--line); border-radius: 8px; padding: 1rem; margin-bottom: 1rem; }
+.draft-box__text { margin: 0.5rem 0 0 0; font-size: 0.88rem; color: var(--ink); }
+.check-list { display: grid; gap: 0.75rem; }
+.check-option--row { display: flex; gap: 0.5rem; align-items: flex-start; cursor: pointer; }
+.check-option__input { width: auto; margin-top: 3px; }
+.native-diagram--ventanilla .native-diagram__flow { grid-template-columns: repeat(auto-fit, minmax(min(100%, 210px), 1fr)); }
+.native-diagram--ventanilla .native-diagram__card p { font-size: 0.88rem; }
+.tool-lab .check-option--row input[type="checkbox"] { flex: none; }
+.lesson-list { margin: 0.6rem 0 1rem 1.25rem; font-size: 0.9rem; line-height: 1.6; color: var(--ink); }
+.rule-options { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 1rem; }
+.check-option--inline { display: flex; gap: 0.4rem; align-items: center; cursor: pointer; }
+.check-option__input--plain { width: auto; }
+.sim-footer--tight { display: flex; justify-content: space-between; align-items: center; margin-top: 0.75rem; }
+.sim-count { font-size: 0.82rem; font-weight: 600; color: var(--green-dark); }

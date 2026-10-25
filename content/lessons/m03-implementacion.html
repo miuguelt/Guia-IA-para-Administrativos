@@ -66,7 +66,7 @@
 <h3>Encarga una transformación que puedas comprobar</h3>
 <div class="processing-intro">
 <p><strong>Cada tarea necesita una comprobación distinta.</strong> Conserva la fuente y pide referencias que permitan volver al mensaje, al minuto de la reunión o a la fila original:</p>
-<ul style="margin: 0.6rem 0 1rem 1.25rem; font-size: 0.9rem; line-height: 1.6; color: var(--ink);">
+<ul class="lesson-list">
 <li><strong>Bandeja de correos (Reto 4):</strong> clasifica según impacto colectivo y plazos explícitos; prepara borradores sin enviar comunicaciones.</li>
 <li><strong>Acta de reunión (Reto 5):</strong> extrae compromisos asociando cada punto al minuto exacto de la transcripción; nunca conviertas una propuesta en acuerdo firme.</li>
 <li><strong>Planillas de datos (Reto 6):</strong> aplica reglas reproducibles en una columna nueva calculada, manteniendo la columna original como respaldo intacto.</li>
@@ -150,18 +150,18 @@
 <p>Ensaya las reglas sobre cinco de los 30 registros de datos-sofia.csv. La muestra conserva las filas 5, 6, 7, 16 y 23, incluidas ambas ocurrencias de SIM-0012. Solo cambia «Estado revisado»; los demás campos permanecen intactos. Esta práctica local no demuestra el procesamiento del archivo completo ni la ejecución con IA del Reto 6.</p>
 </div>
 <div class="tool-lab-fields">
-<div style="grid-column: 1 / -1;">
-<div style="display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 1rem;">
-<label class="check-option" data-clean-rule="trim_spaces" style="display: flex; gap: 0.4rem; align-items: center; cursor: pointer;">
-<input style="width: auto;" type="checkbox"/>
+<div class="field-span">
+<div class="rule-options">
+<label data-clean-rule="trim_spaces" class="check-option check-option--inline">
+<input type="checkbox" class="check-option__input--plain"/>
 <span>1. Quitar espacios iniciales y finales (TRIM)</span>
 </label>
-<label class="check-option" data-clean-rule="uppercase_states" style="display: flex; gap: 0.4rem; align-items: center; cursor: pointer;">
-<input style="width: auto;" type="checkbox"/>
+<label data-clean-rule="uppercase_states" class="check-option check-option--inline">
+<input type="checkbox" class="check-option__input--plain"/>
 <span>2. Convertir estados a MAYÚSCULAS</span>
 </label>
-<label class="check-option" data-clean-rule="flag_empty_review" style="display: flex; gap: 0.4rem; align-items: center; cursor: pointer;">
-<input style="width: auto;" type="checkbox"/>
+<label data-clean-rule="flag_empty_review" class="check-option check-option--inline">
+<input type="checkbox" class="check-option__input--plain"/>
 <span>3. Marcar celdas vacías como REVISAR</span>
 </label>
 </div>
@@ -179,8 +179,8 @@
 </tbody>
 </table>
 </div>
-<div style="display: flex; justify-content: space-between; align-items: center; margin-top: 0.75rem;">
-<span id="data-cleaner-count" style="font-size: 0.82rem; font-weight: 600; color: var(--green-dark);">Estados transformados en la muestra: 0 de 5</span>
+<div class="sim-footer--tight">
+<span id="data-cleaner-count" class="sim-count">Estados transformados en la muestra: 0 de 5</span>
 </div>
 <div class="sim-dual-actions">
 <button class="button button-primary" data-cleaner-transfer="" type="button">Transferir a mi evidencia (MG-A03)</button>
