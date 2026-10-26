@@ -3,7 +3,7 @@
     "compass": {
       "diagnosis": "Revisión de privacidad antes de entregar cualquier texto a una herramienta digital.",
       "toolCombination": "Chat de IA autorizado + Canva. La IA clasifica cada fragmento y redacta las versiones reducidas; Canva sirve después para convertir el semáforo revisado en una pieza visual para el equipo.",
-      "goldenRule": "Ley 1581 de 2012 (Habeas Data). No ingreses datos de salud, documentos de identidad ni credenciales. Si no existe autorización expresa, registra «autorización pendiente».",
+      "goldenRule": "Ley 1581 de 2012 (protección de datos personales). No ingreses datos de salud, documentos de identidad ni credenciales. Si no existe autorización expresa, registra «autorización pendiente».",
       "productFormat": "La IA entrega la página resultado-reto-0.html con el semáforo y sus cinco decisiones. Paso a la oficina: copia el contenido revisado a una plantilla de infografía en Canva y expórtala en PDF o PNG."
     },
     "comparison": {
@@ -21,7 +21,7 @@
     },
     "comparison": {
       "goldStandard": "Tabla con los ocho apartados citados del lineamiento; respuesta que no aprueba la reserva y pide con amabilidad los datos que faltan.",
-      "antipattern": "Aprobar la sala «porque el evento es mañana y asisten 18 directivos», suponiendo la sede y el horario sin confirmarlos."
+      "antipattern": "Aprobar la sala «porque el taller es mañana y asisten 18 personas», suponiendo la sede y el horario sin confirmarlos."
     },
     "officeTransfer": "Solicitudes de auditorios, aulas o transporte en las que alguien pide una excepción inmediata por urgencia."
   },

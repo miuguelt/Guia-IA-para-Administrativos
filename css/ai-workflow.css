@@ -84,7 +84,7 @@
 .transfer-check summary { min-height: 44px; padding: 12px 0; cursor: pointer; }
 body[data-learning-mode="autonomo"] #course-nav [data-module-link^="m0"] .nav-meta,
 body[data-learning-mode="autonomo"] #course-nav [data-module-link="preparacion"] .nav-meta { display: none; }
-@media (max-width: 600px) { .study-mode-panel { position: fixed; top: 110px; right: 16px; } .study-mode-actions strong { flex-basis: 100%; } .study-mode-actions button { flex: 1; } }
+@media (max-width: 600px) { .study-mode-panel { position: fixed; top: calc(var(--topbar-h) + 8px); right: 16px; } .study-mode-actions strong { flex-basis: 100%; } .study-mode-actions button { flex: 1; } }
 @media (max-width: 800px) {
   .ai-delivery { grid-template-columns: minmax(0,1fr); gap: 16px; }
   .ai-task-card, .delivery-receive, .delivery-review { padding: 18px; }

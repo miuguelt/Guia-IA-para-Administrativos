@@ -76,7 +76,7 @@
 .transfer-tip {
   padding: 18px 22px;
   background: #edf2e7;
-  border-left: 4px solid var(--green, var(--green));
+  border-left: 4px solid var(--green);
   border-radius: 0 10px 10px 0;
   margin: 18px 0;
   font-size: .85rem;
@@ -146,7 +146,7 @@
 .challenge-material-item p { overflow-wrap: break-word; color: #58675c; font-size: .8rem; }
 .challenge-download { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 44px; max-width: 100%; padding: 8px 12px; border: 1px solid #286449; border-radius: 7px; color: white; background: #286449; font-size: .8rem; font-weight: 700; text-decoration: none; overflow-wrap: anywhere; text-align: center; }
 .challenge-download:hover { background: #1d523d; }
-.challenge-download:focus-visible { outline: 3px solid var(--focus-ring, var(--focus-ring)); outline-offset: 2px; }
+.challenge-download:focus-visible { outline: 3px solid var(--focus-ring); outline-offset: 2px; }
 .challenge-body .worked-example { background: #f7faf2; box-shadow: none; margin-top: 22px; padding: 20px; }.challenge-body .worked-example p { font-size: .87rem; }
 .legal-note {
   border-left: 4px solid #bd9a4b;
@@ -166,7 +166,7 @@
 .course-dialog { width: min(900px, calc(100vw - 32px)); max-width: 900px; max-height: min(90vh, 960px); padding: 0; border: 1px solid #d7e0d3; border-radius: 16px; color: var(--ink); background: white; box-shadow: 0 20px 70px #11221b3d; }.course-dialog::backdrop { background: #13231caa; backdrop-filter: blur(3px); }.dialog-bar { position: sticky; top: 0; z-index: 1; display: flex; align-items: center; justify-content: space-between; gap: 15px; padding: 14px 19px; border-bottom: 1px solid var(--line); background: #fbfcfa; }.dialog-bar h2 { font-size: 1.1rem; }.icon-button { min-width: 42px; min-height: 42px; border: 1px solid var(--line); border-radius: 50%; background: white; color: var(--green); font-size: 1.5rem; cursor: pointer; }.dialog-content { padding: 20px; overflow: auto; }.dialog-content > img { display: block; width: 100%; height: auto; }.glossary-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 245px), 1fr)); gap: 12px; }.glossary-list article { padding: 15px; border: 1px solid var(--line); border-radius: 10px; background: #f8faf6; }.glossary-list h3 { margin-bottom: 7px; color: var(--green); font-size: .95rem; }.glossary-list p, .source-links { font-size: .84rem; color: var(--muted); }.source-links { border-top: 1px solid var(--line); padding-top: 15px; margin-top: 18px; }
 .tool-route {
   padding: 18px;
-  border-left: 4px solid var(--green, var(--green));
+  border-left: 4px solid var(--green);
   background: #eff4e8;
   border-radius: 0 8px 8px 0;
   font-size: .87rem;
@@ -195,9 +195,9 @@ code { background: #edf1e8; color: #24513d; font-size: .82em; padding: 2px 5px; 
 
 /* Banco de trabajo para simuladores y laboratorios */
 .interactive-aid-widget, .tool-lab {
-  background: var(--surface-lab, var(--surface-lab));
+  background: var(--surface-lab);
   border: 1.5px solid #c7d8c4;
-  border-top: 4px solid var(--green, var(--green));
+  border-top: 4px solid var(--green);
   box-shadow: 0 4px 18px rgba(21, 62, 56, 0.05);
 }
 
@@ -208,8 +208,8 @@ code { background: #edf1e8; color: #24513d; font-size: .82em; padding: 2px 5px; 
 .native-diagram {
   margin: 1.8rem 0 2.2rem;
   padding: clamp(1.2rem, 2.5vw, 1.6rem);
-  background: var(--surface, var(--surface));
-  border: 1px solid var(--line, var(--line));
+  background: var(--surface);
+  border: 1px solid var(--line);
   border-radius: var(--radius, 18px);
   box-shadow: 0 4px 18px rgba(21, 62, 56, 0.05);
 }
@@ -217,7 +217,7 @@ code { background: #edf1e8; color: #24513d; font-size: .82em; padding: 2px 5px; 
 .native-diagram__header {
   margin-bottom: 1.25rem;
   padding-bottom: 0.9rem;
-  border-bottom: 1px solid var(--line, var(--line));
+  border-bottom: 1px solid var(--line);
 }
 
 .native-diagram__kicker {
@@ -225,7 +225,7 @@ code { background: #edf1e8; color: #24513d; font-size: .82em; padding: 2px 5px; 
   font-size: .8rem;
   font-weight: 750;
   letter-spacing: 0.12em;
-  color: var(--green, var(--green));
+  color: var(--green);
   text-transform: uppercase;
 }
 
@@ -233,14 +233,14 @@ code { background: #edf1e8; color: #24513d; font-size: .82em; padding: 2px 5px; 
   margin-top: 4px;
   font-size: clamp(1.1rem, 2vw, 1.35rem);
   font-weight: 650;
-  color: var(--ink, var(--ink));
+  color: var(--ink);
   line-height: 1.3;
 }
 
 .native-diagram__desc {
   margin-top: 6px;
   font-size: 0.88rem;
-  color: var(--muted, var(--muted));
+  color: var(--muted);
   max-width: 100%;
   line-height: var(--line-height-reading, 1.65);
   text-align: var(--text-align-reading, justify);
@@ -266,8 +266,8 @@ code { background: #edf1e8; color: #24513d; font-size: .82em; padding: 2px 5px; 
   flex-direction: column;
   min-width: 0;
   padding: 1rem 1.25rem;
-  background: var(--paper, var(--paper));
-  border: 1.5px solid var(--line, var(--line));
+  background: var(--paper);
+  border: 1.5px solid var(--line);
   border-radius: 12px;
   transition: transform 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
   position: relative;
@@ -275,12 +275,12 @@ code { background: #edf1e8; color: #24513d; font-size: .82em; padding: 2px 5px; 
 
 .native-diagram__card:hover {
   transform: translateY(-2px);
-  border-color: var(--green, var(--green));
+  border-color: var(--green);
   box-shadow: 0 4px 14px rgba(34, 87, 70, 0.08);
 }
 
 .native-diagram__card:focus-within {
-  border-color: var(--green, var(--green));
+  border-color: var(--green);
   box-shadow: 0 4px 14px rgba(34, 87, 70, 0.08);
 }
 
@@ -320,7 +320,7 @@ code { background: #edf1e8; color: #24513d; font-size: .82em; padding: 2px 5px; 
   width: 28px;
   height: 28px;
   border-radius: 50%;
-  background: var(--green, var(--green));
+  background: var(--green);
   color: var(--surface);
   font-size: .8rem;
   font-weight: 700;
@@ -348,7 +348,7 @@ code { background: #edf1e8; color: #24513d; font-size: .82em; padding: 2px 5px; 
   margin: 0 0 6px;
   font-size: 0.96rem;
   font-weight: 650;
-  color: var(--ink, var(--ink));
+  color: var(--ink);
   line-height: 1.35;
 }
 
@@ -373,12 +373,12 @@ code { background: #edf1e8; color: #24513d; font-size: .82em; padding: 2px 5px; 
   padding-top: 0.65rem;
   border-top: 1px dashed #d5dfcf;
   font-size: .8rem;
-  color: var(--muted, var(--muted));
+  color: var(--muted);
   line-height: 1.45;
 }
 
 .native-diagram__example strong {
-  color: var(--green-dark, var(--green-dark));
+  color: var(--green-dark);
 }
 
 .correspondence-cycle > strong {

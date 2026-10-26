@@ -169,13 +169,13 @@
   box-shadow: 0 6px 18px rgba(21, 62, 56, 0.08);
 }
 .data-safety-card--green {
-  border: 1px solid #16a34a;
+  border: 1px solid var(--status-ok);
 }
 .data-safety-card--amber {
-  border: 1px solid #d97706;
+  border: 1px solid var(--status-warn);
 }
 .data-safety-card--red {
-  border: 1px solid #dc2626;
+  border: 1px solid var(--status-risk);
 }
 
 .data-safety-card__badge {
@@ -186,17 +186,17 @@
 }
 .data-safety-card--green .data-safety-card__badge {
   background: #f0fdf4;
-  border: 1px solid #16a34a;
+  border: 1px solid var(--status-ok);
   color: #15803d;
 }
 .data-safety-card--amber .data-safety-card__badge {
   background: #fffbeb;
-  border: 1px solid #d97706;
+  border: 1px solid var(--status-warn);
   color: #b45309;
 }
 .data-safety-card--red .data-safety-card__badge {
   background: #fef2f2;
-  border: 1px solid #dc2626;
+  border: 1px solid var(--status-risk);
   color: #b91c1c;
 }
 .data-safety-card__badge strong {
@@ -229,17 +229,17 @@
 }
 .data-safety-card--green .data-safety-card__rule {
   background: #fcfdfa;
-  border-color: #16a34a;
+  border-color: var(--status-ok);
   color: #166534;
 }
 .data-safety-card--amber .data-safety-card__rule {
   background: #fffdf7;
-  border-color: #d97706;
+  border-color: var(--status-warn);
   color: #92400e;
 }
 .data-safety-card--red .data-safety-card__rule {
   background: #fff8f8;
-  border-color: #dc2626;
+  border-color: var(--status-risk);
   color: #991b1b;
 }
 
@@ -436,23 +436,23 @@ details.secondary-theory[open] > summary::after {
 .native-diagram__heading { margin: 0; font-size: 1.25rem; color: var(--green-dark); }
 .native-diagram__lead { margin: 0.35rem 0 0 0; font-size: 0.88rem; color: var(--muted); }
 .native-diagram__pill { font-size: 0.8rem; background: var(--lime); color: var(--green-dark); font-weight: 700; }
-.triage-card--green { background: var(--surface); border: 1px solid #16a34a; border-radius: 12px; padding: 1.1rem; display: flex; flex-direction: column; }
-.triage-card__tag--green { background: #f0fdf4; border: 1px solid #16a34a; border-radius: 6px; padding: 0.35rem 0.5rem; text-align: center; margin-bottom: 0.75rem; }
+.triage-card--green { background: var(--surface); border: 1px solid var(--status-ok); border-radius: 12px; padding: 1.1rem; display: flex; flex-direction: column; }
+.triage-card__tag--green { background: #f0fdf4; border: 1px solid var(--status-ok); border-radius: 6px; padding: 0.35rem 0.5rem; text-align: center; margin-bottom: 0.75rem; }
 .triage-card__tag-label--green { color: #15803d; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.03em; }
 .comparative-card__title { margin: 0 0 0.5rem 0; font-size: 0.98rem; color: var(--ink); }
 .triage-card__chip--green { background: var(--paper); border: 1px solid var(--line); border-radius: 6px; padding: 0.4rem 0.6rem; font-size: 0.8rem; font-weight: 700; color: var(--green); text-align: center; margin-bottom: 0.85rem; }
 .comparative-card__list { margin: 0 0 1rem 0; padding-left: 1.1rem; font-size: 0.82rem; color: var(--muted); flex-grow: 1; display: grid; gap: 0.45rem; }
-.triage-card__outcome--green { background: #fcfdfa; border: 1px dashed #16a34a; border-radius: 8px; padding: 0.55rem; text-align: center; font-size: 0.8rem; color: #15803d; font-weight: 600; }
-.triage-card--blue { background: var(--surface); border: 1px solid #1d4ed8; border-radius: 12px; padding: 1.1rem; display: flex; flex-direction: column; }
-.triage-card__tag--blue { background: #eff6ff; border: 1px solid #1d4ed8; border-radius: 6px; padding: 0.35rem 0.5rem; text-align: center; margin-bottom: 0.75rem; }
-.triage-card__tag-label--blue { color: #1d4ed8; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.03em; }
-.triage-card__chip--blue { background: var(--paper); border: 1px solid var(--line); border-radius: 6px; padding: 0.4rem 0.6rem; font-size: 0.8rem; font-weight: 700; color: #1d4ed8; text-align: center; margin-bottom: 0.85rem; }
-.triage-card__outcome--blue { background: #fcfdfa; border: 1px dashed #1d4ed8; border-radius: 8px; padding: 0.55rem; text-align: center; font-size: 0.8rem; color: #1d4ed8; font-weight: 600; }
-.triage-card--amber { background: var(--surface); border: 1px solid #d97706; border-radius: 12px; padding: 1.1rem; display: flex; flex-direction: column; }
-.triage-card__tag--amber { background: #fffbeb; border: 1px solid #d97706; border-radius: 6px; padding: 0.35rem 0.5rem; text-align: center; margin-bottom: 0.75rem; }
+.triage-card__outcome--green { background: #fcfdfa; border: 1px dashed var(--status-ok); border-radius: 8px; padding: 0.55rem; text-align: center; font-size: 0.8rem; color: #15803d; font-weight: 600; }
+.triage-card--blue { background: var(--surface); border: 1px solid var(--status-info); border-radius: 12px; padding: 1.1rem; display: flex; flex-direction: column; }
+.triage-card__tag--blue { background: #eff6ff; border: 1px solid var(--status-info); border-radius: 6px; padding: 0.35rem 0.5rem; text-align: center; margin-bottom: 0.75rem; }
+.triage-card__tag-label--blue { color: var(--status-info); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.03em; }
+.triage-card__chip--blue { background: var(--paper); border: 1px solid var(--line); border-radius: 6px; padding: 0.4rem 0.6rem; font-size: 0.8rem; font-weight: 700; color: var(--status-info); text-align: center; margin-bottom: 0.85rem; }
+.triage-card__outcome--blue { background: #fcfdfa; border: 1px dashed var(--status-info); border-radius: 8px; padding: 0.55rem; text-align: center; font-size: 0.8rem; color: var(--status-info); font-weight: 600; }
+.triage-card--amber { background: var(--surface); border: 1px solid var(--status-warn); border-radius: 12px; padding: 1.1rem; display: flex; flex-direction: column; }
+.triage-card__tag--amber { background: #fffbeb; border: 1px solid var(--status-warn); border-radius: 6px; padding: 0.35rem 0.5rem; text-align: center; margin-bottom: 0.75rem; }
 .triage-card__tag-label--amber { color: #b45309; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.03em; }
 .triage-card__chip--amber { background: var(--paper); border: 1px solid var(--line); border-radius: 6px; padding: 0.4rem 0.6rem; font-size: 0.8rem; font-weight: 700; color: #b45309; text-align: center; margin-bottom: 0.85rem; }
-.triage-card__outcome--amber { background: #fcfdfa; border: 1px dashed #d97706; border-radius: 8px; padding: 0.55rem; text-align: center; font-size: 0.8rem; color: #b45309; font-weight: 600; }
+.triage-card__outcome--amber { background: #fcfdfa; border: 1px dashed var(--status-warn); border-radius: 8px; padding: 0.55rem; text-align: center; font-size: 0.8rem; color: #b45309; font-weight: 600; }
 .triage-panel { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 1.1rem; }
 .triage-panel__label { display: block; font-size: 0.85rem; color: var(--green-dark); text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 0.75rem; }
 .triage-panel__grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 180px), 1fr)); gap: 0.75rem; align-items: stretch; }

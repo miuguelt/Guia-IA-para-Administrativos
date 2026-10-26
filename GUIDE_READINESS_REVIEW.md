@@ -1,6 +1,40 @@
 # Revisión integral de la guía
 
-## Actualización vigente · 25 de octubre de 2026
+## Actualización vigente · 26 de octubre de 2026
+
+Se revisó la interfaz en el navegador a 390, 1100 y 1440 px y se auditaron el contenido y la capa CSS/JS. Los cambios corrigen fallos visibles, rehacen el selector de situaciones de la portada y retiran afirmaciones imprecisas.
+
+### Interfaz
+
+- **Módulos sin columna vacía.** La tarjeta lateral de cada módulo medía unos 550 px junto a una lectura de 5 200 px. Ahora acompaña la lectura fija bajo las pestañas cuando la ventana mide al menos 1100 × 800 px.
+- **Barras fijas.** Entre 901 y 1399 px la barra superior mide 142 px y tapaba las pestañas, que se fijaban a 76 px. `course-app.js` publica la altura real en `--topbar-h`, y las pestañas, los anclajes y el panel de modo la usan.
+- **Selector de situaciones.** Pasó de unos 3 450 px a 1 400 px en escritorio. Las fichas son botones con `aria-pressed`, los filtros también, y elegir una ficha no reconstruye la lista: el foco se conserva y un aviso oculto anuncia la ficha abierta. En una columna, la ficha se lleva a la vista y recibe el foco. Los iconos son SVG en lugar de emojis. Sin JavaScript se leen todas las fichas.
+- **Copia de instrucciones.** El selector usa el botón genérico del aula, que selecciona el texto si el portapapeles falla en lugar de anunciar una copia que no ocurrió.
+- **Manual del portafolio.** «Imprimir o guardar en PDF» imprime solo el manual. La descarga en Markdown no necesita JavaScript.
+- **Menús de la barra.** Mi avance, Modo y Recursos se abren de a uno y se cierran con Escape o con un clic fuera. El cambio de modo ya no registra un clic global en la página.
+- **Retomar.** La flecha del botón queda como decoración para los lectores de pantalla.
+
+### Contenido
+
+- **Situaciones de oficina y aprendizaje.** El catálogo separa ocho situaciones de oficina y cuatro formas de aprender con IA, que ahora tienen su propio bloque. Cada ficha enlaza al reto con su título exacto y distingue «Practícala en» de «Técnica relacionada». Se corrigieron muestras que chocaban con las fuentes (PC-01 y URG-01), se retiraron las tutelas y las citas a normas sin fuente, y la herramienta sugerida es «el chat que habilite tu entidad».
+- **Una sola fuente.** `scripts/sync-html-situations.py` genera el selector, el bloque de aprendizaje y el manual desde `content/office-situations.json`. Se retiró `update-office-situations.py`, que sobrescribía el JS con otra copia del catálogo.
+- **Ley 1581.** Se cita como régimen de protección de datos personales. Se corrigieron el artículo 4, los artículos 5 y 6 y una fuente inexistente, y se separaron los datos sensibles de las credenciales, los datos bancarios y la información reservada.
+- **Rótulos sobrios.** Se cambiaron «Blindaje», «Escudo», «Regla de oro», «Estándar de Oro», «Antipatrón», «1 clic», «dictamen» y otros términos por nombres descriptivos. Los productos de los encargos usan el nombre de `visualArtifact`.
+- **Prueba individual separada.** El encargo de equipo del integrador ya no incluye IND-01 ni `casos-individuales.csv`. La prueba tiene su propio paquete, `prueba-individual`, que se resuelve después del trabajo en equipo y en un chat aparte: la IA pregunta qué dato revisaría la persona antes de mostrar la solución. Su resultado solo llena el campo `prueba_individual` de MG-A05 y se suma a lo que ya guardó el equipo. El encargo de la evidencia MG-A05 toma la prueba de `resultado-prueba-individual.html` o la deja pendiente.
+- **Correcciones puntuales.** Fórmula de la tasa, funciones de Excel en español (ESPACIOS y MAYUSC), tiempo duplicado del módulo 04, texto que nunca se mostraba en el módulo 05 y botones que prometían transferir a la evidencia (el contenido llega como borrador).
+
+### Verificación
+
+- `npm run build`, `npm run check:redaccion`, 349 pruebas JavaScript y 89 Python. La cobertura de funciones de `js/*.js` es 100 %.
+- Falla una prueba previa a estos cambios: `auditoria-guia.test.cjs` espera `if-no-files-found: error` en `.github/workflows/calidad.yml`.
+- `npm run test:browser:layout` ahora incluye la portada, el portafolio y los anchos de 1024 y 1100 px. Pasan todos salvo dos casos que no dependen de estos cambios: EcoBogotá, que `devbrain-prose.js` excluye a propósito de la justificación, y la portada con zoom al 200 % cuando la pasada viene de 2560 px (aislada, pasa).
+
+### Pendientes
+
+- Renombrar `Materiales_practica_IA_SENA_Bogota.xlsx` afecta paquetes y un libro editado a mano; se conserva.
+- La observación con aprendices, el aval de las 40 horas y la confirmación de la cohorte siguen abiertos.
+
+## Actualización anterior · 25 de octubre de 2026
 
 La revisión recorrió la guía como una persona principiante y comprobó que cada reto pudiera resolverse solo con lo que la guía entrega. Las cifras de todos los retos coinciden con sus archivos. Los cambios corrigen lo que impedía avanzar, las contradicciones entre la web y los encargos, y la carga de la interfaz.
 
@@ -27,7 +61,7 @@ La revisión recorrió la guía como una persona principiante y comprobó que ca
 
 ### Interfaz
 
-- **Barra superior.** En el móvil pasa de cuatro filas (unos 300 px) a dos (111 px).
+- **Barra superior.** En el celular pasa de cuatro filas (unos 300 px) a dos (111 px).
 - **Menú.** Separa «Tu ruta», «Seguimiento» y «Complementos opcionales». Los modos de estudio se llaman igual en todas partes: «Por mi cuenta» y «Con instructor».
 - **Ubicación y pasos.** La barra superior muestra el módulo y el paso abierto. Cada paso tiene «Volver», y solo un reto queda abierto a la vez.
 - **Encargo principal primero.** En el paso 2 de cada reto, el encargo que se guarda como evidencia aparece antes. El método en dos tiempos queda como opción plegada.

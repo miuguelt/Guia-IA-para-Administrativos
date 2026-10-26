@@ -45,7 +45,7 @@
 }
 .productivity-pair > div {
   border: 1px solid #dce5d6;
-  border-left: 4px solid var(--green, var(--green));
+  border-left: 4px solid var(--green);
   border-radius: var(--card-radius-sm, 14px);
   padding: 16px 18px;
   background: #fff;
@@ -69,7 +69,7 @@
   margin: 14px 0;
   padding: 16px;
   border: 1px solid #dce5d6;
-  border-left: 4px solid var(--green, var(--green));
+  border-left: 4px solid var(--green);
   border-radius: var(--card-radius-sm, 14px);
   background: #fff;
   color: #244735;
@@ -82,7 +82,7 @@
 .productivity-recall {
   margin-top: 18px;
   border: 1px solid #dce5d6;
-  border-left: 4px solid var(--green, var(--green));
+  border-left: 4px solid var(--green);
   border-radius: var(--card-radius-sm, 14px);
   background: #fff;
   box-shadow: var(--card-shadow, 0 4px 14px rgba(34, 87, 70, 0.04));

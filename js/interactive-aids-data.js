@@ -148,7 +148,7 @@
     }),
     Object.freeze({
       id: 'sin_invenciones',
-      title: 'Cero datos inventados',
+      title: 'Sin datos inventados',
       description: 'No inventa hora, fecha, salón, enlaces ni gestiones realizadas que no consten en la fuente original.'
     }),
     Object.freeze({

@@ -2,11 +2,12 @@
 (function (host) {
   function initProseLayout(document, view) {
     const selector = 'p, dd, blockquote';
-    const excluded = 'nav, button, table, pre, code, [role="button"], [role="alert"], [role="status"], .toast, .notification, .alert, .eyebrow, .overline, .kicker, .document-type, .eco-training, #ecobogota';
+    const excluded = 'nav, button, table, pre, code, [role="button"], [role="alert"], [role="status"], .toast, .notification, .alert, .eyebrow, .overline, .kicker, .document-type, [data-office-scene]';
     const tracked = new Set();
     const initialAlignments = new Map();
     function update(element) {
-      if (!element.isConnected || document.querySelector('[data-office-scene]') || element.closest(excluded)) return;
+      // Las escenas interactivas conservan su alineación; el resto de la página sigue la regla 7.4.
+      if (!element.isConnected || element.closest(excluded)) return;
       const width = element.getBoundingClientRect().width;
       const rem = parseFloat(view.getComputedStyle(document.documentElement).fontSize);
       const alignment = width >= 40 * rem ? 'justify' : 'start';

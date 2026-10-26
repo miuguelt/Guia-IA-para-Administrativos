@@ -159,7 +159,7 @@
     }).join('\n');
 
     const manualNode = options.document && options.document.getElementById('manual-situaciones-content');
-    const manualHtml = manualNode ? manualNode.innerHTML : '<p>Consulta el Manual Práctico de Situaciones de Oficina en la guía interactiva.</p>';
+    const manualHtml = manualNode ? manualNode.innerHTML : '<p>Consulta el manual de situaciones de oficina en la guía interactiva.</p>';
 
     return `<!doctype html>
 <html lang="es-CO">
@@ -202,7 +202,7 @@
     </section>
     ${cardsHtml}
     <section class="manual-annex">
-      <h2>Anexo · Manual Práctico de Situaciones de Oficina con IA</h2>
+      <h2>Anexo · Manual de situaciones de oficina con IA</h2>
       ${manualHtml}
     </section>
   </main>

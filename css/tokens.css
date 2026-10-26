@@ -12,6 +12,17 @@
   --soft: #edf3e8;
   --radius: 18px;
   --focus-ring: #155eef;
+
+  /* Estados del semáforo: aceptable, precaución, riesgo e información. */
+  --status-ok: #16a34a;
+  --status-warn: #d97706;
+  --status-risk: #dc2626;
+  --status-info: #1d4ed8;
+
+  /* Alturas de las barras fijas; course-app.js ajusta --topbar-h a la altura real. */
+  --topbar-h: 88px;
+  --lesson-tabs-h: 84px;
+  --sticky-offset: calc(var(--topbar-h) + var(--lesson-tabs-h) + 8px);
   --eco-shadow: 0 14px 38px rgb(30 41 59 / 8%);
 
   /* Escala de ritmo vertical y espaciado modular (base 8px) */

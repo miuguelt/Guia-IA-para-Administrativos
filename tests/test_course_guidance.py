@@ -169,6 +169,8 @@ class GuidanceTests(unittest.TestCase):
         self.assertIsNone(soup.select_one('[data-copy="reto-0-prompt-produccion"]'))
         self.assertIsNotNone(soup.select_one(".gold-vs-antipattern-panel"))
         self.assertIsNotNone(soup.select_one(".office-transfer-panel"))
+        self.assertEqual([tag.get_text() for tag in soup.select(".comparison-tag")], ["Resultado esperado", "Error frecuente"])
+        self.assertNotRegex(soup.get_text(), "Regla de oro|Estándar de Oro|Antipatrón|Habeas Data")
         self.assertEqual(module.render_challenge_compass("no-existe"), "")
         self.assertEqual(module.render_challenge_decisions("no-existe"), "")
 

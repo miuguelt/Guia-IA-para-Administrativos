@@ -52,8 +52,10 @@ test('la composición vuelve a una columna cuando falta ancho en el contenedor',
   assert.match(styles, /@media\s*\(max-width:\s*680px\)/);
 });
 
-test('el encabezado apilado deja visible el inicio de la lección al navegar en móvil', () => {
-  assert.match(responsiveStyles, /@media\s*\(max-width:\s*520px\)\s*\{[\s\S]*?\.course-topbar\s*\{[^}]*position:\s*static/s);
+test('el encabezado fijo deja visible el inicio de la lección al navegar en móvil', () => {
+  assert.doesNotMatch(responsiveStyles, /\.course-topbar\s*\{[^}]*position:\s*static/s, 'Una sola definición de posición para la barra');
+  assert.match(fs.readFileSync(path.join(__dirname, '..', 'css', 'course-shell.css'), 'utf8'), /scroll-padding-top:\s*calc\(var\(--topbar-h\)/u);
+  assert.match(fs.readFileSync(path.join(__dirname, '..', 'js', 'course-app.js'), 'utf8'), /setProperty\('--topbar-h'/u);
 });
 
 test('la columna de lectura responde al ancho real del panel', () => {

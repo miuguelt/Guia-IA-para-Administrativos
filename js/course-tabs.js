@@ -89,7 +89,7 @@
     if (!target) return;
     try {
       await navigator.clipboard.writeText(target.textContent.trim());
-      notify('Encargo copiado. Adjunta las fuentes indicadas o abre la carpeta del paquete en tu IDE.');
+      notify(button.dataset.copyMessage || 'Encargo copiado. Adjunta las fuentes indicadas o abre la carpeta del paquete en tu IDE.');
     } catch (_) {
       const range = document.createRange();
       range.selectNodeContents(target);

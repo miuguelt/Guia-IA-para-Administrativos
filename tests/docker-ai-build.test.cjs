@@ -22,7 +22,7 @@ test('Docker recibe el registro canónico, las fuentes educativas completas y la
   assert.match(builder, /^COPY css\/ \.\/css\/$/mu);
   assert.match(builder, /^COPY js\/ \.\/js\/$/mu, 'El constructor escribe js/lab-source-data.js y versiona cada script.');
   const tasks = JSON.parse(read('content/ai-task-briefs.json'));
-  assert.equal(Object.keys(tasks).length, 30);
+  assert.equal(Object.keys(tasks).length, 31);
   for (const task of Object.values(tasks)) {
     for (const source of task.sourceFiles) {
       assert.ok(fs.existsSync(path.join(ROOT, source)), source);

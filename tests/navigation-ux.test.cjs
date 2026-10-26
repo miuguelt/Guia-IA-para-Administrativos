@@ -10,13 +10,14 @@ const read = name => fs.readFileSync(path.join(root, name), 'utf8');
 const tick = window => new Promise(resolve => window.setTimeout(resolve, 35));
 const scripts = ['js/vendor/devbrain-learner-sdk.js', 'js/registro-entregables.js', 'js/course-tabs.js', 'js/course-dialog.js', 'js/evidence-accessibility.js', 'js/calendar-print.js', 'js/course-mode.js', 'js/course-app.js'];
 
-async function setup(hash = '#inicio') {
+async function setup(hash = '#inicio', extra = []) {
   const virtualConsole = new VirtualConsole();
   const dom = new JSDOM(read('index.html'), { url: 'http://navegacion.test/' + hash, runScripts: 'outside-only', virtualConsole });
   const { window } = dom;
   window.scrollTo = () => {};
   window.HTMLElement.prototype.scrollIntoView = () => {};
-  for (const file of scripts) new vm.Script(read(file), { filename: path.join(root, file) }).runInContext(dom.getInternalVMContext());
+  const files = [...scripts.slice(0, -1), ...extra, scripts.at(-1)];
+  for (const file of files) new vm.Script(read(file), { filename: path.join(root, file) }).runInContext(dom.getInternalVMContext());
   await tick(window);
   return { dom, window, document: window.document };
 }
@@ -107,5 +108,100 @@ test('el menú lateral no se anima al cargar la página, solo al abrirlo despué
   assert.ok(document.body.classList.contains('menu-animated'), 'La animación se habilita después del primer cuadro');
   const css = read('css/ux-refinements.css');
   assert.match(css, /body\.navigation-ready:not\(\.menu-animated\) \.course-sidebar\s*\{[^}]*transition:\s*none/su);
+  dom.window.close();
+});
+
+test('Mi avance, Modo y Recursos se abren de a uno y se cierran con Escape o al hacer clic fuera', async () => {
+  const { dom, window, document } = await setup('#inicio', ['js/course-progress.js']);
+  const resources = document.querySelector('.resources-menu');
+  const mode = document.querySelector('.study-mode-switch');
+  const progressToggle = document.getElementById('progress-checklist-toggle');
+  const dropdown = document.getElementById('progress-checklist-dropdown');
+  const toggled = menu => new Promise(resolve => menu.addEventListener('toggle', resolve, { once: true }));
+  let opened = toggled(resources);
+  resources.open = true;
+  await opened;
+  opened = toggled(mode);
+  mode.open = true;
+  await opened;
+  assert.equal(resources.open, false, 'Abrir Modo cierra Recursos');
+  progressToggle.click();
+  assert.equal(dropdown.hidden, false);
+  assert.equal(mode.open, false, 'Abrir Mi avance cierra Modo');
+  opened = toggled(resources);
+  resources.open = true;
+  await opened;
+  assert.equal(dropdown.hidden, true, 'Abrir Recursos cierra Mi avance');
+  assert.equal(progressToggle.getAttribute('aria-expanded'), 'false');
+  document.dispatchEvent(new window.KeyboardEvent('keydown', { key: 'Escape', bubbles: true }));
+  assert.equal(resources.open, false);
+  assert.equal(document.activeElement, resources.querySelector('summary'), 'Escape devuelve el foco al menú que estaba abierto');
+  progressToggle.click();
+  document.dispatchEvent(new window.KeyboardEvent('keydown', { key: 'Escape', bubbles: true }));
+  assert.equal(dropdown.hidden, true);
+  assert.equal(document.activeElement, progressToggle);
+  document.dispatchEvent(new window.KeyboardEvent('keydown', { key: 'Escape', bubbles: true }));
+  assert.equal(document.activeElement, progressToggle, 'Sin menús abiertos, Escape no mueve el foco');
+  mode.open = true;
+  document.querySelector('#inicio h1').click();
+  assert.equal(mode.open, false, 'Un clic fuera cierra el menú');
+  progressToggle.click();
+  dropdown.click();
+  assert.equal(dropdown.hidden, false, 'Un clic dentro del panel lo mantiene abierto');
+  dom.window.close();
+});
+
+test('las barras internas se fijan bajo la altura real de la barra superior', async () => {
+  const { dom, window, document } = await setup('#m02-diseno');
+  const topbar = document.querySelector('.course-topbar');
+  const style = document.createElement('style');
+  style.textContent = '.course-topbar { position: sticky; }';
+  document.head.append(style);
+  Object.defineProperty(topbar, 'offsetHeight', { configurable: true, get: () => 142 });
+  window.dispatchEvent(new window.Event('resize'));
+  assert.equal(document.documentElement.style.getPropertyValue('--topbar-h'), '142px');
+  style.textContent = '.course-topbar { position: static; }';
+  window.dispatchEvent(new window.Event('resize'));
+  assert.equal(document.documentElement.style.getPropertyValue('--topbar-h'), '0px', 'Una barra que no se fija no desplaza las demás');
+  const css = read('css/guided-experience.css') + read('css/tokens.css');
+  assert.match(css, /--topbar-h:\s*\d+px/u);
+  assert.match(css, /\.lesson-tabs\s*\{[^}]*top:\s*var\(--topbar-h\)/u);
+  assert.match(css, /\.module-explanation > \.productivity-lesson\s*\{[^}]*position:\s*sticky/u);
+  dom.window.close();
+});
+
+test('Retomar conserva la flecha como decoración', async () => {
+  const { dom, window, document } = await setup('#m03-implementacion');
+  window.guiaDevBrainApp.navigation.showPage('inicio');
+  await tick(window);
+  const resume = document.getElementById('resume-learning');
+  assert.equal(resume.hash, '#m03-implementacion');
+  assert.match(resume.textContent, /^Retomar: Resuelve tareas de tu área/u);
+  assert.equal(resume.querySelector('[aria-hidden="true"]').textContent, '→');
+  dom.window.close();
+});
+
+test('copiar una instrucción de situación usa el texto exacto y su propio mensaje', async () => {
+  const { dom, window, document } = await setup('#inicio');
+  const copied = [];
+  Object.defineProperty(window.navigator, 'clipboard', { value: { writeText: async value => copied.push(value) } });
+  const button = document.querySelector('#situaciones-oficina [data-copy="prompt-pqrs-urgentes"]');
+  button.click();
+  await tick(window);
+  assert.equal(copied[0], document.getElementById('prompt-pqrs-urgentes').textContent.trim());
+  assert.match(document.getElementById('course-notice').textContent, /^Instrucción copiada/u);
+  dom.window.close();
+});
+
+test('la prueba individual tiene su propio encargo después del trabajo en equipo', async () => {
+  const { dom, document } = await setup('#m05-cierre');
+  const individual = document.getElementById('prueba-individual');
+  assert.ok(individual, 'Falta el bloque de la prueba individual');
+  assert.equal(individual.closest('.challenge-card'), null, 'No se mezcla con el reto en equipo');
+  assert.equal(individual.closest('[data-panel]').dataset.panel, 'resuelve');
+  assert.ok(individual.querySelector('[data-ai-task-key="prueba-individual"] a[href="materiales/ia/prueba-individual.zip"][download]'));
+  assert.match(individual.textContent, /45 min/iu);
+  const team = document.querySelector('#reto-integrador [data-ai-task]').textContent;
+  assert.doesNotMatch(team, /IND-01|casos-individuales/u);
   dom.window.close();
 });

@@ -20,7 +20,7 @@
 
 .topbar-actions { display: flex; flex-wrap: wrap; align-items: center; justify-content: flex-end; gap: 9px; }
 .glossary-launch { cursor: pointer; }
-.tool-lab, .ratio-lab { display: grid; gap: 18px; margin: 24px 0; padding: 22px; border: 1.5px solid #c7d8c4; border-top: 4px solid var(--green, var(--green)); border-radius: 15px; background: var(--surface-lab, var(--surface-lab)); box-shadow: 0 4px 18px rgba(21, 62, 56, 0.05); }
+.tool-lab, .ratio-lab { display: grid; gap: 18px; margin: 24px 0; padding: 22px; border: 1.5px solid #c7d8c4; border-top: 4px solid var(--green); border-radius: 15px; background: var(--surface-lab); box-shadow: 0 4px 18px rgba(21, 62, 56, 0.05); }
 .tool-lab-heading h3, .ratio-lab h3 { margin: 6px 0; font-size: 1.12rem; }.tool-lab-heading p, .ratio-lab > div > p { color: var(--muted); font-size: .84rem; }
 .tool-lab-fields { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr)); gap: 14px; }
 .tool-lab-fields label { display: grid; gap: 6px; min-width: 0; color: #405442; font-size: .8rem; font-weight: 650; }
@@ -66,13 +66,13 @@
 }
 .cleaner-table th, .cleaner-table td {
   padding: 8px 12px;
-  border: 1px solid var(--line, var(--line));
+  border: 1px solid var(--line);
   font-size: 0.82rem;
   text-align: left;
 }
 .cleaner-table th {
-  background: var(--paper, var(--paper));
-  color: var(--green-dark, var(--green-dark));
+  background: var(--paper);
+  color: var(--green-dark);
   font-weight: 600;
 }
 

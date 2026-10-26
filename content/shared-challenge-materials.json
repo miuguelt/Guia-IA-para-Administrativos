@@ -146,8 +146,7 @@
     "kind": "Fuente común",
     "detail": "El instructor asigna un caso distinto a cada aprendiz para comprobar aplicación individual.",
     "usedBy": [
-      "reto-integrador",
-      "MG-A05"
+      "prueba-individual"
     ]
   }
 ]

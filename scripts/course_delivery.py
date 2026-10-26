@@ -63,8 +63,15 @@ def render_delivery(ident):
     return f'''<section class="ai-delivery" data-ai-delivery="{ident}" aria-labelledby="delivery-title-{ident}">{heading}{task}<section class="delivery-receive"><span class="delivery-step">GUARDA TU RESULTADO</span>{selection}<p data-result-info></p><p data-result-status class="delivery-status" role="status" aria-live="polite">Selecciona el archivo cuando la IA lo haya generado.</p><button type="button" class="button button-secondary" data-result-retry hidden>Seleccionar de nuevo</button><details class="delivery-help"><summary>¿Algo falló? Otras formas de entregar</summary><p class="delivery-local" id="result-local-{ident}">El archivo se lee en este navegador; no se envía a ningún servidor. Usa solo los materiales de práctica, sin datos personales reales. También se aceptan un PDF o una imagen de tu diseño (el Portafolio registra el archivo y deja las respuestas pendientes), un ZIP, una carpeta o un TXT, Markdown o JSON con el resultado. Límites: 1 MB por resultado, 20 MB por ZIP, 5 MB entre resultados y 500 archivos.</p><div data-result-folder-control><label class="delivery-file-label" for="result-folder-{ident}">Elegir una carpeta con el resultado</label><input type="file" id="result-folder-{ident}" webkitdirectory directory multiple data-result-folder aria-describedby="result-local-{ident}"></div><p data-result-folder-help hidden>{folder_help}</p>{paste}<details class="delivery-repair"><summary>Si el resultado tiene un error de formato</summary><p id="repair-{ident}">{escape(repair_text)}</p><button type="button" class="copy-button" data-copy="repair-{ident}">Copiar solicitud de corrección</button></details></details><div data-result-preview class="result-preview"></div><button type="button" class="button button-primary" data-result-save disabled>Guardar borrador en el Portafolio de Evidencias</button></section><section class="delivery-review"><h3>Revisa y conserva</h3><details class="delivery-criteria"><summary>Qué debes comprobar antes de confirmar</summary><ul>{criteria}</ul></details><button type="button" class="button button-secondary" data-result-review disabled>Confirmo que revisé los criterios</button><p>La importación no comprueba el contenido. La confirmación registra tu revisión; la valoración corresponde al instructor.</p>{downloads}</section></section>'''
 
 
+def attach_task_slots(soup):
+    """Publica en su lugar los encargos que no pertenecen a un reto, como la prueba individual."""
+    for slot in soup.select('[data-ai-task-slot]'):
+        slot.replace_with(BeautifulSoup(render_task(slot['data-ai-task-slot']), 'html.parser'))
+
+
 def attach_deliveries(soup):
     """Oculta la interfaz de digitación del SDK y conserva sus siete estaciones."""
+    attach_task_slots(soup)
     for mount in soup.select('[data-db-evidence]'):
         if mount.find_parent(attrs={'data-ai-storage': True}):
             continue

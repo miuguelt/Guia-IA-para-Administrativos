@@ -450,7 +450,7 @@
         "Módulo 05 · Ejemplo resuelto de diferencia contractual",
         "Resultados y hallazgos verificados de los retos anteriores"
       ],
-      "instructions": "Con el caso de práctica de las pestañas Contratos y Directriz, entrega un plan, preguntas trazables por código, análisis en una copia, borradores no enviados, presentación y revisión del instructor. Cada aprendiz resuelve además un caso nuevo de forma individual. Completa el informe y propón un piloto de 30 días; deja fechas, sede, canal de entrega y responsables reales como pendientes hasta su confirmación.",
+      "instructions": "Con el caso de práctica de las pestañas Contratos y Directriz, entrega un plan, preguntas trazables por código, análisis en una copia, borradores no enviados, presentación y revisión del instructor. Después del trabajo en equipo, cada aprendiz resuelve un caso nuevo de forma individual con su propio encargo. Completa el informe y propón un piloto de 30 días; deja fechas, sede, canal de entrega y responsables reales como pendientes hasta su confirmación.",
       "example": "Una diferencia entre el valor planeado y el comprometido se registra con el código y la fila y se formula como pregunta de verificación, no como acusación.",
       "station": {
         "sectionId": "m05-cierre",
@@ -478,7 +478,7 @@
           "key": "prueba_individual",
           "label": "Prueba individual con caso nuevo",
           "type": "area",
-          "hint": "Herramienta elegida, resultado, dato por confirmar, comprobación, corrección propia y aprobación pendiente.",
+          "hint": "Se completa con el encargo aparte de la prueba individual. Herramienta elegida, resultado, dato por confirmar, comprobación, corrección propia y aprobación pendiente.",
           "placeholder": "Caso asignado: Caso individual asignado por el instructor.\nInstrucción empleada: Prompt estructurado solicitando extracción de hechos y cálculo de valores pendientes sin ayuda externa.\nResultado obtenido y verificado: Cálculo comprobado con fuente original; dato faltante marcado como pendiente.\nCorrección propia: Se ajustó el tono del borrador para hacerlo estrictamente institucional."
         },
         {

@@ -35,7 +35,7 @@
         <li><strong>Asuntos por confirmar:</strong> señalar los temas que exigen verificación técnica.</li>
       </ul>
       <div class="native-diagram__example triage-card__outcome--blue">
-        ★ Criterio: Clasificar no equivale a decidir; la prioridad oficial la fija la dependencia.
+        Criterio: Clasificar no equivale a decidir; la prioridad oficial la fija la dependencia.
       </div>
     </article>
 
@@ -55,7 +55,7 @@
         <li><strong>Marcador «no consta»:</strong> las dudas se anotan como temas por revisar.</li>
       </ul>
       <div class="native-diagram__example triage-card__outcome--blue">
-        ★ Criterio: Jamás convertir una propuesta o intención de debate en acuerdo institucional.
+        Criterio: Jamás convertir una propuesta o intención de debate en acuerdo institucional.
       </div>
     </article>
 
@@ -70,12 +70,12 @@
       </div>
       <ul class="comparative-card__list">
         <li><strong>Fuente intacta:</strong> «Estado sin normalizar» permanece inalterada.</li>
-        <li><strong>Reglas reproducibles:</strong> recorte de espacios (TRIM) y MAYÚSCULAS.</li>
+        <li><strong>Reglas reproducibles:</strong> recorte de espacios con ESPACIOS (TRIM en inglés) y mayúsculas con MAYUSC.</li>
         <li><strong>Tratamiento de vacíos:</strong> celdas sin datos se marcan como REVISAR.</li>
         <li><strong>Integridad de filas:</strong> 30 registros totales, conservando SIM-0012.</li>
       </ul>
       <div class="native-diagram__example triage-card__outcome--green">
-        ★ Criterio: Prohibido sobrescribir celdas maestras o borrar filas presuntamente duplicadas.
+        Criterio: Prohibido sobrescribir celdas maestras o borrar filas presuntamente duplicadas.
       </div>
     </article>
 
@@ -95,14 +95,14 @@
         <li><strong>Simulación de rutas:</strong> prueba contrastada en FL-01, FL-02 y FL-03.</li>
       </ul>
       <div class="native-diagram__example triage-card__outcome--amber">
-        ★ Criterio: Una automatización evalúa reglas lógicas; no aprueba reservas ni resuelve excepciones.
+        Criterio: Una automatización evalúa reglas lógicas; no aprueba reservas ni resuelve excepciones.
       </div>
     </article>
   </div>
 
   <!-- Panel inferior: Pipeline de Normalización SOFIA -->
   <div class="correspondence-cycle triage-panel">
-    <strong class="triage-panel__label">Pipeline transversal de normalización y trazabilidad en planillas (SOFIA)</strong>
+    <strong class="triage-panel__label">Secuencia común de normalización y trazabilidad en planillas (SOFIA)</strong>
     <div class="triage-panel__grid">
       <div class="metric-box">
         <span class="metric-box__label">01 · ORIGEN</span>
@@ -116,7 +116,7 @@
       </div>
       <div class="metric-box">
         <span class="metric-box__label">03 · NORMALIZACIÓN</span>
-        <strong class="metric-box__value">Reglas TRIM y MAYÚSCULAS</strong>
+        <strong class="metric-box__value">Reglas ESPACIOS y MAYUSC</strong>
         <span class="metric-box__note">Estandarización tipográfica (ej. SIM-0002 normalizado a FINALIZADO).</span>
       </div>
       <div class="metric-box">
@@ -145,7 +145,7 @@
     <article class="data-safety-card data-safety-card--green">
       <div class="data-safety-card__badge"><strong>Nivel 1 · Seguro</strong></div>
       <h4 class="data-safety-card__title">Cálculos y referencias directas</h4>
-      <p class="data-safety-card__includes">Aplicar reglas deterministas (TRIM, mayúsculas), enlazar acuerdos a marcas de tiempo y priorizar mensajes citando códigos fuente.</p>
+      <p class="data-safety-card__includes">Aplicar reglas fijas (ESPACIOS, MAYUSC), enlazar acuerdos a marcas de tiempo y priorizar mensajes citando códigos fuente.</p>
       <div class="data-safety-card__rule">
         <strong>Regla de uso:</strong> Cada valor resultante debe conservar su vínculo verificable con el código, fila o minuto de procedencia.
       </div>
@@ -242,7 +242,7 @@
     <div class="roadmap-step-card">
       <span class="roadmap-step-tag">Reto 6 · 120 min</span>
       <h4>Planilla de datos SOFIA</h4>
-      <p>Normaliza estados en columna calculada aplicando TRIM y MAYÚSCULAS sin alterar filas maestras ni suprimir códigos repetidos.</p>
+      <p>Normaliza estados en columna calculada aplicando ESPACIOS y MAYUSC sin alterar filas maestras ni suprimir códigos repetidos.</p>
     </div>
     <div class="roadmap-step-card">
       <span class="roadmap-step-tag">Reto 7 · 60 min</span>
@@ -265,7 +265,7 @@
 <div class="rule-options">
 <label data-clean-rule="trim_spaces" class="check-option check-option--inline">
 <input type="checkbox" class="check-option__input--plain"/>
-<span>1. Quitar espacios iniciales y finales (TRIM)</span>
+<span>1. Quitar espacios iniciales y finales (ESPACIOS; TRIM en inglés)</span>
 </label>
 <label data-clean-rule="uppercase_states" class="check-option check-option--inline">
 <input type="checkbox" class="check-option__input--plain"/>
@@ -294,7 +294,7 @@
 <span id="data-cleaner-count" class="sim-count">Estados transformados en la muestra: 0 de 5</span>
 </div>
 <div class="sim-dual-actions">
-<button class="button button-primary" data-cleaner-transfer="" type="button">Transferir a mi evidencia (MG-A03)</button>
+<button class="button button-primary" data-cleaner-transfer="" type="button">Llevar a mi evidencia como borrador (MG-A03)</button>
 <button class="button button-secondary" data-cleaner-copy="" type="button">Copiar texto</button>
 </div>
 </div>
@@ -317,7 +317,7 @@ Prepara los siguientes campos como texto generado por ti:
 - reto04_priorizacion: Reto 4 · Priorización trazable. Resume la clasificación, señal textual, diez borradores no enviados y asuntos por confirmar.
 - uso_ia_y_revision: Describe esta ejecución con la herramienta identificada o la indicación «no identificado», las fuentes, el encargo y la autocomprobación. Deja la revisión del aprendiz pendiente si no hay una comprobación suya en la conversación.
 
-Genera y entrega un solo archivo llamado resultado-reto-4.html: una página autónoma con este producto: Tablero de priorización de 50 mensajes y 10 borradores críticos. Incluye su estilo dentro del archivo y usa HTML, CSS y, si ayuda, SVG integrado; no cargues bibliotecas ni recursos externos y no incluyas JavaScript ejecutable. Aplica el formato visual y la estructura descritos para esta actividad: Diseña un tablero legible de la bandeja, con los 50 códigos, categoría, prioridad, señal textual y razón. Añade diez tarjetas de borrador sin enviar y resalta las urgencias con su sustento, sin presentar la priorización como decisión institucional.
+Genera y entrega un solo archivo llamado resultado-reto-4.html: una página autónoma con este producto: Tablero de priorización de 50 mensajes y diez borradores. Incluye su estilo dentro del archivo y usa HTML, CSS y, si ayuda, SVG integrado; no cargues bibliotecas ni recursos externos y no incluyas JavaScript ejecutable. Aplica el formato visual y la estructura descritos para esta actividad: Diseña un tablero legible de la bandeja, con los 50 códigos, categoría, prioridad, señal textual y razón. Añade diez tarjetas de borrador sin enviar y resalta las urgencias con su sustento, sin presentar la priorización como decisión institucional.
 
 Incluye en la página todos los productos solicitados, fuentes, operaciones, citas, límites y pendientes. Separa la autocomprobación de la revisión humana; no afirmes que una persona aprobó, revisó o envió algo si no ocurrió. Presenta los borradores como borradores. Usa títulos descriptivos, texto legible en pantalla pequeña, tarjetas o tablas con etiquetas y un pie que indique la herramienta conocida o «no identificado». No agregues datos ni causas que no estén en las fuentes.
 
@@ -404,7 +404,7 @@ Sobre técnico esperado:
 }
 ```
 
-Guarda resultado-reto-6.html en la carpeta resultados/. Antes de terminar, comprueba que el texto y las tablas se lean, que el documento o diseño se vea con claridad y que coincidan las cifras y citas con las fuentes. Si después quieres rehacer el diseño en Canva, Word o Excel, usa esta página como base; la evidencia se guarda con este archivo HTML. No inventes ejecución ni revisión humana.</blockquote><button class="copy-button" data-copy="reto-6-ai-prompt" type="button">Copiar el encargo completo</button><ul aria-label="Tres comprobaciones antes de descargar" data-ai-review-checks=""><li>El número de filas se conserva y Estado original no cambia.</li><li>SIM-0003 queda REVISAR y SIM-0002 se contrasta con la regla.</li><li>Se conservan ambas ocurrencias de SIM-0012.</li></ul><p><strong>Si falta algo:</strong> usa el botón para copiar el ajuste, envíalo en la misma conversación y vuelve a revisar.</p><p class="prompt-text" id="reto-6-ajuste">Compara tu producto elaborado con las fuentes y los criterios del encargo. Corrige los datos o citas que no coincidan, vuelve a guardar tu evidencia y deja visibles los puntos pendientes. No afirmes que una persona ya la revisó.</p><button class="copy-button" data-copy="reto-6-ajuste" type="button">Copiar solicitud de ajuste</button><details class="course-context"><summary>Consultar la distribución del tiempo</summary><ol><li><strong>15 min:</strong> Pide el inventario de filas, códigos y cuatro estados vacíos.</li><li><strong>25 min:</strong> Revisa que la regla afecte solo la columna permitida.</li><li><strong>35 min:</strong> Pide su ejecución y compara SIM-0002 y SIM-0003.</li><li><strong>25 min:</strong> Comprueba las dos ocurrencias de SIM-0012 y el total de filas.</li><li><strong>20 min:</strong> Abre resultado.html y revisa que incluya la copia normalizada, el procedimiento y el reporte de pruebas.</li></ol></details><p><strong>Guarda tu evidencia:</strong> revisa tu entrega; después selecciona ese mismo producto en el Portafolio. No necesitas preparar otro archivo ni copiar datos a mano.</p><details class="course-context"><summary>Ver un ejemplo de comprobación</summary><div class="worked-example"><h4>Ensayo resuelto</h4><p>La IA debe devolver «FINALIZADO» para SIM-0002 y «REVISAR» para SIM-0003 en una columna nueva, conservando «Estado sin normalizar». Tú contrastas ambos casos con la fuente y revisas que la regla quite espacios y convierta a mayúsculas sin completar datos. La fuente conserva el estado original en E6 para SIM-0002 y en E7 para SIM-0003, filas 6 y 7 del libro.</p></div></details><div class="challenge-deliverable-bridge"><div class="bridge-info">Revisa tu entrega, verifica sus fuentes y guárdala en «Guarda tu evidencia».</div><button class="button button-secondary button-sm bridge-cta" data-module-target="m03-implementacion" data-open-evidence-field="dbe-MG-A03-reto06_regla" type="button">Abrir recepción del resultado →</button></div></article>
+Guarda resultado-reto-6.html en la carpeta resultados/. Antes de terminar, comprueba que el texto y las tablas se lean, que el documento o diseño se vea con claridad y que coincidan las cifras y citas con las fuentes. Si después quieres rehacer el diseño en Canva, Word o Excel, usa esta página como base; la evidencia se guarda con este archivo HTML. No inventes ejecución ni revisión humana.</blockquote><button class="copy-button" data-copy="reto-6-ai-prompt" type="button">Copiar el encargo completo</button><ul aria-label="Tres comprobaciones antes de descargar" data-ai-review-checks=""><li>El número de filas se conserva y Estado original no cambia.</li><li>SIM-0003 queda REVISAR y SIM-0002 se contrasta con la regla.</li><li>Se conservan ambas ocurrencias de SIM-0012.</li></ul><p><strong>Si falta algo:</strong> usa el botón para copiar el ajuste, envíalo en la misma conversación y vuelve a revisar.</p><p class="prompt-text" id="reto-6-ajuste">Compara tu producto elaborado con las fuentes y los criterios del encargo. Corrige los datos o citas que no coincidan, vuelve a guardar tu evidencia y deja visibles los puntos pendientes. No afirmes que una persona ya la revisó.</p><button class="copy-button" data-copy="reto-6-ajuste" type="button">Copiar solicitud de ajuste</button><details class="course-context"><summary>Consultar la distribución del tiempo</summary><ol><li><strong>15 min:</strong> Pide el inventario de filas, códigos y cuatro estados vacíos.</li><li><strong>25 min:</strong> Revisa que la regla afecte solo la columna permitida.</li><li><strong>35 min:</strong> Pide su ejecución y compara SIM-0002 y SIM-0003.</li><li><strong>25 min:</strong> Comprueba las dos ocurrencias de SIM-0012 y el total de filas.</li><li><strong>20 min:</strong> Abre resultado-reto-6.html y revisa que incluya la copia normalizada, el procedimiento y el reporte de pruebas.</li></ol></details><p><strong>Guarda tu evidencia:</strong> revisa tu entrega; después selecciona ese mismo producto en el Portafolio. No necesitas preparar otro archivo ni copiar datos a mano.</p><details class="course-context"><summary>Ver un ejemplo de comprobación</summary><div class="worked-example"><h4>Ensayo resuelto</h4><p>La IA debe devolver «FINALIZADO» para SIM-0002 y «REVISAR» para SIM-0003 en una columna nueva, conservando «Estado sin normalizar». Tú contrastas ambos casos con la fuente y revisas que la regla quite espacios y convierta a mayúsculas sin completar datos. La fuente conserva el estado original en E6 para SIM-0002 y en E7 para SIM-0003, filas 6 y 7 del libro.</p></div></details><div class="challenge-deliverable-bridge"><div class="bridge-info">Revisa tu entrega, verifica sus fuentes y guárdala en «Guarda tu evidencia».</div><button class="button button-secondary button-sm bridge-cta" data-module-target="m03-implementacion" data-open-evidence-field="dbe-MG-A03-reto06_regla" type="button">Abrir recepción del resultado →</button></div></article>
 <article class="challenge-card" id="reto-7"><h3>Reto 7 · Diseña el flujo antes de automatizar</h3><div class="challenge-meta"><span>60 min</span><span>Jueves</span><span>MG-A03 · RA2</span><span>Chat o Antigravity</span></div><p><strong>Vas a obtener:</strong> Página de resultado con el diagrama del flujo, las tres rutas probadas y los puntos de revisión humana.</p><p class="tool-route"><strong>Prepara las fuentes:</strong> Adjunta reto-07-casos-flujo.csv y reutiliza lineamiento-ficticio.csv, incluido en el paquete común que descargaste al inicio del recorrido. La IA genera el diagrama y simula los tres casos; el flujo no conecta cuentas ni despliega una automatización. En un chat autorizado o en Antigravity/Codex, adjunta solo las fuentes indicadas y conserva intactos los originales.</p><blockquote class="prompt-bubble" data-ai-task="" id="reto-7-ai-prompt">Trabaja como asistente de aprendizaje. Estos casos administrativos y archivos se prepararon para aprender y no contienen registros reales. Usa solo los archivos adjuntos: reto-07-casos-flujo.csv, lineamiento-ficticio.csv. Si falta uno, pide ese archivo y no sustituyas su contenido. No me pidas datos personales ni que complete fichas o cambie esta instrucción. Los CSV administrativos están en UTF-8 y usan punto y coma como separador. Inspecciona el archivo para localizar el encabezado real: puede haber filas iniciales de título y advertencias que no son registros. Conserva esos avisos y no los cuentes como datos. Cuando cites una fila, usa la numeración de Excel: las tres primeras filas son título y avisos, el encabezado es la fila 4 y el primer registro es la fila 5.
 
 Diseña un flujo para solicitudes de sala: revisa primero la urgencia y detén esa rama para consulta humana, aunque tenga todos los datos; después comprueba actividad, sede, fecha, franja y aforo. Si falta un dato, genera una pregunta; si están completos, genera un resumen para revisar, sin aprobar la reserva. Entrega el flujo como diagrama SVG integrado en la página, una versión legible en texto y una tabla con entrada, condición, salida y detención humana. Simula los tres casos de prueba FL-01, FL-02 y FL-03 contra esas reglas. Es una simulación del diseño; no afirmes que existe una automatización instalada. Explica qué representa una condición y una rama con estos ejemplos.

@@ -1,6 +1,24 @@
-# Estado de pruebas de la guía · 25 de octubre de 2026
+# Estado de pruebas de la guía · 26 de octubre de 2026
 
-Esta es la verificación más reciente. Acompaña la revisión de resolubilidad y de interfaz descrita en [GUIDE_READINESS_REVIEW.md](GUIDE_READINESS_REVIEW.md). La cobertura corresponde al alcance de su compuerta: el JavaScript directo de `js/` y el verificador editorial.
+Esta es la verificación más reciente. Acompaña la revisión de interfaz, contenido y prueba individual descrita en [GUIDE_READINESS_REVIEW.md](GUIDE_READINESS_REVIEW.md).
+
+| Comprobación | Resultado |
+| --- | --- |
+| `npm run build` | Aprobada: 32 CSV administrativos, 31 paquetes para IA (se agregó `prueba-individual`), 119 documentos de lectura, 11 paquetes de retos y cinco paquetes de análisis. |
+| `npm run check:redaccion` | Aprobada: sin expresiones bloqueadas en las fuentes editables. |
+| `npm test` | Aprobada: 352 pruebas JavaScript y 91 Python, sin fallas ni omisiones. La prueba del workflow se alineó con el cambio de `if-no-files-found: error` a `warn` que se publicó el 25 de octubre. |
+| `npm run test:coverage:all` | Aprobada: 100 % de funciones, 99,37 % de líneas y 90,82 % de ramas. |
+| Contrato educativo estricto | Aprobado sin errores ni advertencias. |
+| Entregables estrictos | Aprobados: ocho artefactos y ocho estaciones. Advertencia previa sin cambios: ECO-A01 y ECO-A02 comparten el orden 6. |
+| Navegador real (Edge) | 229 comprobaciones aprobadas en 320, 390, 768, 1024, 1100, 1440, 1920 y 2560 px, zoom al 200 % e impresión; ahora incluye la portada y el portafolio. Fallan seis: la introducción de EcoBogotá no se justifica desde 768 px porque `devbrain-prose.js` excluye esa página desde el commit `23e8265`. La compuerta no se modificó; la decisión queda pendiente. |
+| Revisión visual | Portada, selector de situaciones, módulos 03 y 05 y portafolio revisados a 390, 1100 y 1440 px, sin desplazamiento horizontal. El desplazamiento suave hacia la ficha en el celular no se pudo observar porque el panel del navegador estaba oculto. |
+| Validador de reglas del workspace | Sin errores en las fuentes modificadas. `index.html` (1,16 MB, generado) sigue sobre el presupuesto léxico de 900 KB, como antes de esta revisión, y se valida a través de sus fuentes en `content/`. |
+
+Siguen pendientes el aval curricular de las 40 horas frente a las 48 publicadas, la decisión sobre la justificación de EcoBogotá y la observación del recorrido con aprendices.
+
+## Registro anterior · 25 de octubre de 2026
+
+Esta fue la verificación vigente hasta la revisión del 26 de octubre. Acompaña la revisión de resolubilidad y de interfaz descrita en [GUIDE_READINESS_REVIEW.md](GUIDE_READINESS_REVIEW.md). La cobertura corresponde al alcance de su compuerta: el JavaScript directo de `js/` y el verificador editorial.
 
 | Comprobación | Resultado |
 | --- | --- |

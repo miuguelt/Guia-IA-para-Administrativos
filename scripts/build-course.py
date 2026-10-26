@@ -152,6 +152,7 @@ def module_page(spec, next_id):
     titles = [(card["id"], card.select_one("h3").get_text(" ", strip=True)) for card in BeautifulSoup("".join(challenges), "html.parser").select("article.challenge-card")]
     solve = ('<div class="panel-heading"><h2>Resuelve un reto a la vez.</h2><p>En cada reto, prepara los archivos, sigue el encargo, revisa la salida y conserva el resultado. Repasa «Aprende» y «Observa» si necesitas las explicaciones y los ejemplos.</p></div>'
              + challenge_map(titles, evidence) + "".join(challenges)
+             + "".join(html(node) for node in section.select(".individual-test"))
              + '<details class="reference-library"><summary><span><strong>Consultar el plan completo de práctica</strong><small>Etapas y criterios del módulo para organizar el trabajo.</small></span><span aria-hidden="true">+</span></summary>' + support_content["solve"] + '</details>')
     if support:
         solve += f'<div class="transfer-tip"><strong>Aplicación y revisión incluidas</strong>{support}</div>'
@@ -164,14 +165,14 @@ def module_page(spec, next_id):
     for i, ((key, label), body) in enumerate(zip(PHASES, [learn, observe, solve, document])):
         if i < 3:
             next_key, next_label = PHASES[i+1]
-            action = f'<button type="button" class="button button-primary" data-next-phase="{next_key}">Continuar: {next_label.lower()} <span aria-hidden="true">→</span></button>'
+            action = f'<button type="button" class="button button-primary" data-next-phase="{next_key}">Continuar con {next_label} <span aria-hidden="true">→</span></button>'
         else:
             label = "Abrir mi Portafolio de Evidencias" if next_id == "portafolio" else "Continuar al siguiente módulo"
             action = f'<a class="button button-primary" href="#{next_id}">{label} <span aria-hidden="true">→</span></a>'
         back = ''
         if i > 0:
             previous_key, previous_label = PHASES[i-1]
-            back = f'<button type="button" class="phase-back" data-next-phase="{previous_key}"><span aria-hidden="true">←</span> Volver a {previous_label.lower()}</button>'
+            back = f'<button type="button" class="phase-back" data-next-phase="{previous_key}"><span aria-hidden="true">←</span> Volver a {previous_label}</button>'
         panels.append(f'<div class="lesson-panel" data-panel="{key}">{body}<div class="phase-footer">{back}<small>Paso {i+1} de 4 · Módulo {number}</small>{action}</div></div>')
     return f'''<section id="{ident}" class="module-page station" data-nav-title="{title}" data-nav-number="{number}" data-nav-meta="{day} · {duration}" data-learning-module>
       <header class="lesson-header"><div class="page-kicker"><span class="eyebrow">MÓDULO {number}<span data-mode-only="aula"> · {day.upper()}</span></span><span class="quiet-badge">{duration} de formación directa</span></div>
@@ -182,6 +183,11 @@ def module_page(spec, next_id):
     </section>'''
 
 
+def content_version(source):
+    """Firma el contenido con LF, como lo guarda Git, para que Windows y CI produzcan la misma versión."""
+    return str(int(hashlib.sha256(Path(source).read_bytes().replace(b"\r\n", b"\n")).hexdigest()[:12], 16))
+
+
 def version_assets(html):
     """Versiona cada recurso local por su contenido para que el navegador no use copias antiguas."""
     def stamp(match):
@@ -189,8 +195,7 @@ def version_assets(html):
         source = ROOT / path
         if not source.is_file():
             return match.group(0)
-        version = str(int(hashlib.sha256(source.read_bytes()).hexdigest()[:12], 16))
-        return attribute + '="' + path + '?v=' + version + '"'
+        return attribute + '="' + path + '?v=' + content_version(source) + '"'
     return re.sub(r'(src|href)="((?:js|css)/[^"?]+)\?v=[^"]*"', stamp, html)
 
 

@@ -96,6 +96,7 @@
       else link.removeAttribute('aria-current');
     });
     closeMenu();
+    syncTopbarHeight();
     window.CourseTabs.locate?.(pageId);
     if (pageId === 'laboratorio-datos') openLaboratory();
     applyPending(pageId);
@@ -157,8 +158,11 @@
     const last = app.storage.get('last_lesson');
     if (ids.has(last)) {
       const resume = document.getElementById('resume-learning');
+      const arrow = document.createElement('span');
+      arrow.setAttribute('aria-hidden', 'true');
+      arrow.textContent = '→';
       resume.href = '#' + last;
-      resume.textContent = 'Retomar: ' + document.getElementById(last).dataset.navTitle + ' →';
+      resume.replaceChildren('Retomar: ' + document.getElementById(last).dataset.navTitle + ' ', arrow);
     }
   }
 
@@ -171,6 +175,44 @@
     const ecoStatus = eco?.dataset.dbEvidenceStatus === 'lista' ? 'lista para revisión' : eco?.dataset.dbEvidenceStatus === 'borrador' ? 'en borrador' : 'pendiente';
     document.getElementById('home-evidence-status').textContent = `${ready} de ${curricular.length} evidencias curriculares listas · ${drafts} en borrador · EcoBogotá (complementaria): ${ecoStatus}`;
   }
+
+  // Las barras internas se fijan debajo de la barra superior, cuya altura cambia con el ancho y el zoom.
+  function syncTopbarHeight() {
+    const topbar = document.querySelector('.course-topbar');
+    const height = getComputedStyle(topbar).position === 'sticky' ? topbar.offsetHeight : 0;
+    document.documentElement.style.setProperty('--topbar-h', height + 'px');
+  }
+
+  // Mi avance, Modo y Recursos forman un grupo: solo uno queda abierto a la vez.
+  function closeTopbarMenus(keep) {
+    let closed = null;
+    document.querySelectorAll('.course-topbar details[open]').forEach(menu => {
+      if (menu === keep) return;
+      menu.open = false;
+      closed = menu.querySelector('summary');
+    });
+    const toggle = document.getElementById('progress-checklist-toggle');
+    const dropdown = document.getElementById('progress-checklist-dropdown');
+    if (dropdown !== keep && !dropdown.hidden) {
+      dropdown.hidden = true;
+      toggle.setAttribute('aria-expanded', 'false');
+      closed = toggle;
+    }
+    return closed;
+  }
+
+  document.querySelectorAll('.course-topbar details').forEach(menu => {
+    menu.addEventListener('toggle', () => { if (menu.open) closeTopbarMenus(menu); });
+  });
+  document.getElementById('progress-checklist-toggle').addEventListener('click', () => {
+    const dropdown = document.getElementById('progress-checklist-dropdown');
+    if (!dropdown.hidden) closeTopbarMenus(dropdown);
+  });
+  syncTopbarHeight();
+  window.addEventListener('resize', syncTopbarHeight);
+  window.addEventListener('load', syncTopbarHeight);
+  // La barra cambia de alto cuando se cargan el avance y los menús, sin que cambie la ventana.
+  if (window.ResizeObserver) new window.ResizeObserver(syncTopbarHeight).observe(document.querySelector('.course-topbar'));
 
   normalizeHash();
   window.addEventListener('hashchange', normalizeHash);
@@ -221,10 +263,13 @@
     menuButton.focus();
   });
   document.addEventListener('keydown', event => {
-    if (event.key === 'Escape' && document.body.classList.contains('menu-open')) {
+    if (event.key !== 'Escape') return;
+    if (document.body.classList.contains('menu-open')) {
       closeMenu();
       menuButton.focus();
+      return;
     }
+    closeTopbarMenus(null)?.focus();
   });
   document.querySelector('.skip-link').addEventListener('click', event => {
     event.preventDefault();
@@ -232,6 +277,7 @@
   });
   window.DevBrainCalendarPrint.bindPrintAction(document, window);
   document.addEventListener('click', event => {
+    if (!event.target.closest('.course-topbar details, .course-progress-container')) closeTopbarMenus(null);
     if (event.target.closest('.resources-panel .resource-item')) {
       document.querySelector('.resources-menu').open = false;
     }

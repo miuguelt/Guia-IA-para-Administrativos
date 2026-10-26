@@ -108,7 +108,19 @@ class DeliveryMarkupTests(unittest.TestCase):
             self.assertIsNotNone(node.find_parent(attrs={'data-ai-storage':True,'hidden':True}))
         module.attach_deliveries(soup)
         self.assertEqual(len(soup.select('[data-ai-delivery]')), 7)
-        self.assertEqual({name for name,value in vars(module).items() if inspect.isfunction(value) and value.__module__==module.__name__}, {'render_task','render_delivery','attach_deliveries'})
+        self.assertEqual({name for name,value in vars(module).items() if inspect.isfunction(value) and value.__module__==module.__name__}, {'render_task','render_delivery','attach_deliveries','attach_task_slots'})
+
+    def test_encargo_aparte_se_publica_en_su_espacio_y_falla_si_no_existe(self):
+        module = self.load()
+        soup = BeautifulSoup('<section><div data-ai-task-slot="prueba-individual"></div></section>', 'html.parser')
+        module.attach_task_slots(soup)
+        card = soup.select_one('[data-ai-task-key="prueba-individual"]')
+        self.assertIsNotNone(card)
+        self.assertIsNone(soup.select_one('[data-ai-task-slot]'))
+        self.assertIsNotNone(card.select_one('a[href="materiales/ia/prueba-individual.zip"][download]'))
+        self.assertIn('IND-01', card.select_one('#ai-task-prueba-individual-chat').get_text())
+        with self.assertRaises(KeyError):
+            module.attach_task_slots(BeautifulSoup('<div data-ai-task-slot="no-existe"></div>', 'html.parser'))
 
 
 if __name__ == '__main__':

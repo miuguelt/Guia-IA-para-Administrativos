@@ -14,7 +14,7 @@
 .preparation-workspace-intro { margin: 26px 0 18px; }
 .preparation-workspace-intro h2 { margin-bottom: 9px; font-size: 1.35rem; }
 .preparation-workspace-intro p { color: var(--muted); font-size: .94rem; }
-.preparation-page .tool-workspace { grid-template-columns: minmax(0, 1fr); gap: 18px; scroll-margin-top: 110px; }
+.preparation-page .tool-workspace { grid-template-columns: minmax(0, 1fr); gap: 18px; scroll-margin-top: var(--sticky-offset); }
 .preparation-page .tool-selector { grid-template-columns: minmax(0, 1fr); position: static; gap: 8px; }
 .preparation-page .tool-selector button { gap: 10px; padding: 12px; }
 .preparation-page .tool-selector button > span:last-child { min-width: 0; }

@@ -138,12 +138,16 @@ async function run() {
       { label: '320', width: 320 },
       { label: '390', width: 390 },
       { label: '768', width: 768 },
+      { label: '1024', width: 1024 },
+      { label: '1100', width: 1100 },
       { label: '1440', width: 1440 },
       { label: '1920', width: 1920 },
       { label: '2560', width: 2560 },
       { label: '200% zoom (360 CSS px from 720 device px)', width: 720, zoom: 200 }
     ].filter(vp => !process.env.DEVBRAIN_LAYOUT_AUDIT_WIDTH || vp.width === Number(process.env.DEVBRAIN_LAYOUT_AUDIT_WIDTH));
     const stations = [
+      { id: 'inicio', name: 'Portada' },
+      { id: 'portafolio', name: 'Portafolio' },
       { id: 'preparacion', name: 'Preparación' },
       { id: 'm01-fundamentos', name: 'Módulo 01' },
       { id: 'm02-diseno', name: 'Módulo 02' },
@@ -166,7 +170,8 @@ async function run() {
         deviceScaleFactor: zoom,
         mobile: vp.zoom ? false : vp.width < 768
       });
-      await wait(300);
+      // El ajuste de la prosa responde a ResizeObserver; con zoom necesita más de un cuadro para asentarse.
+      await wait(800);
 
       // Check document overflow
       const docOverflow = await cdp.evaluate(`
@@ -226,8 +231,10 @@ async function run() {
                   .map(({ el, rect }) => ({ tag: el.tagName.toLowerCase(), className: typeof el.className === 'string' ? el.className.slice(0, 60) : '', text: el.textContent.trim().slice(0, 50), right: Math.round(rect.right), stationRight: Math.round(stationRect.right), width: Math.round(rect.width) }))
               : [];
             const ecoIntro = station.id === 'ecobogota' ? station.querySelector('.eco-training-hero .page-intro') : null;
-            const brief = ecoIntro ? ecoIntro.parentElement : station.querySelector('.module-brief') || station;
-            const intro = ecoIntro || brief?.querySelector(':scope > .page-intro') || brief?.querySelector(':scope > p, :scope > .brief-lead > p');
+            // La portada presenta su texto en la columna del héroe, junto a la ilustración del caso.
+            const homeIntro = station.id === 'inicio' ? station.querySelector('.hero-copy > p') : null;
+            const brief = ecoIntro ? ecoIntro.parentElement : homeIntro ? homeIntro.parentElement : station.querySelector('.module-brief') || station;
+            const intro = ecoIntro || homeIntro || brief?.querySelector(':scope > .page-intro') || brief?.querySelector(':scope > p, :scope > .brief-lead > p');
             const briefRect = brief?.getBoundingClientRect();
             const briefStyle = brief ? getComputedStyle(brief) : null;
             const introStyle = intro ? getComputedStyle(intro) : null;

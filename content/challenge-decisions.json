@@ -18,14 +18,14 @@
         "expected": "1",
         "feedbacks": {
           "0": "Riesgo de privacidad: El correo personal es un dato de contacto protegido que no debe exponerse en una pieza informativa general.",
-          "1": "Correcto: Cumples el principio de minimización de la Ley 1581; conservas la necesidad del trámite y retiras los identificadores directos.",
+          "1": "Correcto: Usas solo los datos necesarios para el trámite y retiras los identificadores directos.",
           "2": "Incompleto: La tarjeta B debe categorizarse en el semáforo para enseñar cómo tratar consultas con datos personales sin descartar el caso."
         },
-        "explanation": "El principio de necesidad de la Ley 1581 exige tratar exclusivamente los datos indispensables para la finalidad del trámite.",
-        "reference": "Ley 1581 de 2012, art. 4; reto-00-descripciones-seguras.csv.",
+        "explanation": "La Ley 1581 de 2012 exige que el tratamiento de datos personales tenga una finalidad legítima e informada; para cumplirla basta con los datos indispensables del trámite.",
+        "reference": "Ley 1581 de 2012, art. 4 (principio de finalidad); reto-00-descripciones-seguras.csv.",
         "hints": [
           "Orientación: Evalúa si para categorizar el tipo de trámite necesitas exponer la identidad de quien solicita.",
-          "Dónde buscar: Revisa el principio de necesidad y minimización en los conceptos del Módulo 01.",
+          "Dónde buscar: Revisa en el Módulo 01 qué datos necesita cada trámite.",
           "Clave para resolver: Conserva el motivo del trámite y sustituye los datos personales por una etiqueta genérica."
         ]
       },
@@ -66,12 +66,12 @@
         ],
         "expected": "1",
         "feedbacks": {
-          "0": "Infracción grave: Los datos de salud son sensibles bajo la Ley 1581 y está prohibido cargarlos en chats o servicios en la nube.",
+          "0": "Riesgo alto: Los datos de salud son sensibles según la Ley 1581 de 2012, y en este curso no se cargan en chats ni servicios en la nube.",
           "1": "Correcto: Los datos sensibles de salud no deben circular ni procesarse en herramientas de IA sin autorización legal expresa.",
           "2": "Riesgo legal: Cambiar las palabras no elimina la naturaleza sensible del dato médico; nunca debe procesarse en la IA."
         },
-        "explanation": "La Ley 1581 de 2012 prohíbe el tratamiento de datos sensibles de salud salvo excepciones taxativas de ley con autorización previa y expresa.",
-        "reference": "Ley 1581 de 2012, art. 5 (Datos sensibles); Protocolo de seguridad SENA.",
+        "explanation": "La Ley 1581 de 2012 prohíbe el tratamiento de datos sensibles, como los de salud, salvo las excepciones que la misma ley señala; en este curso no se cargan en herramientas de IA.",
+        "reference": "Ley 1581 de 2012, arts. 5 y 6 (datos sensibles y su tratamiento); regla de práctica del curso.",
         "hints": [
           "Orientación: Identifica qué categoría legal tienen los diagnósticos y antecedentes de salud.",
           "Dónde buscar: Revisa la sección de datos sensibles y prohibición de carga en el Módulo 01.",
@@ -289,7 +289,7 @@
           "2": "Alcance erróneo: Las fichas de prompts estandarizan tareas operativas, pero no sustituyen el marco normativo de la entidad."
         },
         "explanation": "La validación empírica con tres niveles de prueba asegura que la instrucción funcione de forma predecible en el entorno laboral real.",
-        "reference": "Buenas prácticas de ingeniería de prompts administrativos; Reto 3.",
+        "reference": "Reto 3, criterio de prueba con tres casos.",
         "hints": [
           "Orientación: Reflexiona sobre por qué una sola prueba exitosa no demuestra la solidez de una instrucción para IA.",
           "Dónde buscar: Consulta los criterios de validación de la ficha en la lección del Reto 3.",
@@ -370,11 +370,11 @@
           "2": "Traslado indebido: La carga de control de calidad de las respuestas institucionales no debe trasladarse a la ciudadanía."
         },
         "explanation": "El principio de responsabilidad pública impide delegar la expedición de actos o respuestas oficiales a algoritmos sin validación humana previa.",
-        "reference": "Principio de supervisión humana (HITL); Manual de correspondencia.",
+        "reference": "Principio de revisión humana del curso; Módulo 03.",
         "hints": [
           "Orientación: Recuerda cuál es el papel de la IA generativa en la gestión de correspondencia administrativa.",
           "Dónde buscar: Revisa la definición de borradores frente a comunicaciones oficiales en el Módulo 03.",
-          "Clave para resolver: La IA redacta propuestas; el funcionario humano revisa, aprueba y autoriza el envío."
+          "Clave para resolver: La IA redacta propuestas; la persona autorizada revisa, aprueba y decide el envío."
         ]
       },
       {
@@ -471,11 +471,11 @@
         ],
         "expected": "1",
         "feedbacks": {
-          "0": "Violación grave de reserva: La información médica de menores de edad goza de especial protección constitucional y reserva legal absoluta.",
+          "0": "Riesgo grave: La información de salud de menores de edad tiene protección especial y no debe circular en un acta.",
           "1": "Correcto: Protegiste la intimidad de la familia registrando una justificación general sin ventilar datos de salud sensibles.",
           "2": "Medida ineficaz: La circulación del acta vulnera el derecho a la intimidad, aunque se solicite discreción verbal."
         },
-        "explanation": "Los datos clínicos y los atinentes a menores de edad tienen protección reforzada; su inclusión en actas administrativas abiertas está proscrita.",
+        "explanation": "Los datos de salud y los de menores de edad tienen protección reforzada; no se incluyen en actas que circulan entre varias personas.",
         "reference": "Ley 1581 de 2012 (datos sensibles); guía de cuidado de datos del curso.",
         "hints": [
           "Orientación: Reflexiona sobre la privacidad de datos de salud de niños y adolescentes en documentos públicos.",
@@ -585,7 +585,7 @@
         "expected": "1",
         "feedbacks": {
           "0": "Pérdida de control: La automatización sin supervisión en excepciones urgentes genera conflictos de asignación de espacios institucionales.",
-          "1": "Correcto: El estándar HITL (revisión humana) es indispensable cuando concurren criterios de urgencia o conflicto de prioridades.",
+          "1": "Correcto: La revisión humana es indispensable cuando un caso es urgente o hay prioridades en conflicto.",
           "2": "Injusticia administrativa: La urgencia no es causa de rechazo; amerita valoración humana oportuna."
         },
         "explanation": "Las decisiones discrecionales o de asignación preferente no deben automatizarse completamente; requieren valoración humana facultada.",
@@ -665,8 +665,8 @@
         ],
         "expected": "1",
         "feedbacks": {
-          "0": "Inversión matemática: Dividir el total entre la parte arroja una cifra absurda que cuadruplica el indicador real.",
-          "1": "Correcto: La tasa porcentual se obtiene dividiendo las deserciones (42) entre la matrícula total (840) multiplicada por 100, arrojando exactamente 5 %.",
+          "0": "División invertida: 840 ÷ 42 da 20, que no es una tasa. La tasa divide la parte entre el total.",
+          "1": "Correcto: (42 ÷ 840) × 100 = 5 %. Se dividen las deserciones entre la matrícula total y el resultado se multiplica por 100.",
           "2": "Renuncia injustificada: La fuente aporta ambos valores completos y verificables para efectuar la operación."
         },
         "explanation": "Una tasa de deserción se expresa como la proporción de la parte (deserciones) respecto al total (matriculados) en base porcentual.",

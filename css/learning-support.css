@@ -100,9 +100,9 @@
   align-items: center;
   gap: 6px;
   padding: 8px 14px;
-  background: var(--green, var(--green));
+  background: var(--green);
   color: var(--surface);
-  border: 1px solid var(--green, var(--green));
+  border: 1px solid var(--green);
   border-radius: 8px;
   font-size: 0.82rem;
   font-weight: 650;
@@ -112,7 +112,7 @@
 }
 .challenge-deliverable-bridge a:hover,
 .challenge-deliverable-bridge button:hover {
-  background: var(--green-dark, var(--green-dark));
+  background: var(--green-dark);
   color: var(--surface);
 }
 
@@ -120,22 +120,22 @@
 @keyframes dbeHighlightPulse {
   0% {
     box-shadow: 0 0 0 0 rgba(21, 94, 239, 0.45);
-    border-color: var(--focus-ring, var(--focus-ring));
+    border-color: var(--focus-ring);
   }
   50% {
     box-shadow: 0 0 0 8px rgba(21, 94, 239, 0.15);
-    border-color: var(--focus-ring, var(--focus-ring));
+    border-color: var(--focus-ring);
   }
   100% {
     box-shadow: 0 0 0 0 rgba(21, 94, 239, 0);
-    border-color: var(--focus-ring, var(--focus-ring));
+    border-color: var(--focus-ring);
   }
 }
 
 .dbe-field--highlighted {
-  outline: 3px solid var(--focus-ring, var(--focus-ring)) !important;
+  outline: 3px solid var(--focus-ring) !important;
   outline-offset: 3px !important;
-  border-color: var(--focus-ring, var(--focus-ring)) !important;
+  border-color: var(--focus-ring) !important;
   animation: dbeHighlightPulse 1.8s ease-in-out 3;
 }
 

@@ -111,10 +111,14 @@ async function run() {
       // El zoom del 200 % se verifica desde 768 px: conserva al menos 384 CSS px.
       for(const zoom of (width >= 768 ? [1,2] : [1])) {
         await cdp.send('Emulation.setDeviceMetricsOverride',{width:Math.round(width/zoom),height:Math.round(1000/zoom),deviceScaleFactor:zoom,mobile:false});
+        // La alineación de la prosa responde a ResizeObserver; se espera a que se asiente con el nuevo ancho.
+        await wait(800);
         for(const route of ['video','canva','simulacion']) {
           await cdp.evaluate(`document.querySelector('#eco-route-${route}').click();document.querySelectorAll('#ecobogota details').forEach(el=>el.open=true);`);
           await wait(70);
           const audit = await cdp.evaluate(`(async()=>{
+            // Sin ventana, ResizeObserver puede llegar tarde: se aplica la regla de prosa al ancho actual antes de medir.
+            window.DevBrainProseLayout?.refresh();
             const page=document.querySelector('#ecobogota');
             await Promise.all(Array.from(page.querySelectorAll('img')).map(img=>img.decode()));
             const visible=el=>el.getClientRects().length>0;
@@ -123,7 +127,10 @@ async function run() {
               if(!visible(el))continue;
               const css=getComputedStyle(el);
               if(el.scrollWidth>el.clientWidth+2)problems.push('ancho:'+el.tagName+':'+el.textContent.slice(0,50));
-              if(['nowrap'].includes(css.whiteSpace)||css.wordBreak==='break-all'||css.overflowWrap==='anywhere'||css.textOverflow==='ellipsis'||css.textAlign==='justify')problems.push('texto:'+el.tagName);
+              // Regla 7.4: solo la prosa de 40rem o más se justifica; títulos, listas y controles conservan su alineación.
+              const rem=parseFloat(getComputedStyle(document.documentElement).fontSize);
+              const justifyAllowed=['P','BLOCKQUOTE'].includes(el.tagName)&&el.getBoundingClientRect().width>=40*rem;
+              if(['nowrap'].includes(css.whiteSpace)||css.wordBreak==='break-all'||css.overflowWrap==='anywhere'||css.textOverflow==='ellipsis'||(css.textAlign==='justify'&&!justifyAllowed))problems.push('texto:'+el.tagName);
               if(['hidden','clip'].includes(css.overflowY)&&el.scrollHeight>el.clientHeight+2)problems.push('alto:'+el.tagName);
             }
             const panels=Array.from(page.querySelectorAll('.eco-route-panel')).filter(visible);

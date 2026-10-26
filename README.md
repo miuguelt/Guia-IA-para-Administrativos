@@ -1,6 +1,6 @@
 # Guía de IA para tareas administrativas
 
-La web acompaña una propuesta de cohorte del Centro de Gestión Agroempresarial del Oriente (CGAO), Subsede Vélez, Regional Santander. Incluye preparación, cinco módulos de aplicación, diez retos breves, un integrador y cinco evidencias curriculares. EcoBogotá y el laboratorio de datos son complementos opcionales.
+La web acompaña una propuesta de formación para centros y sedes del SENA a nivel nacional. Incluye preparación, cinco módulos de aplicación, diez retos breves, un integrador y cinco evidencias curriculares. EcoBogotá y el laboratorio de datos son complementos opcionales.
 
 La propuesta suma 36 horas directas y cuatro autónomas. La referencia curricular indica 48 horas; la adaptación necesita validación del instructor y no acredita por sí sola el programa completo. Fechas, ambiente, cuentas y canal de entrega siguen por confirmar.
 
@@ -12,7 +12,7 @@ El cierre «Guarda tu evidencia» también acepta el bloque JSON completo genera
 
 Abra [index.html](index.html). El aprendiz empieza en preparación y continúa por Aprende, Observa, Resuelve y Guarda tu evidencia. En cada reto descarga un paquete con su encargo y todas sus fuentes, copia el encargo al chat o a Antigravity, revisa tres puntos y descarga la página `resultado-<reto>.html`. Las fuentes y fichas de referencia siguen disponibles; no se exige transcribir respuestas ni completar formularios.
 
-Hay 30 paquetes para IA: preparación, 11 retos, cinco evidencias de módulo, cinco laboratorios, tres rutas de EcoBogotá y cinco variantes por área. Incluyen fuentes permitidas, encargos para chat e IDE, un modelo y un esquema de salida. [Las instrucciones de MG-A02](materiales/ia/MG-A02/LEEME.html) muestran el recorrido. Los encargos piden documentos con formato y `resultado.json`; los datos, las mediciones y las autorizaciones sin evidencia quedan pendientes.
+Hay 31 paquetes para IA: preparación, 11 retos, la prueba individual del integrador, cinco evidencias de módulo, cinco laboratorios, tres rutas de EcoBogotá y cinco variantes por área. Incluyen fuentes permitidas, encargos para chat e IDE, un modelo y un esquema de salida. [Las instrucciones de MG-A02](materiales/ia/MG-A02/LEEME.html) muestran el recorrido. Los encargos piden documentos con formato y `resultado.json`; los datos, las mediciones y las autorizaciones sin evidencia quedan pendientes.
 
 El Reto 1 incluye la solicitud urgente y la ficha del diagnóstico. Los retos 4, 5, 6 y 7 y el integrador comparten un registro de tiempos. La ficha del integrador separa la prueba individual y el trabajo de equipo. Los materiales administrativos no contienen registros reales. El laboratorio independiente utiliza datos públicos reales y documenta su procedencia.
 

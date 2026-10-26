@@ -400,6 +400,8 @@ test('exporta el Portafolio de Evidencias Consolidado en HTML/PDF y respaldo JSO
   assert.equal(typeof instance.exportJson, 'function');
 
   const html = instance.exportHtml();
+  assert.equal((html.match(/class="situation-detail-panel manual-item-card"/gu) || []).length, 12, 'El anexo incluye las doce fichas del manual');
+  assert.doesNotMatch(html, /Descargar en Markdown/u, 'El anexo no copia los botones del manual');
   assert.match(html, /Portafolio de Evidencias Consolidado · Curso 21720210 V1/u);
   assert.match(html, /Aprendiz Vélez/u);
   assert.match(html, /CGAO Vélez/u);

@@ -28,6 +28,12 @@
   max-inline-size: 100%;
   overflow-x: auto;
 }
+/* text-layout-exception: las instrucciones para copiar son prosa larga dentro de un bloque de código; se ajustan para leerse completas y el botón copia el texto exacto. */
+#course-pages .module-page pre.situation-prompt,
+#course-pages .module-page pre.situation-prompt code {
+  white-space: pre-wrap;
+  overflow-wrap: break-word;
+}
 
 /* devbrain-prose-contract:start */
 /* Contrato 7.4: cada región ocupa su espacio y conserva sus controles. */

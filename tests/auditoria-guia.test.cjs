@@ -63,8 +63,8 @@ test('CI instala el renderizador usado por la suite y publica el informe de cobe
   const workflow = read('.github/workflows/calidad.yml');
   assert.match(workflow, /tee cobertura-completa\.txt/u);
   assert.match(workflow, /run: npm run test:coverage:all \| tee cobertura-completa\.txt\r?\n\s+shell: bash/u);
-  assert.match(workflow, /path: cobertura-completa\.txt/u);
-  assert.match(workflow, /if-no-files-found: error/u);
+  assert.match(workflow, /upload-artifact@v\d+\s+if: always\(\)\s+with:\s+name: cobertura-completa\s+path: cobertura-completa\.txt/u, 'El informe se publica aunque fallen las pruebas');
+  assert.doesNotMatch(workflow, /if-no-files-found: ignore/u, 'Un informe ausente debe quedar visible como advertencia');
 });
 
 test('los diagramas SVG usan dimensiones válidas y el despliegue conserva la guía complementaria enlazada', () => {

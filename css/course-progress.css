@@ -23,29 +23,29 @@
   appearance: none;
   border: none;
   border-radius: 999px;
-  background-color: var(--line, var(--line));
+  background-color: var(--line);
   overflow: hidden;
 }
 
 .progress-bar-wrap progress::-webkit-progress-bar {
-  background-color: var(--line, var(--line));
+  background-color: var(--line);
   border-radius: 999px;
 }
 
 .progress-bar-wrap progress::-webkit-progress-value {
-  background: linear-gradient(90deg, var(--green, var(--green)), var(--sena-primary, var(--sena-primary)));
+  background: linear-gradient(90deg, var(--green), var(--sena-primary));
   border-radius: 999px;
 }
 
 .progress-bar-wrap progress::-moz-progress-bar {
-  background: linear-gradient(90deg, var(--green, var(--green)), var(--sena-primary, var(--sena-primary)));
+  background: linear-gradient(90deg, var(--green), var(--sena-primary));
   border-radius: 999px;
 }
 
 .progress-percent-label {
   font-size: .8rem;
   font-weight: 700;
-  color: var(--green-dark, var(--green-dark));
+  color: var(--green-dark);
   min-width: 2.2rem;
 }
 
@@ -64,9 +64,9 @@
 }
 
 .checklist-toggle-btn {
-  background: var(--surface, var(--surface));
-  border: 1px solid var(--line, var(--line));
-  color: var(--ink, var(--ink));
+  background: var(--surface);
+  border: 1px solid var(--line);
+  color: var(--ink);
   border-radius: 6px;
   padding: 0.25rem 0.6rem;
   font-size: .8rem;
@@ -80,9 +80,9 @@
 
 .checklist-toggle-btn:hover,
 .checklist-toggle-btn:focus-visible {
-  border-color: var(--green, var(--green));
-  background-color: var(--paper, var(--paper));
-  outline: 2px solid var(--focus-ring, var(--focus-ring));
+  border-color: var(--green);
+  background-color: var(--paper);
+  outline: 2px solid var(--focus-ring);
   outline-offset: 1px;
 }
 
@@ -93,8 +93,8 @@
   width: 280px;
   max-height: 420px;
   overflow-y: auto;
-  background: var(--surface, var(--surface));
-  border: 1px solid var(--line, var(--line));
+  background: var(--surface);
+  border: 1px solid var(--line);
   border-radius: 8px;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
   padding: 0.75rem 1rem;
@@ -106,10 +106,10 @@
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  color: var(--muted, var(--muted));
+  color: var(--muted);
   margin: 0 0 0.5rem 0;
   padding-bottom: 0.35rem;
-  border-bottom: 1px solid var(--line, var(--line));
+  border-bottom: 1px solid var(--line);
 }
 
 .progress-checklist-items {
@@ -124,7 +124,7 @@
 .checklist-section-title {
   font-size: .8rem;
   font-weight: 700;
-  color: var(--green-dark, var(--green-dark));
+  color: var(--green-dark);
   margin-top: 0.4rem;
   text-transform: uppercase;
 }
@@ -143,7 +143,7 @@
 }
 
 .checklist-item.is-pending {
-  color: var(--muted, var(--muted));
+  color: var(--muted);
 }
 
 /* Diálogo de Plantillas de Oficina */
@@ -161,8 +161,8 @@
 }
 
 .template-card {
-  background: var(--paper, var(--paper));
-  border: 1px solid var(--line, var(--line));
+  background: var(--paper);
+  border: 1px solid var(--line);
   border-radius: 8px;
   padding: 1rem;
   display: flex;
@@ -172,25 +172,25 @@
 
 .template-card h3 {
   font-size: 0.95rem;
-  color: var(--green-dark, var(--green-dark));
+  color: var(--green-dark);
   margin: 0 0 0.4rem 0;
 }
 
 .template-card p {
   font-size: 0.8rem;
-  color: var(--muted, var(--muted));
+  color: var(--muted);
   margin: 0 0 0.75rem 0;
   line-height: 1.4;
 }
 
 .template-code-preview {
   background: var(--surface);
-  border: 1px solid var(--line, var(--line));
+  border: 1px solid var(--line);
   border-radius: 6px;
   padding: 0.6rem;
   font-family: Consolas, monospace;
   font-size: .8rem;
-  color: var(--ink, var(--ink));
+  color: var(--ink);
   white-space: pre-wrap;
   max-height: 140px;
   overflow-y: auto;

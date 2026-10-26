@@ -114,3 +114,22 @@ test('parsea texto libre, encabezados Markdown, enlaces de Canva y preserva prod
   assert.throws(() => model.parseTolerantResult('corto', artifact), /No se pudo leer/iu);
   assert.throws(() => model.parseTolerantResult('x'.repeat(1048577), artifact), /tamaño/iu);
 });
+
+test('el resultado de la prueba individual se suma a MG-A05 sin borrar el trabajo del equipo', () => {
+  const model = require(modulePath);
+  const registry = JSON.parse(fs.readFileSync(path.resolve('deliverables.registry.json'), 'utf8'));
+  const tasks = JSON.parse(fs.readFileSync(path.resolve('content/ai-task-briefs.json'), 'utf8'));
+  const mg = registry.artifacts.find(item => item.id === 'MG-A05');
+  const teamKeys = tasks['reto-integrador'].fieldKeys;
+  const individualKeys = tasks['prueba-individual'].fieldKeys;
+  assert.deepEqual(individualKeys, ['prueba_individual']);
+  assert.deepEqual([...teamKeys, ...individualKeys].sort(), mg.fields.map(field => field.key).sort(), 'Entre los dos encargos cubren MG-A05 sin repetir campos');
+  const team = model.validateResult(JSON.stringify({ schemaVersion: 1, artifactId: 'MG-A05', fields: Object.fromEntries(teamKeys.map(key => [key, 'Equipo: ' + key])), tool: 'no identificado' }), mg);
+  const individual = model.validateResult(JSON.stringify({ schemaVersion: 1, artifactId: 'MG-A05', fields: { prueba_individual: 'IND-01, fila 5: fecha y franja pendientes.' }, tool: 'no identificado' }), mg);
+  const afterTeam = model.prepareRecord({ values: {}, checks: {} }, team, mg);
+  const both = model.prepareRecord(afterTeam, individual, mg);
+  assert.equal(both.values.prueba_individual, 'IND-01, fila 5: fecha y franja pendientes.');
+  assert.equal(both.values.trazabilidad_hackathon, 'Equipo: trazabilidad_hackathon');
+  assert.deepEqual(model.missingFields(mg, both), []);
+  assert.equal(both.status, 'borrador', 'Importar no aprueba la evidencia');
+});

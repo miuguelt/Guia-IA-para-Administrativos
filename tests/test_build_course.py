@@ -203,7 +203,7 @@ class BuildCourseTests(unittest.TestCase):
         html = '<link rel="stylesheet" href="css/tokens.css?v=1"><script defer src="js/course-mode.js?v=2"></script><script src="https://ejemplo.test/a.js?v=3"></script><link href="css/no-existe.css?v=4">'
         versioned = self.call_production_function("version_assets", html)
         for asset in ("css/tokens.css", "js/course-mode.js"):
-            digest = str(int(hashlib.sha256((ROOT / asset).read_bytes()).hexdigest()[:12], 16))
+            digest = str(int(hashlib.sha256((ROOT / asset).read_bytes().replace(b"\r\n", b"\n")).hexdigest()[:12], 16))
             self.assertIn(asset + "?v=" + digest, versioned)
         self.assertIn("https://ejemplo.test/a.js?v=3", versioned)
         self.assertIn("css/no-existe.css?v=4", versioned)
@@ -211,7 +211,18 @@ class BuildCourseTests(unittest.TestCase):
         for node in index.select('script[src^="js/"], link[href^="css/"]'):
             url = node.get("src") or node.get("href")
             path, version = url.split("?v=")
-            self.assertEqual(version, str(int(hashlib.sha256((ROOT / path).read_bytes()).hexdigest()[:12], 16)), path)
+            self.assertEqual(version, self.call_production_function("content_version", ROOT / path), path)
+
+    def test_la_version_no_depende_del_final_de_linea_de_la_copia_local(self):
+        with TemporaryDirectory(dir=ROOT / "output") as directory:
+            lf, crlf, changed = Path(directory) / "lf.js", Path(directory) / "crlf.js", Path(directory) / "changed.js"
+            lf.write_bytes(b"const a = 1;\nconst b = 2;\n")
+            crlf.write_bytes(b"const a = 1;\r\nconst b = 2;\r\n")
+            changed.write_bytes(b"const a = 1;\nconst b = 3;\n")
+            version = self.call_production_function("content_version", lf)
+            self.assertEqual(version, str(int(hashlib.sha256(b"const a = 1;\nconst b = 2;\n").hexdigest()[:12], 16)))
+            self.assertEqual(self.call_production_function("content_version", crlf), version)
+            self.assertNotEqual(self.call_production_function("content_version", changed), version)
 
     def test_main_genera_una_pagina_consistente_y_cubre_todas_las_funciones(self):
         output = ROOT / "index.html"

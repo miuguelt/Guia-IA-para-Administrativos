@@ -192,7 +192,7 @@ test('las pestañas mantienen foco, guardan la fase y ofrecen selección si fall
   window.setTimeout = (callback, duration, ...args) => duration === 4500 ? (timers.push(callback), 0) : originalTimeout(callback, duration, ...args);
   const copied = [];
   Object.defineProperty(window.navigator, 'clipboard', { configurable: true, value: { writeText: async text => copied.push(text) } });
-  const button = document.querySelector('[data-copy]');
+  const button = document.querySelector('#m02-diseno [data-copy]');
   button.click();
   await tick(window);
   assert.equal(copied[0], document.getElementById(button.dataset.copy).textContent.trim());

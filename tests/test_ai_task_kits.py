@@ -30,7 +30,7 @@ class AiTaskKitsTests(unittest.TestCase):
 
     def test_catalogo_cubre_retos_modulos_y_actividades_con_claves_reales(self):
         catalog = self.invoke("load_catalog")
-        expected = {"reto-" + str(i) for i in range(10)} | {"reto-integrador", "preparacion", "eco", "eco-canva", "eco-simulacion"}
+        expected = {"reto-" + str(i) for i in range(10)} | {"reto-integrador", "prueba-individual", "preparacion", "eco", "eco-canva", "eco-simulacion"}
         expected |= {"MG-A0" + str(i) for i in range(1, 6)}
         expected |= {"lab-" + name for name in ("nasa", "poblacion", "clima", "sismos", "documentos")}
         expected |= {"variante-" + name for name in ("juridica", "talento-humano", "retencion-documental", "inventario-documental", "cita-inexistente")}
@@ -54,7 +54,7 @@ class AiTaskKitsTests(unittest.TestCase):
                 self.assertTrue(set(task["fieldKeys"]) <= fields[task["artifactId"]], key)
             if key.startswith("MG-"):
                 self.assertEqual(set(task["fieldKeys"]), fields[key])
-        visual_keys = {"reto-" + str(i) for i in range(10)} | {"reto-integrador"}
+        visual_keys = {"reto-" + str(i) for i in range(10)} | {"reto-integrador", "prueba-individual"}
         visual_keys |= {"variante-" + name for name in ("juridica", "talento-humano", "retencion-documental", "inventario-documental", "cita-inexistente")}
         visual_keys |= {"MG-A0" + str(i) for i in range(1, 6)}
         for key in visual_keys:
@@ -124,6 +124,32 @@ class AiTaskKitsTests(unittest.TestCase):
                 self.assertNotIn("producto elaborado:", prompt, key)
                 self.assertIn("la evidencia se guarda con este archivo HTML", prompt, key)
                 self.assertEqual(prompt.count('id="devbrain-evidence-result"'), 1, key)
+
+    def test_la_prueba_individual_tiene_su_propio_encargo_fuera_del_equipo(self):
+        catalog = self.invoke("load_catalog")
+        individual = catalog["prueba-individual"]
+        self.assertEqual(individual["artifactId"], "MG-A05")
+        self.assertEqual(individual["fieldKeys"], ["prueba_individual"])
+        self.assertEqual(individual["sourceFiles"], ["materiales/retos/casos-individuales.csv"])
+        for mode in ("chatPrompt", "idePrompt"):
+            prompt = individual[mode]
+            self.assertIn("IND-01", prompt)
+            self.assertIn("sin el equipo", prompt)
+            self.assertIn("Antes de mostrar la solución", prompt)
+            self.assertNotIn("contratos.csv", prompt)
+            team = catalog["reto-integrador"][mode]
+            self.assertNotIn("IND-01", team)
+            self.assertNotIn("casos-individuales", team)
+            self.assertNotIn('"prueba_individual"', team)
+            self.assertIn("La prueba individual no forma parte de este encargo", team)
+            module = catalog["MG-A05"][mode]
+            self.assertNotIn("Genera la solución del caso preparado", module)
+            self.assertIn("resultado-prueba-individual.html", module)
+        self.assertNotIn("prueba_individual", catalog["reto-integrador"]["fieldKeys"])
+        self.assertNotIn("materiales/retos/casos-individuales.csv", catalog["reto-integrador"]["sourceFiles"])
+        shared = json.loads((ROOT / "content/shared-challenge-materials.json").read_text(encoding="utf-8"))
+        usage = next(item["usedBy"] for item in shared if item["href"].endswith("casos-individuales.csv"))
+        self.assertEqual(usage, ["prueba-individual"])
 
     def test_variantes_sustituyen_trabajo_sin_agregar_retos(self):
         catalog = self.invoke("load_catalog")

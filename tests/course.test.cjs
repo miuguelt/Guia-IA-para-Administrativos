@@ -22,9 +22,10 @@ test('la navegación ofrece recursos agrupados y un cierre visible del menú mó
   assert.match(css, /body\.navigation-ready\.menu-open \.course-sidebar[^}]*visibility:\s*visible/isu);
   assert.match(css, /\.course-sidebar[^}]*transition:\s*transform[^;]*visibility/isu);
   assert.match(css, /body\.navigation-ready \.sidebar-close\s*\{\s*display:\s*inline-grid/isu);
-  assert.match(css, /\.resources-menu\s*\{[^}]*order:\s*2/isu);
-  assert.match(css, /\.course-progress-container\s*\{[^}]*order:\s*3[^}]*flex:\s*1 1 100%[^}]*margin-left:\s*0/isu);
-  assert.match(css, /\.topbar-location\s*\{[^}]*flex:\s*1 1 150px/isu);
+  const compact = read('css/ux-refinements.css');
+  assert.match(compact, /@media \(max-width: 850px\)\s*\{\s*\.course-topbar\s*\{[^}]*grid-template-areas:\s*"location mode resources" "progress progress progress"/su);
+  assert.match(compact, /@media \(max-width: 520px\)\s*\{\s*\.course-topbar\s*\{[^}]*grid-template-areas:\s*"location location location" "progress mode resources"/su);
+  assert.doesNotMatch(css, /\.resources-menu\s*\{[^}]*order:/su, 'Sin reglas de orden anuladas por la rejilla');
   dom.window.close();
 });
 
