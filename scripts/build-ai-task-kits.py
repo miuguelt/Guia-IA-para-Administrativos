@@ -199,11 +199,12 @@ def task_html(key, task):
     else:
         steps = '<li>Descarga el encargo para chat o IDE y los archivos fuente.</li><li>Adjunta las fuentes y, si la práctica genera un registro, inclúyelo sin editar. En Antigravity o Codex abre la carpeta y copia el encargo completo.</li><li>La IA genera el producto. Comprueba estos tres puntos y pide corrección si hace falta.</li><li>Descarga los productos. La revisión humana queda pendiente.</li>'
         result_format = '<nav class="links"><a download href="modelo-salida.json">Modelo JSON vacío</a><a download href="esquema-salida.json">Esquema del resultado</a><a download href="registro-medicion.csv">Registro con mediciones pendientes</a></nav>'
-    return ('<!doctype html><html lang="es-CO"><meta charset="utf-8">'
+    return ('<!doctype html><html lang="es-CO"><head><meta charset="utf-8">'
             '<meta name="viewport" content="width=device-width,initial-scale=1">'
             '<title>' + title + '</title><style>'
             '*{box-sizing:border-box}body{margin:0;background:#f1f5f3;color:#203c35;'
-            'font:17px/1.6 Segoe UI,Arial,sans-serif}main{max-width:900px;margin:32px auto;'
+            'font:17px/1.6 Segoe UI,Arial,sans-serif}main{inline-size:100%;max-inline-size:100%;'
+            'min-inline-size:0;box-sizing:border-box;margin:32px auto;'
             'padding:clamp(20px,5vw,52px);background:white;border:1px solid #cedbd3;'
             'border-radius:20px;box-shadow:0 8px 28px #163b2310}h1{font-size:clamp(28px,5vw,40px);'
             'line-height:1.2}h2{font-size:23px;margin-top:32px}a{color:#146044;'
@@ -226,7 +227,14 @@ def task_html(key, task):
             '@media print{body{background:white}main{margin:0;border:0;box-shadow:none;padding:0}'
             'details:not([open]){display:none}.links{display:none}.eco-residue-grid{grid-template-columns:'
             'repeat(2,minmax(0,1fr))}.eco-residue-card{break-inside:avoid}a{color:inherit;text-decoration:none}}'
-            '</style><main><p class="kicker">Guía de trabajo con IA · ' + escape(key) + '</p>'
+            ':where(p, dd, blockquote){--text-align-reading:start;box-sizing:border-box;inline-size:100%;'
+            'max-inline-size:100%;min-inline-size:0;text-align:var(--text-align-reading);text-align-last:start;'
+            'white-space:normal;word-break:normal;overflow-wrap:break-word;hyphens:none;-webkit-hyphens:none}'
+            ':where(dd, blockquote){margin-inline:0}'
+            '</style>'
+            '<link rel="stylesheet" href="devbrain-prose.css" data-devbrain-prose>'
+            '<script defer src="devbrain-prose.js" data-devbrain-prose-runtime></script></head>'
+            '<body><main><p class="kicker">Guía de trabajo con IA · ' + escape(key) + '</p>'
             '<h1>' + title + '</h1><p class="notice">' + escape(notice) + '</p>'
             '<p class="result"><strong>Vas a obtener:</strong> ' + escape(task["output"]) + '</p>'
             '<h2>Cómo trabajar: paso a paso</h2><ol>' + steps + '</ol>'
@@ -244,7 +252,7 @@ def task_html(key, task):
             + escape(task["idePrompt"]) + '</pre></details>'
             + '<h2>Formato del resultado</h2>' + result_format
             + '<footer>La autocomprobación de la IA no sustituye tu revisión ni una aprobación institucional.</footer>'
-            + '</main></html>\n')
+            + '</main></body></html>\n')
 
 
 def deterministic_zip(path, entries):
@@ -267,7 +275,10 @@ def build(destination=None):
         entries = {
             "ENCARGO-CHAT.md": task_markdown(key, task, "chat").encode("utf-8"),
             "ENCARGO-IDE.md": task_markdown(key, task, "ide").encode("utf-8"),
-            "LEEME.html": task_html(key, task).encode("utf-8")
+            "LEEME.html": task_html(key, task).encode("utf-8"),
+            # Regla 7.4: cada guía descargada ajusta su prosa al ancho real de la región.
+            "devbrain-prose.css": (ROOT / "tools/text-layout/templates/prose-layout.css").read_bytes(),
+            "devbrain-prose.js": (ROOT / "tools/text-layout/templates/prose-layout.js").read_bytes()
         }
         if not task.get("visualArtifact"):
             entries.update({

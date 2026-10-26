@@ -438,12 +438,14 @@ def refresh_dane(base=BASE, fetcher=fetch_bytes, workbook_loader=None):
     original = base / 'originales/dane-santander-2024-extracto.json'
     original.parent.mkdir(parents=True, exist_ok=True)
     original.write_text(json.dumps({'hoja': 'PobDepartamentalxÁreaSexoEdad', 'fila_encabezado': 9,
-                                   'encabezados': header, 'fila': source}, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
+                                   'encabezados': header, 'fila': source}, ensure_ascii=False, indent=2) + '\n', encoding='utf-8', newline='\n')
+    orig_content = original.read_bytes().replace(b'\r\n', b'\n')
+    targ_content = target.read_bytes().replace(b'\r\n', b'\n')
     item = {'id': 'dane_santander', 'archivo': 'datos/piramide-santander-2024.csv',
             'original': 'originales/dane-santander-2024-extracto.json', 'url_consulta': DANE_URL,
             'fecha_descarga': datetime.now(timezone.utc).isoformat(timespec='seconds'),
-            'sha256': hashlib.sha256(target.read_bytes()).hexdigest(),
-            'sha256_original': hashlib.sha256(original.read_bytes()).hexdigest(),
+            'sha256': hashlib.sha256(targ_content).hexdigest(),
+            'sha256_original': hashlib.sha256(orig_content).hexdigest(),
             'sha256_xlsx_consultado': hashlib.sha256(raw).hexdigest(), 'bytes_xlsx_consultado': len(raw),
             'filas': len(rows), 'columnas': ['edad', 'hombres', 'mujeres'],
             'unidades': {'edad': 'años cumplidos; 100 representa 100 años y más', 'hombres': 'personas', 'mujeres': 'personas'},
@@ -470,7 +472,9 @@ def validate_dane(base=BASE):
     item = json.loads((base / 'fuentes.json').read_text(encoding='utf-8'))['ampliaciones']['dane_santander']
     original = base / item['original']
     target = base / item['archivo']
-    if hashlib.sha256(original.read_bytes()).hexdigest() != item['sha256_original'] or hashlib.sha256(target.read_bytes()).hexdigest() != item['sha256']:
+    orig_bytes = original.read_bytes().replace(b'\r\n', b'\n')
+    targ_bytes = target.read_bytes().replace(b'\r\n', b'\n')
+    if hashlib.sha256(orig_bytes).hexdigest() != item['sha256_original'] or hashlib.sha256(targ_bytes).hexdigest() != item['sha256']:
         raise ValueError('SHA256 de DANE no coincide.')
     extract = json.loads(original.read_text(encoding='utf-8'))
     rows = normalize_dane(extract['encabezados'], extract['fila'])

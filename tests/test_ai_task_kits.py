@@ -23,6 +23,10 @@ SPEC.loader.exec_module(KITS)
 class AiTaskKitsTests(unittest.TestCase):
     covered = set()
 
+    @classmethod
+    def setUpClass(cls):
+        (ROOT / "output").mkdir(parents=True, exist_ok=True)
+
     def invoke(self, name, *args, **kwargs):
         result = getattr(KITS, name)(*args, **kwargs)
         self.covered.add(name)
@@ -381,7 +385,10 @@ class AiTaskKitsTests(unittest.TestCase):
             for key, task in catalog.items():
                 with ZipFile(destination / (key + ".zip")) as archive:
                     visual = bool(task.get("visualArtifact"))
-                    required = ("ENCARGO-CHAT.md", "ENCARGO-IDE.md", "LEEME.html")
+                    required = ("ENCARGO-CHAT.md", "ENCARGO-IDE.md", "LEEME.html", "devbrain-prose.css", "devbrain-prose.js")
+                    for asset, template in (("devbrain-prose.css", "prose-layout.css"), ("devbrain-prose.js", "prose-layout.js")):
+                        self.assertEqual(archive.read(asset), (ROOT / "tools/text-layout/templates" / template).read_bytes(), key)
+                        self.assertIn('href="devbrain-prose.css"' if asset.endswith(".css") else 'src="devbrain-prose.js"', archive.read("LEEME.html").decode("utf-8"), key)
                     if not visual:
                         required += ("modelo-salida.json", "esquema-salida.json", "registro-medicion.csv")
                     for name in required:

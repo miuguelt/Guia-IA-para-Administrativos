@@ -21,6 +21,10 @@ SPEC.loader.exec_module(BUILD_COURSE)
 class BuildCourseTests(unittest.TestCase):
     covered_functions = set()
 
+    @classmethod
+    def setUpClass(cls):
+        (ROOT / "output").mkdir(parents=True, exist_ok=True)
+
 
 
 
