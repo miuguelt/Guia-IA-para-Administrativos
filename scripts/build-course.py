@@ -94,7 +94,7 @@ def module_page(spec, next_id):
     knowledge = section.select_one(".learning-block")
     practice_widgets = []
     for node in section.select(".tool-lab, .ratio-lab"):
-        if node.get('id') in {'prompt-compare-simulator', 'pqrs-evaluator-simulator', 'data-cleaner-simulator', 'decision-simulator', 'anonymization-simulator'} or 'ratio-lab' in node.get('class', []):
+        if node.get('id') in {'prompt-compare-simulator', 'pqrs-evaluator-simulator', 'data-cleaner-simulator', 'decision-simulator', 'anonymization-simulator', 'prompt-lab', 'productivity-roi-calculator'} or 'ratio-lab' in node.get('class', []):
             practice_widgets.append(html(node.extract()))
         else:
             knowledge.append(node.extract())

@@ -6,143 +6,254 @@
 <p class="station-desc">Usa las instrucciones del módulo anterior para clasificar 50 correos, extraer acuerdos de una reunión, limpiar una tabla y diseñar un flujo. Comprueba cada producto con su fuente.</p>
 <div class="module-hero"><div><span class="phase-label">Primero aprende · 60 min</span><h3>Del registro al producto revisable</h3><p>La IA clasifica mensajes, extrae acuerdos y limpia tablas. Conserva el código, minuto o fila de origen.</p></div></div>
 <div class="learning-block"><section class="ai-quick-lesson" data-ai-quick-lesson=""><span class="eyebrow">LO ESENCIAL</span><h3>Cada resultado debe llevarte a su fuente</h3><p>La IA clasifica mensajes, extrae acuerdos y limpia tablas. Conserva el código, minuto o fila de origen.</p><p data-ai-mini-example=""><strong>Ejemplo:</strong> SIM-0003 no tiene estado: la columna nueva muestra REVISAR y conserva el original.</p><ol><li>Adjunta el archivo del reto.</li><li>Pide el producto y su referencia de origen.</li><li>Revisa conteos y excepciones y descarga la salida.</li></ol></section><details class="course-context" data-lesson-extension=""><summary>Ampliar conceptos, ejemplos y herramientas opcionales</summary>
-<figure aria-label="Síntesis de productos del módulo de aplicación a flujos" class="native-diagram">
-<div class="native-diagram__header">
-<span class="native-diagram__kicker">Productos clave · Módulo 03</span>
-<h3 class="native-diagram__title">De los mensajes y las tablas a un producto que puedas revisar</h3>
-<p class="native-diagram__desc">Cada reto del módulo aborda una transformación documental específica. La IA asiste en la extracción, clasificación y estructura inicial; tú verificas contra la fuente primaria y garantizas la trazabilidad.</p>
-</div>
-<div class="native-diagram__flow">
-<article class="native-diagram__card native-diagram__card--ai">
-<div class="native-diagram__card-head">
-<span class="native-diagram__step-num">R4</span>
-<span class="badge-station">Bandeja</span>
-</div>
-<h4>Bandeja de correos</h4>
-<p>Clasificación de 50 mensajes con regla explícita que combina señal textual, personas afectadas y plazo simulado.</p>
-<div class="native-diagram__example">
-<strong>Fuente:</strong> <code>correos-50.csv</code><br/>
-<strong>Salida:</strong> Clasificación completa y diez borradores sin envío.
+<!-- COMPONENTE 1: DIAGRAMA MAESTRO DE 4 TRANSFORMACIONES DOCUMENTALES -->
+<div aria-labelledby="m03-transform-title" data-diagram-visible="true" class="native-diagram triage-concept-block">
+  <div class="native-diagram__top">
+    <div>
+      <span class="native-diagram__kicker native-diagram__kicker--tight">GESTIÓN OPERATIVA Y TRANSFORMACIÓN DOCUMENTAL · MÓDULO 03</span>
+      <h3 id="m03-transform-title" class="native-diagram__heading">Cuatro transformaciones documentales auditables</h3>
+      <p class="native-diagram__lead">De mensajes, actas y planillas masivas a productos estructurados que puedes rastrear hasta su código, minuto o fila original.</p>
+    </div>
+    <span class="quiet-badge native-diagram__pill">Trazabilidad institucional (es-CO)</span>
+  </div>
+
+  <!-- Cuadrícula de 4 tarjetas: R4, R5, R6 y R7 -->
+  <div class="native-diagram__flow">
+    <!-- R4: Bandeja de correos -->
+    <article class="native-diagram__card native-diagram__card--ai triage-card triage-card--blue">
+      <div class="triage-card__tag--blue">
+        <strong class="triage-card__tag-label--blue">R4 · Bandeja de correos</strong>
       </div>
-</article>
-<article class="native-diagram__card native-diagram__card--human">
-<div class="native-diagram__card-head">
-<span class="native-diagram__step-num">R5</span>
-<span class="badge-station">Acta</span>
-</div>
-<h4>Acta trazable</h4>
-<p>Extracción de compromisos a partir de una transcripción, distinguiendo acuerdos aprobados de propuestas o intenciones.</p>
-<div class="native-diagram__example">
-<strong>Fuente:</strong> <code>transcripcion.csv</code><br/>
-<strong>Salida:</strong> Acta con minutos exactos; responsables y fechas solo si constan en la transcripción.
+      <h4 class="comparative-card__title">Clasificación y triaje masivo</h4>
+      <div class="triage-card__chip--blue">
+        Entrada: correos-50.csv → Salida: 50 códigos
       </div>
-</article>
-<article class="native-diagram__card native-diagram__card--rule">
-<div class="native-diagram__card-head">
-<span class="native-diagram__step-num">R6</span>
-<span class="badge-publico">Planilla</span>
-</div>
-<h4>Limpieza de datos</h4>
-<p>Limpieza de estados con una regla escrita, en una columna nueva y sin alterar el original.</p>
-<div class="native-diagram__example">
-<strong>Fuente:</strong> <code>datos-sofia.csv</code><br/>
-<strong>Reglas:</strong> TRIM, MAYÚSCULAS, REVISAR · Copia limpia auditable.
+      <ul class="comparative-card__list">
+        <li><strong>Inventario íntegro:</strong> se conservan los 50 códigos sin omitir mensajes.</li>
+        <li><strong>Criterio de prioridad:</strong> señal textual, personas afectadas y plazo explícito.</li>
+        <li><strong>Borradores preliminares:</strong> diez propuestas redactadas sin enviar correos.</li>
+        <li><strong>Asuntos por confirmar:</strong> señalar los temas que exigen verificación técnica.</li>
+      </ul>
+      <div class="native-diagram__example triage-card__outcome--blue">
+        ★ Criterio: Clasificar no equivale a decidir; la prioridad oficial la fija la dependencia.
       </div>
-</article>
-<article class="native-diagram__card native-diagram__card--rule">
-<div class="native-diagram__card-head">
-<span class="native-diagram__step-num">R7</span>
-<span class="badge-station">Proceso</span>
-</div>
-<h4>Diseño de flujo</h4>
-<p>Descripción del inicio de un trámite, sus comprobaciones y el momento en que debe decidir una persona.</p>
-<div class="native-diagram__example">
-<strong>Fuente:</strong> <code>reto-07-casos-flujo.csv</code><br/>
-<strong>Salida:</strong> Diagrama y bifurcaciones condicionales simuladas.
+    </article>
+
+    <!-- R5: Acta de reunión -->
+    <article class="native-diagram__card native-diagram__card--ai triage-card triage-card--blue">
+      <div class="triage-card__tag--blue">
+        <strong class="triage-card__tag-label--blue">R5 · Acta de reunión</strong>
       </div>
-</article>
+      <h4 class="comparative-card__title">Extracción trazable por minutos</h4>
+      <div class="triage-card__chip--blue">
+        Entrada: transcripcion.csv → Línea de tiempo
+      </div>
+      <ul class="comparative-card__list">
+        <li><strong>Vínculo al minuto:</strong> cada punto remite a su marca temporal exacta.</li>
+        <li><strong>Acuerdos vs. Intenciones:</strong> solo lo formalmente aprobado pasa como compromiso.</li>
+        <li><strong>Responsable y fecha:</strong> se registran únicamente si constan en la fuente.</li>
+        <li><strong>Marcador «no consta»:</strong> las dudas se anotan como temas por revisar.</li>
+      </ul>
+      <div class="native-diagram__example triage-card__outcome--blue">
+        ★ Criterio: Jamás convertir una propuesta o intención de debate en acuerdo institucional.
+      </div>
+    </article>
+
+    <!-- R6: Limpieza de planillas -->
+    <article class="native-diagram__card native-diagram__card--rule triage-card triage-card--green">
+      <div class="triage-card__tag--green">
+        <strong class="triage-card__tag-label--green">R6 · Limpieza de planillas</strong>
+      </div>
+      <h4 class="comparative-card__title">Normalización no destructiva</h4>
+      <div class="triage-card__chip--green">
+        Entrada: datos-sofia.csv → Columna calculada
+      </div>
+      <ul class="comparative-card__list">
+        <li><strong>Fuente intacta:</strong> «Estado sin normalizar» permanece inalterada.</li>
+        <li><strong>Reglas reproducibles:</strong> recorte de espacios (TRIM) y MAYÚSCULAS.</li>
+        <li><strong>Tratamiento de vacíos:</strong> celdas sin datos se marcan como REVISAR.</li>
+        <li><strong>Integridad de filas:</strong> 30 registros totales, conservando SIM-0012.</li>
+      </ul>
+      <div class="native-diagram__example triage-card__outcome--green">
+        ★ Criterio: Prohibido sobrescribir celdas maestras o borrar filas presuntamente duplicadas.
+      </div>
+    </article>
+
+    <!-- R7: Diseño de procesos -->
+    <article class="native-diagram__card native-diagram__card--human triage-card triage-card--amber">
+      <div class="triage-card__tag--amber">
+        <strong class="triage-card__tag-label--amber">R7 · Diseño de procesos</strong>
+      </div>
+      <h4 class="comparative-card__title">Flujo antes de automatizar</h4>
+      <div class="triage-card__chip--amber">
+        Entrada: reto-07-casos-flujo.csv → Ramas
+      </div>
+      <ul class="comparative-card__list">
+        <li><strong>Filtro de urgencia:</strong> comprobación prioritaria antes de los datos de forma.</li>
+        <li><strong>Punto de detención:</strong> ramas urgentes se escalan para decisión humana.</li>
+        <li><strong>Integridad de campos:</strong> actividad, sede, fecha, franja y aforo.</li>
+        <li><strong>Simulación de rutas:</strong> prueba contrastada en FL-01, FL-02 y FL-03.</li>
+      </ul>
+      <div class="native-diagram__example triage-card__outcome--amber">
+        ★ Criterio: Una automatización evalúa reglas lógicas; no aprueba reservas ni resuelve excepciones.
+      </div>
+    </article>
+  </div>
+
+  <!-- Panel inferior: Pipeline de Normalización SOFIA -->
+  <div class="correspondence-cycle triage-panel">
+    <strong class="triage-panel__label">Pipeline transversal de normalización y trazabilidad en planillas (SOFIA)</strong>
+    <div class="triage-panel__grid">
+      <div class="metric-box">
+        <span class="metric-box__label">01 · ORIGEN</span>
+        <strong class="metric-box__value">Fuente intacta</strong>
+        <span class="metric-box__note">Carga de datos-sofia.csv; respaldo maestro inalterado sin sobrescritura.</span>
+      </div>
+      <div class="metric-box">
+        <span class="metric-box__label">02 · ESTRUCTURA</span>
+        <strong class="metric-box__value">Columna calculada</strong>
+        <span class="metric-box__note">Adición de «Estado revisado» para operar sin destruir el registro original.</span>
+      </div>
+      <div class="metric-box">
+        <span class="metric-box__label">03 · NORMALIZACIÓN</span>
+        <strong class="metric-box__value">Reglas TRIM y MAYÚSCULAS</strong>
+        <span class="metric-box__note">Estandarización tipográfica (ej. SIM-0002 normalizado a FINALIZADO).</span>
+      </div>
+      <div class="metric-box">
+        <span class="metric-box__label">04 · EXCEPCIONES</span>
+        <strong class="metric-box__value">Vacíos y duplicados</strong>
+        <span class="metric-box__note">SIM-0003 pasa a REVISAR y se conservan ambas filas de SIM-0012.</span>
+      </div>
+      <div class="metric-box">
+        <span class="metric-box__label">05 · SALIDA</span>
+        <strong class="metric-box__value">Copia auditable</strong>
+        <span class="metric-box__note">Tabla limpia con 30 registros y conteo de estados demostrable.</span>
+      </div>
+    </div>
+  </div>
 </div>
-</figure>
-<h3>Encarga una transformación que puedas comprobar</h3>
-<div class="processing-intro">
-<p><strong>Cada tarea necesita una comprobación distinta.</strong> Conserva la fuente y pide referencias que permitan volver al mensaje, al minuto de la reunión o a la fila original:</p>
-<ul class="lesson-list">
-<li><strong>Bandeja de correos (Reto 4):</strong> clasifica según impacto colectivo y plazos explícitos; prepara borradores sin enviar comunicaciones.</li>
-<li><strong>Acta de reunión (Reto 5):</strong> extrae compromisos asociando cada punto al minuto exacto de la transcripción; nunca conviertas una propuesta en acuerdo firme.</li>
-<li><strong>Planillas de datos (Reto 6):</strong> aplica reglas reproducibles en una columna nueva calculada, manteniendo la columna original como respaldo intacto.</li>
-<li><strong>Diseño de flujo (Reto 7):</strong> traza activador, validaciones y ramas condicionales antes de programar o encargar automatizaciones.</li>
-</ul>
-<div class="worked-example" data-flow-primer=""><h4>Cómo se lee un diagrama de flujo</h4>
+
+<!-- COMPONENTE 2: TRÍPTICO DE SEMÁFORO DE TRAZABILIDAD DOCUMENTAL -->
+<section aria-labelledby="m03-safety-triptych-title" class="data-safety-triptych-section">
+  <div class="section-infographic-header">
+    <span class="eyebrow">CRITERIOS DE OPERACIÓN Y CONTROL · TRANSFORMACIÓN DE DATOS</span>
+    <h3 id="m03-safety-triptych-title">Semáforo de trazabilidad y normalización documental</h3>
+    <p>Reglas esenciales para procesar volúmenes administrativos sin perder la conexión con el dato primario.</p>
+  </div>
+  <div class="data-safety-triptych">
+    <!-- Nivel 1: Seguro -->
+    <article class="data-safety-card data-safety-card--green">
+      <div class="data-safety-card__badge"><strong>Nivel 1 · Seguro</strong></div>
+      <h4 class="data-safety-card__title">Cálculos y referencias directas</h4>
+      <p class="data-safety-card__includes">Aplicar reglas deterministas (TRIM, mayúsculas), enlazar acuerdos a marcas de tiempo y priorizar mensajes citando códigos fuente.</p>
+      <div class="data-safety-card__rule">
+        <strong>Regla de uso:</strong> Cada valor resultante debe conservar su vínculo verificable con el código, fila o minuto de procedencia.
+      </div>
+      <span class="data-safety-card__action">Acción permitida: Transformación con enlace fuente</span>
+    </article>
+
+    <!-- Nivel 2: Por confirmar -->
+    <article class="data-safety-card data-safety-card--amber">
+      <div class="data-safety-card__badge"><strong>Nivel 2 · Por confirmar</strong></div>
+      <h4 class="data-safety-card__title">Datos ausentes y ambigüedades</h4>
+      <p class="data-safety-card__includes">Celdas vacías en planillas, fechas de entrega no acordadas en actas, registros repetidos o correos con peticiones difusas.</p>
+      <div class="data-safety-card__rule">
+        <strong>Regla de uso:</strong> Prohibido autocompletar por aproximación o suprimir filas dudosas. Marca REVISAR o «no consta» para revisión.
+      </div>
+      <span class="data-safety-card__action">Acción requerida: Conservar y solicitar revisión</span>
+    </article>
+
+    <!-- Nivel 3: Prohibido -->
+    <article class="data-safety-card data-safety-card--red">
+      <div class="data-safety-card__badge"><strong>Nivel 3 · Prohibido</strong></div>
+      <h4 class="data-safety-card__title">Sobrescribir fuentes o despachar</h4>
+      <p class="data-safety-card__includes">Sobrescribir archivos originales, borrar filas duplicadas, inventar acuerdos no tomados o despachar correos sin autorización.</p>
+      <div class="data-safety-card__rule">
+        <strong>Regla de uso:</strong> La fuente original permanece inalterada; las herramientas de IA proponen borradores, nunca ejecutan actos definitivos.
+      </div>
+      <span class="data-safety-card__action">Acción estricta: Auditoría humana obligatoria</span>
+    </article>
+  </div>
+</section>
+
+<!-- COMPONENTE 3: STEPPER OPERATIVO DE 4 PASOS -->
+<section aria-labelledby="m03-stepper-title" class="task-delimitation-section">
+  <div class="section-infographic-header">
+    <span class="eyebrow">MÉTODO OPERATIVO DE PROCESAMIENTO DE ARCHIVOS</span>
+    <h3 id="m03-stepper-title">Cuatro pasos para transformar y validar lotes documentales</h3>
+    <p>Aplica esta secuencia en cualquier tarea de depuración de planillas, extracción de actas o clasificación de correspondencia.</p>
+  </div>
+  <div class="task-stepper">
+    <div class="task-step">
+      <span class="task-step__num">01 · Entrada</span>
+      <h4 class="task-step__title">Protege la fuente</h4>
+      <p class="task-step__desc">Carga el archivo maestro (correos-50, transcripción o datos-sofia) y genera una copia de trabajo sin tocar el original.</p>
+    </div>
+    <div class="task-step">
+      <span class="task-step__num">02 · Regla</span>
+      <h4 class="task-step__title">Define condiciones unívocas</h4>
+      <p class="task-step__desc">Fija criterios explícitos de clasificación, formato de acta por minuto o regla de limpieza en columna calculada.</p>
+    </div>
+    <div class="task-step">
+      <span class="task-step__num">03 · Excepciones</span>
+      <h4 class="task-step__title">Señala vacíos y duplicados</h4>
+      <p class="task-step__desc">Instruye a la IA para marcar REVISAR en datos ausentes y retener registros repetidos para revisión humana.</p>
+    </div>
+    <div class="task-step">
+      <span class="task-step__num">04 · Control</span>
+      <h4 class="task-step__title">Verifica integridad y descarga</h4>
+      <p class="task-step__desc">Comprueba conteos totales de registros, contrasta casos testigo (ej. SIM-0002 y SIM-0003) y descarga el producto revisable.</p>
+    </div>
+  </div>
+</section>
+
+<!-- COMPONENTE 4: TARJETAS COMPARATIVAS BENTO -->
+<div class="comparative-cards-grid">
+  <article class="comparative-card">
+    <span class="badge-station badge-station--spaced">Integridad de datos</span>
+    <h4>Edición destructiva vs. Columna calculada</h4>
+    <p>Sobrescribir celdas o eliminar filas elimina la evidencia de auditoría y oculta anomalías. Trabajar sobre columnas nuevas permite contrastar el dato crudo frente al normalizado y corregir reglas sin perder la fuente.</p>
+  </article>
+  <article class="comparative-card">
+    <span class="badge-station badge-station--spaced">Rigor documental</span>
+    <h4>Compromisos formales vs. Intenciones de reunión</h4>
+    <p>En una reunión administrativa, los debates e intenciones no son acuerdos ejecutables. Un acta trazable registra únicamente las decisiones aprobadas con responsable y fecha, dejando las propuestas como temas en deliberación.</p>
+  </article>
+</div>
+
+<!-- COMPONENTE 5: ROADMAP DE CONEXIÓN PRÁCTICA HACIA LOS RETOS -->
+<div class="module-roadmap-connection">
+  <div class="roadmap-connection-header">
+    <span class="eyebrow">RUTA DE APLICACIÓN EN EL MÓDULO 03</span>
+    <h3>Tu conexión práctica con los retos operativos</h3>
+    <p>Con estos principios de trazabilidad, pasa a <strong>Observa</strong> para probar el depurador y los ejemplos, y luego a <strong>Resuelve</strong> para ejecutar tus retos.</p>
+  </div>
+  <div class="roadmap-cards-grid">
+    <div class="roadmap-step-card">
+      <span class="roadmap-step-tag">Reto 4 · 150 min</span>
+      <h4>Bandeja de 50 mensajes</h4>
+      <p>Aplica reglas reproducibles para priorizar la bandeja según señales textuales y plazos, generando diez borradores sin envío.</p>
+    </div>
+    <div class="roadmap-step-card">
+      <span class="roadmap-step-tag">Reto 5 · 150 min</span>
+      <h4>Acta trazable por minutos</h4>
+      <p>Extrae compromisos enlazados a la marca temporal de la reunión, distinguiendo acuerdos firmes de temas en deliberación.</p>
+    </div>
+    <div class="roadmap-step-card">
+      <span class="roadmap-step-tag">Reto 6 · 120 min</span>
+      <h4>Planilla de datos SOFIA</h4>
+      <p>Normaliza estados en columna calculada aplicando TRIM y MAYÚSCULAS sin alterar filas maestras ni suprimir códigos repetidos.</p>
+    </div>
+    <div class="roadmap-step-card">
+      <span class="roadmap-step-tag">Reto 7 · 60 min</span>
+      <h4>Diseño de flujo de atención</h4>
+      <p>Traza el diagrama de atención comprobando urgencias de forma prioritaria y simulando tres rutas de respuesta.</p>
+    </div>
+  </div>
+</div><div class="worked-example" data-flow-primer=""><h4>Cómo se lee un diagrama de flujo</h4>
 <p>Un diagrama de flujo muestra en orden lo que ocurre con una solicitud. Usa cuatro elementos: el <strong>inicio</strong> (qué llega), las <strong>decisiones</strong> (preguntas de sí o no), las <strong>acciones</strong> (qué se hace en cada caso) y la <strong>salida</strong> (qué recibe la siguiente persona). Cuando un caso exige criterio humano, el flujo tiene un <strong>punto de parada</strong>: se detiene y lo traslada a la persona responsable.</p>
 <p><strong>Ejemplo con otro trámite:</strong> llega una solicitud de certificado. ¿Trae el número de ficha? Si no, se pide el dato y el estado queda «pendiente». Si sí, ¿pide una excepción, como entregarlo hoy? Si la pide, el flujo se detiene para que coordinación decida. Si no, se prepara el borrador del certificado para revisión.</p>
-<p class="example-reason">Antes de automatizar, prueba el diagrama con casos distintos: uno completo, uno incompleto y uno que exija decisión humana. En el Reto 7 harás lo mismo con tres solicitudes de sala.</p></div>
-<p><strong>Regla de oro de auditoría:</strong> la fuente original permanece intacta. Toda limpieza o cálculo se genera en una columna calculada o copia de trabajo nueva para garantizar la trazabilidad independiente.</p>
-<figure aria-label="Pipeline de normalización de datos sin alterar la fuente original" class="native-diagram">
-<div class="native-diagram__header">
-<span class="native-diagram__kicker">Trazabilidad en planillas · Módulo 03</span>
-<h4 class="native-diagram__title">Cómo revisar estados sin alterar la fuente</h4>
-<p class="native-diagram__desc">Regla de limpieza en cinco etapas para Datos SOFIA. Cada transformación añade columnas de cálculo sin sobrescribir ni eliminar registros de la fuente primaria.</p>
-</div>
-<div class="native-diagram__flow">
-<article class="native-diagram__card">
-<div class="native-diagram__card-head">
-<span class="native-diagram__step-num">01</span>
-<span class="badge-station">Origen</span>
-</div>
-<h4>Fuente intacta</h4>
-<p>Carga de <code>datos-sofia.csv</code>. La columna original «Estado sin normalizar» permanece inalterada como respaldo auditable.</p>
-<div class="native-diagram__example">
-<strong>Regla base:</strong> Prohibido sobrescribir celdas en el archivo maestro original.
-      </div>
-</article>
-<article class="native-diagram__card native-diagram__card--rule">
-<div class="native-diagram__card-head">
-<span class="native-diagram__step-num">02</span>
-<span class="badge-publico">Estructura</span>
-</div>
-<h4>Nueva columna calculada</h4>
-<p>Adición de la columna «Estado revisado». Todas las reglas operan exclusivamente sobre esta columna.</p>
-<div class="native-diagram__example">
-<strong>Trazabilidad:</strong> Contraste lado a lado entre el dato crudo y el dato normalizado.
-      </div>
-</article>
-<article class="native-diagram__card native-diagram__card--rule">
-<div class="native-diagram__card-head">
-<span class="native-diagram__step-num">03</span>
-<span class="badge-publico">Normalización</span>
-</div>
-<h4>Normalización TRIM / MAYÚSCULAS</h4>
-<p>Eliminación de espacios al inicio y al final del texto y conversión a mayúsculas.</p>
-<div class="native-diagram__example">
-<strong>Caso SIM-0002:</strong> <code>FINALIZADO·</code> se normaliza a <strong>FINALIZADO</strong>.
-      </div>
-</article>
-<article class="native-diagram__card native-diagram__card--human">
-<div class="native-diagram__card-head">
-<span class="native-diagram__step-num">04</span>
-<span class="badge-warning">Excepciones</span>
-</div>
-<h4>Excepciones y duplicados</h4>
-<p>Celdas vacías se marcan explícitamente como REVISAR; códigos repetidos se conservan íntegros sin borrar filas.</p>
-<div class="native-diagram__example">
-<strong>Casos clave:</strong> SIM-0003 pasa a <strong>REVISAR</strong>; SIM-0012 conserva sus dos filas.
-      </div>
-</article>
-<article class="native-diagram__card">
-<div class="native-diagram__card-head">
-<span class="native-diagram__step-num">05</span>
-<span class="badge-station">Salida</span>
-</div>
-<h4>Copia limpia auditable</h4>
-<p>Exportación de la tabla revisada con el procedimiento aplicado para conservarla y comprobar los resultados.</p>
-<div class="native-diagram__example">
-<strong>Conteo:</strong> 9 EN CURSO, 9 FINALIZADO, 8 PENDIENTE y 4 REVISAR (total 30 filas).
-      </div>
-</article>
-</div>
-</figure>
-<div class="notice"><strong>Cuándo NO usar IA en procesamiento de bases de datos:</strong> No uses la IA para sobrescribir o eliminar registros originales, autocompletar cédulas o fechas por aproximación ni realizar modificaciones masivas sin una columna de auditoría trazable y copia de respaldo verificada.</div>
-<details class="course-context"><summary>Si la herramienta puede ejecutar un procedimiento</summary><p>Pide a la IA que genere y ejecute el procedimiento de limpieza si dispone de ejecución de código. La herramienta aplica la regla al archivo; tú compruebas dos casos y el número de filas. Si solo propone código, pide dejar ese límite en el reporte: una propuesta no demuestra que el archivo esté procesado. No necesitas escribir el procedimiento desde cero.</p></details></div><div class="worked-example" data-ai-cycle=""><h4>Ejemplo pequeño resuelto · filas del libro</h4><p data-ai-source="" data-step="1"><span class="worked-step-label">Paso 1 · Consulta la fuente</span><strong>Fuente:</strong> en Datos SOFIA, SIM-0002 (fila 6) tiene «FINALIZADO » con un espacio al final. SIM-0003 (fila 7) no tiene estado. Ambas filas deben conservarse; la limpieza añade una columna y deja intacta la original.</p><p data-ai-instruction="" data-step="2"><span class="worked-step-label">Paso 2 · Encarga el producto</span>Instrucción para la IA: Procesa la fuente Datos SOFIA con la regla de Estado revisado: quita espacios, convierte a mayúsculas y marca REVISAR si falta el estado. Conserva la columna original y las dos ocurrencias de SIM-0012. Devuelve la salida y el procedimiento que aplicaste.</p><p class="example-reason">Por qué se decide así: quitar un espacio es una transformación prevista por la regla. Completar un estado vacío o borrar un código repetido cambiaría información que la regla no autoriza modificar.</p><div data-ai-response="" data-step="3"><span class="worked-step-label">Paso 3 · Lee el resultado</span><div class="example-facts"><article><h5>SIM-0002 · espacio sobrante</h5><p>Original: <code>FINALIZADO·</code>. El punto representa el espacio final. Regla: quitar espacios. Salida: <strong>FINALIZADO</strong>.</p></article><article><h5>SIM-0003 · estado ausente</h5><p>Original: vacío. Regla: señalar el dato ausente. Salida: <strong>REVISAR</strong>. La fuente no permite completar el estado.</p></article></div><p>La salida añade «Estado revisado», conserva «Estado sin normalizar» y mantiene las dos ocurrencias de SIM-0012. Ninguna fila se elimina.</p></div><p data-ai-review="" data-step="4"><span class="worked-step-label">Paso 4 · Comprueba antes de usar</span>Revisión: Contrasta SIM-0002 y SIM-0003 con la fuente y comprueba que SIM-0012 conserve ambas ocurrencias. Si la herramienta no ejecutó la regla, pide dejar ese límite en el reporte.</p></div>
+<p class="example-reason">Antes de automatizar, prueba el diagrama con casos distintos: uno completo, uno incompleto y uno que exija decisión humana. En el Reto 7 harás lo mismo con tres solicitudes de sala.</p></div><div class="worked-example" data-ai-cycle=""><h4>Ejemplo pequeño resuelto · filas del libro</h4><p data-ai-source="" data-step="1"><span class="worked-step-label">Paso 1 · Consulta la fuente</span><strong>Fuente:</strong> en Datos SOFIA, SIM-0002 (fila 6) tiene «FINALIZADO » con un espacio al final. SIM-0003 (fila 7) no tiene estado. Ambas filas deben conservarse; la limpieza añade una columna y deja intacta la original.</p><p data-ai-instruction="" data-step="2"><span class="worked-step-label">Paso 2 · Encarga el producto</span>Instrucción para la IA: Procesa la fuente Datos SOFIA con la regla de Estado revisado: quita espacios, convierte a mayúsculas y marca REVISAR si falta el estado. Conserva la columna original y las dos ocurrencias de SIM-0012. Devuelve la salida y el procedimiento que aplicaste.</p><p class="example-reason">Por qué se decide así: quitar un espacio es una transformación prevista por la regla. Completar un estado vacío o borrar un código repetido cambiaría información que la regla no autoriza modificar.</p><div data-ai-response="" data-step="3"><span class="worked-step-label">Paso 3 · Lee el resultado</span><div class="example-facts"><article><h5>SIM-0002 · espacio sobrante</h5><p>Original: <code>FINALIZADO·</code>. El punto representa el espacio final. Regla: quitar espacios. Salida: <strong>FINALIZADO</strong>.</p></article><article><h5>SIM-0003 · estado ausente</h5><p>Original: vacío. Regla: señalar el dato ausente. Salida: <strong>REVISAR</strong>. La fuente no permite completar el estado.</p></article></div><p>La salida añade «Estado revisado», conserva «Estado sin normalizar» y mantiene las dos ocurrencias de SIM-0012. Ninguna fila se elimina.</p></div><p data-ai-review="" data-step="4"><span class="worked-step-label">Paso 4 · Comprueba antes de usar</span>Revisión: Contrasta SIM-0002 y SIM-0003 con la fuente y comprueba que SIM-0012 conserve ambas ocurrencias. Si la herramienta no ejecutó la regla, pide dejar ese límite en el reporte.</p></div>
 <section aria-labelledby="cleaner-sim-title" class="tool-lab" id="data-cleaner-simulator">
 <div class="tool-lab-heading">
 <span class="eyebrow">SIMULADOR INTERACTIVO DE NORMALIZACIÓN DE TABLAS</span>

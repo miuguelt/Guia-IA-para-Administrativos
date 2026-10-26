@@ -140,7 +140,7 @@ def guided_intro(ident, full_content):
         block = diagram.find_parent(class_='learning-block')
         reference.append(diagram.extract())
         block.append(reference)
-    for node in content.select('#decision-simulator, #anonymization-simulator'):
+    for node in content.select('#prompt-lab, #prompt-compare-simulator, #pqrs-evaluator-simulator, #data-cleaner-simulator, #decision-simulator, #anonymization-simulator, #productivity-roi-calculator, .ratio-lab'):
         node.decompose()
     productivity = content.select_one('.productivity-lesson')
     productivity_html = str(productivity.extract()) if productivity else ''
