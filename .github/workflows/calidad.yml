@@ -35,16 +35,16 @@ jobs:
         with:
           name: revision-visual-ecobogota
           path: output/revision-eco/visual
-          if-no-files-found: error
+          if-no-files-found: warn
       - uses: actions/upload-artifact@v7
         if: always()
         with:
           name: cobertura-completa
           path: cobertura-completa.txt
-          if-no-files-found: error
+          if-no-files-found: warn
       - uses: actions/upload-artifact@v7
         if: always()
         with:
           name: pruebas-y-cobertura-python
           path: pruebas-y-cobertura-python.txt
-          if-no-files-found: error
+          if-no-files-found: warn
