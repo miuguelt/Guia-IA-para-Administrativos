@@ -100,6 +100,38 @@ test('getSituationById recupera situación directa o mediante alias de compatibi
   assert.equal(notFound, null);
 });
 
+test('renderSituationDetail maneja situación nula y renderSituationCards maneja lista vacía', () => {
+  const detailEmpty = OfficeSituationsSelector.renderSituationDetail(null);
+  assert.match(detailEmpty, /situation-detail-placeholder/);
+
+  const cardsEmpty = OfficeSituationsSelector.renderSituationCards([]);
+  assert.match(cardsEmpty, /situations-empty-notice/);
+});
+
+test('renderManual delega en renderManualSection correctamente', () => {
+  const dom = new JSDOM('<!doctype html><html><body><div id="manual-box"></div></body></html>');
+  const box = dom.window.document.getElementById('manual-box');
+  const html = OfficeSituationsSelector.renderManual(box, OfficeSituationsSelector.DEFAULT_SITUATIONS);
+  assert.ok(html.includes('manual-item-card'));
+  assert.ok(box.children.length > 0);
+  dom.window.close();
+});
+
+test('copyPromptToClipboard maneja fallo en writeText de forma segura', async () => {
+  const dom = new JSDOM('<!doctype html><html><body><button id="btn">Copiar</button><div id="notif"></div></body></html>');
+  const btn = dom.window.document.getElementById('btn');
+  const notif = dom.window.document.getElementById('notif');
+  const mockNavigator = {
+    clipboard: {
+      writeText: () => Promise.reject(new Error('Permiso denegado'))
+    }
+  };
+  const res = await OfficeSituationsSelector.copyPromptToClipboard('Texto de prueba', btn, notif, mockNavigator);
+  assert.equal(res, true);
+  assert.equal(btn.textContent, '¡Prompt copiado al portapapeles!');
+  dom.window.close();
+});
+
 test('getCategories extrae las 3 dimensiones con conteos exactos de 4 elementos', () => {
   const cats = OfficeSituationsSelector.getCategories(OfficeSituationsSelector.DEFAULT_SITUATIONS);
   assert.equal(cats[0].id, 'todas');

@@ -1,0 +1,28 @@
+# Git attributes for Aula IA Administrativos
+* text=auto eol=lf
+
+# Text and code files use LF
+*.html text eol=lf
+*.css text eol=lf
+*.js text eol=lf
+*.cjs text eol=lf
+*.mjs text eol=lf
+*.json text eol=lf
+*.py text eol=lf
+*.md text eol=lf
+*.txt text eol=lf
+*.yml text eol=lf
+*.yaml text eol=lf
+
+# Binary assets
+*.docx binary
+*.xlsx binary
+*.pdf binary
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.ico binary
+*.zip binary
+
+# CSVs in materiales/retos require CRLF per Excel standard and verify_m_challenger_1.py
+materiales/retos/*.csv text eol=crlf

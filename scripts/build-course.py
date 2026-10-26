@@ -265,7 +265,7 @@ def main():
     assert len(OFFICE_SITUATIONS.get("situations", [])) == 12
     assert parsed.select_one("#situaciones-oficina") is not None
     assert parsed.select_one("#manual-situaciones-oficina") is not None
-    (ROOT / 'index.html').write_text(result, encoding='utf-8')
+    (ROOT / 'index.html').write_text(result, encoding='utf-8', newline='\n')
     example_dir = ROOT / 'materiales/eco-capacitacion'
     example_dir.mkdir(parents=True, exist_ok=True)
     for source_name, target_name in [('eco-training-example.html', 'simulacion.html'), ('eco-training-example.json', 'resultado.json')]:
