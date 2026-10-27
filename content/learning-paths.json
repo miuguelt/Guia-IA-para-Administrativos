@@ -146,27 +146,27 @@
       ],
       [
         "Línea base",
-        "Medida inicial para comparar la misma tarea después. Incluye revisión y corrección."
+        "Lo que tarda hoy la tarea, con la revisión incluida. Si no lo has medido, se escribe «pendiente»."
       ],
       [
         "Criterio de calidad",
-        "Condición concreta para aceptar el producto, como conservar los datos pendientes y citar la fuente."
+        "Condición concreta para aceptar el producto; por ejemplo, que pida todos los datos que faltan y cite la fuente."
       ],
       [
         "Datos necesarios",
         "Información que permite resolver la tarea. Los datos que no aportan deben quedar fuera."
       ],
       [
-        "Gobernanza y Ley 1581",
-        "Obligación de proteger datos personales y sensibles, garantizando que ninguna decisión se tome sin supervisión humana."
+        "Protección de datos (Ley 1581 de 2012)",
+        "Ley colombiana que obliga a proteger los datos personales. En la guía se aplica con el semáforo: usar, reducir o no cargar."
       ],
       [
         "CRTT",
-        "Contexto, Rol, Tarea y Tono: método para estructurar una instrucción clara a la IA. Añade fuente delimitada, límites operativos, formato y criterio de aceptación."
+        "Contexto, Rol, Tarea y Tono: las cuatro partes de una instrucción clara para la IA. Se completa con la fuente, los límites y el formato que esperas."
       ],
       [
         "Portafolio de Evidencias",
-        "Registro digital de aprendizaje que reúne en este navegador tus cinco evidencias curriculares (MG-A01 a MG-A05) para revisión, exportación y valoración final del instructor."
+        "Página de la guía que reúne tus cinco evidencias (MG-A01 a MG-A05) para revisarlas y entregarlas al instructor."
       ]
     ],
     "steps": [
@@ -183,8 +183,8 @@
         "Revisa los tres criterios del reto y sus fuentes."
       ],
       [
-        "Descarga",
-        "Obtén el reporte; lo no observado queda pendiente."
+        "Guarda",
+        "Conserva el resultado; lo que no se ha observado queda pendiente."
       ]
     ],
     "practice": [

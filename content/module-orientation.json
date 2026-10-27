@@ -1,20 +1,20 @@
 {
   "m01-fundamentos": {
     "question": "La IA prepara; ¿quién decide?",
-    "essential": "Pide a la IA organizar una solicitud con una instrucción CRTT: Contexto, Rol, Tarea y Tono, más fuente y límites. Una persona responsable confirma la reserva. Comparte solo los datos necesarios.",
-    "product": "Un diagnóstico generado por IA, cinco decisiones sobre datos y una respuesta con fuente.",
+    "essential": "La IA ordena y redacta; una persona confirma. Con una misma solicitud de sala aprendes tres decisiones: qué datos compartes, cómo repartes el trabajo y cómo describes tu tarea.",
+    "product": "Cinco decisiones sobre datos, una respuesta con fuente y el diagnóstico de tu tarea.",
     "concepts": [
       [
-        "Delimita la tarea",
-        "Identifica qué recibes, qué debes entregar y cómo reconocer un buen resultado."
+        "Protege los datos",
+        "Decide si cada dato se usa, se reduce o no se carga."
       ],
       [
-        "Clasifica los datos",
-        "Distingue información pública, datos que requieren autorización y datos que no puedes cargar."
+        "Reparte el trabajo",
+        "Una regla detecta lo que falta, la IA redacta el mensaje y una persona aprueba."
       ],
       [
-        "Registra el punto de partida",
-        "Usa tiempos observados o deja la medición pendiente."
+        "Describe tu tarea",
+        "Anota qué recibes, qué entregas y cuánto tarda hoy."
       ]
     ],
     "review": "Si faltan sede, fecha o franja, pregunta por esos datos. La urgencia no confirma la reserva."

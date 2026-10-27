@@ -69,14 +69,16 @@ test('los encabezados extensos de las tarjetas de ciclo se ajustan en móvil', (
   assert.match(learningStyles, /\.correspondence-cycle\s*>\s*strong\s*\{[^}]*overflow-wrap:\s*break-word/s);
 });
 
-test('las tarjetas del ciclo se reducen al ancho disponible en móvil', () => {
-  assert.match(moduleOne, /grid-template-columns:\s*repeat\(auto-fit,\s*minmax\(min\(100%,\s*180px\),\s*1fr\)\)/);
-  assert.doesNotMatch(moduleOne, /grid-template-columns:\s*repeat\(auto-fit,\s*minmax\(180px,\s*1fr\)\)/);
+test('las tarjetas de los pasos del módulo 01 se reducen al ancho disponible en móvil', () => {
+  const courseStyles = fs.readFileSync(path.join(__dirname, '..', 'css', 'course.css'), 'utf8');
+  assert.match(moduleOne, /class="data-safety-triptych"/);
+  assert.match(moduleOne, /class="task-stepper"/);
+  assert.match(courseStyles, /\.data-safety-triptych\s*\{[^}]*grid-template-columns:\s*repeat\(auto-fit,\s*minmax\(min\(100%,\s*250px\),\s*1fr\)\)/s);
+  assert.match(courseStyles, /\.task-stepper\s*\{[^}]*grid-template-columns:\s*repeat\(auto-fit,\s*minmax\(min\(100%,\s*200px\),\s*1fr\)\)/s);
 });
 
-test('las tarjetas comparativas permiten una columna menor que 280 px', () => {
-  assert.equal((moduleOne.match(/grid-template-columns:\s*repeat\(auto-fit,\s*minmax\(min\(100%,\s*280px\),\s*1fr\)\)/g) || []).length, 2);
-  assert.doesNotMatch(moduleOne, /grid-template-columns:\s*repeat\(auto-fit,\s*minmax\(280px,\s*1fr\)\)/);
+test('el módulo 01 no fija columnas mínimas que desborden en móvil', () => {
+  assert.doesNotMatch(moduleOne, /minmax\(\d+px,/);
 });
 
 test('los contenedores y controles del laboratorio usan un quiebre de respaldo natural', () => {
