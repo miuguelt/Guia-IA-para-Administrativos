@@ -27,6 +27,10 @@
 .lab-route-grid h2 { font-size: 1.35rem; }
 .lab-callout { padding: 20px 24px; background: #eaf1f2; color: #263f45; border-left: 4px solid #417b88; border-radius: 0 12px 12px 0; margin-block: 24px; overflow-wrap: anywhere; }
 .lab-muted { color: var(--muted); font-size: .92rem; }
+.lab-board { inline-size: 100%; max-inline-size: 100%; min-inline-size: 0; box-sizing: border-box; margin: 20px 0; padding: 12px; background: #fff; border: 1px solid #c8dadf; border-radius: 14px; }
+.lab-board a { display: block; border-radius: 8px; }
+.lab-board img { display: block; inline-size: 100%; block-size: auto; border-radius: 8px; }
+.lab-board figcaption { margin-top: 10px; font-size: .9rem; color: var(--muted); }
 .lab-index { display: flex; flex-wrap: wrap; gap: 10px; padding-block: 24px; border-block: 1px solid var(--line); margin-block: 32px; }
 .lab-index a { display: block; padding: 10px 15px; border: 1px solid #c7d7d8; border-radius: 100px; font-size: .9rem; color: #245361; text-decoration: none; background: #fff; font-weight: 650; }
 .lab-index a:hover { background: #e7eff0; }

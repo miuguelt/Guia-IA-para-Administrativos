@@ -54,6 +54,7 @@
       metrics: [['Países comparables', rows.length], ['Año inicial', String(start)], ['Año final', String(end)]],
       headers: ['País', `${start} (personas)`, `${end} (personas)`, 'Cambio (personas)', 'Cambio (%)'], rows,
       chart: { unit: indexed ? `Índice final (base ${start} = 100)` : 'Cambio (%)', points: rows.map(row => ({ label: row[0], value: row[4] === null ? null : indexed ? 100 + row[4] : row[4] })) },
+      composition: { title: `Participación en ${end} dentro de los países comparables`, unit: 'personas', singular: 'persona', parts: rows.map(row => ({ label: row[0], value: row[2] })) },
       note: `Calcula el porcentaje como 100 × (población final / población inicial − 1). ${indexed ? 'El índice compara cada país con su propia base; 100 significa que conserva el valor inicial.' : 'El porcentaje compara crecimiento relativo; la tabla conserva el tamaño en personas.'} Una base de cero deja el porcentaje sin calcular. La serie no demuestra causas del cambio.` };
   }
 
@@ -92,10 +93,13 @@
       return { label: day, value: selected.filter(row => row.fecha.slice(0, 10) === day).length };
     }) } : distribution(depths, 'km').chart;
     const maximum = selected.length ? Math.max(...selected.map(row => Number(row.magnitud))) : null;
+    const types = new Map();
+    for (const row of selected) types.set(row.tipo_magnitud || 'Sin tipo', (types.get(row.tipo_magnitud || 'Sin tipo') || 0) + 1);
     return { title: daily ? 'Conteo diario de eventos en enero de 2024' : 'Distribución de profundidades', count: selected.length, median: median(depths),
       metrics: [['Eventos seleccionados', selected.length], ['Magnitud máxima', maximum], ['Mediana de profundidad', median(depths), 'km']],
       headers: daily ? ['Fecha UTC', 'Eventos seleccionados'] : ['ID', 'Fecha UTC', 'Magnitud', 'Profundidad (km)', 'Tipo de magnitud'],
       rows: daily ? chart.points.map(point => [point.label, point.value]) : selected.map(row => [row.id, row.fecha, Number(row.magnitud), number(row.profundidad_km), row.tipo_magnitud]), chart,
+      composition: { title: 'Eventos por tipo de magnitud', unit: 'eventos', singular: 'evento', parts: [...types].sort(([a], [b]) => a.localeCompare(b)).map(([label, value]) => ({ label, value })) },
       note: `Selección mundial de enero de 2024 con magnitud ≥ ${minimum}. El conteo diario conserva los días sin eventos seleccionados. Consulta los tipos de magnitud en la tabla de la vista de profundidades. Este catálogo no estima daños, riesgo local ni eventos futuros.` };
   }
 

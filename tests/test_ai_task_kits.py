@@ -106,6 +106,39 @@ class AiTaskKitsTests(unittest.TestCase):
             self.assertTrue(any(cell.strip() for cell in rows[3]), path.name)
             self.assertFalse(any(cell.strip() for cell in rows[2]), path.name)
 
+    def test_laboratorios_piden_un_tablero_visual_verificable(self):
+        catalog = self.invoke("load_catalog")
+        indicators = {
+            "lab-nasa": ("anfitrionas únicas", "mediana del radio", "sin temperatura estelar"),
+            "lab-sismos": ("magnitud máxima", "mediana de profundidad", "tipo_magnitud"),
+            "lab-clima": ("días válidos", "precipitación acumulada", "días con lluvia ≥ 1 mm"),
+            "lab-poblacion": ("índice base 2000 = 100", "gráfico de pendiente", "participación en 2024"),
+            "lab-documentos": ("línea de tiempo", "mapa de calor", "cobertura de páginas"),
+        }
+        for key, names in indicators.items():
+            task = catalog[key]
+            self.assertIn("tablero", task["output"].lower(), key)
+            self.assertIn("tablero", " ".join(task["checks"]), key)
+            self.assertIn("resultados/tablero-" + key + ".html", task["idePrompt"], key)
+            for mode in ("chatPrompt", "idePrompt"):
+                prompt = task[mode]
+                with self.subTest(key=key, mode=mode):
+                    self.assertIn("tablero-" + key + ".html", prompt)
+                    self.assertIn("https://cdn.plot.ly/plotly-2.35.2.min.js", prompt)
+                    self.assertIn("cuatro indicadores", prompt)
+                    self.assertIn("sin eje doble", prompt)
+                    self.assertIn("respaldo en PNG", prompt)
+                    self.assertIn("No inventes puntos, órbitas ni animaciones", prompt)
+                    self.assertNotIn("bordes discretos", prompt)
+                    self.assertIn('"artifactId": "LAB-A01"', prompt)
+                    for name in names:
+                        self.assertIn(name, prompt)
+                    if key in ("lab-nasa", "lab-sismos"):
+                        self.assertIn("vista 3D rotable", prompt)
+                    else:
+                        self.assertIn("No uses 3D", prompt)
+                    self.assertNotRegex(prompt, r"4\.332|3\.282|1\.816,08|35,29")
+
     def test_diagramas_se_ven_sin_javascript_ni_bibliotecas(self):
         catalog = self.invoke("load_catalog")
         for key, task in catalog.items():

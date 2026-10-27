@@ -205,6 +205,36 @@ test('el plugin se recupera de datos dañados y dependencias ausentes sin oculta
   dom.window.close();
 });
 
+test('población y sismos describen su composición para la dona sin inventar categorías', () => {
+  const people = model.simulate(data, 'poblacion', { start: '2000', end: '2024' });
+  assert.deepEqual(people.composition.parts, [{ label: 'Colombia', value: 150 }, { label: 'Perú', value: 30 }]);
+  assert.match(people.composition.title, /2024/u);
+  const quakes = model.simulate(data, 'sismos', { magnitude: 5 });
+  assert.deepEqual(quakes.composition.parts, [{ label: 'mb', value: 1 }, { label: 'mww', value: 1 }]);
+  assert.deepEqual(model.simulate(data, 'sismos', { magnitude: 7 }).composition.parts, [{ label: 'mww', value: 1 }]);
+  assert.deepEqual(model.simulate({ sismos: [{ id: 'x', fecha: '2024-01-01', magnitud: '5', profundidad_km: '1', tipo_magnitud: '' }] }, 'sismos').composition.parts, [{ label: 'Sin tipo', value: 1 }]);
+  assert.equal(model.simulate(data, 'clima').composition, undefined);
+});
+
+test('la dona muestra porcentajes legibles y omite composiciones vacías', () => {
+  const { dom, win, panel, simulator } = setupUI(data, 'poblacion');
+  const output = panel.querySelector('[data-result-output]');
+  win.AnalysisResultsView.render(output, model.simulate(data, 'poblacion'));
+  const donut = output.querySelector('.result-donut');
+  assert.ok(donut);
+  assert.equal(donut.querySelectorAll('svg circle[data-part]').length, 2);
+  assert.equal(donut.querySelector('svg').getAttribute('aria-hidden'), 'true');
+  const items = [...donut.querySelectorAll('li')].map(item => item.textContent);
+  assert.deepEqual(items, ['Colombia: 150 personas · 83,3 %', 'Perú: 30 personas · 16,7 %']);
+  const empty = { ...model.simulate(data, 'poblacion'), composition: { title: 'Vacía', unit: 'personas', parts: [{ label: 'A', value: 0 }] } };
+  win.AnalysisResultsView.render(output, model.simulate(data, 'sismos'));
+  assert.deepEqual([...output.querySelectorAll('.result-donut li')].map(item => item.textContent), ['mb: 1 evento · 50,0 %', 'mww: 1 evento · 50,0 %']);
+  win.AnalysisResultsView.render(output, empty);
+  assert.equal(output.querySelector('.result-donut'), null);
+  simulator.destroy();
+  dom.window.close();
+});
+
 test('la vista muestra valores negativos, ausentes y documentos sin ejecutar contenido de las fuentes', () => {
   const { dom, win, panel, simulator } = setupUI(data, 'documentos');
   assert.match(panel.querySelector('[data-result-output]').textContent, /no certifica/iu);

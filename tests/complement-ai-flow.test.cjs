@@ -24,6 +24,24 @@ test('cada laboratorio ofrece un encargo listo, un ejemplo y tres pasos', () => 
   }
 });
 
+test('cada laboratorio muestra el tablero de referencia que la IA debe producir', () => {
+  const document = source('content/analisis-datos/laboratorios.html');
+  const boards = { 'lab-nasa': 'exoplanetas', 'lab-poblacion': 'poblacion', 'lab-clima': 'clima', 'lab-sismos': 'sismos', 'lab-documentos': 'documentos' };
+  for (const [id, board] of Object.entries(boards)) {
+    const figure = document.querySelector(`[data-ai-task="${id}"] figure.lab-board`);
+    assert.ok(figure, id);
+    const image = figure.querySelector('img');
+    const src = `materiales/analisis-datos/codigo/resultados/tablero-${board}.png`;
+    assert.equal(image.getAttribute('src'), src, id);
+    assert.ok(fs.statSync(path.join(root, src)).size > 40000, id);
+    assert.ok(image.getAttribute('alt').length > 80, id);
+    assert.equal(image.getAttribute('loading'), 'lazy', id);
+    assert.ok(Number(image.getAttribute('width')) > 0 && Number(image.getAttribute('height')) > 0, id);
+    assert.ok(figure.querySelector(`a[href="${src}"]`), id);
+    assert.match(figure.querySelector('figcaption').textContent, /cifras de control/u, id);
+  }
+});
+
 test('EcoBogotá ofrece las tres rutas de capacitación sin un simulador previo', () => {
   const eco = source('content/ecobogota.html');
   assert.equal(eco.querySelectorAll('[data-ai-task]').length, 3);

@@ -23,6 +23,17 @@
 .result-bar-label { overflow-wrap: anywhere; }.result-bar-track { grid-column: 1/-1; grid-row: 2; position: relative; display: block; height: 15px; background: var(--paper); border-radius: 3px; }
 .result-bar-track::before { content: ''; position: absolute; left: var(--result-zero); height: 100%; border-left: 1px solid var(--muted); }
 .result-bar-track i { position: absolute; top: 0; display: block; height: 100%; background: var(--lab-blue); border-radius: 3px; }
+.result-donut { display: grid; grid-template-columns: minmax(0, 1fr); gap: 16px; align-items: center; margin: 24px 0; padding: 16px; background: var(--surface); border: 1px solid var(--line); border-radius: 12px; }
+.result-donut figcaption { font-weight: 750; }
+.result-donut svg { inline-size: min(180px, 100%); block-size: auto; }
+.result-donut circle { stroke: #156b8a; }.result-donut ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; font-size: .9rem; }
+.result-donut li { display: flex; gap: 10px; align-items: baseline; font-variant-numeric: tabular-nums; }
+.result-donut li::before { content: ''; flex: none; inline-size: 12px; block-size: 12px; border-radius: 3px; background: #156b8a; }
+.result-donut [data-part="1"] { stroke: #c07a1a; }.result-donut li[data-part="1"]::before { background: #c07a1a; }
+.result-donut [data-part="2"] { stroke: #75439a; }.result-donut li[data-part="2"]::before { background: #75439a; }
+.result-donut [data-part="3"] { stroke: #3b7d4f; }.result-donut li[data-part="3"]::before { background: #3b7d4f; }
+.result-donut [data-part="4"] { stroke: #5b6770; }.result-donut li[data-part="4"]::before { background: #5b6770; }
+@media (min-width: 640px) { .result-donut { grid-template-columns: 180px minmax(0, 1fr); }.result-donut figcaption { grid-column: 1/-1; } }
 .result-data summary { padding-block: 14px; }.result-data .lab-table-wrap { max-height: 420px; }
 .result-claim { margin: 24px 0; padding: 20px; border-left: 4px solid var(--lab-blue); background: var(--surface); line-height: 1.75; }
 .result-error { padding: 20px; border: 1px solid #a13c29; border-left-width: 4px; border-radius: 10px; color: #812c1e; background: #fff5f2; }

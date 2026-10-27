@@ -39,6 +39,32 @@
     return figure;
   }
 
+  function donut(doc, composition) {
+    const total = composition.parts.reduce((sum, part) => sum + part.value, 0);
+    const figure = element(doc, 'figure', undefined, 'result-donut');
+    figure.append(element(doc, 'figcaption', composition.title));
+    const svg = doc.createElementNS('http://www.w3.org/2000/svg', 'svg');
+    svg.setAttribute('viewBox', '0 0 42 42');
+    svg.setAttribute('aria-hidden', 'true');
+    const list = element(doc, 'ul');
+    const percent = new Intl.NumberFormat('es-CO', { minimumFractionDigits: 1, maximumFractionDigits: 1 });
+    let offset = 25;
+    composition.parts.forEach((part, index) => {
+      const share = part.value / total * 100;
+      const ring = doc.createElementNS('http://www.w3.org/2000/svg', 'circle');
+      for (const [name, value] of [['cx', 21], ['cy', 21], ['r', 15.915], ['fill', 'none'], ['stroke-width', 6],
+        ['stroke-dasharray', `${share} ${100 - share}`], ['stroke-dashoffset', offset]]) ring.setAttribute(name, value);
+      ring.dataset.part = index % 5;
+      svg.append(ring);
+      offset -= share;
+      const item = element(doc, 'li', `${part.label}: ${format(part.value)} ${part.value === 1 ? composition.singular : composition.unit} · ${percent.format(share)} %`);
+      item.dataset.part = index % 5;
+      list.append(item);
+    });
+    figure.append(svg, list);
+    return figure;
+  }
+
   function table(doc, result) {
     const details = element(doc, 'details', undefined, 'result-data');
     details.append(element(doc, 'summary', `Revisar la tabla del resultado · ${result.rows.length} ${result.rows.length === 1 ? 'fila' : 'filas'}`));
@@ -75,6 +101,7 @@
     } else {
       if (result.chart) output.append(chart(doc, result.chart));
       else output.append(element(doc, 'blockquote', result.rows[0][0], 'result-claim'));
+      if (result.composition?.parts.some(part => part.value > 0)) output.append(donut(doc, result.composition));
       output.append(table(doc, result));
       if (result.sourceUrl?.startsWith('https://')) {
         const link = element(doc, 'a', 'Abrir la página de la fuente original ↗', 'button button-outline');
