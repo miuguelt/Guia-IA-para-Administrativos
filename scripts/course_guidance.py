@@ -216,7 +216,8 @@ def guided_challenge(card, materials):
         summary_node = details.find("summary")
         if not summary_node or not summary_node.get_text(" ", strip=True).startswith("Consultar la distribución del tiempo"):
             continue
-        summary_node.string = "Paso a paso: crea y comprueba tu resultado"
+        summary_node.string = "Tiempo sugerido para cada paso"
+        details["data-stage-timing"] = ""
         list_node = details.find("ol")
         if list_node:
             source_text = ", ".join(own_sources + shared_sources)
@@ -255,8 +256,11 @@ def guided_challenge(card, materials):
         save_note.decompose()
     bridge = card.select_one(".challenge-deliverable-bridge .bridge-info")
     if bridge:
-        bridge.string = "Continúa al espacio de evidencia de este módulo."
+        # El botón del puente ya nombra su destino; el aviso repetía el paso 4.
+        bridge.decompose()
     groups = [[], [], [], []]
+    # El paso 3 muestra las comprobaciones y una acción; los apoyos quedan plegados.
+    review = {"checks": [], "copy": [], "repair": [], "timing": [], "example": []}
     for node in card.find_all(recursive=False):
         if node.has_attr("data-ai-task") or node.get("data-copy", "").endswith("-ai-prompt"):
             continue
@@ -265,26 +269,40 @@ def guided_challenge(card, materials):
         if "challenge-meta" in classes:
             continue
         if "challenge-deliverable-bridge" in classes or text.startswith(("Criterio:", "Se acepta cuando:", "Guarda el resultado:", "Guarda tu evidencia:")):
-            destination = 3
-        elif node.has_attr('data-ai-review-checks') or node.name == 'details' or text.startswith('Si falta algo:') or node.get('id', '').endswith('-ajuste') or node.get('data-copy', '').endswith('-ajuste'):
-            destination = 2
+            groups[3].append(str(node))
+        elif node.has_attr('data-ai-review-checks'):
+            review["checks"].append(str(node))
+        elif node.get('data-copy', '').endswith('-ajuste'):
+            review["copy"].append(str(node))
+        elif node.get('id', '').endswith('-ajuste') or text.startswith('Si falta algo:'):
+            review["repair"].append(str(node))
+        elif node.name == 'details' and node.has_attr('data-stage-timing'):
+            review["timing"].append(str(node))
+        elif node.name == 'details':
+            node.find('summary').decompose()
+            review["example"].append(node.decode_contents())
         elif "tool-route" in classes:
-            destination = 0
+            groups[0].append(str(node))
         else:
-            destination = 1
-        groups[destination].append(str(node))
-    groups[0].insert(0, f'<a class="button button-primary ai-kit-primary" href="materiales/ia/{ident}.zip" download>Descargar paquete del reto ↓</a><p>El ZIP contiene el encargo y todas las fuentes que necesitas, incluidos los recursos comunes.</p>')
-    groups[0].append(f'<details class="ai-source-reference"><summary>Consultar archivos individuales y referencias</summary>{materials}</details>')
-    groups[0].append('<p class="file-help-link"><a href="#metodo-comun">Ayuda: abrir el paquete, usar el encargo y guardar el resultado →</a></p>')
+            groups[1].append(str(node))
+    sources_reference = ''.join(groups[0])
+    groups[0] = [f'<a class="button button-primary ai-kit-primary" href="materiales/ia/{ident}.zip" download>Descargar paquete del reto ↓</a><p>Extrae el ZIP con «Extraer todo». Trae el encargo y, en la carpeta <code>fuentes/</code>, todo lo que vas a adjuntar.</p>',
+                 f'<details class="ai-source-reference"><summary>Consultar archivos individuales y referencias</summary>{sources_reference}{materials}</details>',
+                 '<p class="file-help-link"><a href="#metodo-comun">Ayuda: abrir el paquete, usar el encargo y guardar el resultado →</a></p>']
     compass_html = render_challenge_compass(ident)
     details_content = compass_html + ''.join(groups[1])
-    more_details = f'<details class="ai-source-reference"><summary>Ver más / Consultar detalles</summary>{details_content}</details>' if details_content else ''
+    more_details = f'<details class="ai-source-reference"><summary>Antes de copiar: decisiones clave y ejemplos</summary>{details_content}</details>' if details_content else ''
     groups[1] = [render_crtt_tip(ident), render_task(ident, include_downloads=False), more_details]
     preview = f'''<figure class="output-preview"><table><caption>Ejemplo de comprobación · úsalo para revisar tu trabajo</caption><tbody><tr><th scope="row">Fuente</th><td>{escape(data["source"])}</td></tr><tr><th scope="row">Qué revisas</th><td>{escape(data["review"])}</td></tr><tr><th scope="row">Resultado</th><td>{escape(data["output"])}</td></tr></tbody></table></figure>'''
-    groups[2].append('<p class="stage-review-tip">Abre tu producto elaborado y contrasta estos tres puntos con la fuente. Si algo falla, usa la solicitud de ajuste.</p>')
-    groups[2].append(render_challenge_decisions(ident))
-    groups[2].append('<details class="ai-source-reference"><summary>Ver una comprobación resuelta</summary>' + preview + '</details>')
-    groups[3].insert(0, f'<p class="stage-save-tip">Selecciona la página resultado-{ident}.html en «Guarda tu evidencia». Esa página reúne tu producto y los datos que el Portafolio de Evidencias necesita; no prepares otra entrega. La revisión humana y la valoración del instructor siguen pendientes.</p>')
+    groups[2] = ['<div class="stage-main"><p class="stage-check-intro">Abre tu página de resultado y revisa estos tres puntos con la fuente:</p>',
+                 *review["checks"],
+                 '<p class="stage-repair">Si alguno falla, copia la solicitud de ajuste, envíala en el mismo chat y vuelve a revisar.</p>',
+                 *review["copy"],
+                 '<details class="ai-source-reference"><summary>Ver el texto que se copia</summary>' + ''.join(review["repair"]) + '</details></div>',
+                 '<div class="stage-support"><details class="ai-source-reference"><summary>Ver un ejemplo resuelto</summary>' + ''.join(review["example"]) + preview + '</details>',
+                 '<details class="ai-source-reference challenge-decisions-practice"><summary>Ensaya con tres errores frecuentes</summary>' + render_challenge_decisions(ident) + '</details>',
+                 *review["timing"], '</div>']
+    groups[3].insert(0, f'<p class="stage-save-tip">Selecciona la página resultado-{ident}.html en «Guarda tu evidencia»; no prepares otra entrega. La revisión humana y la valoración del instructor siguen pendientes.</p>')
     groups[3].insert(1, render_office_step(ident))
     buttons = ''.join(f'<button type="button" data-stage-select="{i}" aria-controls="{ident}-stage-{i}"><span aria-hidden="true">{i+1}</span>{title}</button>' for i, (title, _) in enumerate(STAGES))
     panels = ''.join(f'<section id="{ident}-stage-{i}" class="challenge-stage" data-challenge-stage="{i}" aria-labelledby="{ident}-stage-title-{i}"><h4 id="{ident}-stage-title-{i}"><span>Paso {i+1}.</span> {detail}</h4>{"".join(groups[i])}</section>' for i, (_, detail) in enumerate(STAGES))

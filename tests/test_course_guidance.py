@@ -44,7 +44,7 @@ class GuidanceTests(unittest.TestCase):
                 self.assertIn('ai-task-card', first.get('class'), ident + ': el encargo principal va primero')
                 details_block = stage.select_one('.decision-compass-panel').find_parent('details')
                 self.assertIsNotNone(details_block, ident)
-                self.assertIn('Ver más / Consultar detalles', details_block.select_one('summary').get_text())
+                self.assertIn('Antes de copiar: decisiones clave y ejemplos', details_block.select_one('summary').get_text())
                 self.assertIn(f'resultado-{ident}.html', save_tip, ident)
                 self.assertNotRegex(save_tip, r'Canva, PDF, Word o Excel')
                 self.assertIsNotNone(guided.select_one('[data-challenge-stage="1"] .decision-compass-panel'), ident)

@@ -2782,10 +2782,10 @@ code { background: #edf1e8; color: #24513d; font-size: .82em; padding: 2px 5px; 
 .challenge-stage .prompt-bubble { padding: 22px; border-left: 3px solid #678d7b; border-radius: 0 10px 10px 0; background: #f0f5f3; font-size: .95rem; line-height: 1.8; }
 @media (min-width: 1100px) {
   .challenge-stage[data-challenge-stage="2"] { display: grid; grid-template-columns: minmax(0, 1fr) minmax(20rem, .9fr); align-items: start; column-gap: clamp(22px, 3vw, 40px); }
-  .challenge-stage[data-challenge-stage="2"] > h4,
-  .challenge-stage[data-challenge-stage="2"] > .stage-review-tip { grid-column: 1 / -1; }
-  .challenge-stage[data-challenge-stage="2"] > [data-ai-review-checks] { grid-column: 1; }
-  .challenge-stage[data-challenge-stage="2"] > .ai-source-reference { grid-column: 2; grid-row: 2 / span 2; margin-top: 0; }
+  .challenge-stage[data-challenge-stage="2"] > h4 { grid-column: 1 / -1; }
+  .challenge-stage[data-challenge-stage="2"] > .stage-main { grid-column: 1; }
+  .challenge-stage[data-challenge-stage="2"] > .stage-support { grid-column: 2; }
+  .challenge-stage[data-challenge-stage="2"] > .stage-support > details:first-child { margin-top: 0; }
 }
 .output-preview { margin: 24px 0 8px; border: 1px solid #cddcd3; border-radius: 12px; overflow: hidden; }
 .output-preview table { width: 100%; border-collapse: collapse; table-layout: fixed; margin: 0; font-size: .87rem; }

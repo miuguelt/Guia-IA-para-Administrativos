@@ -3,6 +3,7 @@ const assert = require('node:assert/strict');
 const fs = require('node:fs');
 const path = require('node:path');
 const { JSDOM } = require('jsdom');
+const { visibleWords, visibleButtons } = require('./helpers/visible-words.cjs');
 const root = path.resolve(__dirname, '..');
 const read = name => fs.readFileSync(path.join(root, name), 'utf8');
 
@@ -10,19 +11,6 @@ function moduleOne() {
   const dom = new JSDOM(read('index.html'));
   const page = dom.window.document.getElementById('m01-fundamentos');
   return { dom, page, learn: page.querySelector('[data-panel="aprende"]') };
-}
-
-// Texto que el aprendiz ve sin abrir desplegables ni pasar de pestaña.
-function visibleWords(panel) {
-  const copy = panel.cloneNode(true);
-  copy.querySelectorAll('details:not([open])').forEach(details => {
-    [...details.childNodes].forEach(node => { if (node.nodeName !== 'SUMMARY') node.remove(); });
-  });
-  copy.querySelectorAll('.phase-footer').forEach(node => node.remove());
-  const walker = copy.ownerDocument.createTreeWalker(copy, 4);
-  const parts = [];
-  while (walker.nextNode()) parts.push(walker.currentNode.nodeValue);
-  return parts.join(' ').split(/\s+/u).filter(Boolean).length;
 }
 
 test('Aprende recorre tres pasos en el orden de la práctica', () => {
@@ -70,7 +58,9 @@ test('la lectura visible de Aprende cabe en 900 palabras', () => {
 });
 
 test('el conteo visible no incluye el contenido de los desplegables cerrados', () => {
-  const dom = new JSDOM('<div id="p"><p>uno dos</p><details><summary>tres</summary><p>oculto oculto oculto</p></details><details open><summary>cuatro</summary><p>cinco</p></details><div class="phase-footer">pie</div></div>');
-  assert.equal(visibleWords(dom.window.document.getElementById('p')), 5);
+  const dom = new JSDOM('<div id="p"><p>uno dos</p><details><summary>tres</summary><p>oculto oculto oculto</p><button>no</button></details><details open><summary>cuatro</summary><p>cinco</p><button>sí</button></details><p hidden>oculto</p><script>x y</script><a class="button">ir</a><div class="phase-footer">pie <button>no</button></div></div>');
+  const node = dom.window.document.getElementById('p');
+  assert.equal(visibleWords(node), 7);
+  assert.equal(visibleButtons(node), 2);
   dom.window.close();
 });
