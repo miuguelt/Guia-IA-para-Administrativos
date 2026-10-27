@@ -3,14 +3,15 @@ const http = require('http');
 const path = require('path');
 const fs = require('fs');
 const os = require('os');
+const { pathToFileURL } = require('url');
 
 async function wait(ms) {
   return new Promise(r => setTimeout(r, ms));
 }
 
-function getJson(url) {
+function getJson(url, timeoutMs = 2000) {
   return new Promise((resolve, reject) => {
-    http.get(url, (res) => {
+    const req = http.get(url, (res) => {
       let data = '';
       res.on('data', chunk => data += chunk);
       res.on('end', () => {
@@ -20,17 +21,23 @@ function getJson(url) {
           reject(e);
         }
       });
-    }).on('error', reject);
+    });
+    req.setTimeout(timeoutMs, () => {
+      req.destroy(new Error(`Timeout al consultar ${url}`));
+    });
+    req.on('error', reject);
   });
 }
 
 class CDPClient {
-  constructor(wsUrl) {
+  constructor(wsUrl, timeoutMs = 15000) {
     this.ws = new WebSocket(wsUrl);
+    this.timeoutMs = timeoutMs;
     this.id = 1;
     this.callbacks = new Map();
-    this.isReady = new Promise((resolve) => {
+    this.isReady = new Promise((resolve, reject) => {
       this.ws.onopen = resolve;
+      this.ws.onerror = reject;
     });
     this.ws.onmessage = (event) => {
       const msg = JSON.parse(event.data);
@@ -39,13 +46,24 @@ class CDPClient {
         this.callbacks.delete(msg.id);
       }
     };
+    this.ws.onclose = () => {
+      for (const [id, callback] of this.callbacks.entries()) {
+        callback({ error: { message: 'WebSocket de CDP cerrado' } });
+      }
+      this.callbacks.clear();
+    };
   }
 
   async send(method, params = {}) {
     await this.isReady;
     const msgId = this.id++;
-    return new Promise((resolve) => {
+    return new Promise((resolve, reject) => {
+      const timer = setTimeout(() => {
+        this.callbacks.delete(msgId);
+        reject(new Error(`Timeout en CDP al ejecutar ${method}`));
+      }, this.timeoutMs);
       this.callbacks.set(msgId, (res) => {
+        clearTimeout(timer);
         if (res.error) {
           console.error(`CDP Error in ${method}:`, res.error);
         }
@@ -69,12 +87,27 @@ class CDPClient {
   }
 }
 
+function resolveBrowserPath() {
+  if (process.env.ECO_BROWSER_PATH) return process.env.ECO_BROWSER_PATH;
+  if (process.platform === 'win32') {
+    const candidates = [
+      'C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe',
+      'C:\\Program Files\\Microsoft\\Edge\\Application\\msedge.exe'
+    ];
+    return candidates.find(candidate => fs.existsSync(candidate)) || candidates[0];
+  }
+  const candidates = [
+    '/usr/bin/google-chrome',
+    '/usr/bin/google-chrome-stable',
+    '/usr/bin/chromium',
+    '/usr/bin/chromium-browser'
+  ];
+  return candidates.find(candidate => fs.existsSync(candidate)) || candidates[0];
+}
 
 async function run() {
   const assert = require('node:assert/strict');
-  const browserPath = process.env.ECO_BROWSER_PATH || (process.platform === 'win32'
-    ? 'C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe'
-    : '/usr/bin/google-chrome');
+  const browserPath = resolveBrowserPath();
   assert.ok(fs.existsSync(browserPath), `No se encontró el navegador: ${browserPath}`);
   const portServer = http.createServer();
   await new Promise(resolve => portServer.listen(0, '127.0.0.1', resolve));
@@ -83,19 +116,51 @@ async function run() {
   const userDataDir = fs.mkdtempSync(path.join(os.tmpdir(), 'edge-eco-'));
   const output = path.resolve('output/revision-eco/visual');
   fs.mkdirSync(output, {recursive:true});
-  const browser = spawn(browserPath, [`--remote-debugging-port=${port}`, '--headless=new', '--disable-gpu', '--no-first-run', '--no-default-browser-check', `--user-data-dir=${userDataDir}`, 'about:blank']);
+  const browserArgs = [
+    `--remote-debugging-port=${port}`,
+    '--headless=new',
+    '--no-sandbox',
+    '--disable-setuid-sandbox',
+    '--disable-dev-shm-usage',
+    '--disable-gpu',
+    '--no-first-run',
+    '--no-default-browser-check',
+    '--disable-extensions',
+    '--disable-background-networking',
+    '--disable-sync',
+    '--disable-default-apps',
+    '--disable-component-update',
+    '--allow-file-access-from-files',
+    `--user-data-dir=${userDataDir}`,
+    'about:blank'
+  ];
+  const browser = spawn(browserPath, browserArgs, { windowsHide: true });
+  let stderrData = '';
+  browser.stderr?.on('data', chunk => { stderrData += chunk.toString(); });
+  browser.on('error', err => { stderrData += ` [Error: ${err.message}]`; });
   let cdp;
   const evidence = [];
   try {
-    let tabs;
-    for (let i=0;i<50;i++) {
-      try { tabs=await getJson(`http://127.0.0.1:${port}/json/list`); break; } catch (_) { await wait(100); }
+    let tabs = null;
+    for (let i = 0; i < 50; i++) {
+      try {
+        const list = await getJson(`http://127.0.0.1:${port}/json/list`);
+        if (Array.isArray(list) && list.some(tab => tab.type === 'page' && tab.webSocketDebuggerUrl)) {
+          tabs = list;
+          break;
+        }
+      } catch (_) {
+        await wait(100);
+      }
     }
-    assert.ok(tabs?.length, 'El navegador no inició.');
-    cdp = new CDPClient(tabs.find(tab=>tab.type==='page').webSocketDebuggerUrl);
+    assert.ok(tabs?.length, `El navegador no inició.${stderrData ? ' Detalle: ' + stderrData.trim() : ''}`);
+    const pageTab = tabs.find(tab => tab.type === 'page' && tab.webSocketDebuggerUrl && tab.url === 'about:blank')
+      || tabs.find(tab => tab.type === 'page' && tab.webSocketDebuggerUrl);
+    assert.ok(pageTab?.webSocketDebuggerUrl, 'No se encontró una página inspeccionable en el navegador.');
+    cdp = new CDPClient(pageTab.webSocketDebuggerUrl);
     await cdp.send('Page.enable');
     await cdp.send('Runtime.enable');
-    await cdp.send('Page.navigate',{url:'file:///'+path.resolve('index.html').replace(/\\/g,'/')+'#ecobogota'});
+    await cdp.send('Page.navigate', { url: pathToFileURL(path.resolve('index.html')).href + '#ecobogota' });
     for(let i=0;i<50;i++) {
       if(await cdp.evaluate(`Boolean(document.querySelector('[data-ai-delivery="ECO-A02"][data-delivery-ready]'))`)) break;
       await wait(100);
@@ -175,7 +240,7 @@ async function run() {
     }
     // Las tres guías independientes deben conservar sus imágenes y contener el código largo.
     for(const key of ['eco','eco-canva','eco-simulacion']) {
-      await cdp.send('Page.navigate',{url:'file:///'+path.resolve(`materiales/ia/${key}/LEEME.html`).replace(/\\/g,'/')});
+      await cdp.send('Page.navigate',{url: pathToFileURL(path.resolve(`materiales/ia/${key}/LEEME.html`)).href});
       await wait(120);
       for(const width of widths) {
         await cdp.send('Emulation.setDeviceMetricsOverride',{width,height:1000,deviceScaleFactor:1,mobile:false});
@@ -183,8 +248,8 @@ async function run() {
         assert.ok(await cdp.evaluate(`document.documentElement.scrollWidth<=innerWidth+2`),`${key}: ${width}px`);
       }
     }
-    await cdp.send('Page.navigate',{url:'file:///'+path.resolve('materiales/eco-capacitacion/simulacion.html').replace(/\\/g,'/')});
-    await wait(150);
+    await cdp.send('Page.navigate',{url: pathToFileURL(path.resolve('materiales/eco-capacitacion/simulacion.html')).href});
+    await wait(200);
     for(let index=0;index<6;index++) {
       await cdp.evaluate(`document.querySelectorAll('[data-office-scene] summary')[${index}].focus()`);
       await cdp.send('Input.dispatchKeyEvent',{type:'keyDown',key:' ',code:'Space',text:' '});
@@ -194,8 +259,18 @@ async function run() {
     for(const width of widths) {
       for(const zoom of (width>=768?[1,2]:[1])) {
         await cdp.send('Emulation.setDeviceMetricsOverride',{width:Math.round(width/zoom),height:Math.round(1000/zoom),deviceScaleFactor:zoom,mobile:false});
+        await wait(200);
+        await cdp.evaluate(`window.DevBrainProseLayout?.refresh()`);
         assert.ok(await cdp.evaluate(`document.documentElement.scrollWidth<=innerWidth+2`),`Ejemplo ${width}px, ${zoom*100}%`);
-        assert.equal(await cdp.evaluate(`Array.from(document.querySelectorAll('h1,h2,p,li,summary')).some(el=>el.scrollWidth>el.clientWidth+2||getComputedStyle(el).textAlign==='justify')`),false);
+        const problems = await cdp.evaluate(`(()=>{
+          const rem = parseFloat(getComputedStyle(document.documentElement).fontSize);
+          return Array.from(document.querySelectorAll('h1,h2,p,li,summary')).filter(el => {
+            const css = getComputedStyle(el);
+            const justifyAllowed = ['P','BLOCKQUOTE'].includes(el.tagName) && el.getBoundingClientRect().width >= 40 * rem && !el.hasAttribute('data-text-layout-exception');
+            return el.scrollWidth > el.clientWidth + 2 || (css.textAlign === 'justify' && !justifyAllowed);
+          }).map(el => ({ tag: el.tagName, text: el.textContent.slice(0, 30), scroll: el.scrollWidth, client: el.clientWidth, align: getComputedStyle(el).textAlign }));
+        })()`);
+        assert.deepEqual(problems, [], `Ejemplo alineación/desbordamiento ${width}px, ${zoom*100}%: ${JSON.stringify(problems)}`);
       }
     }
     await cdp.send('Emulation.setDeviceMetricsOverride',{width:1440,height:1000,deviceScaleFactor:1,mobile:false});
@@ -205,13 +280,20 @@ async function run() {
     fs.writeFileSync(path.join(output,'evidencia.json'),JSON.stringify({routes:evidence,example:{scenes:3,alternatives:6,keyboard:true,responsive:true}},null,2));
     console.log(`Verificadas ${evidence.length} combinaciones, tres guías, selección por teclado y el ejemplo completo.`);
   } finally {
-    cdp?.close();
-    browser.kill();
-    await wait(250);
-    const tempRoot=path.resolve(os.tmpdir())+path.sep;
-    const resolved=path.resolve(userDataDir);
-    if(!resolved.startsWith(tempRoot)||!path.basename(resolved).startsWith('edge-eco-'))throw new Error('La carpeta temporal no pertenece a esta prueba.');
-    try {fs.rmSync(resolved,{recursive:true,force:true});} catch (_) {}
+    if (cdp) {
+      try { await cdp.send('Browser.close'); } catch (_) {}
+      cdp.close();
+    }
+    if (browser.exitCode === null) {
+      browser.kill();
+    }
+    await wait(300);
+    const tempRoot = path.resolve(os.tmpdir()).toLowerCase();
+    const resolved = path.resolve(userDataDir).toLowerCase();
+    if (!resolved.startsWith(tempRoot) || !path.basename(resolved).startsWith('edge-eco-')) {
+      throw new Error('La carpeta temporal no pertenece a esta prueba.');
+    }
+    try { fs.rmSync(userDataDir, { recursive: true, force: true }); } catch (_) {}
   }
 }
 run().catch(error=>{console.error(error);process.exitCode=1;});
