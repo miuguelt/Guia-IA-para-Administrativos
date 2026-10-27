@@ -64,19 +64,21 @@
     return null;
   }
 
+  const TOO_LARGE = 'El resultado supera el tamaño permitido de 1 MB. Pide a la IA una versión más breve de la página.';
+
   function validateResult(text, artifact, options = {}) {
-    if (typeof text !== 'string' || text.length > 1048576) throw new Error('El documento supera el tamaño permitido de 1 MB. Pide a la IA un JSON más breve.');
+    if (typeof text !== 'string' || text.length > 1048576) throw new Error(TOO_LARGE);
     if (options && options.tolerant) return parseTolerantResult(text, artifact);
     let data;
-    try { data = JSON.parse(text.replace(/^\uFEFF/, '')); } catch (_) { throw new Error('No se pudo leer el JSON. Pide a la IA que lo regenere con el esquema del paquete.'); }
-    if (!data || Array.isArray(data) || data.schemaVersion !== 1) throw new Error('El archivo no tiene el formato esperado. Usa el esquema del paquete.');
+    try { data = JSON.parse(text.replace(/^\uFEFF/, '')); } catch (_) { throw new Error('No se pudieron leer los datos del resultado. Pide a la IA: «Revisa el bloque de datos del final de la página, corrígelo y entrégame la página completa».'); }
+    if (!data || Array.isArray(data) || data.schemaVersion !== 1) throw new Error('Los datos del resultado no tienen la forma que pide el encargo. Pide a la IA: «Usa exactamente el bloque de datos que indica el encargo y entrégame la página completa».');
     if (data.artifactId !== artifact.id) throw new Error(`Este archivo corresponde a otra evidencia. Aquí se recibe ${artifact.id}.`);
     const allowed = new Set(['schemaVersion', 'artifactId', 'fields', 'tool', 'elaboratedProduct']);
-    if (Object.keys(data).some(key => !allowed.has(key))) throw new Error('El archivo incluye propiedades que no pertenecen al esquema. Pide a la IA que lo corrija.');
+    if (Object.keys(data).some(key => !allowed.has(key))) throw new Error('El resultado trae datos que el encargo no pide. Pide a la IA: «Deja en el bloque de datos solo lo que indica el encargo y entrégame la página completa».');
     if (!data.fields || typeof data.fields !== 'object' || Array.isArray(data.fields) || !Object.keys(data.fields).length) throw new Error('El documento no contiene respuestas. Pide a la IA el resultado, no el modelo vacío.');
     const keys = new Set(artifact.fields.map(field => field.key));
     for (const [key, value] of Object.entries(data.fields)) {
-      if (!keys.has(key)) throw new Error(`El campo «${key}» no pertenece a esta evidencia. Usa el esquema del paquete.`);
+      if (!keys.has(key)) throw new Error(`El campo «${key}» no pertenece a esta evidencia. Comprueba que elegiste el resultado de este módulo.`);
       if (typeof value !== 'string' || !value.trim() || value.length > 120000) throw new Error('Cada respuesta debe ser un texto con contenido y de máximo 120.000 caracteres. Los datos ausentes deben quedar como pendientes.');
     }
     if (data.tool !== undefined && (typeof data.tool !== 'string' || data.tool.length > 200)) throw new Error('La herramienta debe aparecer como un texto breve. Pide a la IA que ajuste ese dato.');
@@ -92,7 +94,7 @@
   }
 
   function parseTolerantResult(text, artifact) {
-    if (typeof text !== 'string' || text.length > 1048576) throw new Error('El documento supera el tamaño permitido de 1 MB. Pide a la IA un JSON más breve.');
+    if (typeof text !== 'string' || text.length > 1048576) throw new Error(TOO_LARGE);
     const clean = text.replace(/^\uFEFF/, '').trim();
     if (!clean) throw new Error('El archivo está vacío. Pega la respuesta generada por la IA.');
     if (clean.startsWith('{') || clean.startsWith('[')) {
@@ -165,7 +167,7 @@
           fields[artifact.fields[0].key] = clean;
         }
       } else {
-        throw new Error('No se pudo leer el JSON ni identificar secciones de la evidencia. Pega la respuesta con encabezados o usa el esquema del paquete.');
+        throw new Error('No se identificaron las partes de la evidencia. Pega la página completa que generó la IA o una respuesta con un título para cada parte.');
       }
     }
 
@@ -187,9 +189,48 @@
     return out;
   }
 
+  // Los campos acumulativos guardan una sección por reto para que un resultado nuevo no borre el anterior.
+  const CUMULATIVE_FIELDS = ['uso_ia_y_revision'];
+  const SECTION_HEADING = /^### (Reto \d+|Integrador|Prueba individual|Cierre del módulo|Variante [^\n]+)$/u;
+
+  function splitSections(text) {
+    const intro = [];
+    const sections = new Map();
+    let current = null;
+    String(text || '').replace(/\r\n/gu, '\n').split('\n').forEach(line => {
+      const heading = line.match(SECTION_HEADING);
+      if (heading) {
+        current = heading[1];
+        sections.set(current, []);
+      } else {
+        (current === null ? intro : sections.get(current)).push(line);
+      }
+    });
+    return { intro: intro.join('\n').trim(), sections };
+  }
+
+  function mergeCumulativeField(previous, incoming, label) {
+    const next = splitSections(incoming);
+    if (label && !next.sections.size) {
+      next.sections.set(label, [next.intro]);
+      next.intro = '';
+    }
+    if (!next.sections.size) return String(incoming).trim();
+    const merged = splitSections(previous);
+    next.sections.forEach((lines, name) => merged.sections.set(name, lines));
+    const blocks = [...merged.sections]
+      .sort(([a], [b]) => a.localeCompare(b, 'es', { numeric: true }))
+      .map(([name, lines]) => `### ${name}\n\n${lines.join('\n').trim()}`);
+    return [next.intro || merged.intro, ...blocks].filter(Boolean).join('\n\n');
+  }
+
   function prepareRecord(previous, result, artifact) {
+    const values = { ...previous.values, ...result.fields };
+    CUMULATIVE_FIELDS.forEach(key => {
+      if (result.fields[key] !== undefined) values[key] = mergeCumulativeField(previous.values?.[key], result.fields[key], result.label);
+    });
     const record = {
-      values: { ...previous.values, ...result.fields },
+      values,
       checks: Object.fromEntries(artifact.checklist.map((_, index) => ['c' + index, false])),
       status: 'borrador'
     };
@@ -232,6 +273,8 @@
     matchFieldForHeader,
     validateResult,
     parseTolerantResult,
+    CUMULATIVE_FIELDS,
+    mergeCumulativeField,
     prepareRecord,
     missingFields,
     documentText,

@@ -61,8 +61,57 @@ test('acepta el HTML pegado como texto y rechaza una evidencia HTML incompleta o
   const win = await fixture(t);
   const pasted = await api.importSelection([file(win, htmlResult(), 'resultado-pegado.txt')], artifact, win);
   assert.equal(pasted.result.artifactId, artifact.id);
-  await assert.rejects(api.importSelection([file(win, '<!doctype html><h1>Sin datos de evidencia</h1>', 'resultado.html')], artifact, win), /No se encontró.*resultado.*MG-A02/iu);
+  await assert.rejects(api.importSelection([file(win, '<!doctype html><h1>Sin datos de evidencia</h1>', 'resultado.html')], artifact, win), /No se encontró el resultado de MG-A02 dentro de resultado\.html.*Pide a la IA: «/iu);
   await assert.rejects(api.importSelection([file(win, htmlResult('MG-A03'), 'resultado.html')], artifact, win), /corresponde a otra evidencia/iu);
+});
+
+test('reconoce la página pegada aunque llegue entre vallas o con texto antes y después', async t => {
+  const win = await fixture(t);
+  for (const pasted of ['Aquí tienes tu página:\n```html\n' + htmlResult() + '\n```\nRevisa los datos.', 'Listo.\n\n' + htmlResult().replace('<!doctype html>', '') + '\nFin.']) {
+    const imported = await api.importSelection([file(win, pasted, 'resultado-pegado.txt')], artifact, win);
+    assert.equal(imported.result.fields.borrador, 'Respuesta con fuente.');
+  }
+  assert.equal(api.extractHtml('Solo texto, sin página.'), null);
+  assert.equal(api.extractHtml('<html><body>Sin cierre'), null);
+  assert.equal(api.extractHtml('Antes <!DOCTYPE html><html><body>x</body></html> después'), '<!DOCTYPE html><html><body>x</body></html>');
+});
+
+test('nombra el reto según el archivo de resultado', () => {
+  assert.equal(api.labelFromName('Entrega/resultados/resultado-reto-4.html'), 'Reto 4');
+  assert.equal(api.labelFromName('entrega.zip / resultado-reto-integrador.html'), 'Integrador');
+  assert.equal(api.labelFromName('resultado-prueba-individual.html'), 'Prueba individual');
+  assert.equal(api.labelFromName('resultado-MG-A03.html'), 'Cierre del módulo');
+  assert.equal(api.labelFromName('resultado-variante-juridica.html'), 'Variante jurídica');
+  assert.equal(api.labelFromName('resultado-variante-talento-humano.html'), 'Variante talento humano');
+  assert.equal(api.labelFromName('resultado.html'), null);
+  assert.equal(api.labelFromName('resultado-pegado.txt'), null);
+});
+
+test('encuentra la página de resultado dentro de un ZIP y omite la guía y el encargo del paquete', async t => {
+  const win = await fixture(t);
+  const archive = zip({'resultados/resultado-reto-4.html':htmlResult(), 'LEEME.html':'<!doctype html><h1>Guía del paquete</h1>', 'ENCARGO-CHAT.md':'# Encargo\nTexto completo del encargo para la IA.'});
+  const imported = await api.importSelection([file(win, archive, 'entrega.zip')], artifact, win);
+  assert.match(imported.source, /resultado-reto-4\.html/u);
+  assert.equal(imported.result.label, 'Reto 4');
+  assert.equal(imported.result.fields.borrador, 'Respuesta con fuente.');
+  assert.equal(imported.ignored, 2);
+});
+
+test('combina resultados de varios retos de una evidencia y avisa si un reto o una respuesta se repiten', async t => {
+  const win = await fixture(t);
+  const multi = {id:'MG-A02', fields:[{key:'borrador', label:'Borrador'}, {key:'prueba', label:'Prueba'}, {key:'uso_ia_y_revision', label:'Uso de IA y revisión'}]};
+  const page = (fields, tool = 'Chat') => '<!doctype html><html><body><script type="application/json" id="devbrain-evidence-result">' + JSON.stringify({schemaVersion:1, artifactId:'MG-A02', fields, tool}) + '</script></body></html>';
+  const imported = await api.importSelection([
+    file(win, page({prueba:'P', uso_ia_y_revision:'Uso 3'}, 'Gemini'), 'resultado-reto-3.html'),
+    file(win, page({borrador:'B', uso_ia_y_revision:'Uso 2'}), 'resultado-reto-2.html')
+  ], multi, win);
+  assert.deepEqual(imported.result.fields, {prueba:'P', borrador:'B', uso_ia_y_revision:'### Reto 2\n\nUso 2\n\n### Reto 3\n\nUso 3'});
+  assert.equal(imported.result.tool, 'Gemini · Chat');
+  assert.equal(imported.result.label, undefined);
+  assert.equal(imported.source, 'resultado-reto-3.html, resultado-reto-2.html');
+  assert.equal(imported.ignored, 0);
+  await assert.rejects(api.importSelection([file(win, page({borrador:'B'}), 'resultado-reto-2.html'), file(win, page({prueba:'P'}), 'resultado-reto-2.html', 'copia/resultado-reto-2.html')], multi, win), /dos versiones del Reto 2.*elige una/iu);
+  await assert.rejects(api.importSelection([file(win, page({borrador:'B'}), 'resultado-reto-2.html'), file(win, page({borrador:'C'}), 'resultado-reto-3.html')], multi, win), /Reto 2 y Reto 3.*«Borrador»/iu);
 });
 
 test('extrae solo resultados de un ZIP real y encuentra la evidencia entre otras y anexos', async t => {
@@ -88,10 +137,10 @@ test('explica vacíos, formatos incompatibles, resultados ausentes y versiones a
   const win = await fixture(t);
   const cases = [
     [[], /selecciona/iu],
-    [[file(win, 'PDF', 'entrega.pdf')], /JSON.*Word.*PDF/iu],
+    [[file(win, 'PDF', 'entrega.pdf')], /página.*Word.*PDF/iu],
     [[file(win, '', 'resultado.json')], /vacío/iu],
-    [[file(win, 'no es JSON', 'resultado.json')], /JSON/iu],
-    [[file(win, '```json\n{}\n```\n```json\n{}\n```', 'resultado.md')], /un solo.*JSON/iu],
+    [[file(win, 'no es JSON', 'resultado.json')], /datos del resultado.*Pide a la IA: «/iu],
+    [[file(win, '```json\n{}\n```\n```json\n{}\n```', 'resultado.md')], /un solo bloque/iu],
     [[file(win, zip({'anexo.pdf':'PDF'}), 'entrega.zip')], /no.*resultado.*MG-A02/iu],
     [[file(win, zip({'resultado.json':result('MG-A03')}), 'otra.zip')], /otra evidencia/iu],
     [[file(win, zip({'a.json':result(), 'b.json':result()}), 'versiones.zip')], /varias versiones.*elige/iu],

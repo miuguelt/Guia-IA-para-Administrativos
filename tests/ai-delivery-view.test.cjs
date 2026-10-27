@@ -105,3 +105,15 @@ test('la vista previa nueva no permite confirmar ni descargar la versión guarda
   assert.equal(mounted.store.leer(artifact.id).values.prueba, 'Prueba guardada.');
   dom.window.close();
 });
+
+test('la vista previa permite corregir textos largos en un área de varias líneas', () => {
+  const { dom, root } = fixture();
+  view.showPreview(root, artifact, { borrador: 'Primera línea.\nSegunda línea.' });
+  const detected = root.querySelector('[data-field-input="borrador"]');
+  const pending = root.querySelector('[data-field-input="prueba"]');
+  assert.equal(detected.tagName, 'TEXTAREA');
+  assert.equal(detected.value, 'Primera línea.\nSegunda línea.');
+  assert.equal(pending.tagName, 'TEXTAREA');
+  assert.match(pending.placeholder, /IA/u);
+  dom.window.close();
+});

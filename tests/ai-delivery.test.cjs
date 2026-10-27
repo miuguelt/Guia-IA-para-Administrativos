@@ -81,7 +81,7 @@ test('recibe un archivo real, muestra las respuestas sin ejecutarlas y guarda de
  f.root.querySelector('[data-result-review]').click();
  assert.equal(f.mounted.resumen().detalle[0].estado,'lista');
  assert.match(f.root.querySelector('[data-result-status]').textContent,/instructor/iu);
- assert.equal(f.root.querySelector('[data-result-preview] textarea'),null);
+ assert.equal(f.root.querySelector('[data-result-preview] textarea:not([data-field-input])'),null);
  const downloads=[];
  f.dom.window.URL.createObjectURL=blob=>{downloads.push(blob);return 'blob:prueba';};
  f.dom.window.URL.revokeObjectURL=url=>assert.equal(url,'blob:prueba');
@@ -123,9 +123,9 @@ test('rechaza archivos incorrectos y permite corregirlos sin borrar respuestas g
  const f=await fixture();
  f.mounted.store.guardar('MG-A02',{values:{borrador:'Se conserva'},checks:{c0:false}});
  choose(f,'Texto','resultado.docx'); await settled(f.root);
- assert.match(f.root.querySelector('[data-result-status]').textContent,/JSON/iu);
+ assert.match(f.root.querySelector('[data-result-status]').textContent,/formato no se puede incorporar.*página/iu);
  choose(f,'JSON inválido'); await settled(f.root);
- assert.match(f.root.querySelector('[data-result-status]').textContent,/JSON/iu);
+ assert.match(f.root.querySelector('[data-result-status]').textContent,/datos del resultado/iu);
  choose(f,JSON.stringify({schemaVersion:1,artifactId:'MG-A03',fields:{borrador:'otro'}}));await settled(f.root);
  assert.equal(f.root.querySelector('[data-result-save]').disabled,true);
  assert.equal(f.mounted.store.leer('MG-A02').values.borrador,'Se conserva');

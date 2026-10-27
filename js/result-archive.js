@@ -6,7 +6,7 @@
   if (root) root.ResultArchive = api;
 })(typeof window === 'undefined' ? null : window, function (zip) {
   'use strict';
-    const invalid = 'No se pudo abrir el ZIP. Puede estar dañado, tener contraseña o usar una compresión incompatible. Extrae su contenido y selecciona resultado.html o resultado.json, según el encargo.';
+    const invalid = 'No se pudo abrir el ZIP. Puede estar dañado, tener contraseña o usar una compresión incompatible. Extrae su contenido y selecciona la página de resultado.';
 
   function checksum(bytes) {
     let crc = 0xffffffff;
@@ -18,7 +18,7 @@
   }
 
   function unpack(buffer, name) {
-    if (!zip) throw new Error('No se cargó el lector de ZIP. Recarga la página o extrae el archivo y selecciona resultado.html o resultado.json, según el encargo.');
+    if (!zip) throw new Error('No se cargó el lector de ZIP. Recarga la página o extrae el archivo y selecciona la página de resultado.');
     const bytes = new Uint8Array(buffer);
     const data = new DataView(bytes.buffer, bytes.byteOffset, bytes.byteLength);
     const candidates = new Map();
@@ -35,7 +35,7 @@
         const flags = data.getUint16(offset + 8, true);
         const crc = data.getUint32(offset + 16, true);
         offset += 46 + data.getUint16(offset + 28, true) + data.getUint16(offset + 30, true) + data.getUint16(offset + 32, true);
-        if (!/\.(json|txt|md)$/iu.test(entry.name) || /(^|\/)\.|^__MACOSX\//u.test(entry.name)) return false;
+        if (!/\.(json|html|txt|md)$/iu.test(entry.name) || /(^|\/)\.|^__MACOSX\//u.test(entry.name)) return false;
         if (flags & 1 || entry.compression !== 0 && entry.compression !== 8) throw new Error(invalid);
         if (entry.originalSize > 1048576) throw new Error('Un resultado dentro del ZIP supera 1 MB. Pide a la IA un archivo más breve.');
         total += entry.originalSize;

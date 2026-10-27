@@ -175,12 +175,31 @@ def module_page(spec, next_id):
             back = f'<button type="button" class="phase-back" data-next-phase="{previous_key}"><span aria-hidden="true">←</span> Volver a {previous_label}</button>'
         panels.append(f'<div class="lesson-panel" data-panel="{key}">{body}<div class="phase-footer">{back}<small>Paso {i+1} de 4 · Módulo {number}</small>{action}</div></div>')
     return f'''<section id="{ident}" class="module-page station" data-nav-title="{title}" data-nav-number="{number}" data-nav-meta="{day} · {duration}" data-learning-module>
-      <header class="lesson-header"><div class="page-kicker"><span class="eyebrow">MÓDULO {number}<span data-mode-only="aula"> · {day.upper()}</span></span><span class="quiet-badge">{duration} de formación directa</span></div>
+      <header class="lesson-header"><div class="page-kicker"><span class="eyebrow">MÓDULO {number}<span data-mode-only="aula"> · {day.upper()}</span></span><span class="quiet-badge" data-mode-only="aula">{duration} de formación directa</span><span class="quiet-badge" data-mode-only="autonomo">{len(titles)} {"reto" if len(titles) == 1 else "retos"} · a tu ritmo</span></div>
       <h1 tabindex="-1">{title}.</h1><p class="lesson-description">{escape(description)}</p>
-      <div class="lesson-meta"><span><strong>Resultado:</strong> {outcome.replace("RA", '<abbr title="Resultado de Aprendizaje">RA</abbr>', 1)}</span><span><strong>Evidencia {int(number)} · {escape(EVIDENCE_NAMES[evidence])}</strong> <small>({evidence})</small></span><span data-mode-only="aula"><strong>Fechas:</strong> por confirmar</span></div></header>
+      <div class="lesson-meta"><span data-mode-only="aula"><strong>Resultado:</strong> {outcome.replace("RA", '<abbr title="Resultado de Aprendizaje">RA</abbr>', 1)}</span><span><strong>Evidencia {int(number)} · {escape(EVIDENCE_NAMES[evidence])}</strong><small data-mode-only="aula"> ({evidence})</small></span><span data-mode-only="aula"><strong>Fechas:</strong> por confirmar</span></div></header>
       
       <div class="lesson-workspace" data-tabs="lesson"><div class="lesson-tabs" data-tablist aria-label="Pasos del módulo {number}">{tabs}</div>{''.join(panels)}</div>
     </section>'''
+
+
+def resolve_names(markup):
+    """Resuelve {{MODULO:id}} y {{RETO:id}} con los nombres de la navegación y de cada reto."""
+    modules = {"preparacion": ("00", "Prepara tus herramientas")}
+    modules.update({spec[0]: (spec[1], spec[2]) for spec in MODULES})
+    challenges = {}
+    for spec in MODULES:
+        lesson = BeautifulSoup((CONTENT / "lessons" / f"{spec[0]}.html").read_text(encoding="utf-8"), "html.parser")
+        challenges.update({card["id"]: card.h3.get_text(" ", strip=True) for card in lesson.select("article.challenge-card")})
+
+    def name(match):
+        kind, ident = match.groups()
+        if kind == "MODULO":
+            number, title = modules[ident]
+            return f"{number} · {title.split()[0]}"
+        return escape(challenges[ident])
+
+    return re.sub(r"\{\{(MODULO|RETO):([a-z0-9-]+)\}\}", name, markup)
 
 
 def content_version(source):
@@ -249,7 +268,7 @@ def main():
         button.string = "Copiar instrucción"
         prompt.insert_after(button)
     pages.append(str(lab_parsed))
-    all_pages = "\n".join(pages)
+    all_pages = resolve_names("\n".join(pages))
     parsed = BeautifulSoup(all_pages, "html.parser")
     for prompt in parsed.select("[data-eco-prompt]"):
         prompt.string = TASKS[prompt["data-eco-prompt"]]["chatPrompt"]

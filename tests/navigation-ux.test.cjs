@@ -84,10 +84,32 @@ test('la cabecera del módulo nombra la evidencia y solo muestra fechas en el cu
   const { dom, document } = await setup('#m01-fundamentos');
   const meta = document.querySelector('#m01-fundamentos .lesson-meta');
   assert.match(meta.textContent, /Evidencia 1 · Diagnóstico, Semáforo de Datos y Prompt CRTT/u);
-  const dates = meta.querySelector('[data-mode-only="aula"]');
+  const dates = [...meta.querySelectorAll('[data-mode-only="aula"]')].find(node => /Fechas/u.test(node.textContent));
   assert.ok(dates);
-  assert.match(dates.textContent, /Fechas/u);
   assert.equal(dates.hidden, true);
+  dom.window.close();
+});
+
+test('por mi cuenta, la cabecera del módulo no muestra horas, códigos curriculares ni jornadas', async () => {
+  const { dom, window, document } = await setup('#m01-fundamentos');
+  const visibleText = node => {
+    const clone = node.cloneNode(true);
+    clone.querySelectorAll('[hidden]').forEach(hidden => hidden.remove());
+    return clone.textContent.replace(/\s+/gu, ' ');
+  };
+  for (const [ident, count] of [['m01-fundamentos', '2 retos'], ['m03-implementacion', '4 retos'], ['m05-cierre', '1 reto']]) {
+    window.CourseMode.apply(document, 'autonomo');
+    const header = document.querySelector(`#${ident} .lesson-header`);
+    const text = visibleText(header);
+    assert.doesNotMatch(text, /formación directa|RA\d|MG-A0|MARTES|JUEVES|VIERNES/u, `${ident}: ${text}`);
+    assert.ok(text.includes(`${count} · a tu ritmo`), `${ident}: ${text}`);
+    assert.match(text, /Evidencia \d · /u);
+    window.CourseMode.apply(document, 'aula');
+    const classroom = visibleText(header);
+    assert.match(classroom, /de formación directa/u);
+    assert.match(classroom, /RA\d/u);
+    assert.match(classroom, /MG-A0\d/u);
+  }
   dom.window.close();
 });
 

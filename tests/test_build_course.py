@@ -84,6 +84,28 @@ class BuildCourseTests(unittest.TestCase):
             support = self.call_production_function("learning_support", ident)
             self.assertEqual(len(BeautifulSoup(support["learn"], "html.parser").select(".method-route > li")), 4)
 
+    def test_los_nombres_de_modulos_y_retos_salen_de_una_sola_fuente(self):
+        markup = "<b>{{MODULO:preparacion}}</b><b>{{MODULO:m03-implementacion}}</b><a>{{RETO:reto-4}}</a><a>{{RETO:reto-integrador}}</a>"
+        resolved = self.call_production_function("resolve_names", markup)
+        self.assertEqual(resolved, "<b>00 · Prepara</b><b>03 · Resuelve</b><a>Reto 4 · Bandeja de 50 mensajes con razones visibles</a><a>Reto integrador · Plan, análisis y sustentación</a>")
+        with self.assertRaises(KeyError):
+            BUILD_COURSE.resolve_names("{{RETO:reto-99}}")
+        for name in ("home.html", "calendar.html"):
+            self.assertIn("{{", (ROOT / "content" / name).read_text(encoding="utf-8"), name)
+        page = (ROOT / "index.html").read_text(encoding="utf-8")
+        self.assertNotIn("{{MODULO:", page)
+        self.assertNotIn("{{RETO:", page)
+        parsed = BeautifulSoup(page, "html.parser")
+        titles = {card["id"]: card.select_one("h3").get_text(" ", strip=True) for card in parsed.select("article.challenge-card")}
+        calendar = parsed.select('#calendario a[href^="#reto-"]')
+        self.assertGreaterEqual(len(calendar), 10)
+        for link in calendar:
+            self.assertEqual(link.get_text(" ", strip=True), titles[link["href"][1:]])
+        navigation = {spec[1]: spec[2].split()[0] for spec in BUILD_COURSE.MODULES}
+        for badge in parsed.select("#inicio .roadmap-card .badge-station"):
+            number, verb = badge.get_text(" ", strip=True).split(" · ")
+            self.assertEqual(verb, navigation.get(number, "Prepara"))
+
     def test_html_serializa_nodos_y_admite_vacios(self):
         node = BeautifulSoup("<strong>Fuente</strong>", "html.parser").strong
         self.assertEqual(self.call_production_function("html", node), "<strong>Fuente</strong>")

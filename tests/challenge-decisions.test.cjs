@@ -48,6 +48,37 @@ test('challenge-decisions.json define los 11 retos con 2 dilemas, 1 imprevisto y
   assert.deepEqual(coveredTypes, EXPECTED_UNFORESEEN_TYPES, 'Deben cubrirse los 4 tipos de imprevistos');
 });
 
+function balance(questions) {
+  const positions = [0, 0, 0];
+  let longest = 0;
+  for (const { options, correct, id } of questions) {
+    positions[correct] += 1;
+    const lengths = options.map(text => text.length);
+    if (lengths[correct] === Math.max(...lengths)) longest += 1;
+    const distractors = lengths.filter((_, index) => index !== correct);
+    const mean = distractors.reduce((sum, value) => sum + value, 0) / distractors.length;
+    assert.ok(lengths[correct] <= mean * 1.25, `${id}: la opción correcta mide ${lengths[correct]} y la media de las otras ${mean.toFixed(0)}`);
+  }
+  return { positions, longest };
+}
+
+test('la respuesta correcta no se adivina por su posición ni por ser la más larga', () => {
+  const raw = JSON.parse(fs.readFileSync('content/challenge-decisions.json', 'utf8'));
+  const questions = Object.values(raw).flatMap(item => item.questions).map(q => ({ id: q.id, options: q.options, correct: Number(q.expected) }));
+  assert.equal(questions.length, 33);
+  const { positions, longest } = balance(questions);
+  positions.forEach((count, index) => assert.ok(count >= 9 && count <= 13, `Posición ${index}: ${count} respuestas correctas`));
+  assert.ok(longest <= 11, `La correcta es la más larga en ${longest} de 33 preguntas`);
+});
+
+test('las comprobaciones de cada módulo tampoco delatan la respuesta por su longitud', () => {
+  const paths = JSON.parse(fs.readFileSync('content/learning-paths.json', 'utf8'));
+  const questions = Object.values(paths).flatMap(path => path.checks || []).map(check => ({ id: check.question, options: check.options.map(option => option.text), correct: check.options.findIndex(option => option.correct) }));
+  assert.ok(questions.length >= 12);
+  const { longest } = balance(questions);
+  assert.ok(longest <= Math.ceil(questions.length / 3), `La correcta es la más larga en ${longest} de ${questions.length} comprobaciones`);
+});
+
 test('reto-00-tarjetas-semaforo.csv no incluye columna de pista que regale la respuesta', () => {
   const lines = fs.readFileSync('materiales/retos/reto-00-tarjetas-semaforo.csv', 'utf8').replace(/^\uFEFF/, '').trim().split(/\r?\n/);
   assert.equal(lines[3], 'Código;Fragmento');

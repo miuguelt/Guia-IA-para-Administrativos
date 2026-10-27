@@ -1,6 +1,29 @@
 # Revisión integral de la guía
 
-## Actualización vigente · 26 de octubre de 2026
+## Actualización vigente · 27 de octubre de 2026
+
+Se analizó la guía completa para que una persona principiante la siga sin perderse y aprenda a pedirle cosas a la IA. El plan tiene tres fases: correcciones rápidas, rediseño pedagógico y menos texto y jerga. Esta entrada registra la primera fase.
+
+### Correcciones rápidas
+
+- **Guardar resultados.** La página pegada se reconoce aunque el chat la entregue entre marcas de código o con texto antes y después. Los ZIP aceptan `resultado-<reto>.html` y omiten la guía y el encargo del paquete. Se pueden seleccionar juntas las páginas de varios retos de una evidencia; un reto repetido o una respuesta en conflicto se explican. `uso_ia_y_revision` guarda una sección por reto en lugar de reemplazarse con cada importación.
+- **Mensajes de error.** Ya no mencionan JSON, esquemas ni propiedades. Nombran el archivo real y proponen una frase lista para pedírsela a la IA. La corrección de un resultado en la vista previa usa un área de varias líneas.
+- **Dilemas y comprobaciones.** En los 33 dilemas, la respuesta correcta siempre era la segunda opción y la más larga. Ahora ocupa cada posición 11 veces, mide como máximo 1,25 veces la media de las otras y los distractores son errores creíbles. Las 12 comprobaciones de los módulos siguen la misma regla. Una prueba vigila ambos criterios.
+- **Cabecera del módulo.** En «Por mi cuenta» muestra «N retos · a tu ritmo», sin horas, códigos RA ni MG-A0x; en «Con instructor» conserva esos datos.
+- **Nombres coherentes.** La hoja de ruta de Inicio y el calendario toman el nombre de cada módulo y reto de la navegación y de las lecciones (`resolve_names` en `scripts/build-course.py`). Se retiraron «Implementa», «Valida», «Transfiere» y títulos de reto distintos.
+
+### Verificación
+
+- `npm run build`, `npm run check:redaccion`, 376 pruebas JavaScript y 96 Python. La cobertura de funciones de `js/*.js` es 100 %.
+- Los ZIP del laboratorio de datos cambiaron al compilar: la versión anterior empaquetaba `analysis_data.py` con finales CRLF y la fuente versionada usa LF. Los nuevos coinciden con lo que genera la integración continua.
+
+### Pendientes
+
+- Fase B: encargo visible y bloque técnico oculto al copiar, apoyo que se retira poco a poco, una técnica por reto y la IA como entrenadora.
+- Fase C: menos jerga y texto, primera práctica al comienzo de la preparación y demostración breve en Inicio.
+- La observación con aprendices, el aval de las 40 horas y la confirmación de la cohorte siguen abiertos.
+
+## Actualización anterior · 26 de octubre de 2026
 
 Se revisó la interfaz en el navegador a 390, 1100 y 1440 px y se auditaron el contenido y la capa CSS/JS. Los cambios corrigen fallos visibles, rehacen el selector de situaciones de la portada y retiran afirmaciones imprecisas.
 
@@ -26,7 +49,7 @@ Se revisó la interfaz en el navegador a 390, 1100 y 1440 px y se auditaron el c
 ### Verificación
 
 - `npm run build`, `npm run check:redaccion`, 349 pruebas JavaScript y 89 Python. La cobertura de funciones de `js/*.js` es 100 %.
-- Falla una prueba previa a estos cambios: `auditoria-guia.test.cjs` espera `if-no-files-found: error` en `.github/workflows/calidad.yml`.
+- En esa fecha se registró como fallida `auditoria-guia.test.cjs`. La revisión del 27 de octubre confirmó que pasa: la prueba solo prohíbe `if-no-files-found: ignore` y `calidad.yml` usa `warn`.
 - `npm run test:browser:layout` ahora incluye la portada, el portafolio y los anchos de 1024 y 1100 px. Pasan todos salvo dos casos que no dependen de estos cambios: EcoBogotá, que `devbrain-prose.js` excluye a propósito de la justificación, y la portada con zoom al 200 % cuando la pasada viene de 2560 px (aislada, pasa).
 
 ### Pendientes

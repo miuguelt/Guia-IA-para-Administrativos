@@ -44,8 +44,8 @@
         const text = document.createElement('p');
         text.dataset.fieldText = field.key;
         text.textContent = val;
-        const input = document.createElement('input');
-        input.type = 'text';
+        const input = document.createElement('textarea');
+        input.rows = 4;
         input.className = 'field-inline-input';
         input.dataset.fieldInput = field.key;
         input.value = val;
@@ -66,12 +66,12 @@
         badge.className = 'traffic-badge traffic-badge--pending';
         badge.textContent = 'Pendiente';
         head.append(labelStrong, ' ', badge);
-        const input = document.createElement('input');
-        input.type = 'text';
+        const input = document.createElement('textarea');
+        input.rows = 3;
         input.className = 'field-inline-input';
         input.dataset.fieldInput = field.key;
         input.value = '';
-        input.placeholder = field.hint || 'Completa o pega aquí la respuesta de este campo';
+        input.placeholder = field.hint || 'Pega aquí lo que generó la IA para esta parte';
         input.setAttribute('aria-label', `Completar ${field.label}`);
         card.append(head, input);
         target.append(card);

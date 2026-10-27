@@ -111,8 +111,42 @@ test('parsea texto libre, encabezados Markdown, enlaces de Canva y preserva prod
   assert.match(model.documentHtml(artifact, recWithProd), /Producto elaborado registrado.*canva\.com/su);
 
   assert.throws(() => model.parseTolerantResult('   ', artifact), /vacío/iu);
-  assert.throws(() => model.parseTolerantResult('corto', artifact), /No se pudo leer/iu);
+  assert.throws(() => model.parseTolerantResult('corto', artifact), /No se identificaron las partes.*página completa/iu);
   assert.throws(() => model.parseTolerantResult('x'.repeat(1048577), artifact), /tamaño/iu);
+});
+
+test('el registro de uso de IA guarda una sección por reto y reemplaza solo la del reto importado', () => {
+  const model = require(modulePath);
+  assert.deepEqual(model.CUMULATIVE_FIELDS, ['uso_ia_y_revision']);
+  assert.equal(model.mergeCumulativeField('', 'Uso 4', 'Reto 4'), '### Reto 4\n\nUso 4');
+  assert.equal(model.mergeCumulativeField('### Reto 4\n\nUso 4', 'Uso 5', 'Reto 5'), '### Reto 4\n\nUso 4\n\n### Reto 5\n\nUso 5');
+  assert.equal(model.mergeCumulativeField('### Reto 5\n\nUso 5\n\n### Reto 4\n\nUso 4', 'Uso 4 corregido', 'Reto 4'), '### Reto 4\n\nUso 4 corregido\n\n### Reto 5\n\nUso 5');
+  assert.equal(model.mergeCumulativeField('Registro anterior sin reto.', 'Uso 6', 'Reto 6'), 'Registro anterior sin reto.\n\n### Reto 6\n\nUso 6');
+  assert.equal(model.mergeCumulativeField('### Reto 4\n\nUso 4', '### Reto 6\n\nUso 6\n\n### Reto 7\n\nUso 7'), '### Reto 4\n\nUso 4\n\n### Reto 6\n\nUso 6\n\n### Reto 7\n\nUso 7');
+  assert.equal(model.mergeCumulativeField('### Reto 4\n\nUso 4', 'Texto sin reto'), 'Texto sin reto');
+  assert.equal(model.mergeCumulativeField(undefined, '### Pasos\n\nTítulo propio de la IA', 'Reto 9'), '### Reto 9\n\n### Pasos\n\nTítulo propio de la IA');
+  const usage = {...artifact, fields:[...artifact.fields, {key:'uso_ia_y_revision', label:'Uso de IA', required:true}]};
+  const first = model.prepareRecord({values:{}, checks:{}}, {artifactId:'MG-A02', fields:{borrador:'B', uso_ia_y_revision:'Uso 4'}, tool:'Chat', label:'Reto 4'}, usage);
+  const second = model.prepareRecord(first, {artifactId:'MG-A02', fields:{prueba:'P', uso_ia_y_revision:'Uso 5'}, tool:'Chat', label:'Reto 5'}, usage);
+  assert.equal(second.values.uso_ia_y_revision, '### Reto 4\n\nUso 4\n\n### Reto 5\n\nUso 5');
+  assert.equal(second.values.borrador, 'B');
+  const unlabeled = model.prepareRecord(second, {artifactId:'MG-A02', fields:{borrador:'B2'}, tool:'Chat'}, usage);
+  assert.equal(unlabeled.values.uso_ia_y_revision, second.values.uso_ia_y_revision, 'Un resultado sin ese campo conserva el registro');
+});
+
+test('los mensajes de error usan lenguaje llano y proponen qué pedir a la IA', () => {
+  const model = require(modulePath);
+  const base = {schemaVersion:1, artifactId:'MG-A02', fields:{borrador:'Resultado'}};
+  const messages = ['no-json', JSON.stringify({...base, schemaVersion:2}), JSON.stringify({...base, extra:1}), JSON.stringify({...base, fields:{otra:'Valor'}}), 'x'.repeat(1048577)].map(payload => {
+    try { model.validateResult(payload, artifact); } catch (error) { return error.message; }
+    return '';
+  });
+  for (const message of messages) {
+    assert.ok(message, 'Cada caso debe fallar');
+    assert.doesNotMatch(message, /JSON|esquema|propiedades/u, message);
+  }
+  assert.match(messages[0], /Pide a la IA: «/u);
+  assert.match(messages[2], /Pide a la IA: «/u);
 });
 
 test('el resultado de la prueba individual se suma a MG-A05 sin borrar el trabajo del equipo', () => {

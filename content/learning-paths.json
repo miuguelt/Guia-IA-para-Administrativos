@@ -104,11 +104,11 @@
             "feedback": "La fuente permite comprobar las cifras; el encargo precisa qué debe entregar la IA."
           },
           {
-            "text": "Solo pedirle: «Haz un informe profesional».",
+            "text": "Solo una petición breve: «Haz un informe profesional y completo».",
             "feedback": "Esa frase no identifica los datos ni el resultado esperado. Adjunta la fuente y precisa la tarea."
           },
           {
-            "text": "Copiar a mano todos los datos antes de encargar el análisis.",
+            "text": "Copiar a mano todos los datos de la tabla en el chat antes de encargar el análisis.",
             "feedback": "Puedes entregar el archivo existente. Revisa que el asistente pueda leerlo y conserva la fuente."
           }
         ],
@@ -119,7 +119,7 @@
         "scenario": "El cálculo da 5 %, pero el resumen dice que el presupuesto causó esa tasa. La tabla no informa el periodo.",
         "options": [
           {
-            "text": "Conservar la causa porque el cálculo es correcto.",
+            "text": "Conservar la causa, porque el cálculo del 5 % ya está comprobado.",
             "feedback": "Un cálculo correcto no respalda una causa. La tabla tampoco permite confirmar el periodo."
           },
           {
@@ -128,7 +128,7 @@
             "feedback": "Puedes comunicar el cálculo comprobado y dejar visible el dato ausente, sin añadir una explicación causal."
           },
           {
-            "text": "Completar el periodo con el año actual.",
+            "text": "Completar el periodo con el año actual para que el resumen quede completo.",
             "feedback": "El año actual no reemplaza el dato de la fuente. Pide confirmación y conserva «no consta»."
           }
         ],
@@ -210,16 +210,16 @@
         "scenario": "Necesitas señalar las solicitudes sin fecha, preparar una pregunta y confirmar la reserva.",
         "options": [
           {
-            "text": "Dejar que la IA complete la fecha y apruebe la reserva.",
+            "text": "Dejar que la IA complete la fecha más probable y apruebe la reserva.",
             "feedback": "La fecha ausente requiere confirmación. La aprobación corresponde a la persona responsable."
           },
           {
-            "text": "Usar una regla para detectar el vacío, IA para el borrador y una persona para aprobar.",
+            "text": "Una regla detecta el vacío, la IA redacta y una persona aprueba.",
             "correct": true,
             "feedback": "Cada parte tiene un resultado distinto: detectar un vacío, redactar una pregunta y tomar una decisión autorizada."
           },
           {
-            "text": "Aprobar cuando el mensaje diga que es urgente.",
+            "text": "Aprobar la reserva cuando el mensaje diga que es urgente.",
             "feedback": "La urgencia no cambia por sí sola los requisitos del lineamiento ni concede una aprobación."
           }
         ],
@@ -314,7 +314,7 @@
         "scenario": "La persona dice: «Me avisaron por el grupo que cambiaba el salón», pero pide que se lo confirmen.",
         "options": [
           {
-            "text": "El cambio de salón ya está confirmado.",
+            "text": "El cambio de salón ya está confirmado, porque la persona lo informa.",
             "feedback": "El mensaje recoge una afirmación y una consulta. Hace falta verificar el cambio con la fuente autorizada."
           },
           {
@@ -323,7 +323,7 @@
             "feedback": "Así conservas lo que dice el mensaje y distingues la afirmación de una confirmación oficial."
           },
           {
-            "text": "La actividad se canceló.",
+            "text": "La actividad se canceló y hay que reprogramarla.",
             "feedback": "La fuente no dice que se canceló. Esa conclusión añade una decisión que no consta."
           }
         ],
@@ -334,7 +334,7 @@
         "scenario": "Preparaste una plantilla para organizar peticiones con datos pendientes.",
         "options": [
           {
-            "text": "La pruebo solo con el caso más fácil.",
+            "text": "La pruebo con el caso más fácil y, si funciona, la uso para todos.",
             "feedback": "Una prueba no muestra cómo responde ante solicitudes distintas. Usa los tres casos previstos y conserva sus resultados."
           },
           {
@@ -342,7 +342,7 @@
             "feedback": "Para evaluar una versión, úsala igual en los tres casos y cambia solo la fuente. Si la ajustas, repite las pruebas afectadas."
           },
           {
-            "text": "Pido a la IA aplicar la misma versión a los tres casos y conservar las salidas.",
+            "text": "Uso la misma versión en los tres casos y conservo las salidas.",
             "correct": true,
             "feedback": "Las pruebas permiten justificar si la versión sirve, qué límites conserva y por qué merece un ajuste."
           }
@@ -448,7 +448,7 @@
             "feedback": "El código repetido no basta para declarar que es el mismo registro. Las filas y su contenido deben conservarse."
           },
           {
-            "text": "Borrar una fila porque el código está repetido.",
+            "text": "Borrar una de las filas, porque el código está repetido.",
             "feedback": "Los registros tienen contenido distinto. Esta regla no autoriza fusionarlos ni eliminar una ocurrencia."
           },
           {
@@ -531,12 +531,12 @@
         "scenario": "La fuente de Bienestar registra 42 deserciones y 840 matrículas para el Centro A.",
         "options": [
           {
-            "text": "5 %, porque 42 ÷ 840 = 0,05 y 0,05 × 100 = 5.",
+            "text": "5 %, porque 42 ÷ 840 × 100 = 5.",
             "correct": true,
             "feedback": "El total usado como base es 840. La parte de ese total equivale al 5 %."
           },
           {
-            "text": "20 %, porque 840 ÷ 42 = 20.",
+            "text": "20 %, porque 840 ÷ 42 da 20 exacto.",
             "feedback": "Invertiste la operación. Divide la parte, 42, entre el total, 840, y convierte el resultado a porcentaje."
           },
           {
@@ -551,16 +551,16 @@
         "scenario": "El cálculo da 5 %. La fuente de Bienestar no informa el periodo ni explica causas.",
         "options": [
           {
-            "text": "El presupuesto causó la deserción.",
+            "text": "El presupuesto del Centro A causó la deserción del 5 % en esta tabla.",
             "feedback": "La tabla permite describir una tasa, pero no demuestra que el presupuesto haya sido su causa."
           },
           {
-            "text": "El Centro A tiene una tasa de 5 % en esta tabla; el periodo no consta.",
+            "text": "El Centro A tiene una tasa de 5 %; el periodo no consta.",
             "correct": true,
             "feedback": "La frase conserva el cálculo comprobado y aclara el dato ausente, sin extender la conclusión."
           },
           {
-            "text": "La tasa será de 5 % el próximo año.",
+            "text": "La tasa del Centro A seguirá en 5 % el próximo año, según esta tabla.",
             "feedback": "Ese resultado futuro no está demostrado. El cálculo describe los registros disponibles."
           }
         ],
@@ -640,11 +640,11 @@
         "scenario": "La fila 12, Centro H, tiene diferencia de $1.250.000 COP. La fila 21, Centro A, tiene valores iguales.",
         "options": [
           {
-            "text": "Las fusiono y presento una diferencia para todo el código.",
+            "text": "Las fusiono en una sola fila y presento una diferencia para todo el código.",
             "feedback": "El código identifica dos ocurrencias de centros distintos. Cita fila y centro para conservar su alcance."
           },
           {
-            "text": "Conservo las filas separadas y formulo una pregunta con fuente para la diferencia del Centro H.",
+            "text": "Separo las filas y pregunto por el soporte de la diferencia del Centro H.",
             "correct": true,
             "feedback": "La referencia distingue los registros y permite preguntar por el soporte sin afirmar una irregularidad."
           },
@@ -665,11 +665,11 @@
             "feedback": "4 + 2 + 5 + 2 = 13 min. El tiempo completo supera el de la tarea manual comparable."
           },
           {
-            "text": "El trabajo toma 2 min porque solo cuenta la generación.",
+            "text": "El trabajo toma 2 min, porque solo cuenta el tiempo de generación.",
             "feedback": "La preparación, la revisión y la corrección también son parte de la tarea. Inclúyelas en la comparación."
           },
           {
-            "text": "Puedo asegurar que la IA siempre ahorra tiempo.",
+            "text": "Puedo asegurar que la IA ahorra tiempo siempre que se usa en esta tarea.",
             "feedback": "Este ejemplo no muestra ahorro. Una propuesta de mejora necesita mediciones comparables y revisión de calidad."
           }
         ],
