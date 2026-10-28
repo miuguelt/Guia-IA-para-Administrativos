@@ -94,6 +94,7 @@ class GuidanceTests(unittest.TestCase):
                   '<figure class="native-diagram" data-diagram-visible="true"><h3>Diagrama principal</h3></figure>'
                   '<section class="data-safety-triptych-section"><h3>Semáforo</h3></section>'
                   '<section class="m01-step data-safety-triptych-section"><h3>Paso propio del módulo 01</h3></section>'
+                  '<section class="lesson-step data-safety-triptych-section"><h3>Paso propio del módulo 02</h3></section>'
                   '<div class="comparative-cards-grid"><h4>Comparación</h4></div><div class="course-context"><h4>Nota</h4></div>'
                   '<div class="transfer-tip">Puente al módulo siguiente</div><p data-transfer-task="">En tu trabajo</p></details></div>')
         soup = BeautifulSoup(module.guided_intro("m02-diseno", lesson), "html.parser")
@@ -102,7 +103,7 @@ class GuidanceTests(unittest.TestCase):
         self.assertEqual(deeper[0].summary.get_text(strip=True), "Profundiza: riesgos frecuentes y comparaciones")
         self.assertEqual([node.get_text(" ", strip=True) for node in deeper[0].find_all(recursive=False)][1:],
                          ["Semáforo", "Comparación", "Nota", "Puente al módulo siguiente"])
-        for visible in ("Diagrama principal", "Paso propio del módulo 01", "En tu trabajo"):
+        for visible in ("Diagrama principal", "Paso propio del módulo 01", "Paso propio del módulo 02", "En tu trabajo"):
             node = soup.find(string=visible)
             self.assertIsNone(node.find_parent("details"), visible)
         plain = BeautifulSoup(module.guided_intro("m01-fundamentos", '<div class="learning-block"><p>Sin bloques secundarios</p></div>'), "html.parser")

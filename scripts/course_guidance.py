@@ -133,7 +133,7 @@ def guided_intro(ident, full_content):
         block.append(reference)
     for block in content.select('.learning-block'):
         extras = [node for node in block.find_all(['section', 'div'], recursive=False)
-                  if DEEPER_BLOCKS & set(node.get('class', [])) and 'm01-step' not in node.get('class', [])]
+                  if DEEPER_BLOCKS & set(node.get('class', [])) and not {'m01-step', 'lesson-step'} & set(node.get('class', []))]
         if extras:
             deeper = content.new_tag('details', attrs={'class': 'reference-library lesson-deeper'})
             summary = content.new_tag('summary')
