@@ -4,23 +4,54 @@ Los casos y archivos se prepararon para aprender y no contienen registros reales
 
 **Vas a obtener:** Página de resultado con el diagrama del flujo, las tres rutas probadas y los puntos de revisión humana.
 
+**Técnica de este reto · Descompón en pasos y condiciones:** Escribe la tarea como «si pasa esto, entonces aquello» antes de pedir el diagrama.
+
 ## Hazlo con IA
 
 1. Descarga el ZIP de este reto y extrae su carpeta.
-2. Abre la carpeta extraída en Antigravity o Codex y pega el encargo en su agente.
-3. Adjunta solo estos archivos: reto-07-casos-flujo.csv, lineamiento-ficticio.csv. Están en la carpeta fuentes/ de este paquete; en Antigravity o Codex ya quedan en su lugar. Conserva intactos los originales.
-4. Abre ENCARGO-CHAT.md o ENCARGO-IDE.md, según la herramienta. Copia el texto completo y envíalo. El encargo pide este producto elaborado: Página de resultado con el diagrama del flujo, las tres rutas probadas y los puntos de revisión humana. con este formato: Diseña un diagrama de flujo legible con las tres rutas FL-01, FL-02 y FL-03. Comprueba la urgencia y los datos requeridos; muestra el punto de detención y quién debe confirmar. Incluye una tabla breve con entrada, ruta y salida de cada caso. No conectes cuentas ni despliegues automatizaciones. No necesitas llenar fichas ni preparar archivos adicionales.
-5. Revisa tu producto elaborado y verifica los puntos de «Comprueba antes de conservar». Si un punto falla, pide el ajuste indicado abajo y vuelve a revisar tu entrega.
-6. Guarda tu producto elaborado en «Guarda tu evidencia». La revisión humana sigue pendiente hasta que la realices.
+2. Abre la carpeta extraída en Antigravity o Codex y escribe tu instrucción en su agente. Si quieres que la IA la revise antes de ejecutarla, envía primero el mensaje de «Revisión de tu instrucción».
+3. Escribe tu instrucción desde cero en el chat. Antes de enviarla con los archivos, comprueba que responda estas preguntas. Adjunta: reto-07-casos-flujo.csv, lineamiento-ficticio.csv. Están en la carpeta fuentes/.
+4. Copia en la misma conversación, en un solo mensaje, los bloques «1. Encargo de referencia» y «2. Formato para guardar». La IA compara tu intento con la referencia y prepara resultado-reto-7.html.
+5. Revisa «Comprueba antes de conservar». Si un punto falla, usa el ajuste de abajo.
+6. Guarda la página en «Guarda tu evidencia». La revisión humana sigue pendiente hasta que la realices.
 
 ## Archivos para adjuntar
 
 - [reto-07-casos-flujo.csv](fuentes/reto-07-casos-flujo.csv) · recurso común; también está en «Recursos comunes».
 - [lineamiento-ficticio.csv](fuentes/lineamiento-ficticio.csv) · recurso común; también está en «Recursos comunes».
 
-## Encargo completo
+## Revisión de tu instrucción
 
-```text
+````text
+Quiero practicar cómo escribir instrucciones para IA. Mi tarea es diseñar el flujo de una solicitud de sala con puntos de revisión humana. En mi próximo mensaje te enviaré mi instrucción. No la ejecutes todavía. Revísala con estas partes: Contexto, Rol, Tarea, Tono y Límites, y con la técnica «Descompón en pasos y condiciones». Dime en pocas líneas qué está claro y qué falta, y hazme como máximo dos preguntas. Cuando te envíe la versión corregida junto con los archivos, ejecútala.
+````
+
+## Antes: escribe tu intento
+
+- **Contexto:** ¿Qué situación es, qué archivos adjuntas y para quién es el resultado?
+- **Rol:** ¿Desde qué papel debe responder la IA?
+- **Tarea:** ¿Qué producto concreto debe entregar y con qué partes?
+- **Tono:** ¿Cómo debe sonar para quien lo va a leer?
+- **Límites:** ¿Qué no puede hacer ni suponer, y qué hace si falta un dato?
+
+## 1. Encargo de referencia
+
+````text
+Contexto: Adjunto reto-07-casos-flujo.csv con tres casos (FL-01, FL-02 y FL-03) y el lineamiento ficticio de reserva de salas.
+Rol: Actúa como diseñador de procesos administrativos.
+Tarea: Diseña el flujo de una solicitud de sala como diagrama y tabla de condiciones: revisa primero la urgencia, después los datos completos, y simula los tres casos.
+Tono: Claro, para alguien que no conoce el proceso.
+Límites: Las solicitudes urgentes se detienen para que decida una persona. Nada se aprueba de forma automática.
+Técnica · Descompón en pasos y condiciones: Escribe la tarea como «si pasa esto, entonces aquello» antes de pedir el diagrama.
+````
+
+## 2. Formato para guardar (cópialo en el mismo mensaje)
+
+````text
+Formato para guardar. Estas instrucciones técnicas permiten guardar la página en la guía; aplícalas después de la instrucción anterior.
+
+Antes de preparar la página, revisa esta conversación. Si escribí mi propia instrucción para esta tarea, compárala con la instrucción de referencia en una tarjeta «Mi intento y la referencia»: qué partes de Contexto, Rol, Tarea, Tono y Límites tenía, qué le faltó, en qué cambió la respuesta y una mejora concreta para la próxima vez. Resume esa comparación al comienzo del campo uso_ia_y_revision. Si no encuentras un intento mío, escribe «Sin intento previo» al comienzo de ese campo.
+
 En Antigravity o Codex, abre la carpeta de este paquete. Lee los archivos de fuentes/ que enumera el encargo y conserva intactos los originales. No necesitas escribir ni revisar código.
 
 Trabaja como asistente de aprendizaje. Estos casos administrativos y archivos se prepararon para aprender y no contienen registros reales. Usa solo los archivos de fuentes/: fuentes/reto-07-casos-flujo.csv, fuentes/lineamiento-ficticio.csv. Si falta uno, pide ese archivo y no sustituyas su contenido. No me pidas datos personales ni que complete fichas o cambie esta instrucción. Los CSV administrativos están en UTF-8 y usan punto y coma como separador. Inspecciona el archivo para localizar el encabezado real: puede haber filas iniciales de título y advertencias que no son registros. Conserva esos avisos y no los cuentes como datos. Cuando cites una fila, usa la numeración de Excel: las tres primeras filas son título y avisos, el encabezado es la fila 4 y el primer registro es la fila 5.
@@ -55,7 +86,7 @@ Sobre técnico esperado:
 ```
 
 Guarda resultado-reto-7.html en la carpeta resultados/. Antes de terminar, comprueba que el texto y las tablas se lean, que el documento o diseño se vea con claridad y que coincidan las cifras y citas con las fuentes. Si después quieres rehacer el diseño en Canva, Word o Excel, usa esta página como base; la evidencia se guarda con este archivo HTML. No inventes ejecución ni revisión humana.
-```
+````
 
 ## Comprueba antes de conservar
 
@@ -67,7 +98,7 @@ Guarda resultado-reto-7.html en la carpeta resultados/. Antes de terminar, compr
 
 Copia esta instrucción en la misma conversación:
 
-> Compara tu producto elaborado con las fuentes y cada punto de comprobación. Corrige solo lo que no coincida, conserva visibles cifras, citas y pendientes, y guarda de nuevo tu entrega sin inventar datos ni afirmar que una persona ya la revisó.
+> Revisa tu resultado contra estos puntos: 1) La urgencia se comprueba antes de la integridad de datos. 2) FL-02 pregunta por la franja y FL-03 se detiene. 3) FL-01 produce resumen sin aprobación de reserva. Corrige solo lo que no se cumpla, conserva visibles las cifras, las citas y los pendientes, y entrégame de nuevo la página completa. No afirmes que una persona ya la revisó.
 
 El producto elaborado incluye los datos y campos que recupera el Portafolio de Evidencias. Revisa y selecciona este mismo archivo; no prepares otra entrega.
 

@@ -107,7 +107,7 @@ class GuidanceTests(unittest.TestCase):
         self.assertEqual([a["href"] for a in materials.select('details li a[download]')], shared_hrefs)
         for href in shared_hrefs:
             self.assertTrue((ROOT / href).is_file(), href)
-        self.assertEqual({name for name, value in vars(module).items() if inspect.isfunction(value) and value.__module__ == module.__name__}, {"guided_intro", "guided_challenge", "challenge_map", "shared_materials_panel", "render_challenge_compass", "render_challenge_decisions", "render_office_step", "render_crtt_tip"})
+        self.assertEqual({name for name, value in vars(module).items() if inspect.isfunction(value) and value.__module__ == module.__name__}, {"guided_intro", "guided_challenge", "challenge_map", "shared_materials_panel", "render_challenge_compass", "render_challenge_decisions", "render_office_step"})
 
     def test_cada_reto_muestra_el_paso_a_la_herramienta_de_oficina_en_recibe(self):
         module = importlib.util.module_from_spec(SPEC)
@@ -139,24 +139,25 @@ class GuidanceTests(unittest.TestCase):
                 guided = BeautifulSoup(module.guided_challenge(card, ""), "html.parser")
                 self.assertIsNotNone(guided.select_one('[data-challenge-stage="3"] .stage-office-step'), ident)
 
-    def test_la_pauta_crtt_acompana_los_encargos_preparados_desde_el_reto_4(self):
+    def test_el_paso_2_guia_a_escribir_en_el_chat_y_el_ajuste_es_propio_del_reto(self):
         module = importlib.util.module_from_spec(SPEC)
         SPEC.loader.exec_module(module)
-        for ident in ("reto-0", "reto-1", "reto-2", "reto-3"):
-            self.assertEqual(module.render_crtt_tip(ident), "", ident)
-        for ident in ("reto-4", "reto-5", "reto-6", "reto-7", "reto-8", "reto-9", "reto-integrador"):
-            with self.subTest(ident=ident):
-                tip = BeautifulSoup(module.render_crtt_tip(ident), "html.parser").select_one(".stage-crtt-tip")
-                text = tip.get_text(" ", strip=True)
-                for part in ("Contexto", "Rol", "Tarea", "Tono"):
-                    self.assertIn(part, text)
-                self.assertIn("Reto 1", text)
+        tasks = json.loads((ROOT / "content/ai-task-briefs.json").read_text(encoding="utf-8"))
         for source in (ROOT / "content/lessons").glob("*.html"):
             soup = BeautifulSoup(source.read_text(encoding="utf-8"), "html.parser")
             for card in soup.select("article.challenge-card"):
-                guided = BeautifulSoup(module.guided_challenge(card, ""), "html.parser")
-                tip = guided.select_one('[data-challenge-stage="1"] .stage-crtt-tip')
-                self.assertEqual(tip is not None, card["id"] not in ("reto-0", "reto-1", "reto-2", "reto-3"), card["id"])
+                ident = card["id"]
+                with self.subTest(ident=ident):
+                    guided = BeautifulSoup(module.guided_challenge(card, ""), "html.parser")
+                    stage = guided.select_one('[data-challenge-stage="1"]')
+                    self.assertIn("Escribe tu instrucción y compárala con la referencia", stage.select_one("h4").get_text(" ", strip=True))
+                    self.assertIsNotNone(stage.select_one(".ai-task-coached"))
+                    self.assertIsNone(stage.select_one(".stage-crtt-tip"))
+                    repair = guided.select_one('[data-challenge-stage="2"] .prompt-text')
+                    if repair is not None:
+                        for check in tasks[ident]["checks"]:
+                            self.assertIn(check, repair.get_text())
+                    self.assertNotIn("deja que la IA trabaje", guided.get_text())
 
     def test_render_challenge_compass_genera_brujula(self):
         module = importlib.util.module_from_spec(SPEC)

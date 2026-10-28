@@ -2,12 +2,51 @@
 from html import escape
 import json
 from pathlib import Path
+import sys
 from bs4 import BeautifulSoup
+
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from ai_prompts import COACH, PARTS, has_brief, visible_text, technical_block, coach_text, template_text
 
 ROOT = Path(__file__).resolve().parents[1]
 TASKS = json.loads((ROOT / 'content/ai-task-briefs.json').read_text(encoding='utf-8'))
 REGISTRY = json.loads((ROOT / 'deliverables.registry.json').read_text(encoding='utf-8'))
 SHARED_MATERIALS = json.loads((ROOT / 'content/shared-challenge-materials.json').read_text(encoding='utf-8'))
+
+
+def render_coached_task(key, task, optional, download_links):
+    """Guía al aprendiz a escribir su instrucción en el chat antes de copiar la referencia."""
+    brief = task['brief']
+    level = brief['apoyo']
+    ident = 'ai-task-' + key
+    technique = brief['tecnica']
+    if level == 'comentado':
+        rows = ''.join(f'<div><dt>{label}</dt><dd>{escape(brief[part])}<small>{escape(brief["notas"][part])}</small></dd></div>' for part, label in PARTS)
+        guide = f'<dl class="crtt-annotated">{rows}</dl>'
+    elif level == 'huecos':
+        guide = (f'<pre class="prompt-template" id="{ident}-plantilla">{escape(template_text(task))}</pre>'
+                 f'<button type="button" class="button button-secondary" data-copy="{ident}-plantilla" data-copy-message="Plantilla copiada. Complétala en el chat y envíala con los archivos.">Copiar la plantilla</button>')
+    else:
+        items = ''.join(f'<li><strong>{escape(part["label"])}:</strong> {escape(part["question"])}</li>' for part in COACH['parts'])
+        guide = f'<ul class="crtt-checklist">{items}</ul>'
+    summary = 'Ábrelo cuando termines tu instrucción' if level == 'propio' else 'Ver el encargo de referencia'
+    return (f'<section class="ai-task-card ai-task-coached" data-ai-task-key="{escape(key)}" data-support="{level}">'
+            f'<span class="eyebrow">ESCRIBE, COMPARA Y GUARDA · {escape(COACH["levels"][level]["label"].upper())}</span><h3>{escape(task["title"])}</h3>'
+            f'<p class="ai-task-output"><strong>La IA te entrega:</strong> {escape(task["output"])}</p>'
+            f'<p class="ai-task-technique"><strong>Técnica de este reto · {escape(technique["nombre"])}.</strong> {escape(technique["frase"])}</p>'
+            '<ol class="coach-steps">'
+            '<li><strong>Pide una revisión de tu instrucción.</strong> <span>Recomendado: copia este mensaje en un chat nuevo. La IA esperará tu instrucción y te dirá qué mejorar, sin ejecutarla.</span>'
+            f'<button type="button" class="button button-secondary" data-copy="{ident}-entrenador" data-copy-message="Mensaje copiado. Pégalo en un chat nuevo y después envía tu instrucción.">Copiar mensaje para la revisión</button>'
+            f'<details class="coach-text"><summary>Ver el mensaje</summary><pre class="prompt-text" id="{ident}-entrenador">{escape(coach_text(task))}</pre></details></li>'
+            f'<li><strong>Escribe tu instrucción en el chat.</strong> <span>{escape(COACH["levels"][level]["step"])}</span>{guide}</li>'
+            '<li><strong>Copia el encargo de referencia en la misma conversación.</strong> <span>La IA lo ejecuta, compara su resultado con el de tu instrucción y prepara la página para guardar.</span>'
+            f'<div class="ai-task-actions"><button type="button" class="button button-primary" data-copy="{ident}-chat" data-copy-append="{ident}-chat-tecnico" data-copy-message="Encargo copiado con su formato para guardar. Pégalo en la misma conversación y adjunta los archivos si aún no lo hiciste.">Copiar encargo de referencia</button>'
+            f'<details class="ide-option"><summary>Opción avanzada: trabajar en Antigravity o Codex</summary><p>Abre la carpeta del paquete en Antigravity o Codex y escribe tu instrucción en el agente. Después pídele: «Lee ENCARGO-IDE.md y aplica el encargo de referencia y el formato para guardar».</p><a href="materiales/ia/{escape(key)}/ENCARGO-IDE.md" download>Descargar ENCARGO-IDE.md</a></details></div>'
+            f'<details class="ai-task-reference"><summary>{summary}</summary><div class="prompt-reference" data-ai-task>'
+            f'<pre class="prompt-text" id="{ident}-chat">{escape(visible_text(task))}</pre>'
+            f'<details class="prompt-technical-detail"><summary>Ver el formato para guardar que se agrega al copiar</summary><pre class="prompt-text prompt-technical" id="{ident}-chat-tecnico">{escape(technical_block(task))}</pre></details>'
+            '</div></details></li></ol>'
+            f'{download_links}{optional}</section>')
 
 
 def render_task(key, include_downloads=True):
@@ -35,6 +74,8 @@ def render_task(key, include_downloads=True):
             download_links += f'<a href="materiales/ia/{escape(key)}/LEEME.html" target="_blank" rel="noopener noreferrer">Abrir instrucciones ↗</a></div>'
         else:
             download_links += f'<a href="materiales/ia/{escape(key)}/LEEME.html" target="_blank" rel="noopener noreferrer">Abrir instrucciones con formato ↗</a></div>'
+    if has_brief(task):
+        return render_coached_task(key, task, optional, download_links)
     chat_download = '' if task.get('visualArtifact') else f'<a href="materiales/ia/{escape(key)}/ENCARGO-CHAT.md" download>Descargar encargo para chat</a>'
     ide_download = '' if task.get('visualArtifact') else f'<a href="materiales/ia/{escape(key)}/ENCARGO-IDE.md" download>Descargar encargo para IDE</a>'
     return f'''<section class="ai-task-card" data-ai-task-key="{escape(key)}"><span class="eyebrow">UN ENCARGO LISTO PARA USAR</span><h3>{escape(task['title'])}</h3><p class="ai-task-output"><strong>La IA te entrega:</strong> {escape(task['output'])}</p><p class="ai-task-action">{escape(action)}</p><div class="ai-task-actions"><button type="button" class="button button-primary" data-copy="{ident}-chat">Copiar para un chat</button><details class="ide-option"><summary>Opción avanzada: trabajar en Antigravity o Codex</summary><button type="button" class="button button-secondary" data-copy="{ident}-ide">Copiar el encargo para Antigravity o Codex</button></details></div>{download_links}<details class="ai-task-reference"><summary>Consultar fuentes y encargos completos</summary><p><strong>Archivos propios que recibe la IA:</strong> {escape(sources)}.{shared}</p><h4>Para el chat</h4><pre class="prompt-text" id="{ident}-chat" data-ai-task>{escape(task['chatPrompt'])}</pre>{chat_download}<h4>Para Antigravity u otro IDE</h4><pre class="prompt-text" id="{ident}-ide">{escape(task['idePrompt'])}</pre>{ide_download}</details>{optional}</section>'''

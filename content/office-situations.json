@@ -1,6 +1,6 @@
 {
   "title": "Situaciones de oficina y aprendizaje con IA",
-  "description": "Fichas de práctica para tareas administrativas frecuentes y cuatro formas de aprender con IA. Los casos y datos se prepararon para aprender y no contienen registros reales.",
+  "description": "Fichas de práctica para tareas administrativas frecuentes y seis formas de aprender con IA, incluidas dos para llevar el método a tu propio trabajo. Los casos y datos se prepararon para aprender y no contienen registros reales.",
   "dimensions": [
     {
       "id": "sede-coordinacion",
@@ -289,6 +289,58 @@
         "question": "Organízame un plan de tres semanas para aprender a depurar tablas en Excel con IA, con sesiones de 40 minutos.",
         "answer": "Semana 1 · Calidad de datos\n- Sesión 1: detectar espacios sobrantes y celdas vacías en la tabla de práctica.\n- Sesión 2: crear una columna de control con =ESPACIOS(MAYUSC(A2)).\n- Sesión 3: rotular «REVISAR» los vacíos con =SI(ESBLANCO(B2);\"REVISAR\";B2).\n\nSemana 2 · Cálculos con testigo\n- Sesión 4: calcular la tasa del Centro A: (42 ÷ 840) × 100 = 5 %.\n- Sesión 5: comprobar la tasa con la hoja de cálculo.\n- Sesión 6: marcar posibles duplicados sin borrarlos.\n\nSemana 3 · Aplicación\n- Sesión 7: aplicar la regla a la tabla del Reto 6.\n- Sesión 8: escribir las limitaciones del resultado.\n- Sesión 9: documentar la regla para reutilizarla.",
         "reflection": "¿Qué producto mostrarías al final de la primera semana para comprobar tu avance?"
+      }
+    },
+    {
+      "id": "hazlo-con-tu-tarea",
+      "dimension": "aprendizaje-continuo",
+      "dimensionLabel": "Aprendizaje continuo",
+      "category": "aprendizaje-continuo",
+      "categoryLabel": "Aprendizaje continuo",
+      "recommendedAiTool": "El chat de IA que habilite tu entidad (el instructor confirma cuál).",
+      "challengeId": null,
+      "challengeLink": null,
+      "challengeName": null,
+      "practiceRelation": "ninguna",
+      "title": "Lleva el método a una tarea de tu puesto",
+      "shortTitle": "Hazlo con tu tarea",
+      "icon": "pregunta",
+      "problemDescription": "Pide a la IA que te entreviste sobre una tarea que repites en tu puesto y que te devuelva una instrucción lista para probar con un caso de práctica.",
+      "securityShield": "Describe la tarea en términos generales: no pegues documentos, nombres ni números de identificación.",
+      "accuracyShield": "La instrucción es un borrador. Pruébala con el caso inventado antes de usarla con información real autorizada.",
+      "sampleData": "Tarea: «Cada lunes reviso las solicitudes de certificados que llegan al correo y respondo las que están incompletas».",
+      "basePrompt": "Actúa como entrenador de instrucciones para IA en una oficina administrativa. Ayúdame a llevar a mi trabajo lo que practiqué:\n1. Hazme cinco preguntas, una por una, y espera cada respuesta: qué tarea repito, qué recibo, qué entrego, para quién es y qué no puede decidir la IA.\n2. Si menciono datos personales o reservados, avísame y pídeme describirlos de forma general.\n3. Con mis respuestas, escribe una instrucción con Contexto, Rol, Tarea, Tono y Límites.\n4. Propón un caso de práctica inventado para probarla y tres puntos para revisar el resultado.\n\n[Tarea: ...]",
+      "productFormat": "Instrucción para tu tarea, con un caso de prueba y tres puntos de revisión.",
+      "learningExample": {
+        "question": "Quiero llevar a mi trabajo lo que practiqué, con las solicitudes de certificados.",
+        "answer": "Primera pregunta: ¿qué tarea repites y cada cuánto la haces? Por ejemplo: «Reviso las solicitudes de certificados cada lunes». Responde solo con la tarea, sin nombres ni números de documento.",
+        "reflection": "¿Qué decisión de esa tarea debe seguir en manos de una persona?"
+      }
+    },
+    {
+      "id": "mi-biblioteca-de-encargos",
+      "dimension": "aprendizaje-continuo",
+      "dimensionLabel": "Aprendizaje continuo",
+      "category": "aprendizaje-continuo",
+      "categoryLabel": "Aprendizaje continuo",
+      "recommendedAiTool": "El chat de IA que habilite tu entidad (el instructor confirma cuál).",
+      "challengeId": null,
+      "challengeLink": null,
+      "challengeName": null,
+      "practiceRelation": "ninguna",
+      "title": "Biblioteca de instrucciones reutilizables",
+      "shortTitle": "Mi biblioteca de encargos",
+      "icon": "oficio",
+      "problemDescription": "Al terminar una práctica, pide a la IA que convierta las instrucciones que te funcionaron en plantillas o en las instrucciones de un Gem o asistente guardado.",
+      "securityShield": "Las plantillas no conservan nombres, números de documento ni datos de los casos; quedan espacios ___ para completar.",
+      "accuracyShield": "Prueba cada plantilla con un caso nuevo antes de guardarla. Si cambia el lineamiento, actualízala.",
+      "sampleData": "Conversación del Reto 4 con tu instrucción, la revisión de la IA y la versión que funcionó.",
+      "basePrompt": "Actúa como editor de instrucciones para IA. Revisa esta conversación y convierte en plantillas las instrucciones que dieron un buen resultado:\n1. Para cada una, escribe un título, para qué sirve y la instrucción con Contexto, Rol, Tarea, Tono y Límites.\n2. Reemplaza los datos del caso por espacios ___ para completar.\n3. Añade los tres puntos que debo revisar en el resultado.\n4. Si te lo pido, adapta una plantilla como instrucciones para un Gem o asistente guardado.\n\n[Pega aquí la conversación o la instrucción que funcionó]",
+      "productFormat": "Biblioteca de plantillas con su uso y sus puntos de revisión.",
+      "learningExample": {
+        "question": "Convierte en plantilla la instrucción que usé para priorizar la bandeja.",
+        "answer": "Plantilla · Priorizar una bandeja\nPara qué sirve: ordenar mensajes por plazo y personas afectadas.\nContexto: adjunto ___ con ___ mensajes; el plazo que cuenta es el escrito en cada mensaje.\nRol: actúa como auxiliar administrativo.\nTarea: clasifica por señal del texto, personas afectadas y plazo; redacta ___ borradores sin enviar.\nLímites: conserva los códigos; la clasificación es una sugerencia.",
+        "reflection": "¿Con qué caso nuevo probarías esta plantilla antes de guardarla?"
       }
     }
   ]

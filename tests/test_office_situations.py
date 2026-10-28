@@ -29,7 +29,7 @@ class OfficeSituationsTests(unittest.TestCase):
         self.data = self.call("load")
 
     def test_carga_valida_campos_iconos_y_relacion_con_el_reto(self):
-        self.assertEqual(len(self.data["situations"]), 12)
+        self.assertEqual(len(self.data["situations"]), 14)
         broken = copy.deepcopy(self.data)
         broken["situations"][0]["icon"] = "🏛️"
         with TemporaryDirectory() as directory:
@@ -45,7 +45,7 @@ class OfficeSituationsTests(unittest.TestCase):
 
     def test_separa_oficina_y_aprendizaje_y_dibuja_iconos_decorativos(self):
         office, learning = self.call("split", self.data["situations"])
-        self.assertEqual((len(office), len(learning)), (8, 4))
+        self.assertEqual((len(office), len(learning)), (8, 6))
         svg = BeautifulSoup(self.call("icon", "tabla"), "html.parser").svg
         self.assertEqual(svg["aria-hidden"], "true")
         self.assertEqual(svg["stroke"], "currentColor")
@@ -81,19 +81,19 @@ class OfficeSituationsTests(unittest.TestCase):
         self.assertEqual(len(selector.select("[aria-pressed='true'][data-situation-id]")), 1)
         self.assertEqual(len(selector.select("[data-situation-detail]")), 8)
         cards = BeautifulSoup(self.call("learning_html", learning), "html.parser")
-        self.assertEqual(len(cards.select(".learning-ai-card")), 4)
-        self.assertEqual(len(cards.select(".learning-ai-example")), 4)
+        self.assertEqual(len(cards.select(".learning-ai-card")), 6)
+        self.assertEqual(len(cards.select(".learning-ai-example")), 6)
         without_example = copy.deepcopy(learning[:1])
         without_example[0].pop("learningExample")
         self.assertFalse(BeautifulSoup(self.call("learning_html", without_example), "html.parser").select(".learning-ai-example"))
         markdown = self.call("manual_markdown", self.data)
-        self.assertEqual(markdown.count("\n### "), 12)
+        self.assertEqual(markdown.count("\n### "), 14)
         self.assertIn("Técnica relacionada", markdown)
         self.assertIn("Se practica en", markdown)
         manual = BeautifulSoup(self.call("manual_html", office, learning, markdown), "html.parser")
         link = manual.select_one("a[download]")
         self.assertEqual(unquote(link["href"].split(",", 1)[1]), markdown)
-        self.assertEqual(len(manual.select(".manual-item-card")), 12)
+        self.assertEqual(len(manual.select(".manual-item-card")), 14)
 
     def test_regiones_marcadas_se_reemplazan_y_fallan_si_faltan(self):
         text = "a<!-- situaciones:selector -->viejo<!-- /situaciones:selector -->b"

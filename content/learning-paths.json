@@ -253,7 +253,7 @@
     }
   },
   "m02-diseno": {
-    "goal": "Pedir borradores con fuentes y probar una instrucción reutilizable sin redactarla desde cero.",
+    "goal": "Escribir instrucciones propias, revisarlas con la IA como entrenadora y probar una versión reutilizable con borradores que citan su fuente.",
     "product": "Dos borradores revisados y una misma instrucción probada con PC-01, PC-02 y PC-03.",
     "terms": [
       [

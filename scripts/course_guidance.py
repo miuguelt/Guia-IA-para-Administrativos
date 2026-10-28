@@ -8,6 +8,7 @@ from bs4 import BeautifulSoup
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from course_delivery import render_task
+from ai_prompts import repair_text
 
 CONTENT = Path(__file__).resolve().parents[1] / "content"
 ORIENTATION = json.loads((CONTENT / "module-orientation.json").read_text(encoding="utf-8"))
@@ -18,7 +19,7 @@ COMPASS_PATH = CONTENT / "challenge-compass.json"
 COMPASS = json.loads(COMPASS_PATH.read_text(encoding="utf-8")) if COMPASS_PATH.is_file() else {}
 DECISIONS_PATH = CONTENT / "challenge-decisions.json"
 DECISIONS = json.loads(DECISIONS_PATH.read_text(encoding="utf-8")) if DECISIONS_PATH.is_file() else {}
-STAGES = [("Prepara", "Descarga el paquete para IA"), ("Pide a la IA", "Copia el encargo y deja que la IA trabaje"),
+STAGES = [("Prepara", "Descarga el paquete para IA"), ("Pide a la IA", "Escribe tu instrucción y compárala con la referencia"),
           ("Revisa", "Comprueba tu resultado"), ("Descarga", "Conserva el resultado para tu evidencia")]
 
 
@@ -85,18 +86,6 @@ def render_office_step(ident):
         return ""
     step = product.split(marker, 1)[1].strip()
     return f'<p class="stage-office-step"><strong>Llévalo a la oficina:</strong> {escape(step)}</p>'
-
-
-CRTT_FROM = ("reto-4", "reto-5", "reto-6", "reto-7", "reto-8", "reto-9", "reto-integrador")
-
-
-def render_crtt_tip(ident):
-    """Recuerda, en los encargos preparados, las partes CRTT que el aprendiz ya practicó."""
-    if ident not in CRTT_FROM:
-        return ""
-    return ('<p class="stage-crtt-tip"><strong>Lee el encargo como en el Reto 1:</strong> ubica su Contexto, su Rol, '
-            'su Tarea y su Tono, junto con la fuente y los límites. Si en tu oficina el resultado va para otra persona '
-            'o necesita otro tono, agrégalo en una línea al final del encargo y compara la respuesta.</p>')
 
 
 def guided_intro(ident, full_content):
@@ -211,7 +200,7 @@ def guided_challenge(card, materials):
             checks_list.append(item)
     for repair in card.select(".prompt-text"):
         repair.clear()
-        repair.append("Compara tu producto elaborado con las fuentes y los criterios del encargo. Corrige los datos o citas que no coincidan, vuelve a guardar tu evidencia y deja visibles los puntos pendientes. No afirmes que una persona ya la revisó.")
+        repair.append(repair_text(task))
     for details in card.select("details.course-context"):
         summary_node = details.find("summary")
         if not summary_node or not summary_node.get_text(" ", strip=True).startswith("Consultar la distribución del tiempo"):
@@ -226,7 +215,7 @@ def guided_challenge(card, materials):
                     "Descarga el paquete de este reto y elige «Extraer todo».",
                     ("Adjunta " + source_text + ". " if source_text else "Adjunta las fuentes que enumera el encargo. ")
                     + "Usa solo esos archivos; todos están en la carpeta fuentes/ del paquete, incluidos los recursos comunes.",
-                    "Copia el encargo del reto en tu herramienta de IA para obtener el resultado.",
+                    "Escribe tu instrucción en el chat, pide la revisión y después copia el encargo de referencia en la misma conversación.",
                     "Abre el producto obtenido y comprueba los criterios de esta actividad. Si un dato o fuente falla, copia la solicitud de ajuste y vuelve a revisar.",
                     "Adjunta tu entrega en «Guarda tu evidencia». La revisión humana queda pendiente hasta que la realices.",
                 ]
@@ -234,7 +223,7 @@ def guided_challenge(card, materials):
                 steps = [
                     (("Descarga y extrae el paquete. Adjunta " + source_text + ". ") if source_text else "Descarga y extrae el paquete; adjunta las fuentes que enumera el encargo. ")
                     + "Todas las fuentes, incluidas las comunes, están en la carpeta fuentes/ del paquete.",
-                    "Copia el encargo del reto en tu herramienta de IA para obtener el resultado.",
+                    "Escribe tu instrucción en el chat, pide la revisión y después copia el encargo de referencia en la misma conversación.",
                     "Abre el producto obtenido y comprueba los criterios de esta actividad. Si un dato o fuente falla, copia la solicitud de ajuste y vuelve a revisar.",
                     "Adjunta tu entrega en «Guarda tu evidencia». La revisión humana queda pendiente hasta que la realices.",
                 ]
@@ -292,7 +281,7 @@ def guided_challenge(card, materials):
     compass_html = render_challenge_compass(ident)
     details_content = compass_html + ''.join(groups[1])
     more_details = f'<details class="ai-source-reference"><summary>Antes de copiar: decisiones clave y ejemplos</summary>{details_content}</details>' if details_content else ''
-    groups[1] = [render_crtt_tip(ident), render_task(ident, include_downloads=False), more_details]
+    groups[1] = [render_task(ident, include_downloads=False), more_details]
     preview = f'''<figure class="output-preview"><table><caption>Ejemplo de comprobación · úsalo para revisar tu trabajo</caption><tbody><tr><th scope="row">Fuente</th><td>{escape(data["source"])}</td></tr><tr><th scope="row">Qué revisas</th><td>{escape(data["review"])}</td></tr><tr><th scope="row">Resultado</th><td>{escape(data["output"])}</td></tr></tbody></table></figure>'''
     groups[2] = ['<div class="stage-main"><p class="stage-check-intro">Abre tu página de resultado y revisa estos tres puntos con la fuente:</p>',
                  *review["checks"],

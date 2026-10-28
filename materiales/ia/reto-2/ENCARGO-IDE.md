@@ -4,22 +4,53 @@ Los casos y archivos se prepararon para aprender y no contienen registros reales
 
 **Vas a obtener:** Página de resultado con dos borradores de respuesta para PC-01 y PC-03, que separan petición, hechos demostrados y datos por confirmar.
 
+**Técnica de este reto · Da un ejemplo de salida:** Muestra una línea con el formato que esperas, por ejemplo: «Petición: … | Afirma: … | Falta: …».
+
 ## Hazlo con IA
 
 1. Descarga el ZIP de este reto y extrae su carpeta.
-2. Abre la carpeta extraída en Antigravity o Codex y pega el encargo en su agente.
-3. Adjunta solo estos archivos: pqrs-complejas.csv. Están en la carpeta fuentes/ de este paquete; en Antigravity o Codex ya quedan en su lugar. Conserva intactos los originales.
-4. Abre ENCARGO-CHAT.md o ENCARGO-IDE.md, según la herramienta. Copia el texto completo y envíalo. El encargo pide este producto elaborado: Página de resultado con dos borradores de respuesta para PC-01 y PC-03, que separan petición, hechos demostrados y datos por confirmar. con este formato: Diseña dos tarjetas, una para PC-01 y otra para PC-03. En cada una separa petición, hechos, fuente, dato faltante, borrador y pregunta para continuar. Presenta los textos como borradores, nunca como respuestas enviadas. No necesitas llenar fichas ni preparar archivos adicionales.
-5. Revisa tu producto elaborado y verifica los puntos de «Comprueba antes de conservar». Si un punto falla, pide el ajuste indicado abajo y vuelve a revisar tu entrega.
-6. Guarda tu producto elaborado en «Guarda tu evidencia». La revisión humana sigue pendiente hasta que la realices.
+2. Abre la carpeta extraída en Antigravity o Codex y escribe tu instrucción en su agente. Si quieres que la IA la revise antes de ejecutarla, envía primero el mensaje de «Revisión de tu instrucción».
+3. Lee cómo está armada la instrucción de referencia. Después escribe en el chat tu propia versión, con tus palabras, y envíala con los archivos. Adjunta: pqrs-complejas.csv. Están en la carpeta fuentes/.
+4. Copia en la misma conversación, en un solo mensaje, los bloques «1. Encargo de referencia» y «2. Formato para guardar». La IA compara tu intento con la referencia y prepara resultado-reto-2.html.
+5. Revisa «Comprueba antes de conservar». Si un punto falla, usa el ajuste de abajo.
+6. Guarda la página en «Guarda tu evidencia». La revisión humana sigue pendiente hasta que la realices.
 
 ## Archivos para adjuntar
 
 - [pqrs-complejas.csv](fuentes/pqrs-complejas.csv) · recurso común; también está en «Recursos comunes».
 
-## Encargo completo
+## Revisión de tu instrucción
 
-```text
+````text
+Quiero practicar cómo escribir instrucciones para IA. Mi tarea es responder dos PQRS separando lo que consta de lo que dice la persona. En mi próximo mensaje te enviaré mi instrucción. No la ejecutes todavía. Revísala con estas partes: Contexto, Rol, Tarea, Tono y Límites, y con la técnica «Da un ejemplo de salida». Dime en pocas líneas qué está claro y qué falta, y hazme como máximo dos preguntas. Cuando te envíe la versión corregida junto con los archivos, ejecútala.
+````
+
+## Antes: escribe tu intento
+
+- **Contexto:** Adjunto pqrs-complejas.csv. Trabaja con los casos PC-01 y PC-03: la persona cuenta algo que otros le dijeron, pero la comunicación oficial no lo confirma. _Advierte la dificultad del caso antes de empezar._
+- **Rol:** Actúa como auxiliar de atención al ciudadano. _Orienta la respuesta al servicio, no al trámite interno._
+- **Tarea:** Para cada caso, separa la petición, lo que afirma la persona y los datos que faltan; cita la frase fuente y redacta un borrador de respuesta con las preguntas necesarias. _Separar las partes evita mezclar hechos con suposiciones._
+- **Tono:** Respetuoso y sencillo, sin prometer fechas ni soluciones. _Prometer fechas crea compromisos sin respaldo._
+- **Límites:** No agregues datos que no estén en el caso. _Obliga a marcar lo que falta en lugar de rellenarlo._
+
+## 1. Encargo de referencia
+
+````text
+Contexto: Adjunto pqrs-complejas.csv. Trabaja con los casos PC-01 y PC-03: la persona cuenta algo que otros le dijeron, pero la comunicación oficial no lo confirma.
+Rol: Actúa como auxiliar de atención al ciudadano.
+Tarea: Para cada caso, separa la petición, lo que afirma la persona y los datos que faltan; cita la frase fuente y redacta un borrador de respuesta con las preguntas necesarias.
+Tono: Respetuoso y sencillo, sin prometer fechas ni soluciones.
+Límites: No agregues datos que no estén en el caso.
+Técnica · Da un ejemplo de salida: Muestra una línea con el formato que esperas, por ejemplo: «Petición: … | Afirma: … | Falta: …».
+````
+
+## 2. Formato para guardar (cópialo en el mismo mensaje)
+
+````text
+Formato para guardar. Estas instrucciones técnicas permiten guardar la página en la guía; aplícalas después de la instrucción anterior.
+
+Antes de preparar la página, revisa esta conversación. Si escribí mi propia instrucción para esta tarea, compárala con la instrucción de referencia en una tarjeta «Mi intento y la referencia»: qué partes de Contexto, Rol, Tarea, Tono y Límites tenía, qué le faltó, en qué cambió la respuesta y una mejora concreta para la próxima vez. Resume esa comparación al comienzo del campo uso_ia_y_revision. Si no encuentras un intento mío, escribe «Sin intento previo» al comienzo de ese campo.
+
 En Antigravity o Codex, abre la carpeta de este paquete. Lee los archivos de fuentes/ que enumera el encargo y conserva intactos los originales. No necesitas escribir ni revisar código.
 
 Trabaja como asistente de aprendizaje. Estos casos administrativos y archivos se prepararon para aprender y no contienen registros reales. Usa solo los archivos de fuentes/: fuentes/pqrs-complejas.csv. Si falta uno, pide ese archivo y no sustituyas su contenido. No me pidas datos personales ni que complete fichas o cambie esta instrucción. Los CSV administrativos están en UTF-8 y usan punto y coma como separador. Inspecciona el archivo para localizar el encabezado real: puede haber filas iniciales de título y advertencias que no son registros. Conserva esos avisos y no los cuentes como datos. Cuando cites una fila, usa la numeración de Excel: las tres primeras filas son título y avisos, el encabezado es la fila 4 y el primer registro es la fila 5.
@@ -54,7 +85,7 @@ Sobre técnico esperado:
 ```
 
 Guarda resultado-reto-2.html en la carpeta resultados/. Antes de terminar, comprueba que el texto y las tablas se lean, que el documento o diseño se vea con claridad y que coincidan las cifras y citas con las fuentes. Si después quieres rehacer el diseño en Canva, Word o Excel, usa esta página como base; la evidencia se guarda con este archivo HTML. No inventes ejecución ni revisión humana.
-```
+````
 
 ## Comprueba antes de conservar
 
@@ -66,7 +97,7 @@ Guarda resultado-reto-2.html en la carpeta resultados/. Antes de terminar, compr
 
 Copia esta instrucción en la misma conversación:
 
-> Compara tu producto elaborado con las fuentes y cada punto de comprobación. Corrige solo lo que no coincida, conserva visibles cifras, citas y pendientes, y guarda de nuevo tu entrega sin inventar datos ni afirmar que una persona ya la revisó.
+> Revisa tu resultado contra estos puntos: 1) Aparecen PC-01 y PC-03 con su propio borrador. 2) Cada afirmación tiene una frase fuente. 3) Horarios, fechas, enlaces y decisiones ausentes quedan por confirmar. Corrige solo lo que no se cumpla, conserva visibles las cifras, las citas y los pendientes, y entrégame de nuevo la página completa. No afirmes que una persona ya la revisó.
 
 El producto elaborado incluye los datos y campos que recupera el Portafolio de Evidencias. Revisa y selecciona este mismo archivo; no prepares otra entrega.
 

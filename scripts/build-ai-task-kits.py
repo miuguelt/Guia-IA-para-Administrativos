@@ -4,7 +4,11 @@ from html import escape
 import json
 from pathlib import Path
 import re
+import sys
 from zipfile import ZIP_DEFLATED, ZipFile, ZipInfo
+
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from ai_prompts import COACH, PARTS, has_brief, visible_text, technical_block, copy_text, coach_text, template_text, repair_text
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -87,6 +91,45 @@ def output_schema(task):
     }
 
 
+def coached_markdown(key, task, mode, sources):
+    """Guía el intento propio en el chat y separa la referencia del formato para guardar."""
+    brief = task["brief"]
+    level = brief["apoyo"]
+    start = ("Abre la carpeta extraída en Antigravity o Codex y escribe tu instrucción en su agente."
+             if mode == "ide" else
+             "Abre un chat autorizado y escribe ahí tu instrucción.")
+    if level == "comentado":
+        guide = "\n".join("- **" + label + ":** " + brief[part] + " _" + brief["notas"][part] + "_" for part, label in PARTS)
+    elif level == "huecos":
+        guide = "````text\n" + template_text(task) + "\n````"
+    else:
+        guide = "\n".join("- **" + part["label"] + ":** " + part["question"] for part in COACH["parts"])
+    checks = "\n".join(str(i) + ". " + check for i, check in enumerate(task["checks"], 1))
+    return (
+        "# " + task["title"] + "\n\n"
+        "Los casos y archivos se prepararon para aprender y no contienen registros reales.\n\n"
+        "**Vas a obtener:** " + task["output"] + "\n\n"
+        "**Técnica de este reto · " + brief["tecnica"]["nombre"] + ":** " + brief["tecnica"]["frase"] + "\n\n"
+        "## Hazlo con IA\n\n"
+        "1. Descarga el ZIP de este reto y extrae su carpeta.\n"
+        "2. " + start + " Si quieres que la IA la revise antes de ejecutarla, envía primero el mensaje de «Revisión de tu instrucción».\n"
+        "3. " + COACH["levels"][level]["step"] + " Adjunta: " + ", ".join(Path(p).name for p in task["sourceFiles"]) + ". Están en la carpeta fuentes/.\n"
+        "4. Copia en la misma conversación, en un solo mensaje, los bloques «1. Encargo de referencia» y «2. Formato para guardar». La IA compara tu intento con la referencia y prepara resultado-" + key + ".html.\n"
+        "5. Revisa «Comprueba antes de conservar». Si un punto falla, usa el ajuste de abajo.\n"
+        "6. Guarda la página en «Guarda tu evidencia». La revisión humana sigue pendiente hasta que la realices.\n\n"
+        "## Archivos para adjuntar\n\n" + sources + "\n\n"
+        "## Revisión de tu instrucción\n\n````text\n" + coach_text(task) + "\n````\n\n"
+        "## Antes: escribe tu intento\n\n" + guide + "\n\n"
+        "## 1. Encargo de referencia\n\n````text\n" + visible_text(task) + "\n````\n\n"
+        "## 2. Formato para guardar (cópialo en el mismo mensaje)\n\n````text\n" + technical_block(task, mode) + "\n````\n\n"
+        "## Comprueba antes de conservar\n\n" + checks + "\n\n"
+        "## Si necesitas un ajuste\n\n"
+        "Copia esta instrucción en la misma conversación:\n\n> " + repair_text(task) + "\n\n"
+        "El producto elaborado incluye los datos y campos que recupera el Portafolio de Evidencias. Revisa y selecciona este mismo archivo; no prepares otra entrega.\n\n"
+        "[Abrir guía de trabajo](LEEME.html)\n"
+    )
+
+
 def task_markdown(key, task, mode):
     """Entrega una instrucción completa que no pide personalización."""
     source_note = ("Los casos y archivos se prepararon para aprender y no contienen registros reales."
@@ -112,6 +155,8 @@ def task_markdown(key, task, mode):
         guide_images += ("\n\n" if guide_images else "") + "### Ilustraciones de los residuos del lote\n\n" + "\n\n".join(
             "![" + image["alt"] + "](imagenes/" + image["name"] + ")\n\n" + image["caption"]
             for image in residue_images)
+    if has_brief(task):
+        return coached_markdown(key, task, mode, sources)
     checks = "\n".join(str(i) + ". " + check for i, check in enumerate(task["checks"], 1))
     prompt = task["idePrompt" if mode == "ide" else "chatPrompt"]
     start = ("Abre la carpeta extraída en Antigravity o Codex y pega el encargo en su agente."
@@ -196,6 +241,13 @@ def task_html(key, task):
                  '<li>Si algo no coincide, pide este ajuste en la misma conversación: «Compara tu producto elaborado con las fuentes y los puntos de comprobación. Corrige solo lo que falla, conserva las cifras y los pendientes, y guarda de nuevo tu entrega. No inventes datos ni afirmes una revisión humana».</li>'
                  '<li>Guarda tu producto elaborado en «Guarda tu evidencia». La revisión humana sigue pendiente hasta que la realices.</li>')
         result_format = '<p class="notice">Revisa y selecciona este mismo producto en «Guarda tu evidencia». No prepares otra entrega.</p>'
+        if has_brief(task):
+            steps = ('<li>Descarga el ZIP de este reto y selecciona «Extraer todo» para abrir la carpeta.</li>'
+                     '<li>Abre un chat autorizado. Si quieres que la IA revise tu instrucción antes de ejecutarla, envía primero el mensaje de «Revisión de tu instrucción» de ENCARGO-CHAT.md.</li>'
+                     '<li>' + escape(COACH["levels"][task["brief"]["apoyo"]]["step"]) + ' Adjunta solo estos archivos: <strong>' + file_names + '</strong>. Están en la carpeta fuentes/ de este paquete.</li>'
+                     '<li>Copia en la misma conversación el encargo completo de referencia. La IA compara tu intento con la referencia y prepara la página con este formato: <strong>' + escape(task["visualDescription"]) + '</strong></li>'
+                     '<li>Revisa los puntos de «Comprobaciones antes de conservar». Si alguno falla, pide este ajuste: «' + escape(repair_text(task)) + '».</li>'
+                     '<li>Guarda la página en «Guarda tu evidencia». La revisión humana sigue pendiente hasta que la realices.</li>')
     else:
         steps = '<li>Descarga el encargo para chat o IDE y los archivos fuente.</li><li>Adjunta las fuentes y, si la práctica genera un registro, inclúyelo sin editar. En Antigravity o Codex abre la carpeta y copia el encargo completo.</li><li>La IA genera el producto. Comprueba estos tres puntos y pide corrección si hace falta.</li><li>Descarga los productos. La revisión humana queda pendiente.</li>'
         result_format = '<nav class="links"><a download href="modelo-salida.json">Modelo JSON vacío</a><a download href="esquema-salida.json">Esquema del resultado</a><a download href="registro-medicion.csv">Registro con mediciones pendientes</a></nav>'
@@ -247,11 +299,11 @@ def task_html(key, task):
             + '<h2>Comprobaciones antes de conservar</h2><ol>' + checks + '</ol>'
             + ('<h2>Si necesitas corregir algo</h2><p>En la misma conversación, pide a la IA que compare tu producto elaborado con las fuentes y las comprobaciones. Debe corregir solo el punto que falla, conservar visibles las cifras, las citas y los pendientes, y guardar de nuevo tu entrega.</p>' if task.get("visualArtifact") else '')
             + '<details><summary>Consultar el encargo para chat</summary><pre>'
-            + escape(task["chatPrompt"]) + '</pre></details>'
+            + escape(copy_text(task) if has_brief(task) else task["chatPrompt"]) + '</pre></details>'
             + '<details><summary>Consultar el encargo para Antigravity</summary><pre>'
-            + escape(task["idePrompt"]) + '</pre></details>'
+            + escape(copy_text(task, "ide") if has_brief(task) else task["idePrompt"]) + '</pre></details>'
             + '<h2>Formato del resultado</h2>' + result_format
-            + '<footer>La autocomprobación de la IA no sustituye tu revisión ni una aprobación institucional.</footer>'
+            + '<footer>La revisión que hace la IA no sustituye tu revisión ni una aprobación institucional.</footer>'
             + '</main></body></html>\n')
 
 

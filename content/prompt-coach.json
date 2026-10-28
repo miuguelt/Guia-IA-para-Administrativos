@@ -1,0 +1,27 @@
+{
+  "parts": [
+    {"key": "contexto", "label": "Contexto", "question": "¿Qué situación es, qué archivos adjuntas y para quién es el resultado?"},
+    {"key": "rol", "label": "Rol", "question": "¿Desde qué papel debe responder la IA?"},
+    {"key": "tarea", "label": "Tarea", "question": "¿Qué producto concreto debe entregar y con qué partes?"},
+    {"key": "tono", "label": "Tono", "question": "¿Cómo debe sonar para quien lo va a leer?"},
+    {"key": "limites", "label": "Límites", "question": "¿Qué no puede hacer ni suponer, y qué hace si falta un dato?"}
+  ],
+  "levels": {
+    "comentado": {
+      "label": "Instrucción comentada",
+      "step": "Lee cómo está armada la instrucción de referencia. Después escribe en el chat tu propia versión, con tus palabras, y envíala con los archivos."
+    },
+    "huecos": {
+      "label": "Plantilla con huecos",
+      "step": "Copia la plantilla, completa los espacios ___ en el chat y envíala con los archivos. La guía no guarda lo que escribes."
+    },
+    "propio": {
+      "label": "Escritura propia",
+      "step": "Escribe tu instrucción desde cero en el chat. Antes de enviarla con los archivos, comprueba que responda estas preguntas."
+    }
+  },
+  "coach": "Quiero practicar cómo escribir instrucciones para IA. Mi tarea es {meta}. En mi próximo mensaje te enviaré mi instrucción. No la ejecutes todavía. Revísala con estas partes: Contexto, Rol, Tarea, Tono y Límites, y con la técnica «{tecnica}». Dime en pocas líneas qué está claro y qué falta, y hazme como máximo dos preguntas. Cuando te envíe la versión corregida junto con los archivos, ejecútala.",
+  "technicalHeading": "Formato para guardar. Estas instrucciones técnicas permiten guardar la página en la guía; aplícalas después de la instrucción anterior.",
+  "compare": "Antes de preparar la página, revisa esta conversación. Si escribí mi propia instrucción para esta tarea, compárala con la instrucción de referencia en una tarjeta «Mi intento y la referencia»: qué partes de Contexto, Rol, Tarea, Tono y Límites tenía, qué le faltó, en qué cambió la respuesta y una mejora concreta para la próxima vez. Resume esa comparación al comienzo del campo {campo}. Si no encuentras un intento mío, escribe «Sin intento previo» al comienzo de ese campo.",
+  "repair": "Revisa tu resultado contra estos puntos: {checks} Corrige solo lo que no se cumpla, conserva visibles las cifras, las citas y los pendientes, y entrégame de nuevo la página completa. No afirmes que una persona ya la revisó."
+}

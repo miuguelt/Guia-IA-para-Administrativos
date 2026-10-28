@@ -5,6 +5,7 @@ import csv
 import hashlib
 import io
 import json
+import re
 from pathlib import Path
 from tempfile import TemporaryDirectory
 import unittest
@@ -379,7 +380,9 @@ class AiTaskKitsTests(unittest.TestCase):
         md = self.invoke("task_markdown", "reto-2", task, "chat")
         html = self.invoke("task_html", "reto-2", task)
         self.assertIn(task["chatPrompt"], md)
-        self.assertIn("No necesitas llenar", md)
+        for heading in ("## Revisión de tu instrucción", "## Antes: escribe tu intento", "## 1. Encargo de referencia", "## 2. Formato para guardar"):
+            self.assertIn(heading, md)
+        self.assertIn("La guía no guarda lo que escribes", self.invoke("coached_markdown", "reto-4", self.invoke("load_catalog")["reto-4"], "chat", "- fuente"))
         self.assertIn("pqrs-complejas.csv", html)
         self.assertIn("recursos comunes", html.lower())
         self.assertIn('href="fuentes/pqrs-complejas.csv"', html)
@@ -397,6 +400,22 @@ class AiTaskKitsTests(unittest.TestCase):
         self.assertIn(task["idePrompt"], ide)
         task = dict(task, title="Comparar <texto> & fuentes")
         self.assertIn("Comparar &lt;texto&gt; &amp; fuentes", self.invoke("task_html", "prueba", task))
+
+    def test_el_texto_copiado_en_la_guia_coincide_con_los_bloques_del_paquete(self):
+        prompts = KITS.sys.modules["ai_prompts"]
+        catalog = self.invoke("load_catalog")
+        pattern = re.compile(r"## 1\. Encargo de referencia\n\n````text\n(.*?)\n````\n\n## 2\. Formato para guardar[^\n]*\n\n````text\n(.*?)\n````", re.S)
+        for key, task in catalog.items():
+            if not prompts.has_brief(task):
+                continue
+            for mode in ("chat", "ide"):
+                with self.subTest(key=key, mode=mode):
+                    match = pattern.search(self.invoke("task_markdown", key, task, mode))
+                    self.assertIsNotNone(match)
+                    self.assertEqual(match.group(1) + "\n\n" + match.group(2), prompts.copy_text(task, mode))
+            html = BeautifulSoup(self.invoke("task_html", key, task), "html.parser")
+            self.assertEqual(html.select("details pre")[0].get_text(), prompts.copy_text(task))
+            self.assertNotIn("autocomprobación", html.select_one("footer").get_text())
 
     def test_zip_es_reproducible_y_conserva_bytes(self):
         with TemporaryDirectory(dir=ROOT / "output") as directory:

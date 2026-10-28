@@ -74,7 +74,7 @@ test('los retos delegan el procesamiento y los paquetes conservan esa consigna',
     assert.equal(card.querySelectorAll('[data-ai-review-checks] > li').length, 3, `${id}: faltan los tres controles de revisión`);
     const prompt = card.querySelector('[data-ai-task]');
     assert.ok(prompt.closest('details:not([open])'), `${id}: el encargo completo debe poder consultarse sin saturar el recorrido`);
-    assert.ok(card.querySelector(`[data-copy="${prompt.id}"]`), `${id}: el encargo completo debe poder copiarse`);
+    assert.ok(card.querySelector('[data-copy][data-copy-append]'), `${id}: el encargo completo debe poder copiarse`);
   }
   assert.doesNotMatch(dom.window.document.querySelector('#m03-implementacion').textContent, /escribe en G5|copia hacia abajo|reproducir la fórmula/iu);
   dom.window.close();
@@ -281,8 +281,8 @@ test('el recorrido nuevo avanza y copia las instrucciones completas con su conte
   }
   const preparationButtons = [...document.querySelectorAll('#preparacion [data-copy]')];
   const taskButtons = [...document.querySelectorAll('.challenge-card [data-ai-task]')].map(prompt => {
-    const button = prompt.closest('.challenge-card').querySelector(`[data-copy="${prompt.id}"]`);
-    assert.ok(button, `${prompt.id}: falta copiar el encargo completo`);
+    const button = prompt.closest('.challenge-card').querySelector('[data-copy][data-copy-append]');
+    assert.ok(button, `${prompt.closest('.challenge-card').id}: falta copiar el encargo completo`);
     return button;
   });
   assert.equal(taskButtons.length, 11);
@@ -292,7 +292,7 @@ test('el recorrido nuevo avanza y copia las instrucciones completas con su conte
   for (const button of buttons) {
     button.click();
     await tick(window);
-    assert.equal(copied.at(-1), document.getElementById(button.dataset.copy).textContent.trim());
+    assert.equal(copied.at(-1), window.CourseTabs.copyParts(document, button).text);
   }
   assert.equal(copied.length, buttons.length);
   assert.deepEqual(errors, []);

@@ -106,6 +106,16 @@ class BuildCourseTests(unittest.TestCase):
             number, verb = badge.get_text(" ", strip=True).split(" · ")
             self.assertEqual(verb, navigation.get(number, "Prepara"))
 
+    def test_las_plantillas_se_copian_con_el_boton_comun_sin_codigo_en_linea(self):
+        page = BeautifulSoup((ROOT / "index.html").read_text(encoding="utf-8"), "html.parser")
+        self.assertFalse(page.select("[onclick]"))
+        buttons = page.select("#templates-dialog [data-copy]")
+        self.assertEqual(len(buttons), 4)
+        for button in buttons:
+            target = page.select_one("#" + button["data-copy"])
+            self.assertIn("Rol:", target.get_text())
+            self.assertIn("sin información personal", button["data-copy-message"])
+
     def test_html_serializa_nodos_y_admite_vacios(self):
         node = BeautifulSoup("<strong>Fuente</strong>", "html.parser").strong
         self.assertEqual(self.call_production_function("html", node), "<strong>Fuente</strong>")
@@ -178,7 +188,7 @@ class BuildCourseTests(unittest.TestCase):
                 self.assertIn("Comprobaciones antes de conservar", instructions, challenge_id)
                 prompt = card.select_one('[data-ai-task]')
                 if prompt:
-                    prompt_text = " ".join(prompt.get_text(' ', strip=True).split())
+                    prompt_text = " ".join(" ".join(pre.get_text(' ', strip=True) for pre in prompt.select('pre')).split())
                     self.assertIn(prompt_text, " ".join(instructions.split()), challenge_id)
                     self.assertIn('asistente de aprendizaje', instructions, challenge_id)
                 self.assertFalse(card.select_one("a.challenge-package-download"), challenge_id)

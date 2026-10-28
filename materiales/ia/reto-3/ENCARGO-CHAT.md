@@ -4,22 +4,55 @@ Los casos y archivos se prepararon para aprender y no contienen registros reales
 
 **Vas a obtener:** Página de resultado con la instrucción reutilizable, sus tres pruebas (PC-01, PC-02 y PC-03) y el ajuste o la razón para conservarla.
 
+**Técnica de este reto · Guarda la instrucción como plantilla:** Deja marcadas las partes que cambian en cada caso y pruébala con casos distintos antes de guardarla como Gem o asistente.
+
 ## Hazlo con IA
 
 1. Descarga el ZIP de este reto y extrae su carpeta.
-2. Abre un chat autorizado, adjunta las fuentes indicadas y copia el encargo completo.
-3. Adjunta solo estos archivos: pqrs-complejas.csv. Están en la carpeta fuentes/ de este paquete; en Antigravity o Codex ya quedan en su lugar. Conserva intactos los originales.
-4. Abre ENCARGO-CHAT.md o ENCARGO-IDE.md, según la herramienta. Copia el texto completo y envíalo. El encargo pide este producto elaborado: Página de resultado con la instrucción reutilizable, sus tres pruebas (PC-01, PC-02 y PC-03) y el ajuste o la razón para conservarla. con este formato: Diseña una matriz visual con PC-01, PC-02 y PC-03, instrucción aplicada, salida, resultado de comprobación y ajuste o razón para conservar. Destaca PC-02 como caso incompleto y muestra qué dato debe quedar pendiente. No necesitas llenar fichas ni preparar archivos adicionales.
-5. Revisa tu producto elaborado y verifica los puntos de «Comprueba antes de conservar». Si un punto falla, pide el ajuste indicado abajo y vuelve a revisar tu entrega.
-6. Guarda tu producto elaborado en «Guarda tu evidencia». La revisión humana sigue pendiente hasta que la realices.
+2. Abre un chat autorizado y escribe ahí tu instrucción. Si quieres que la IA la revise antes de ejecutarla, envía primero el mensaje de «Revisión de tu instrucción».
+3. Copia la plantilla, completa los espacios ___ en el chat y envíala con los archivos. La guía no guarda lo que escribes. Adjunta: pqrs-complejas.csv. Están en la carpeta fuentes/.
+4. Copia en la misma conversación, en un solo mensaje, los bloques «1. Encargo de referencia» y «2. Formato para guardar». La IA compara tu intento con la referencia y prepara resultado-reto-3.html.
+5. Revisa «Comprueba antes de conservar». Si un punto falla, usa el ajuste de abajo.
+6. Guarda la página en «Guarda tu evidencia». La revisión humana sigue pendiente hasta que la realices.
 
 ## Archivos para adjuntar
 
 - [pqrs-complejas.csv](fuentes/pqrs-complejas.csv) · recurso común; también está en «Recursos comunes».
 
-## Encargo completo
+## Revisión de tu instrucción
 
-```text
+````text
+Quiero practicar cómo escribir instrucciones para IA. Mi tarea es escribir una instrucción reutilizable y probarla con tres PQRS distintas. En mi próximo mensaje te enviaré mi instrucción. No la ejecutes todavía. Revísala con estas partes: Contexto, Rol, Tarea, Tono y Límites, y con la técnica «Guarda la instrucción como plantilla». Dime en pocas líneas qué está claro y qué falta, y hazme como máximo dos preguntas. Cuando te envíe la versión corregida junto con los archivos, ejecútala.
+````
+
+## Antes: escribe tu intento
+
+````text
+Contexto: adjunto ___ con ___ casos de PQRS. Quiero una instrucción que sirva para todos.
+Rol: actúa como ___.
+Tarea: para cada caso, separa ___, ___ y ___, y redacta ___.
+Tono: ___.
+Límites: si un dato no figura en el caso, ___.
+````
+
+## 1. Encargo de referencia
+
+````text
+Contexto: Adjunto pqrs-complejas.csv con tres casos: PC-01, PC-02 y PC-03. Quiero una instrucción que sirva para todos sin reescribirla.
+Rol: Actúa como auxiliar de atención al ciudadano.
+Tarea: Aplica la misma instrucción a los tres casos y conserva las tres salidas. En PC-02, distingue lo que afirma la persona de lo que muestra el portal.
+Tono: Respetuoso y sencillo.
+Límites: Si un dato no figura en el caso, pregúntalo; no lo supongas.
+Técnica · Guarda la instrucción como plantilla: Deja marcadas las partes que cambian en cada caso y pruébala con casos distintos antes de guardarla como Gem o asistente.
+````
+
+## 2. Formato para guardar (cópialo en el mismo mensaje)
+
+````text
+Formato para guardar. Estas instrucciones técnicas permiten guardar la página en la guía; aplícalas después de la instrucción anterior.
+
+Antes de preparar la página, revisa esta conversación. Si escribí mi propia instrucción para esta tarea, compárala con la instrucción de referencia en una tarjeta «Mi intento y la referencia»: qué partes de Contexto, Rol, Tarea, Tono y Límites tenía, qué le faltó, en qué cambió la respuesta y una mejora concreta para la próxima vez. Resume esa comparación al comienzo del campo uso_ia_y_revision. Si no encuentras un intento mío, escribe «Sin intento previo» al comienzo de ese campo.
+
 Trabaja como asistente de aprendizaje. Estos casos administrativos y archivos se prepararon para aprender y no contienen registros reales. Usa solo los archivos adjuntos: pqrs-complejas.csv. Si falta uno, pide ese archivo y no sustituyas su contenido. No me pidas datos personales ni que complete fichas o cambie esta instrucción. Los CSV administrativos están en UTF-8 y usan punto y coma como separador. Inspecciona el archivo para localizar el encabezado real: puede haber filas iniciales de título y advertencias que no son registros. Conserva esos avisos y no los cuentes como datos. Cuando cites una fila, usa la numeración de Excel: las tres primeras filas son título y avisos, el encabezado es la fila 4 y el primer registro es la fila 5.
 
 Construye una instrucción reutilizable con contexto, rol, tarea, tono, límites, fuente, formato y criterio de aceptación. Pruébala con PC-01, PC-02 y PC-03. Conserva las tres salidas; en PC-02 reconoce la diferencia entre lo que afirma la persona y el portal, sin inventar el soporte exigido. Realiza una autocomprobación contra las frases fuente; si necesitas ajustar la instrucción, repite las tres pruebas y muestra el cambio. Explica cuándo pedir aclaración, abrir otro chat o consultar a la persona responsable.
@@ -54,7 +87,7 @@ Sobre técnico esperado:
 ```
 
 Guarda resultado-reto-3.html en la carpeta resultados/. Antes de terminar, comprueba que el texto y las tablas se lean, que el documento o diseño se vea con claridad y que coincidan las cifras y citas con las fuentes. Si después quieres rehacer el diseño en Canva, Word o Excel, usa esta página como base; la evidencia se guarda con este archivo HTML. No inventes ejecución ni revisión humana.
-```
+````
 
 ## Comprueba antes de conservar
 
@@ -66,7 +99,7 @@ Guarda resultado-reto-3.html en la carpeta resultados/. Antes de terminar, compr
 
 Copia esta instrucción en la misma conversación:
 
-> Compara tu producto elaborado con las fuentes y cada punto de comprobación. Corrige solo lo que no coincida, conserva visibles cifras, citas y pendientes, y guarda de nuevo tu entrega sin inventar datos ni afirmar que una persona ya la revisó.
+> Revisa tu resultado contra estos puntos: 1) La misma versión se prueba en PC-01, PC-02 y PC-03. 2) PC-02 conserva el requisito que no consta y lo convierte en una pregunta. 3) Si cambia la versión, se repiten las pruebas en los tres casos. Corrige solo lo que no se cumpla, conserva visibles las cifras, las citas y los pendientes, y entrégame de nuevo la página completa. No afirmes que una persona ya la revisó.
 
 El producto elaborado incluye los datos y campos que recupera el Portafolio de Evidencias. Revisa y selecciona este mismo archivo; no prepares otra entrega.
 

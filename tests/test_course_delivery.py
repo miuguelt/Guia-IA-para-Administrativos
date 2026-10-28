@@ -15,20 +15,60 @@ class DeliveryMarkupTests(unittest.TestCase):
         spec.loader.exec_module(module)
         return module
 
+    def copied(self, soup, button):
+        ids = [button['data-copy'], *button.get('data-copy-append', '').split()]
+        return '\n\n'.join(soup.select_one('#' + ident).get_text().strip() for ident in ids)
+
     def test_reto_muestra_el_producto_sin_repetir_el_metodo_completo(self):
         module = self.load()
-        compact = BeautifulSoup(module.render_task('reto-4', include_downloads=False), 'html.parser')
+        compact = BeautifulSoup(module.render_task('MG-A02', include_downloads=False), 'html.parser')
         action = compact.select_one('.ai-task-action').get_text()
-        self.assertIn(module.TASKS['reto-4']['visualDescription'], action)
+        self.assertIn(module.TASKS['MG-A02']['visualDescription'], action)
         self.assertNotIn('Descarga y extrae', action)
         self.assertNotIn('Guarda tu evidencia', action)
         self.assertEqual(len(compact.select('[data-copy]')), 2)
-        complete = BeautifulSoup(module.render_task('reto-4'), 'html.parser')
+        complete = BeautifulSoup(module.render_task('MG-A02'), 'html.parser')
         self.assertIn('Descarga y extrae', complete.select_one('.ai-task-action').get_text())
+
+    def test_los_retos_guian_a_escribir_en_el_chat_antes_de_copiar_la_referencia(self):
+        module = self.load()
+        prompts = module.sys.modules['ai_prompts']
+        expected_buttons = {'comentado': 2, 'huecos': 3, 'propio': 2}
+        for key, task in module.TASKS.items():
+            if 'brief' not in task:
+                continue
+            with self.subTest(key=key):
+                level = task['brief']['apoyo']
+                soup = BeautifulSoup(module.render_task(key, include_downloads=False), 'html.parser')
+                card = soup.select_one('.ai-task-coached')
+                self.assertEqual(card['data-support'], level)
+                self.assertFalse(soup.select('input,textarea'), 'La guía no pide escribir en la página')
+                steps = card.select('.coach-steps > li')
+                self.assertEqual(len(steps), 3)
+                self.assertIn('Escribe tu instrucción en el chat', steps[1].get_text())
+                self.assertIn(task['brief']['tecnica']['nombre'], card.select_one('.ai-task-technique').get_text())
+                buttons = soup.select('[data-copy]')
+                self.assertEqual(len(buttons), expected_buttons[level])
+                copies = {button['data-copy'] + '|' + button.get('data-copy-append', ''): self.copied(soup, button) for button in buttons}
+                ident = 'ai-task-' + key
+                self.assertEqual(copies[f'{ident}-entrenador|'], prompts.coach_text(task))
+                self.assertEqual(copies[f'{ident}-chat|{ident}-chat-tecnico'], prompts.copy_text(task))
+                self.assertIsNotNone(card.select_one(f'.ide-option a[href="materiales/ia/{key}/ENCARGO-IDE.md"][download]'))
+                if level == 'huecos':
+                    self.assertEqual(copies[f'{ident}-plantilla|'], prompts.template_text(task))
+                if level == 'comentado':
+                    self.assertEqual(len(card.select('.crtt-annotated dd small')), 5)
+                if level == 'propio':
+                    self.assertEqual(len(card.select('.crtt-checklist li')), 5)
+                    self.assertEqual(card.select_one('.ai-task-reference summary').get_text(), 'Ábrelo cuando termines tu instrucción')
+                reference = card.select_one('[data-ai-task]')
+                self.assertIn(task['chatPrompt'], reference.get_text())
 
     def test_encargos_se_copian_completos_y_los_materiales_estan_disponibles(self):
         module = self.load()
         for key in module.TASKS:
+            if 'brief' in module.TASKS[key]:
+                continue
             soup = BeautifulSoup(module.render_task(key), 'html.parser')
             buttons = soup.select('[data-copy]')
             self.assertEqual(len(buttons), 2, key)
@@ -115,7 +155,7 @@ class DeliveryMarkupTests(unittest.TestCase):
             self.assertIsNotNone(node.find_parent(attrs={'data-ai-storage':True,'hidden':True}))
         module.attach_deliveries(soup)
         self.assertEqual(len(soup.select('[data-ai-delivery]')), 7)
-        self.assertEqual({name for name,value in vars(module).items() if inspect.isfunction(value) and value.__module__==module.__name__}, {'render_task','render_delivery','attach_deliveries','attach_task_slots'})
+        self.assertEqual({name for name,value in vars(module).items() if inspect.isfunction(value) and value.__module__==module.__name__}, {'render_task','render_coached_task','render_delivery','attach_deliveries','attach_task_slots'})
 
     def test_encargo_aparte_se_publica_en_su_espacio_y_falla_si_no_existe(self):
         module = self.load()

@@ -4,22 +4,56 @@ Los casos y archivos se prepararon para aprender y no contienen registros reales
 
 **Vas a obtener:** Página de resultado con el tablero de los 50 mensajes, la razón de cada prioridad y diez borradores sin enviar.
 
+**Técnica de este reto · Pide que la IA pregunte antes:** Antes de clasificar, la IA te hace hasta tres preguntas sobre los criterios de prioridad y espera tus respuestas.
+
 ## Hazlo con IA
 
 1. Descarga el ZIP de este reto y extrae su carpeta.
-2. Abre un chat autorizado, adjunta las fuentes indicadas y copia el encargo completo.
-3. Adjunta solo estos archivos: correos-50.csv. Están en la carpeta fuentes/ de este paquete; en Antigravity o Codex ya quedan en su lugar. Conserva intactos los originales.
-4. Abre ENCARGO-CHAT.md o ENCARGO-IDE.md, según la herramienta. Copia el texto completo y envíalo. El encargo pide este producto elaborado: Página de resultado con el tablero de los 50 mensajes, la razón de cada prioridad y diez borradores sin enviar. con este formato: Diseña un tablero legible de la bandeja, con los 50 códigos, categoría, prioridad, señal textual y razón. Añade diez tarjetas de borrador sin enviar y resalta las urgencias con su sustento, sin presentar la priorización como decisión institucional. No necesitas llenar fichas ni preparar archivos adicionales.
-5. Revisa tu producto elaborado y verifica los puntos de «Comprueba antes de conservar». Si un punto falla, pide el ajuste indicado abajo y vuelve a revisar tu entrega.
-6. Guarda tu producto elaborado en «Guarda tu evidencia». La revisión humana sigue pendiente hasta que la realices.
+2. Abre un chat autorizado y escribe ahí tu instrucción. Si quieres que la IA la revise antes de ejecutarla, envía primero el mensaje de «Revisión de tu instrucción».
+3. Copia la plantilla, completa los espacios ___ en el chat y envíala con los archivos. La guía no guarda lo que escribes. Adjunta: correos-50.csv. Están en la carpeta fuentes/.
+4. Copia en la misma conversación, en un solo mensaje, los bloques «1. Encargo de referencia» y «2. Formato para guardar». La IA compara tu intento con la referencia y prepara resultado-reto-4.html.
+5. Revisa «Comprueba antes de conservar». Si un punto falla, usa el ajuste de abajo.
+6. Guarda la página en «Guarda tu evidencia». La revisión humana sigue pendiente hasta que la realices.
 
 ## Archivos para adjuntar
 
 - [correos-50.csv](fuentes/correos-50.csv) · recurso común; también está en «Recursos comunes».
 
-## Encargo completo
+## Revisión de tu instrucción
 
-```text
+````text
+Quiero practicar cómo escribir instrucciones para IA. Mi tarea es priorizar una bandeja de 50 mensajes con razones visibles. En mi próximo mensaje te enviaré mi instrucción. No la ejecutes todavía. Revísala con estas partes: Contexto, Rol, Tarea, Tono y Límites, y con la técnica «Pide que la IA pregunte antes». Dime en pocas líneas qué está claro y qué falta, y hazme como máximo dos preguntas. Cuando te envíe la versión corregida junto con los archivos, ejecútala.
+````
+
+## Antes: escribe tu intento
+
+````text
+Contexto: adjunto ___ con ___ mensajes. El plazo que cuenta es ___.
+Rol: actúa como ___.
+Tarea: primero ensaya con ___; después clasifica todos según ___ y redacta ___.
+Tono: ___.
+Límites: conserva ___; la clasificación ___.
+Antes de empezar, hazme ___ preguntas sobre ___ y espera mis respuestas.
+````
+
+## 1. Encargo de referencia
+
+````text
+Contexto: Adjunto correos-50.csv con 50 mensajes de una bandeja. La hora de llegada es simulada; el plazo que cuenta es el que aparece escrito en cada mensaje.
+Rol: Actúa como auxiliar administrativo que organiza la bandeja.
+Tarea: Ensaya primero con C-001 a C-005. Después clasifica los 50 mensajes por señal del texto, personas afectadas y plazo, y redacta diez borradores sin enviar.
+Tono: Directo y ordenado.
+Límites: Conserva los 50 códigos. La clasificación es una sugerencia, no una decisión institucional.
+Técnica · Pide que la IA pregunte antes: Antes de clasificar, la IA te hace hasta tres preguntas sobre los criterios de prioridad y espera tus respuestas.
+````
+
+## 2. Formato para guardar (cópialo en el mismo mensaje)
+
+````text
+Formato para guardar. Estas instrucciones técnicas permiten guardar la página en la guía; aplícalas después de la instrucción anterior.
+
+Antes de preparar la página, revisa esta conversación. Si escribí mi propia instrucción para esta tarea, compárala con la instrucción de referencia en una tarjeta «Mi intento y la referencia»: qué partes de Contexto, Rol, Tarea, Tono y Límites tenía, qué le faltó, en qué cambió la respuesta y una mejora concreta para la próxima vez. Resume esa comparación al comienzo del campo uso_ia_y_revision. Si no encuentras un intento mío, escribe «Sin intento previo» al comienzo de ese campo.
+
 Trabaja como asistente de aprendizaje. Estos casos administrativos y archivos se prepararon para aprender y no contienen registros reales. Usa solo los archivos adjuntos: correos-50.csv. Si falta uno, pide ese archivo y no sustituyas su contenido. No me pidas datos personales ni que complete fichas o cambie esta instrucción. Los CSV administrativos están en UTF-8 y usan punto y coma como separador. Inspecciona el archivo para localizar el encabezado real: puede haber filas iniciales de título y advertencias que no son registros. Conserva esos avisos y no los cuentes como datos. Cuando cites una fila, usa la numeración de Excel: las tres primeras filas son título y avisos, el encabezado es la fila 4 y el primer registro es la fila 5.
 
 Conserva los 50 códigos. La hora de llegada es simulada y no se compara con el plazo: prioriza según el plazo escrito en el mensaje. Antes del lote completo, ensaya C-001 a C-005 con una misma regla y contrasta esos cinco códigos. Después clasifica los 50 mensajes para proponer un orden de revisión según señal textual, personas afectadas y plazo. Explica las repeticiones entre lotes, sin borrar filas. Genera diez borradores, uno por situación del primer lote, con referencia al código y lo que falta por confirmar. Las categorías son sugerencias didácticas: no representan prioridad institucional. Explica brevemente la diferencia entre clasificación y decisión.
@@ -52,7 +86,7 @@ Sobre técnico esperado:
 ```
 
 Guarda resultado-reto-4.html en la carpeta resultados/. Antes de terminar, comprueba que el texto y las tablas se lean, que el documento o diseño se vea con claridad y que coincidan las cifras y citas con las fuentes. Si después quieres rehacer el diseño en Canva, Word o Excel, usa esta página como base; la evidencia se guarda con este archivo HTML. No inventes ejecución ni revisión humana.
-```
+````
 
 ## Comprueba antes de conservar
 
@@ -64,7 +98,7 @@ Guarda resultado-reto-4.html en la carpeta resultados/. Antes de terminar, compr
 
 Copia esta instrucción en la misma conversación:
 
-> Compara tu producto elaborado con las fuentes y cada punto de comprobación. Corrige solo lo que no coincida, conserva visibles cifras, citas y pendientes, y guarda de nuevo tu entrega sin inventar datos ni afirmar que una persona ya la revisó.
+> Revisa tu resultado contra estos puntos: 1) La clasificación conserva los 50 códigos. 2) Los diez borradores citan el mensaje y permanecen sin enviar. 3) Las razones usan señales de la fuente y no una prioridad oficial inventada. Corrige solo lo que no se cumpla, conserva visibles las cifras, las citas y los pendientes, y entrégame de nuevo la página completa. No afirmes que una persona ya la revisó.
 
 El producto elaborado incluye los datos y campos que recupera el Portafolio de Evidencias. Revisa y selecciona este mismo archivo; no prepares otra entrega.
 

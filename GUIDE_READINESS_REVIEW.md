@@ -2,7 +2,7 @@
 
 ## Actualización vigente · 27 de octubre de 2026
 
-Se analizó la guía completa para que una persona principiante la siga sin perderse y aprenda a pedirle cosas a la IA. El plan tiene tres fases: correcciones rápidas, rediseño pedagógico y menos texto y jerga. Esta entrada registra la primera fase.
+Se analizó la guía completa para que una persona principiante la siga sin perderse y aprenda a pedirle cosas a la IA. El plan tiene tres fases: correcciones rápidas, rediseño pedagógico y menos texto y jerga. Esta entrada registra las dos primeras fases.
 
 ### Correcciones rápidas
 
@@ -17,9 +17,23 @@ Se analizó la guía completa para que una persona principiante la siga sin perd
 - `npm run build`, `npm run check:redaccion`, 376 pruebas JavaScript y 96 Python. La cobertura de funciones de `js/*.js` es 100 %.
 - Los ZIP del laboratorio de datos cambiaron al compilar: la versión anterior empaquetaba `analysis_data.py` con finales CRLF y la fuente versionada usa LF. Los nuevos coinciden con lo que genera la integración continua.
 
+### Rediseño pedagógico (fase B)
+
+- **Escribir antes de copiar.** Cada reto guía tres pasos en el chat: pedir una revisión de la instrucción propia sin ejecutarla, escribirla y enviarla con los archivos, y copiar el encargo de referencia en la misma conversación. La guía no agrega campos para escribir: la práctica ocurre en la IA.
+- **Apoyo que se retira.** Los retos 0 a 2 muestran la instrucción de referencia comentada parte por parte; del 3 al 6, una plantilla con espacios ___ que se completa en el chat; del 7 al integrador, una lista de preguntas para escribir desde cero, y la referencia queda plegada hasta terminar.
+- **Una técnica por reto.** Minimizar datos, comparar una petición vaga con una CRTT, dar un ejemplo de salida, guardar una plantilla o Gem, pedir que la IA pregunte antes, formato explícito, iterar con pocas filas, descomponer en condiciones, cadena de verificación, separar instrucciones de datos y combinar técnicas.
+- **Bloque técnico oculto.** El aprendiz lee una instrucción de 70 a 150 palabras. El botón agrega el formato para guardar (lectura de CSV, página autónoma y bloque de datos) y una cláusula que pide la tarjeta «Mi intento y la referencia», resumida al comienzo de `uso_ia_y_revision`. El esquema de las evidencias no cambia.
+- **Ajuste propio de cada reto.** La solicitud de ajuste enumera las tres comprobaciones del reto en lugar de un texto genérico.
+- **Encargos para el propio trabajo.** «Hazlo con tu tarea» hace que la IA entreviste al aprendiz y devuelva una instrucción para una tarea de su puesto; «Mi biblioteca de encargos» convierte las instrucciones que funcionaron en plantillas o en un Gem. Aparecen en «Aprender con IA» y en el manual del portafolio.
+- **Peso de la página.** La opción para Antigravity o Codex enlaza a `ENCARGO-IDE.md` en lugar de repetir el encargo. Así `index.html` se mantiene en 1,16 MB pese a los textos nuevos, por debajo del límite de 1,2 MB que vigila la prueba. Las plantillas de oficina usan el botón común de copia en lugar de código en línea.
+
+### Verificación de la fase B
+
+- `npm run build`, `npm run check:redaccion`, 378 pruebas JavaScript y 107 Python. La cobertura de funciones de `js/*.js` es 100 %. Una prueba compara el texto copiado en la guía con los bloques del paquete.
+- La prueba con un chat real (escribir un intento, copiar la referencia y guardar la página) sigue pendiente.
+
 ### Pendientes
 
-- Fase B: encargo visible y bloque técnico oculto al copiar, apoyo que se retira poco a poco, una técnica por reto y la IA como entrenadora.
 - Fase C: menos jerga y texto, primera práctica al comienzo de la preparación y demostración breve en Inicio.
 - La observación con aprendices, el aval de las 40 horas y la confirmación de la cohorte siguen abiertos.
 

@@ -227,3 +227,40 @@ test('la prueba individual tiene su propio encargo después del trabajo en equip
   assert.doesNotMatch(team, /IND-01|casos-individuales/u);
   dom.window.close();
 });
+
+test('copiar el encargo de referencia une la instrucción visible con su formato para guardar', async () => {
+  const { dom, window, document } = await setup('#m03-implementacion');
+  const copied = [];
+  Object.defineProperty(window.navigator, 'clipboard', { configurable: true, value: { writeText: async value => copied.push(value) } });
+  const markdown = read('materiales/ia/reto-4/ENCARGO-CHAT.md');
+  const match = markdown.match(/## 1\. Encargo de referencia\n\n````text\n([\s\S]*?)\n````\n\n## 2\. Formato para guardar[^\n]*\n\n````text\n([\s\S]*?)\n````/u);
+  assert.ok(match, 'El paquete separa la referencia y el formato para guardar');
+  const button = document.querySelector('#reto-4 [data-copy="ai-task-reto-4-chat"][data-copy-append="ai-task-reto-4-chat-tecnico"]');
+  button.click();
+  await tick(window);
+  assert.equal(copied[0], `${match[1]}\n\n${match[2]}`);
+  assert.match(document.getElementById('course-notice').textContent, /^Encargo copiado con su formato para guardar/u);
+  const broken = document.createElement('button');
+  broken.dataset.copy = 'no-existe';
+  broken.dataset.copyAppend = 'ai-task-reto-4-chat-tecnico';
+  const parts = window.CourseTabs.copyParts(document, broken);
+  assert.equal(parts.nodes.length, 0);
+  assert.equal(parts.text, '');
+  dom.window.close();
+});
+
+test('si el portapapeles falla, abre el formato para guardar y selecciona todo el encargo', async () => {
+  const { dom, window, document } = await setup('#m03-implementacion');
+  Object.defineProperty(window.navigator, 'clipboard', { configurable: true, value: { writeText: async () => { throw new Error('Bloqueado'); } } });
+  const technical = document.getElementById('ai-task-reto-4-chat-tecnico');
+  assert.equal(technical.closest('details').open, false);
+  document.querySelector('#reto-4 [data-copy="ai-task-reto-4-chat"][data-copy-append]').click();
+  await tick(window);
+  assert.equal(technical.closest('details').open, true);
+  assert.equal(document.getElementById('ai-task-reto-4-chat').closest('details').open, true);
+  const selected = window.getSelection().toString();
+  assert.match(selected, /Contexto: Adjunto correos-50\.csv/u);
+  assert.match(selected, /Formato para guardar/u);
+  assert.match(document.getElementById('course-notice').textContent, /Ctrl\+C/u);
+  dom.window.close();
+});

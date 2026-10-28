@@ -101,7 +101,8 @@ test('la página publicada enseña CRTT y flujos antes de evaluarlos y cierra co
   assert.ok(doc.querySelector('#m03-implementacion [data-flow-primer]'), 'El Módulo 3 debe explicar el diagrama de flujo');
 
   assert.equal(doc.querySelectorAll('[data-challenge-stage="3"] .stage-office-step').length, RETOS.length);
-  assert.equal(doc.querySelectorAll('[data-challenge-stage="1"] .stage-crtt-tip').length, 7);
+  assert.equal(doc.querySelectorAll('[data-challenge-stage="1"] .ai-task-coached').length, RETOS.length);
+  assert.equal(doc.querySelectorAll('.stage-crtt-tip').length, 0);
 
   for (const id of ['ratio-numerator', 'ratio-denominator']) assert.equal(doc.getElementById(id).readOnly, false, id);
 

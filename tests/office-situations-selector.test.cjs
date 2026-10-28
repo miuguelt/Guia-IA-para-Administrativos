@@ -19,10 +19,10 @@ function homeDom() {
   return dom;
 }
 
-test('el catálogo separa ocho situaciones de oficina y cuatro formas de aprender con IA', () => {
-  assert.equal(catalog.length, 12);
+test('el catálogo separa ocho situaciones de oficina y seis formas de aprender con IA', () => {
+  assert.equal(catalog.length, 14);
   assert.deepEqual(office.map(item => item.id), ['comites-evaluacion', 'novedades-plataformas', 'cuentas-cobro', 'pqrs-urgentes', 'actas-reunion', 'limpieza-excel', 'comunicaciones-oficiales', 'diseno-procedimientos']);
-  assert.deepEqual(learning.map(item => item.id), ['explicaciones-medida', 'preguntas-comprobacion', 'practica-deliberada', 'rutas-paso-a-paso']);
+  assert.deepEqual(learning.map(item => item.id), ['explicaciones-medida', 'preguntas-comprobacion', 'practica-deliberada', 'rutas-paso-a-paso', 'hazlo-con-tu-tarea', 'mi-biblioteca-de-encargos']);
   const titles = new Set(Object.values(JSON.parse(read('content/ai-task-briefs.json'))).map(brief => brief.title.replace(' ✦', '')));
   titles.add('Preparación · Crea tu primer informe con IA');
   for (const item of catalog) {
@@ -50,21 +50,21 @@ test('la portada publica el selector generado sin emojis ni rótulos engañosos'
   assert.doesNotMatch(section.textContent, /Ver solución|Blindaje|Escudo|1 clic|\p{Extended_Pictographic}/u);
   for (const button of section.querySelectorAll('[data-copy]')) assert.ok(doc.getElementById(button.dataset.copy), button.dataset.copy);
   const learningCards = doc.querySelectorAll('#aprender-con-ia .learning-ai-card');
-  assert.equal(learningCards.length, 4);
+  assert.equal(learningCards.length, 6);
   assert.match(doc.getElementById('aprender-rutas-paso-a-paso').textContent, /Reto 6/u);
   assert.equal(doc.querySelector('#aprender-rutas-paso-a-paso .detail-practice'), null, 'Sin reto relacionado no se muestra enlace');
   dom.window.close();
 });
 
-test('el manual del portafolio reúne las doce fichas y descarga el mismo contenido en Markdown', () => {
+test('el manual del portafolio reúne las catorce fichas y descarga el mismo contenido en Markdown', () => {
   const dom = new JSDOM(read('content/portfolio.html'));
   const doc = dom.window.document;
   const manual = doc.getElementById('manual-situaciones-oficina');
-  assert.equal(manual.querySelectorAll('.manual-item-card').length, 12);
+  assert.equal(manual.querySelectorAll('.manual-item-card').length, 14);
   assert.deepEqual([...manual.querySelectorAll('.manual-group > h3')].map(node => node.textContent), ['Situaciones de oficina', 'Aprender con IA']);
   const download = manual.querySelector('a[download="manual-situaciones-oficina.md"]');
   const markdown = decodeURIComponent(download.getAttribute('href').replace('data:text/markdown;charset=utf-8,', ''));
-  assert.equal((markdown.match(/^### /gmu) || []).length, 12);
+  assert.equal((markdown.match(/^### /gmu) || []).length, 14);
   assert.match(markdown, /Instrucción para copiar/u);
   assert.ok(manual.querySelector('#btn-print-manual'));
   dom.window.close();

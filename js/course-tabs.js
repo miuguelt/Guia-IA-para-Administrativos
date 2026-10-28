@@ -84,15 +84,27 @@
     groups.set(page.id, { activate, current: () => current });
   }
 
+  // Un encargo puede copiar su instrucción visible y, a continuación, el formato para guardar.
+  function copyParts(doc, button) {
+    const ids = [button.dataset.copy, ...(button.dataset.copyAppend || '').split(/\s+/u).filter(Boolean)];
+    const nodes = ids.map(id => doc.getElementById(id));
+    if (nodes.some(node => !node)) return { nodes: [], text: '' };
+    return { nodes, text: nodes.map(node => node.textContent.trim()).join('\n\n') };
+  }
+
   async function copy(button) {
-    const target = document.getElementById(button.dataset.copy);
-    if (!target) return;
+    const { nodes, text } = copyParts(document, button);
+    if (!nodes.length) return;
     try {
-      await navigator.clipboard.writeText(target.textContent.trim());
+      await navigator.clipboard.writeText(text);
       notify(button.dataset.copyMessage || 'Encargo copiado. Adjunta las fuentes indicadas o abre la carpeta del paquete en tu IDE.');
     } catch (_) {
+      nodes.forEach(node => {
+        for (let details = node.closest('details'); details; details = details.parentElement.closest('details')) details.open = true;
+      });
       const range = document.createRange();
-      range.selectNodeContents(target);
+      range.setStartBefore(nodes[0]);
+      range.setEndAfter(nodes[nodes.length - 1]);
       const selection = window.getSelection();
       selection.removeAllRanges();
       selection.addRange(range);
@@ -101,6 +113,7 @@
   }
 
   window.CourseTabs = {
+    copyParts,
     init(adapter) {
       storage = adapter;
       document.querySelectorAll('[data-tabs]').forEach(initGroup);

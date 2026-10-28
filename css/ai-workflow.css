@@ -17,6 +17,21 @@
 .ai-task-reference > a { display: inline-flex; align-items: center; min-height: 44px; font-size: .8rem; }
 .ai-task-variants > div { display: grid; gap: 6px; }
 .ai-task-variants a { min-height: 44px; padding: 10px 0; font-size: .82rem; }
+.ai-task-technique { margin: 12px 0 0; padding: 12px 16px; border-left: 4px solid #39a900; border-radius: 6px; background: #eef6e6; font-size: .9rem; }
+.coach-steps { display: grid; gap: 18px; margin: 18px 0 0; padding-left: 22px; }
+.coach-steps > li { padding-left: 4px; }
+.coach-steps > li > span { display: block; margin: 4px 0 10px; color: #415a4b; font-size: .9rem; }
+.coach-text, .prompt-technical-detail { margin-top: 10px; }
+.coach-text > summary, .prompt-technical-detail > summary { display: flex; align-items: center; min-height: 44px; cursor: pointer; color: #46614c; font-size: .82rem; }
+.crtt-annotated { display: grid; gap: 10px; margin: 0; }
+.crtt-annotated > div { display: grid; grid-template-columns: minmax(6.5rem, max-content) minmax(0, 1fr); gap: 4px 14px; padding: 12px 14px; border: 1px solid #d7e2d5; border-radius: 8px; background: #fff; }
+.crtt-annotated dt { font-weight: 700; color: #234f3e; }
+.crtt-annotated dd { margin: 0; }
+.crtt-annotated dd small { display: block; margin-top: 4px; color: #55705e; font-size: .82rem; }
+.crtt-checklist { display: grid; gap: 6px; margin: 0; padding-left: 20px; font-size: .9rem; }
+/* La plantilla y la instrucción de referencia son texto natural: se ajustan al ancho en lugar de desplazarse como código. */
+.prompt-template, .prompt-reference pre.prompt-text { padding: 16px 18px; border: 1px solid #d7e2d5; border-radius: 8px; background: #fff; white-space: pre-wrap; overflow-wrap: break-word; font: .85rem/1.7 'Segoe UI', system-ui, sans-serif; }
+@media (max-width: 560px) { .crtt-annotated > div { grid-template-columns: minmax(0, 1fr); } }
 .ai-source-reference { margin: 18px 0; border: 1px solid #d9e1d6; border-radius: 10px; background: #fcfdf9; }
 .ai-source-reference > summary { padding: 14px 18px; cursor: pointer; color: #47654c; font-size: .84rem; font-weight: 600; }
 .ai-source-reference > :not(summary) { margin: 18px; }
