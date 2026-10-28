@@ -75,6 +75,7 @@ test('las tarjetas de los pasos del módulo 01 se reducen al ancho disponible en
   assert.match(moduleOne, /class="task-stepper"/);
   assert.match(courseStyles, /\.data-safety-triptych\s*\{[^}]*grid-template-columns:\s*repeat\(auto-fit,\s*minmax\(min\(100%,\s*250px\),\s*1fr\)\)/s);
   assert.match(courseStyles, /\.task-stepper\s*\{[^}]*grid-template-columns:\s*repeat\(auto-fit,\s*minmax\(min\(100%,\s*200px\),\s*1fr\)\)/s);
+  assert.match(courseStyles, /\.task-delimitation-section \.prompt-bubble\s*\{[^}]*margin-inline:\s*0/s);
 });
 
 test('el módulo 01 no fija columnas mínimas que desborden en móvil', () => {

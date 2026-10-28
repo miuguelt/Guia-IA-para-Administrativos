@@ -211,3 +211,11 @@ test('imprime únicamente la práctica y restaura la vista incluso si falla la i
   assert.equal(doc.body.hasAttribute('data-print-case'),false);
   plugin.destroy(); dom.window.close();
 });
+
+test('el texto de espera describe la acción que pide cada tipo de pregunta', () => {
+  assert.equal(model.pendingPrompt({ type: 'choice' }), 'Elige una opción y comprueba tu respuesta.');
+  assert.equal(model.pendingPrompt({}), 'Elige una opción y comprueba tu respuesta.');
+  assert.equal(model.pendingPrompt({ type: 'rate' }), 'Completa el cálculo y comprueba tu respuesta.');
+  assert.equal(model.pendingPrompt({ type: 'amount' }), 'Completa el cálculo y comprueba tu respuesta.');
+  assert.equal(model.pendingPrompt({ type: 'instruction' }), 'Selecciona las cuatro partes y comprueba tu respuesta.');
+});

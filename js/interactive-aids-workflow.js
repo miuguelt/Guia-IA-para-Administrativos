@@ -8,7 +8,7 @@
 })(typeof window === 'undefined' ? globalThis : window, function (dependency) {
   'use strict';
 
-  const { ANONYMIZATION_CASES, PQRS_CRITERIA, DATA_CLEANING_RECORDS, createAnonymizationState, createPqrsEvaluatorState, createDataCleanerState, classifyAnonymizationItem, getAnonymizationSummaryText, togglePqrsCriterion, getPqrsSummaryText, applyCleaningRules, getDataCleanerSummaryText, calculateProductivityRoi, transferTextToField, copyTextToClipboard } = dependency;
+  const { ANONYMIZATION_LABELS, ANONYMIZATION_CASES, PQRS_CRITERIA, DATA_CLEANING_RECORDS, createAnonymizationState, createPqrsEvaluatorState, createDataCleanerState, classifyAnonymizationItem, getAnonymizationSummaryText, togglePqrsCriterion, getPqrsSummaryText, applyCleaningRules, getDataCleanerSummaryText, calculateProductivityRoi, transferTextToField, copyTextToClipboard } = dependency;
 
   function initAnonymizationWidget(doc) {
     const root = doc.getElementById('anonymization-simulator');
@@ -35,7 +35,7 @@
         const isCorrect = previousChoice === item.expected;
         feedbackBox.hidden = false;
         feedbackBox.className = `safety-feedback-box is-${isCorrect ? 'correct' : 'incorrect'}`;
-        feedbackBox.textContent = `${isCorrect ? 'Clasificación correcta.' : 'Revisa este dato.'} ${item.reason} Ejemplo protegido: ${item.sanitized}`;
+        feedbackBox.textContent = `${isCorrect ? 'Correcto.' : 'Revisa este dato: corresponde a «' + ANONYMIZATION_LABELS[item.expected] + '».'} ${item.reason} Versión segura: ${item.sanitized}`;
       } else if (feedbackBox) {
         feedbackBox.hidden = true;
         feedbackBox.textContent = '';

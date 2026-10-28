@@ -58,6 +58,8 @@ class PracticeTests(unittest.TestCase):
         soup = BeautifulSoup(output, 'html.parser')
         self.assertFalse(soup.select('script,img'))
         self.assertEqual(soup.legend.get_text(), q['prompt'])
+        self.assertEqual(self.call('pending_prompt', {'type': 'rate'}), "Completa el cálculo y comprueba tu respuesta.")
+        self.assertEqual(self.call('pending_prompt', {'type': 'choice'}), "Elige una opción y comprueba tu respuesta.")
 
     def test_web_conserva_lectura_sin_javascript_y_separa_compilacion_documental(self):
         soup = BeautifulSoup((ROOT / 'index.html').read_text(encoding='utf-8'), 'html.parser')

@@ -30,7 +30,7 @@
       const hintCount = state.hints.filter(id => id === question.id).length;
       const help = hintCount > 0;
       feedback.textContent = checked ? `${result.text}${help || state.solutionViewed ? ' Comprobación con ayuda consultada.' : ''} Intentos: ${item.attempts}.`
-        : 'Elige una opción o completa el cálculo y comprueba tu respuesta.';
+        : model.pendingPrompt(question);
       const hint = form.querySelector('[data-case-hint-text]');
       if (hint) {
         hint.hidden = !help;

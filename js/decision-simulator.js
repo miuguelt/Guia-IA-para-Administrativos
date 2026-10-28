@@ -6,47 +6,58 @@
 })(typeof window === 'undefined' ? globalThis : window, function () {
   'use strict';
 
+  // Mismo reparto que la tabla del Paso 2: Regla, IA y Persona.
   const NODES = {
     q1: {
-      text: '¿La tarea requiere aprobar, autorizar, decidir sobre personas o confirmar datos que no están en la fuente?',
-      yes: 'r_human1',
+      step: 1,
+      text: '¿La tarea exige aprobar, autorizar o decidir algo que la fuente no resuelve?',
+      example: 'Ejemplo: confirmar si hay sala o decidir cómo atender la urgencia.',
+      yes: 'r_persona',
       no: 'q2'
     },
     q2: {
-      text: '¿La tarea consiste en reglas exactas (contar, sumar, filtrar datos vacíos, aplicar formatos)?',
-      yes: 'r_rule',
+      step: 2,
+      text: '¿Basta con comprobar si un dato está o no está, sin redactar nada?',
+      example: 'Ejemplo: revisar si la solicitud trae sede, fecha y franja horaria.',
+      yes: 'r_regla',
       no: 'q3'
     },
     q3: {
-      text: '¿La tarea requiere estimar resultados futuros a partir de datos históricos?',
-      yes: 'r_predictive',
-      no: 'q4'
+      step: 3,
+      text: '¿Hay que redactar, resumir u ordenar texto a partir de una fuente autorizada?',
+      example: 'Ejemplo: escribir el mensaje que pide los datos que faltan.',
+      yes: 'r_ia',
+      no: 'r_delimitar'
     },
-    q4: {
-      text: '¿La tarea consiste en redactar, resumir, extraer conceptos, o estructurar texto libre a partir de una fuente dada?',
-      yes: 'r_generative',
-      no: 'r_human2'
+    r_persona: {
+      isResult: true,
+      label: 'Persona',
+      reason: 'Aprobar es una responsabilidad. Logística confirma la sala o propone alternativas; la IA puede preparar el borrador, pero no aprueba ni inventa autorizaciones.'
     },
-    r_human1: {
-      text: '<strong>REVISIÓN HUMANA:</strong> La IA no puede asumir tu responsabilidad ni inventar autorizaciones. Esta tarea requiere tu criterio.',
-      isResult: true
+    r_regla: {
+      isResult: true,
+      label: 'Regla',
+      reason: 'Una lista de chequeo o una fórmula detecta si falta sede, fecha o franja. No necesita IA; comprueba que la lista incluya todos los campos del lineamiento.'
     },
-    r_human2: {
-      text: '<strong>REVISIÓN HUMANA:</strong> Para tareas no definidas por los otros casos, lo mejor es mantener la ejecución bajo el criterio de una persona.',
-      isResult: true
+    r_ia: {
+      isResult: true,
+      label: 'IA',
+      reason: 'El asistente redacta el borrador con la fuente que le entregas. Tú lo revisas contra esa fuente antes de usarlo.'
     },
-    r_rule: {
-      text: '<strong>REGLA AUTOMATIZADA:</strong> Usa fórmulas o macros para aplicar pasos reproducibles. Comprueba las entradas, las reglas y el resultado.',
-      isResult: true
-    },
-    r_predictive: {
-      text: '<strong>IA PREDICTIVA:</strong> Usa un modelo predictivo. Requiere entrenamiento con datos pertinentes y una validación rigurosa.',
-      isResult: true
-    },
-    r_generative: {
-      text: '<strong>IA GENERATIVA:</strong> Usa un asistente como Gemini, ChatGPT o Claude para procesar el texto, pero siempre verifica sus resultados.',
-      isResult: true
+    r_delimitar: {
+      isResult: true,
+      label: 'Persona',
+      reason: 'La tarea todavía no está delimitada. Descríbela con el Paso 3 (entrada, pasos, salida y control) y vuelve a responder.'
     }
+  };
+
+  const TOTAL_QUESTIONS = 3;
+
+  // Las tres tareas de la solicitud de sala y las respuestas que las describen.
+  const CASE_TASKS = {
+    approve: { label: 'Aprobar la sala', answers: ['yes'] },
+    detect: { label: 'Detectar datos faltantes', answers: ['no', 'yes'] },
+    draft: { label: 'Redactar el mensaje', answers: ['no', 'no', 'yes'] }
   };
 
   function createInitialState() {
@@ -58,30 +69,39 @@
     if (!node || node.isResult) return null;
     const nextNodeId = answer === 'yes' ? node.yes : node.no;
     const nextNode = NODES[nextNodeId];
-    return {
-      node: nextNodeId,
-      isResult: !!nextNode.isResult,
-      text: nextNode.text
-    };
+    return { node: nextNodeId, isResult: Boolean(nextNode.isResult), label: nextNode.label, text: nextNode.reason || nextNode.text };
   }
 
-  function render(document, root, state) {
+  function walk(answers) {
+    let nodeId = 'q1';
+    for (const answer of answers) {
+      const next = answerQuestion(nodeId, answer);
+      if (!next) return null;
+      nodeId = next.node;
+    }
+    return NODES[nodeId].isResult ? NODES[nodeId] : null;
+  }
+
+  function render(root, state) {
     const questionDiv = root.querySelector('.decision-question');
     const resultDiv = root.querySelector('#decision-result');
     const questionText = root.querySelector('#decision-question-text');
+    const example = root.querySelector('#decision-question-example');
+    const progress = root.querySelector('#decision-progress');
     const resultText = root.querySelector('#decision-result-text');
-
     const node = NODES[state.currentNode];
 
+    questionDiv.hidden = Boolean(node.isResult);
+    resultDiv.hidden = !node.isResult;
     if (node.isResult) {
-      questionDiv.hidden = true;
-      resultDiv.hidden = false;
-      resultText.innerHTML = node.text;
-    } else {
-      questionDiv.hidden = false;
-      resultDiv.hidden = true;
-      questionText.textContent = node.text;
+      const label = root.ownerDocument.createElement('strong');
+      label.textContent = node.label;
+      resultText.replaceChildren(label, `: ${node.reason}`);
+      return;
     }
+    questionText.textContent = node.text;
+    if (example) example.textContent = node.example;
+    if (progress) progress.textContent = `Pregunta ${node.step} de ${TOTAL_QUESTIONS}`;
   }
 
   function init(options = {}) {
@@ -98,7 +118,9 @@
         const next = answerQuestion(state.currentNode, button.dataset.decision);
         if (next) {
           state.currentNode = next.node;
-          render(document, root, state);
+          render(root, state);
+          const win = document.defaultView;
+          if (next.isResult && win) win.dispatchEvent(new win.CustomEvent('simulator:completed', { detail: { simulatorId: 'decision' } }));
         }
       });
     });
@@ -107,19 +129,14 @@
     if (resetBtn) {
       resetBtn.addEventListener('click', () => {
         state = createInitialState();
-        render(document, root, state);
+        render(root, state);
       });
     }
 
     root.dataset.ready = 'true';
-    render(document, root, state);
+    render(root, state);
     return true;
   }
 
-  return {
-    NODES,
-    createInitialState,
-    answerQuestion,
-    init
-  };
+  return { NODES, CASE_TASKS, createInitialState, answerQuestion, walk, init };
 });

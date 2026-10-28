@@ -28,20 +28,20 @@ Antes de iniciar, el instructor aplica el diagnóstico de acceso y saberes previ
 2. Revise la propuesta de herramienta y sus riesgos. Pida que la IA use únicamente frecuencias y tiempos observados disponibles y deje pendiente lo que no se midió.
 3. Encargue el informe y el JSON a partir de la versión revisada. Confirme con el responsable qué información y herramienta podrían usarse en el puesto.
 
-La web ilustra la línea base con tres solicitudes de práctica que toman 6, 8 y 7 minutos. El promedio es 7 minutos por solicitud; describe el ejemplo, no demuestra un ahorro ni permite generalizar al área. Una comparación posterior necesita tareas de dificultad semejante, el mismo criterio de calidad y el tiempo completo de ambos métodos.
+El aprendiz no calcula ni cronometra. Escribe una frase sobre su tarea y la IA propone entrada, pasos, salida, control, el paso que puede acelerar y la decisión que corresponde a una persona. La IA pregunta una sola vez el tiempo actual aproximado; si el aprendiz no lo conoce, la línea base queda «pendiente». La web lo ilustra en «Observa» con el diagnóstico de la solicitud de sala.
 
 ## Secuencia de las ocho horas
 
 | Actividad | Tiempo | Propósito |
 | --- | ---: | --- |
-| Explicación y ejemplos | 45 min | Delimitar la tarea, comparar opciones y comprender la línea base. |
+| Explicación y ejemplos | 45 min | Delimitar la tarea con ayuda de la IA y comparar opciones. |
 | Reto 0 | 75 min | Decidir qué información puede usarse y reducir lo innecesario. |
 | Reto 1 | 165 min | Usar el encargo preparado y contrastar la respuesta con el lineamiento. |
-| Diagnóstico de una tarea | 135 min | Describir, medir y justificar la opción elegida. |
+| Diagnóstico de una tarea | 135 min | Obtener el diagnóstico con la IA, comprobarlo y justificar la opción elegida. |
 | Devolución y registro | 60 min | Revisar los productos e importar el archivo generado para MG-A01. |
 | Total | 480 min | Ocho horas; la preparación de herramientas ocupa una hora aparte. |
 
-La ruta del diagnóstico se consulta en «Aprende» y se realiza después de los retos. «Observa» contiene dos casos resueltos: una solicitud urgente y una línea base. «Resuelve» reúne las consignas y los paquetes descargables; «Guarda tu evidencia» recibe la evidencia.
+La ruta del diagnóstico se consulta en «Aprende» y se realiza después de los retos. «Observa» contiene dos casos resueltos: una solicitud urgente y un diagnóstico preparado por la IA. «Resuelve» reúne las consignas y los paquetes descargables; «Guarda tu evidencia» recibe la evidencia.
 
 ## Los dos retos
 
@@ -67,10 +67,10 @@ Este producto se registra en MG-A01. Consulte los [instrumentos de evaluación](
 
 ## Apoyos para comprender antes del reto
 
-Presente tres decisiones iniciales: aplicar una regla, preparar texto con IA y solicitar una decisión humana. La explicación de análisis predictivo se consulta como ampliación. Presente la línea base como el tiempo inicial de referencia de una tarea completa.
+Presente tres decisiones iniciales: aplicar una regla, preparar texto con IA y solicitar una decisión humana. La explicación de análisis predictivo se consulta como ampliación. Presente la línea base como el tiempo actual de la tarea completa, que la IA registra o deja pendiente sin cálculos.
 
 Recorra el ejemplo en cuatro pasos: fuente, encargo, resultado y revisión. Pida al aprendiz justificar por qué «mañana» requiere una fecha de referencia y por qué la urgencia no aprueba la reserva. Las dos preguntas de «Observa» comprueban la elección de herramienta y la reducción de la tarjeta B. Muestre la retroalimentación y permita un nuevo intento dentro del tiempo de explicación.
 
-La ruta de productos ordena Reto 0, Reto 1 y diagnóstico. Antes de avanzar, compruebe que el aprendiz puede explicar qué comparte, qué queda pendiente y cómo mediría una tarea comparable.
+La ruta de productos ordena Reto 0, Reto 1 y diagnóstico. Antes de avanzar, compruebe que el aprendiz puede explicar qué comparte, qué queda pendiente y cómo comprobaría el diagnóstico que propone la IA.
 
 Para observar la comprensión real del grupo, use la [pauta con aprendices](validacion-con-aprendices.md).

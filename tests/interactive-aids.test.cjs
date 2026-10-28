@@ -74,26 +74,45 @@ test('el simulador de anonimización (Ley 1581) clasifica fragmentos y genera s�
   assert.equal(state.score, 0);
 
   // Fuera de rango
-  const invalid = aids.classifyAnonymizationItem(state, -1, 'sensible');
+  const invalid = aids.classifyAnonymizationItem(state, -1, 'usar');
   assert.equal(invalid.ok, false);
 
-  // Item 0: Nombre y cédula -> sensible
-  const c0 = aids.classifyAnonymizationItem(state, 0, 'sensible');
+  // Caso 0: datos de la actividad -> usar
+  const c0 = aids.classifyAnonymizationItem(state, 0, 'usar');
   assert.equal(c0.ok, true);
   assert.equal(c0.isCorrect, true);
-  assert.equal(c0.expected, 'sensible');
+  assert.equal(c0.expected, 'usar');
   state = c0.state;
   assert.equal(state.score, 1);
 
-  // Item 1: Diagnóstico médico -> sensible (pero probamos selección pública para false)
-  const c1 = aids.classifyAnonymizationItem(state, 1, 'publico');
+  // Caso 1: identificación de la persona solicitante -> reducir (no cargar es un error)
+  const c1 = aids.classifyAnonymizationItem(state, 1, 'no-cargar');
   assert.equal(c1.isCorrect, false);
+  assert.equal(c1.expected, 'reducir');
   state = c1.state;
 
-  // Resumen de anonimización
+  // Resumen con las etiquetas del semáforo, no con claves técnicas
   const summary = aids.getAnonymizationSummaryText(state);
   assert.match(summary, /Ley 1581 de 2012/iu);
-  assert.match(summary, /SENSIBLE/iu);
+  assert.match(summary, /Clasificación: Usar/u);
+  assert.match(summary, /Clasificación: No cargar/u);
+  assert.match(summary, /Clasificación: pendiente/u);
+  assert.doesNotMatch(summary, /no-cargar|NO-CARGAR/u);
+});
+
+test('el anonimizador usa la misma taxonomía y el mismo caso que el semáforo de Aprende', () => {
+  const keys = Object.keys(aids.ANONYMIZATION_LABELS);
+  assert.deepEqual(keys, ['usar', 'reducir', 'no-cargar']);
+  assert.deepEqual(Object.values(aids.ANONYMIZATION_LABELS), ['Usar', 'Reducir', 'No cargar']);
+  const expected = aids.ANONYMIZATION_CASES.map(item => item.expected);
+  for (const value of expected) assert.ok(keys.includes(value), `clave desconocida: ${value}`);
+  for (const key of keys) assert.ok(expected.includes(key), `ningún caso ejercita «${key}»`);
+  const identification = aids.ANONYMIZATION_CASES.find(item => /C\.C\./u.test(item.fragment));
+  assert.equal(identification.expected, 'reducir', 'la identificación se reduce, como en la tarjeta amarilla');
+  for (const item of aids.ANONYMIZATION_CASES) {
+    assert.doesNotMatch(`${item.fragment} ${item.reason} ${item.sanitized}`, /SOFIA|semiprivad/iu);
+    assert.match(`${item.fragment} ${item.reason}`, /sala|reserva|taller|solicit/iu, `${item.id} debe pertenecer a la solicitud de sala`);
+  }
 });
 
 test('el evaluador de respuestas PQRS valida criterios institucionales y genera texto', () => {
@@ -299,8 +318,8 @@ test('widgets de anonimizador, PQRS, limpiador y calculadora de ROI interactúan
   const html = `
     <div id="anonymization-simulator">
       <p id="anon-case-text"></p>
-      <button data-anon-choice="sensible" type="button">Sensible</button>
-      <button data-anon-choice="publico" type="button">Público</button>
+      <button data-anon-choice="reducir" type="button">Reducir</button>
+      <button data-anon-choice="usar" type="button">Usar</button>
       <div id="anon-feedback" hidden></div>
       <div id="anon-score"></div>
       <button id="anon-prev" type="button">Anterior</button>
@@ -370,7 +389,7 @@ test('widgets de anonimizador, PQRS, limpiador y calculadora de ROI interactúan
   assert.equal(aids.init(doc), true);
 
   // 1. Anonimizador
-  const sensibleBtn = doc.querySelector('[data-anon-choice="sensible"]');
+  const sensibleBtn = doc.querySelector('[data-anon-choice="reducir"]');
   sensibleBtn.click();
   const anonNext = doc.getElementById('anon-next');
   anonNext.click();

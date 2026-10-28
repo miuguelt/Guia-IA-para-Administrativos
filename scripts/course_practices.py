@@ -25,6 +25,18 @@ def source_records(sources, root=ROOT):
     return records
 
 
+PENDING_PROMPTS = {
+    "rate": "Completa el cálculo y comprueba tu respuesta.",
+    "amount": "Completa el cálculo y comprueba tu respuesta.",
+    "instruction": "Selecciona las cuatro partes y comprueba tu respuesta.",
+}
+
+
+def pending_prompt(question):
+    """Nombra la acción que pide la pregunta antes de comprobarla."""
+    return PENDING_PROMPTS.get(question.get("type"), "Elige una opción y comprueba tu respuesta.")
+
+
 def question_html(module, question):
     """Publica controles y explicación desde el mismo enunciado evaluable."""
     ident = f"case-{module}-{question['id']}"
@@ -43,7 +55,7 @@ def question_html(module, question):
         controls = ''.join(f'<label class="check-option"><input type="radio" name="{ident}" value="{escape(str(value), quote=True)}" aria-describedby="{ident}-feedback"><span>{escape(label)}</span></label>'
                            for value, label in question["options"])
     initial_hint = question.get("hint") or (question["hints"][0] if question.get("hints") else "")
-    return f'''<form id="{ident}" class="case-question" data-case-question="{escape(question['id'], quote=True)}" data-state="pending"><fieldset><legend>{escape(question['prompt'])}</legend><div class="case-inputs">{controls}</div></fieldset><div class="check-actions"><button type="button" class="button button-primary" data-case-submit>Comprobar respuesta</button><button type="button" class="text-button" data-case-hint>Consultar una pista</button></div><p id="{ident}-feedback" data-case-feedback role="status" aria-live="polite">Elige una opción o completa el cálculo y comprueba tu respuesta.</p><p data-case-hint-text hidden>{escape(initial_hint)}</p></form>'''
+    return f'''<form id="{ident}" class="case-question" data-case-question="{escape(question['id'], quote=True)}" data-state="pending"><fieldset><legend>{escape(question['prompt'])}</legend><div class="case-inputs">{controls}</div></fieldset><div class="check-actions"><button type="button" class="button button-primary" data-case-submit>Comprobar respuesta</button><button type="button" class="text-button" data-case-hint>Consultar una pista</button></div><p id="{ident}-feedback" data-case-feedback role="status" aria-live="polite">{pending_prompt(question)}</p><p data-case-hint-text hidden>{escape(initial_hint)}</p></form>'''
 
 
 def practice_html(module, widgets, example, checks, root=ROOT):
@@ -70,7 +82,7 @@ def practice_html(module, widgets, example, checks, root=ROOT):
         tools = BeautifulSoup(widgets, 'html.parser')
         for button in tools.select('[data-pqrs-transfer], [data-cleaner-transfer]'):
             button.decompose()
-        content[2] = '<details class="case-tools"><summary>Explora el resultado con las herramientas del caso</summary>' + str(tools) + '</details>' + content[2]
+        content[2] += '<details class="case-tools"><summary>Refuerza tus decisiones con los simuladores del caso</summary>' + str(tools) + '</details>'
     final = BeautifulSoup(checks, "html.parser")
     for index, form in enumerate(final.select('[data-knowledge-check]')):
         key = f"cierre-{index + 1}"

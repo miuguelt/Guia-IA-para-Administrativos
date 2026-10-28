@@ -28,6 +28,11 @@
     } else correct = String(value) === question.expected;
     return { correct, text: `${correct ? 'Correcto.' : 'Revisa esta decisión.'} ${validation || question.feedbacks?.[value] || question.explanation} Fuente: ${question.reference}` };
   }
+  function pendingPrompt(question) {
+    if (question.type === 'rate' || question.type === 'amount') return 'Completa el cálculo y comprueba tu respuesta.';
+    if (question.type === 'instruction') return 'Selecciona las cuatro partes y comprueba tu respuesta.';
+    return 'Elige una opción y comprueba tu respuesta.';
+  }
   function answer(spec, state, id, value, checked) {
     if (!spec.questions.some(question => question.id === id)) return state;
     const previous = state.answers[id];
@@ -74,5 +79,5 @@
     const started = state.step > 0 || Object.keys(state.answers).length > 0 || state.hints.length > 0 || state.solutionViewed;
     return { correct, total: spec.questions.length, complete, label: complete ? 'Comprobada' : wrong ? 'Por corregir' : started ? 'En curso' : 'Sin empezar' };
   }
-  return { initial, number, evaluate, answer, restore, summary };
+  return { initial, number, evaluate, pendingPrompt, answer, restore, summary };
 });

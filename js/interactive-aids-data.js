@@ -107,35 +107,37 @@
     })
   });
 
-  // 4. Casos del Anonimizador y Clasificador Ley 1581 (Módulo 01)
+  // 4. Casos del Anonimizador (Módulo 01): misma taxonomía que el semáforo del Paso 1
+  const ANONYMIZATION_LABELS = Object.freeze({ usar: 'Usar', reducir: 'Reducir', 'no-cargar': 'No cargar' });
+
   const ANONYMIZATION_CASES = Object.freeze([
     Object.freeze({
       id: 'anon-1',
-      fragment: '«Nombre: Carlos Alberto Gómez Mendoza, C.C. 1.098.765.432, teléfono 3105551234»',
-      expected: 'sensible',
-      reason: 'Dato de identificación directa de persona natural. No debe compartirse con asistentes externos sin anonimización previa.',
-      sanitized: '«[CIUDADANO_01], C.C. [RESERVADO], teléfono [RESERVADO]»'
+      fragment: '«Taller para 18 personas. Sede, fecha y franja horaria por confirmar».',
+      expected: 'usar',
+      reason: 'Son datos de la actividad que la tarea necesita y no identifican a nadie. Comparte solo este fragmento en la herramienta autorizada.',
+      sanitized: '«Taller para 18 personas. Sede, fecha y franja horaria por confirmar» (sin cambios).'
     }),
     Object.freeze({
       id: 'anon-2',
-      fragment: '«Diagnóstico de incapacidad médica por 3 días emitido por la EPS»',
-      expected: 'sensible',
-      reason: 'Dato de salud (art. 5 Ley 1581 de 2012). Es sensible y está prohibido su tratamiento sin autorización expresa.',
-      sanitized: '«Novedad de ausencia justificada por motivo de salud (3 días)»'
+      fragment: '«Solicita la sala: Carlos Alberto Gómez Mendoza, C.C. 1.098.765.432, correo cgomez@ejemplo.co».',
+      expected: 'reducir',
+      reason: 'El nombre, la cédula y el correo identifican a la persona y no hacen falta para revisar la solicitud. Cambia el nombre por un rol y quita los números.',
+      sanitized: '«Una persona del área de formación solicita la sala».'
     }),
     Object.freeze({
       id: 'anon-3',
-      fragment: '«Consulta por cupo en el programa Técnico en Asistencia Administrativa, jornada nocturna»',
-      expected: 'publico',
-      reason: 'Información institucional de oferta educativa pública. No compromete la privacidad individual.',
-      sanitized: '«Consulta de oferta formativa pública (sin cambios requeridos)»'
+      fragment: '«Dos asistentes al taller tienen incapacidad médica esta semana».',
+      expected: 'no-cargar',
+      reason: 'Es información de salud, un dato sensible según la Ley 1581 de 2012. No la pegues en ningún asistente; si afecta la reserva, la trata la persona responsable en los sistemas oficiales.',
+      sanitized: '«El aforo final está pendiente de confirmar con la persona responsable».'
     }),
     Object.freeze({
       id: 'anon-4',
-      fragment: '«Historial de notas del trimestre II y promedio acumulado del aprendiz en SOFIA Plus»',
-      expected: 'privado',
-      reason: 'Dato semiprivado/privado académico. Requiere reserva institucional y no debe exponerse en chats abiertos.',
-      sanitized: '«Desempeño académico: Trimestre II [ESTADO: REGISTRADO]»'
+      fragment: '«Para reservar, entra al sistema de salas con el usuario y la contraseña de logística que aparecen en el correo».',
+      expected: 'no-cargar',
+      reason: 'Es una credencial. Nunca se comparte con un asistente; quien tiene el permiso entra al sistema de reservas.',
+      sanitized: '«La reserva se registra en el sistema de salas con la cuenta de la persona autorizada».'
     })
   ]);
 
@@ -172,5 +174,5 @@
     Object.freeze({ fila: 23, codigo: 'SIM-0012', aprendiz: 'Aprendiz 019', sede: 'Vélez', estado: 'pendiente ', fecha: '' })
   ]);
 
-  return { SAFETY_SCENARIOS, AUDIT_STATEMENTS, PROMPT_COMPARISONS, ANONYMIZATION_CASES, PQRS_CRITERIA, DATA_CLEANING_RECORDS };
+  return { SAFETY_SCENARIOS, AUDIT_STATEMENTS, PROMPT_COMPARISONS, ANONYMIZATION_LABELS, ANONYMIZATION_CASES, PQRS_CRITERIA, DATA_CLEANING_RECORDS };
 });

@@ -22,8 +22,8 @@
   ]);
 
   const SIMULATORS = Object.freeze({
-    'anonymization': { label: 'Anonimizador Ley 1581 (M01)', minutes: 15 },
-    'decision': { label: 'Triaje: ¿Qué herramienta usar? (M01)', minutes: 10 },
+    'anonymization': { label: 'Semáforo de datos de la sala (M01)', minutes: 15 },
+    'decision': { label: '¿Regla, IA o Persona? (M01)', minutes: 10 },
     'safety': { label: 'Semáforo de seguridad (M01)', minutes: 15 },
     'pqrs': { label: 'Evaluador de respuestas PQRS (M02)', minutes: 20 },
     'data-cleaner': { label: 'Depurador de planillas (M03)', minutes: 25 },

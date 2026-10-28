@@ -8,7 +8,7 @@
 })(typeof window === 'undefined' ? globalThis : window, function (dependency) {
   'use strict';
 
-  const { SAFETY_SCENARIOS, AUDIT_STATEMENTS, PROMPT_COMPARISONS, ANONYMIZATION_CASES, PQRS_CRITERIA, DATA_CLEANING_RECORDS } = dependency;
+  const { SAFETY_SCENARIOS, AUDIT_STATEMENTS, PROMPT_COMPARISONS, ANONYMIZATION_LABELS, ANONYMIZATION_CASES, PQRS_CRITERIA, DATA_CLEANING_RECORDS } = dependency;
 
   // --- Estados Iniciales ---
 
@@ -145,10 +145,10 @@
   }
 
   function getAnonymizationSummaryText(state) {
-    const lines = ['Síntesis de clasificación y minimización de datos (Ley 1581 de 2012):'];
+    const lines = ['Semáforo de datos de la solicitud de sala (Ley 1581 de 2012). Borrador para revisar:'];
     ANONYMIZATION_CASES.forEach((item, idx) => {
-      const choice = state.answers[item.id] || 'pendiente';
-      lines.push(`${idx + 1}. ${item.fragment} -> Clasificación: ${choice.toUpperCase()} (${item.reason})`);
+      const choice = ANONYMIZATION_LABELS[state.answers[item.id]] || 'pendiente';
+      lines.push(`${idx + 1}. ${item.fragment} -> Clasificación: ${choice}. ${item.reason} Versión segura: ${item.sanitized}`);
     });
     return lines.join('\n');
   }

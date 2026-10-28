@@ -49,7 +49,7 @@ def render_challenge_decisions(ident):
             f'<form id="{q_ident}" class="case-question" data-case-question="{escape(question["id"], quote=True)}" data-decision-kind="{escape(question.get("kind", "dilemma"), quote=True)}" data-state="pending">'
             f'<fieldset><legend>{kind_badge} {escape(question["prompt"])}</legend><div class="case-inputs">{controls}</div></fieldset>'
             f'<div class="check-actions"><button type="button" class="button button-primary" data-case-submit>Comprobar respuesta</button><button type="button" class="text-button" data-case-hint>Consultar una pista</button></div>'
-            f'<p id="{q_ident}-feedback" data-case-feedback role="status" aria-live="polite">Elige una opción o completa el cálculo y comprueba tu respuesta.</p>'
+            f'<p id="{q_ident}-feedback" data-case-feedback role="status" aria-live="polite">Elige una opción y comprueba tu respuesta.</p>'
             f'<p data-case-hint-text hidden>{escape(initial_hint)}</p></form>'
         )
     fingerprint = json.dumps({"definition": spec}, ensure_ascii=False, sort_keys=True)
