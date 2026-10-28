@@ -488,3 +488,11 @@ details.secondary-theory[open] > summary::after {
 .check-option__input--plain { width: auto; }
 .sim-footer--tight { display: flex; justify-content: space-between; align-items: center; margin-top: 0.75rem; }
 .sim-count { font-size: 0.82rem; font-weight: 600; color: var(--green-dark); }
+/* Pasos de lección (módulos 02 y 03): tres tarjetas en una fila o en una columna, sin una tarjeta suelta. */
+.lesson-step { container-type: inline-size; }
+.lesson-step .task-stepper:has(> :nth-child(3):last-child),
+.lesson-step .data-safety-triptych { grid-template-columns: minmax(0, 1fr); }
+@container (min-width: 34rem) {
+  .lesson-step .task-stepper:has(> :nth-child(3):last-child),
+  .lesson-step .data-safety-triptych { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}

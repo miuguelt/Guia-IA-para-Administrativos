@@ -5,199 +5,115 @@
 </div>
 <p class="station-desc">Usa las instrucciones del módulo anterior para clasificar 50 correos, extraer acuerdos de una reunión, limpiar una tabla y diseñar un flujo. Comprueba cada producto con su fuente.</p>
 <div class="module-hero"><div><span class="phase-label">Primero aprende · 60 min</span><h3>Del registro al producto revisable</h3><p>La IA clasifica mensajes, extrae acuerdos y limpia tablas. Conserva el código, minuto o fila de origen.</p></div></div>
-<div class="learning-block"><section class="ai-quick-lesson" data-ai-quick-lesson=""><span class="eyebrow">LO ESENCIAL</span><h3>Cada resultado debe llevarte a su fuente</h3><p>La IA clasifica mensajes, extrae acuerdos y limpia tablas. Conserva el código, minuto o fila de origen.</p><p data-ai-mini-example=""><strong>Ejemplo:</strong> SIM-0003 no tiene estado: la columna nueva muestra REVISAR y conserva el original.</p><ol><li>Adjunta el archivo del reto.</li><li>Pide el producto y su referencia de origen.</li><li>Revisa conteos y excepciones y descarga la salida.</li></ol></section><details class="course-context" data-lesson-extension=""><summary>Ampliar conceptos, ejemplos y herramientas opcionales</summary>
-<!-- COMPONENTE 1: DIAGRAMA MAESTRO DE 4 TRANSFORMACIONES DOCUMENTALES -->
-<div aria-labelledby="m03-transform-title" data-diagram-visible="true" class="native-diagram triage-concept-block">
-  <div class="native-diagram__top">
-    <div>
-      <span class="native-diagram__kicker native-diagram__kicker--tight">GESTIÓN OPERATIVA Y TRANSFORMACIÓN DOCUMENTAL · MÓDULO 03</span>
-      <h3 id="m03-transform-title" class="native-diagram__heading">Cuatro transformaciones documentales auditables</h3>
-      <p class="native-diagram__lead">De mensajes, actas y planillas masivas a productos estructurados que puedes rastrear hasta su código, minuto o fila original.</p>
-    </div>
-    <span class="quiet-badge native-diagram__pill">Trazabilidad institucional (es-CO)</span>
-  </div>
-
-  <!-- Cuadrícula de 4 tarjetas: R4, R5, R6 y R7 -->
-  <div class="native-diagram__flow">
-    <!-- R4: Bandeja de correos -->
-    <article class="native-diagram__card native-diagram__card--ai triage-card triage-card--blue">
-      <div class="triage-card__tag--blue">
-        <strong class="triage-card__tag-label--blue">R4 · Bandeja de correos</strong>
-      </div>
-      <h4 class="comparative-card__title">Clasificación y triaje masivo</h4>
-      <div class="triage-card__chip--blue">
-        Entrada: correos-50.csv → Salida: 50 códigos
-      </div>
-      <ul class="comparative-card__list">
-        <li><strong>Inventario íntegro:</strong> se conservan los 50 códigos sin omitir mensajes.</li>
-        <li><strong>Criterio de prioridad:</strong> señal textual, personas afectadas y plazo explícito.</li>
-        <li><strong>Borradores preliminares:</strong> diez propuestas redactadas sin enviar correos.</li>
-        <li><strong>Asuntos por confirmar:</strong> señalar los temas que exigen verificación técnica.</li>
-      </ul>
-      <div class="native-diagram__example triage-card__outcome--blue">
-        Criterio: Clasificar no equivale a decidir; la prioridad oficial la fija la dependencia.
-      </div>
-    </article>
-
-    <!-- R5: Acta de reunión -->
-    <article class="native-diagram__card native-diagram__card--ai triage-card triage-card--blue">
-      <div class="triage-card__tag--blue">
-        <strong class="triage-card__tag-label--blue">R5 · Acta de reunión</strong>
-      </div>
-      <h4 class="comparative-card__title">Extracción trazable por minutos</h4>
-      <div class="triage-card__chip--blue">
-        Entrada: transcripcion.csv → Línea de tiempo
-      </div>
-      <ul class="comparative-card__list">
-        <li><strong>Vínculo al minuto:</strong> cada punto remite a su marca temporal exacta.</li>
-        <li><strong>Acuerdos vs. Intenciones:</strong> solo lo formalmente aprobado pasa como compromiso.</li>
-        <li><strong>Responsable y fecha:</strong> se registran únicamente si constan en la fuente.</li>
-        <li><strong>Marcador «no consta»:</strong> las dudas se anotan como temas por revisar.</li>
-      </ul>
-      <div class="native-diagram__example triage-card__outcome--blue">
-        Criterio: Jamás convertir una propuesta o intención de debate en acuerdo institucional.
-      </div>
-    </article>
-
-    <!-- R6: Limpieza de planillas -->
-    <article class="native-diagram__card native-diagram__card--rule triage-card triage-card--green">
-      <div class="triage-card__tag--green">
-        <strong class="triage-card__tag-label--green">R6 · Limpieza de planillas</strong>
-      </div>
-      <h4 class="comparative-card__title">Normalización no destructiva</h4>
-      <div class="triage-card__chip--green">
-        Entrada: datos-sofia.csv → Columna calculada
-      </div>
-      <ul class="comparative-card__list">
-        <li><strong>Fuente intacta:</strong> «Estado sin normalizar» permanece inalterada.</li>
-        <li><strong>Reglas reproducibles:</strong> recorte de espacios con ESPACIOS (TRIM en inglés) y mayúsculas con MAYUSC.</li>
-        <li><strong>Tratamiento de vacíos:</strong> celdas sin datos se marcan como REVISAR.</li>
-        <li><strong>Integridad de filas:</strong> 30 registros totales, conservando SIM-0012.</li>
-      </ul>
-      <div class="native-diagram__example triage-card__outcome--green">
-        Criterio: Prohibido sobrescribir celdas maestras o borrar filas presuntamente duplicadas.
-      </div>
-    </article>
-
-    <!-- R7: Diseño de procesos -->
-    <article class="native-diagram__card native-diagram__card--human triage-card triage-card--amber">
-      <div class="triage-card__tag--amber">
-        <strong class="triage-card__tag-label--amber">R7 · Diseño de procesos</strong>
-      </div>
-      <h4 class="comparative-card__title">Flujo antes de automatizar</h4>
-      <div class="triage-card__chip--amber">
-        Entrada: reto-07-casos-flujo.csv → Ramas
-      </div>
-      <ul class="comparative-card__list">
-        <li><strong>Filtro de urgencia:</strong> comprobación prioritaria antes de los datos de forma.</li>
-        <li><strong>Punto de detención:</strong> ramas urgentes se escalan para decisión humana.</li>
-        <li><strong>Integridad de campos:</strong> actividad, sede, fecha, franja y aforo.</li>
-        <li><strong>Simulación de rutas:</strong> prueba contrastada en FL-01, FL-02 y FL-03.</li>
-      </ul>
-      <div class="native-diagram__example triage-card__outcome--amber">
-        Criterio: Una automatización evalúa reglas lógicas; no aprueba reservas ni resuelve excepciones.
-      </div>
-    </article>
-  </div>
-
-  <!-- Panel inferior: Pipeline de Normalización SOFIA -->
-  <div class="correspondence-cycle triage-panel">
-    <strong class="triage-panel__label">Secuencia común de normalización y trazabilidad en planillas (SOFIA)</strong>
-    <div class="triage-panel__grid">
-      <div class="metric-box">
-        <span class="metric-box__label">01 · ORIGEN</span>
-        <strong class="metric-box__value">Fuente intacta</strong>
-        <span class="metric-box__note">Carga de datos-sofia.csv; respaldo maestro inalterado sin sobrescritura.</span>
-      </div>
-      <div class="metric-box">
-        <span class="metric-box__label">02 · ESTRUCTURA</span>
-        <strong class="metric-box__value">Columna calculada</strong>
-        <span class="metric-box__note">Adición de «Estado revisado» para operar sin destruir el registro original.</span>
-      </div>
-      <div class="metric-box">
-        <span class="metric-box__label">03 · NORMALIZACIÓN</span>
-        <strong class="metric-box__value">Reglas ESPACIOS y MAYUSC</strong>
-        <span class="metric-box__note">Estandarización tipográfica (ej. SIM-0002 normalizado a FINALIZADO).</span>
-      </div>
-      <div class="metric-box">
-        <span class="metric-box__label">04 · EXCEPCIONES</span>
-        <strong class="metric-box__value">Vacíos y duplicados</strong>
-        <span class="metric-box__note">SIM-0003 pasa a REVISAR y se conservan ambas filas de SIM-0012.</span>
-      </div>
-      <div class="metric-box">
-        <span class="metric-box__label">05 · SALIDA</span>
-        <strong class="metric-box__value">Copia auditable</strong>
-        <span class="metric-box__note">Tabla limpia con 30 registros y conteo de estados demostrable.</span>
-      </div>
-    </div>
-  </div>
+<div class="learning-block"><section class="ai-quick-lesson" data-ai-quick-lesson=""><span class="eyebrow">LO ESENCIAL</span><h3>Cada resultado debe llevarte a su fuente</h3><p>La IA clasifica mensajes, extrae acuerdos y limpia tablas. Conserva el código, minuto o fila de origen.</p><p data-ai-mini-example=""><strong>Una regla para los cuatro pasos:</strong> cada resultado vuelve a su código, minuto o fila de origen.</p><ol><li>Adjunta el archivo del reto.</li><li>Pide el producto y su referencia de origen.</li><li>Revisa conteos y excepciones y descarga la salida.</li></ol></section><details class="course-context" data-lesson-extension=""><summary>Ampliar conceptos, ejemplos y herramientas opcionales</summary>
+<!-- PASO 1: BANDEJA (se practica en el Reto 4) -->
+<section aria-labelledby="m03-paso1-title" class="lesson-step task-delimitation-section" data-lesson-step="1">
+<div class="section-infographic-header">
+<span class="eyebrow">PASO 1 · BANDEJA</span>
+<h3 id="m03-paso1-title">Clasifica 50 mensajes y muestra la razón de cada prioridad</h3>
 </div>
+<div class="task-stepper">
+<div class="task-step"><span class="task-step__num">Entra</span><h4 class="task-step__title">correos-50.csv</h4><p class="task-step__desc">50 mensajes con asunto, personas afectadas y plazo.</p></div>
+<div class="task-step"><span class="task-step__num">Pides a la IA</span><h4 class="task-step__title">Prioridad con su razón</h4><p class="task-step__desc">Una prioridad por código, con la señal del mensaje que la explica, y diez borradores sin enviar.</p></div>
+<div class="task-step"><span class="task-step__num">Compruebas</span><h4 class="task-step__title">Que no falte ninguno</h4><p class="task-step__desc">Están los 50 códigos y ninguna razón inventa una prioridad oficial.</p></div>
+</div>
+<p><strong>Ejemplo:</strong> C-001 avisa que el portal falla, que el plazo cierra hoy a las 16:00 y que afecta a 35 personas. La razón cita esas tres señales. Clasificar no es decidir: la prioridad oficial la fija tu área.</p>
+<p class="lesson-practice" data-practice-in=""><strong>Lo practicas en el Reto 4:</strong> clasificas la bandeja y preparas diez borradores. <button class="text-button" data-open-challenge="reto-4" type="button">Ir al Reto 4 →</button></p>
+</section>
 
-<!-- COMPONENTE 2: TRÍPTICO DE SEMÁFORO DE TRAZABILIDAD DOCUMENTAL -->
+<!-- PASO 2: ACTA (se practica en el Reto 5) -->
+<section aria-labelledby="m03-paso2-title" class="lesson-step task-delimitation-section" data-lesson-step="2">
+<div class="section-infographic-header">
+<span class="eyebrow">PASO 2 · ACTA</span>
+<h3 id="m03-paso2-title">Separa lo que se acordó de lo que solo se propuso</h3>
+</div>
+<div class="task-stepper">
+<div class="task-step"><span class="task-step__num">Entra</span><h4 class="task-step__title">transcripcion.csv</h4><p class="task-step__desc">Diez minutos de reunión, con el minuto de cada intervención.</p></div>
+<div class="task-step"><span class="task-step__num">Pides a la IA</span><h4 class="task-step__title">Un acta por minuto</h4><p class="task-step__desc">Acuerdos, propuestas y pendientes, cada uno con su minuto.</p></div>
+<div class="task-step"><span class="task-step__num">Compruebas</span><h4 class="task-step__title">Responsables y fechas</h4><p class="task-step__desc">Si nadie los dijo en la reunión, quedan como «no consta».</p></div>
+</div>
+<p><strong>Ejemplo:</strong> en el minuto 05:52, coordinación dice «Sí, incluyamos ese campo»: es un acuerdo. En el 04:16 dice «El viernes que viene, creo»: la fecha queda pendiente.</p>
+<p class="lesson-practice" data-practice-in=""><strong>Lo practicas en el Reto 5:</strong> obtienes el acta y su línea de tiempo. <button class="text-button" data-open-challenge="reto-5" type="button">Ir al Reto 5 →</button></p>
+</section>
+
+<!-- PASO 3: TABLA (se practica en el Reto 6) -->
+<section aria-labelledby="m03-paso3-title" class="lesson-step task-delimitation-section" data-lesson-step="3">
+<div class="section-infographic-header">
+<span class="eyebrow">PASO 3 · TABLA</span>
+<h3 id="m03-paso3-title">Limpia la tabla con una regla y sin tocar el original</h3>
+</div>
+<div class="task-stepper">
+<div class="task-step"><span class="task-step__num">Entra</span><h4 class="task-step__title">datos-sofia.csv</h4><p class="task-step__desc">30 registros con espacios de más, mayúsculas mezcladas y celdas vacías.</p></div>
+<div class="task-step"><span class="task-step__num">Pides a la IA</span><h4 class="task-step__title">Una columna nueva</h4><p class="task-step__desc">«Estado revisado» aplica la regla; «Estado original» no cambia.</p></div>
+<div class="task-step"><span class="task-step__num">Compruebas</span><h4 class="task-step__title">Conteos y excepciones</h4><p class="task-step__desc">Siguen las 30 filas y no se borra ningún repetido.</p></div>
+</div>
+<p><strong>Ejemplo:</strong> SIM-0003 no tiene estado, así que la columna nueva dice REVISAR. SIM-0012 aparece dos veces y las dos filas se quedan: decidir cuál sobra le corresponde a una persona.</p>
+<p class="lesson-practice" data-practice-in=""><strong>Lo practicas en el Reto 6:</strong> comparas la tabla antes y después, con sus conteos. <button class="text-button" data-open-challenge="reto-6" type="button">Ir al Reto 6 →</button></p>
+</section>
+
+<!-- PASO 4: FLUJO (se practica en el Reto 7) -->
+<section aria-labelledby="m03-paso4-title" class="lesson-step task-delimitation-section" data-lesson-step="4">
+<div class="section-infographic-header">
+<span class="eyebrow">PASO 4 · FLUJO</span>
+<h3 id="m03-paso4-title">Dibuja el flujo y pruébalo antes de automatizar</h3>
+</div>
+<div class="task-stepper">
+<div class="task-step"><span class="task-step__num">Entra</span><h4 class="task-step__title">Tres solicitudes de sala</h4><p class="task-step__desc">Los casos FL-01, FL-02 y FL-03, con el lineamiento de reservas.</p></div>
+<div class="task-step"><span class="task-step__num">Pides a la IA</span><h4 class="task-step__title">El diagrama</h4><p class="task-step__desc">Primero revisa si la solicitud es urgente; después, si trae los datos que exige el lineamiento.</p></div>
+<div class="task-step"><span class="task-step__num">Compruebas</span><h4 class="task-step__title">Las tres rutas</h4><p class="task-step__desc">FL-01 da un resumen sin aprobar, FL-02 pregunta por la franja y FL-03 se detiene para que decida una persona.</p></div>
+</div>
+<p class="lesson-practice" data-practice-in=""><strong>Lo practicas en el Reto 7:</strong> la IA dibuja el flujo y simula los tres casos, sin conectar cuentas. <button class="text-button" data-open-challenge="reto-7" type="button">Ir al Reto 7 →</button></p>
+</section>
+
+<!-- PROFUNDIZA: QUÉ PUEDE HACER LA IA CON UN ARCHIVO -->
 <section aria-labelledby="m03-safety-triptych-title" class="data-safety-triptych-section">
   <div class="section-infographic-header">
-    <span class="eyebrow">CRITERIOS DE OPERACIÓN Y CONTROL · TRANSFORMACIÓN DE DATOS</span>
-    <h3 id="m03-safety-triptych-title">Semáforo de trazabilidad y normalización documental</h3>
-    <p>Reglas esenciales para procesar volúmenes administrativos sin perder la conexión con el dato primario.</p>
+    <span class="eyebrow">ANTES DE ACEPTAR UN ARCHIVO TRANSFORMADO</span>
+    <h3 id="m03-safety-triptych-title">Qué puede hacer la IA con el archivo y qué no</h3>
+    <p>Sirve para los cuatro retos: bandeja, acta, tabla y flujo.</p>
   </div>
   <div class="data-safety-triptych">
-    <!-- Nivel 1: Seguro -->
     <article class="data-safety-card data-safety-card--green">
-      <div class="data-safety-card__badge"><strong>Nivel 1 · Seguro</strong></div>
-      <h4 class="data-safety-card__title">Cálculos y referencias directas</h4>
-      <p class="data-safety-card__includes">Aplicar reglas fijas (ESPACIOS, MAYUSC), enlazar acuerdos a marcas de tiempo y priorizar mensajes citando códigos fuente.</p>
-      <div class="data-safety-card__rule">
-        <strong>Regla de uso:</strong> Cada valor resultante debe conservar su vínculo verificable con el código, fila o minuto de procedencia.
-      </div>
-      <span class="data-safety-card__action">Acción permitida: Transformación con enlace fuente</span>
+      <div class="data-safety-card__badge"><strong>Hacer</strong></div>
+      <h4 class="data-safety-card__title">Ordenar con referencia</h4>
+      <p class="data-safety-card__includes">Aplicar una regla fija, ligar un acuerdo a su minuto o explicar una prioridad con el código del mensaje.</p>
+      <div class="data-safety-card__rule"><strong>Qué haces:</strong> comprueba que cada resultado vuelva a su código, fila o minuto.</div>
     </article>
-
-    <!-- Nivel 2: Por confirmar -->
     <article class="data-safety-card data-safety-card--amber">
-      <div class="data-safety-card__badge"><strong>Nivel 2 · Por confirmar</strong></div>
-      <h4 class="data-safety-card__title">Datos ausentes y ambigüedades</h4>
-      <p class="data-safety-card__includes">Celdas vacías en planillas, fechas de entrega no acordadas en actas, registros repetidos o correos con peticiones difusas.</p>
-      <div class="data-safety-card__rule">
-        <strong>Regla de uso:</strong> Prohibido autocompletar por aproximación o suprimir filas dudosas. Marca REVISAR o «no consta» para revisión.
-      </div>
-      <span class="data-safety-card__action">Acción requerida: Conservar y solicitar revisión</span>
+      <div class="data-safety-card__badge"><strong>Marcar</strong></div>
+      <h4 class="data-safety-card__title">Lo que falta o es dudoso</h4>
+      <p class="data-safety-card__includes">Celdas vacías, fechas que nadie acordó, filas repetidas o mensajes poco claros.</p>
+      <div class="data-safety-card__rule"><strong>Qué haces:</strong> déjalo como REVISAR o «no consta». No lo completes ni lo borres.</div>
     </article>
-
-    <!-- Nivel 3: Prohibido -->
     <article class="data-safety-card data-safety-card--red">
-      <div class="data-safety-card__badge"><strong>Nivel 3 · Prohibido</strong></div>
-      <h4 class="data-safety-card__title">Sobrescribir fuentes o despachar</h4>
-      <p class="data-safety-card__includes">Sobrescribir archivos originales, borrar filas duplicadas, inventar acuerdos no tomados o despachar correos sin autorización.</p>
-      <div class="data-safety-card__rule">
-        <strong>Regla de uso:</strong> La fuente original permanece inalterada; las herramientas de IA proponen borradores, nunca ejecutan actos definitivos.
-      </div>
-      <span class="data-safety-card__action">Acción estricta: Auditoría humana obligatoria</span>
+      <div class="data-safety-card__badge"><strong>No hacer</strong></div>
+      <h4 class="data-safety-card__title">Cambiar la fuente o enviar</h4>
+      <p class="data-safety-card__includes">Sobrescribir el original, borrar repetidos, inventar acuerdos o enviar correos.</p>
+      <div class="data-safety-card__rule"><strong>Qué haces:</strong> la IA entrega borradores y copias; una persona decide qué se usa.</div>
     </article>
   </div>
 </section>
 
-<!-- COMPONENTE 4: TARJETAS COMPARATIVAS BENTO -->
 <div class="comparative-cards-grid">
   <article class="comparative-card">
-    <span class="badge-station badge-station--spaced">Integridad de datos</span>
-    <h4>Edición destructiva vs. Columna calculada</h4>
-    <p>Sobrescribir celdas o eliminar filas elimina la evidencia de auditoría y oculta anomalías. Trabajar sobre columnas nuevas permite contrastar el dato crudo frente al normalizado y corregir reglas sin perder la fuente.</p>
+    <span class="badge-station badge-station--spaced">Tablas</span>
+    <h4>Columna nueva en lugar de sobrescribir</h4>
+    <p>Si la IA cambia las celdas originales, ya no puedes ver qué había ni corregir la regla. Con una columna nueva comparas el dato original con el revisado.</p>
   </article>
   <article class="comparative-card">
-    <span class="badge-station badge-station--spaced">Rigor documental</span>
-    <h4>Compromisos formales vs. Intenciones de reunión</h4>
-    <p>En una reunión administrativa, los debates e intenciones no son acuerdos ejecutables. Un acta trazable registra únicamente las decisiones aprobadas con responsable y fecha, dejando las propuestas como temas en deliberación.</p>
+    <span class="badge-station badge-station--spaced">Reuniones</span>
+    <h4>Un acuerdo no es una idea que se discutió</h4>
+    <p>El acta registra como acuerdo solo lo que se decidió, con responsable y fecha si se dijeron. Las ideas en discusión quedan como propuestas.</p>
   </article>
 </div>
-
 <div class="worked-example" data-flow-primer=""><h4>Cómo se lee un diagrama de flujo</h4>
 <p>Un diagrama de flujo muestra en orden lo que ocurre con una solicitud. Usa cuatro elementos: el <strong>inicio</strong> (qué llega), las <strong>decisiones</strong> (preguntas de sí o no), las <strong>acciones</strong> (qué se hace en cada caso) y la <strong>salida</strong> (qué recibe la siguiente persona). Cuando un caso exige criterio humano, el flujo tiene un <strong>punto de parada</strong>: se detiene y lo traslada a la persona responsable.</p>
 <p><strong>Ejemplo con otro trámite:</strong> llega una solicitud de certificado. ¿Trae el número de ficha? Si no, se pide el dato y el estado queda «pendiente». Si sí, ¿pide una excepción, como entregarlo hoy? Si la pide, el flujo se detiene para que coordinación decida. Si no, se prepara el borrador del certificado para revisión.</p>
 <p class="example-reason">Antes de automatizar, prueba el diagrama con casos distintos: uno completo, uno incompleto y uno que exija decisión humana. En el Reto 7 harás lo mismo con tres solicitudes de sala.</p></div><div class="worked-example" data-ai-cycle=""><h4>Ejemplo pequeño resuelto · filas del libro</h4><p data-ai-source="" data-step="1"><span class="worked-step-label">Paso 1 · Consulta la fuente</span><strong>Fuente:</strong> en Datos SOFIA, SIM-0002 (fila 6) tiene «FINALIZADO » con un espacio al final. SIM-0003 (fila 7) no tiene estado. Ambas filas deben conservarse; la limpieza añade una columna y deja intacta la original.</p><p data-ai-instruction="" data-step="2"><span class="worked-step-label">Paso 2 · Encarga el producto</span>Instrucción para la IA: Procesa la fuente Datos SOFIA con la regla de Estado revisado: quita espacios, convierte a mayúsculas y marca REVISAR si falta el estado. Conserva la columna original y las dos ocurrencias de SIM-0012. Devuelve la salida y el procedimiento que aplicaste.</p><p class="example-reason">Por qué se decide así: quitar un espacio es una transformación prevista por la regla. Completar un estado vacío o borrar un código repetido cambiaría información que la regla no autoriza modificar.</p><div data-ai-response="" data-step="3"><span class="worked-step-label">Paso 3 · Lee el resultado</span><div class="example-facts"><article><h5>SIM-0002 · espacio sobrante</h5><p>Original: <code>FINALIZADO·</code>. El punto representa el espacio final. Regla: quitar espacios. Salida: <strong>FINALIZADO</strong>.</p></article><article><h5>SIM-0003 · estado ausente</h5><p>Original: vacío. Regla: señalar el dato ausente. Salida: <strong>REVISAR</strong>. La fuente no permite completar el estado.</p></article></div><p>La salida añade «Estado revisado», conserva «Estado sin normalizar» y mantiene las dos ocurrencias de SIM-0012. Ninguna fila se elimina.</p></div><p data-ai-review="" data-step="4"><span class="worked-step-label">Paso 4 · Comprueba antes de usar</span>Revisión: Contrasta SIM-0002 y SIM-0003 con la fuente y comprueba que SIM-0012 conserve ambas ocurrencias. Si la herramienta no ejecutó la regla, pide dejar ese límite en el reporte.</p></div>
 <section aria-labelledby="cleaner-sim-title" class="tool-lab" id="data-cleaner-simulator">
 <div class="tool-lab-heading">
-<span class="eyebrow">SIMULADOR INTERACTIVO DE NORMALIZACIÓN DE TABLAS</span>
-<h3 id="cleaner-sim-title">Depurador y validador de planillas</h3>
+<span class="eyebrow">PRACTICA EL PASO 3</span>
+<h3 id="cleaner-sim-title">Prueba la regla en cinco filas</h3>
 <p>Ensaya las reglas sobre cinco de los 30 registros de datos-sofia.csv. La muestra conserva las filas 5, 6, 7, 16 y 23, incluidas ambas ocurrencias de SIM-0012. Solo cambia «Estado revisado»; los demás campos permanecen intactos. Esta práctica local no demuestra el procesamiento del archivo completo ni la ejecución con IA del Reto 6.</p>
 </div>
 <div class="tool-lab-fields">
@@ -234,7 +150,7 @@
 <span id="data-cleaner-count" class="sim-count">Estados transformados en la muestra: 0 de 5</span>
 </div>
 <div class="sim-dual-actions">
-<button class="button button-primary" data-cleaner-transfer="" type="button">Llevar a mi evidencia como borrador (MG-A03)</button>
+<button class="button button-primary" data-cleaner-transfer="" type="button">Llevar a mi evidencia como borrador</button>
 <button class="button button-secondary" data-cleaner-copy="" type="button">Copiar texto</button>
 </div>
 </div>
@@ -242,11 +158,11 @@
 </section>
 <p data-transfer-task="">Reutiliza la instrucción para una tabla recurrente de tu área: cambia la fuente y el campo permitido, prueba dos casos y conserva el procedimiento para la siguiente carga.</p>
 <div class="transfer-tip">
-<strong>Conexión con el módulo 04:</strong>
-Después de revisar las transformaciones y probar el diseño del flujo, comprobarás las cifras y las afirmaciones antes de comunicarlas. En el módulo 04 retomarás la tabla de Bienestar para contrastar tasas y verificar afirmaciones sin caer en falsas causalidades.
+<strong>Lo que sigue:</strong>
+Ya sabes pedir productos que vuelven a su fuente. En el módulo 04 revisas cifras y afirmaciones antes de comunicarlas: retomas la tabla de Bienestar, comparas tasas y evitas confundir coincidencia con causa.
 </div>
 </details></div>
-<p class="learning-timing"><strong>Ruta de aprendizaje · 60 min:</strong> 15 min para delimitar entrada, regla y salida; 20 min para pedir a la IA la limpieza y revisar SIM-0002 y SIM-0003; 15 min para interpretar las ramas del flujo propuesto; 10 min para probar una excepción y pedir un ajuste.</p>
+<p class="learning-timing">Aprende y Observa: 60 min en total.</p>
 <article class="challenge-card" id="reto-4"><h3>Reto 4 · Bandeja de 50 mensajes con razones visibles</h3><div class="challenge-meta"><span>150 min</span><span>Jueves</span><span>MG-A03</span><span>Chat con IA</span></div><p><strong>Vas a obtener:</strong> Página de resultado con el tablero de los 50 mensajes, la razón de cada prioridad y diez borradores sin enviar.</p><p class="tool-route"><strong>Prepara las fuentes:</strong> Adjunta correos-50.csv en el chat autorizado, conserva intacto el original y descarga el resultado. La variante de talento humano adapta cinco mensajes.</p><blockquote class="prompt-bubble" data-ai-task="" id="reto-4-ai-prompt">Trabaja como asistente de aprendizaje. Estos casos administrativos y archivos se prepararon para aprender y no contienen registros reales. Usa solo los archivos adjuntos: correos-50.csv. Si falta uno, pide ese archivo y no sustituyas su contenido. No me pidas datos personales ni que complete fichas o cambie esta instrucción. Los CSV administrativos están en UTF-8 y usan punto y coma como separador. Inspecciona el archivo para localizar el encabezado real: puede haber filas iniciales de título y advertencias que no son registros. Conserva esos avisos y no los cuentes como datos. Cuando cites una fila, usa la numeración de Excel: las tres primeras filas son título y avisos, el encabezado es la fila 4 y el primer registro es la fila 5.
 
 Conserva los 50 códigos. La hora de llegada es simulada y no se compara con el plazo: prioriza según el plazo escrito en el mensaje. Antes del lote completo, ensaya C-001 a C-005 con una misma regla y contrasta esos cinco códigos. Después clasifica los 50 mensajes para proponer un orden de revisión según señal textual, personas afectadas y plazo. Explica las repeticiones entre lotes, sin borrar filas. Genera diez borradores, uno por situación del primer lote, con referencia al código y lo que falta por confirmar. Las categorías son sugerencias didácticas: no representan prioridad institucional. Explica brevemente la diferencia entre clasificación y decisión.

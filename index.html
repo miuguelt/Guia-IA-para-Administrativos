@@ -10,7 +10,7 @@
   <link rel="icon" href="media/aula-ia.svg" type="image/svg+xml">
   <link rel="stylesheet" href="css/vendor/devbrain-learner-sdk.css?v=273437377583698">
   <link rel="stylesheet" href="css/vendor/devbrain-evidence.css?v=38460228141748">
-  <link rel="stylesheet" href="css/course.css?v=189680264829895">
+  <link rel="stylesheet" href="css/course.css?v=222766582617418">
   <script defer src="js/vendor/devbrain-learner-sdk.js?v=96485093726978"></script>
   <script defer src="js/registro-entregables.js?v=220784740736844"></script>
   <script defer src="js/course-tabs.js?v=224643459907700"></script>
@@ -1184,191 +1184,112 @@ Guarda resultado-MG-A02.html en la carpeta resultados/. Antes de terminar, compr
 </figure>
 <div class="brief-product"><span aria-hidden="true">↳</span><div><strong>Al terminar, tendrás</strong><p>Clasificación, acta, copia de datos y flujo generados por IA.</p></div></div><aside class="brief-review"><strong>Una comprobación concreta</strong><p>No borres filas repetidas ni completes responsables o fechas sin una fuente. Mide también la revisión y la corrección.</p></aside><a href="#metodo-comun">Consultar cómo trabajar y guardar el resultado →</a></section><div class="module-explanation"><div class="module-reading"><section aria-labelledby="m03-implementacion-goal-title" class="learning-start"><h3 id="m03-implementacion-goal-title">Tu meta</h3><p data-learning-goal="">Al terminar, podrás encargar una transformación de registros y comprobar que conserve las referencias, las filas y los datos pendientes.</p><details class="term-guide"><summary>Conceptos que usarás · con ejemplos</summary><dl class="learning-terms"><div><dt>Regla reproducible</dt><dd>Pasos escritos que dan el mismo resultado con la misma entrada, como quitar espacios de un estado.</dd></div><div><dt>Trazabilidad</dt><dd>Referencia que permite volver al origen: código, fila o minuto de la transcripción.</dd></div><div><dt>Excepción</dt><dd>Caso que la regla no resuelve con certeza y debe dejar para revisión.</dd></div><div><dt>Simulación</dt><dd>Recorrido de casos de prueba para observar la salida prevista de un diseño.</dd></div></dl></details></section>
 <div class="prerequisite"><div><strong>Antes de empezar · IA para analizar archivos</strong>
-<p>Entrega el archivo, pide el análisis o la limpieza y contrasta la salida sin reconstruir la tabla.</p></div><a data-open-tool="hoja" href="#preparacion">Repasar la herramienta ↗</a></div><span class="phase-label">Primero aprende · 60 min</span><div class="learning-block"><p data-ai-mini-example=""><strong>Ejemplo:</strong> SIM-0003 no tiene estado: la columna nueva muestra REVISAR y conserva el original.</p>
-<!-- COMPONENTE 1: DIAGRAMA MAESTRO DE 4 TRANSFORMACIONES DOCUMENTALES -->
-<div aria-labelledby="m03-transform-title" class="native-diagram triage-concept-block" data-diagram-visible="true">
-<div class="native-diagram__top">
-<div>
-<span class="native-diagram__kicker native-diagram__kicker--tight">GESTIÓN OPERATIVA Y TRANSFORMACIÓN DOCUMENTAL · MÓDULO 03</span>
-<h3 class="native-diagram__heading" id="m03-transform-title">Cuatro transformaciones documentales auditables</h3>
-<p class="native-diagram__lead">De mensajes, actas y planillas masivas a productos estructurados que puedes rastrear hasta su código, minuto o fila original.</p>
-</div>
-<span class="quiet-badge native-diagram__pill">Trazabilidad institucional (es-CO)</span>
-</div>
-<!-- Cuadrícula de 4 tarjetas: R4, R5, R6 y R7 -->
-<div class="native-diagram__flow">
-<!-- R4: Bandeja de correos -->
-<article class="native-diagram__card native-diagram__card--ai triage-card triage-card--blue">
-<div class="triage-card__tag--blue">
-<strong class="triage-card__tag-label--blue">R4 · Bandeja de correos</strong>
-</div>
-<h4 class="comparative-card__title">Clasificación y triaje masivo</h4>
-<div class="triage-card__chip--blue">
-        Entrada: correos-50.csv → Salida: 50 códigos
-      </div>
-<ul class="comparative-card__list">
-<li><strong>Inventario íntegro:</strong> se conservan los 50 códigos sin omitir mensajes.</li>
-<li><strong>Criterio de prioridad:</strong> señal textual, personas afectadas y plazo explícito.</li>
-<li><strong>Borradores preliminares:</strong> diez propuestas redactadas sin enviar correos.</li>
-<li><strong>Asuntos por confirmar:</strong> señalar los temas que exigen verificación técnica.</li>
-</ul>
-<div class="native-diagram__example triage-card__outcome--blue">
-        Criterio: Clasificar no equivale a decidir; la prioridad oficial la fija la dependencia.
-      </div>
-</article>
-<!-- R5: Acta de reunión -->
-<article class="native-diagram__card native-diagram__card--ai triage-card triage-card--blue">
-<div class="triage-card__tag--blue">
-<strong class="triage-card__tag-label--blue">R5 · Acta de reunión</strong>
-</div>
-<h4 class="comparative-card__title">Extracción trazable por minutos</h4>
-<div class="triage-card__chip--blue">
-        Entrada: transcripcion.csv → Línea de tiempo
-      </div>
-<ul class="comparative-card__list">
-<li><strong>Vínculo al minuto:</strong> cada punto remite a su marca temporal exacta.</li>
-<li><strong>Acuerdos vs. Intenciones:</strong> solo lo formalmente aprobado pasa como compromiso.</li>
-<li><strong>Responsable y fecha:</strong> se registran únicamente si constan en la fuente.</li>
-<li><strong>Marcador «no consta»:</strong> las dudas se anotan como temas por revisar.</li>
-</ul>
-<div class="native-diagram__example triage-card__outcome--blue">
-        Criterio: Jamás convertir una propuesta o intención de debate en acuerdo institucional.
-      </div>
-</article>
-<!-- R6: Limpieza de planillas -->
-<article class="native-diagram__card native-diagram__card--rule triage-card triage-card--green">
-<div class="triage-card__tag--green">
-<strong class="triage-card__tag-label--green">R6 · Limpieza de planillas</strong>
-</div>
-<h4 class="comparative-card__title">Normalización no destructiva</h4>
-<div class="triage-card__chip--green">
-        Entrada: datos-sofia.csv → Columna calculada
-      </div>
-<ul class="comparative-card__list">
-<li><strong>Fuente intacta:</strong> «Estado sin normalizar» permanece inalterada.</li>
-<li><strong>Reglas reproducibles:</strong> recorte de espacios con ESPACIOS (TRIM en inglés) y mayúsculas con MAYUSC.</li>
-<li><strong>Tratamiento de vacíos:</strong> celdas sin datos se marcan como REVISAR.</li>
-<li><strong>Integridad de filas:</strong> 30 registros totales, conservando SIM-0012.</li>
-</ul>
-<div class="native-diagram__example triage-card__outcome--green">
-        Criterio: Prohibido sobrescribir celdas maestras o borrar filas presuntamente duplicadas.
-      </div>
-</article>
-<!-- R7: Diseño de procesos -->
-<article class="native-diagram__card native-diagram__card--human triage-card triage-card--amber">
-<div class="triage-card__tag--amber">
-<strong class="triage-card__tag-label--amber">R7 · Diseño de procesos</strong>
-</div>
-<h4 class="comparative-card__title">Flujo antes de automatizar</h4>
-<div class="triage-card__chip--amber">
-        Entrada: reto-07-casos-flujo.csv → Ramas
-      </div>
-<ul class="comparative-card__list">
-<li><strong>Filtro de urgencia:</strong> comprobación prioritaria antes de los datos de forma.</li>
-<li><strong>Punto de detención:</strong> ramas urgentes se escalan para decisión humana.</li>
-<li><strong>Integridad de campos:</strong> actividad, sede, fecha, franja y aforo.</li>
-<li><strong>Simulación de rutas:</strong> prueba contrastada en FL-01, FL-02 y FL-03.</li>
-</ul>
-<div class="native-diagram__example triage-card__outcome--amber">
-        Criterio: Una automatización evalúa reglas lógicas; no aprueba reservas ni resuelve excepciones.
-      </div>
-</article>
-</div>
-<!-- Panel inferior: Pipeline de Normalización SOFIA -->
-<div class="correspondence-cycle triage-panel">
-<strong class="triage-panel__label">Secuencia común de normalización y trazabilidad en planillas (SOFIA)</strong>
-<div class="triage-panel__grid">
-<div class="metric-box">
-<span class="metric-box__label">01 · ORIGEN</span>
-<strong class="metric-box__value">Fuente intacta</strong>
-<span class="metric-box__note">Carga de datos-sofia.csv; respaldo maestro inalterado sin sobrescritura.</span>
-</div>
-<div class="metric-box">
-<span class="metric-box__label">02 · ESTRUCTURA</span>
-<strong class="metric-box__value">Columna calculada</strong>
-<span class="metric-box__note">Adición de «Estado revisado» para operar sin destruir el registro original.</span>
-</div>
-<div class="metric-box">
-<span class="metric-box__label">03 · NORMALIZACIÓN</span>
-<strong class="metric-box__value">Reglas ESPACIOS y MAYUSC</strong>
-<span class="metric-box__note">Estandarización tipográfica (ej. SIM-0002 normalizado a FINALIZADO).</span>
-</div>
-<div class="metric-box">
-<span class="metric-box__label">04 · EXCEPCIONES</span>
-<strong class="metric-box__value">Vacíos y duplicados</strong>
-<span class="metric-box__note">SIM-0003 pasa a REVISAR y se conservan ambas filas de SIM-0012.</span>
-</div>
-<div class="metric-box">
-<span class="metric-box__label">05 · SALIDA</span>
-<strong class="metric-box__value">Copia auditable</strong>
-<span class="metric-box__note">Tabla limpia con 30 registros y conteo de estados demostrable.</span>
-</div>
-</div>
-</div>
-</div>
-<!-- COMPONENTE 2: TRÍPTICO DE SEMÁFORO DE TRAZABILIDAD DOCUMENTAL -->
-<!-- COMPONENTE 4: TARJETAS COMPARATIVAS BENTO -->
-<p data-transfer-task="">Reutiliza la instrucción para una tabla recurrente de tu área: cambia la fuente y el campo permitido, prueba dos casos y conserva el procedimiento para la siguiente carga.</p>
-<p class="learning-timing"><strong>Ruta de aprendizaje · 60 min:</strong> 15 min para delimitar entrada, regla y salida; 20 min para pedir a la IA la limpieza y revisar SIM-0002 y SIM-0003; 15 min para interpretar las ramas del flujo propuesto; 10 min para probar una excepción y pedir un ajuste.</p><details class="reference-library lesson-deeper"><summary>Profundiza: riesgos frecuentes y comparaciones</summary><section aria-labelledby="m03-safety-triptych-title" class="data-safety-triptych-section">
+<p>Entrega el archivo, pide el análisis o la limpieza y contrasta la salida sin reconstruir la tabla.</p></div><a data-open-tool="hoja" href="#preparacion">Repasar la herramienta ↗</a></div><span class="phase-label">Primero aprende · 60 min</span><div class="learning-block"><p data-ai-mini-example=""><strong>Una regla para los cuatro pasos:</strong> cada resultado vuelve a su código, minuto o fila de origen.</p>
+<!-- PASO 1: BANDEJA (se practica en el Reto 4) -->
+<section aria-labelledby="m03-paso1-title" class="lesson-step task-delimitation-section" data-lesson-step="1">
 <div class="section-infographic-header">
-<span class="eyebrow">CRITERIOS DE OPERACIÓN Y CONTROL · TRANSFORMACIÓN DE DATOS</span>
-<h3 id="m03-safety-triptych-title">Semáforo de trazabilidad y normalización documental</h3>
-<p>Reglas esenciales para procesar volúmenes administrativos sin perder la conexión con el dato primario.</p>
+<span class="eyebrow">PASO 1 · BANDEJA</span>
+<h3 id="m03-paso1-title">Clasifica 50 mensajes y muestra la razón de cada prioridad</h3>
+</div>
+<div class="task-stepper">
+<div class="task-step"><span class="task-step__num">Entra</span><h4 class="task-step__title">correos-50.csv</h4><p class="task-step__desc">50 mensajes con asunto, personas afectadas y plazo.</p></div>
+<div class="task-step"><span class="task-step__num">Pides a la IA</span><h4 class="task-step__title">Prioridad con su razón</h4><p class="task-step__desc">Una prioridad por código, con la señal del mensaje que la explica, y diez borradores sin enviar.</p></div>
+<div class="task-step"><span class="task-step__num">Compruebas</span><h4 class="task-step__title">Que no falte ninguno</h4><p class="task-step__desc">Están los 50 códigos y ninguna razón inventa una prioridad oficial.</p></div>
+</div>
+<p><strong>Ejemplo:</strong> C-001 avisa que el portal falla, que el plazo cierra hoy a las 16:00 y que afecta a 35 personas. La razón cita esas tres señales. Clasificar no es decidir: la prioridad oficial la fija tu área.</p>
+<p class="lesson-practice" data-practice-in=""><strong>Lo practicas en el Reto 4:</strong> clasificas la bandeja y preparas diez borradores. <button class="text-button" data-open-challenge="reto-4" type="button">Ir al Reto 4 →</button></p>
+</section>
+<!-- PASO 2: ACTA (se practica en el Reto 5) -->
+<section aria-labelledby="m03-paso2-title" class="lesson-step task-delimitation-section" data-lesson-step="2">
+<div class="section-infographic-header">
+<span class="eyebrow">PASO 2 · ACTA</span>
+<h3 id="m03-paso2-title">Separa lo que se acordó de lo que solo se propuso</h3>
+</div>
+<div class="task-stepper">
+<div class="task-step"><span class="task-step__num">Entra</span><h4 class="task-step__title">transcripcion.csv</h4><p class="task-step__desc">Diez minutos de reunión, con el minuto de cada intervención.</p></div>
+<div class="task-step"><span class="task-step__num">Pides a la IA</span><h4 class="task-step__title">Un acta por minuto</h4><p class="task-step__desc">Acuerdos, propuestas y pendientes, cada uno con su minuto.</p></div>
+<div class="task-step"><span class="task-step__num">Compruebas</span><h4 class="task-step__title">Responsables y fechas</h4><p class="task-step__desc">Si nadie los dijo en la reunión, quedan como «no consta».</p></div>
+</div>
+<p><strong>Ejemplo:</strong> en el minuto 05:52, coordinación dice «Sí, incluyamos ese campo»: es un acuerdo. En el 04:16 dice «El viernes que viene, creo»: la fecha queda pendiente.</p>
+<p class="lesson-practice" data-practice-in=""><strong>Lo practicas en el Reto 5:</strong> obtienes el acta y su línea de tiempo. <button class="text-button" data-open-challenge="reto-5" type="button">Ir al Reto 5 →</button></p>
+</section>
+<!-- PASO 3: TABLA (se practica en el Reto 6) -->
+<section aria-labelledby="m03-paso3-title" class="lesson-step task-delimitation-section" data-lesson-step="3">
+<div class="section-infographic-header">
+<span class="eyebrow">PASO 3 · TABLA</span>
+<h3 id="m03-paso3-title">Limpia la tabla con una regla y sin tocar el original</h3>
+</div>
+<div class="task-stepper">
+<div class="task-step"><span class="task-step__num">Entra</span><h4 class="task-step__title">datos-sofia.csv</h4><p class="task-step__desc">30 registros con espacios de más, mayúsculas mezcladas y celdas vacías.</p></div>
+<div class="task-step"><span class="task-step__num">Pides a la IA</span><h4 class="task-step__title">Una columna nueva</h4><p class="task-step__desc">«Estado revisado» aplica la regla; «Estado original» no cambia.</p></div>
+<div class="task-step"><span class="task-step__num">Compruebas</span><h4 class="task-step__title">Conteos y excepciones</h4><p class="task-step__desc">Siguen las 30 filas y no se borra ningún repetido.</p></div>
+</div>
+<p><strong>Ejemplo:</strong> SIM-0003 no tiene estado, así que la columna nueva dice REVISAR. SIM-0012 aparece dos veces y las dos filas se quedan: decidir cuál sobra le corresponde a una persona.</p>
+<p class="lesson-practice" data-practice-in=""><strong>Lo practicas en el Reto 6:</strong> comparas la tabla antes y después, con sus conteos. <button class="text-button" data-open-challenge="reto-6" type="button">Ir al Reto 6 →</button></p>
+</section>
+<!-- PASO 4: FLUJO (se practica en el Reto 7) -->
+<section aria-labelledby="m03-paso4-title" class="lesson-step task-delimitation-section" data-lesson-step="4">
+<div class="section-infographic-header">
+<span class="eyebrow">PASO 4 · FLUJO</span>
+<h3 id="m03-paso4-title">Dibuja el flujo y pruébalo antes de automatizar</h3>
+</div>
+<div class="task-stepper">
+<div class="task-step"><span class="task-step__num">Entra</span><h4 class="task-step__title">Tres solicitudes de sala</h4><p class="task-step__desc">Los casos FL-01, FL-02 y FL-03, con el lineamiento de reservas.</p></div>
+<div class="task-step"><span class="task-step__num">Pides a la IA</span><h4 class="task-step__title">El diagrama</h4><p class="task-step__desc">Primero revisa si la solicitud es urgente; después, si trae los datos que exige el lineamiento.</p></div>
+<div class="task-step"><span class="task-step__num">Compruebas</span><h4 class="task-step__title">Las tres rutas</h4><p class="task-step__desc">FL-01 da un resumen sin aprobar, FL-02 pregunta por la franja y FL-03 se detiene para que decida una persona.</p></div>
+</div>
+<p class="lesson-practice" data-practice-in=""><strong>Lo practicas en el Reto 7:</strong> la IA dibuja el flujo y simula los tres casos, sin conectar cuentas. <button class="text-button" data-open-challenge="reto-7" type="button">Ir al Reto 7 →</button></p>
+</section>
+<!-- PROFUNDIZA: QUÉ PUEDE HACER LA IA CON UN ARCHIVO -->
+<p data-transfer-task="">Reutiliza la instrucción para una tabla recurrente de tu área: cambia la fuente y el campo permitido, prueba dos casos y conserva el procedimiento para la siguiente carga.</p>
+<p class="learning-timing">Aprende y Observa: 60 min en total.</p><details class="reference-library lesson-deeper"><summary>Profundiza: riesgos frecuentes y comparaciones</summary><section aria-labelledby="m03-safety-triptych-title" class="data-safety-triptych-section">
+<div class="section-infographic-header">
+<span class="eyebrow">ANTES DE ACEPTAR UN ARCHIVO TRANSFORMADO</span>
+<h3 id="m03-safety-triptych-title">Qué puede hacer la IA con el archivo y qué no</h3>
+<p>Sirve para los cuatro retos: bandeja, acta, tabla y flujo.</p>
 </div>
 <div class="data-safety-triptych">
-<!-- Nivel 1: Seguro -->
 <article class="data-safety-card data-safety-card--green">
-<div class="data-safety-card__badge"><strong>Nivel 1 · Seguro</strong></div>
-<h4 class="data-safety-card__title">Cálculos y referencias directas</h4>
-<p class="data-safety-card__includes">Aplicar reglas fijas (ESPACIOS, MAYUSC), enlazar acuerdos a marcas de tiempo y priorizar mensajes citando códigos fuente.</p>
-<div class="data-safety-card__rule">
-<strong>Regla de uso:</strong> Cada valor resultante debe conservar su vínculo verificable con el código, fila o minuto de procedencia.
-      </div>
-<span class="data-safety-card__action">Acción permitida: Transformación con enlace fuente</span>
+<div class="data-safety-card__badge"><strong>Hacer</strong></div>
+<h4 class="data-safety-card__title">Ordenar con referencia</h4>
+<p class="data-safety-card__includes">Aplicar una regla fija, ligar un acuerdo a su minuto o explicar una prioridad con el código del mensaje.</p>
+<div class="data-safety-card__rule"><strong>Qué haces:</strong> comprueba que cada resultado vuelva a su código, fila o minuto.</div>
 </article>
-<!-- Nivel 2: Por confirmar -->
 <article class="data-safety-card data-safety-card--amber">
-<div class="data-safety-card__badge"><strong>Nivel 2 · Por confirmar</strong></div>
-<h4 class="data-safety-card__title">Datos ausentes y ambigüedades</h4>
-<p class="data-safety-card__includes">Celdas vacías en planillas, fechas de entrega no acordadas en actas, registros repetidos o correos con peticiones difusas.</p>
-<div class="data-safety-card__rule">
-<strong>Regla de uso:</strong> Prohibido autocompletar por aproximación o suprimir filas dudosas. Marca REVISAR o «no consta» para revisión.
-      </div>
-<span class="data-safety-card__action">Acción requerida: Conservar y solicitar revisión</span>
+<div class="data-safety-card__badge"><strong>Marcar</strong></div>
+<h4 class="data-safety-card__title">Lo que falta o es dudoso</h4>
+<p class="data-safety-card__includes">Celdas vacías, fechas que nadie acordó, filas repetidas o mensajes poco claros.</p>
+<div class="data-safety-card__rule"><strong>Qué haces:</strong> déjalo como REVISAR o «no consta». No lo completes ni lo borres.</div>
 </article>
-<!-- Nivel 3: Prohibido -->
 <article class="data-safety-card data-safety-card--red">
-<div class="data-safety-card__badge"><strong>Nivel 3 · Prohibido</strong></div>
-<h4 class="data-safety-card__title">Sobrescribir fuentes o despachar</h4>
-<p class="data-safety-card__includes">Sobrescribir archivos originales, borrar filas duplicadas, inventar acuerdos no tomados o despachar correos sin autorización.</p>
-<div class="data-safety-card__rule">
-<strong>Regla de uso:</strong> La fuente original permanece inalterada; las herramientas de IA proponen borradores, nunca ejecutan actos definitivos.
-      </div>
-<span class="data-safety-card__action">Acción estricta: Auditoría humana obligatoria</span>
+<div class="data-safety-card__badge"><strong>No hacer</strong></div>
+<h4 class="data-safety-card__title">Cambiar la fuente o enviar</h4>
+<p class="data-safety-card__includes">Sobrescribir el original, borrar repetidos, inventar acuerdos o enviar correos.</p>
+<div class="data-safety-card__rule"><strong>Qué haces:</strong> la IA entrega borradores y copias; una persona decide qué se usa.</div>
 </article>
 </div>
 </section><div class="comparative-cards-grid">
 <article class="comparative-card">
-<span class="badge-station badge-station--spaced">Integridad de datos</span>
-<h4>Edición destructiva vs. Columna calculada</h4>
-<p>Sobrescribir celdas o eliminar filas elimina la evidencia de auditoría y oculta anomalías. Trabajar sobre columnas nuevas permite contrastar el dato crudo frente al normalizado y corregir reglas sin perder la fuente.</p>
+<span class="badge-station badge-station--spaced">Tablas</span>
+<h4>Columna nueva en lugar de sobrescribir</h4>
+<p>Si la IA cambia las celdas originales, ya no puedes ver qué había ni corregir la regla. Con una columna nueva comparas el dato original con el revisado.</p>
 </article>
 <article class="comparative-card">
-<span class="badge-station badge-station--spaced">Rigor documental</span>
-<h4>Compromisos formales vs. Intenciones de reunión</h4>
-<p>En una reunión administrativa, los debates e intenciones no son acuerdos ejecutables. Un acta trazable registra únicamente las decisiones aprobadas con responsable y fecha, dejando las propuestas como temas en deliberación.</p>
+<span class="badge-station badge-station--spaced">Reuniones</span>
+<h4>Un acuerdo no es una idea que se discutió</h4>
+<p>El acta registra como acuerdo solo lo que se decidió, con responsable y fecha si se dijeron. Las ideas en discusión quedan como propuestas.</p>
 </article>
 </div><div class="transfer-tip">
-<strong>Conexión con el módulo 04:</strong>
-Después de revisar las transformaciones y probar el diseño del flujo, comprobarás las cifras y las afirmaciones antes de comunicarlas. En el módulo 04 retomarás la tabla de Bienestar para contrastar tasas y verificar afirmaciones sin caer en falsas causalidades.
+<strong>Lo que sigue:</strong>
+Ya sabes pedir productos que vuelven a su fuente. En el módulo 04 revisas cifras y afirmaciones antes de comunicarlas: retomas la tabla de Bienestar, comparas tasas y evitas confundir coincidencia con causa.
 </div></details></div></div><section aria-labelledby="m03-productivity-title" class="productivity-lesson" data-productivity-topic="controlar-el-alcance">
 <span class="eyebrow">EVITA OMISIONES AL PROCESAR</span><h3 id="m03-productivity-title">Comprueba el alcance antes de aceptar una tabla completa</h3>
 <p>Una salida larga puede quedar cortada o saltarse registros. Antes de clasificar, pide identificar columnas, cantidad de registros y códigos disponibles. Contrasta esa descripción con el archivo; una respuesta que dice «procesé todo» no sustituye el control.</p>
 <p class="productivity-criterion" data-productivity-criterion="">El producto debe conservar las entradas esperadas y sus referencias. Si la herramienta no puede procesar el archivo completo, informa el alcance y deja pendiente lo que falta.</p>
 <details class="course-context"><summary>Ver el ejemplo y ampliar la explicación</summary><ol aria-label="Control de cobertura del archivo" class="productivity-track"><li><span class="productivity-node">1</span><strong>Delimita</strong><p>Indica el archivo y los códigos que entran en esta ejecución.</p></li><li><span class="productivity-node">2</span><strong>Procesa</strong><p>Solicita el producto y una referencia por registro.</p></li><li><span class="productivity-node">3</span><strong>Reconcilia</strong><p>Compara códigos esperados y devueltos; revisa omisiones y repeticiones.</p></li></ol><details class="course-context"><summary>Ejemplo si la bandeja de 50 mensajes no cabe en una respuesta</summary><p>Acuerda dos lotes sin cambiar la regla: C-001 a C-025 y C-026 a C-050. Pide que cada salida identifique el lote. Al reunirlos, deben aparecer los 50 códigos una sola vez en la clasificación; revisa códigos omitidos, repetidos o añadidos. Las diez situaciones se repiten en cinco lotes del archivo, pero sus códigos son distintos.</p><p>Si falta un código, pide solo ese registro con la misma regla y fuente; no vuelvas a generar toda la tabla sin necesidad. Para Datos SOFIA, conserva las dos ocurrencias de SIM-0012: un código repetido en la fuente no autoriza borrar una fila. Usa también su referencia de fila.</p></details><details class="productivity-recall" data-retrieval-check=""><summary>La clasificación devuelve 50 filas. ¿Eso demuestra que están los 50 mensajes?</summary><p>No. Puede haber un código repetido y otro ausente. Compara la lista de códigos con la fuente y después revisa el contenido. El conteo y las referencias cumplen controles distintos; necesitas ambos.</p></details></details></section></div><button class="button button-primary" data-next-phase="observa" type="button">Abrir la práctica del módulo <span aria-hidden="true">→</span></button><div class="phase-footer"><small>Paso 1 de 4 · Módulo 03</small><button class="button button-primary" data-next-phase="observa" type="button">Continuar con Observa <span aria-hidden="true">→</span></button></div></div><div class="lesson-panel" data-panel="observa"><div class="panel-heading"><h2>Practica con un caso y comprueba tus decisiones.</h2></div><section aria-labelledby="practice-m03-implementacion-title" class="case-practice" data-case-id="m03-implementacion" data-simulator="case-practice"><header class="case-header"><span class="eyebrow">PRÁCTICA CON FUENTES</span><h3 id="practice-m03-implementacion-title">Limpia estados y conserva el origen</h3><p>Trabaja con cinco filas de Datos SOFIA. Prueba las reglas en el comparador y contrasta la salida con el original. La muestra no acredita el procesamiento de los 30 registros ni la ejecución del reto con IA.</p><p>Esta práctica forma parte de la explicación del módulo. Puedes pasar al reto aunque tengas decisiones pendientes y volver a la práctica después.</p><p aria-live="polite" class="case-summary" data-case-summary="" role="status">Sin empezar</p></header><nav aria-label="Etapas de la práctica" class="case-stage-nav"><button aria-controls="practice-m03-implementacion-0" data-case-go="0" type="button"><span aria-hidden="true">01</span> Consulta la fuente</button><button aria-controls="practice-m03-implementacion-1" data-case-go="1" type="button"><span aria-hidden="true">02</span> Decide</button><button aria-controls="practice-m03-implementacion-2" data-case-go="2" type="button"><span aria-hidden="true">03</span> Comprueba</button><button aria-controls="practice-m03-implementacion-3" data-case-go="3" type="button"><span aria-hidden="true">04</span> Revisa tu resultado</button></nav><section aria-labelledby="practice-m03-implementacion-0-title" data-case-stage="0" id="practice-m03-implementacion-0"><h4 id="practice-m03-implementacion-0-title" tabindex="-1">1. Consulta la fuente</h4><div data-case-source=""><p>Consulta los extractos conservados del archivo original. Los espacios y los campos vacíos también son parte de la fuente.</p><div class="case-source-links"><a download="" href="materiales/retos/datos-sofia.csv">Descargar datos-sofia.csv</a></div><div class="case-sources"><article class="case-source-record"><h4>datos-sofia.csv · fila 5</h4><dl><div><dt>Código</dt><dd><code>SIM-0001</code></dd></div><div><dt>Aprendiz</dt><dd><code>Aprendiz 001</code></dd></div><div><dt>Programa sin normalizar</dt><dd><code>GESTION ADMINISTRATIVA</code></dd></div><div><dt>Fecha de ingreso sin normalizar</dt><dd><code>2026-03-01</code></dd></div><div><dt>Estado sin normalizar</dt><dd><code>EN CURSO</code></dd></div><div><dt>Municipio sin normalizar</dt><dd><code>Vélez</code></dd></div></dl></article><article class="case-source-record"><h4>datos-sofia.csv · fila 6</h4><dl><div><dt>Código</dt><dd><code>SIM-0002</code></dd></div><div><dt>Aprendiz</dt><dd><code>Aprendiz 002</code></dd></div><div><dt>Programa sin normalizar</dt><dd><code>Gestión administrativa </code></dd></div><div><dt>Fecha de ingreso sin normalizar</dt><dd><code>1/3/26</code></dd></div><div><dt>Estado sin normalizar</dt><dd><code>FINALIZADO </code></dd></div><div><dt>Municipio sin normalizar</dt><dd><code>VÉLEZ</code></dd></div></dl></article><article class="case-source-record"><h4>datos-sofia.csv · fila 7</h4><dl><div><dt>Código</dt><dd><code>SIM-0003</code></dd></div><div><dt>Aprendiz</dt><dd><code>Aprendiz 003</code></dd></div><div><dt>Programa sin normalizar</dt><dd><code>SERVICIO AL CLIENTE</code></dd></div><div><dt>Fecha de ingreso sin normalizar</dt><dd><code>01-03-2026</code></dd></div><div><dt>Estado sin normalizar</dt><dd><code>No consta</code></dd></div><div><dt>Municipio sin normalizar</dt><dd><code>Puente Nacional</code></dd></div></dl></article><article class="case-source-record"><h4>datos-sofia.csv · fila 16</h4><dl><div><dt>Código</dt><dd><code>SIM-0012</code></dd></div><div><dt>Aprendiz</dt><dd><code>Aprendiz 012</code></dd></div><div><dt>Programa sin normalizar</dt><dd><code>Gestión administrativa </code></dd></div><div><dt>Fecha de ingreso sin normalizar</dt><dd><code>No consta</code></dd></div><div><dt>Estado sin normalizar</dt><dd><code>pendiente </code></dd></div><div><dt>Municipio sin normalizar</dt><dd><code>velez </code></dd></div></dl></article><article class="case-source-record"><h4>datos-sofia.csv · fila 23</h4><dl><div><dt>Código</dt><dd><code>SIM-0012</code></dd></div><div><dt>Aprendiz</dt><dd><code>Aprendiz 019</code></dd></div><div><dt>Programa sin normalizar</dt><dd><code>Servicio al cliente</code></dd></div><div><dt>Fecha de ingreso sin normalizar</dt><dd><code>No consta</code></dd></div><div><dt>Estado sin normalizar</dt><dd><code>pendiente </code></dd></div><div><dt>Municipio sin normalizar</dt><dd><code>Vélez</code></dd></div></dl></article></div></div></section><section aria-labelledby="practice-m03-implementacion-1-title" data-case-stage="1" id="practice-m03-implementacion-1"><h4 id="practice-m03-implementacion-1-title" tabindex="-1">2. Decide</h4><form class="case-question" data-case-question="origen" data-state="pending" id="case-m03-implementacion-origen"><fieldset><legend>¿Dónde debes guardar el estado transformado?</legend><div class="case-inputs"><label class="check-option"><input aria-describedby="case-m03-implementacion-origen-feedback" name="case-m03-implementacion-origen" type="radio" value="0"/><span>Sobre el original, sin conservar una copia.</span></label><label class="check-option"><input aria-describedby="case-m03-implementacion-origen-feedback" name="case-m03-implementacion-origen" type="radio" value="1"/><span>En Estado revisado, conservando fila, código y Estado sin normalizar.</span></label><label class="check-option"><input aria-describedby="case-m03-implementacion-origen-feedback" name="case-m03-implementacion-origen" type="radio" value="2"/><span>En una fila nueva sin código.</span></label></div></fieldset><div class="check-actions"><button class="button button-primary" data-case-submit="" type="button">Comprobar respuesta</button><button class="text-button" data-case-hint="" type="button">Consultar una pista</button></div><p aria-live="polite" data-case-feedback="" id="case-m03-implementacion-origen-feedback" role="status">Elige una opción y comprueba tu respuesta.</p><p data-case-hint-text="" hidden="">La salida debe permitir volver al valor que recibió la regla.</p></form><form class="case-question" data-case-question="vacio" data-state="pending" id="case-m03-implementacion-vacio"><fieldset><legend>SIM-0003 no tiene estado. ¿Cuál es la salida prevista?</legend><div class="case-inputs"><label class="check-option"><input aria-describedby="case-m03-implementacion-vacio-feedback" name="case-m03-implementacion-vacio" type="radio" value="0"/><span>FINALIZADO.</span></label><label class="check-option"><input aria-describedby="case-m03-implementacion-vacio-feedback" name="case-m03-implementacion-vacio" type="radio" value="1"/><span>EN CURSO.</span></label><label class="check-option"><input aria-describedby="case-m03-implementacion-vacio-feedback" name="case-m03-implementacion-vacio" type="radio" value="2"/><span>REVISAR.</span></label></div></fieldset><div class="check-actions"><button class="button button-primary" data-case-submit="" type="button">Comprobar respuesta</button><button class="text-button" data-case-hint="" type="button">Consultar una pista</button></div><p aria-live="polite" data-case-feedback="" id="case-m03-implementacion-vacio-feedback" role="status">Elige una opción y comprueba tu respuesta.</p><p data-case-hint-text="" hidden="">Una marca para revisar no inventa un estado del proceso.</p></form></section><section aria-labelledby="practice-m03-implementacion-2-title" data-case-stage="2" id="practice-m03-implementacion-2"><h4 id="practice-m03-implementacion-2-title" tabindex="-1">3. Comprueba</h4><form class="case-question" data-case-question="espacio" data-state="pending" id="case-m03-implementacion-espacio"><fieldset><legend>Activa las reglas en el comparador. ¿Qué debe producir «FINALIZADO »?</legend><div class="case-inputs"><label class="check-option"><input aria-describedby="case-m03-implementacion-espacio-feedback" name="case-m03-implementacion-espacio" type="radio" value="0"/><span>FINALIZADO, en una columna nueva.</span></label><label class="check-option"><input aria-describedby="case-m03-implementacion-espacio-feedback" name="case-m03-implementacion-espacio" type="radio" value="1"/><span>Eliminar el registro.</span></label><label class="check-option"><input aria-describedby="case-m03-implementacion-espacio-feedback" name="case-m03-implementacion-espacio" type="radio" value="2"/><span>Cambiar su fecha de ingreso.</span></label></div></fieldset><div class="check-actions"><button class="button button-primary" data-case-submit="" type="button">Comprobar respuesta</button><button class="text-button" data-case-hint="" type="button">Consultar una pista</button></div><p aria-live="polite" data-case-feedback="" id="case-m03-implementacion-espacio-feedback" role="status">Elige una opción y comprueba tu respuesta.</p><p data-case-hint-text="" hidden="">El cambio autorizado afecta el texto del estado, no la existencia del registro.</p></form><form class="case-question" data-case-question="repeticiones" data-state="pending" id="case-m03-implementacion-repeticiones"><fieldset><legend>SIM-0012 aparece en las filas 16 y 23. ¿Cómo verificas la salida?</legend><div class="case-inputs"><label class="check-option"><input aria-describedby="case-m03-implementacion-repeticiones-feedback" name="case-m03-implementacion-repeticiones" type="radio" value="0"/><span>Dejar solo la primera ocurrencia.</span></label><label class="check-option"><input aria-describedby="case-m03-implementacion-repeticiones-feedback" name="case-m03-implementacion-repeticiones" type="radio" value="1"/><span>Conservar las dos filas y sus referencias, aunque compartan código.</span></label><label class="check-option"><input aria-describedby="case-m03-implementacion-repeticiones-feedback" name="case-m03-implementacion-repeticiones" type="radio" value="2"/><span>Unir los valores y completar las fechas.</span></label></div></fieldset><div class="check-actions"><button class="button button-primary" data-case-submit="" type="button">Comprobar respuesta</button><button class="text-button" data-case-hint="" type="button">Consultar una pista</button></div><p aria-live="polite" data-case-feedback="" id="case-m03-implementacion-repeticiones-feedback" role="status">Elige una opción y comprueba tu respuesta.</p><p data-case-hint-text="" hidden="">Contar códigos distintos no equivale a contar filas de origen.</p></form><details class="case-tools"><summary>Refuerza tus decisiones con los simuladores del caso</summary><section aria-labelledby="cleaner-sim-title" class="tool-lab" id="data-cleaner-simulator">
 <div class="tool-lab-heading">
-<span class="eyebrow">SIMULADOR INTERACTIVO DE NORMALIZACIÓN DE TABLAS</span>
-<h3 id="cleaner-sim-title">Depurador y validador de planillas</h3>
+<span class="eyebrow">PRACTICA EL PASO 3</span>
+<h3 id="cleaner-sim-title">Prueba la regla en cinco filas</h3>
 <p>Ensaya las reglas sobre cinco de los 30 registros de datos-sofia.csv. La muestra conserva las filas 5, 6, 7, 16 y 23, incluidas ambas ocurrencias de SIM-0012. Solo cambia «Estado revisado»; los demás campos permanecen intactos. Esta práctica local no demuestra el procesamiento del archivo completo ni la ejecución con IA del Reto 6.</p>
 </div>
 <div class="tool-lab-fields">
