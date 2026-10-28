@@ -58,41 +58,6 @@
         "Registro digital de aprendizaje que reúne en este navegador tus cinco evidencias curriculares (MG-A01 a MG-A05) para revisión, exportación y valoración final del instructor."
       ]
     ],
-    "steps": [
-      [
-        "Descarga",
-        "Obtén bienestar.csv y adjúntalo al chat o abre la carpeta en Antigravity."
-      ],
-      [
-        "Encarga",
-        "Copia la instrucción lista y pide la tabla y el resumen."
-      ],
-      [
-        "Comprueba",
-        "Compara el Centro A con el testigo: 840, 42 y 5 %."
-      ],
-      [
-        "Descarga",
-        "Pide el informe y el reporte; conserva fuente y pendientes."
-      ]
-    ],
-    "practice": [
-      [
-        "Obtén el análisis",
-        "Copia el encargo del paso 2 en tu chat autorizado o Antigravity.",
-        "La IA entrega tabla, cálculo y resumen con fuente."
-      ],
-      [
-        "Revisa el testigo",
-        "Compara las cifras visibles del Centro A.",
-        "La salida conserva 840, 42 y 5 %; el periodo no consta."
-      ],
-      [
-        "Descarga el informe",
-        "Pide el informe y su reporte en la misma conversación.",
-        "Obtienes archivos completos, sin llenar una ficha."
-      ]
-    ],
     "checks": [
       {
         "question": "¿Qué necesita la IA para preparar un informe revisable?",
@@ -169,41 +134,6 @@
         "Página de la guía que reúne tus cinco evidencias (MG-A01 a MG-A05) para revisarlas y entregarlas al instructor."
       ]
     ],
-    "steps": [
-      [
-        "Descarga",
-        "Obtén las fuentes; las tarjetas restringidas se consultan solo en tu equipo."
-      ],
-      [
-        "Encarga",
-        "Copia el encargo seguro y pide el producto a la IA."
-      ],
-      [
-        "Comprueba",
-        "Revisa los tres criterios del reto y sus fuentes."
-      ],
-      [
-        "Guarda",
-        "Conserva el resultado; lo que no se ha observado queda pendiente."
-      ]
-    ],
-    "practice": [
-      [
-        "Reto 0 · Protege los datos",
-        "Copia el encargo seguro para que la IA prepare cinco decisiones y dos textos reducidos.",
-        "Los textos excluyen identificadores, salud y credenciales."
-      ],
-      [
-        "Reto 1 · Obtén una respuesta",
-        "Adjunta lineamiento y URG-01 y pide la tabla y el borrador.",
-        "Los requisitos tienen fuente y la reserva queda pendiente de confirmación."
-      ],
-      [
-        "Pide el diagnóstico",
-        "Usa el encargo posterior a los retos; la IA genera MG-A01.",
-        "La línea base sin medición observada queda pendiente."
-      ]
-    ],
     "checks": [
       {
         "question": "¿Cómo abordarías una solicitud de sala incompleta?",
@@ -273,41 +203,6 @@
         "Contexto, Rol, Tarea y Tono: cuatro partes para ordenar el encargo. Añade fuente, límites, formato y criterio de revisión."
       ]
     ],
-    "steps": [
-      [
-        "Descarga",
-        "Obtén los casos y adjúntalos al chat o a Antigravity."
-      ],
-      [
-        "Encarga",
-        "Copia la instrucción preparada; la IA genera tablas, borradores y plantilla."
-      ],
-      [
-        "Comprueba",
-        "Revisa petición, afirmaciones y pendientes."
-      ],
-      [
-        "Descarga",
-        "Guarda el archivo que genere la IA con las tres pruebas."
-      ]
-    ],
-    "practice": [
-      [
-        "Observa PC-01",
-        "Compara el mensaje con la tabla ya resuelta.",
-        "El aviso recibido no equivale a confirmación oficial."
-      ],
-      [
-        "Reto 2 · Obtén dos borradores",
-        "Copia el encargo y pide a la IA dos respuestas completas.",
-        "Cada borrador mantiene visibles sus pendientes."
-      ],
-      [
-        "Reto 3 · Prueba la plantilla",
-        "La IA aplica la misma versión a PC-01, PC-02 y PC-03.",
-        "El reporte incluye tres salidas reales y no inventa una revisión humana."
-      ]
-    ],
     "checks": [
       {
         "question": "¿Qué permite afirmar PC-01?",
@@ -375,46 +270,6 @@
       [
         "Simulación",
         "Recorrido de casos de prueba para observar la salida prevista de un diseño."
-      ]
-    ],
-    "steps": [
-      [
-        "Descarga",
-        "Obtén la fuente del reto."
-      ],
-      [
-        "Encarga",
-        "Copia la instrucción para que la IA genere el producto y sus referencias."
-      ],
-      [
-        "Comprueba",
-        "Contrasta conteos, casos testigo y excepciones."
-      ],
-      [
-        "Descarga",
-        "Guarda salida, procedimiento y reporte de ejecución."
-      ]
-    ],
-    "practice": [
-      [
-        "Reto 4 · Obtén la clasificación",
-        "Pide a la IA 50 mensajes clasificados y diez borradores.",
-        "Los códigos y las señales se pueden comprobar."
-      ],
-      [
-        "Reto 5 · Obtén el acta",
-        "Pide el acta con minutos fuente y preguntas pendientes.",
-        "Propuestas, acuerdos y fechas ausentes se distinguen."
-      ],
-      [
-        "Reto 6 · Obtén la copia revisada",
-        "Pide generar y ejecutar la regla en una columna nueva.",
-        "SIM-0002, SIM-0003 y ambas ocurrencias de SIM-0012 se conservan."
-      ],
-      [
-        "Reto 7 · Obtén el flujo",
-        "Pide un diagrama y las tres simulaciones.",
-        "La urgencia se revisa primero; ninguna reserva se aprueba ni se envía."
       ]
     ],
     "checks": [
@@ -490,41 +345,6 @@
         "Uso de herramientas de IA que ejecutan código o scripts para transformar tablas y generar gráficos a partir de archivos crudos."
       ]
     ],
-    "steps": [
-      [
-        "Descarga",
-        "Obtén las fuentes de cifras y afirmaciones."
-      ],
-      [
-        "Encarga",
-        "Pide a la IA operaciones, gráfico y tabla de contraste."
-      ],
-      [
-        "Comprueba",
-        "Compara el testigo y las referencias de origen."
-      ],
-      [
-        "Descarga",
-        "Pide ajustes cuando hagan falta y guarda los archivos."
-      ]
-    ],
-    "practice": [
-      [
-        "Comprueba Centro A",
-        "Compara la salida con el testigo preparado, sin transcribir cantidades.",
-        "42 ÷ 840 × 100 = 5 %; el periodo no consta."
-      ],
-      [
-        "Reto 8 · Obtén cifras y gráfico",
-        "La IA genera tablas y gráfico; tú revisas unidades, centros y meses.",
-        "El gráfico identifica COP, enero a marzo de 2026 y fuente."
-      ],
-      [
-        "Reto 9 · Obtén la auditoría",
-        "La IA genera el contraste de cuatro afirmaciones; comprueba cada cita.",
-        "Hay una respaldada, dos contradichas y una que no consta."
-      ]
-    ],
     "checks": [
       {
         "question": "¿Qué porcentaje representan 42 de 840?",
@@ -592,46 +412,6 @@
       [
         "Piloto",
         "Prueba acotada de una mejora con responsable, autorización, criterios y seguimiento."
-      ]
-    ],
-    "steps": [
-      [
-        "Descarga",
-        "Obtén Contratos y Directriz; cada fila conserva código y centro."
-      ],
-      [
-        "Encarga",
-        "Copia la instrucción para que la IA genere el análisis."
-      ],
-      [
-        "Comprueba",
-        "Contrasta las diferencias, referencias y preguntas pendientes."
-      ],
-      [
-        "Descarga",
-        "Pide los productos finales y el piloto con tiempos no observados pendientes."
-      ]
-    ],
-    "practice": [
-      [
-        "Valida el análisis",
-        "Pide a la IA diferencias por fila y centro y compara los testigos.",
-        "Fila 12 Centro H: $1.250.000 COP; fila 21 Centro A permanece separada."
-      ],
-      [
-        "Revisa las preguntas",
-        "La IA formula las preguntas por fecha, soporte y conflictos entre columnas.",
-        "Las diferencias se presentan como preguntas con fuente."
-      ],
-      [
-        "Obtén los productos",
-        "Pide informe, mensaje borrador y lámina en la misma conversación.",
-        "Los archivos conservan las cifras revisadas y sus límites."
-      ],
-      [
-        "Demuestra y transfiere",
-        "Encarga el caso individual y el reporte de ejecución a la IA.",
-        "El ahorro queda pendiente si falta una referencia equivalente."
       ]
     ],
     "checks": [

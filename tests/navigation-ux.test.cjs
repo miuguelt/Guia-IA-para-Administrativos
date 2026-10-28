@@ -55,6 +55,10 @@ test('la barra superior muestra el módulo y el paso abierto', async () => {
   assert.equal(step.textContent, 'Resuelve');
   document.querySelector('#m01-fundamentos [data-tab="observa"]').click();
   assert.equal(step.textContent, 'Resuelve', 'Un módulo oculto no cambia la ubicación visible');
+  window.location.hash = '#preparacion';
+  await tick(window);
+  document.querySelector('#preparacion [data-tab="chat"]').click();
+  assert.equal(step.textContent, 'Pide el análisis', 'El paso se nombra sin su duración');
   window.location.hash = '#portafolio';
   await tick(window);
   assert.equal(step.hidden, true);

@@ -36,8 +36,10 @@
     const route = parent ? parent.id : 'inicio';
     if (element && element.classList.contains('challenge-card')) {
       pending = { page: route, tab: 'resuelve', challenge: element };
-    } else if (element && (route === 'laboratorio-datos' || hash === 'metodo-comun')) {
-      pending = { page: route, anchor: element };
+    } else if (element && (route === 'laboratorio-datos' || hash === 'metodo-comun' || element.closest('.lesson-panel'))) {
+      // Un ancla dentro de una pestaña, como #crtt, abre primero esa pestaña.
+      const panel = element.closest('.lesson-panel[data-panel]');
+      pending = { page: route, anchor: element, tab: panel ? panel.dataset.panel : '' };
     }
     history.replaceState(null, '', '#' + route);
     if (app && app.navigation.getCurrentPage() === route) applyPending(route);
@@ -53,8 +55,9 @@
     if (!pending || pending.page !== pageId) return;
     if (pending.anchor) {
       const anchor = pending.anchor;
+      if (pending.tab) window.CourseTabs.show(pageId, pending.tab);
       queueMicrotask(() => {
-        const heading = anchor.querySelector('h2, h3') || anchor;
+        const heading = anchor.querySelector('h2, h3, h4') || anchor;
         heading.tabIndex = -1;
         heading.focus({ preventScroll: true });
         anchor.scrollIntoView({ block: 'start', behavior: 'instant' });

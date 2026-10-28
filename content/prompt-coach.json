@@ -23,5 +23,36 @@
   "coach": "Quiero practicar cómo escribir instrucciones para IA. Mi tarea es {meta}. En mi próximo mensaje te enviaré mi instrucción. No la ejecutes todavía. Revísala con estas partes: Contexto, Rol, Tarea, Tono y Límites, y con la técnica «{tecnica}». Dime en pocas líneas qué está claro y qué falta, y hazme como máximo dos preguntas. Cuando te envíe la versión corregida junto con los archivos, ejecútala.",
   "technicalHeading": "Formato para guardar. Estas instrucciones técnicas permiten guardar la página en la guía; aplícalas después de la instrucción anterior.",
   "compare": "Antes de preparar la página, revisa esta conversación. Si escribí mi propia instrucción para esta tarea, compárala con la instrucción de referencia en una tarjeta «Mi intento y la referencia»: qué partes de Contexto, Rol, Tarea, Tono y Límites tenía, qué le faltó, en qué cambió la respuesta y una mejora concreta para la próxima vez. Resume esa comparación al comienzo del campo {campo}. Si no encuentras un intento mío, escribe «Sin intento previo» al comienzo de ese campo.",
-  "repair": "Revisa tu resultado contra estos puntos: {checks} Corrige solo lo que no se cumpla, conserva visibles las cifras, las citas y los pendientes, y entrégame de nuevo la página completa. No afirmes que una persona ya la revisó."
+  "repair": "Revisa tu resultado contra estos puntos: {checks} Corrige solo lo que no se cumpla, conserva visibles las cifras, las citas y los pendientes, y entrégame de nuevo la página completa. No afirmes que una persona ya la revisó.",
+  "demo": {
+    "source": "materiales/retos/correos-50.csv",
+    "count": 12,
+    "eyebrow": "PRUÉBALO AHORA · 5 MINUTOS",
+    "title": "Ordena 12 correos con una sola instrucción",
+    "intro": "Copia este mensaje en el chat de IA que autorice tu entidad. Ya trae 12 correos preparados para practicar, que no contienen datos reales: no necesitas adjuntar nada.",
+    "instruction": "Contexto: trabajo en la oficina administrativa de un centro de formación. Estos 12 mensajes se prepararon para practicar y no contienen datos reales.\nRol: actúa como asistente que ordena una bandeja de entrada.\nTarea: clasifica cada mensaje como prioridad alta, media o baja. Usa solo el plazo escrito y el número de personas afectadas. Entrega una tabla con código, prioridad y una razón de máximo 12 palabras. Al final, dime qué mensajes necesitan que una persona confirme algo.\nTono: claro y breve.\nLímites: no inventes datos ni redactes respuestas; la prioridad es una sugerencia que una persona revisa.\n\nMensajes (código | asunto | mensaje | personas afectadas | plazo):\n{mensajes}",
+    "copyLabel": "Copiar el mensaje",
+    "copyMessage": "Mensaje copiado. Pégalo en el chat de IA y compara la respuesta con el ejemplo.",
+    "detailsLabel": "Ver el mensaje completo",
+    "sampleCaption": "Así puede empezar la respuesta · ejemplo para comparar",
+    "sample": [
+      [
+        "C-005",
+        "Alta",
+        "Plazo hoy a las 12:00 y 80 personas afectadas."
+      ],
+      [
+        "C-001",
+        "Alta",
+        "El portal falla; el plazo cierra hoy a las 16:00."
+      ],
+      [
+        "C-006",
+        "Baja",
+        "Reposición para el próximo mes, sin afectación inmediata."
+      ]
+    ],
+    "question": "Compara dos filas con el mensaje original. Si funcionó con 12 correos, ¿cuánto tardarías con los 50 del Reto 4? Mídelo tú: la guía no promete un ahorro.",
+    "next": "Practícalo completo en el Reto 4"
+  }
 }

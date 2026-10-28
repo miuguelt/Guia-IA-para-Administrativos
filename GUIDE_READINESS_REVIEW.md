@@ -2,7 +2,7 @@
 
 ## Actualización vigente · 27 de octubre de 2026
 
-Se analizó la guía completa para que una persona principiante la siga sin perderse y aprenda a pedirle cosas a la IA. El plan tiene tres fases: correcciones rápidas, rediseño pedagógico y menos texto y jerga. Esta entrada registra las dos primeras fases.
+Se analizó la guía completa para que una persona principiante la siga sin perderse y aprenda a pedirle cosas a la IA. El plan tiene tres fases: correcciones rápidas, rediseño pedagógico y menos texto y jerga. Esta entrada registra las tres fases.
 
 ### Correcciones rápidas
 
@@ -32,9 +32,23 @@ Se analizó la guía completa para que una persona principiante la siga sin perd
 - `npm run build`, `npm run check:redaccion`, 378 pruebas JavaScript y 107 Python. La cobertura de funciones de `js/*.js` es 100 %. Una prueba compara el texto copiado en la guía con los bloques del paquete.
 - La prueba con un chat real (escribir un intento, copiar la referencia y guardar la página) sigue pendiente.
 
+### Menos texto y jerga (fase C)
+
+- **Nombres sencillos.** En «Por mi cuenta» el aprendiz ve «Evidencia 1» en lugar de MG-A01; los RA y los códigos solo aparecen con instructor. Los nombres de archivo, los encargos y el registro imprimible conservan los códigos. Los pasos de los retos ya no nombran Antigravity ni Codex: quedan en la opción avanzada. Ningún texto visible menciona JSON ni «autocomprobación».
+- **Un esquema de pasos.** Se retiraron los bloques «Cuatro pasos…» y «Tu conexión práctica con los retos» de los módulos 02 a 05, la ruta «Un producto a la vez» y los pasos genéricos de `learning-paths.json`. El semáforo de riesgos y las comparaciones de cada lección quedan juntos en «Profundiza»; el diagrama principal sigue visible.
+- **CRTT en un solo lugar.** La explicación vive en el módulo 01 (`#crtt`); los módulos siguientes enlazan ahí y el enlace abre la pestaña correcta.
+- **Primera práctica arriba.** La preparación empieza con sus cinco pasos; el paso 1 descarga directamente `bienestar.csv` y resume la cuenta autorizada y los datos personales. Los recursos comunes, la ética, el mapa de herramientas y la ayuda común (`#metodo-comun`) quedan después.
+- **Demostración en Inicio.** «Ordena 12 correos con una sola instrucción» trae los mensajes dentro del encargo, un ejemplo de tres filas que coincide con la fuente y la pregunta sobre cuánto tardaría el aprendiz con 50, sin prometer un ahorro. «Aprender con IA» sube antes del resumen de evidencias.
+- **Tiempo en el módulo 05.** El ejemplo suma un lote de cinco ejecuciones: una sola vez no recupera la preparación (5 min adicionales) y el lote sí (55 min menos). Se presenta como estimación didáctica.
+
+### Verificación de la fase C
+
+- `npm run build` dos veces con los mismos bytes en 610 archivos generados; `npm run check:redaccion`; 385 pruebas JavaScript y 114 Python; cobertura de funciones de `js/*.js` al 100 %; `npm run test:browser:layout` sin desbordes de 320 a 2560 px ni con zoom al 200 %.
+- Palabras visibles por módulo (cuatro pestañas, desplegables cerrados, todos los pasos del primer reto): antes de 2 941 a 3 469; ahora de 2 133 a 2 825. El plan proponía 2 200; lo que resta es la práctica guiada, así que la prueba fija 2 850 y como máximo 28 desplegables visibles. Antes de los cinco pasos de la preparación había 987 palabras; ahora hay menos de 250.
+
 ### Pendientes
 
-- Fase C: menos jerga y texto, primera práctica al comienzo de la preparación y demostración breve en Inicio.
+- Probar con un chat real el flujo de un reto y la demostración de Inicio: escribir un intento, copiar la referencia y guardar la página.
 - La observación con aprendices, el aval de las 40 horas y la confirmación de la cohorte siguen abiertos.
 
 ## Actualización anterior · 26 de octubre de 2026

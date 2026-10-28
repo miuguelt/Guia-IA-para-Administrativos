@@ -120,6 +120,24 @@ test('la medición visual conserva calidad, costo inicial y balance de las dos p
   dom.window.close();
 });
 
+test('el ejemplo de tiempo contrasta una tarea suelta, que no ahorra, con un lote, que sí ahorra', () => {
+  const dom = new JSDOM(read('index.html'));
+  const example = dom.window.document.querySelector('#m05-cierre [data-productivity-metrics]');
+  const rows = [...example.querySelectorAll('.productivity-table tbody tr')].map(row => [...row.cells].map(cell => cell.textContent.trim()));
+  assert.equal(rows.length, 3);
+  assert.match(rows[0][0], /una sola vez/iu);
+  assert.match(rows[0][3], /5 min adicionales/u);
+  const runs = Number(example.dataset.batchRuns);
+  assert.equal(runs, 5);
+  assert.match(rows[2][0], new RegExp(`lote.*${runs * 10} aceptados`, 'iu'));
+  assert.equal(rows[2][1], `${runs * 60} min`);
+  assert.equal(rows[2][2], `20 + ${runs} × 45 = ${20 + runs * 45} min`);
+  assert.equal(rows[2][3], `${runs * 60 - (20 + runs * 45)} min menos`);
+  assert.match(example.textContent, /estimación didáctica/iu);
+  assert.match(example.textContent, /una sola vez.*no.*(?:recupera|ahorra).*lote/isu);
+  dom.window.close();
+});
+
 test('las cuatro imágenes didácticas tienen explicación equivalente y metadatos accesibles', () => {
   const dom = new JSDOM(read('index.html'));
   const illustrations = [...dom.window.document.querySelectorAll('[data-productivity-visual]')];

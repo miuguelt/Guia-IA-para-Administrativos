@@ -19,6 +19,8 @@ COMPASS_PATH = CONTENT / "challenge-compass.json"
 COMPASS = json.loads(COMPASS_PATH.read_text(encoding="utf-8")) if COMPASS_PATH.is_file() else {}
 DECISIONS_PATH = CONTENT / "challenge-decisions.json"
 DECISIONS = json.loads(DECISIONS_PATH.read_text(encoding="utf-8")) if DECISIONS_PATH.is_file() else {}
+# Bloques que amplían la lectura; quedan juntos en un desplegable para que el diagrama principal se lea primero.
+DEEPER_BLOCKS = {"data-safety-triptych-section", "comparative-cards-grid", "course-context", "transfer-tip"}
 STAGES = [("Prepara", "Descarga el paquete para IA"), ("Pide a la IA", "Escribe tu instrucción y compárala con la referencia"),
           ("Revisa", "Comprueba tu resultado"), ("Descarga", "Conserva el resultado para tu evidencia")]
 
@@ -129,6 +131,17 @@ def guided_intro(ident, full_content):
         block = diagram.find_parent(class_='learning-block')
         reference.append(diagram.extract())
         block.append(reference)
+    for block in content.select('.learning-block'):
+        extras = [node for node in block.find_all(['section', 'div'], recursive=False)
+                  if DEEPER_BLOCKS & set(node.get('class', [])) and 'm01-step' not in node.get('class', [])]
+        if extras:
+            deeper = content.new_tag('details', attrs={'class': 'reference-library lesson-deeper'})
+            summary = content.new_tag('summary')
+            summary.string = 'Profundiza: riesgos frecuentes y comparaciones'
+            deeper.append(summary)
+            for node in extras:
+                deeper.append(node.extract())
+            block.append(deeper)
     for node in content.select('#prompt-lab, #prompt-compare-simulator, #pqrs-evaluator-simulator, #data-cleaner-simulator, #decision-simulator, #anonymization-simulator, #productivity-roi-calculator, .ratio-lab'):
         node.decompose()
     productivity = content.select_one('.productivity-lesson')
@@ -141,7 +154,7 @@ def challenge_map(titles, evidence):
     cards = ''.join(f'<button type="button" class="challenge-map-card" data-open-challenge="{escape(ident)}"><span class="challenge-map-number" aria-hidden="true">{i:02}</span><span><strong>{escape(title)}</strong><small>{escape(GUIDANCE[ident]["result"])}</small></span><span aria-hidden="true">↗</span></button>'
                     for i, (ident, title) in enumerate(titles, 1))
     count = f'{len(titles)} reto' + ("s" if len(titles) != 1 else "")
-    return f'''<section class="challenge-map" aria-label="Retos de este módulo"><div class="challenge-map-heading"><span class="eyebrow">TU PRÁCTICA</span><span>{count} <span aria-hidden="true">→</span> {escape(evidence)}</span></div><div class="challenge-map-grid">{cards}</div><p>Abre un reto después de ensayar el caso. Sus cuatro pasos te indican qué archivo usar, qué encargo copiar, cómo revisar el resultado y dónde guardarlo.</p></section>'''
+    return f'''<section class="challenge-map" aria-label="Retos de este módulo"><div class="challenge-map-heading"><span class="eyebrow">TU PRÁCTICA</span><span>{count} <span aria-hidden="true">→</span> {escape(evidence)}</span></div><div class="challenge-map-grid">{cards}</div></section>'''
 
 
 def shared_materials_panel():
@@ -189,7 +202,7 @@ def guided_challenge(card, materials):
             details.append("Recurso común: " + ", ".join(missing_shared)
                            + "; ya viene en la carpeta fuentes/ del paquete.")
         if not any(label in task_note.casefold() for label in ("chat autorizado", "antigravity", "codex")):
-            details.append("En un chat autorizado o en Antigravity/Codex, adjunta solo estas fuentes y conserva intactos los originales.")
+            details.append("En el chat autorizado, adjunta solo estas fuentes y conserva intactos los originales.")
         source_note.append(" " + " ".join(details))
     checks_list = card.select_one("[data-ai-review-checks]")
     if checks_list:
@@ -295,4 +308,4 @@ def guided_challenge(card, materials):
     groups[3].insert(1, render_office_step(ident))
     buttons = ''.join(f'<button type="button" data-stage-select="{i}" aria-controls="{ident}-stage-{i}"><span aria-hidden="true">{i+1}</span>{title}</button>' for i, (title, _) in enumerate(STAGES))
     panels = ''.join(f'<section id="{ident}-stage-{i}" class="challenge-stage" data-challenge-stage="{i}" aria-labelledby="{ident}-stage-title-{i}"><h4 id="{ident}-stage-title-{i}"><span>Paso {i+1}.</span> {detail}</h4>{"".join(groups[i])}</section>' for i, (_, detail) in enumerate(STAGES))
-    return f'''<div class="challenge-result"><span class="eyebrow">EL RESULTADO QUE VAS A GUARDAR</span><p>{escape(data["result"])}</p></div><div data-challenge-guide="{ident}"><nav class="challenge-stage-nav" aria-label="Pasos de este reto">{buttons}</nav><p class="challenge-stage-status" data-stage-status role="status" aria-live="polite">Cuatro pasos para resolver el reto. Avanzar entre pasos no guarda ni aprueba una evidencia.</p>{panels}<div class="challenge-stage-actions"><button type="button" class="button button-secondary" data-stage-previous>← Paso anterior</button><span>El guardado se hace en «Guarda tu evidencia».</span><button type="button" class="button button-primary" data-stage-next>Siguiente paso →</button></div></div>'''
+    return f'''<div class="challenge-result"><span class="eyebrow">EL RESULTADO QUE VAS A GUARDAR</span><p>{escape(data["result"])}</p></div><div data-challenge-guide="{ident}"><nav class="challenge-stage-nav" aria-label="Pasos de este reto">{buttons}</nav><p class="challenge-stage-status" data-stage-status role="status" aria-live="polite">Paso 1 de 4.</p>{panels}<div class="challenge-stage-actions"><button type="button" class="button button-secondary" data-stage-previous>← Paso anterior</button><span>El guardado se hace en «Guarda tu evidencia».</span><button type="button" class="button button-primary" data-stage-next>Siguiente paso →</button></div></div>'''

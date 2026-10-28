@@ -41,7 +41,7 @@
   },
   "m03-implementacion": {
     "question": "¿Cómo revisas un archivo transformado?",
-    "essential": "Los encargos de este módulo ya traen su CRTT. Antes de copiarlos, identifica su contexto, tarea y límites; después pide el producto con código, fila o minuto de origen para comprobarlo sin reconstruir la tabla.",
+    "essential": "En este módulo escribes más de tu instrucción: los retos 4 a 6 traen una plantilla CRTT con espacios y en el Reto 7 la escribes desde cero. Pide cada producto con código, fila o minuto de origen para comprobarlo sin reconstruir la tabla.",
     "product": "Clasificación, acta, copia de datos y flujo generados por IA.",
     "concepts": [
       [

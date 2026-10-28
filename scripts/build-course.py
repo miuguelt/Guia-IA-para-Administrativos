@@ -18,6 +18,7 @@ sys.path.insert(0, str(ROOT / "scripts"))
 from course_guidance import guided_intro, guided_challenge, challenge_map, shared_materials_panel
 from course_delivery import attach_deliveries
 from course_practices import practice_html
+from course_demo import render_demo
 SHARED_MATERIALS = json.loads((CONTENT / "shared-challenge-materials.json").read_text(encoding="utf-8"))
 TASKS = json.loads((CONTENT / "ai-task-briefs.json").read_text(encoding="utf-8"))
 CHALLENGES = {k: TASKS[k] for k in TASKS if k.startswith("reto-")}
@@ -27,7 +28,7 @@ OFFICE_SITUATIONS = json.loads((CONTENT / "office-situations.json").read_text(en
 MODULES = [
     ("m01-fundamentos", "01", "Comprende el problema", "Martes", "8 h", "RA1 y RA2", "chat", "MG-A01",
      LEARNING_PATHS["m01-fundamentos"]["product"],
-     '<p data-mode-only="aula">Después de los retos, dedica 135 min al diagnóstico de abajo. Reutiliza el resultado del Reto 1 y comprueba su propuesta; los tiempos sin medir quedan pendientes.</p><p data-module-review data-minutes="60">Revisa MG-A01 y guarda el archivo en «Guarda tu evidencia». La IA reúne el diagnóstico y los resultados de los retos 0 y 1. En el curso con instructor, esta revisión ocupa 60 min incluidos en las 8 horas del módulo.</p>'),
+     '<p data-mode-only="aula">Después de los retos, dedica 135 min al diagnóstico de abajo. Reutiliza el resultado del Reto 1 y comprueba su propuesta; los tiempos sin medir quedan pendientes.</p><p data-module-review data-minutes="60">Revisa la evidencia 1 (MG-A01) y guarda el archivo en «Guarda tu evidencia». La IA reúne el diagnóstico y los resultados de los retos 0 y 1. En el curso con instructor, esta revisión ocupa 60 min incluidos en las 8 horas del módulo.</p>'),
     ("m02-diseno", "02", "Diseña instrucciones claras", "Miércoles", "9 h", "RA2", "chat", "MG-A02",
      LEARNING_PATHS["m02-diseno"]["product"],
      '<p data-mode-only="aula">Reserva los últimos 60 min de la jornada para la revisión entre pares y el registro de MG-A02. Están incluidos en las 9 horas del módulo.</p>'),
@@ -44,6 +45,10 @@ TOOLS = {
     "diseno": ("IA para generar productos", "Pide el informe y la lámina a partir del análisis revisado; conserva la fuente y sus límites."),
 }
 PHASES = [("aprende", "Aprende"), ("observa", "Observa"), ("resuelve", "Resuelve"), ("documenta", "Guarda tu evidencia")]
+# Un paréntesis con el código, un RA tras un punto medio o un código suelto; los nombres de archivo no se tocan.
+EVIDENCE_CODE = re.compile(r"\s*\(MG-A0[1-5](?: a MG-A0[1-5])?\)|\s*·\s*RA[12](?: y RA[12])?\b|(?<![\w-])MG-A0([1-5])(?![\w.-])")
+PLAIN_TAGS = {"script", "style", "pre", "code", "textarea"}
+LINK_SKIP = PLAIN_TAGS | {"a", "summary", "button", "abbr", "label", "legend", "h1", "h2", "h3", "h4", "h5", "h6"}
 
 
 EVIDENCE_NAMES = {item["id"]: item["name"] for item in json.loads((ROOT / "deliverables.registry.json").read_text(encoding="utf-8"))["artifacts"]}
@@ -57,11 +62,9 @@ def learning_support(ident):
     """Publica objetivos, conceptos y práctica con retroalimentación por módulo."""
     data = LEARNING_PATHS[ident]
     goal = data["goal"][0].lower() + data["goal"][1:]
-    steps = ''.join(f'<li><strong>{escape(title)}</strong><span>{escape(detail)}</span></li>'
-                    for title, detail in data["steps"])
     terms = ''.join(f'<div><dt>{escape(term)}</dt><dd>{escape(definition)}</dd></div>'
                     for term, definition in data["terms"])
-    learn = f'''<section class="learning-start" aria-labelledby="{ident}-goal-title"><span class="eyebrow">TU META EN ESTE MÓDULO</span><h2 id="{ident}-goal-title">Un resultado que puedes comprobar</h2><p data-learning-goal>Al terminar, podrás {escape(goal)}</p><p class="learning-product"><strong>Vas a obtener:</strong> {escape(data["product"])}</p><ol class="method-route" aria-label="Método para trabajar en este módulo">{steps}</ol><details class="term-guide"><summary>Conceptos que usarás · con ejemplos</summary><dl class="learning-terms">{terms}</dl></details></section>'''
+    learn = f'''<section class="learning-start" aria-labelledby="{ident}-goal-title"><span class="eyebrow">TU META EN ESTE MÓDULO</span><h2 id="{ident}-goal-title">Un resultado que puedes comprobar</h2><p data-learning-goal>Al terminar, podrás {escape(goal)}</p><p class="learning-product"><strong>Vas a obtener:</strong> {escape(data["product"])}</p><details class="term-guide"><summary>Conceptos que usarás · con ejemplos</summary><dl class="learning-terms">{terms}</dl></details></section>'''
     if ident == "preparacion":
         facts = ''.join(f'<div><dt>{escape(title)}</dt><dd>{escape(detail)}</dd></div>'
                         for title, detail in data["setup"])
@@ -74,14 +77,11 @@ def learning_support(ident):
         options = ''.join(f'''<label class="check-option"><input type="radio" name="{check_id}" value="{option_index}" aria-describedby="{check_id}-feedback" data-correct="{str(option.get('correct', False)).lower()}" data-feedback="{escape(option['feedback'], quote=True)}"><span>{escape(option['text'])}</span></label>'''
                           for option_index, option in enumerate(check["options"]))
         checks.append(f'''<form id="{check_id}" class="knowledge-check" data-knowledge-check data-state="pending"><p class="check-scenario">{escape(check['scenario'])}</p><fieldset><legend>{index}. {escape(check['question'])}</legend>{options}</fieldset><div class="check-actions"><button type="button" class="button button-primary" data-check-submit>Comprobar respuesta</button><button type="reset" class="text-button">Volver a intentar</button></div><p id="{check_id}-feedback" class="check-feedback" data-check-feedback role="status" aria-live="polite" aria-atomic="true">Elige una opción y comprueba tu respuesta.</p><details class="check-explanation"><summary>Consultar la explicación</summary><p>{escape(check['explanation'])}</p></details></form>''')
-    observe = f'''<section class="knowledge-review" aria-labelledby="{ident}-check-title"><div class="panel-heading"><span class="eyebrow">ANTES DEL RETO</span><h3 id="{ident}-check-title">Comprueba lo esencial</h3><p>Estas dos decisiones forman parte del tiempo de explicación del módulo. Recibirás una razón para cada respuesta y podrás intentarlo de nuevo. Puedes consultar la explicación en cualquier momento.</p></div><div class="knowledge-checks">{''.join(checks)}</div></section>'''
+    observe = f'''<section class="knowledge-review" aria-labelledby="{ident}-check-title"><div class="panel-heading"><span class="eyebrow">ANTES DEL RETO</span><h3 id="{ident}-check-title">Comprueba lo esencial</h3><p>Cada respuesta trae su razón y puedes intentarlo de nuevo.</p></div><div class="knowledge-checks">{''.join(checks)}</div></section>'''
     if ident == "preparacion":
-        observe = observe.replace("ANTES DEL RETO", "PARA CERRAR LA PRÁCTICA").replace("Estas dos decisiones forman parte del tiempo de explicación del módulo. Recibirás una razón para cada respuesta y podrás intentarlo de nuevo. Puedes consultar la explicación en cualquier momento.", "Responde estas dos preguntas sobre lo que acabas de practicar. Comprueba tu respuesta y consulta la explicación si necesitas repasar.")
-    milestones = ''.join(f'<li><strong>{escape(title)}</strong><p>{escape(task)}</p><p class="milestone-ready"><b>Antes de avanzar:</b> {escape(ready)}</p></li>'
-                         for title, task, ready in data["practice"])
-    solve = f'''<section class="practice-route" aria-labelledby="{ident}-route-title"><span class="eyebrow">TRABAJA POR ETAPAS</span><h3 id="{ident}-route-title">Un producto a la vez</h3><p>Usa esta ruta para organizar la práctica dentro de los tiempos indicados. Revisa cada resultado antes de continuar.</p><ol>{milestones}</ol></section>'''
+        observe = observe.replace("ANTES DEL RETO", "PARA CERRAR LA PRÁCTICA").replace("Cada respuesta trae su razón y puedes intentarlo de nuevo.", "Responde estas dos preguntas sobre lo que acabas de practicar. Comprueba tu respuesta y consulta la explicación si necesitas repasar.")
     learn += (CONTENT / "productivity" / f"{ident}.html").read_text(encoding="utf-8")
-    return {"learn": learn, "observe": observe, "solve": solve}
+    return {"learn": learn, "observe": observe}
 
 
 def module_page(spec, next_id):
@@ -111,11 +111,10 @@ def module_page(spec, next_id):
     learn = support_content["learn"] + prerequisite + html(hero) + html(knowledge)
     closing_tasks = "".join(html(node) for node in section.select(".challenge-steps"))
     learn = guided_intro(ident, learn)
-    observe = '<div class="panel-heading"><h2>Practica con un caso y comprueba tus decisiones.</h2><p>Consulta la fuente, prueba una respuesta y revisa qué debes corregir antes del reto.</p></div>'
+    observe = '<div class="panel-heading"><h2>Practica con un caso y comprueba tus decisiones.</h2></div>'
     observe += practice_html(ident, ''.join(practice_widgets), solution_html, support_content['observe']) + "".join(examples)
     if ident == 'm03-implementacion':
         observe += (CONTENT / 'examples-m03.html').read_text(encoding='utf-8')
-    observe += '<div class="transfer-tip"><strong>Prueba el método en tu reto</strong>Define qué resultado necesitas, qué dato debe quedar visible y quién puede verificarlo. En el reto siguiente, contrasta el borrador con su fuente.</div>'
     challenges = []
     for i, card in enumerate(section.select("article.challenge-card")):
         challenge_id = card["id"]
@@ -150,10 +149,9 @@ def module_page(spec, next_id):
         badge = f'{len(material_specs)} {count_label}' if material_specs else "Recurso común"
         challenges.append(f'<article class="challenge-card" id="{card["id"]}" data-material-count="{len(material_specs)}"><details name="retos-{ident}"{opened}><summary><div class="challenge-summary-copy">{heading}<span class="challenge-summary-meta">{summary_meta}</span></div><span class="challenge-summary-count">{badge}</span></summary><div class="challenge-body">{body}</div></details></article>')
     titles = [(card["id"], card.select_one("h3").get_text(" ", strip=True)) for card in BeautifulSoup("".join(challenges), "html.parser").select("article.challenge-card")]
-    solve = ('<div class="panel-heading"><h2>Resuelve un reto a la vez.</h2><p>En cada reto, prepara los archivos, sigue el encargo, revisa la salida y conserva el resultado. Repasa «Aprende» y «Observa» si necesitas las explicaciones y los ejemplos.</p></div>'
+    solve = ('<div class="panel-heading"><h2>Resuelve un reto a la vez.</h2></div>'
              + challenge_map(titles, evidence) + "".join(challenges)
-             + "".join(html(node) for node in section.select(".individual-test"))
-             + '<details class="reference-library"><summary><span><strong>Consultar el plan completo de práctica</strong><small>Etapas y criterios del módulo para organizar el trabajo.</small></span><span aria-hidden="true">+</span></summary>' + support_content["solve"] + '</details>')
+             + "".join(html(node) for node in section.select(".individual-test")))
     if support:
         solve += f'<div class="transfer-tip"><strong>Aplicación y revisión incluidas</strong>{support}</div>'
     solve += closing_tasks
@@ -202,6 +200,46 @@ def resolve_names(markup):
     return re.sub(r"\{\{(MODULO|RETO):([a-z0-9-]+)\}\}", name, markup)
 
 
+def humanize_codes(soup):
+    """Muestra «Evidencia N» en lugar de MG-A0N; el código y los RA quedan visibles solo en el curso con instructor."""
+    changed = 0
+    for text in soup.find_all(string=EVIDENCE_CODE):
+        if any(parent.name in PLAIN_TAGS or parent.get("data-mode-only") == "aula" or "prompt-text" in (parent.get("class") or [])
+               for parent in text.parents):
+            continue
+        pieces, last = [], 0
+        for match in EVIDENCE_CODE.finditer(text):
+            pieces.append(escape(text[last:match.start()], quote=False))
+            code = escape(match.group(0), quote=False)
+            pieces.append(f'Evidencia {match.group(1)}<span data-mode-only="aula"> ({code})</span>' if match.group(1)
+                          else f'<span data-mode-only="aula">{code}</span>')
+            last = match.end()
+        pieces.append(escape(text[last:], quote=False))
+        text.replace_with(*list(BeautifulSoup("".join(pieces), "html.parser").contents))
+        changed += 1
+    return changed
+
+
+def link_crtt(soup):
+    """Enlaza la primera mención de CRTT en la prosa de cada módulo con su explicación (#crtt)."""
+    modules = {spec[0] for spec in MODULES}
+    linked = 0
+    for page in soup.select("section.module-page"):
+        if page.get("id") not in modules:
+            continue
+        for text in page.find_all(string=re.compile(r"\bCRTT\b")):
+            if any(parent.name in LINK_SKIP or parent.get("id") == "crtt" or "prompt-text" in (parent.get("class") or [])
+                   for parent in text.parents):
+                continue
+            match = re.search(r"\bCRTT\b", text)
+            link = soup.new_tag("a", href="#crtt")
+            link.string = "CRTT"
+            text.replace_with(text[:match.start()], link, text[match.end():])
+            linked += 1
+            break
+    return linked
+
+
 def content_version(source):
     """Firma el contenido con LF, como lo guarda Git, para que Windows y CI produzcan la misma versión."""
     return str(int(hashlib.sha256(Path(source).read_bytes().replace(b"\r\n", b"\n")).hexdigest()[:12], 16))
@@ -239,6 +277,7 @@ def bundle_styles(shell, target=None):
 def main():
     remove_duplicate_challenge_packages()
     pages = [(CONTENT / name).read_text(encoding="utf-8") for name in ["home.html", "preparation.html"]]
+    pages[0] = pages[0].replace("{{DEMO_INICIO}}", render_demo())
     pages[1] = pages[1].replace("{{SHARED_MATERIALS}}", shared_materials_panel())
     preparation_support = learning_support("preparacion")
     for phase, markup in preparation_support.items():
@@ -273,6 +312,8 @@ def main():
     for prompt in parsed.select("[data-eco-prompt]"):
         prompt.string = TASKS[prompt["data-eco-prompt"]]["chatPrompt"]
     attach_deliveries(parsed)
+    humanize_codes(parsed)
+    link_crtt(parsed)
     all_pages = str(parsed)
     fallback = '<ul>' + ''.join(f'<li><a href="#{p["id"]}" data-module-link="{p["id"]}"><span class="nav-number">{p["data-nav-number"]}</span><span>{p["data-nav-title"]}</span></a></li>' for p in parsed.select('.module-page')) + '</ul>'
     shell = version_assets(bundle_styles((CONTENT / "shell.html").read_text(encoding="utf-8")))

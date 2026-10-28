@@ -38,12 +38,12 @@ class BuildCourseTests(unittest.TestCase):
     def test_apoyo_pedagogico_conserva_objetivos_preguntas_y_texto_seguro(self):
         for ident in ["preparacion", *(spec[0] for spec in BUILD_COURSE.MODULES)]:
             support = self.call_production_function("learning_support", ident)
-            self.assertEqual(set(support), {"learn", "observe", "solve"})
+            self.assertEqual(set(support), {"learn", "observe"})
             parsed = BeautifulSoup("".join(support.values()), "html.parser")
             self.assertTrue(parsed.select_one("[data-learning-goal]").get_text(" ", strip=True))
             self.assertEqual(len(parsed.select("[data-knowledge-check]")), 2)
             self.assertEqual(len(parsed.select("[data-correct='true']")), 2)
-            self.assertTrue(parsed.select_one(".practice-route"))
+            self.assertFalse(parsed.select(".practice-route, .method-route"), "Los pasos viven en cada reto y en la preparación")
             self.assertTrue(BeautifulSoup(support["learn"], "html.parser").select_one("[data-productivity-topic]"), ident)
         data = BUILD_COURSE.LEARNING_PATHS["preparacion"]
         original = data["goal"]
@@ -80,9 +80,43 @@ class BuildCourseTests(unittest.TestCase):
             self.assertIn('<script> & "archivo"', parsed.get_text())
         finally:
             data["setup"] = original
-        for ident in (spec[0] for spec in BUILD_COURSE.MODULES):
-            support = self.call_production_function("learning_support", ident)
-            self.assertEqual(len(BeautifulSoup(support["learn"], "html.parser").select(".method-route > li")), 4)
+        for ident in ("preparacion", *(spec[0] for spec in BUILD_COURSE.MODULES)):
+            self.assertNotIn("steps", BUILD_COURSE.LEARNING_PATHS[ident], ident)
+            self.assertNotIn("practice", BUILD_COURSE.LEARNING_PATHS[ident], ident)
+
+    def test_los_codigos_de_evidencia_se_muestran_como_nombres_sencillos(self):
+        markup = ('<p>Retos 0 y 1 · MG-A01</p><p>Consolida el portafolio (MG-A05).</p><span>MG-A03 · RA2</span>'
+                  '<p>Las cinco evidencias (MG-A01 a MG-A05).</p><summary>Usa resultado-MG-A01.html</summary>'
+                  '<pre>"artifactId": "MG-A02"</pre><p data-mode-only="aula">Revisa MG-A04</p><p class="prompt-text">Copia MG-A04</p>'
+                  '<script>const id = "MG-A03";</script><p>Sin códigos</p><p data-mode-only="autonomo">Guarda la evidencia 2 (MG-A02).</p>')
+        soup = BeautifulSoup(markup, "html.parser")
+        self.assertEqual(self.call_production_function("humanize_codes", soup), 5)
+
+        def texts(mode):
+            copy = BeautifulSoup(str(soup), "html.parser")
+            for node in copy.select("[data-mode-only]"):
+                if not node.decomposed and node["data-mode-only"] != mode:
+                    node.decompose()
+            return [node.get_text() for node in copy.find_all(["p", "span", "summary", "pre", "script"], recursive=False)]
+
+        self.assertEqual(texts("autonomo"), ["Retos 0 y 1 · Evidencia 1", "Consolida el portafolio.", "Evidencia 3",
+                                             "Las cinco evidencias.", "Usa resultado-MG-A01.html", '"artifactId": "MG-A02"',
+                                             "Copia MG-A04", 'const id = "MG-A03";', "Sin códigos", "Guarda la evidencia 2."])
+        self.assertEqual(texts("aula"), ["Retos 0 y 1 · Evidencia 1 (MG-A01)", "Consolida el portafolio (MG-A05).", "Evidencia 3 (MG-A03) · RA2",
+                                         "Las cinco evidencias (MG-A01 a MG-A05).", "Usa resultado-MG-A01.html", '"artifactId": "MG-A02"',
+                                         "Revisa MG-A04", "Copia MG-A04", 'const id = "MG-A03";', "Sin códigos"])
+        self.assertEqual(self.call_production_function("humanize_codes", soup), 0, "Una segunda pasada no cambia nada")
+
+    def test_la_primera_mencion_de_crtt_en_cada_modulo_enlaza_a_su_explicacion(self):
+        soup = BeautifulSoup('<section class="module-page" id="m01-fundamentos"><div id="crtt"><p>CRTT ordena</p></div><p>Usa CRTT.</p></section>'
+                             '<section class="module-page" id="m02-diseno"><h3>Aplica CRTT</h3><p>Tu <a href="#x">CRTT</a> previa.</p>'
+                             '<p>Tu CRTT del Reto 1 y otra CRTT.</p><pre>CRTT</pre></section>'
+                             '<section class="module-page" id="portafolio"><p>CRTT</p></section>', "html.parser")
+        self.assertEqual(self.call_production_function("link_crtt", soup), 2)
+        links = soup.select('a[href="#crtt"]')
+        self.assertEqual([link.find_parent("section")["id"] for link in links], ["m01-fundamentos", "m02-diseno"])
+        self.assertEqual(links[1].parent.get_text(), "Tu CRTT del Reto 1 y otra CRTT.")
+        self.assertIsNone(soup.select_one("#crtt a, h3 a, #portafolio a"))
 
     def test_los_nombres_de_modulos_y_retos_salen_de_una_sola_fuente(self):
         markup = "<b>{{MODULO:preparacion}}</b><b>{{MODULO:m03-implementacion}}</b><a>{{RETO:reto-4}}</a><a>{{RETO:reto-integrador}}</a>"

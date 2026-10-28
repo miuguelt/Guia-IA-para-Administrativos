@@ -40,7 +40,7 @@ test('la preparación delega un mismo informe a la IA y conserva un testigo veri
   assert.ok(sharedMaterials.querySelector('a[download][href="materiales/ia/recursos-compartidos.zip"]'));
   assert.match(sharedMaterials.textContent, /bienestar\.csv/u);
   published.window.close();
-  assert.match(page.querySelector('[data-panel="archivos"]').textContent, /bienestar\.csv.*paquete común/iu);
+  assert.ok(page.querySelector('[data-panel="archivos"] a[download][href="materiales/retos/bienestar.csv"]'), 'El primer paso descarga la fuente sin extraer un ZIP');
   for (const panel of page.querySelectorAll('[data-panel]:not([data-panel="archivos"])')) {
     const copy = panel.querySelector('[data-copy]');
     assert.ok(copy, `${panel.dataset.panel}: falta una instrucción copiable para delegar la tarea`);
@@ -195,6 +195,21 @@ test('la ayuda común abre su apartado y permite regresar al reto sin perder el 
   await tick(window);
   assert.equal(page.hidden, false);
   assert.equal(page.querySelector('[data-tab][aria-selected="true"]').dataset.tab, selected);
+  assert.deepEqual(errors, []);
+  dom.window.close();
+});
+
+test('el enlace a CRTT abre la pestaña del módulo 01 donde se explica y enfoca su título', async () => {
+  const { dom, window, document, errors } = await setup('#m02-diseno');
+  assert.ok(document.querySelector('#m02-diseno a[href="#crtt"]'));
+  window.location.hash = '#crtt';
+  await tick(window);
+  assert.equal(window.location.hash, '#m01-fundamentos');
+  const page = document.getElementById('m01-fundamentos');
+  assert.equal(page.hidden, false);
+  assert.equal(page.querySelector('[data-tab][aria-selected="true"]').dataset.tab, 'observa');
+  assert.ok(document.getElementById('crtt').contains(document.activeElement));
+  assert.equal(document.activeElement.tagName, 'H4');
   assert.deepEqual(errors, []);
   dom.window.close();
 });
@@ -564,7 +579,9 @@ test('el nuevo flujo, los ejemplos y los tiempos son parte del cronograma y del 
 
 test('cada reto presenta y permite descargar los archivos que necesita', async () => {
   const { dom, document } = await setup('#m01-fundamentos');
-  assert.match(document.querySelector('#m01-fundamentos [data-panel="resuelve"] .panel-heading').textContent, /Aprende.*Observa.*explicaciones y los ejemplos/i);
+  const heading = document.querySelector('#m01-fundamentos [data-panel="resuelve"] .panel-heading');
+  assert.equal(heading.textContent.trim(), 'Resuelve un reto a la vez.');
+  assert.ok(heading.nextElementSibling.matches('.challenge-map'), 'El mapa de retos sigue al título sin repetir los pasos');
   const expectedChallenges = [
     'reto-0', 'reto-1', 'reto-2', 'reto-3', 'reto-4', 'reto-5',
     'reto-6', 'reto-7', 'reto-8', 'reto-9', 'reto-integrador'

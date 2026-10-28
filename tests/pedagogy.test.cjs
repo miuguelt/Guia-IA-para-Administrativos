@@ -33,11 +33,10 @@ test('los seis módulos tienen un objetivo concreto, conceptos, dos decisiones c
       assert.ok(status.id);
       assert.ok(options.every(option => option.getAttribute('aria-describedby')?.includes(status.id)));
     }
-    assert.ok(page.querySelectorAll('.practice-route ol > li').length >= 3, page.id);
+    assert.equal(page.querySelectorAll('.practice-route').length, 0, `${page.id}: los pasos viven en cada reto, no en una ruta aparte`);
     if (page.id !== 'preparacion') {
       assert.ok(page.querySelector('[data-panel="aprende"] [data-learning-goal]'));
       assert.ok(page.querySelector('[data-panel="observa"] [data-knowledge-check]'));
-      assert.ok(page.querySelector('[data-panel="resuelve"] .practice-route'));
     }
   }
   assert.equal(new Set([...dom.window.document.querySelectorAll('[data-knowledge-check]')].map(form => form.id)).size, 12);
@@ -68,8 +67,9 @@ test('los pasos de preparación están numerados y explican dónde ejecutar la t
   const page = dom.window.document.querySelector('#preparacion');
   assert.deepEqual([...page.querySelectorAll('.tool-monogram')].map(number => number.textContent), ['1', '2', '3', '4', '5']);
   const instructions = page.querySelector('#preparation-workspace-note');
-  assert.match(instructions.textContent, /chat autorizado.*Antigravity/iu);
+  assert.match(instructions.textContent, /chat.*autorice.*adjuntar/iu);
   assert.match(instructions.textContent, /guía.*(?:copia|copiar)/iu);
+  assert.doesNotMatch(instructions.textContent, /Antigravity|Codex/u, 'El primer paso no exige un editor');
   assert.equal(page.querySelector('[data-tabs="tools"]').getAttribute('aria-describedby'), instructions.id);
   const slide = page.querySelector('[data-optional-slide]');
   assert.ok(slide.matches('details:not([open])'));
@@ -110,15 +110,9 @@ test('el ejemplo de gráfico comunica los totales reales, la moneda y el periodo
   dom.window.close();
 });
 
-test('la preparación se adapta al espacio disponible y las cuatro etapas evitan una tarjeta aislada', () => {
+test('la preparación se adapta al espacio disponible', () => {
   assert.match(read('css/tool-lab.css'), /\.preparation-page\s*\{[^}]*container-name:\s*preparation/su);
   assert.match(read('css/course-responsive.css'), /@container preparation\s*\(max-width:\s*60rem\)\s*\{[^}]*\.tool-workspace\s*\{[^}]*grid-template-columns:\s*minmax\(0,\s*1fr\)/su);
-  assert.match(read('css/learning-support.css'), /@container\s*\(min-width:\s*34rem\)\s*\{[^}]*\.practice-route ol:has\(> li:nth-child\(4\)\)[^{]*\{[^}]*repeat\(2,/su);
-  const dom = new JSDOM(read('index.html'));
-  const titles = [...dom.window.document.querySelectorAll('#m05-cierre .practice-route li > strong')];
-  assert.equal(titles.length, 4);
-  assert.ok(titles.every(title => !/^Etapa\s+\d/u.test(title.textContent)), 'La lista ya muestra el número de cada etapa');
-  dom.window.close();
 });
 
 test('los recursos de aprendizaje cambian de versión para evitar estilos y controles antiguos en caché', () => {

@@ -196,7 +196,8 @@ test('las pestañas mantienen foco, guardan la fase y ofrecen selección si fall
   button.click();
   await tick(window);
   assert.equal(copied[0], document.getElementById(button.dataset.copy).textContent.trim());
-  assert.match(document.getElementById('course-notice').textContent, /Encargo copiado/u);
+  assert.match(document.getElementById('course-notice').textContent, /^(?:Texto copiado\. Pégalo en el chat de IA|Encargo copiado)/u);
+  assert.doesNotMatch(document.getElementById('course-notice').textContent, /IDE/u);
   timers.pop()();
   assert.equal(document.getElementById('course-notice').hidden, true);
 

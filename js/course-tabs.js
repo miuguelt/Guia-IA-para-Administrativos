@@ -11,7 +11,8 @@
     if (pageId !== currentPage) return;
     const step = document.querySelector('[data-location-step]');
     if (!step) return;
-    const label = chosen ? chosen.textContent.replace(/^\d+/u, '').trim() : '';
+    // En la preparación, el título del paso va en <strong> y su duración en <small>.
+    const label = chosen ? (chosen.querySelector('strong') || chosen).textContent.replace(/^\d+/u, '').trim() : '';
     step.textContent = label;
     step.hidden = !label;
   }
@@ -97,7 +98,7 @@
     if (!nodes.length) return;
     try {
       await navigator.clipboard.writeText(text);
-      notify(button.dataset.copyMessage || 'Encargo copiado. Adjunta las fuentes indicadas o abre la carpeta del paquete en tu IDE.');
+      notify(button.dataset.copyMessage || 'Texto copiado. Pégalo en el chat de IA junto con las fuentes que indica el reto.');
     } catch (_) {
       nodes.forEach(node => {
         for (let details = node.closest('details'); details; details = details.parentElement.closest('details')) details.open = true;
