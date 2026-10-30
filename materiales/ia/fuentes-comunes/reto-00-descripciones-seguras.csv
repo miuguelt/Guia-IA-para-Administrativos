@@ -1,7 +1,0 @@
-﻿Descripciones seguras de las cinco tarjetas de práctica, sin registros reales
-Código;Descripción del fragmento para decidir;Petición que se puede conservar
-A;Solicitud de sala para 18 personas, sin identificadores.;Solicitud de sala para 18 personas.
-B;Una consulta por cupo incluye nombre e identificación. Esos valores no se entregan al asistente.;Una persona consulta por cupo.
-C;El fragmento original contiene información de salud. Su contenido se excluye de este archivo.;No se entrega contenido de salud al asistente.
-D;Código de práctica C-001 con un plazo indicado para hoy, sin asociación a una identidad.;"Código C-001; plazo por verificar."
-E;El fragmento original contiene una credencial de buzón. Su valor se excluye de este archivo.;No se entregan credenciales al asistente.

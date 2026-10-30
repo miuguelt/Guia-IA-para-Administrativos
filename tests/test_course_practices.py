@@ -28,6 +28,11 @@ class PracticeTests(unittest.TestCase):
         for case in cases.values():
             records = self.call('source_records', case['sources'])
             for record in records:
+                if 'label' in record:
+                    # Fuente en texto: se publica tal como está en el caso, sin leer archivos.
+                    inline = [item for source in case['sources'] for item in source.get('records', [])]
+                    self.assertIn(record, [{'label': item['label'], 'fields': [tuple(f) for f in item['fields']]} for item in inline])
+                    continue
                 with (ROOT / 'materiales/retos' / record['file']).open(encoding='utf-8-sig', newline='') as stream:
                     rows = list(csv.reader(stream, delimiter=';'))
                 self.assertEqual(record['fields'], list(zip(rows[3], rows[record['row'] - 1])))
@@ -82,10 +87,30 @@ class PracticeTests(unittest.TestCase):
                 return json.loads(page.select_one('[data-case-spec]').string)['revision']
             before = revision('m01-fundamentos')
             other = revision('m02-diseno')
-            source = root / 'materiales/retos/reto-01-solicitud-urgente.csv'
-            source.write_text(source.read_text(encoding='utf-8').replace('18 personas', '19 personas'), encoding='utf-8')
+            cases_path = root / 'content/case-practices.json'
+            cases_path.write_text(cases_path.read_text(encoding='utf-8').replace('18 personas', '19 personas'), encoding='utf-8')
             self.assertNotEqual(revision('m01-fundamentos'), before)
+            page = BeautifulSoup(self.call('practice_html', 'm01-fundamentos', '', '', '', root), 'html.parser')
+            self.assertFalse(page.select('[data-case-source] a[download]'))
+            self.assertIn('no necesitas descargar archivos', page.select_one('[data-case-source] p').get_text())
+            self.assertIn('Bandeja · URG-01', [h.get_text() for h in page.select('.case-source-record h4')])
             self.assertEqual(revision('m02-diseno'), other)
+
+    def test_cada_practica_puede_nombrar_sus_etapas_y_su_fuente(self):
+        page = BeautifulSoup(self.call('practice_html', 'm02-diseno', '', '', ''), 'html.parser')
+        titles = [title.get_text() for title in page.select('[data-case-stage] > h4')]
+        self.assertEqual(titles, ['1. Lee los mensajes', '2. Separa lo que piden', '3. Arma la instrucción', '4. Revisa y decide'])
+        self.assertIn('PC-01 ya lo resolviste', page.select_one('[data-case-source] p').get_text())
+        default = BeautifulSoup(self.call('practice_html', 'm01-fundamentos', '', '', ''), 'html.parser')
+        self.assertEqual(default.select_one('[data-case-stage] > h4').get_text(), '1. Consulta la fuente')
+        with TemporaryDirectory() as directory:
+            root = Path(directory)
+            (root / 'content').mkdir()
+            cases = json.loads((ROOT / 'content/case-practices.json').read_text(encoding='utf-8'))
+            cases['m02-diseno']['stages'] = ['Solo una']
+            (root / 'content/case-practices.json').write_text(json.dumps(cases), encoding='utf-8')
+            with self.assertRaises(AssertionError):
+                self.call('practice_html', 'm02-diseno', '', '', '', root)
 
     def test_z_todas_las_funciones_del_constructor_tienen_aserciones(self):
         functions = {name for name, value in vars(PRACTICES).items() if inspect.isfunction(value) and value.__module__ == PRACTICES.__name__}

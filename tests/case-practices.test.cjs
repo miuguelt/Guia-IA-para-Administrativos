@@ -15,8 +15,20 @@ test('los cinco casos sustituyen videos, conservan fuentes y evalúan lo que mue
   for (const root of roots) {
     const data = spec(root);
     assert.equal(root.querySelectorAll('[data-case-stage]').length, 4);
-    assert.ok(root.querySelector('[data-case-source] a[download]'));
-    assert.ok(data.questions.length >= 6);
+    if (data.id === 'm01-fundamentos') {
+      // M01 muestra la bandeja y el lineamiento en la página: no hay archivo que descargar.
+      assert.equal(root.querySelectorAll('[data-case-source] a[download]').length, 0);
+      assert.ok(root.querySelectorAll('[data-case-source] .case-source-record').length >= 6);
+      assert.match(root.querySelector('[data-case-source]').textContent, /URG-01.*SAL-05/su);
+    } else if (data.id === 'm02-diseno') {
+      // M02 muestra los tres mensajes sin la columna que anticipaba lo que falta.
+      assert.equal(root.querySelectorAll('[data-case-source] a[download]').length, 0);
+      assert.equal(root.querySelectorAll('[data-case-source] .case-source-record').length, 3);
+      assert.doesNotMatch(root.querySelector('[data-case-source]').textContent, /Dato faltante/u);
+    } else {
+      assert.ok(root.querySelector('[data-case-source] a[download]'));
+    }
+    assert.ok(data.questions.length >= (data.id === 'm02-diseno' ? 5 : 6));
     for (const q of data.questions) {
       assert.ok(root.querySelector(`[data-case-question="${q.id}"]`));
       assert.ok(q.reference);
@@ -181,7 +193,7 @@ test('el encargo se construye por partes y conserva el texto completo al retomar
   ['caso','analiza','claro','verifica'].forEach((value,index)=>{
     const select=form.querySelectorAll('select')[index]; select.value=value; select.dispatchEvent(new dom.window.Event('change',{bubbles:true}));
   });
-  assert.match(form.querySelector('[data-case-instruction-preview]').textContent,/asistente administrativo.*respeto.*No inventes/su);
+  assert.match(form.querySelector('[data-case-instruction-preview]').textContent,/auxiliar de atención.*respetuoso.*pregúntalo/su);
   form.querySelector('[data-case-submit]').click(); assert.equal(form.dataset.state,'correct');
   plugin.destroy(); plugin=new Simulator({container:root,storage}); plugin.render();
   assert.equal(form.querySelector('select').value,'caso'); assert.equal(form.dataset.state,'correct');

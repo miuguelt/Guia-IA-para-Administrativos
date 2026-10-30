@@ -87,7 +87,7 @@ test('cada paso después del primero permite volver al anterior', async () => {
 test('la cabecera del módulo nombra la evidencia y solo muestra fechas en el curso con instructor', async () => {
   const { dom, document } = await setup('#m01-fundamentos');
   const meta = document.querySelector('#m01-fundamentos .lesson-meta');
-  assert.match(meta.textContent, /Evidencia 1 · Diagnóstico, Semáforo de Datos y Prompt CRTT/u);
+  assert.match(meta.textContent, /Evidencia 1 · Mapa de trabajo, datos y primer encargo con fuente/u);
   const dates = [...meta.querySelectorAll('[data-mode-only="aula"]')].find(node => /Fechas/u.test(node.textContent));
   assert.ok(dates);
   assert.equal(dates.hidden, true);
@@ -192,7 +192,6 @@ test('las barras internas se fijan bajo la altura real de la barra superior', as
   const css = read('css/guided-experience.css') + read('css/tokens.css');
   assert.match(css, /--topbar-h:\s*\d+px/u);
   assert.match(css, /\.lesson-tabs\s*\{[^}]*top:\s*var\(--topbar-h\)/u);
-  assert.match(css, /\.module-explanation > \.productivity-lesson\s*\{[^}]*position:\s*sticky/u);
   dom.window.close();
 });
 

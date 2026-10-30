@@ -1,35 +1,35 @@
 {
   "reto-0": {
     "compass": {
-      "diagnosis": "Revisión de privacidad antes de entregar cualquier texto a una herramienta digital.",
-      "toolCombination": "Chat de IA autorizado + Canva. La IA clasifica cada fragmento y redacta las versiones reducidas; Canva sirve después para convertir el semáforo revisado en una pieza visual para el equipo.",
+      "diagnosis": "Revisión de la semana de trabajo: qué tareas aligera la IA y qué datos pueden entrar a un chat.",
+      "toolCombination": "Chat de IA autorizado + Canva. La IA ubica cada tarea y redacta las versiones reducidas; Canva sirve después para convertir el mapa revisado en una pieza visual para el equipo.",
       "goldenRule": "Ley 1581 de 2012 (protección de datos personales). No ingreses datos de salud, documentos de identidad ni credenciales. Si no existe autorización expresa, registra «autorización pendiente».",
-      "productFormat": "La IA entrega la página resultado-reto-0.html con el semáforo y sus cinco decisiones. Paso a la oficina: copia el contenido revisado a una plantilla de infografía en Canva y expórtala en PDF o PNG."
+      "productFormat": "La IA entrega la página resultado-reto-0.html con el mapa de carga y el semáforo de las ocho tareas. Paso a la oficina: copia el contenido revisado a una plantilla de infografía en Canva y expórtala en PDF o PNG."
     },
     "comparison": {
-      "goldStandard": "Clasifica cada tarjeta por su riesgo; reduce la tarjeta B a «Una persona consulta por cupo»; deja la autorización como pendiente de confirmar.",
-      "antipattern": "Subir la cédula y el diagnóstico médico a un chat afirmando que «el usuario autorizó por teléfono», o dar por hecho que la coordinación ya dio el aval."
+      "goldStandard": "Ubica cada tarea en su carga; deja T6 y T7 en «no cargar»; reduce T8 a «Un ciudadano pide una certificación laboral» y deja la autorización como pendiente de confirmar.",
+      "antipattern": "Pegar la incapacidad médica y la contraseña del buzón en el chat «para que la IA las organice», o dar por hecho que la coordinación ya autorizó el uso de los oficios."
     },
-    "officeTransfer": "Aplicar cada vez que una persona radique documentos con exámenes médicos o copias de documentos de identidad en la ventanilla."
+    "officeTransfer": "Aplicar cada lunes, antes de pedir ayuda a la IA con la bandeja, la carpeta compartida o las actas de la semana."
   },
   "reto-1": {
     "compass": {
-      "diagnosis": "Solicitud urgente de reserva de un espacio, que debe contrastarse con un lineamiento.",
-      "toolCombination": "Chat de IA + Word o Docs. La IA contrasta los ocho apartados del lineamiento con la solicitud URG-01 usando una instrucción CRTT; el procesador de texto sirve después para dar formato institucional al oficio revisado.",
+      "diagnosis": "Bandeja de solicitudes de sala que debe responderse con un lineamiento, sin aprobar reservas.",
+      "toolCombination": "Chat de IA + Word o Docs. La IA contrasta las cinco solicitudes con el lineamiento usando una instrucción CRTT; el procesador de texto sirve después para dar formato institucional a las respuestas revisadas.",
       "goldenRule": "La urgencia no aprueba una reserva. Si la fecha o la sede no constan («mañana» no es una fecha de calendario), declara «pendiente de confirmar» y cita el apartado del lineamiento.",
-      "productFormat": "La IA entrega la página resultado-reto-1.html con el oficio y la tabla de los ocho requisitos. Paso a la oficina: pega el oficio revisado en Word o Docs, aplica la plantilla institucional y guárdalo como borrador."
+      "productFormat": "La IA entrega la página resultado-reto-1.html con la tabla del lote y los borradores. Paso a la oficina: pega las respuestas revisadas en Word o Docs, aplica la plantilla institucional y guárdalas como borrador."
     },
     "comparison": {
-      "goldStandard": "Tabla con los ocho apartados citados del lineamiento; respuesta que no aprueba la reserva y pide con amabilidad los datos que faltan.",
-      "antipattern": "Aprobar la sala «porque el taller es mañana y asisten 18 personas», suponiendo la sede y el horario sin confirmarlos."
+      "goldStandard": "Tabla con una fila por solicitud y su apartado citado; respuestas que no aprueban reservas, piden con amabilidad los datos que faltan y marcan el duplicado.",
+      "antipattern": "Aprobar URG-01 «porque el taller es mañana», copiar la cédula de SAL-03 en la respuesta o contestar dos veces la misma solicitud."
     },
-    "officeTransfer": "Solicitudes de auditorios, aulas o transporte en las que alguien pide una excepción inmediata por urgencia."
+    "officeTransfer": "Bandejas de solicitudes de auditorios, aulas, equipos o transporte que llegan por correo y se responden con un mismo procedimiento."
   },
   "reto-2": {
     "compass": {
       "diagnosis": "Peticiones complejas (PC-01 y PC-03) con varios relatos y solicitudes implícitas.",
       "toolCombination": "Chat de IA + Word o Docs. La IA separa hechos, peticiones y datos ausentes; el procesador de texto sirve después para pasar cada respuesta revisada a la plantilla de la dependencia.",
-      "goldenRule": "Distingue lo que la persona afirma de lo que la entidad confirma. Cita cada hecho con una frase de la fuente. Si el sistema no registra la novedad, declara «no consta registro». Los plazos legales los confirma la dependencia responsable, no el ejercicio.",
+      "goldenRule": "Distingue lo que la persona afirma de lo que la entidad confirma. Cita cada hecho con una frase de la fuente. Si el sistema no registra la novedad, escribe «no consta registro». Los plazos los confirma la dependencia responsable.",
       "productFormat": "La IA entrega la página resultado-reto-2.html con las dos respuestas y sus pendientes. Paso a la oficina: lleva cada respuesta revisada a Word o Docs y conserva el rótulo de borrador."
     },
     "comparison": {
@@ -40,13 +40,13 @@
   },
   "reto-3": {
     "compass": {
-      "diagnosis": "Instrucción reutilizable para atender peticiones, probada con tres casos distintos.",
-      "toolCombination": "Chat de IA + función de asistentes guardados (Gem, proyecto o asistente personalizado, si la entidad la habilita). La IA aplica la misma instrucción CRTT a PC-01, PC-02 y PC-03; después puedes guardar la versión aprobada como asistente para reutilizarla sin copiarla cada vez.",
-      "goldenRule": "La instrucción debe incluir una cláusula de contención («Si el expediente no contiene el soporte X, responde ‹No consta soporte› y solicita el anexo»). No ajustes la instrucción inventando datos.",
+      "diagnosis": "Instrucción del Reto 2 que se prueba, sin cambiarla, con tres casos nuevos.",
+      "toolCombination": "Chat de IA + función de asistentes guardados (Gem, proyecto o asistente personalizado, si la entidad la habilita). La IA aplica la misma instrucción CRTT a PC-02, PC-05 y PC-07, casos que no usaste para escribirla; después puedes guardar la versión aprobada como asistente. No lo uses para respuestas que no cambian (usa una plantilla), para decidir un trámite ni con datos personales reales en una herramienta no autorizada.",
+      "goldenRule": "La instrucción debe decir qué hacer cuando falta un soporte («Si el caso no trae el soporte, escribe ‹No consta soporte› y pide el anexo»). No ajustes la instrucción inventando datos.",
       "productFormat": "La IA entrega la página resultado-reto-3.html con la instrucción y sus tres pruebas. Paso a la oficina: guarda la instrucción aprobada como asistente reutilizable o en un documento compartido del equipo, con su fecha y versión."
     },
     "comparison": {
-      "goldStandard": "Una instrucción que detecta vacíos en los tres casos y en PC-02 pide el soporte del portal sin dar por terminado el trámite.",
+      "goldStandard": "Una instrucción que detecta vacíos en los tres casos nuevos: en PC-02 pide el soporte y en PC-07 deja la decisión a coordinación.",
       "antipattern": "Usar una instrucción que produce una carta genérica sin revisar los soportes de cada caso, o dar el caso por cerrado sin verificarlo."
     },
     "officeTransfer": "Banco de instrucciones probadas para el equipo de atención y la secretaría académica."

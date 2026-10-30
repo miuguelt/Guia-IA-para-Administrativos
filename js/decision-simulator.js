@@ -11,53 +11,53 @@
     q1: {
       step: 1,
       text: '¿La tarea exige aprobar, autorizar o decidir algo que la fuente no resuelve?',
-      example: 'Ejemplo: confirmar si hay sala o decidir cómo atender la urgencia.',
+      example: 'Ejemplo: aprobar una reserva urgente o autorizar un pago.',
       yes: 'r_persona',
       no: 'q2'
     },
     q2: {
       step: 2,
-      text: '¿Basta con comprobar si un dato está o no está, sin redactar nada?',
-      example: 'Ejemplo: revisar si la solicitud trae sede, fecha y franja horaria.',
+      text: '¿Basta con contar, sumar o comprobar si un dato está, sin redactar nada?',
+      example: 'Ejemplo: contar correos por remitente o revisar si una solicitud trae sede, fecha y franja.',
       yes: 'r_regla',
       no: 'q3'
     },
     q3: {
       step: 3,
-      text: '¿Hay que redactar, resumir u ordenar texto a partir de una fuente autorizada?',
-      example: 'Ejemplo: escribir el mensaje que pide los datos que faltan.',
+      text: '¿Hay que leer, clasificar, resumir o redactar texto a partir de una fuente autorizada?',
+      example: 'Ejemplo: resumir un hilo de correos o redactar el mensaje que pide los datos que faltan.',
       yes: 'r_ia',
       no: 'r_delimitar'
     },
     r_persona: {
       isResult: true,
       label: 'Persona',
-      reason: 'Aprobar es una responsabilidad. Logística confirma la sala o propone alternativas; la IA puede preparar el borrador, pero no aprueba ni inventa autorizaciones.'
+      reason: 'Aprobar o autorizar es una responsabilidad. La persona encargada decide; la IA puede preparar el borrador y los antecedentes, pero no aprueba ni inventa autorizaciones.'
     },
     r_regla: {
       isResult: true,
       label: 'Regla',
-      reason: 'Una lista de chequeo o una fórmula detecta si falta sede, fecha o franja. No necesita IA; comprueba que la lista incluya todos los campos del lineamiento.'
+      reason: 'Un filtro, una fórmula o una lista de chequeo da un resultado exacto que se repite igual. No necesita IA; comprueba que la regla incluya todos los casos.'
     },
     r_ia: {
       isResult: true,
       label: 'IA',
-      reason: 'El asistente redacta el borrador con la fuente que le entregas. Tú lo revisas contra esa fuente antes de usarlo.'
+      reason: 'La IA lee, ordena y redacta con la fuente que le entregas, y te ahorra tiempo en volumen. Tú revisas el resultado contra esa fuente antes de usarlo.'
     },
     r_delimitar: {
       isResult: true,
       label: 'Persona',
-      reason: 'La tarea todavía no está delimitada. Descríbela con el Paso 3 (entrada, pasos, salida y control) y vuelve a responder.'
+      reason: 'La tarea todavía no está delimitada. Descríbela con el Paso 4 (entrada, pasos, salida y control) y vuelve a responder.'
     }
   };
 
   const TOTAL_QUESTIONS = 3;
 
-  // Las tres tareas de la solicitud de sala y las respuestas que las describen.
+  // Tres tareas de oficina y las respuestas que las describen.
   const CASE_TASKS = {
-    approve: { label: 'Aprobar la sala', answers: ['yes'] },
-    detect: { label: 'Detectar datos faltantes', answers: ['no', 'yes'] },
-    draft: { label: 'Redactar el mensaje', answers: ['no', 'no', 'yes'] }
+    approve: { label: 'Aprobar una reserva', answers: ['yes'] },
+    detect: { label: 'Contar o detectar datos faltantes', answers: ['no', 'yes'] },
+    draft: { label: 'Resumir o redactar', answers: ['no', 'no', 'yes'] }
   };
 
   function createInitialState() {

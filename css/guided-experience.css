@@ -29,26 +29,15 @@
 .reference-library[open] > summary > span:last-child { transform: rotate(45deg); }
 .reference-content { padding: clamp(12px, 2vw, 24px); }
 .reference-content .learning-start { box-shadow: none; }
-.module-explanation { display: grid; grid-template-columns: minmax(0, 1fr); gap: 20px; align-items: start; margin: 24px 0; }
-.module-explanation > * { min-width: 0; margin-block: 0; }
-.module-explanation > .module-reading { grid-column: 1; min-width: 0; }
-.module-reading > * + * { margin-block-start: 20px; }
-.module-explanation .productivity-illustrated { grid-template-columns: minmax(0, 1fr); }
+.module-explanation { display: flex; flex-direction: column; gap: 28px; inline-size: 100%; min-inline-size: 0; margin: 24px 0; }
+.module-explanation > * { inline-size: 100%; min-width: 0; margin-block: 0; }
+.module-explanation > .module-reading { inline-size: 100%; min-width: 0; }
+.module-reading > * + * { margin-block-start: 24px; }
+.module-explanation > .productivity-lesson { inline-size: 100%; min-width: 0; }
 .module-explanation p { inline-size: 100%; min-width: 0; text-align:var(--text-align-reading, start); white-space: normal; word-break: normal; }
 #metodo-comun { scroll-margin-top: var(--sticky-offset); }
 #metodo-comun ol { display: grid; gap: 14px; padding-inline-start: 24px; }
 #metodo-comun li { min-width: 0; line-height: 1.7; }
-@container lesson-panel (min-width: 58rem) {
-  .module-explanation { grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr); }
-  .module-explanation > .module-reading { grid-column: 1; grid-row: 1; }
-  .module-explanation > .productivity-lesson { grid-column: 2; grid-row: 1; }
-}
-/* La tarjeta lateral acompaña la lectura en lugar de dejar vacía su columna. */
-@media (min-width: 1100px) and (min-height: 50rem) {
-  @container lesson-panel (min-width: 58rem) {
-    .module-explanation > .productivity-lesson { position: sticky; top: var(--sticky-offset); }
-  }
-}
 .challenge-map { background: #eaf1ec; border: 1px solid #d4e0d8; border-radius: 16px; padding: 22px; margin: 22px 0 28px; }
 .challenge-shared-materials { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr); align-items: center; gap: clamp(18px, 3vw, 32px); padding: clamp(18px, 3vw, 30px); margin: 20px 0 28px; border: 1px solid #cddfd2; border-radius: 16px; background: linear-gradient(115deg, #edf5ed, #f8faf5 70%); }
 .challenge-shared-materials > * { min-width: 0; }
@@ -131,7 +120,19 @@
 .stage-documents p { font-size: .82rem; color: #52696a; margin-top: 4px; }
 .stage-documents a { display: flex; justify-content: space-between; align-items: center; gap: 10px; min-height: 44px; padding: 9px 0; font-size: .85rem; border-bottom: 1px solid #d9e4e2; text-decoration: none; }
 .stage-documents a:last-child { border-bottom: 0; }
-.lesson-tabs { background: var(--paper); z-index: 15; }
+.lesson-tabs {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+  background: var(--paper);
+  z-index: 15;
+  inline-size: 100%;
+  box-sizing: border-box;
+}
+.lesson-tabs button {
+  inline-size: 100%;
+  justify-content: center;
+}
 .lesson-panel > .panel-heading p { max-width:100%; }
 .optional-lab-entry { padding: 18px 24px; font-size: .9rem; }
 .lesson-visual { margin: 24px 0; border: 1px solid #d8e2dc; border-radius: 12px; overflow: hidden; background: #f9fbf7; }

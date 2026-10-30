@@ -107,37 +107,37 @@
     })
   });
 
-  // 4. Casos del Anonimizador (Módulo 01): misma taxonomía que el semáforo del Paso 1
+  // 4. Casos del Anonimizador (Módulo 01): misma taxonomía que el semáforo del Paso 3
   const ANONYMIZATION_LABELS = Object.freeze({ usar: 'Usar', reducir: 'Reducir', 'no-cargar': 'No cargar' });
 
   const ANONYMIZATION_CASES = Object.freeze([
     Object.freeze({
       id: 'anon-1',
-      fragment: '«Taller para 18 personas. Sede, fecha y franja horaria por confirmar».',
+      fragment: '«Asuntos de 30 correos, sin remitentes: solicitudes de sala, avisos y respuestas a oficios».',
       expected: 'usar',
-      reason: 'Son datos de la actividad que la tarea necesita y no identifican a nadie. Comparte solo este fragmento en la herramienta autorizada.',
-      sanitized: '«Taller para 18 personas. Sede, fecha y franja horaria por confirmar» (sin cambios).'
+      reason: 'Son datos de la tarea y no identifican a nadie. Bastan para que la IA agrupe los correos por tema y urgencia en la herramienta autorizada.',
+      sanitized: '«Asuntos de 30 correos, sin remitentes: solicitudes de sala, avisos y respuestas a oficios» (sin cambios).'
     }),
     Object.freeze({
       id: 'anon-2',
-      fragment: '«Solicita la sala: Carlos Alberto Gómez Mendoza, C.C. 1.098.765.432, correo cgomez@ejemplo.co».',
+      fragment: '«Oficio de Carlos Alberto Gómez Mendoza, C.C. 1.098.765.432, correo cgomez@ejemplo.co, que pide una certificación laboral».',
       expected: 'reducir',
-      reason: 'El nombre, la cédula y el correo identifican a la persona y no hacen falta para revisar la solicitud. Cambia el nombre por un rol y quita los números.',
-      sanitized: '«Una persona del área de formación solicita la sala».'
+      reason: 'El nombre, la cédula y el correo identifican a la persona y no hacen falta para redactar la respuesta. Cambia el nombre por un rol y quita los números.',
+      sanitized: '«Un ciudadano pide una certificación laboral».'
     }),
     Object.freeze({
       id: 'anon-3',
-      fragment: '«Dos asistentes al taller tienen incapacidad médica esta semana».',
+      fragment: '«Adjunto la incapacidad médica escaneada de un funcionario para radicarla en Talento Humano».',
       expected: 'no-cargar',
-      reason: 'Es información de salud, un dato sensible según la Ley 1581 de 2012. No la pegues en ningún asistente; si afecta la reserva, la trata la persona responsable en los sistemas oficiales.',
-      sanitized: '«El aforo final está pendiente de confirmar con la persona responsable».'
+      reason: 'Es información de salud, un dato sensible según la Ley 1581 de 2012. No la pegues en ningún asistente; se radica en el sistema oficial de Talento Humano.',
+      sanitized: '«Hay una incapacidad por radicar en Talento Humano» (sin el documento ni su contenido).'
     }),
     Object.freeze({
       id: 'anon-4',
-      fragment: '«Para reservar, entra al sistema de salas con el usuario y la contraseña de logística que aparecen en el correo».',
+      fragment: '«Te paso la contraseña del buzón compartido para que revises los correos el fin de semana».',
       expected: 'no-cargar',
-      reason: 'Es una credencial. Nunca se comparte con un asistente; quien tiene el permiso entra al sistema de reservas.',
-      sanitized: '«La reserva se registra en el sistema de salas con la cuenta de la persona autorizada».'
+      reason: 'Es una credencial. Nunca se comparte con un asistente ni por chat; quien necesita acceso lo pide al área de sistemas.',
+      sanitized: '«El acceso al buzón compartido se solicita al área de sistemas con la cuenta de la persona autorizada».'
     })
   ]);
 

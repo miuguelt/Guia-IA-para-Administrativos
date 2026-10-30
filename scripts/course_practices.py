@@ -14,6 +14,11 @@ def source_records(sources, root=ROOT):
     """Lee filas físicas del CSV; conserva vacíos y espacios del original."""
     records = []
     for source in sources:
+        if "records" in source:
+            # Fuente en texto: el caso se lee en la página y no se descarga ningún archivo.
+            records.extend({"label": record["label"], "fields": [tuple(field) for field in record["fields"]]}
+                           for record in source["records"])
+            continue
         path = root / "materiales/retos" / source["file"]
         with path.open(encoding="utf-8-sig", newline="") as stream:
             rows = list(csv.reader(stream, delimiter=";"))
@@ -73,9 +78,16 @@ def practice_html(module, widgets, example, checks, root=ROOT):
     source_html = []
     for record in records:
         fields = ''.join(f'<div><dt>{escape(key)}</dt><dd><code>{escape(value) if value else "No consta"}</code></dd></div>' for key, value in record["fields"])
-        source_html.append(f'<article class="case-source-record"><h4>{escape(record["file"])} · fila {record["row"]}</h4><dl>{fields}</dl></article>')
-    links = ''.join(f'<a href="materiales/retos/{escape(source["file"], quote=True)}" download>Descargar {escape(source["file"])}</a>' for source in spec["sources"])
-    content = ['<div data-case-source><p>Consulta los extractos conservados del archivo original. Los espacios y los campos vacíos también son parte de la fuente.</p><div class="case-source-links">' + links + '</div><div class="case-sources">' + ''.join(source_html) + '</div></div>', '', '', '']
+        heading = record["label"] if "label" in record else f'{record["file"]} · fila {record["row"]}'
+        source_html.append(f'<article class="case-source-record"><h4>{escape(heading)}</h4><dl>{fields}</dl></article>')
+    links = ''.join(f'<a href="materiales/retos/{escape(source["file"], quote=True)}" download>Descargar {escape(source["file"])}</a>' for source in spec["sources"] if "file" in source)
+    intro = spec.get("sourceIntro") or ('Consulta los extractos conservados del archivo original. Los espacios y los campos vacíos también son parte de la fuente.'
+                                        if links else 'Lee estos mensajes y apartados del lineamiento. En el reto copiarás la bandeja completa; no necesitas descargar archivos.')
+    # Cada módulo puede nombrar sus cuatro etapas por la acción que pide.
+    stage_titles = tuple(spec.get("stages", STAGES))
+    assert len(stage_titles) == len(STAGES), module
+    links_html = '<div class="case-source-links">' + links + '</div>' if links else ''
+    content = ['<div data-case-source><p>' + intro + '</p>' + links_html + '<div class="case-sources">' + ''.join(source_html) + '</div></div>', '', '', '']
     for question in spec["questions"]:
         content[question["stage"]] += question_html(module, question)
     if widgets:
@@ -108,8 +120,8 @@ def practice_html(module, widgets, example, checks, root=ROOT):
         content[3] += str(form)
     content[3] += '<details data-case-solution class="case-solution"><summary>Consultar la solución explicada</summary><p>Consultar esta ayuda queda registrado; la práctica se comprueba con tus respuestas.</p>' + example + '</details>'
     title_id = f"practice-{module}-title"
-    tabs = ''.join(f'<button type="button" data-case-go="{index}" aria-controls="practice-{module}-{index}"><span aria-hidden="true">{index + 1:02}</span> {title}</button>' for index, title in enumerate(STAGES))
-    stages = ''.join(f'<section id="practice-{module}-{index}" data-case-stage="{index}" aria-labelledby="practice-{module}-{index}-title"><h4 id="practice-{module}-{index}-title" tabindex="-1">{index + 1}. {title}</h4>{content[index]}</section>' for index, title in enumerate(STAGES))
+    tabs = ''.join(f'<button type="button" data-case-go="{index}" aria-controls="practice-{module}-{index}"><span aria-hidden="true">{index + 1:02}</span> {title}</button>' for index, title in enumerate(stage_titles))
+    stages = ''.join(f'<section id="practice-{module}-{index}" data-case-stage="{index}" aria-labelledby="practice-{module}-{index}-title"><h4 id="practice-{module}-{index}-title" tabindex="-1">{index + 1}. {title}</h4>{content[index]}</section>' for index, title in enumerate(stage_titles))
     fingerprint = json.dumps({'definition': spec, 'records': records}, ensure_ascii=False, sort_keys=True)
     spec['revision'] = hashlib.sha256(fingerprint.encode('utf-8')).hexdigest()[:16]
     payload = json.dumps(spec, ensure_ascii=False).replace('<', '\\u003c').replace('>', '\\u003e').replace('&', '\\u0026')

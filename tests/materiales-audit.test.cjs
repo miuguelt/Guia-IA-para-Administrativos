@@ -14,7 +14,7 @@ const inventory = JSON.parse(execFileSync('python', ['-c', [
   'from datetime import date,datetime',
   'from pathlib import Path',
   'from openpyxl import load_workbook',
-  'paths=list(Path("materiales/retos").glob("*.csv"))+[Path("materiales/ia/fuentes-comunes/reto-00-descripciones-seguras.csv")]',
+  'paths=list(Path("materiales/retos").glob("*.csv"))',
   'tables={p.name:list(csv.reader(p.open(encoding="utf-8-sig",newline=""),delimiter=";")) for p in paths}',
   'mapping={"lineamiento-ficticio.csv":"Lineamiento ficticio","pqrs-complejas.csv":"PQRS complejas","correos-50.csv":"Correos 50","transcripcion.csv":"Transcripcion","datos-sofia.csv":"Datos SOFIA","bienestar.csv":"Bienestar","gastos-q1.csv":"Gastos Q1","contratos.csv":"Contratos","directriz.csv":"Directriz"}',
   'workbook=load_workbook("docs/Documentos/Materiales_practica_IA_SENA_Bogota.xlsx",data_only=False)',
@@ -82,20 +82,22 @@ test('las fuentes reutilizadas tienen un solo registro y pertenecen al paquete c
   }
 });
 
-test('el paquete del Reto 1 incluye la solicitud urgente completa de Observa', () => {
-  const name = 'reto-01-solicitud-urgente.csv';
-  const sourcePath = `materiales/retos/${name}`;
-  const packagePath = `materiales/ia/reto-1/fuentes/${name}`;
-  assert.ok(aiTasks['reto-1'].sourceFiles.includes(sourcePath), 'La fuente debe estar declarada por el encargo canónico del Reto 1.');
-  assert.equal(fs.existsSync(path.join(root, packagePath)), true, 'El paquete descargable del Reto 1 debe contener la solicitud.');
-  assert.equal(read(packagePath), read(sourcePath), 'La copia publicada debe conservar exactamente la fuente canónica.');
-  assert.ok(tables[name], 'Falta la solicitud necesaria para probar el lineamiento sin abrir la web.');
-  const request = tables[name][4];
-  assert.equal(request[0], 'URG-01');
-  assert.equal(request[1], 'Necesito una sala mañana para un taller de 18 personas. ¿Puedes aprobarla porque es urgente?');
-  assert.match(request[2], /no consta/iu);
+test('el Reto 1, Observa y el ejemplo resuelto usan la misma solicitud URG-01 en texto', () => {
+  const request = 'Necesito una sala mañana para un taller de 18 personas. ¿Puedes aprobarla porque es urgente?';
+  assert.deepEqual(aiTasks['reto-1'].sourceFiles, [], 'El Reto 1 no adjunta archivos.');
+  assert.equal(fs.existsSync(path.join(root, 'materiales/retos/reto-01-solicitud-urgente.csv')), false);
+  const inbox = aiTasks['reto-1'].inlineSources.find(source => source.id === 'bandeja').text;
+  assert.ok(inbox.includes(`URG-01 · «${request}»`));
+  assert.match(inbox, /No consta la fecha en que llegó cada mensaje/u);
+  const lineamiento = aiTasks['reto-1'].inlineSources.find(source => source.id === 'lineamiento').text;
+  for (const row of tables['lineamiento-ficticio.csv'].slice(4).filter(row => row[0])) {
+    assert.ok(lineamiento.includes(`${row[0]}: ${row[1]}`), `El lineamiento en texto debe coincidir con el CSV: ${row[0]}`);
+  }
+  const practice = JSON.parse(read('content/case-practices.json'))['m01-fundamentos'];
+  const records = practice.sources.flatMap(source => source.records || []);
+  assert.ok(records.some(record => record.fields.some(([, value]) => value === request)));
   const dom = new JSDOM(read('content/lessons/m01-fundamentos.html'));
-  assert.ok(dom.window.document.querySelector('[data-urgent-example] [data-ai-source]').textContent.includes(request[1]));
+  assert.ok(dom.window.document.querySelector('[data-urgent-example] [data-ai-source]').textContent.includes(request));
   dom.window.close();
 });
 

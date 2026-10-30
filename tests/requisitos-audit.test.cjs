@@ -65,6 +65,8 @@ test('los criterios y el mapa de evidencias admiten conservar una instrucción c
   assert.match(map.find(item => item.artifacts.includes('MG-A03')).learningResult, /RA1/u);
   assert.match(instruments, /Formula prompts.*I-4/isu);
   assert.match(instruments, /Diseña proceso automatizado.*I-5/isu);
+  const rubricI4 = instruments.split('## I-4')[1].split('## I-5')[0];
+  assert.match(rubricI4, /cuándo usar la instrucción.*plantilla.*persona/isu, 'I-4 valora el criterio de cuándo usar la IA');
 });
 
 test('los apoyos de IA requieren registrar la verificación y no exigen formularios de medición de tiempos', () => {
@@ -73,8 +75,8 @@ test('los apoyos de IA requieren registrar la verificación y no exigen formular
     assert.doesNotMatch(item.aiAssist.log, /Interacción registrada/u, item.id);
   }
   for (const [id, source] of [
-    ['MG-A01', 'lineamiento-ficticio.csv'],
-    ['MG-A02', 'pqrs-complejas.csv'],
+    ['MG-A01', 'lineamiento de reservas'],
+    ['MG-A02', 'mensajes de práctica PC-01'],
     ['MG-A03', 'transcripcion.csv'],
     ['MG-A04', 'bienestar.csv'],
     ['MG-A05', 'contratos.csv']

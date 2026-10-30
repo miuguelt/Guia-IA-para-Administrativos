@@ -44,7 +44,7 @@ class AiTaskKitsTests(unittest.TestCase):
         fields = {a["id"]: {f["key"] for f in a["fields"]} for a in registry["artifacts"]}
         for key, task in catalog.items():
             self.assertTrue(1 <= len(task["checks"]) <= (5 if key == "eco" else 3), key)
-            self.assertTrue(task["sourceFiles"], key)
+            self.assertTrue(task["sourceFiles"] or task.get("inlineSources"), key)
             self.assertIn("resultados/", task["idePrompt"])
             self.assertIn("Antigravity", task["idePrompt"])
             self.assertIn("No inventes", task["chatPrompt"])
@@ -264,17 +264,65 @@ class AiTaskKitsTests(unittest.TestCase):
         self.assertEqual(schema["properties"]["fields"]["required"], task["fieldKeys"])
         self.assertEqual(schema["properties"]["artifactId"]["const"], "MG-A02")
 
-    def test_semaforo_solo_adjunta_descripciones_seguras(self):
+    def test_mg_a02_pide_justificar_cuando_usar_la_instruccion(self):
         catalog = self.invoke("load_catalog")
-        for key in ("reto-0", "MG-A01"):
+        registry = json.loads((ROOT / "deliverables.registry.json").read_text(encoding="utf-8"))
+        artifact = next(a for a in registry["artifacts"] if a["id"] == "MG-A02")
+        field = next(f for f in artifact["fields"] if f["key"] == "cuando_usar_instruccion")
+        self.assertRegex(field["hint"], "plantilla")
+        self.assertRegex(field["hint"], "persona")
+        self.assertTrue(any("cuándo usar" in item for item in artifact["checklist"]))
+        for key in ("reto-3", "MG-A02"):
             task = catalog[key]
-            self.assertNotIn("materiales/retos/reto-00-tarjetas-semaforo.csv", task["sourceFiles"])
-            self.assertIn("materiales/ia/fuentes-comunes/reto-00-descripciones-seguras.csv", task["sourceFiles"])
-            for source in task["sourceFiles"]:
-                content = (ROOT / source).read_text(encoding="utf-8-sig")
-                self.assertNotIn("<IDENTIFICACIÓN_FICTICIA>", content)
-                self.assertNotIn("<DATO_DE_SALUD_FICTICIO>", content)
-                self.assertNotIn("<CLAVE_FICTICIA>", content)
+            self.assertIn("cuando_usar_instruccion", task["fieldKeys"], key)
+            for mode in ("chatPrompt", "idePrompt"):
+                self.assertIn('"cuando_usar_instruccion": ""', task[mode], key)
+                self.assertIn("- cuando_usar_instruccion:", task[mode], key)
+            schema = self.invoke("output_schema", task)
+            self.assertIn("cuando_usar_instruccion", schema["properties"]["fields"]["required"], key)
+            self.assertIn("cuando_usar_instruccion", self.invoke("output_model", task)["fields"], key)
+        self.assertTrue(any("plantilla" in check for check in catalog["reto-3"]["checks"]))
+
+    def test_modulo_01_entrega_textos_de_practica_en_lugar_de_archivos(self):
+        catalog = self.invoke("load_catalog")
+        expected = {"reto-0": ["semana"], "reto-1": ["bandeja", "lineamiento"], "MG-A01": ["semana", "bandeja", "lineamiento"]}
+        for key, ids in expected.items():
+            task = catalog[key]
+            self.assertEqual(task["sourceFiles"], [], key)
+            self.assertEqual([source["id"] for source in task["inlineSources"]], ids, key)
+            for source in task["inlineSources"]:
+                self.assertNotIn("<DATO_DE_SALUD_FICTICIO>", source["text"])
+                self.assertNotIn("<CLAVE_FICTICIA>", source["text"])
+                if source["id"] != "lineamiento":
+                    self.assertRegex(source["text"], r"no contienen? registros reales")
+            note = KITS.attach_note(task)
+            self.assertIn("No hay archivos que adjuntar", note)
+            texts = KITS.practice_texts_markdown(task)
+            self.assertTrue(texts.startswith("## Textos de práctica para pegar"))
+            for source in task["inlineSources"]:
+                self.assertIn("### " + source["title"], texts)
+        self.assertIn("Adjunta: correos-50.csv", KITS.attach_note(catalog["reto-4"]))
+        self.assertEqual(KITS.practice_texts_markdown(catalog["reto-4"]), "")
+        chat = self.invoke("task_markdown", "reto-1", catalog["reto-1"], "chat")
+        self.assertIn("## Textos de práctica para pegar", chat)
+        self.assertIn("No hay archivos que adjuntar", chat)
+        self.assertNotIn("Adjunta: .", chat)
+        integrated = self.invoke("task_markdown", "MG-A01", catalog["MG-A01"], "chat")
+        self.assertIn("SAL-05 · «Reenvío", integrated)
+        self.assertIn("No hay archivos que adjuntar", self.invoke("task_html", "reto-0", catalog["reto-0"]))
+        raw = json.loads((ROOT / "content/ai-task-briefs.json").read_text(encoding="utf-8"))
+        with TemporaryDirectory() as directory:
+            for label, change, message in [
+                ("sin fuentes", lambda task: task.pop("inlineSources"), "archivos o textos de práctica"),
+                ("id repetido", lambda task: task["inlineSources"].append(dict(task["inlineSources"][0])), "id único"),
+                ("texto vacío", lambda task: task["inlineSources"][0].update(text=" "), "id único, título y texto"),
+            ]:
+                broken = json.loads(json.dumps(raw))
+                change(broken["reto-1"])
+                path = Path(directory) / (label.replace(" ", "-") + ".json")
+                path.write_text(json.dumps(broken, ensure_ascii=False), encoding="utf-8")
+                with self.assertRaisesRegex(ValueError, message, msg=label):
+                    self.invoke("load_catalog", path)
 
     def test_contexto_y_reglas_no_introducen_trabajo_manual_ni_supuestos(self):
         catalog = self.invoke("load_catalog")
@@ -289,9 +337,11 @@ class AiTaskKitsTests(unittest.TestCase):
                 if task["sourceType"] == "public":
                     self.assertIn("fuentes públicas oficiales", prompt)
                     self.assertNotIn("no contienen registros reales", prompt)
-                else:
+                elif task["sourceFiles"]:
                     self.assertIn("punto y coma", prompt)
                     self.assertIn("encabezado", prompt)
+                else:
+                    self.assertIn("textos de práctica", prompt)
         for key in ("reto-6", "MG-A03"):
             prompt = catalog[key]["chatPrompt"]
             self.assertIn("Estado sin normalizar", prompt)
@@ -383,10 +433,13 @@ class AiTaskKitsTests(unittest.TestCase):
         for heading in ("## Revisión de tu instrucción", "## Antes: escribe tu intento", "## 1. Encargo de referencia", "## 2. Formato para guardar"):
             self.assertIn(heading, md)
         self.assertIn("La guía no guarda lo que escribes", self.invoke("coached_markdown", "reto-4", self.invoke("load_catalog")["reto-4"], "chat", "- fuente"))
-        self.assertIn("pqrs-complejas.csv", html)
-        self.assertIn("recursos comunes", html.lower())
-        self.assertIn('href="fuentes/pqrs-complejas.csv"', html)
-        self.assertIn("están en la carpeta fuentes/ de este paquete", html.lower())
+        self.assertIn("PC-01", html)
+        self.assertIn("textos de práctica", html.lower())
+        self.assertNotIn("pqrs-complejas.csv", html)
+        shared = self.invoke("task_html", "reto-4", self.invoke("load_catalog")["reto-4"])
+        self.assertIn("recursos comunes", shared.lower())
+        self.assertIn('href="fuentes/correos-50.csv"', shared)
+        self.assertIn("están en la carpeta fuentes/ de este paquete", shared.lower())
         self.assertIn("<html lang=\"es-CO\">", html)
         self.assertIn("ENCARGO-IDE.md", html)
         self.assertTrue(any(prod in html for prod in ("Canva", "PDF", "Word", "Excel", "producto elaborado")))

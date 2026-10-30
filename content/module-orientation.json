@@ -1,28 +1,28 @@
 {
   "m01-fundamentos": {
-    "question": "La IA prepara; ¿quién decide?",
-    "essential": "La IA ordena y redacta; una persona confirma. Con una misma solicitud de sala aprendes tres decisiones: qué datos compartes, cómo repartes el trabajo y cómo describes tu tarea.",
-    "product": "Cinco decisiones sobre datos, una respuesta con fuente y el diagnóstico de tu tarea.",
+    "question": "¿Qué parte de tu trabajo puede hacer la IA?",
+    "essential": "La IA lee, clasifica, resume y redacta en volumen. Tú decides qué compartes, qué aprueba una persona y cómo compruebas.",
+    "product": "Un mapa de tu carga de trabajo, un lote de solicitudes respondido con fuente y el diagnóstico de tu tarea.",
     "concepts": [
       [
-        "Protege los datos",
-        "Decide si cada dato se usa, se reduce o no se carga."
+        "Reconoce la carga",
+        "Correos, archivos, reuniones, datos o tareas."
       ],
       [
         "Reparte el trabajo",
-        "Una regla detecta lo que falta, la IA redacta el mensaje y una persona aprueba."
+        "Una regla cuenta, la IA redacta y una persona aprueba."
       ],
       [
-        "Describe tu tarea",
-        "Anota qué recibes, qué entregas y cuánto tarda hoy."
+        "Protege y comprueba",
+        "Usa, reduce o no cargues cada dato; revisa contra la fuente."
       ]
     ],
-    "review": "Si faltan sede, fecha o franja, pregunta por esos datos. La urgencia no confirma la reserva."
+    "review": "Si un borrador aprueba una reserva o muestra una cédula, corrígelo en el mismo chat."
   },
   "m02-diseno": {
     "question": "¿Cómo obtienes una respuesta útil?",
-    "essential": "Ya escribiste una instrucción CRTT en el Reto 1. Ahora la conviertes en una herramienta reutilizable: la misma versión debe funcionar con varios casos. La IA genera la tabla y el borrador; tú revisas qué falta confirmar.",
-    "product": "Dos borradores y una instrucción probada por la IA con PC-01, PC-02 y PC-03.",
+    "essential": "Tu instrucción CRTT del Reto 1 se vuelve reutilizable: la misma versión debe servir para varios casos. La IA prepara la tabla y el borrador; tú revisas y decides cuándo conviene usarla.",
+    "product": "Dos borradores, una instrucción probada con casos nuevos y tu criterio para usarla.",
     "concepts": [
       [
         "Interpreta la solicitud",
@@ -30,11 +30,11 @@
       ],
       [
         "Reutiliza la instrucción",
-        "Parte de tu CRTT del Reto 1 y agrega qué hacer cuando falte un dato o un soporte."
+        "Agrega a tu CRTT qué hacer si falta un dato o un soporte."
       ],
       [
-        "Prueba la misma versión",
-        "Comprueba si funciona con PC-01, PC-02 y PC-03 antes de reutilizarla."
+        "Prueba y decide",
+        "Prueba la misma versión con casos nuevos y decide cuándo conviene usarla."
       ]
     ],
     "review": "Un comentario de otra persona sigue siendo una afirmación pendiente de comprobar. Conserva los borradores para revisión."

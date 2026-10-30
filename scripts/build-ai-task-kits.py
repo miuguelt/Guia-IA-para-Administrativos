@@ -8,7 +8,7 @@ import sys
 from zipfile import ZIP_DEFLATED, ZipFile, ZipInfo
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from ai_prompts import COACH, PARTS, has_brief, visible_text, technical_block, copy_text, coach_text, template_text, repair_text
+from ai_prompts import COACH, PARTS, has_brief, visible_text, technical_block, copy_text, coach_text, template_text, repair_text, inline_sources_text, attach_note, practice_texts_markdown
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -43,6 +43,14 @@ def load_catalog(path=None):
             raise ValueError("Los campos deben ser únicos y no estar vacíos: " + key)
         if artifact and (artifact not in known or not set(fields) <= known[artifact]):
             raise ValueError("El paquete contiene un campo desconocido: " + key)
+        inline = task.get("inlineSources", [])
+        if not task["sourceFiles"] and not inline:
+            raise ValueError("El paquete necesita archivos o textos de práctica: " + key)
+        inline_ids = [source.get("id", "") for source in inline]
+        if len(inline_ids) != len(set(inline_ids)) or not all(
+                re.fullmatch(r"[a-z0-9-]+", source.get("id", "")) and source.get("title", "").strip() and source.get("text", "").strip()
+                for source in inline):
+            raise ValueError("Cada texto de práctica necesita id único, título y texto: " + key)
         source_entries = set()
         for source in task["sourceFiles"]:
             candidate = (ROOT / source).resolve()
@@ -113,11 +121,12 @@ def coached_markdown(key, task, mode, sources):
         "## Hazlo con IA\n\n"
         "1. Descarga el ZIP de este reto y extrae su carpeta.\n"
         "2. " + start + " Si quieres que la IA la revise antes de ejecutarla, envía primero el mensaje de «Revisión de tu instrucción».\n"
-        "3. " + COACH["levels"][level]["step"] + " Adjunta: " + ", ".join(Path(p).name for p in task["sourceFiles"]) + ". Están en la carpeta fuentes/.\n"
+        "3. " + COACH["levels"][level]["step"] + attach_note(task) + "\n"
         "4. Copia en la misma conversación, en un solo mensaje, los bloques «1. Encargo de referencia» y «2. Formato para guardar». La IA compara tu intento con la referencia y prepara resultado-" + key + ".html.\n"
         "5. Revisa «Comprueba antes de conservar». Si un punto falla, usa el ajuste de abajo.\n"
         "6. Guarda la página en «Guarda tu evidencia». La revisión humana sigue pendiente hasta que la realices.\n\n"
         "## Archivos para adjuntar\n\n" + sources + "\n\n"
+        + practice_texts_markdown(task) +
         "## Revisión de tu instrucción\n\n````text\n" + coach_text(task) + "\n````\n\n"
         "## Antes: escribe tu intento\n\n" + guide + "\n\n"
         "## 1. Encargo de referencia\n\n````text\n" + visible_text(task) + "\n````\n\n"
@@ -145,7 +154,9 @@ def task_markdown(key, task, mode):
             "- [" + Path(p).name + "](" + package_source_path(p) + ") · recurso común; también está en «Recursos comunes»."
             for p in shared_sources)
     if not sources:
-        sources = "- No hay archivos propios en este paquete. Adjunta el recurso común indicado arriba."
+        sources = ("- No hay archivos que adjuntar: los textos de práctica van dentro del encargo."
+                   if task.get("inlineSources") else
+                   "- No hay archivos propios en este paquete. Adjunta el recurso común indicado arriba.")
     learner_files = "\n".join("- **" + name + "** · archivo estructurado descargado de la práctica; adjúntalo sin editar. No contiene texto libre ni datos personales."
                                for name in task.get("learnerFiles", []))
     guide_images = "\n\n".join("![" + image["alt"] + "](imagenes/" + image["name"] + ")\n\n" + image["caption"]
@@ -159,6 +170,8 @@ def task_markdown(key, task, mode):
         return coached_markdown(key, task, mode, sources)
     checks = "\n".join(str(i) + ". " + check for i, check in enumerate(task["checks"], 1))
     prompt = task["idePrompt" if mode == "ide" else "chatPrompt"]
+    if task.get("inlineSources"):
+        prompt += "\n\n" + inline_sources_text(task)
     start = ("Abre la carpeta extraída en Antigravity o Codex y pega el encargo en su agente."
              if mode == "ide" else
              "Abre un chat autorizado, adjunta las fuentes indicadas y copia el encargo completo.")
@@ -166,8 +179,9 @@ def task_markdown(key, task, mode):
         steps = (
             "1. Descarga el ZIP de este reto y extrae su carpeta.\n"
             "2. " + start + "\n"
-            "3. Adjunta solo estos archivos: " + ", ".join(Path(p).name for p in task["sourceFiles"]) + ". Están en la carpeta fuentes/ de este paquete; en Antigravity o Codex ya quedan en su lugar. Conserva intactos los originales.\n"
-            "4. Abre ENCARGO-CHAT.md o ENCARGO-IDE.md, según la herramienta. Copia el texto completo y envíalo. El encargo pide este producto elaborado: " + task["output"] + " con este formato: " + task["visualDescription"] + " No necesitas llenar fichas ni preparar archivos adicionales.\n"
+            + ("3. Adjunta solo estos archivos: " + ", ".join(Path(p).name for p in task["sourceFiles"]) + ". Están en la carpeta fuentes/ de este paquete; en Antigravity o Codex ya quedan en su lugar. Conserva intactos los originales.\n"
+               if task["sourceFiles"] else "3." + attach_note(task) + "\n")
+            + "4. Abre ENCARGO-CHAT.md o ENCARGO-IDE.md, según la herramienta. Copia el texto completo y envíalo. El encargo pide este producto elaborado: " + task["output"] + " con este formato: " + task["visualDescription"] + " No necesitas llenar fichas ni preparar archivos adicionales.\n"
             "5. Revisa tu producto elaborado y verifica los puntos de «Comprueba antes de conservar». Si un punto falla, pide el ajuste indicado abajo y vuelve a revisar tu entrega.\n"
             "6. Guarda tu producto elaborado en «Guarda tu evidencia». La revisión humana sigue pendiente hasta que la realices.\n\n"
         )
@@ -210,7 +224,9 @@ def task_html(key, task):
     sources += "".join('<li><a download href="' + escape(package_source_path(p), quote=True) + '">' + escape(Path(p).name)
                        + '</a> · recurso común; también está en «Recursos comunes».</li>' for p in shared_sources)
     if not sources:
-        sources = '<li>Este paquete no incluye archivos propios. Adjunta el recurso común indicado en el encargo.</li>'
+        sources = ('<li>No hay archivos que adjuntar: los textos de práctica van dentro del encargo.</li>'
+                   if task.get("inlineSources") else
+                   '<li>Este paquete no incluye archivos propios. Adjunta el recurso común indicado en el encargo.</li>')
     learner_files = "".join('<li><strong>' + escape(name) + '</strong> · archivo estructurado descargado de la práctica; adjúntalo sin editar. No contiene texto libre ni datos personales.</li>'
                              for name in task.get("learnerFiles", []))
     guide_images = "".join('<figure><img alt="' + escape(image["alt"], quote=True)
@@ -232,7 +248,7 @@ def task_html(key, task):
               if task["sourceType"] == "practice" else
               "Fuentes públicas oficiales: conserva la versión, procedencia, filtros y límites incluidos.")
     if task.get("visualArtifact"):
-        file_names = ", ".join(escape(Path(path).name) for path in task["sourceFiles"])
+        file_names = ", ".join(escape(Path(path).name) for path in task["sourceFiles"]) or "ninguno; los textos de práctica van dentro del encargo"
         steps = ('<li>Descarga el ZIP de este reto y selecciona «Extraer todo» para abrir la carpeta.</li>'
                  '<li>Abre un chat autorizado o Antigravity/Codex. Adjunta solo estos archivos: <strong>' + file_names + '</strong>. Están en la carpeta fuentes/ de este paquete; en Antigravity o Codex ya quedan en su lugar.</li>'
                  '<li>Abre ENCARGO-CHAT.md para usar un chat o ENCARGO-IDE.md para usar Antigravity/Codex. Copia el encargo completo y envíalo; no necesitas escribir código ni llenar fichas.</li>'

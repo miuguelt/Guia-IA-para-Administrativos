@@ -4,10 +4,10 @@ const fs = require('node:fs');
 const path = require('node:path');
 const { JSDOM } = require('jsdom');
 
-test('las instrucciones indican de dónde se reutiliza el lineamiento', () => {
+test('los retos del módulo 01 dicen que sus textos se copian y no se descargan', () => {
   const source = fs.readFileSync(path.join(__dirname, '../content/lessons/m01-fundamentos.html'), 'utf8');
-  assert.doesNotMatch(source, /se reutiliza el paquete común/u);
-  assert.match(source, /lineamiento se reutiliza desde el paquete común/u);
+  assert.doesNotMatch(source, /se reutiliza el paquete común|Adjunta reto-0|\.csv/u);
+  assert.equal((source.match(/No hay archivos que descargar/gu) || []).length, 2);
 });
 
 test('el módulo de instrucciones conserva completo el rótulo de la explicación', () => {

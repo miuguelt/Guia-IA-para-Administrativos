@@ -46,13 +46,6 @@ FICHA_NOTES = {
 }
 
 EXTRA_CSVS = {
-    "reto-01-solicitud-urgente.csv": [
-        ["Solicitud urgente para contrastar con el lineamiento · Reto 1"],
-        ["Caso de práctica, sin registros reales. Usa esta solicitud junto con lineamiento-ficticio.csv. «Mañana» no permite establecer una fecha sin conocer cuándo llegó el mensaje. Conserva los datos ausentes como pendientes y no apruebes la reserva."],
-        [],
-        ["Código", "Solicitud", "Fecha de referencia"],
-        ["URG-01", "Necesito una sala mañana para un taller de 18 personas. ¿Puedes aprobarla porque es urgente?", "No consta cuándo llegó el mensaje."],
-    ],
     "reto-00-tarjetas-semaforo.csv": [
         ["Tarjetas del semáforo de datos · Reto 0"],
         ["Material de práctica. Los marcadores entre signos angulares son ejemplos y no identifican a personas reales."],

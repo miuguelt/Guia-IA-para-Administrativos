@@ -40,8 +40,8 @@ Esta ruta se dirige a aprendices y personal administrativo del Servicio Nacional
 | --- | --- | --- | --- |
 | 0. Semáforo de datos | `reto-00-tarjetas-semaforo.csv` y `reto-00-ficha.csv` | Cinco decisiones de uso, dos fragmentos minimizados y una autorización pendiente. | MG-A01 |
 | 1. Prompt CRTT | `lineamiento-ficticio.csv`, `reto-01-solicitud-urgente.csv`, `reto-01-ficha.csv` y `diagnostico-tarea-ficha.csv` | Instrucción inicial y versión final, con ajuste o razón para conservarla; respuesta contrastada y diagnóstico de una tarea. | MG-A01 |
-| 2. Borrador de PQRS | `pqrs-complejas.csv` (PC-01 y PC-03) y `reto-02-ficha.csv` | Dos borradores con hechos, petición y vacíos separados; revisión de datos, tono y afirmaciones. | MG-A02 |
-| 3. Asistente de rol | `pqrs-complejas.csv` (PC-01, PC-02 y PC-03) y `reto-03-ficha.csv` | Instrucción reutilizable y tres pruebas; PC-02 incluye un dato faltante. | MG-A02 |
+| 2. Borrador de PQRS | Mensajes PC-01 y PC-03 en la página | Dos borradores con hechos, petición y vacíos separados; revisión de datos, tono y afirmaciones. | MG-A02 |
+| 3. Asistente de rol | Casos nuevos PC-02, PC-05 y PC-07 en la página | Instrucción del Reto 2 probada sin cambios con tres casos nuevos; PC-02 tiene un dato faltante y PC-07 pide una decisión de coordinación. | MG-A02 |
 | 4. Bandeja cero | `correos-50.csv` y `reto-04-ficha.csv` | Clasificación de los 50 códigos, que corresponden a diez situaciones en cinco lotes; diez borradores que no se envían. | MG-A03 |
 | 5. Acta imposible | `transcripcion.csv` y `reto-05-ficha.csv` | Acta borrador; decisiones, propuestas, compromisos y asuntos pendientes con referencia a la intervención. | MG-A03 |
 | 6. Informe sucio | `datos-sofia.csv` y `reto-06-ficha.csv` | Copia organizada, regla reproducible, conteos, vacíos y duplicado SIM-0012 señalado sin borrar ni inferir registros. | MG-A03 |

@@ -30,11 +30,39 @@ def comparison_field(task):
     return "uso_ia_y_revision" if "uso_ia_y_revision" in keys else keys[-1]
 
 
+def inline_sources_text(task):
+    """Textos de práctica que viajan dentro del encargo, en lugar de un archivo adjunto."""
+    sources = task.get("inlineSources", [])
+    if not sources:
+        return ""
+    blocks = [f"### {source['title']}\n{source['text']}" for source in sources]
+    return "Textos de práctica de este encargo (si ya los pegaste, usa los mismos):\n\n" + "\n\n".join(blocks)
+
+
+def attach_note(task):
+    """Indica qué adjuntar o, si no hay archivos, que los textos van en el encargo."""
+    if task["sourceFiles"]:
+        return " Adjunta: " + ", ".join(Path(p).name for p in task["sourceFiles"]) + ". Están en la carpeta fuentes/."
+    return " No hay archivos que adjuntar: pega en el chat los textos de práctica de este encargo."
+
+
+def practice_texts_markdown(task):
+    """Publica los textos de práctica para pegarlos junto con el intento propio."""
+    sources = task.get("inlineSources", [])
+    if not sources:
+        return ""
+    blocks = "\n\n".join("### " + source["title"] + "\n\n````text\n" + source["text"] + "\n````" for source in sources)
+    return "## Textos de práctica para pegar\n\n" + blocks + "\n\n"
+
+
 def technical_block(task, mode="chat"):
     """Formato para guardar: se copia junto con la instrucción, pero no se muestra al principio."""
     compare = COACH["compare"].replace("{campo}", comparison_field(task))
     prompt = task["idePrompt" if mode == "ide" else "chatPrompt"]
-    return "\n\n".join([COACH["technicalHeading"], compare, prompt])
+    parts = [COACH["technicalHeading"], compare, prompt]
+    if task.get("inlineSources"):
+        parts.append(inline_sources_text(task))
+    return "\n\n".join(parts)
 
 
 def copy_text(task, mode="chat"):

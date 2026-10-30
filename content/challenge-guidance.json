@@ -1,15 +1,15 @@
 {
   "reto-0": {
-    "result": "Semáforo visual de cinco tarjetas, dos textos reducidos y la autorización pendiente.",
-    "source": "Tarjeta B: nombre e identificación de quien consulta por cupo.",
-    "review": "¿Cada tarjeta muestra qué puedes usar, reducir o no cargar, y por qué?",
-    "output": "Cinco tarjetas por color, dos versiones de B sin identificadores y una autorización pendiente."
+    "result": "Mapa de las ocho tareas con carga, responsable y color del semáforo.",
+    "source": "T8: un oficio con nombre completo y cédula que pide una certificación laboral.",
+    "review": "¿Cada tarea muestra su carga, quién la hace y si se usa, se reduce o no se carga, y por qué?",
+    "output": "Ocho tarjetas con carga y color, dos versiones de T8 sin identificadores y una autorización pendiente."
   },
   "reto-1": {
-    "result": "Mapa de los ocho apartados del lineamiento (aplica / no aplica), dos instrucciones comparadas y borrador con datos pendientes.",
-    "source": "URG-01: taller para 18 personas; mensaje marcado como urgente.",
-    "review": "¿Cada requisito cita un apartado y la urgencia sigue sin aprobar la reserva?",
-    "output": "URG-01 queda pendiente de sede, fecha y franja; el mapa cita los apartados aplicables."
+    "result": "Tabla de cinco solicitudes con lo que falta, el apartado fuente y quién decide.",
+    "source": "URG-01: taller para 18 personas, «mañana», marcado como urgente.",
+    "review": "¿Cada fila cita un apartado y ninguna respuesta aprueba una reserva?",
+    "output": "URG-01 queda pendiente de sede, fecha y franja; SAL-05 se marca como duplicado y SAL-04 pasa a una persona."
   },
   "reto-2": {
     "result": "Dos tarjetas de respuesta con fuentes, hechos y preguntas pendientes.",
@@ -19,9 +19,9 @@
   },
   "reto-3": {
     "result": "Matriz visual con tres casos de prueba, salidas y correcciones.",
-    "source": "PC-02: la persona afirma que terminó; el portal muestra otro estado.",
-    "review": "¿La prueba PC-02 conserva el soporte que no consta?",
-    "output": "Tres pruebas comparables y el requisito faltante queda como pregunta."
+    "source": "PC-07: la persona pide volver al grupo anterior; PC-02 no dice qué soporte falta.",
+    "review": "¿PC-07 deja la decisión a una persona y PC-02 pregunta por el soporte que no consta?",
+    "output": "Tres pruebas comparables; el soporte queda como pregunta y el cambio de grupo, para coordinación."
   },
   "reto-4": {
     "result": "Tablero de 50 mensajes con prioridades justificadas y diez borradores sin enviar.",

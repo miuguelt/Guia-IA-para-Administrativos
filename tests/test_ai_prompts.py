@@ -15,8 +15,8 @@ SPEC.loader.exec_module(PROMPTS)
 CATALOG = json.loads((ROOT / "content/ai-task-briefs.json").read_text(encoding="utf-8"))
 COACH = json.loads((ROOT / "content/prompt-coach.json").read_text(encoding="utf-8"))
 SUPPORT = {
-    **{f"reto-{i}": "comentado" for i in range(3)},
-    **{f"reto-{i}": "huecos" for i in range(3, 7)},
+    **{f"reto-{i}": "comentado" for i in range(2)},
+    **{f"reto-{i}": "huecos" for i in range(2, 7)},
     **{f"reto-{i}": "propio" for i in range(7, 10)},
     "reto-integrador": "propio",
 }
@@ -112,6 +112,24 @@ class AiPromptsTests(unittest.TestCase):
         commented["brief"].pop("notas")
         with self.assertRaisesRegex(ValueError, "notas"):
             PROMPTS.validate_brief("reto-0", commented)
+
+    def test_los_textos_de_practica_viajan_dentro_del_encargo(self):
+        task = CATALOG["reto-1"]
+        text = self.call("inline_sources_text", task)
+        self.assertTrue(text.startswith("Textos de práctica de este encargo"))
+        self.assertIn("### Bandeja de cinco solicitudes de sala", text)
+        self.assertIn("URG-01 · «Necesito una sala mañana", text)
+        self.assertIn("### Lineamiento de reserva de salas (ocho apartados)", text)
+        self.assertTrue(self.call("technical_block", task).endswith(text))
+        self.assertTrue(self.call("technical_block", task, "ide").endswith(text))
+        self.assertEqual(self.call("inline_sources_text", CATALOG["reto-4"]), "")
+        self.assertNotIn("Textos de práctica", self.call("technical_block", CATALOG["reto-4"]))
+        self.assertIn("No hay archivos que adjuntar", self.call("attach_note", task))
+        self.assertIn("Adjunta: correos-50.csv", self.call("attach_note", CATALOG["reto-4"]))
+        texts = self.call("practice_texts_markdown", task)
+        self.assertTrue(texts.startswith("## Textos de práctica para pegar"))
+        self.assertIn("````text\nBandeja de práctica", texts)
+        self.assertEqual(self.call("practice_texts_markdown", CATALOG["reto-4"]), "")
 
     @classmethod
     def tearDownClass(cls):

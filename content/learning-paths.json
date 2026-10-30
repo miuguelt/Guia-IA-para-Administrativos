@@ -102,9 +102,13 @@
     ]
   },
   "m01-fundamentos": {
-    "goal": "Encargar a la IA un diagnóstico y reconocer qué datos y decisiones requieren revisión humana.",
-    "product": "Un diagnóstico con entrada, salida, criterio de calidad y tiempo inicial medido o pendiente.",
+    "goal": "Reconocer qué cargas de tu trabajo aligera la IA, encargarle un lote con fuente y distinguir qué datos y decisiones requieren a una persona.",
+    "product": "Un mapa de carga con semáforo de datos, un lote de solicitudes revisado con fuente y un diagnóstico con tiempo inicial medido o pendiente.",
     "terms": [
+      [
+        "Carga de trabajo",
+        "Tipo de trabajo que se repite en la oficina: correos, archivos y documentos, reuniones, datos y hojas de cálculo, o tareas y agenda."
+      ],
       [
         "Entrada y salida",
         "La entrada es lo que recibes; la salida es el producto que debes entregar."
@@ -115,7 +119,7 @@
       ],
       [
         "Criterio de calidad",
-        "Condición concreta para aceptar el producto; por ejemplo, que pida todos los datos que faltan y cite la fuente."
+        "Condición concreta para aceptar el producto; por ejemplo, que cada respuesta del lote cite su apartado y no apruebe reservas."
       ],
       [
         "Datos necesarios",
@@ -136,55 +140,55 @@
     ],
     "checks": [
       {
-        "question": "¿Cómo abordarías una solicitud de sala incompleta?",
-        "scenario": "Necesitas señalar las solicitudes sin fecha, preparar una pregunta y confirmar la reserva.",
+        "question": "¿Quién hace cada parte con una bandeja de solicitudes?",
+        "scenario": "Debes contar las solicitudes, responder las incompletas y confirmar las reservas.",
         "options": [
           {
-            "text": "Dejar que la IA complete la fecha más probable y apruebe la reserva.",
-            "feedback": "La fecha ausente requiere confirmación. La aprobación corresponde a la persona responsable."
+            "text": "La IA cuenta, redacta y confirma las reservas para ahorrar tiempo.",
+            "feedback": "Contar es más confiable con un filtro o una fórmula, y la confirmación corresponde a la persona responsable."
           },
           {
-            "text": "Una regla detecta el vacío, la IA redacta y una persona aprueba.",
+            "text": "Una regla cuenta y detecta lo que falta, la IA redacta y una persona confirma.",
             "correct": true,
-            "feedback": "Cada parte tiene un resultado distinto: detectar un vacío, redactar una pregunta y tomar una decisión autorizada."
+            "feedback": "Cada parte tiene un responsable distinto: contar y detectar vacíos, redactar y decidir."
           },
           {
-            "text": "Aprobar la reserva cuando el mensaje diga que es urgente.",
+            "text": "Confirmar primero las urgentes, porque la urgencia justifica la reserva.",
             "feedback": "La urgencia no cambia por sí sola los requisitos del lineamiento ni concede una aprobación."
           }
         ],
-        "explanation": "Escoge la herramienta por la operación que necesitas. Una regla detecta condiciones explícitas; la IA prepara texto; la persona responsable confirma y autoriza."
+        "explanation": "Escoge la herramienta por la operación que necesitas. Una regla o fórmula cuenta y detecta condiciones explícitas; la IA prepara texto; la persona responsable confirma y autoriza."
       },
       {
-        "question": "¿Qué conservarías para identificar el tipo de petición?",
-        "scenario": "La tarjeta B incluye nombre e identificación de una persona que consulta por cupo.",
+        "question": "¿Qué conservarías para que la IA redacte la respuesta?",
+        "scenario": "Un oficio trae nombre y cédula de un ciudadano que pide una certificación laboral.",
         "options": [
           {
-            "text": "La identificación, porque ya retiré el nombre.",
-            "feedback": "La identificación todavía permite reconocer a la persona y no aporta a identificar el tipo de consulta."
+            "text": "La cédula, porque ya retiré el nombre.",
+            "feedback": "La cédula todavía permite reconocer a la persona y no aporta para redactar la respuesta."
           },
           {
-            "text": "Todos los datos para que la IA tenga más contexto.",
-            "feedback": "El contexto útil depende de la tarea. Nombre e identificación no son necesarios para reconocer una consulta por cupo."
+            "text": "Todo el oficio, para que la IA tenga más contexto.",
+            "feedback": "El contexto útil depende de la tarea. Nombre y cédula no son necesarios para redactar la respuesta."
           },
           {
-            "text": "«Una persona consulta por cupo».",
+            "text": "«Un ciudadano pide una certificación laboral».",
             "correct": true,
-            "feedback": "Ese fragmento conserva el tipo de petición y excluye datos que no se necesitan para esta tarea."
+            "feedback": "Ese fragmento conserva la petición y excluye datos que no se necesitan para esta tarea."
           }
         ],
-        "explanation": "Define primero qué necesitas obtener. Reduce la fuente a los datos necesarios y revisa si alguna combinación todavía permite identificar a una persona."
+        "explanation": "Define primero qué necesitas obtener. Reduce el texto a los datos necesarios y revisa si alguna combinación todavía permite identificar a una persona."
       }
     ],
     "transfer": {
-      "scenario": "Recibes una solicitud de sala completa, marcada como urgente.",
-      "question": "¿La información completa permite que la IA apruebe la reserva?",
-      "answer": "No. La urgencia requiere consulta a la persona responsable. La IA prepara un resumen con fuente y conserva la decisión pendiente."
+      "scenario": "Tu jefe te pide resumir 80 correos de quejas de la semana y proponer a quién remitir cada una.",
+      "question": "¿Qué haces antes de pegar los correos en el chat?",
+      "answer": "Quitas nombres, cédulas y datos de contacto, y no pegas los que traen salud o contraseñas. La IA agrupa y resume; la remisión final la decides tú o tu jefe."
     }
   },
   "m02-diseno": {
-    "goal": "Escribir instrucciones propias, revisarlas con la IA como entrenadora y probar una versión reutilizable con borradores que citan su fuente.",
-    "product": "Dos borradores revisados y una misma instrucción probada con PC-01, PC-02 y PC-03.",
+    "goal": "Escribir instrucciones propias, probar una versión reutilizable con borradores que citan su fuente y decidir cuándo usarla.",
+    "product": "Dos borradores revisados y una misma instrucción probada con tres casos nuevos: PC-02, PC-05 y PC-07.",
     "terms": [
       [
         "Petición",
@@ -200,49 +204,53 @@
       ],
       [
         "CRTT",
-        "Contexto, Rol, Tarea y Tono: cuatro partes para ordenar el encargo. Añade fuente, límites, formato y criterio de revisión."
+        "Contexto, Rol, Tarea y Tono: cuatro partes para ordenar el encargo. Se completa con fuente, límites y salida."
+      ],
+      [
+        "Instrucción reutilizable",
+        "Una misma versión que funciona con varios casos parecidos. Se guarda como asistente si la tarea se repite, el texto cambia y cada salida se puede comprobar con su fuente."
       ]
     ],
     "checks": [
       {
-        "question": "¿Qué permite afirmar PC-01?",
-        "scenario": "La persona dice: «Me avisaron por el grupo que cambiaba el salón», pero pide que se lo confirmen.",
+        "question": "¿Qué conviene para estos correos?",
+        "scenario": "Llegan 40 correos que preguntan solo el horario de la biblioteca. La respuesta es la misma para todos.",
         "options": [
           {
-            "text": "El cambio de salón ya está confirmado, porque la persona lo informa.",
-            "feedback": "El mensaje recoge una afirmación y una consulta. Hace falta verificar el cambio con la fuente autorizada."
+            "text": "Pedir a la IA un borrador distinto para cada uno de los 40 correos.",
+            "feedback": "La IA no aporta nada si la respuesta es idéntica, y tendrías que revisar cuarenta textos en lugar de uno."
           },
           {
-            "text": "La persona relata un aviso; el cambio queda por verificar.",
+            "text": "Una plantilla: la respuesta es igual para todos.",
             "correct": true,
-            "feedback": "Así conservas lo que dice el mensaje y distingues la afirmación de una confirmación oficial."
+            "feedback": "Cuando la respuesta no cambia, una plantilla es más rápida y exacta que pedirle a la IA cuarenta borradores."
           },
           {
-            "text": "La actividad se canceló y hay que reprogramarla.",
-            "feedback": "La fuente no dice que se canceló. Esa conclusión añade una decisión que no consta."
+            "text": "Pasar los 40 correos a la coordinación para que decida cada caso.",
+            "feedback": "Informar un horario no es una decisión. La coordinación decide trámites, no respuestas fijas."
           }
         ],
-        "explanation": "Una afirmación forma parte del análisis de la solicitud. Solo puedes presentarla como confirmada si la fuente permite comprobarla."
+        "explanation": "Usa la IA cuando hay que leer, separar o redactar a partir de un texto que cambia. Si la respuesta es siempre la misma, basta una plantilla."
       },
       {
         "question": "¿Cómo pruebas una instrucción que quieres reutilizar?",
-        "scenario": "Preparaste una plantilla para organizar peticiones con datos pendientes.",
+        "scenario": "Tu instrucción funcionó con PC-01 y PC-03, los casos con que la escribiste.",
         "options": [
           {
-            "text": "La pruebo con el caso más fácil y, si funciona, la uso para todos.",
-            "feedback": "Una prueba no muestra cómo responde ante solicitudes distintas. Usa los tres casos previstos y conserva sus resultados."
+            "text": "La vuelvo a probar con PC-01 y PC-03 para confirmar que sigue igual.",
+            "feedback": "Esos casos ya los conoce. Una instrucción reutilizable se prueba con casos que no usaste para escribirla."
           },
           {
-            "text": "Cambio la instrucción para cada caso y comparo los resultados.",
-            "feedback": "Para evaluar una versión, úsala igual en los tres casos y cambia solo la fuente. Si la ajustas, repite las pruebas afectadas."
+            "text": "La ajusto para cada caso nuevo y comparo los resultados.",
+            "feedback": "Si la cambias en cada caso, ya no pruebas una misma versión. Cambia solo la línea que falle y repite."
           },
           {
-            "text": "Uso la misma versión en los tres casos y conservo las salidas.",
+            "text": "Uso la misma versión con tres casos nuevos y conservo las salidas.",
             "correct": true,
-            "feedback": "Las pruebas permiten justificar si la versión sirve, qué límites conserva y por qué merece un ajuste."
+            "feedback": "Así compruebas si sirve fuera de los casos que ya conocía. Si una prueba falla, agregas una línea y repites las tres."
           }
         ],
-        "explanation": "La IA conserva versión, entrada y resultado real. Tú compruebas las salidas; si pides un ajuste, la IA repite las tres pruebas."
+        "explanation": "Una instrucción se prueba con casos nuevos y sin cambiarla. Si una prueba falla, corriges solo esa parte y repites las tres pruebas."
       }
     ],
     "transfer": {

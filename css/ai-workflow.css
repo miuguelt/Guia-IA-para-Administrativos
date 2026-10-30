@@ -119,6 +119,11 @@ body[data-learning-mode="autonomo"] #course-nav [data-module-link="preparacion"]
 .delivery-repair { margin: 16px 0; }
 .delivery-repair summary { min-height: 44px; padding: 10px 0; cursor: pointer; }
 
+/* Fuentes en texto: se leen y se copian en la página, sin descargar archivos. */
+.inline-sources { display: grid; gap: 14px; }
+.inline-source { min-inline-size: 0; }
+.inline-source h5 { margin: 0 0 8px; font-size: 1rem; }
+.inline-source .prompt-template { margin: 0 0 10px; }
 /* devbrain-prose-contract:start */
 /* Contrato 7.4: cada región ocupa su espacio y conserva sus controles. */
 :where(p, dd, blockquote) {

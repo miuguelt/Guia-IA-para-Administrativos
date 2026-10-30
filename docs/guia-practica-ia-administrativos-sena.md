@@ -48,11 +48,11 @@ El encargo descargable ya contiene esta estructura. El siguiente fragmento expli
 
 ## 4. Prepara borradores de PQRS sin atribuir acciones
 
-PQRS significa peticiones, quejas, reclamos y sugerencias. En el Reto 2 usa PC-01 y PC-03 de `pqrs-complejas.csv`; en el Reto 3 prueba la misma instrucción con PC-01, PC-02 y PC-03.
+PQRS significa peticiones, quejas, reclamos y sugerencias. En el Reto 2 usa PC-01 y PC-03, que copias desde la página; en el Reto 3 prueba la misma instrucción, sin cambiarla, con tres casos nuevos: PC-02, PC-05 y PC-07.
 
 Separa lo que la persona afirma, lo que solicita y lo que la fuente permite confirmar. Que alguien informe una dificultad no demuestra su causa. Tampoco demuestra que el área ya recibió, remitió o resolvió el caso.
 
-> Con el caso [CÓDIGO] de pqrs-complejas.csv, entrega una tabla con petición, afirmaciones de la persona y verificaciones pendientes. Después redacta un borrador de respuesta. No anuncies remisiones, aprobaciones, radicados ni fechas que la fuente no confirme. Si el plazo no consta, déjalo por confirmar con el área competente. No envíes el mensaje.
+> Con el caso [CÓDIGO] que te pego, entrega una tabla con petición, afirmaciones de la persona y verificaciones pendientes. Después redacta un borrador de respuesta. No anuncies remisiones, aprobaciones, radicados ni fechas que la fuente no confirme. Si el plazo no consta, déjalo por confirmar con el área competente. No envíes el mensaje.
 
 **Ejemplo de revisión:** «Hemos remitido su solicitud» afirma una acción. Si el caso no registra esa remisión, pide a la IA reemplazarla por una propuesta de revisión o una pregunta sobre el dato pendiente.
 

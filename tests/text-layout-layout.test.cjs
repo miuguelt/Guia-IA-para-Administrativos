@@ -22,10 +22,10 @@ test('la prosa ajusta su alineación a la región y conserva todo su ancho', () 
   assert.doesNotMatch(styles, /grid-template-columns:[^;]*\d+ch/u);
 });
 
-test('la explicación y el apoyo relacionado comparten el ancho sin comprimir la lectura', () => {
-  assert.match(styles, /\.module-explanation\s*\{[^}]*grid-template-columns:\s*minmax\(0,\s*1fr\)/s);
-  assert.match(styles, /\.module-explanation\s*\{[^}]*grid-template-columns:\s*minmax\(0,\s*1.6fr\)\s+minmax\(0,\s*1fr\)/s);
-  assert.match(styles, /\.module-explanation\s*>\s*\.module-reading\s*\{[^}]*grid-column:\s*1/s);
+test('la explicación y el apoyo relacionado aprovechan todo el ancho sin dejar columnas vacías', () => {
+  assert.match(styles, /\.module-explanation\s*\{[^}]*inline-size:\s*100%/s);
+  assert.match(styles, /\.module-explanation\s*>\s*\.module-reading\s*\{[^}]*inline-size:\s*100%/s);
+  assert.match(styles, /\.module-explanation\s*>\s*\.productivity-lesson\s*\{[^}]*inline-size:\s*100%/s);
 });
 
 test('la introducción distribuye prosa y pasos relacionados en columnas amplias', () => {
@@ -72,7 +72,9 @@ test('los encabezados extensos de las tarjetas de ciclo se ajustan en móvil', (
 test('las tarjetas de los pasos del módulo 01 se reducen al ancho disponible en móvil', () => {
   const courseStyles = fs.readFileSync(path.join(__dirname, '..', 'css', 'course.css'), 'utf8');
   assert.match(moduleOne, /class="data-safety-triptych"/);
-  assert.match(moduleOne, /class="task-stepper"/);
+  assert.match(moduleOne, /class="workload-grid"/);
+  assert.match(learningStyles, /\.workload-grid\s*\{[^}]*grid-template-columns:\s*repeat\(auto-fit,\s*minmax\(min\(100%,\s*220px\),\s*1fr\)\)/s);
+  assert.match(learningStyles, /\.workload-card\s*\{[^}]*min-inline-size:\s*0/s);
   assert.match(courseStyles, /\.data-safety-triptych\s*\{[^}]*grid-template-columns:\s*repeat\(auto-fit,\s*minmax\(min\(100%,\s*250px\),\s*1fr\)\)/s);
   assert.match(courseStyles, /\.task-stepper\s*\{[^}]*grid-template-columns:\s*repeat\(auto-fit,\s*minmax\(min\(100%,\s*200px\),\s*1fr\)\)/s);
   assert.match(courseStyles, /\.task-delimitation-section \.prompt-bubble\s*\{[^}]*margin-inline:\s*0/s);

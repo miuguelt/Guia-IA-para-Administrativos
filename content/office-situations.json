@@ -162,7 +162,7 @@
       "basePrompt": "Actúa como redactor administrativo del SENA. Con la solicitud y el lineamiento que adjunto, redacta un borrador de oficio:\n1. Asunto y referencia a la solicitud.\n2. Explicación de la respuesta, citando solo los apartados del lineamiento adjunto.\n3. Datos que faltan y pasos siguientes, con trato de usted y lenguaje claro.\nLímites: no apruebes excepciones que dependan de otra dependencia. Si un dato no figura, escribe «no consta». Rotula la respuesta como «Borrador para firma».\n\n[Pega aquí la solicitud y el lineamiento]",
       "challengeId": "reto-1",
       "challengeLink": "#m01-fundamentos",
-      "challengeName": "Reto 1 · Convierte el lineamiento en una respuesta verificable",
+      "challengeName": "Reto 1 · Responde un lote de solicitudes con una fuente",
       "practiceRelation": "practica",
       "productFormat": "Borrador de oficio en Word o Docs con la plantilla institucional."
     },
@@ -230,7 +230,7 @@
       "basePrompt": "Actúa como evaluador de gestión administrativa. Prepara una pregunta de práctica:\n1. Plantea un caso breve de oficina con un dilema sobre datos personales o procedimiento.\n2. Ofrece tres opciones: una correcta y dos con errores frecuentes.\n3. Espera mi respuesta. Después, explica por qué mi opción es correcta o riesgosa.\nLímites: usa solo datos inventados. Si mencionas una norma, indica cuál es para que pueda comprobarla.\n\n[Tema: ...]",
       "challengeId": "reto-0",
       "challengeLink": "#m01-fundamentos",
-      "challengeName": "Reto 0 · Decide qué información compartir",
+      "challengeName": "Reto 0 · Mapa de tu carga de trabajo y sus datos",
       "practiceRelation": "relacionada",
       "productFormat": "Pregunta de práctica con retroalimentación.",
       "learningExample": {

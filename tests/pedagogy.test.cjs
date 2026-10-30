@@ -159,7 +159,7 @@ test('cada módulo conecta fuente, instrucción, respuesta y revisión con una t
   assert.doesNotMatch(dom.window.document.querySelector('#m02-diseno .module-brief').textContent, /\busted\b/iu);
   assert.doesNotMatch(dom.window.document.querySelector('#reto-3').textContent, /qué error observaste en PC-02/iu);
   const reusable = dom.window.document.querySelector('#reto-3 [data-ai-review-checks]');
-  assert.match(reusable.textContent, /misma versión.*PC-01, PC-02 y PC-03/isu);
+  assert.match(reusable.textContent, /misma versión.*PC-02, PC-05 y PC-07/isu);
   assert.match(reusable.textContent, /Si cambia la versión.*pruebas.*tres casos/isu);
   assert.match(dom.window.document.querySelector('#reto-3 [data-ai-task]').textContent, /revisión humana.*realizada|No presentes.*revisión humana/iu);
   assert.match(dom.window.document.querySelector('#reto-2 .tool-route').textContent, /VJ-01 sustituye PC-03.*dos casos/iu);

@@ -24,7 +24,7 @@
         "artifacts": [
           "MG-A01"
         ],
-        "criterion": "Evalúa una tarea, minimiza datos, selecciona una herramienta y verifica el Prompt CRTT con la fuente de práctica.",
+        "criterion": "Reconoce cargas de trabajo, minimiza datos, selecciona una herramienta y verifica el Prompt CRTT con la fuente de práctica.",
         "instrument": "I-3 Lista técnica de viabilidad y fuente, MG-A01",
         "learningResult": "RA1 y RA2"
       },
@@ -97,15 +97,15 @@
     {
       "id": "MG-A01",
       "code": "MG-DIAGNOSTICO",
-      "name": "Diagnóstico, Semáforo de Datos y Prompt CRTT",
-      "purpose": "Reconocer una tarea administrativa, minimizar datos, elegir una herramienta apropiada y probar una instrucción contra una fuente de práctica.",
+      "name": "Mapa de trabajo, datos y primer encargo con fuente",
+      "purpose": "Reconocer las cargas de trabajo que aligera la IA, minimizar datos, responder un lote con fuente y diagnosticar una tarea propia.",
       "inputs": [
         "Módulo 00 · Herramientas previas",
-        "Libro de práctica · Lineamiento ficticio",
-        "Módulo 01 · Semáforo de datos y ejemplo CRTT"
+        "Semana de práctica, bandeja de cinco solicitudes y lineamiento de reservas (textos en la página)",
+        "Módulo 01 · Cargas de trabajo, semáforo de datos y ejemplo CRTT"
       ],
-      "instructions": "Sigue la explicación y el ejemplo resuelto de la web. Completa el Reto 0 de minimización de datos y el Reto 1 con el Lineamiento ficticio. Elige una tarea, diseña un prompt CRTT y contrasta la respuesta con el apartado fuente.",
-      "example": "Con el Lineamiento ficticio, extrae los requisitos de una reserva; cada dato debe señalar el apartado fuente y todo requisito ausente queda como pendiente.",
+      "instructions": "Sigue la explicación y el ejemplo resuelto de la web. Completa el Reto 0 con la semana de práctica y el Reto 1 con la bandeja de cinco solicitudes y el lineamiento. Diseña un prompt CRTT, contrasta cada respuesta con su apartado fuente y cierra con el diagnóstico de tu tarea.",
+      "example": "Con el lineamiento de reservas, responde cinco solicitudes: cada fila cita el apartado fuente, los datos ausentes quedan pendientes y ninguna reserva queda aprobada.",
       "station": {
         "sectionId": "m01-fundamentos",
         "order": 1,
@@ -116,17 +116,17 @@
       "fields": [
         {
           "key": "reto00_semaforo_datos",
-          "label": "Reto 0 · Decisiones sobre cinco tarjetas",
+          "label": "Reto 0 · Mapa de carga y semáforo",
           "type": "area",
-          "hint": "Clasifica cada tarjeta como «usar», «reducir» o «no cargar». Justifica dos versiones con menos datos y señala una autorización pendiente.",
-          "placeholder": "Tarjeta A: Usar · Solicitud sin datos personales identificables.\nTarjeta B: Reducir · Versión frase: «Una persona consulta por cupo». Versión breve: «Consulta cupo».\nTarjeta C: No cargar · Dato sensible de salud (Ley 1581 de 2012).\nTarjeta D: Usar · Código C-001 sin asociar identidad.\nTarjeta E: No cargar · Clave de buzón y credenciales de acceso.\nAutorización pendiente: Confirmar canal institucional para tramitar solicitudes de sala."
+          "hint": "Para cada tarea T1 a T8 indica tipo de carga, quién la hace (IA, regla o persona) y color del semáforo con su razón. Incluye dos versiones seguras de T8 y la autorización pendiente.",
+          "placeholder": "T1 · Correos · IA agrupa y resume · Usar: asuntos sin remitentes.\nT6 · Archivos · Persona en el sistema oficial · No cargar: dato de salud.\nT8 · Archivos · IA redacta · Reducir: «Un ciudadano pide una certificación laboral».\nAutorización pendiente: confirmar con el área el uso de oficios reales."
         },
         {
           "key": "proceso_seleccionado",
           "label": "Tarea y necesidad administrativa",
           "type": "text",
           "hint": "Indica tarea, unidad de trabajo, propósito y área sin incluir nombres ni datos de casos reales.",
-          "placeholder": "Tarea: Revisión de solicitudes de sala y preparación de borradores de respuesta.\nÁrea: Coordinación Académica / Logística.\nUnidad de trabajo: Una solicitud individual revisada.\nPropósito: Identificar requisitos cumplidos y datos pendientes para orientar al solicitante."
+          "placeholder": "Tarea: Respuesta a solicitudes de sala que llegan por correo.\nÁrea: Logística.\nUnidad de trabajo: Una solicitud respondida y revisada.\nPropósito: Pedir los datos que faltan sin aprobar reservas."
         },
         {
           "key": "matriz_viabilidad",
@@ -153,31 +153,31 @@
           "key": "reto01_verificacion",
           "label": "Fuente, respuesta y corrección del Reto 1",
           "type": "area",
-          "hint": "Registra el apartado que respalda cada dato y lo que no consta. Explica el ajuste realizado o la razón para conservar la respuesta.",
-          "placeholder": "Apartados fuente verificados: Anticipación (5 días hábiles), Aprobación (confirmación de logística).\nDato no contemplado: El lineamiento no define excepciones por urgencia.\nAjuste realizado: El borrador inicial asumía aprobación rápida; se corrigió para dejar la reserva pendiente de revisión por logística."
+          "hint": "Registra el apartado que respalda cada respuesta del lote y lo que no consta. Explica el ajuste realizado o la razón para conservar la respuesta.",
+          "placeholder": "URG-01 · Urgencia: no define excepciones; faltan sede, fecha y franja.\nSAL-05 · duplicado de SAL-02; se responde una vez.\nSAL-04 · el lineamiento no cubre equipos ni refrigerios; decide una persona.\nAjuste: [qué corregiste o por qué conservaste la respuesta]."
         },
         {
           "key": "uso_ia_y_revision",
           "label": "Uso de IA y revisión",
           "type": "area",
           "hint": "Indica el asistente, la fuente, el encargo, la salida y tu comprobación. Registra el ajuste solicitado o la razón para conservar la respuesta. Si hiciste un ensayo manual o solo observaste una demostración, deja pendiente la ejecución propia con IA. Reutiliza la conversación; no transcribas todos los registros.",
-          "placeholder": "Asistente y modelo: [herramienta y modelo usados].\nFuente: Fragmento reducido y Lineamiento ficticio.\nEncargo: Instrucción CRTT que pide requisitos, apartado fuente y borrador.\nSalida y comprobación: [resultado recibido y comparación con la fuente].\nDecisión: [ajuste solicitado o razón para conservar la respuesta]."
+          "placeholder": "Asistente y modelo: [herramienta y modelo usados].\nFuente: Semana de práctica, bandeja de cinco solicitudes y lineamiento de reservas.\nEncargo: Instrucción CRTT que pide requisitos, apartado fuente y borrador.\nSalida y comprobación: [resultado recibido y comparación con la fuente].\nDecisión: [ajuste solicitado o razón para conservar la respuesta]."
         }
       ],
       "checklist": [
-        "Clasifica cinco tarjetas y evita introducir datos sensibles o innecesarios en un chat.",
-        "Identifica necesidad, entrada, pasos y salida del proceso.",
-        "Justifica cuándo conviene IA, fórmula o regla, análisis predictivo o trabajo manual.",
-        "Formula el Reto 1 en CRTT y delimita el Lineamiento ficticio como fuente.",
-        "Contrasta la salida con la fuente, registra un dato pendiente y cumple I-1 de cuidado de datos."
+        "Ubica las ocho tareas de la semana en su carga y decide quién hace cada una.",
+        "Clasifica los datos con el semáforo y evita introducir datos sensibles o innecesarios en un chat.",
+        "Formula el Reto 1 en CRTT y delimita el lineamiento como fuente del lote.",
+        "Contrasta cada respuesta con su apartado, marca el duplicado y deja pendiente lo que no consta.",
+        "Diagnostica una tarea con entrada, pasos, salida, control y tiempo inicial o pendiente."
       ],
-      "criterion": "Minimiza datos, describe una tarea, elige una herramienta con justificación y comprueba una instrucción CRTT frente a su fuente.",
+      "criterion": "Reconoce cargas de trabajo, minimiza datos, elige entre regla, IA o persona y comprueba una instrucción CRTT frente a su fuente.",
       "instrument": "I-3 Lista técnica de viabilidad y fuente, MG-A01",
-      "evidence": "Diagnóstico, decisiones de minimización y prompt con su verificación.",
+      "evidence": "Mapa de carga con semáforo, lote de solicitudes verificado y diagnóstico de una tarea.",
       "nextStep": "Continúa con los Retos 2 y 3 para probar una instrucción reutilizable.",
       "aiAssist": {
-        "prompt": "Usa lineamiento-ficticio.csv, que adjunto o pego, para organizar los requisitos de reserva en una tabla con requisito, apartado fuente y dato pendiente. No añadas requisitos ni apruebes reservas. Si falta la fuente, pídela antes de responder. Propón un borrador para preguntar lo que no consta y espera mi revisión.",
-        "verify": "Comprueba cada dato con el Lineamiento ficticio; marca omisiones, añadidos y aspectos por confirmar. Conserva la respuesta si cumple o solicita un ajuste.",
+        "prompt": "Usa el lineamiento de reservas que pego en el chat para revisar las cinco solicitudes en una tabla con solicitud, apartado fuente y dato pendiente. No añadas requisitos ni apruebes reservas. Si falta el lineamiento, pídelo antes de responder.",
+        "verify": "Comprueba cada fila con el lineamiento; marca omisiones, añadidos y aspectos por confirmar. Conserva la respuesta si cumple o solicita un ajuste.",
         "log": "Registra la herramienta, la fuente comprobada y tu decisión después de usar el asistente. Copiar el encargo no registra una ejecución propia con IA."
       },
       "upload": {
@@ -191,11 +191,11 @@
       "name": "PQRS y Asistente de rol",
       "purpose": "Redactar dos borradores de PQRS y construir una instrucción reutilizable que se prueba con tres situaciones.",
       "inputs": [
-        "pqrs-complejas.csv",
+        "Mensajes de práctica en la página: PC-01 y PC-03 (Reto 2) y PC-02, PC-05 y PC-07 (Reto 3)",
         "Módulo 02 · Ejemplo resuelto PC-01",
         "Criterios y tres pruebas del asistente de rol"
       ],
-      "instructions": "Completa el Reto 2 con PC-01 y PC-03, según la consigna de la web, y el Reto 3 con PC-01, PC-02 y PC-03 de PQRS complejas. Separa petición, afirmaciones y vacíos; diseña una instrucción CRTT reutilizable e incluye una prueba con un dato faltante. Registra las salidas y justifica conservar la instrucción si cumple o ajustarla y repetir las pruebas afectadas.",
+      "instructions": "Completa el Reto 2 con PC-01 y PC-03, según la consigna de la web, y el Reto 3 con tres casos nuevos: PC-02, PC-05 y PC-07. Separa petición, afirmaciones y vacíos; diseña una instrucción CRTT reutilizable e incluye una prueba con un dato faltante. Registra las salidas, explica cuándo usarías la instrucción y cuándo no, y justifica conservar la instrucción si cumple o ajustarla y repetir las pruebas afectadas.",
       "example": "Un borrador distingue lo que la persona solicita de los hechos expresos; pregunta por la hora ausente y no cita una norma que la fuente no incluya.",
       "station": {
         "sectionId": "m02-diseno",
@@ -223,15 +223,15 @@
           "key": "prompt_maestro_rcirs",
           "label": "Reto 3 · Instrucción reutilizable CRTT",
           "type": "area",
-          "hint": "Define contexto, rol, tarea, tono, límites, fuente, formato y criterio de aceptación.",
-          "placeholder": "Contexto: Atención a PQRS de formación y bienestar.\nRol: Asistente de redacción preliminar de respuestas administrativas.\nTarea: Analizar el caso adjunto, separar hechos de peticiones y redactar un borrador de orientación.\nTono: Respetuoso, institucional y conciso.\nLímites: Usar únicamente el texto suministrado; no confirmar trámites sin soporte; marcar como «por verificar» datos ausentes.\nCriterio de aceptación: La respuesta no promete decisiones ni plazos inexistentes."
+          "hint": "Escribe la versión final con CRTT (contexto, rol, tarea y tono) más fuente, límites y salida.",
+          "placeholder": "Contexto: Atención a PQRS de formación y bienestar.\nRol: Asistente de redacción preliminar de respuestas administrativas.\nTarea: Analizar el caso adjunto, separar hechos de peticiones y redactar un borrador de orientación.\nTono: Respetuoso, institucional y conciso.\nLímites: Usar únicamente el texto suministrado; no confirmar trámites sin soporte; marcar como «por verificar» datos ausentes.\nSalida: primero una tabla de petición, afirmaciones y pendientes; después el borrador, sin prometer decisiones ni plazos."
         },
         {
           "key": "pruebas_de_estres",
           "label": "Reto 3 · Tres pruebas y ajustes",
           "type": "area",
           "hint": "Tres casos de prueba, uno incompleto: conserva salida y revisión. Justifica mantener la instrucción o registra el ajuste y las pruebas repetidas.",
-          "placeholder": "Prueba 1 (PC-01): Identificó la petición y dejó fecha y hora pendientes.\nPrueba 2 (PC-02 · Caso incompleto): La persona afirma haber terminado el curso pero el sistema no lo refleja; la IA no prometió certificado y solicitó verificar con coordinación.\nPrueba 3 (PC-03): Separó la solicitud de aplazamiento de las fechas comentadas.\nDecisión: Se conserva la instrucción porque en los tres casos mantuvo visibles los datos pendientes sin inventar resoluciones."
+          "placeholder": "Versión 1: la instrucción del Reto 2, sin cambios.\nPrueba 1 (PC-02 · falta el soporte): separó la petición, pero inventó que el certificado era para un grado. Falla.\nPrueba 2 (PC-05 · rumor de pago): trató el aviso del grupo como afirmación sin confirmar. Cumple.\nPrueba 3 (PC-07 · cambio de grupo): respondió que podía volver al grupo anterior. Falla: esa decisión es de coordinación.\nVersión 2: se agregó «Si un dato no figura, pregúntalo; si piden aprobar o cambiar algo, remite a la persona responsable». Se repitieron las tres pruebas y las tres cumplen."
         },
         {
           "key": "protocolo_anti_deriva",
@@ -239,6 +239,13 @@
           "type": "area",
           "hint": "Define cuándo aclarar, empezar una nueva conversación o consultar a una persona responsable.",
           "placeholder": "Cuándo aclarar: Si la IA añade datos o normas que la fuente no respalda.\nCuándo abrir otra conversación: Para probar cada caso con la misma instrucción sin mezclar el contexto de las pruebas anteriores. Abrir otro chat no elimina el historial ni la memoria que pueda tener habilitada la herramienta.\nCuándo consultar a una persona responsable: Cuando falte información necesaria o la respuesta requiera una decisión institucional; el aprendiz no resuelve plazos legales ni permisos con la IA."
+        },
+        {
+          "key": "cuando_usar_instruccion",
+          "label": "Reto 3 · Cuándo usar esta instrucción y cuándo no",
+          "type": "area",
+          "hint": "Nombra dos situaciones de tu oficina donde la usarías, una donde basta una plantilla o regla y una que decide una persona; explica el criterio.",
+          "placeholder": "La usaría en: solicitudes sobre cambios de salón o de horario, y consultas sobre el estado de un certificado. Cada texto cambia y puedo comprobar la salida con el mensaje.\nBasta una plantilla en: correos que solo preguntan el horario de atención; la respuesta es siempre la misma.\nDecide una persona: conceder un aplazamiento o expedir un certificado; la IA solo prepara el borrador.\nCriterio: la guardo como asistente porque la tarea se repite, el texto cambia y cada salida se compara con su fuente."
         },
         {
           "key": "uso_ia_y_revision",
@@ -251,16 +258,17 @@
       "checklist": [
         "Separa hechos, petición y datos faltantes en dos PQRS de temas distintos.",
         "El borrador tiene tono claro y respetuoso y no inventa normas, fechas, nombres ni decisiones.",
-        "La instrucción reutilizable declara objetivo, fuente, formato, límites y criterio de aceptación.",
-        "Se registran tres pruebas, incluida una con un dato faltante, y los cambios realmente observados.",
+        "La instrucción reutilizable usa CRTT más fuente, límites y salida.",
+        "Se registran tres pruebas con casos nuevos, incluida una con un dato faltante y otra que decide una persona, y los cambios realmente observados.",
+        "Explica cuándo usar la instrucción, cuándo basta una plantilla o regla y qué decide una persona.",
         "La salida se compara con la fuente y queda pendiente de aprobación humana."
       ],
       "criterion": "Produce borradores y una instrucción comprobable; registra resultados y correcciones sin completar información ausente.",
       "instrument": "I-4 Rúbrica de instrucción reutilizable, MG-A02",
-      "evidence": "Dos borradores de PQRS, matriz de fuentes y tres pruebas de la instrucción reutilizable.",
+      "evidence": "Dos borradores de PQRS, matriz de fuentes, tres pruebas de la instrucción reutilizable y el criterio para decidir cuándo usarla.",
       "nextStep": "Aplica la instrucción en los Retos 4, 5 y 6, y prueba una regla reproducible.",
       "aiAssist": {
-        "prompt": "Usa solo el caso de pqrs-complejas.csv o reto-02-variante-juridica.csv que adjunto. Separa petición, afirmaciones de la persona y datos pendientes; cita una frase de origen y redacta un borrador respetuoso. No inventes normas, plazos ni decisiones. Si no recibiste el caso, solicítalo. Aplicaré esta misma instrucción a cada caso por separado.",
+        "prompt": "Usa solo los mensajes de práctica PC-01 y PC-03 (o PC-01 y VJ-01 en la variante) que pego en el chat. Separa petición, afirmaciones de la persona y datos pendientes; cita la frase del mensaje y redacta un borrador respetuoso. No inventes normas, plazos ni decisiones. Después aplicaré la misma instrucción a PC-02, PC-05 y PC-07, cada uno por separado.",
         "verify": "Contrasta cada salida con su caso, señala los datos pendientes y justifica conservar la instrucción o ajustarla. Si cambia, repite las pruebas afectadas.",
         "log": "Registra la herramienta, los tres casos probados y la razón para conservar o ajustar la instrucción."
       },

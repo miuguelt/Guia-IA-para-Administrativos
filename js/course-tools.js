@@ -14,7 +14,7 @@
           preview.textContent = 'Completa el contexto, la tarea y el fragmento ficticio para preparar la instrucción.';
           return;
         }
-        preview.textContent = `Ayúdame como asistente de organización en este caso: ${context.value.trim()}. Necesito ${task.value.trim()}. Usa únicamente la fuente que incluyo abajo. Devuelve una tabla con afirmación, frase fuente y pendiente, con un tono claro y respetuoso. Marca «no consta» si falta un dato; conserva fechas y decisiones sin añadir información.\n\nFuente ficticia:\n${source.value.trim()}`;
+        preview.textContent = `Ayúdame como asistente de organización en este caso: ${context.value.trim()}. Necesito ${task.value.trim()}. Usa únicamente la fuente que incluyo abajo. Devuelve una tabla con afirmación, frase fuente y pendiente, con un tono claro y respetuoso. Marca «no consta» si falta un dato; conserva fechas y decisiones sin añadir información.\n\nFuente:\n${source.value.trim()}`;
       };
       [context, task, source].filter(Boolean).forEach(input => input.addEventListener('input', updatePrompt));
 

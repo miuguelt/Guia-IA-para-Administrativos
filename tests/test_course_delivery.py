@@ -77,6 +77,10 @@ class DeliveryMarkupTests(unittest.TestCase):
                 prompt = soup.select_one('#' + button['data-copy'])
                 self.assertIsNotNone(prompt)
                 expected = module.TASKS[key]['chatPrompt' if button['data-copy'].endswith('-chat') else 'idePrompt']
+                if module.TASKS[key].get('inlineSources'):
+                    # Sin archivos, el encargo copiado lleva los textos de práctica al final.
+                    expected += '\n\n' + module.inline_sources_text(module.TASKS[key])
+                    self.assertRegex(prompt.get_text(), r'URG-01|PC-01')
                 self.assertEqual(prompt.get_text(), expected)
                 self.assertIn('fuente', prompt.get_text().lower())
                 self.assertIn('prompt-text', prompt.get('class', []))

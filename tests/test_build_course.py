@@ -163,6 +163,14 @@ class BuildCourseTests(unittest.TestCase):
             cards = parsed.select("article.challenge-card")
             self.assertTrue(cards, spec[0])
             for card in cards:
+                task = BUILD_COURSE.TASKS[card["id"]]
+                if task.get("inlineSources") and not task["sourceFiles"]:
+                    # Los textos de práctica se copian en la página; no hay archivos ni paquete que descargar.
+                    self.assertIsNotNone(card.select_one('[data-challenge-stage="0"] .inline-sources'), card["id"])
+                    self.assertFalse(card.select("a.challenge-download[download], a.ai-kit-primary"), card["id"])
+                    self.assertEqual(card.select_one(".challenge-summary-count").get_text(), "Textos en la página", card["id"])
+                    self.assertEqual(len(card.select('[data-challenge-stage]')), 4)
+                    continue
                 materials = card.select_one(".challenge-materials")
                 self.assertIsNotNone(materials, card["id"])
                 self.assertIs(materials.find_parent(attrs={"data-challenge-stage": "0"}), card.select_one('[data-challenge-stage="0"]'))
@@ -182,7 +190,12 @@ class BuildCourseTests(unittest.TestCase):
             practice = observe.select_one('[data-simulator="case-practice"]')
             self.assertIsNotNone(practice, spec[0])
             self.assertEqual(len(practice.select('[data-case-stage]')), 4)
-            self.assertTrue(practice.select_one('[data-case-source] a[download]'))
+            if spec[0] in ("m01-fundamentos", "m02-diseno"):
+                # Observa de los módulos 01 y 02 lee sus mensajes en la página.
+                self.assertFalse(practice.select('[data-case-source] a[download]'))
+                self.assertTrue(practice.select('[data-case-source] .case-source-record'))
+            else:
+                self.assertTrue(practice.select_one('[data-case-source] a[download]'))
             self.assertFalse(observe.select('video, .media-panel'))
             self.assertEqual(len(practice.select('[data-knowledge-check]')), 2)
             self.assertTrue(practice.select_one('[data-case-solution] [data-ai-cycle]'))
@@ -310,7 +323,7 @@ class BuildCourseTests(unittest.TestCase):
         for index, spec in enumerate(BUILD_COURSE.MODULES):
             next_id = BUILD_COURSE.MODULES[index + 1][0] if index < len(BUILD_COURSE.MODULES) - 1 else "portafolio"
             page = self.call_production_function("module_page", spec, next_id)
-            self.assertIn("Archivos para resolver este reto", page)
+            self.assertIn("Copia los textos de práctica" if spec[0] in ("m01-fundamentos", "m02-diseno") else "Archivos para resolver este reto", page)
             self.assertTrue(any(prod in page for prod in ("Canva", "PDF", "Word", "Excel")), spec[0])
         self.call_production_function("main")
         production_functions = {

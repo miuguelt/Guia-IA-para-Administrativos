@@ -29,7 +29,7 @@ test('Docker recibe el registro canónico, las fuentes educativas completas y la
       assert.match(source, /^materiales\/(?:retos|analisis-datos|ia\/fuentes-comunes)\//u, 'Toda fuente se genera o entra por un COPY declarado.');
     }
   }
-  for (const name of ['reto-00-descripciones-seguras.csv', 'reto-04-talento-humano-seguro.csv', 'eco-lote.csv', 'eco-criterios.csv']) {
+  for (const name of ['reto-04-talento-humano-seguro.csv', 'eco-lote.csv', 'eco-criterios.csv']) {
     assert.ok(fs.existsSync(path.join(ROOT, 'materiales/ia/fuentes-comunes', name)), name);
   }
 });

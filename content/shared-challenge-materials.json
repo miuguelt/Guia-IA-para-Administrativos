@@ -1,49 +1,15 @@
 [
   {
-    "href": "materiales/ia/fuentes-comunes/reto-00-descripciones-seguras.csv",
-    "name": "Descripciones seguras de cinco tarjetas",
-    "kind": "Reto 0",
-    "detail": "Incluye únicamente descripciones autorizadas para adjuntar. No contiene tarjetas originales con identificación, salud o credenciales.",
-    "usedBy": [
-      "reto-0",
-      "MG-A01"
-    ]
-  },
-  {
-    "href": "materiales/retos/reto-01-solicitud-urgente.csv",
-    "name": "Solicitud urgente de sala",
-    "kind": "Reto 1",
-    "detail": "Caso URG-01 para contrastar el lineamiento; la fecha exacta, la sede y la franja no constan.",
-    "usedBy": [
-      "reto-1",
-      "MG-A01"
-    ]
-  },
-  {
     "href": "materiales/retos/lineamiento-ficticio.csv",
     "name": "Lineamiento ficticio de reserva de salas",
     "kind": "Fuente común",
     "detail": "Fuente de ocho apartados para revisar solicitudes, borradores, afirmaciones y rutas de decisión.",
     "usedBy": [
-      "reto-1",
       "reto-9",
       "reto-7",
-      "MG-A01",
       "MG-A03",
       "MG-A04",
       "variante-cita-inexistente"
-    ]
-  },
-  {
-    "href": "materiales/retos/pqrs-complejas.csv",
-    "name": "Casos de PQRS complejas",
-    "kind": "Fuente común",
-    "detail": "Trae los casos PC-01 a PC-08; los retos usan PC-01, PC-02 y PC-03 para preparar respuestas y probar una instrucción.",
-    "usedBy": [
-      "reto-2",
-      "reto-3",
-      "MG-A02",
-      "variante-juridica"
     ]
   },
   {

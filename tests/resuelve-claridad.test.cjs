@@ -45,8 +45,14 @@ test('los pasos «Descarga» y «Conserva» no repiten instrucciones', () => {
   const { dom, document } = published();
   for (const card of document.querySelectorAll('.challenge-card')) {
     const download = card.querySelector('[data-challenge-stage="0"]');
-    assert.ok(closedAncestor(download.querySelector('.tool-route')), `${card.id}: la lista de fuentes va plegada`);
-    assert.match(download.textContent, /Extraer todo/u, card.id);
+    if (download.querySelector('.inline-sources')) {
+      // Sin archivos: la nota de fuentes encabeza los textos que se copian.
+      assert.ok(download.querySelector('.inline-sources > .tool-route'), card.id);
+      assert.doesNotMatch(download.textContent, /Extraer todo/u, card.id);
+    } else {
+      assert.ok(closedAncestor(download.querySelector('.tool-route')), `${card.id}: la lista de fuentes va plegada`);
+      assert.match(download.textContent, /Extraer todo/u, card.id);
+    }
     const keep = card.querySelector('[data-challenge-stage="3"]');
     assert.doesNotMatch(keep.textContent, /Guarda tu evidencia:/u, card.id);
     assert.equal(keep.querySelectorAll('.stage-save-tip').length, 1, card.id);

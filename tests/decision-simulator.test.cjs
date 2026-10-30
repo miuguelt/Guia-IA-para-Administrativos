@@ -25,12 +25,12 @@ function mount(html = markup) {
   return { dom, document: dom.window.document };
 }
 
-test('el simulador arranca en la primera pregunta con su ejemplo de la solicitud de sala', () => {
+test('el simulador arranca en la primera pregunta con un ejemplo de oficina', () => {
   const { document } = mount();
   assert.equal(simulator.init({ document }), true);
   assert.equal(simulator.init({ document }), true, 'una segunda inicialización no duplica eventos');
   assert.match(document.getElementById('decision-question-text').textContent, /aprobar|autorizar/iu);
-  assert.match(document.getElementById('decision-question-example').textContent, /sala|urgencia/iu);
+  assert.match(document.getElementById('decision-question-example').textContent, /reserva urgente|autorizar un pago/iu);
   assert.equal(document.getElementById('decision-progress').textContent, 'Pregunta 1 de 3');
 });
 
@@ -82,14 +82,14 @@ test('la interfaz muestra el progreso, el resultado con su porqué y permite rei
 
   no.click();
   assert.equal(document.getElementById('decision-progress').textContent, 'Pregunta 2 de 3');
-  assert.match(document.getElementById('decision-question-text').textContent, /dato está o no está/iu);
+  assert.match(document.getElementById('decision-question-text').textContent, /contar, sumar o comprobar/iu);
 
   yes.click();
   assert.equal(result.hidden, false);
   assert.equal(question.hidden, true);
   const resultText = document.getElementById('decision-result-text');
   assert.equal(resultText.querySelector('strong').textContent, 'Regla');
-  assert.match(resultText.textContent, /sede, fecha (?:o|y) franja/iu);
+  assert.match(resultText.textContent, /filtro, una fórmula o una lista de chequeo/iu);
 
   document.getElementById('decision-reset').click();
   assert.equal(result.hidden, true);

@@ -1,88 +1,88 @@
 {
   "reto-0": {
     "id": "reto-0",
-    "revision": 3,
+    "revision": 4,
     "title": "Decide con tu resultado",
     "intro": "Evalúa estas tres situaciones sobre el resultado generado antes de darlo por definitivo.",
     "questions": [
       {
         "id": "reto-0-dilema-1",
         "kind": "dilemma",
-        "title": "Dilema 1: Datos de contacto en la consulta",
-        "prompt": "La IA incluyó el correo electrónico personal de quien consulta en la tarjeta B para «agilizar el contacto». ¿Cómo debes proceder?",
+        "title": "Dilema 1: Datos del ciudadano en el mapa",
+        "prompt": "La IA copió el nombre completo y la cédula del ciudadano de T8 en el mapa «para agilizar la certificación». ¿Cómo debes proceder?",
         "options": [
-          "Retirar el correo y conservar solo la descripción de la consulta, sin identificar a la persona.",
-          "Conservar el correo en la tarjeta B del semáforo para que la persona reciba respuesta más rápido.",
-          "Eliminar la tarjeta B completa del semáforo, porque cualquier consulta con datos personales es riesgosa."
+          "Retirar nombre y cédula y conservar solo la petición del ciudadano.",
+          "Conservar los datos en el mapa para que Talento Humano encuentre el caso.",
+          "Eliminar T8 del mapa, porque cualquier tarea con datos personales es riesgosa."
         ],
         "expected": "0",
         "feedbacks": {
-          "0": "Correcto: Usas solo los datos necesarios para el trámite y retiras los identificadores directos.",
-          "1": "Riesgo de privacidad: El correo personal es un dato de contacto protegido que no debe exponerse en una pieza informativa general.",
-          "2": "Incompleto: La tarjeta B debe categorizarse en el semáforo para enseñar cómo tratar consultas con datos personales sin descartar el caso."
+          "0": "Correcto: usas solo los datos necesarios para la tarea y retiras los identificadores directos.",
+          "1": "Riesgo de privacidad: el nombre y la cédula no se necesitan para ubicar la tarea ni para redactar la respuesta.",
+          "2": "Incompleto: T8 debe quedar en el mapa para mostrar cómo se reduce un texto con datos personales."
         },
-        "explanation": "La Ley 1581 de 2012 exige que el tratamiento de datos personales tenga una finalidad legítima e informada; para cumplirla basta con los datos indispensables del trámite.",
-        "reference": "Ley 1581 de 2012, art. 4 (principio de finalidad); reto-00-descripciones-seguras.csv.",
+        "explanation": "La Ley 1581 de 2012 exige que el tratamiento de datos personales tenga una finalidad legítima e informada; para cumplirla basta con los datos indispensables de la tarea.",
+        "reference": "Ley 1581 de 2012, art. 4 (principio de finalidad); semana de práctica, T8.",
         "hints": [
-          "Orientación: Evalúa si para categorizar el tipo de trámite necesitas exponer la identidad de quien solicita.",
-          "Dónde buscar: Revisa en el Módulo 01 qué datos necesita cada trámite.",
-          "Clave para resolver: Conserva el motivo del trámite y sustituye los datos personales por una etiqueta genérica."
+          "Orientación: evalúa si para ubicar la tarea necesitas saber quién la pidió.",
+          "Dónde buscar: revisa en el paso 3 del Módulo 01 qué hacer con los datos que identifican a alguien.",
+          "Clave para resolver: conserva la petición y sustituye la identidad por un rol."
         ]
       },
       {
         "id": "reto-0-dilema-2",
         "kind": "dilemma",
-        "title": "Dilema 2: Clasificación de códigos de trámite",
-        "prompt": "En la tarjeta D aparece «Código C-001 · plazo indicado para hoy». La IA propone marcarla en color rojo («No cargar») afirmando que los códigos internos son confidenciales. ¿Qué decisión corresponde?",
+        "title": "Dilema 2: El consolidado semanal",
+        "prompt": "La IA marca T4 (el consolidado en Excel por dependencia) en rojo, «no cargar», porque «los datos de la entidad son confidenciales». Las hojas solo traen dependencias y cantidades. ¿Qué decisión corresponde?",
         "options": [
-          "Aceptar el color rojo, porque los códigos internos de trámite se tratan siempre como confidenciales.",
-          "Clasificarla en verde («Usar»): un código de trámite sin datos personales sirve para organizar el flujo.",
-          "Borrar el código y reemplazarlo por una descripción inventada, para no exponer ningún dato interno."
+          "Aceptar el rojo, porque cualquier dato de la entidad es confidencial.",
+          "Marcarla en verde, «usar»; la suma la hace una fórmula.",
+          "Inventar cifras de ejemplo para no mostrar las cantidades reales."
         ],
         "expected": "1",
         "feedbacks": {
-          "0": "Clasificación incorrecta: Un código operativo no constituye por sí solo información confidencial ni sensible.",
-          "1": "Correcto: El código permite trazar el caso en el flujo de trabajo sin vulnerar la privacidad de ninguna persona.",
-          "2": "Inadecuado: No debes alterar ni inventar códigos de archivo si la información original es segura."
+          "0": "Clasificación incorrecta: conteos por dependencia sin personas no son datos personales ni sensibles.",
+          "1": "Correcto: la tarea no expone a nadie; la suma la hace una fórmula y la IA ayuda a ordenar las hojas.",
+          "2": "Inadecuado: inventar cifras daña el resultado y no resuelve ningún riesgo real."
         },
-        "explanation": "Los códigos de gestión y seguimiento son datos operativos públicos que no identifican a una persona natural.",
-        "reference": "Módulo 01, clasificación del semáforo de privacidad; tarjeta D.",
+        "explanation": "Un conteo agregado por dependencia no identifica a una persona natural. Aun así, comparte solo las columnas que la tarea necesita y deja el cálculo a una fórmula.",
+        "reference": "Módulo 01, pasos 2 y 3; semana de práctica, T4.",
         "hints": [
-          "Orientación: Distingue entre datos personales protegidos e identificadores de gestión institucional.",
-          "Dónde buscar: Comprueba el criterio de la tarjeta D en los lineamientos del semáforo.",
-          "Clave para resolver: Si el fragmento no identifica a personas naturales ni expone claves, pertenece al grupo verde."
+          "Orientación: distingue datos personales de datos agregados de la oficina.",
+          "Dónde buscar: compara T4 con las tarjetas del semáforo del paso 3.",
+          "Clave para resolver: si el texto no identifica a nadie ni expone claves, pertenece al grupo verde."
         ]
       },
       {
         "id": "reto-0-imprevisto",
         "kind": "unforeseen",
         "unforeseenType": "aparece un dato sensible",
-        "title": "Imprevisto: Dato de salud detectado en observaciones",
-        "prompt": "Al revisar el archivo complementario del semáforo, notas que en la columna de observaciones de una tarjeta se menciona el diagnóstico médico de un funcionario. ¿Cómo actúas?",
+        "title": "Imprevisto: La IA pide la incapacidad",
+        "prompt": "Al revisar el mapa, la IA escribe: «Pega aquí la incapacidad de T6 para leer el diagnóstico y clasificarla mejor». ¿Cómo actúas?",
         "options": [
-          "Cargar el texto completo al chat de IA y pedirle de forma expresa que guarde la confidencialidad.",
-          "Resumir el diagnóstico con palabras propias antes de adjuntarlo, para que ya no se reconozca el dato.",
-          "Omitir el fragmento de salud, no cargarlo en ninguna herramienta y avisar a protección de datos."
+          "Pegar la incapacidad y pedirle a la IA que guarde la confidencialidad.",
+          "Resumir el diagnóstico con tus palabras antes de pegarlo en el chat.",
+          "No pegarla, dejarla en «no cargar» y radicarla en el sistema oficial."
         ],
         "expected": "2",
         "feedbacks": {
-          "0": "Riesgo alto: Los datos de salud son sensibles según la Ley 1581 de 2012, y en este curso no se cargan en chats ni servicios en la nube.",
-          "1": "Riesgo legal: Cambiar las palabras no elimina la naturaleza sensible del dato médico; nunca debe procesarse en la IA.",
-          "2": "Correcto: Los datos sensibles de salud no deben circular ni procesarse en herramientas de IA sin autorización legal expresa."
+          "0": "Riesgo alto: los datos de salud son sensibles según la Ley 1581 de 2012, y en este curso no se cargan en chats.",
+          "1": "Riesgo legal: cambiar las palabras no elimina la naturaleza sensible del dato médico.",
+          "2": "Correcto: la clasificación no necesita el contenido; la incapacidad se trata solo en el sistema oficial."
         },
-        "explanation": "La Ley 1581 de 2012 prohíbe el tratamiento de datos sensibles, como los de salud, salvo las excepciones que la misma ley señala; en este curso no se cargan en herramientas de IA.",
+        "explanation": "La Ley 1581 de 2012 restringe el tratamiento de datos sensibles, como los de salud. Para ubicar la tarea basta saber que es una incapacidad; su contenido no entra a la IA.",
         "reference": "Ley 1581 de 2012, arts. 5 y 6 (datos sensibles y su tratamiento); regla de práctica del curso.",
         "hints": [
-          "Orientación: Identifica qué categoría legal tienen los diagnósticos y antecedentes de salud.",
-          "Dónde buscar: Revisa la sección de datos sensibles y prohibición de carga en el Módulo 01.",
-          "Clave para resolver: El tratamiento de datos de salud está expresamente restringido; debes apartarlos sin excepción."
+          "Orientación: identifica qué categoría legal tienen los diagnósticos y antecedentes de salud.",
+          "Dónde buscar: revisa la tarjeta roja del semáforo en el paso 3 del Módulo 01.",
+          "Clave para resolver: si la IA pide un dato sensible, la respuesta sigue siendo no cargarlo."
         ]
       }
     ]
   },
   "reto-1": {
     "id": "reto-1",
-    "revision": 2,
+    "revision": 3,
     "title": "Decide con tu resultado",
     "intro": "Evalúa estas tres situaciones sobre el resultado generado antes de darlo por definitivo.",
     "questions": [
@@ -103,10 +103,10 @@
           "2": "Insuficiente: Conservar la aprobación sin disponibilidad comprobada compromete recursos de la sede."
         },
         "explanation": "La urgencia es un criterio de priorización para revisar con prontitud, no una autorización para aprobar reservas sin validar aforo ni disponibilidad.",
-        "reference": "Lineamiento de reserva de salas, apartados Aprobación y Urgencia; Solicitud URG-01.",
+        "reference": "Lineamiento de reserva de salas, apartados Aprobación y Urgencia; solicitud URG-01.",
         "hints": [
           "Orientación: Revisa si el lineamiento autoriza a la IA o al asistente a aprobar reservas urgentes de forma directa.",
-          "Dónde buscar: Consulta los apartados Aprobación y Urgencia en lineamiento-ficticio.csv.",
+          "Dónde buscar: consulta los apartados Aprobación y Urgencia del lineamiento que copiaste en el chat.",
           "Clave para resolver: La aprobación requiere verificación de disponibilidad por el área responsable; no la confirmes sin datos completos."
         ]
       },
@@ -130,7 +130,7 @@
         "reference": "Lineamiento, apartado Anticipación; Solicitud URG-01.",
         "hints": [
           "Orientación: Evalúa si es posible calcular un plazo hábil cuando falta el punto de inicio en el calendario.",
-          "Dónde buscar: Revisa la columna Fecha de referencia en el archivo de práctica reto-01-solicitud-urgente.csv.",
+          "Dónde buscar: la bandeja aclara que no consta la fecha en que llegó cada mensaje.",
           "Clave para resolver: Cuando un dato indispensable no consta en la fuente, se registra como pendiente y no como cumplido ni rechazado."
         ]
       },
@@ -155,7 +155,7 @@
         "reference": "Contrato de verificación del curso; Lineamiento de salas.",
         "hints": [
           "Orientación: Compara los datos generados por la IA contra las tablas de fuentes de la lección.",
-          "Dónde buscar: Verifica si en lineamiento-ficticio.csv o en la solicitud existe alguna mención al Bloque C o al código RES-948.",
+          "Dónde buscar: verifica si el lineamiento o la bandeja mencionan el Bloque C o el código RES-948.",
           "Clave para resolver: Todo dato que no conste en la fuente debe eliminarse de la comunicación institucional."
         ]
       }
@@ -184,42 +184,51 @@
           "2": "Riesgo: inventar otra fecha crea un compromiso que la fuente no respalda."
         },
         "explanation": "Una respuesta solo confirma lo que consta en la fuente oficial. Los comentarios de terceros se presentan como afirmaciones pendientes de verificar.",
-        "reference": "pqrs-complejas.csv, caso PC-03; Módulo 02.",
+        "reference": "Mensaje PC-03; Módulo 02.",
         "hints": [
           "Orientación: Distingue la validez institucional de un comentario entre compañeros frente a una comunicación oficial.",
-          "Dónde buscar: Revisa la fila de PC-03 en pqrs-complejas.csv.",
+          "Dónde buscar: Revisa el mensaje de PC-03.",
           "Clave para resolver: Solo puedes confirmar los hechos documentados en la fuente oficial; lo demás se declara pendiente."
         ]
       },
       {
         "id": "reto-2-dilema-2",
         "kind": "dilemma",
-        "title": "Dilema 2: Discrepancia de estado en el portal",
-        "prompt": "En PC-02, la persona dice que terminó el curso, pero el portal muestra otro estado y no sabe qué soporte falta. La IA propone responder que «el sistema tiene un error y se resolverá hoy». ¿Cómo procedes?",
+        "title": "Dilema 2: la IA responde lo que el mensaje no confirma",
+        "prompt": "En PC-01, la persona pregunta qué salón, hora y enlace usar. La IA propone responder: «El salón cambió y la hora sigue igual; use el enlace del calendario». ¿Cómo procedes?",
         "options": [
-          "Enviar la respuesta que propuso la IA, porque calma la inquietud de la persona y promete solución hoy.",
-          "Decir que el estado se revisa con la dependencia responsable y pedir el soporte, sin atribuir fallas.",
-          "Pedir que radique de nuevo toda la documentación desde cero, para descartar cualquier error del portal."
+          [
+            "0",
+            "Enviarla así, porque responde las tres preguntas de la persona y evita otro mensaje."
+          ],
+          [
+            "1",
+            "Quitar lo que el mensaje no confirma y pedir la fecha; logística confirma salón y hora."
+          ],
+          [
+            "2",
+            "Conservar el salón y la hora, y pedir solo que la persona revise el enlace."
+          ]
         ],
         "expected": "1",
         "feedbacks": {
-          "0": "No consta: la fuente no dice que el portal tenga un error ni que se resuelva hoy.",
-          "1": "Correcto: describes lo que consta, dejas pendiente el soporte y no prometes una solución.",
-          "2": "Desproporcionado: la fuente no indica que todo el trámite deba repetirse."
+          "0": "El mensaje no confirma el salón, la hora ni el enlace. Responder así convierte un rumor en un dato.",
+          "1": "Correcto: el borrador reconoce la consulta, pide lo que falta y deja la confirmación al área responsable.",
+          "2": "El salón y la hora tampoco constan. Solo cambiaste uno de los tres datos inventados."
         },
-        "explanation": "La respuesta orienta con lo que consta y deja como pendiente lo que la fuente no aclara, en este caso el soporte que exige el procedimiento.",
-        "reference": "pqrs-complejas.csv, caso PC-02; Módulo 02.",
+        "explanation": "Un borrador solo afirma lo que consta en la fuente. Lo demás se pregunta o se remite al área que puede confirmarlo.",
+        "reference": "Mensaje PC-01; Módulo 02, pasos 1 y 2.",
         "hints": [
-          "Orientación: Observa la diferencia entre el estado registrado en el sistema y la percepción del usuario.",
-          "Dónde buscar: Consulta el extracto de PC-02 en pqrs-complejas.csv.",
-          "Clave para resolver: Comunica el estado objetivo que arroja el sistema y solicita el soporte que falta."
+          "Orientación: revisa cuáles de los tres datos aparecen confirmados en el mensaje.",
+          "Dónde buscar: lee de nuevo el mensaje de PC-01 y la tabla del Paso 1.",
+          "Clave para resolver: ningún dato del salón, la hora o el enlace consta; se pregunta la fecha y se remite a logística."
         ]
       },
       {
         "id": "reto-2-imprevisto",
         "kind": "unforeseen",
         "unforeseenType": "cambia un requisito",
-        "title": "Imprevisto: Requisito de radicado y canal de apelación",
+        "title": "Imprevisto: la secretaría pide radicado y canal de respuesta",
         "prompt": "Durante la redacción de las respuestas, la secretaría general notifica que toda respuesta a PQRS debe incluir obligatoriamente el número de radicado del sistema de correspondencia y el canal formal de apelación. ¿Cómo actualizas el encargo?",
         "options": [
           "Descartar la directriz, porque el reto original no incluía el radicado ni el canal de respuesta.",
@@ -228,16 +237,16 @@
         ],
         "expected": "2",
         "feedbacks": {
-          "0": "Incumplimiento normativo: Las directrices institucionales de correspondencia son de obligatorio cumplimiento y prevalecen sobre plantillas previas.",
-          "1": "Riesgo jurídico: Omitir los recursos legales en una notificación administrativa puede acarrear nulidad del trámite.",
-          "2": "Correcto: Adaptaste el encargo a los nuevos requerimientos formales, asegurando la validez legal del borrador generado."
+          "0": "No conviene: una directriz nueva de la secretaría se aplica aunque el reto no la mencionara al principio.",
+          "1": "Así la respuesta saldría incompleta. Es mejor ajustar el encargo antes de redactar.",
+          "2": "Correcto: agregas los dos requisitos al encargo y dejas pendiente lo que la fuente no trae."
         },
         "explanation": "Cuando cambia una directriz, se actualiza el encargo y se vuelve a probar. Los datos que la fuente no trae, como el número de radicado, quedan como pendientes; la dependencia responsable confirma los requisitos legales.",
         "reference": "Directriz de práctica de la secretaría; Reto 2. Los requisitos legales los confirma la dependencia responsable.",
         "hints": [
-          "Orientación: Considera cómo un cambio normativo sobreviniente impacta la estructura del documento formal.",
-          "Dónde buscar: Recuerda los componentes obligatorios de las respuestas formales a la ciudadanía.",
-          "Clave para resolver: Añade los dos requisitos al esquema del prompt para que el producto final cumpla la exigencia vigente."
+          "Orientación: cuando cambia un requisito, piensa qué parte del encargo debe cambiar.",
+          "Dónde buscar: revisa los límites y la salida de tu instrucción del Reto 2.",
+          "Clave para resolver: agrega el radicado y el canal al encargo; si la fuente no los trae, quedan pendientes."
         ]
       }
     ]
@@ -251,7 +260,7 @@
       {
         "id": "reto-3-dilema-1",
         "kind": "dilemma",
-        "title": "Dilema 1: Fecha aproximada en casos incompletos",
+        "title": "Dilema 1: la IA completa un dato que no consta",
         "prompt": "Al probar la instrucción con PC-02, que no indica cuál gestión necesita la persona ni qué soporte falta, la IA escribe que «el certificado se requiere para un grado en 2024». ¿Cómo ajustas la instrucción?",
         "options": [
           "Agregar un límite a la instrucción: «Si un dato no figura en el caso, no lo supongas; pregúntalo».",
@@ -260,47 +269,56 @@
         ],
         "expected": "0",
         "feedbacks": {
-          "0": "Correcto: la instrucción necesita un límite explícito que prohíba suponer datos y obligue a señalar lo que falta.",
-          "1": "Vulnerabilidad crítica: Admitir datos aproximados en una plantilla institucional destruye la confiabilidad de los certificados y actos administrativos.",
-          "2": "Violación de privacidad: Está prohibido rastrear información de usuarios en fuentes externas no autorizadas."
+          "0": "Correcto: la instrucción necesita un límite explícito que impida suponer datos y obligue a preguntar lo que falta.",
+          "1": "Un dato supuesto hace que la respuesta parezca completa, pero no tiene respaldo y puede engañar a quien la recibe.",
+          "2": "No: buscar información de una persona en redes sociales no está autorizado y no reemplaza la fuente del caso."
         },
         "explanation": "Los límites de una instrucción CRTT evitan que el modelo complete la información faltante por suposición. La prueba con un caso incompleto sirve justamente para detectarlo.",
-        "reference": "pqrs-complejas.csv, caso PC-02; instrucción CRTT del Reto 3.",
+        "reference": "Mensaje PC-02; instrucción CRTT del Reto 3.",
         "hints": [
-          "Orientación: Analiza cómo las instrucciones de control previenen la alucinación de datos en casos incompletos.",
-          "Dónde buscar: Revisa la sección de límites y restricciones en el modelo CRTT del Módulo 02.",
-          "Clave para resolver: El prompt debe instruir taxativamente que los datos ausentes se identifiquen como pendientes."
+          "Orientación: piensa qué parte de la instrucción le dice a la IA qué hacer cuando falta un dato.",
+          "Dónde buscar: revisa los límites de tu instrucción CRTT del Reto 3.",
+          "Clave para resolver: la instrucción debe pedir que los datos ausentes queden como pendientes y se pregunten."
         ]
       },
       {
         "id": "reto-3-dilema-2",
         "kind": "dilemma",
-        "title": "Dilema 2: Propósito de documentar tres pruebas",
-        "prompt": "En la ficha visual del prompt maestro, ¿cuál es el propósito de documentar los tres casos de prueba junto con sus salidas y correcciones?",
+        "title": "Dilema 2: ¿el asistente puede responder y enviar solo?",
+        "prompt": "Tu instrucción funcionó con PC-02, PC-05 y PC-07. La coordinación propone guardarla como asistente para que responda y envíe solas todas las PQRS de la semana, incluidas las que solo preguntan el horario. ¿Qué propones?",
         "options": [
-          "Hacer que la ficha se vea más completa y llamativa cuando la revisen el instructor y la coordinación.",
-          "Demostrar que la instrucción responde bien con casos completos e incompletos antes de usarla.",
-          "Reemplazar el manual de procedimientos de la entidad por una ficha visual más fácil de consultar."
+          [
+            "0",
+            "Activarla para todas las PQRS, porque ya pasó las tres pruebas y así el equipo se ahorra la revisión."
+          ],
+          [
+            "1",
+            "Usarla para preparar borradores de las PQRS que cambian; una persona revisa y envía, y el horario va con plantilla."
+          ],
+          [
+            "2",
+            "No usar la IA en ninguna PQRS, porque una sola respuesta equivocada puede causar un reclamo."
+          ]
         ],
         "expected": "1",
         "feedbacks": {
-          "0": "Foco superficial: La ficha visual es un instrumento técnico de control de calidad, no un simple adorno gráfico.",
-          "1": "Correcto: Probar con casos borde y documentar las correcciones garantiza la repetibilidad y seguridad del flujo administrativo.",
-          "2": "Alcance erróneo: Las fichas de prompts estandarizan tareas operativas, pero no sustituyen el marco normativo de la entidad."
+          "0": "Las tres pruebas muestran que la instrucción sirve para preparar borradores, no que puede decidir ni enviar sin revisión.",
+          "1": "Correcto: la IA ayuda donde hay que leer y separar texto, una persona decide y envía, y lo que no cambia va con plantilla.",
+          "2": "Renunciar a la IA desperdicia una instrucción probada. El riesgo se controla con revisión humana, no evitando la herramienta."
         },
-        "explanation": "La validación empírica con tres niveles de prueba asegura que la instrucción funcione de forma predecible en el entorno laboral real.",
-        "reference": "Reto 3, criterio de prueba con tres casos.",
+        "explanation": "Una instrucción probada sirve para preparar borradores de casos que cambian. Las respuestas fijas van con plantilla, y revisar, decidir y enviar sigue a cargo de una persona.",
+        "reference": "Módulo 02, Paso 4 · Decide cuándo usar la IA; Reto 3.",
         "hints": [
-          "Orientación: Reflexiona sobre por qué una sola prueba exitosa no demuestra la solidez de una instrucción para IA.",
-          "Dónde buscar: Consulta los criterios de validación de la ficha en la lección del Reto 3.",
-          "Clave para resolver: Tres pruebas diversas permiten verificar si el prompt reacciona con rigor ante distintos niveles de calidad en los datos."
+          "Orientación: separa lo que la IA prepara de lo que una persona decide.",
+          "Dónde buscar: repasa la tabla del Paso 4 en Aprende.",
+          "Clave para resolver: borradores con IA para lo que cambia, plantilla para lo fijo y una persona para revisar y enviar."
         ]
       },
       {
         "id": "reto-3-imprevisto",
         "kind": "unforeseen",
         "unforeseenType": "la herramienta no está disponible",
-        "title": "Imprevisto: Límite de cuota o caída del servicio de IA",
+        "title": "Imprevisto: el chat de IA no responde",
         "prompt": "Durante la ejecución de la tercera prueba, la plataforma de chat de IA muestra el error «Rate limit reached / Service unavailable» y no genera respuesta. ¿Cómo garantizas la continuidad del trabajo?",
         "options": [
           "Suspender la entrega y esperar varias horas hasta que el servicio de chat se restablezca por sí solo.",
@@ -309,16 +327,16 @@
         ],
         "expected": "2",
         "feedbacks": {
-          "0": "Parálisis evitable: La gestión administrativa debe contar con planes de contingencia ante caídas de proveedores de nube.",
-          "1": "Violación ética: Falsificar salidas de prueba en un instrumento técnico invalida la evidencia y vulnera la integridad institucional.",
-          "2": "Correcto: El diseño agnóstico del prompt maestro permite migrar entre herramientas de IA autorizadas sin perder la estructura metodológica."
+          "0": "Esperar sin plan retrasa la entrega. Puedes seguir con otra herramienta autorizada y la misma instrucción.",
+          "1": "No: presentar un texto escrito a mano como salida de la IA hace que la prueba no sea real ni confiable.",
+          "2": "Correcto: una instrucción bien escrita no depende de una herramienta; registras cuál usaste en cada prueba."
         },
-        "explanation": "La resiliencia operativa exige que los prompts administrativos sean portables entre plataformas homologadas sin depender de un proveedor único.",
+        "explanation": "Una instrucción clara funciona en otra herramienta autorizada con las mismas fuentes. Registra qué herramienta usaste en cada prueba.",
         "reference": "Reto 3; mapa de herramientas de la preparación.",
         "hints": [
-          "Orientación: Piensa en la independencia de las instrucciones estructuradas respecto a un proveedor específico de tecnología.",
-          "Dónde buscar: Revisa las recomendaciones de portabilidad tecnológica en el Módulo 02.",
-          "Clave para resolver: El encargo estructurado debe ser transferible a cualquier entorno de IA validado por la entidad."
+          "Orientación: piensa si tu instrucción depende de una herramienta en particular.",
+          "Dónde buscar: revisa qué herramientas autoriza tu entidad para este trabajo.",
+          "Clave para resolver: usa otra herramienta autorizada con la misma instrucción y las mismas fuentes, y anótalo."
         ]
       }
     ]

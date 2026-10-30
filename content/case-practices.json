@@ -1,23 +1,69 @@
 {
   "m01-fundamentos": {
-    "revision": 1,
-    "title": "Revisa una solicitud urgente de sala",
-    "intro": "Reconoce qué puedes preparar y qué debe confirmar Logística. Cada decisión debe apoyarse en la solicitud o en un apartado del lineamiento.",
+    "revision": 4,
+    "title": "Revisa un lote de solicitudes de sala",
+    "intro": "Decide qué puede preparar la IA y qué debe confirmar Logística. Cada decisión se apoya en una solicitud o en un apartado del lineamiento.",
     "sources": [
       {
-        "file": "reto-01-solicitud-urgente.csv",
-        "rows": [
-          5
+        "records": [
+          {
+            "label": "Bandeja · URG-01",
+            "fields": [
+              [
+                "Mensaje",
+                "Necesito una sala mañana para un taller de 18 personas. ¿Puedes aprobarla porque es urgente?"
+              ]
+            ]
+          },
+          {
+            "label": "Bandeja · SAL-02",
+            "fields": [
+              [
+                "Mensaje",
+                "Solicito el auditorio de la sede Salitre para el jueves 19 de noviembre de 2026, de 8:00 a 12:00, para una inducción de 40 personas."
+              ]
+            ]
+          },
+          {
+            "label": "Bandeja · SAL-05",
+            "fields": [
+              [
+                "Mensaje",
+                "Reenvío mi solicitud del auditorio de Salitre para el jueves 19 de noviembre de 2026, de 8:00 a 12:00. Nadie me ha respondido."
+              ]
+            ]
+          }
         ]
       },
       {
-        "file": "lineamiento-ficticio.csv",
-        "rows": [
-          6,
-          7,
-          8,
-          9,
-          11
+        "records": [
+          {
+            "label": "Lineamiento · Solicitud",
+            "fields": [
+              [
+                "Texto de la guía",
+                "La persona solicitante informa actividad, sede, fecha, franja horaria y aforo. La ficha no pide datos personales de asistentes."
+              ]
+            ]
+          },
+          {
+            "label": "Lineamiento · Aprobación",
+            "fields": [
+              [
+                "Texto de la guía",
+                "La persona responsable de logística confirma o propone alternativas. La IA no aprueba reservas."
+              ]
+            ]
+          },
+          {
+            "label": "Lineamiento · Urgencia",
+            "fields": [
+              [
+                "Texto de la guía",
+                "La ficha no define excepciones para solicitudes urgentes. Ese caso queda pendiente de decisión humana."
+              ]
+            ]
+          }
         ]
       }
     ],
@@ -33,11 +79,11 @@
         ],
         "expected": "0",
         "explanation": "El mensaje indica un taller para 18 personas. No identifica sede ni horario.",
-        "reference": "Solicitud URG-01, fila 5.",
+        "reference": "Bandeja, URG-01.",
         "hint": "Busca las dos cantidades o características que aparecen expresamente en la solicitud.",
         "hints": [
           "Orientación: Identifica las dos características expresamente confirmadas en el mensaje inicial.",
-          "Dónde buscar: Revisa el texto del mensaje URG-01 en reto-01-solicitud-urgente.csv, fila 5.",
+          "Dónde buscar: revisa el texto de URG-01 en la bandeja.",
           "Clave para resolver: Conserva el tipo de actividad y el número de asistentes; descarta fechas y sedes que no constan."
         ]
       },
@@ -56,7 +102,7 @@
         "hint": "Compara los campos del apartado Solicitud con lo que dice URG-01.",
         "hints": [
           "Orientación: Compara los campos mínimos exigidos para una reserva con los datos que llegaron en URG-01.",
-          "Dónde buscar: Consulta el apartado Solicitud en lineamiento-ficticio.csv frente al mensaje URG-01.",
+          "Dónde buscar: compara el apartado Solicitud del lineamiento con el mensaje URG-01.",
           "Clave para resolver: Se requieren sede, fecha exacta de calendario y franja horaria; no se piden datos personales."
         ]
       },
@@ -80,22 +126,22 @@
         ]
       },
       {
-        "id": "anticipacion",
+        "id": "duplicado",
         "stage": 2,
-        "prompt": "¿Puedes afirmar que el pedido cumple la anticipación de cinco días hábiles?",
+        "prompt": "SAL-05 reenvía la misma petición de SAL-02. ¿Qué haces con el lote?",
         "options": [
-          "Sí, porque dice mañana.",
-          "No: faltan las fechas de referencia y de la actividad.",
-          "Sí, si la IA lo escribe con seguridad."
+          "Responder dos veces, una por cada mensaje.",
+          "Marcar SAL-05 como duplicado, responder una sola vez y avisar que Logística confirma.",
+          "Aprobar SAL-05 porque la persona ya esperó."
         ],
         "expected": "1",
-        "explanation": "El plazo figura en el lineamiento, pero no puedes comprobarlo sin fechas exactas. Debe quedar pendiente.",
-        "reference": "Lineamiento, Anticipación; URG-01, Fecha de referencia.",
-        "hint": "Distingue la regla del dato necesario para aplicarla.",
+        "explanation": "Detectar duplicados es una de las ventajas de revisar un lote completo. La espera no convierte la solicitud en una aprobación.",
+        "reference": "Bandeja, SAL-02 y SAL-05; lineamiento, Aprobación.",
+        "hint": "Compara sede, fecha y franja de los dos mensajes.",
         "hints": [
-          "Orientación: Distingue la regla reglamentaria del dato fáctico requerido para verificar su cumplimiento.",
-          "Dónde buscar: Comprueba la columna Fecha de referencia en la fila 5 de URG-01.",
-          "Clave para resolver: Sin fecha de recepción del mensaje, no puedes calcular si se cumplen los cinco días de anticipación."
+          "Orientación: busca dos mensajes que piden lo mismo.",
+          "Dónde buscar: compara SAL-02 y SAL-05 en la bandeja.",
+          "Clave para resolver: una misma petición se responde una vez y la decisión sigue en Logística."
         ]
       }
     ]
@@ -103,72 +149,125 @@
   "m02-diseno": {
     "revision": 1,
     "title": "Prepara una respuesta con respaldo",
-    "intro": "Contrasta tres solicitudes y construye un encargo reutilizable. Los borradores de esta práctica están preparados para comparar decisiones; no son respuestas generadas en vivo.",
+    "intro": "Practica con PC-02 y PC-03 lo que viste con PC-01 en Aprende: separar, armar la instrucción y revisar la salida. Los borradores están preparados para comparar decisiones; no son respuestas generadas en vivo.",
     "sources": [
       {
-        "file": "pqrs-complejas.csv",
-        "rows": [
-          5,
-          6,
-          7
+        "records": [
+          {
+            "label": "PC-01 · Acceso y horario",
+            "fields": [
+              [
+                "Mensaje",
+                "Me avisaron por el grupo que cambiaba el salón pero no sé si también la hora; el enlace del calendario abre una sesión vieja. ¿Me confirman cuál usar?"
+              ]
+            ]
+          },
+          {
+            "label": "PC-02 · Certificación",
+            "fields": [
+              [
+                "Mensaje",
+                "Terminé el curso según mi instructor, pero el portal muestra otro estado. Necesito el certificado para una gestión próxima y no sé qué soporte falta."
+              ]
+            ]
+          },
+          {
+            "label": "PC-03 · Cancelación",
+            "fields": [
+              [
+                "Mensaje",
+                "El mensaje dice que la actividad queda aplazada hasta nuevo aviso. Dos compañeros comentan que ya hay fecha, pero no la encuentro en la comunicación oficial."
+              ]
+            ]
+          }
         ]
       }
     ],
     "questions": [
       {
-        "id": "pc01",
+        "id": "pc03-fecha",
         "stage": 1,
-        "prompt": "En PC-01, «me avisaron por el grupo» corresponde a…",
+        "type": "choice",
+        "prompt": "En PC-03, ¿qué puede decir el borrador sobre la nueva fecha?",
         "options": [
-          "Una confirmación oficial del nuevo salón.",
-          "Una afirmación que debe contrastarse con la fuente autorizada.",
-          "Una instrucción para cambiar el horario."
+          [
+            "0",
+            "Que la nueva fecha queda pendiente hasta que salga en la comunicación oficial."
+          ],
+          [
+            "1",
+            "Que la fecha que mencionan los compañeros es probable, pero falta confirmarla."
+          ],
+          [
+            "2",
+            "Que la actividad sigue aplazada y que por ahora no se va a reprogramar."
+          ]
         ],
-        "expected": "1",
-        "explanation": "La persona relata un aviso. Su petición es confirmar salón, horario y enlace; la fuente no confirma el cambio.",
-        "reference": "PQRS complejas, PC-01, fila 5.",
-        "hint": "Distingue quién afirma algo de quién tiene autoridad para confirmarlo.",
+        "expected": "0",
+        "feedbacks": {
+          "0": "El borrador reconoce el aplazamiento y deja la fecha pendiente, sin repetir el rumor.",
+          "1": "Llamarla «probable» igual difunde una fecha que nadie confirmó.",
+          "2": "El mensaje no dice que no se reprogramará. Esa frase agrega una decisión que no consta."
+        },
+        "explanation": "Solo se afirma lo que dice la comunicación oficial: la actividad está aplazada. La fecha nueva queda pendiente.",
+        "reference": "Mensaje PC-03.",
+        "hint": "Separa lo que dice la comunicación oficial de lo que comentan otras personas.",
         "hints": [
-          "Orientación: Distingue la afirmación de un tercero de la confirmación formal emitida por la dependencia competente.",
-          "Dónde buscar: Lee el relato de la persona en la fila 5 (PC-01) de pqrs-complejas.csv.",
-          "Clave para resolver: El aviso informal por mensajería es una afirmación ciudadana por contrastar con la fuente autorizada."
+          "Orientación: una afirmación de terceros no se vuelve un dato por repetirla con cuidado.",
+          "Dónde buscar: lee la segunda frase de PC-03.",
+          "Clave para resolver: el borrador dice que la fecha queda pendiente y no la menciona."
         ]
       },
       {
-        "id": "pc02",
+        "id": "pc02-falta",
         "stage": 1,
-        "prompt": "En PC-02, ¿qué debe conservar el análisis?",
+        "type": "choice",
+        "prompt": "En PC-02, ¿qué falta saber para orientar a la persona?",
         "options": [
-          "El certificado ya está listo para descargar.",
-          "El portal está equivocado.",
-          "La solicitud de orientación y la discrepancia de estado; el soporte requerido no consta."
+          [
+            "0",
+            "Si el instructor ya reportó la nota del curso en el portal."
+          ],
+          [
+            "1",
+            "Qué gestión necesita hacer y qué soporte exige el procedimiento."
+          ],
+          [
+            "2",
+            "El número de documento de la persona para consultar el portal."
+          ]
         ],
-        "expected": "2",
-        "explanation": "El mensaje menciona estados distintos, pero no permite resolverlos ni identificar el soporte que falta.",
-        "reference": "PQRS complejas, PC-02, fila 6.",
-        "hint": "No decidas cuál versión es válida si el caso no aporta la comprobación.",
+        "expected": "1",
+        "feedbacks": {
+          "0": "Eso es una suposición sobre la causa. El mensaje no dice por qué el portal muestra otro estado.",
+          "1": "El mensaje habla de «una gestión próxima» y de un soporte que no conoce. Eso es lo que se pregunta.",
+          "2": "Para orientar no hace falta pedir datos personales. El borrador pregunta solo lo necesario."
+        },
+        "explanation": "Lo que falta es lo que el mensaje deja abierto: cuál gestión y qué soporte. Lo demás sería suponer o pedir datos de más.",
+        "reference": "Mensaje PC-02.",
+        "hint": "Busca las partes del mensaje que la persona deja sin precisar.",
         "hints": [
-          "Orientación: Analiza cómo registrar versiones contradictorias sin dar por válida ninguna de ellas anticipadamente.",
-          "Dónde buscar: Consulta la fila 6 (PC-02) de pqrs-complejas.csv.",
-          "Clave para resolver: Conserva la discrepancia entre el dicho del usuario y el estado del portal, señalando el soporte ausente."
+          "Orientación: lo que falta está en las palabras vagas del mensaje.",
+          "Dónde buscar: fíjate en «una gestión próxima» y «qué soporte falta».",
+          "Clave para resolver: falta saber cuál gestión y qué soporte; no se adivina la causa ni se piden datos personales."
         ]
       },
       {
         "id": "encargo",
         "stage": 2,
         "type": "instruction",
-        "prompt": "Construye una instrucción que puedas reutilizar en los tres casos.",
+        "prompt": "Arma una instrucción que sirva para PC-02 y PC-03 sin cambiarla.",
         "parts": [
           {
-            "label": "Fuente y contexto",
+            "label": "Contexto y fuente",
             "options": [
               [
                 "caso",
-                "Usa únicamente el texto del caso PC-01, PC-02 o PC-03."
+                "Usa solo el texto del mensaje que te pego."
               ],
               [
                 "supone",
-                "Completa los datos con lo que suele ocurrir."
+                "Usa el mensaje y lo que suele pasar en trámites parecidos."
               ]
             ]
           },
@@ -177,11 +276,11 @@
             "options": [
               [
                 "analiza",
-                "Como asistente administrativo, separa petición, afirmaciones y pendientes; cita frases y prepara un borrador."
+                "Como auxiliar de atención, separa petición, afirmaciones y pendientes; cita la frase y prepara un borrador."
               ],
               [
                 "aprueba",
-                "Como autoridad del trámite, aprueba lo que solicita la persona."
+                "Como auxiliar de atención, redacta la respuesta final lista para enviar a la persona."
               ]
             ]
           },
@@ -190,11 +289,11 @@
             "options": [
               [
                 "claro",
-                "Escribe con claridad y respeto."
+                "Claro y respetuoso, sin prometer fechas ni soluciones."
               ],
               [
                 "promete",
-                "Promete una solución inmediata para tranquilizar a la persona."
+                "Cercano y tranquilizador, asegurando que todo se resolverá pronto."
               ]
             ]
           },
@@ -203,45 +302,100 @@
             "options": [
               [
                 "verifica",
-                "No inventes fechas, horas, enlaces ni gestiones realizadas. Deja los datos ausentes pendientes de verificación."
+                "Si falta un dato, pregúntalo; si piden aprobar algo, remite a la persona responsable."
               ],
               [
                 "completa",
-                "Añade una fecha probable cuando no aparezca."
+                "Si falta un dato, usa el más probable y avísalo al final del borrador."
               ]
             ]
           }
         ],
         "expected": "caso|analiza|claro|verifica",
-        "explanation": "El encargo delimita la fuente, la tarea, el tono y los límites. La misma instrucción también debe conservar vacíos en una solicitud incompleta.",
-        "reference": "PQRS complejas, PC-01 a PC-03.",
-        "hint": "Busca una tarea concreta, una fuente delimitada y una regla para los datos ausentes.",
+        "explanation": "La instrucción limita la fuente al mensaje, pide separar antes de redactar, evita promesas y dice qué hacer cuando falta un dato o cuando hay que decidir.",
+        "reference": "Módulo 02, pasos 2 y 3.",
+        "hint": "Busca la opción que no deja a la IA suponer ni decidir.",
         "hints": [
-          "Orientación: Construye una instrucción con estructura CRTT que opere de forma segura en los tres casos.",
-          "Dónde buscar: Revisa las cuatro partes del encargo reutilizable en la lección de diseño de prompts.",
-          "Clave para resolver: Elige delimitar la fuente al caso, analizar y separar pendientes, mantener tono claro y prohibir suposiciones."
+          "Orientación: en cada parte, una opción deja que la IA complete o prometa algo.",
+          "Dónde buscar: repasa la tabla «Qué agregas» del Paso 2.",
+          "Clave para resolver: fuente solo el mensaje, separar antes de redactar, sin promesas y preguntar lo que falta."
         ]
       },
       {
-        "id": "pc03",
-        "stage": 2,
-        "prompt": "Para PC-03, el borrador dice: «Confirmamos la nueva fecha anunciada por sus compañeros». ¿Qué ajuste corresponde?",
+        "id": "pc03-ajuste",
+        "stage": 3,
+        "prompt": "Para PC-03, la IA escribe: «Confirmamos la nueva fecha anunciada por sus compañeros». ¿Qué ajuste corresponde?",
         "options": [
-          "Retirar la confirmación: la comunicación oficial aplaza la actividad y no incluye fecha nueva.",
-          "Cambiar confirmamos por aseguramos.",
-          "Conservarla porque dos personas coinciden."
+          [
+            "0",
+            "Retirar la fecha y decir que queda pendiente hasta la comunicación oficial."
+          ],
+          [
+            "1",
+            "Cambiar «confirmamos» por «al parecer» y conservar la fecha anunciada."
+          ],
+          [
+            "2",
+            "Conservar la fecha y pedir a la persona que la confirme con sus compañeros."
+          ]
         ],
         "expected": "0",
-        "explanation": "El comentario de terceros no reemplaza la comunicación oficial. La nueva fecha queda por verificar.",
-        "reference": "PQRS complejas, PC-03, fila 7.",
-        "hint": "Compara lo publicado oficialmente con lo que comentan los compañeros.",
+        "explanation": "Un comentario de terceros no reemplaza la comunicación oficial. La nueva fecha queda pendiente.",
+        "reference": "Mensaje PC-03.",
+        "hint": "Compara lo que dice la comunicación oficial con lo que comentan los compañeros.",
         "hints": [
-          "Orientación: Contrasta la comunicación oficial de aplazamiento frente a los rumores de nueva fecha.",
-          "Dónde buscar: Examina la fila 7 (PC-03) de pqrs-complejas.csv.",
-          "Clave para resolver: Retira la confirmación de fecha: el comunicado oficial no fija fecha nueva y el dato queda pendiente."
+          "Orientación: pregúntate quién puede confirmar una fecha.",
+          "Dónde buscar: lee de nuevo el mensaje de PC-03.",
+          "Clave para resolver: la fecha no consta en la comunicación oficial; se retira y queda pendiente."
+        ],
+        "feedbacks": {
+          "0": "La comunicación oficial solo aplaza la actividad. La fecha de los compañeros no se publica como dato.",
+          "1": "Suavizar la palabra no basta: la respuesta sigue difundiendo una fecha que nadie confirmó.",
+          "2": "Los compañeros no pueden confirmar una fecha oficial. Eso le corresponde al área responsable."
+        }
+      },
+      {
+        "id": "cuando-guardar",
+        "stage": 3,
+        "type": "choice",
+        "prompt": "Tu instrucción funcionó con PC-01 y piensas guardarla como Gem o proyecto para el equipo. ¿Cuándo vale la pena guardar tu instrucción como asistente?",
+        "options": [
+          [
+            "0",
+            "Ya mismo, porque funcionó con el primer caso y ahorra tiempo al equipo."
+          ],
+          [
+            "1",
+            "Si la tarea se repite, cada caso cambia y ya la probaste con tres."
+          ],
+          [
+            "2",
+            "Nunca: cada respuesta a una PQRS se escribe desde cero, a mano."
+          ]
+        ],
+        "expected": "1",
+        "feedbacks": {
+          "0": "Un caso no basta. Prueba la misma versión con PC-01, PC-02 y PC-03 antes de compartirla.",
+          "1": "Esas tres condiciones justifican guardarla; la revisión y el envío siguen a cargo de una persona.",
+          "2": "Escribir todo a mano no es obligatorio. Una instrucción probada ahorra tiempo si alguien revisa cada borrador."
+        },
+        "explanation": "Una instrucción merece guardarse cuando la tarea se repite, el texto de cada caso cambia y puedes comprobar cada salida con su fuente.",
+        "reference": "Módulo 02, Paso 4 · Decide cuándo usar la IA.",
+        "hint": "Recuerda las tres preguntas del Paso 4.",
+        "hints": [
+          "Orientación: guardar una instrucción tiene sentido solo si vas a reutilizarla con confianza.",
+          "Dónde buscar: lee las tres preguntas al final del Paso 4.",
+          "Clave para resolver: la tarea se repite, el texto cambia y ya probaste la misma versión con tres casos."
         ]
       }
-    ]
+    ],
+    "stages": [
+      "Lee los mensajes",
+      "Separa lo que piden",
+      "Arma la instrucción",
+      "Revisa y decide"
+    ],
+    "sourceIntro": "PC-01 ya lo resolviste en Aprende. Lee PC-02 y PC-03: los mensajes no dicen qué falta; eso lo descubres tú."
   },
   "m03-implementacion": {
     "revision": 1,

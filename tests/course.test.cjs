@@ -116,7 +116,7 @@ test('la preparación conecta cinco prácticas en una hora y publica la fuente e
   published.window.close();
 });
 
-test('el módulo 01 enseña a diagnosticar, mide una referencia y conserva sus ocho horas', () => {
+test('el módulo 01 enseña cargas de trabajo, diagnostica una tarea y conserva sus ocho horas', () => {
   const dom = new JSDOM(read('index.html'));
   const page = dom.window.document.querySelector('#m01-fundamentos');
   const learn = page.querySelector('[data-panel="aprende"]');
@@ -156,10 +156,13 @@ test('el módulo 01 enseña a diagnosticar, mide una referencia y conserva sus o
     assert.ok(sections.includes(row.cells[2].textContent.trim()), 'El ejemplo debe citar apartados existentes');
   }
   assert.match(observe.querySelector('[data-urgent-example]').textContent, /no define excepciones/iu);
-  assert.match(page.querySelector('#reto-0').textContent, /A y D/iu);
-  assert.match(page.querySelector('#reto-0 [data-ai-task]').textContent, /Para B genera dos versiones.*sin identificadores/iu);
+  assert.match(page.querySelector('#reto-0').textContent, /T6 y T7/u);
+  assert.match(page.querySelector('#reto-0 [data-ai-task]').textContent, /Para T8 genera dos versiones sin identificadores/u);
+  for (const load of ['correos', 'archivos y documentos', 'reuniones', 'datos y hojas de cálculo', 'tareas y agenda']) {
+    assert.match(page.querySelector('#reto-0 [data-ai-task]').textContent, new RegExp(load, 'u'), load);
+  }
   assert.match(page.querySelector('#reto-1 [data-ai-task]').textContent, /Contexto, Rol, Tarea y Tono.*fuente, límites, formato y criterio/u);
-  assert.match(page.querySelector('#reto-1 [data-ai-task]').textContent, /Genera una tabla.*ocho apartados/isu);
+  assert.match(page.querySelector('#reto-1 [data-ai-task]').textContent, /ocho apartados.*Genera una tabla con una fila por solicitud/su);
   assert.ok(page.querySelector('[data-panel="documenta"] [data-db-evidence="MG-A01"]'));
   dom.window.close();
 });
@@ -487,7 +490,8 @@ test('los cinco módulos ofrecen prácticas con fuentes, ayudas y avance indepen
     assert.ok(panel.classList.contains('case-ready'));
     assert.equal(panel.querySelectorAll('[data-case-stage]').length, 4);
     assert.equal(panel.querySelectorAll('[data-case-stage]:not([hidden])').length, 1);
-    assert.ok(panel.querySelector('[data-case-source] a[download]'));
+    if (['m01-fundamentos', 'm02-diseno'].includes(panel.dataset.caseId)) assert.ok(panel.querySelector('[data-case-source] .case-source-record'));
+    else assert.ok(panel.querySelector('[data-case-source] a[download]'));
     assert.equal(panel.querySelectorAll('[data-pqrs-transfer], [data-cleaner-transfer]').length, 0);
     panel.querySelector('[data-case-go="3"]').click();
     assert.equal(panel.querySelector('[data-case-stage="3"]').hidden, false);
@@ -603,6 +607,19 @@ test('cada reto presenta y permite descargar los archivos que necesita', async (
   assert.deepEqual([...document.querySelectorAll('.challenge-card')].map(card => card.id), expectedChallenges);
   for (const id of expectedChallenges) {
     const card = document.getElementById(id);
+    if (['reto-0', 'reto-1', 'reto-2', 'reto-3'].includes(id)) {
+      // Los retos de los módulos 01 y 02 traen sus textos en la página: se copian, no se descargan.
+      const inline = card.querySelector('[data-challenge-stage="0"] .inline-sources');
+      assert.ok(inline, `${id}: debe mostrar los textos de práctica en el primer paso`);
+      assert.equal(card.querySelector('.challenge-materials, a.ai-kit-primary'), null, `${id}: no ofrece archivos que descargar`);
+      assert.match(inline.textContent, /No hay archivos que descargar/u);
+      for (const button of inline.querySelectorAll('[data-copy]')) {
+        for (const target of [button.dataset.copy, ...(button.dataset.copyAppend || '').split(/\s+/u).filter(Boolean)]) {
+          assert.ok(document.getElementById(target), `${id}: el botón copia ${target}`);
+        }
+      }
+      continue;
+    }
     const materials = card.querySelector('.challenge-materials');
     assert.ok(materials, `${id}: debe indicar sus archivos de trabajo`);
     assert.equal(materials.closest('[data-challenge-stage]').dataset.challengeStage, '0', `${id}: los materiales deben estar en el primer paso`);
@@ -663,15 +680,17 @@ test('cada reto presenta y permite descargar los archivos que necesita', async (
   dom.window.close();
 });
 
-test('el Reto 0 identifica el dato de salud como sensible y coincide con su archivo', async () => {
+test('el Reto 0 identifica el dato de salud y la credencial sin pedir su contenido', async () => {
   const { dom, document } = await setup('#m01-fundamentos');
   const challenge = document.getElementById('reto-0');
-  const cards = fs.readFileSync(path.join(root, 'materiales/retos/reto-00-tarjetas-semaforo.csv'), 'utf8');
-  assert.match(challenge.querySelector('.tool-route').textContent, /identificación, salud o credenciales no se adjuntan/iu);
-  assert.match(challenge.querySelector('[data-ai-task]').textContent, /C:.*información de salud que no se carga/iu);
-  assert.match(challenge.querySelector('[data-ai-review-checks]').textContent, /C y E no se cargan/iu);
+  const week = challenge.querySelector('[data-inline-source="semana"]').textContent;
+  assert.match(week, /T6\. Un funcionario envió su incapacidad médica/u);
+  assert.match(week, /T7\. .*contraseña del buzón compartido/u);
+  assert.doesNotMatch(week, /<DATO_DE_SALUD_FICTICIO>|<CLAVE_FICTICIA>|\d{6,}/u, 'la semana describe los datos sin reproducirlos');
+  assert.match(challenge.querySelector('.tool-route').textContent, /T6 y T7 solo describen el tipo de dato/u);
+  assert.match(challenge.querySelector('[data-ai-task]').textContent, /T6 trae información de salud y T7 una credencial/u);
+  assert.match(challenge.querySelector('[data-ai-review-checks]').textContent, /T6 y T7 quedan en «no cargar»/u);
   assert.doesNotMatch(challenge.textContent, /reporte real de salud/i);
-  assert.match(cards, /<DATO_DE_SALUD_FICTICIO>/u);
   dom.window.close();
 });
 

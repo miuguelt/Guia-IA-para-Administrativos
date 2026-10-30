@@ -97,7 +97,7 @@ Marque `Sí`, `Ajustar` o `N/A con explicación`. Anote el nombre/código del pr
 | 0 · Semáforo de datos | ☐ Clasifica cinco tarjetas. ☐ Reduce dos fragmentos. ☐ Excluye datos sensibles o innecesarios del chat. ☐ Declara autorización pendiente. |
 | 1 · Prompt CRTT | ☐ Define contexto, rol, tarea, tono y límites. ☐ Trabaja con `Lineamiento ficticio`, señala el apartado usado y lo que la fuente no dice. ☐ Justifica conservar la instrucción si cumple o ajustarla y repetir la comprobación. |
 | 2 · PQRS | ☐ Identifica la petición y separa hechos de vacíos. ☐ Redacta dos borradores respetuosos sobre temas distintos. ☐ No inventa norma, plazo, identidad ni decisión. ☐ Señala quién debe revisar. |
-| 3 · Asistente de rol | ☐ La instrucción define tarea, fuente, límites y formato. ☐ La prueba cubre tres situaciones distintas, incluida una con dato faltante. ☐ Justifica conservar la versión que cumple o registra el ajuste y repite las pruebas afectadas. ☐ No pide información personal. |
+| 3 · Asistente de rol | ☐ La instrucción define tarea, fuente, límites y formato. ☐ La prueba cubre tres situaciones distintas, incluida una con dato faltante. ☐ Justifica conservar la versión que cumple o registra el ajuste y repite las pruebas afectadas. ☐ Explica cuándo usar la instrucción, cuándo basta una plantilla y qué decide una persona. ☐ No pide información personal. |
 | 4 · Bandeja cero | ☐ Clasifica los 50 mensajes por señales textuales. ☐ Explica la selección de diez. ☐ Deja los diez textos como borradores sin enviar. ☐ Identifica prioridad institucional pendiente de confirmar. |
 | 5 · Acta imposible | ☐ Separa decisión, propuesta y pendiente. ☐ Cada minuto o frase permite volver a la fuente. ☐ Solo asigna responsable o fecha cuando aparece en la transcripción. |
 | 6 · Informe sucio | ☐ Preserva el original y trabaja en copia. ☐ Escribe una regla reproducible y la prueba en un caso normal y otro vacío. ☐ Cuenta antes/después y marca posibles duplicados sin borrar ni completar registros. |
@@ -131,6 +131,7 @@ Riesgo o dato pendiente: ______________________________ Retroalimentación: ____
 | Especifica qué no puede inventar, qué hacer ante un vacío y qué requiere decisión humana. |  |  |
 | Prueba tres casos distintos, uno con información faltante, y registra la entrada usada. |  |  |
 | Compara las tres salidas con la fuente y justifica conservar la instrucción o ajustarla; si cambia, repite las pruebas afectadas. |  |  |
+| Justifica cuándo usar la instrucción, cuándo basta una plantilla o regla y qué decide una persona, con situaciones de oficina. |  |  |
 | El producto queda identificado como borrador y cumple los límites de datos. |  |  |
 
 Caso con información faltante: _______________________ Decisión de conservar o ajustar y razón: ______________________________

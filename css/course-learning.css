@@ -413,6 +413,15 @@ code { background: #edf1e8; color: #24513d; font-size: .82em; padding: 2px 5px; 
   }
 }
 
+/* Módulo 01: cinco cargas de trabajo; las tarjetas se apilan antes de comprimir el texto. */
+.workload-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr)); gap: 14px; margin: 16px 0; }
+.workload-card { box-sizing: border-box; min-inline-size: 0; padding: 16px 18px; border: 1px solid var(--line); border-radius: 12px; background: var(--surface); }
+.workload-card h4 { margin: 0 0 8px; }
+.workload-card p { margin: 6px 0; }
+.workload-practice { font-size: .9rem; color: var(--muted); }
+.workload-try { margin-top: 10px; }
+.workload-try .prompt-template, .workload-try .prompt-bubble { margin: 8px 0; }
+.m01-checks { padding-inline-start: 1.2rem; }
 /* devbrain-prose-contract:start */
 /* Contrato 7.4: cada región ocupa su espacio y conserva sus controles. */
 :where(p, dd, blockquote) {

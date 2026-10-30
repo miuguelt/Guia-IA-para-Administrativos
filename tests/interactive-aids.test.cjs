@@ -111,7 +111,7 @@ test('el anonimizador usa la misma taxonomía y el mismo caso que el semáforo d
   assert.equal(identification.expected, 'reducir', 'la identificación se reduce, como en la tarjeta amarilla');
   for (const item of aids.ANONYMIZATION_CASES) {
     assert.doesNotMatch(`${item.fragment} ${item.reason} ${item.sanitized}`, /SOFIA|semiprivad/iu);
-    assert.match(`${item.fragment} ${item.reason}`, /sala|reserva|taller|solicit/iu, `${item.id} debe pertenecer a la solicitud de sala`);
+    assert.match(`${item.fragment} ${item.reason}`, /correo|oficio|incapacidad|buzón|solicit/iu, `${item.id} debe pertenecer a la semana de práctica`);
   }
 });
 

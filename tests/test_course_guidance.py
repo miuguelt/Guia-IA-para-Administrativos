@@ -27,7 +27,19 @@ class GuidanceTests(unittest.TestCase):
                 self.assertEqual(len(guided.select("[data-challenge-stage]")), 4, ident)
                 self.assertEqual([n["data-challenge-stage"] for n in guided.select("[data-challenge-stage]")], ["0", "1", "2", "3"])
                 self.assertEqual(len(guided.select("[data-stage-select]")), 4)
-                self.assertIsNotNone(guided.select_one('[data-challenge-stage="0"] .challenge-materials'))
+                inline = bool(module.TASKS[ident].get("inlineSources")) and not module.TASKS[ident]["sourceFiles"]
+                if inline:
+                    sources = guided.select_one('[data-challenge-stage="0"] .inline-sources')
+                    self.assertIsNotNone(sources, ident)
+                    self.assertIsNotNone(sources.select_one('.tool-route'), ident)
+                    copy = sources.select_one('button[data-copy]')
+                    ids = [copy["data-copy"], *copy.get("data-copy-append", "").split()]
+                    self.assertEqual(ids, [f"fuente-{ident}-{s['id']}" for s in module.TASKS[ident]["inlineSources"]])
+                    for node_id in ids:
+                        self.assertIsNotNone(sources.select_one(f'details:not([open]) pre#{node_id}'), node_id)
+                    self.assertIn("Copia los textos de práctica", guided.select_one('[data-challenge-stage="0"] h4').get_text())
+                else:
+                    self.assertIsNotNone(guided.select_one('[data-challenge-stage="0"] .challenge-materials'))
                 self.assertIsNotNone(guided.select_one('[data-challenge-stage="2"] details.course-context > ol'))
                 self.assertEqual(len(guided.select('[data-challenge-stage="2"] [data-ai-review-checks] > li')), 3)
                 self.assertIsNotNone(guided.select_one(f'[data-challenge-stage="2"] [data-challenge-decisions="{ident}"]'), ident)
@@ -37,7 +49,7 @@ class GuidanceTests(unittest.TestCase):
                 self.assertIn('no prepares otra entrega', save_tip.lower(), ident)
                 self.assertNotRegex(save_tip, r'JSON|bloque técnico')
                 self.assertIsNotNone(guided.select_one('.output-preview table caption'))
-                self.assertEqual(len(guided.select('a.ai-kit-primary[download]')), 1)
+                self.assertEqual(len(guided.select('a.ai-kit-primary[download]')), 0 if inline else 1)
                 self.assertTrue(any(prod in guided.get_text(' ', strip=True) for prod in ('Canva', 'PDF', 'Word', 'Excel')), ident)
                 stage = guided.select_one('[data-challenge-stage="1"]')
                 first = stage.find(class_=['ai-task-card', 'decision-compass-panel'])
@@ -123,13 +135,14 @@ class GuidanceTests(unittest.TestCase):
         self.assertFalse(BeautifulSoup(module.challenge_map(titles, "MG-A02"), "html.parser").select('.challenge-shared-materials'))
         materials = BeautifulSoup(module.shared_materials_panel(), "html.parser")
         self.assertEqual(len(materials.select('a[href="materiales/ia/recursos-compartidos.zip"][download]')), 1)
-        self.assertIn('reto-00-descripciones-seguras.csv', materials.get_text())
+        self.assertIn('lineamiento-ficticio.csv', materials.get_text())
+        self.assertNotIn('reto-00-descripciones-seguras.csv', materials.get_text())
         self.assertIn('gastos-q1.csv', materials.get_text())
         shared_hrefs = [item["href"] for item in json.loads((ROOT / "content/shared-challenge-materials.json").read_text(encoding="utf-8"))]
         self.assertEqual([a["href"] for a in materials.select('details li a[download]')], shared_hrefs)
         for href in shared_hrefs:
             self.assertTrue((ROOT / href).is_file(), href)
-        self.assertEqual({name for name, value in vars(module).items() if inspect.isfunction(value) and value.__module__ == module.__name__}, {"guided_intro", "guided_challenge", "challenge_map", "shared_materials_panel", "render_challenge_compass", "render_challenge_decisions", "render_office_step"})
+        self.assertEqual({name for name, value in vars(module).items() if inspect.isfunction(value) and value.__module__ == module.__name__}, {"guided_intro", "guided_challenge", "challenge_map", "shared_materials_panel", "render_challenge_compass", "render_challenge_decisions", "render_office_step", "inline_sources_html"})
 
     def test_cada_reto_muestra_el_paso_a_la_herramienta_de_oficina_en_recibe(self):
         module = importlib.util.module_from_spec(SPEC)

@@ -8,13 +8,13 @@
   'use strict';
 
   const FIELD_SYNONYMS = {
-    reto00_semaforo_datos: ['reto 0', 'semaforo', 'cinco tarjetas', 'privacidad', 'tarjetas'],
+    reto00_semaforo_datos: ['reto 0', 'semaforo', 'mapa de carga', 'carga de trabajo', 'cinco tarjetas', 'privacidad', 'tarjetas'],
     proceso_seleccionado: ['tarea', 'necesidad administrativa', 'proceso seleccionado', 'proceso'],
     matriz_viabilidad: ['viabilidad', 'entradas', 'pasos y salidas', 'matriz'],
     analisis_riesgo_ley1581: ['ley 1581', 'riesgo', 'datos sensibles', 'controles de uso', 'proteccion de datos'],
     metrica_linea_base: ['linea base', 'frecuencia', 'metrica', 'medicion'],
     reto01_prompt_crtt: ['reto 1', 'prompt crtt', 'instruccion crtt', 'crtt'],
-    reto01_verificacion: ['verificacion', 'apartado fuente', 'urg 01', 'requisitos'],
+    reto01_verificacion: ['verificacion', 'apartado fuente', 'urg 01', 'lote de solicitudes', 'requisitos'],
     uso_ia_y_revision: ['uso de ia', 'revision humana', 'herramienta', 'autocomprobacion', 'bitacora'],
     pqrs_borrador: ['reto 2', 'dos borradores', 'borradores de respuesta', 'pc 01', 'pc 03', 'pqrs'],
     pqrs_verificacion: ['verificacion pqrs', 'hechos', 'peticion', 'vacios'],

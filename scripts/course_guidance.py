@@ -22,7 +22,7 @@ DECISIONS = json.loads(DECISIONS_PATH.read_text(encoding="utf-8")) if DECISIONS_
 # Bloques que amplían la lectura; quedan juntos en un desplegable para que el diagrama principal se lea primero.
 DEEPER_BLOCKS = {"data-safety-triptych-section", "comparative-cards-grid", "course-context", "transfer-tip"}
 STAGES = [("Prepara", "Descarga el paquete para IA"), ("Pide a la IA", "Escribe tu instrucción y compárala con la referencia"),
-          ("Revisa", "Comprueba tu resultado"), ("Descarga", "Conserva el resultado para tu evidencia")]
+          ("Revisa", "Comprueba tu resultado"), ("Guarda", "Conserva el resultado para tu evidencia")]
 
 
 def render_challenge_decisions(ident):
@@ -146,7 +146,7 @@ def guided_intro(ident, full_content):
         node.decompose()
     productivity = content.select_one('.productivity-lesson')
     productivity_html = str(productivity.extract()) if productivity else ''
-    return f'''<section class="module-brief" aria-labelledby="{ident}-brief-title"><div class="brief-lead"><span class="eyebrow">EMPIEZA AQUÍ</span><h2 id="{ident}-brief-title">{escape(data["question"])}</h2><p>{escape(data["essential"])}</p></div><ol class="module-concept-map" aria-label="Decisiones de este módulo">{concepts}</ol>{visual}<div class="brief-product"><span aria-hidden="true">↳</span><div><strong>Al terminar, tendrás</strong><p>{escape(data["product"])}</p></div></div><aside class="brief-review"><strong>Una comprobación concreta</strong><p>{escape(data["review"])}</p></aside><a href="#metodo-comun">Consultar cómo trabajar y guardar el resultado →</a></section><div class="module-explanation"><div class="module-reading">{content}</div>{productivity_html}</div><button type="button" class="button button-primary" data-next-phase="observa">Abrir la práctica del módulo <span aria-hidden="true">→</span></button>'''
+    return f'''<section class="module-brief" aria-labelledby="{ident}-brief-title"><div class="brief-lead"><span class="eyebrow">EMPIEZA AQUÍ</span><h2 id="{ident}-brief-title">{escape(data["question"])}</h2><p>{escape(data["essential"])}</p></div><ol class="module-concept-map" aria-label="Decisiones de este módulo">{concepts}</ol>{visual}<div class="brief-product"><span aria-hidden="true">↳</span><div><strong>Al terminar, tendrás</strong><p>{escape(data["product"])}</p></div></div><aside class="brief-review"><strong>Una comprobación concreta</strong><p>{escape(data["review"])}</p></aside><a href="#metodo-comun">Consultar cómo trabajar y guardar el resultado →</a></section><div class="module-explanation">{productivity_html}<div class="module-reading">{content}</div></div><button type="button" class="button button-primary" data-next-phase="observa">Abrir la práctica del módulo <span aria-hidden="true">→</span></button>'''
 
 
 def challenge_map(titles, evidence):
@@ -165,6 +165,23 @@ def shared_materials_panel():
     )
     count = len(SHARED_MATERIALS)
     return f'''<aside class="challenge-shared-materials" aria-labelledby="shared-materials-title"><div><span class="eyebrow">UNA DESCARGA PARA VARIAS PRÁCTICAS</span><h2 id="shared-materials-title">Guarda estos archivos antes de comenzar</h2><p>El paquete reúne {count} archivos que se vuelven a usar en la preparación, los retos, el integrador y sus variantes. Cada ZIP de reto ya trae los que necesita; descarga este paquete si prefieres tenerlos todos juntos.</p><a class="button button-primary" href="materiales/ia/recursos-compartidos.zip" download>Descargar paquete de recursos comunes (.zip) ↓</a></div><details><summary>Descargar los archivos uno por uno</summary><p>Usa esta opción si tu equipo no permite extraer archivos ZIP.</p><ul>{items}</ul></details></aside>'''
+
+
+def inline_sources_html(ident, task, lead=""):
+    """Muestra los textos de práctica listos para copiar; reemplazan la descarga de archivos."""
+    sources = task.get("inlineSources", [])
+    ids = [f"fuente-{ident}-{source['id']}" for source in sources]
+    # Un solo botón copia todos los textos; cada texto se puede leer en su desplegable.
+    blocks = ''.join(
+        f'<details class="inline-source" data-inline-source="{escape(source["id"], quote=True)}"><summary>Leer «{escape(source["title"])}»</summary>'
+        f'<pre class="prompt-template inline-source-text" id="{node_id}">{escape(source["text"])}</pre></details>'
+        for source, node_id in zip(sources, ids))
+    label = "Copiar el texto de práctica" if len(ids) == 1 else f"Copiar los {len(ids)} textos de práctica"
+    copy_all = (f'<button type="button" class="button button-primary" data-copy="{ids[0]}" data-copy-append="{" ".join(ids[1:])}" '
+                f'data-copy-message="Textos copiados. Pégalos en el chat junto con tu instrucción.">{label}</button>')
+    lead = lead or '<p>No necesitas descargar ni adjuntar archivos. Copia estos textos y pégalos en el chat junto con tu instrucción.</p>'
+    return (f'<div class="inline-sources" data-inline-sources="{escape(ident, quote=True)}">{lead}'
+            f'{copy_all}{blocks}</div>')
 
 
 def guided_challenge(card, materials):
@@ -228,7 +245,7 @@ def guided_challenge(card, materials):
                     "Descarga el paquete de este reto y elige «Extraer todo».",
                     ("Adjunta " + source_text + ". " if source_text else "Adjunta las fuentes que enumera el encargo. ")
                     + "Usa solo esos archivos; todos están en la carpeta fuentes/ del paquete, incluidos los recursos comunes.",
-                    "Escribe tu instrucción en el chat, pide la revisión y después copia el encargo de referencia en la misma conversación.",
+                    "En un chat nuevo, pega el mensaje de revisión, escribe tu instrucción y después pega el encargo de referencia en ese mismo chat.",
                     "Abre el producto obtenido y comprueba los criterios de esta actividad. Si un dato o fuente falla, copia la solicitud de ajuste y vuelve a revisar.",
                     "Adjunta tu entrega en «Guarda tu evidencia». La revisión humana queda pendiente hasta que la realices.",
                 ]
@@ -236,10 +253,15 @@ def guided_challenge(card, materials):
                 steps = [
                     (("Descarga y extrae el paquete. Adjunta " + source_text + ". ") if source_text else "Descarga y extrae el paquete; adjunta las fuentes que enumera el encargo. ")
                     + "Todas las fuentes, incluidas las comunes, están en la carpeta fuentes/ del paquete.",
-                    "Escribe tu instrucción en el chat, pide la revisión y después copia el encargo de referencia en la misma conversación.",
+                    "En un chat nuevo, pega el mensaje de revisión, escribe tu instrucción y después pega el encargo de referencia en ese mismo chat.",
                     "Abre el producto obtenido y comprueba los criterios de esta actividad. Si un dato o fuente falla, copia la solicitud de ajuste y vuelve a revisar.",
                     "Adjunta tu entrega en «Guarda tu evidencia». La revisión humana queda pendiente hasta que la realices.",
                 ]
+            if task.get("inlineSources") and not task["sourceFiles"]:
+                # Sin archivos: el primer paso es copiar los textos, no descargar un paquete.
+                steps[0] = "Lee los textos de práctica y cópialos en un chat autorizado; no hay archivos que descargar."
+                if len(steps) == 5:
+                    steps[1] = "Pide a la IA una primera respuesta con una instrucción de una línea y guárdala para comparar."
             old_items = list(list_node.find_all("li", recursive=False))
             for item, text in zip(old_items, steps):
                 duration = item.find("strong")
@@ -288,9 +310,14 @@ def guided_challenge(card, materials):
         else:
             groups[1].append(str(node))
     sources_reference = ''.join(groups[0])
-    groups[0] = [f'<a class="button button-primary ai-kit-primary" href="materiales/ia/{ident}.zip" download>Descargar paquete del reto ↓</a><p>Extrae el ZIP con «Extraer todo». Trae el encargo y, en la carpeta <code>fuentes/</code>, todo lo que vas a adjuntar.</p>',
-                 f'<details class="ai-source-reference"><summary>Consultar archivos individuales y referencias</summary>{sources_reference}{materials}</details>',
-                 '<p class="file-help-link"><a href="#metodo-comun">Ayuda: abrir el paquete, usar el encargo y guardar el resultado →</a></p>']
+    inline_only = bool(task.get("inlineSources")) and not task["sourceFiles"]
+    if inline_only:
+        groups[0] = [inline_sources_html(ident, task, sources_reference),
+                     '<p class="file-help-link"><a href="#metodo-comun">Ayuda: usar el encargo y guardar el resultado →</a></p>']
+    else:
+        groups[0] = [f'<a class="button button-primary ai-kit-primary" href="materiales/ia/{ident}.zip" download>Descargar paquete del reto ↓</a><p>Extrae el ZIP con «Extraer todo». Trae el encargo y, en la carpeta <code>fuentes/</code>, todo lo que vas a adjuntar.</p>',
+                     f'<details class="ai-source-reference"><summary>Consultar archivos individuales y referencias</summary>{sources_reference}{materials}</details>',
+                     '<p class="file-help-link"><a href="#metodo-comun">Ayuda: abrir el paquete, usar el encargo y guardar el resultado →</a></p>']
     compass_html = render_challenge_compass(ident)
     details_content = compass_html + ''.join(groups[1])
     more_details = f'<details class="ai-source-reference"><summary>Antes de copiar: decisiones clave y ejemplos</summary>{details_content}</details>' if details_content else ''
@@ -307,5 +334,8 @@ def guided_challenge(card, materials):
     groups[3].insert(0, f'<p class="stage-save-tip">Selecciona la página resultado-{ident}.html en «Guarda tu evidencia»; no prepares otra entrega. La revisión humana y la valoración del instructor siguen pendientes.</p>')
     groups[3].insert(1, render_office_step(ident))
     buttons = ''.join(f'<button type="button" data-stage-select="{i}" aria-controls="{ident}-stage-{i}"><span aria-hidden="true">{i+1}</span>{title}</button>' for i, (title, _) in enumerate(STAGES))
-    panels = ''.join(f'<section id="{ident}-stage-{i}" class="challenge-stage" data-challenge-stage="{i}" aria-labelledby="{ident}-stage-title-{i}"><h4 id="{ident}-stage-title-{i}"><span>Paso {i+1}.</span> {detail}</h4>{"".join(groups[i])}</section>' for i, (_, detail) in enumerate(STAGES))
+    details = [detail for _, detail in STAGES]
+    if inline_only:
+        details[0] = "Copia los textos de práctica"
+    panels = ''.join(f'<section id="{ident}-stage-{i}" class="challenge-stage" data-challenge-stage="{i}" aria-labelledby="{ident}-stage-title-{i}"><h4 id="{ident}-stage-title-{i}"><span>Paso {i+1}.</span> {detail}</h4>{"".join(groups[i])}</section>' for i, detail in enumerate(details))
     return f'''<div class="challenge-result"><span class="eyebrow">EL RESULTADO QUE VAS A GUARDAR</span><p>{escape(data["result"])}</p></div><div data-challenge-guide="{ident}"><nav class="challenge-stage-nav" aria-label="Pasos de este reto">{buttons}</nav><p class="challenge-stage-status" data-stage-status role="status" aria-live="polite">Paso 1 de 4.</p>{panels}<div class="challenge-stage-actions"><button type="button" class="button button-secondary" data-stage-previous>← Paso anterior</button><span>El guardado se hace en «Guarda tu evidencia».</span><button type="button" class="button button-primary" data-stage-next>Siguiente paso →</button></div></div>'''
